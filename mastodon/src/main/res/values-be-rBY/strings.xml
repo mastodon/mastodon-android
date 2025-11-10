@@ -40,7 +40,7 @@
 	<string name="button_follow">Падпісацца</string>
 	<string name="button_following">Вы падпісаны</string>
 	<string name="edit_profile">Рэдагаваць профіль</string>
-	<string name="share_user">Падзяліцца профілем праз…</string>
+	<string name="share_user">Абагуліць профіль праз…</string>
 	<string name="mute_user">Ігнараваць %s</string>
 	<string name="unmute_user">Не ігнараваць %s</string>
 	<string name="block_user">Заблакіраваць %s</string>
@@ -376,7 +376,7 @@
 	<string name="spoiler_hide">Схаваць зноў</string>
 	<string name="poll_multiple_choice">Абярыце адзін або некалькі</string>
 	<string name="save_changes">Захаваць змены</string>
-	<string name="profile_featured">Рэкамендаванае</string>
+	<string name="profile_featured">Абранае</string>
 	<string name="profile_timeline">Стужка</string>
 	<string name="view_all">Праглядзець усё</string>
 	<string name="profile_endorsed_accounts">Уліковыя запісы</string>
@@ -1009,4 +1009,11 @@
 	<string name="remove_quote_confirm">Гэтае дзеянне немагчыма скасаваць.</string>
 	<string name="remove_quote_button">Выдаліць допіс</string>
 	<string name="settings_posting_defaults_explanation">Гэтыя налады будуць ужывацца па змаўчанні, калі Вы будзеце ствараць новыя допісы, але Вы зможаце змяняць іх для кожнага допісу ў акне для напісання.</string>
+	<string name="cant_quote_in_private_title">Цытаты нельга далучаць да прыватных узгадванняў</string>
+	<string name="cant_quote_in_private">Калі Вы захавайце бягучыя налады, прымацаваная цытата будзе пераробленая ў спасылку.</string>
+	<string name="quote_followers_only_confirm_title">Падзяліцца з падпісчыкамі і ўзгаданымі карыстальнікамі?</string>
+	<string name="quote_followers_only_confirm">Асоба, якую Вы цытуеце, і іншыя, хто быў узгаданы, атрымаюць апавяшчэнні і змогуць пабачыць Ваш допіс, нават калі яны не падпісаныя на Вас.</string>
+	<string name="quote_followers_only_publish">Апублікаваць допіс</string>
+	<string name="quote_followers_only_cancel">Вярнуцца да рэдагавання</string>
+	<string name="quote_followers_only_dont_show_again">Больш не паказваць гэтае паведамленне</string>
 </resources>

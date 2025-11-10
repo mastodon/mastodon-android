@@ -13,7 +13,7 @@
 	<string name="notifications">Ilmoitukset</string>
 	<string name="user_followed_you">%s seurasi sinua</string>
 	<string name="user_sent_follow_request">%s lähetti sinulle seurauspyynnön</string>
-	<string name="user_favorited">%s lisäsi suosikiksi:</string>
+	<string name="user_favorited">%s </string>
 	<string name="notification_boosted">%s tehosti:</string>
 	<string name="share_toot_title">Jaa</string>
 	<string name="settings">Asetukset</string>
@@ -642,6 +642,7 @@
 	<string name="expired_invite_link">Vanhentunut kutsulinkki</string>
 	<string name="expired_clipboard_invite_link_alert">Leikepöydälläsi olevan %1$s:n kutsulinkki on vanhentunut eikä sitä voi käyttää rekisteröitymiseen.\n\nVoit pyytää uuden linkin olemassa olevalta käyttäjältä, kirjautua sisään %2$s:n kautta tai valitse toinen palvelin rekisteröitymiseen.</string>
 	<string name="invalid_invite_link">Virheellinen kutsulinkki</string>
+	<string name="invalid_clipboard_invite_link_alert">%1$s:n kutsulinkki leikepöydälläsi ei ole kelvollinen eikä sitä voi käyttää liittymiseen.\n\nVoit pyytää uutta linkkiä olemassa olevalta käyttäjältä, kirjautua %2$s:n kautta tai valita toinen palvelin kirjautumiseen.</string>
 	<string name="use_invite_link">Käytä kutsulinkkiä</string>
 	<string name="enter_invite_link">Kirjoita kutsulinkki</string>
 	<string name="this_invite_is_invalid">Tämä kutsulinkki ei ole kelvollinen.</string>
@@ -699,6 +700,7 @@
 	<string name="pin_post">Kiinnitä profiiliin</string>
 	<string name="unpin_post">Irrota profiilista</string>
 	<string name="post_pinned">Julkaisu on kiinnitetty</string>
+	<string name="post_unpinned">Julkaisun kiinnitys on poistettu</string>
 	<!-- %s is the username -->
 	<string name="enable_new_post_notifications">Ilmoita minulle, kun %s julkaisee</string>
 	<string name="disable_new_post_notifications">Lopeta minulle ilmoittaminen, kun %s julkaisee</string>
@@ -715,9 +717,16 @@
 	<string name="notification_filter_followers_explanation">Mukaan lukien henkilöt, jotka ovat seuranneet sinua alle 3 päivää</string>
 	<string name="notification_filter_new_accounts">Uudet tilit</string>
 	<string name="notification_filter_new_accounts_explanation">Luotu viimeisten 30 päivän aikana</string>
+	<string name="notification_filter_mentions">Tuntemattomien yksityiset maininnat</string>
+	<string name="notification_filter_mentions_explanation">Suodatettu, ellei se ole vastaus omaan mainintaasi tai seuraat lähettäjää</string>
 	<string name="allow_notifications">Salli ilmoitukset</string>
 	<string name="mute_notifications">Hylkää ilmoituspyyntö</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d henkilö, jonka saatat tuntea</item>
+		<item quantity="other">%,d ihmistä, jotka saatat tuntea</item>
+	</plurals>
 	<string name="notifications_from_user">Ilmoitukset käyttäjältä %s</string>
+	<string name="notifications_muted">Ilmoitukset kohteesta %s on hylätty.</string>
 	<string name="notifications_allowed">%s ilmestyy nyt ilmoituslistallesi.</string>
 	<string name="visibility_subtitle_public">Kuka tahansa Mastodonissa ja sen ulkopuolella</string>
 	<string name="visibility_subtitle_unlisted">Piilotettu Mastodonin hakutuloksista, trendeistä ja julkisilta aikajanoilta</string>
@@ -731,6 +740,7 @@
 	<string name="connection_timed_out">Pyyntö aikakatkaistiin. Tarkista verkkoyhteys ja yritä uudelleen.</string>
 	<string name="server_error">Jokin meni pieleen palvelimen kanssa keskusteltaessa. Se ei luultavasti ole sinun vikasi. Yritetäänkö uudelleen?</string>
 	<string name="not_found">Se saattaa olla poistettu, tai ehkä sitä ei koskaan ollut olemassakaan.</string>
+	<string name="no_servers_found">Palvelinta ei löytynyt termillä \"%s\"</string>
 	<string name="signup_username_taken">Tämä käyttäjänimi on jo käytössä. Kokeile valita eri käyttäjänimi tai &lt;a&gt;valitse eri palvelin&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">Tämä ei vaikuta kelvolliselta sähköpostiosoitteelta.</string>
 	<string name="signup_email_taken">Tämä sähköpostiosoite on jo käytössä. &lt;a&gt;Unohditko salasanasi&lt;/a&gt;?</string>
@@ -746,6 +756,7 @@
 	<string name="donation_success_share">Levitä sanaa</string>
 	<string name="donation_success_title">Kiitos panoksestasi!</string>
 	<string name="donation_success_subtitle">Sinun pitäisi saada pian sähköpostiviesti, joka vahvistaa lahjoituksesi.</string>
+	<string name="donation_server_error">Tapahtui virhe, emmekä pystyneet käsittelemään lahjoitustasi. Olemme pahoillamme.\n\nYritäthän uudestaan hetken kuluttua.</string>
 	<string name="settings_donate">Lahjoita Mastodonille</string>
 	<string name="settings_manage_donations">Hallitse lahjoituksia</string>
 	<string name="cant_load_image">Kuvaa ei voitu ladata</string>
@@ -763,15 +774,22 @@
 		<item quantity="one">%1$s ja %2$,d muu tehosti:</item>
 		<item quantity="other">%1$s ja %2$,d muuta tehosti:</item>
 	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s piti kyselyn, johon sinä ja %2$,d muu henkilö vastasi</item>
+		<item quantity="other">%1$s piti kyselyn, johon %2$,d muuta henkilöä vastasi</item>
+	</plurals>
 	<string name="own_poll_ended">Äänestyksesi on päättynyt</string>
 	<string name="user_just_posted">%s julkaisi juuri</string>
 	<string name="user_edited_post">%s muokkasi julkaisua, jonka kanssa olet ollut vuorovaikutuksessa</string>
+	<string name="relationship_severance_account_suspension">Ylläpitäjä kohteesta %1$s on jäädyttänyt %2$s:n, joka tarkoittaa, ettet voi enää saada päivityksiä häneltä tai olla vuorovaikutuksessa heidän kanssaan.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Ylläpitäjä kohteesta %1$s on estänyt %2$s:n, sisältäen %3$,d seuraajaasi ja %4$s sinä seuraat.</string>
 	<plurals name="x_accounts">
 		<item quantity="one">%,d tili</item>
 		<item quantity="other">%,d tiliä</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Olet estänyt käyttäjän %1$s, poistaen %2$,d seuraajaasi ja %3$s jota seuraat.</string>
 	<string name="relationship_severance_learn_more">Lue lisää</string>
 	<string name="moderation_warning_action_none">Tilisi on saanut moderointivaroituksen.</string>
 	<string name="moderation_warning_action_disable">Tilisi on poistettu käytöstä.</string>
@@ -798,20 +816,36 @@
 		<item quantity="one">%1$s ja %2$,d yksi muu seurasi sinua</item>
 		<item quantity="other">%1$s ja %2$,d muuta seurasi sinua</item>
 	</plurals>
+	<string name="familiar_followers_one">%s seuraa</string>
+	<string name="familiar_followers_two">Seuraajina %s ja %s</string>
 	<string name="profile_saved_posts">Tallennettu</string>
 	<string name="profile_saved_posts_explanation">Tallennetut julkaisut näkyvät vain sinulle.</string>
 	<string name="search_people">Käyttäjät</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Seuraajina %1$s, %2$s ja %3$,d muu</item>
+		<item quantity="other">Seuraajina %1$s, %2$s ja %3$,d muuta</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d seuraaja jonka tunnet</item>
+		<item quantity="other">%,d seuraajaa, jotka tunnet</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
 	<plurals name="server_x_followers_will_be_removed">
 		<item quantity="one">%,d seuraaja tältä palvelimelta poistetaan.</item>
 		<item quantity="other">%,d seuraajaa tältä palvelimelta poistetaan.</item>
 	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Menetät %1$s ja %2$s.</string>
 	<plurals name="will_lose_x_followers">
 		<item quantity="one">%,d seuraaja</item>
 		<item quantity="other">%,d seuraajaa</item>
 	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d henkilön, jonka tunnet</item>
+		<item quantity="other">%,d henkilöä, jotka tunnet</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Tulet menettämään %s.</string>
 	<string name="signup_password_too_short">Salasanassa pitää olla vähintään 8 merkkiä.</string>
 	<string name="private_reply">Yksityinen vastaus</string>
 	<string name="private_mention">Yksityismaininta</string>

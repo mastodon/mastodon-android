@@ -188,6 +188,7 @@
 	<string name="add_alt_text">Pridėti alternatyvųjį tekstą</string>
 	<string name="visibility_public">Viešas</string>
 	<string name="visibility_followers_only">Sekėjai</string>
+	<string name="visibility_private">Privatus paminėjimas</string>
 	<string name="recent_searches">Naujausiai</string>
 	<string name="notification_type_follow">Nauji sekėjai</string>
 	<string name="notification_type_favorite">Mėgstami</string>
@@ -448,6 +449,7 @@
 	<string name="settings_server_explanation">Apžvalga, taisyklės, prižiūrėtojai</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Apie „%s“</string>
+	<string name="default_post_language">Skelbimo kalba</string>
 	<string name="settings_alt_text_reminders">Pridėti alternatyvių teksto priminimus</string>
 	<string name="settings_confirm_unfollow">Klausti prieš nebesekant kažkokio</string>
 	<string name="settings_confirm_boost">Klausti prieš pasidalinat</string>
@@ -796,6 +798,7 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="notifications_muted">Pranešimai iš %s atmesti.</string>
 	<string name="notifications_allowed">%s dabar bus rodomi pranešimų sąraše.</string>
 	<string name="visibility_subtitle_public">Kiekvienas iš ir ne „Mastodon“ platformos</string>
+	<string name="visibility_subtitle_unlisted">Paslėptas nuo „Mastodon“ paieškos rezultatų, tendencingumo ir viešų laiko skalių</string>
 	<string name="visibility_subtitle_followers">Tik jūsų sekėjams</string>
 	<string name="visibility_subtitle_private">Visus, paminėtus įraše</string>
 	<string name="view_boosts">Peržiūrėti pasidalinimus</string>
@@ -962,5 +965,48 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="quote_post_pending_explanation">Platformoje „Mastodon“ galite valdyti, ar kas nors gali jus cituoti. Šis įrašas yra laukiamas, kol gausime originalaus autoriaus patvirtinimą.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Įrašą citavo %s</string>
+	<string name="compose_visibility_public_anyone">Viešas, bet kas gali cituoti</string>
+	<string name="compose_visibility_public_limited">Viešas, citatos ribotos</string>
+	<string name="compose_visibility_public_disabled">Viešas, citatos išjungtos</string>
+	<string name="compose_visibility_unlisted_anyone">Tyliai viešas, bet kas gali cituoti</string>
+	<string name="compose_visibility_unlisted_limited">Tyliai viešas, citatos ribotos</string>
+	<string name="compose_visibility_unlisted_disabled">Tyliai viešas, citatos išjungtos</string>
+	<string name="compose_visibility_title">Matomumas ir sąveika</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Valdykite, kas gali bendrauti su šiuo įrašu. Visuotiniai nustatymai galima rasti per „Nustatymai“ &gt; %s &gt; „Skelbimo nustatymai“.</string>
+	<string name="compose_visibility">Matomumas</string>
+	<string name="compose_quote_policy">Kas gali cituoti</string>
+	<string name="quote_policy_public">Bet kas</string>
+	<string name="quote_policy_followers">Tik sekėjai</string>
+	<string name="quote_policy_nobody">Tik aš</string>
+	<string name="quote_policy_for_unlisted_explanation">Kai žmonės jus cituoja, jų įrašai taip pat bus paslėpti iš tendencijos laiko skalių.</string>
+	<string name="quote_policy_for_private_explanation">Tik sekėjams skirti įrašai, parašyti platformoje „Mastodon“, negali būti cituojami kitų.</string>
+	<string name="quote_policy_for_direct_explanation">Privatūs paminėjimai, parašyti platformoje „Mastodon“, negali būti cituojami kitų.</string>
+	<string name="change_quote_policy">Keisti, kas gali cituoti</string>
+	<string name="edit_visibility_explanation">Paskelbti įrašai negali pakeisti savo matomumo.</string>
+	<string name="user_quoted_post">%s citavo jūsų įrašą:</string>
+	<string name="user_edited_quoted_post">%s redagavo įrašą, kurį citavote</string>
+	<string name="notification_type_quote">Citatos</string>
+	<string name="create_quote">Cituoti</string>
+	<string name="cannot_quote_post">Jums neleidžiama cituoti šio įrašo.</string>
+	<string name="cannot_quote_post_followers_only">Tik sekėjai gali cituoti šį įrašą.</string>
+	<string name="compose_hint_quote">Pridėkite kažką prie pokalbio.</string>
+	<string name="cancel_quote">Atsisakyti citatos</string>
+	<string name="unlisted_quote_alert_title">Cituojant tyliai viešus įrašus</string>
+	<string name="unlisted_quote_alert">Kai cituojant tyliai viešą įrašą, jūsų įrašas bus paslėptas iš tendencijos laiko skalių.</string>
+	<string name="settings_posting_defaults">Skelbimo numatytieji</string>
+	<string name="default_post_visibility">Skelbimo matomumas</string>
+	<string name="create_quote_manual_approval">Prašyti cituoti</string>
+	<string name="create_quote_manual_approval_subtitle">Autorius peržiūrės rankiniu būdu</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citata</item>
+		<item quantity="few">%,d citatos</item>
+		<item quantity="many">%,d citatos</item>
+		<item quantity="other">%,d citatų</item>
+	</plurals>
+	<string name="remove_quote">Šalinti mano įrašą iš %s įrašo</string>
+	<string name="remove_quote_confirm_title">Pašalinti įrašą?</string>
+	<string name="remove_quote_confirm">Šio veiksmo negalima anuliuoti.</string>
+	<string name="remove_quote_button">Šalinti įrašą</string>
+	<string name="settings_posting_defaults_explanation">Šie nustatymai bus naudojami kaip numatytieji, kai kuriate naujus įrašus, bet juos galite redaguoti kiekvienam įrašui atskirai rengyklėje.</string>
 </resources>

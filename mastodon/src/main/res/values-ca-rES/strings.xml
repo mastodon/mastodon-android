@@ -8,8 +8,13 @@
 	<string name="ok">D\'acord</string>
 	<string name="preparing_auth">Preparant l\'autenticació…</string>
 	<string name="finishing_auth">Finalitzant l\'autenticació…</string>
+	<string name="user_boosted">%s impulsat</string>
+	<string name="in_reply_to">en resposta a %s</string>
 	<string name="notifications">Notificacions</string>
 	<string name="user_followed_you">%s et segueix</string>
+	<string name="user_sent_follow_request">%s t\'ha enviat una petició de seguiment</string>
+	<string name="user_favorited">%s favorits:</string>
+	<string name="notification_boosted">%s impulsat:</string>
 	<string name="share_toot_title">Comparteix</string>
 	<string name="settings">Configuració</string>
 	<string name="publish">Publica</string>
@@ -79,12 +84,18 @@
 		<item quantity="one">%d dia restant</item>
 		<item quantity="other">%d dies restants</item>
 	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d vot</item>
+		<item quantity="other">%,d vots</item>
+	</plurals>
 	<string name="poll_closed">Finalitzada</string>
 	<string name="do_mute">Silencia</string>
 	<string name="do_block">Bloca</string>
 	<string name="button_blocked">Blocat</string>
 	<string name="action_vote">Vota</string>
+	<string name="confirm">Confirma</string>
 	<string name="delete">Elimina</string>
+	<string name="confirm_delete_title">Elimina la publicació</string>
 	<string name="confirm_delete">Segur que vols eliminar la publicació?</string>
 	<string name="deleting">S\'està eliminant…</string>
 	<string name="notification_channel_audio_player">Reproducció d\'àudio</string>
@@ -96,17 +107,23 @@
 	<string name="hashtags">Etiquetes</string>
 	<string name="news">Notícies</string>
 	<string name="for_you">Per a tu</string>
+	<string name="all_notifications">Tot</string>
 	<string name="mentions">Mencions</string>
 	<plurals name="x_people_talking">
 		<item quantity="one">%d persona està parlant-ne</item>
 		<item quantity="other">%d persones estan parlant-ne</item>
 	</plurals>
 	<string name="report_title">Denuncia %s</string>
+	<string name="report_choose_reason">Quin problema hi ha en aquesta publicació?</string>
+	<string name="report_choose_reason_account">Quin és el problema amb %s?</string>
 	<string name="report_choose_reason_subtitle">Selecciona la millor coincidència</string>
+	<string name="report_reason_personal">No m\'agrada</string>
 	<string name="report_reason_personal_subtitle">No és una cosa que vulgui veure</string>
+	<string name="report_reason_spam">És contingut brossa</string>
 	<string name="report_reason_spam_subtitle">Enllaços maliciosos, interacció falsa o respostes repetitives</string>
 	<string name="report_reason_violation">Infringeix les normes del servidor</string>
 	<string name="report_reason_violation_subtitle">Ets conscient que incompleix normes específiques</string>
+	<string name="report_reason_other">És una altra cosa</string>
 	<string name="report_reason_other_subtitle">El problema no encaixa en altres categories</string>
 	<string name="report_choose_rule">Quines normes s\'estan infringint?</string>
 	<string name="report_choose_rule_subtitle">Selecciona totes les aplicables</string>
@@ -115,30 +132,51 @@
 	<string name="report_comment_title">Hi ha res més que hauríem de saber?</string>
 	<string name="report_comment_hint">Comentaris addicionals</string>
 	<string name="sending_report">S\'està enviant l\'informe…</string>
+	<string name="report_sent_title">Gràcies per informar, ho investigarem.</string>
+	<string name="report_sent_subtitle">Mentre ho revisem, pots prendre mesures contra %s:</string>
 	<string name="unfollow_user">Deixar de seguir %s</string>
 	<string name="unfollow">Deixar de seguir</string>
+	<string name="mute_user_explain">No veuràs les seves publicacions. Encara pot seguir-te i veure les teves publicacions, però no sabrà que ha estat silenciat.</string>
+	<string name="block_user_explain">No veuràs les seves publicacions. Ells no podran veure les teves ni et podran seguir. Podran saber que estan blocats.</string>
+	<string name="report_personal_title">No vols veure això?</string>
+	<string name="report_personal_subtitle">Aquestes són les teves opcions per a controlar el que veus a Mastodon:</string>
 	<string name="back">Enrere</string>
 	<string name="search_communities">Nom del servidor o URL</string>
+	<string name="instance_rules_title">Normes del servidor</string>
+	<string name="instance_rules_subtitle">En continuar, esteu acceptant seguir les següents normes definides i requerides pels moderadors de %s.</string>
+	<string name="signup_title">Crea un compte</string>
 	<string name="display_name">Nom</string>
 	<string name="username">Nom d\'usuari</string>
 	<string name="email">Correu electrònic</string>
 	<string name="password">Contrasenya</string>
 	<string name="confirm_password">Confirmar contrasenya</string>
 	<string name="category_general">General</string>
+	<string name="confirm_email_title">Comprova la teva safata d\'entrada</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Toca l\'enllaç que t\'hem enviat per a verificar %s. Esperarem aquí mateix.</string>
+	<string name="confirm_email_didnt_get">No has rebut l\'enllaç?</string>
 	<string name="resend">Reenvia</string>
 	<string name="open_email_app">Obre l\'aplicació de correu</string>
 	<string name="resent_email">S’ha enviat el correu electrònic de confirmació</string>
+	<string name="compose_hint">Escriu o enganxa el que tinguis al cap</string>
 	<string name="content_warning">Avís de contingut</string>
 	<string name="save">Desa</string>
 	<string name="add_alt_text">Afegeix text alternatiu</string>
 	<string name="visibility_public">Públic</string>
+	<string name="visibility_followers_only">Seguidors</string>
+	<string name="visibility_private">Menció privada</string>
+	<string name="recent_searches">Recents</string>
 	<string name="notification_type_follow">Seguidors nous</string>
 	<string name="notification_type_favorite">Favorits</string>
+	<string name="notification_type_reblog">Impulsos</string>
 	<string name="notification_type_mention">Mencions</string>
 	<string name="notification_type_poll">Enquestes</string>
 	<string name="choose_account">Selecciona un compte</string>
 	<string name="err_not_logged_in">Primer inicia sessió a Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">No pots afegir més d\'%d fitxer multimèdia</item>
+		<item quantity="other">No pots afegir més de %d fitxers multimèdia</item>
+	</plurals>
 	<string name="media_attachment_unsupported_type">El tipus de fitxer %s no és compatible</string>
 	<string name="media_attachment_too_big">El fitxer %1$s supera el límit de mida de %2$s MB</string>
 	<string name="settings_theme">Aparença</string>
@@ -147,6 +185,7 @@
 	<string name="theme_dark">Fosc</string>
 	<string name="settings_behavior">Comportament</string>
 	<string name="settings_gif">Reprodueix emojis i avatar animats</string>
+	<string name="settings_custom_tabs">Obre els enllaços a</string>
 	<string name="settings_notifications">Notificacions</string>
 	<string name="settings_contribute">Contribueix a Mastodon</string>
 	<string name="settings_tos">Condicions de servei</string>
@@ -154,10 +193,13 @@
 	<string name="settings_clear_cache">Esborra la memòria cau multimèdia</string>
 	<string name="settings_app_version">Mastodon per a Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">S\'ha esborrat la memòria cau multimèdia</string>
+	<string name="confirm_log_out">Tancar la sessió a %s?</string>
+	<string name="sensitive_content_explain">L\'autor ha marcat aquest fitxer multimèdia com a sensible.</string>
 	<string name="avatar_description">Ves al perfil de: %s</string>
 	<string name="more_options">Més opcions</string>
 	<string name="new_post">Nova publicació</string>
 	<string name="button_reply">Respon</string>
+	<string name="button_reblog">Impulsa</string>
 	<string name="button_favorite">Favorit</string>
 	<string name="button_share">Comparteix</string>
 	<string name="media_no_description">Multimèdia sense descripció</string>
@@ -169,7 +211,12 @@
 	<string name="media_viewer">Visor multimèdia</string>
 	<string name="follow_user">Segueix %s</string>
 	<string name="unfollowed_user">S\'ha deixat de seguir %s</string>
+	<string name="followed_user">Ara estàs seguint %s</string>
+	<string name="following_user_requested">%s ha sol·licitat seguir-te</string>
 	<string name="open_in_browser">Obre al navegador</string>
+	<string name="hide_boosts_from_user">Amaga els impulsos</string>
+	<string name="show_boosts_from_user">Mostra els impulsos</string>
+	<string name="signup_reason">Per què vols unir-te?</string>
 	<string name="signup_reason_note">Això ens ajudarà a revisar la teva petició.</string>
 	<string name="clear">Esborra</string>
 	<string name="profile_header">Imatge de capçalera</string>
@@ -181,7 +228,15 @@
 	<string name="open_settings">Obre la configuració</string>
 	<string name="error_saving_file">Error en desar el fitxer</string>
 	<string name="downloading">S\'està baixant…</string>
+	<string name="no_app_to_handle_action">No hi ha cap aplicació que gestioni aquesta acció</string>
+	<string name="local_timeline">Publicacions en directe</string>
+	<string name="trending_posts_info_banner">Aquestes son les publicacions que criden l\'atenció en el teu racó de Mastodon.</string>
+	<string name="trending_links_info_banner">Aquestes són les noves històries de les que es parla a Mastodon.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Aquestes són les publicacions de tots els usuaris del teu servidor (%s).</string>
+	<string name="recommended_accounts_info_banner">Basat en altres que seguiu, potser us agraden aquests comptes.</string>
+	<string name="see_new_posts">Noves publicacions</string>
+	<string name="follow_back">Segueix tu també</string>
 	<string name="button_follow_pending">Pendent</string>
 	<string name="follows_you">Et segueix</string>
 	<string name="manually_approves_followers">Aprova seguidors manualment</string>
@@ -197,6 +252,10 @@
 	<plurals name="x_favorites">
 		<item quantity="one">%,d favorit</item>
 		<item quantity="other">%,d favorits</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d impulsat</item>
+		<item quantity="other">%,d impulsats</item>
 	</plurals>
 	<string name="time_now">ara</string>
 	<string name="edit_history">Editar l’historial</string>
@@ -260,7 +319,17 @@
 	<string name="profile_timeline">Línia de temps</string>
 	<string name="profile_endorsed_accounts">Comptes</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_x_percent_uploaded">%d%% pujats</string>
+	<string name="add_poll_option">Afegeix una opció d\'enquesta</string>
+	<string name="poll_length">Durada de l\'enquesta</string>
 	<string name="poll_style">Estil</string>
+	<string name="compose_poll_single_choice">Tria\'n una</string>
+	<string name="compose_poll_multiple_choice">Opcions múltiples</string>
+	<string name="delete_poll_option">Esborra l\'opció d\'enquesta</string>
+	<string name="poll_style_title">Estil d\'enquesta</string>
+	<string name="alt_text">Text alternatiu</string>
+	<string name="help">Ajuda</string>
+	<string name="what_is_alt_text">Què és el text alternatiu?</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->

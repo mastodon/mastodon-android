@@ -164,6 +164,7 @@
 	<string name="add_alt_text">Ajouter un texte alternatif</string>
 	<string name="visibility_public">Public</string>
 	<string name="visibility_followers_only">Abonné·e·s</string>
+	<string name="visibility_private">Mention privée</string>
 	<string name="recent_searches">Récents</string>
 	<string name="notification_type_follow">Nouveaux⋅elles abonné⋅e⋅s</string>
 	<string name="notification_type_favorite">Favoris</string>
@@ -410,6 +411,7 @@
 	<string name="settings_server_explanation">Aperçu, règles, modérateur·rice·s</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">A propos de %s</string>
+	<string name="default_post_language">Langue de publication</string>
 	<string name="settings_alt_text_reminders">Ajouter des rappels de texte alternatif</string>
 	<string name="settings_confirm_unfollow">Demander confirmation avant de se désabonner d\'un compte</string>
 	<string name="settings_confirm_boost">Demander avant de booster</string>
@@ -867,6 +869,32 @@
 	<string name="quote_post_pending_explanation">Sur Mastodon, vous pouvez contrôler si quelqu\'un peut vous citer. Ce message est en attente le temps que nous recevions l\'approbation de l\'auteur original.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">a cité un message de %s</string>
+	<string name="compose_visibility_public_anyone">Public, n\'importe qui peut le citer</string>
+	<string name="compose_visibility_public_limited">Public, citations limitées</string>
+	<string name="compose_visibility_public_disabled">Public, citations désactivées</string>
+	<string name="compose_visibility_title">Visibilité et interaction</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<string name="compose_visibility">Visibilité</string>
+	<string name="compose_quote_policy">Qui peut vous citer ?</string>
+	<string name="quote_policy_public">Tout le monde</string>
+	<string name="quote_policy_followers">Abonné·e·s seulement</string>
+	<string name="quote_policy_nobody">Moi uniquement</string>
+	<string name="change_quote_policy">Qui peut le citer</string>
+	<string name="user_quoted_post">%s a cité votre message:</string>
+	<string name="user_edited_quoted_post">%s a modifié un message que vous avez cité</string>
+	<string name="notification_type_quote">Citations</string>
+	<string name="create_quote">Citation</string>
+	<string name="cannot_quote_post">Vous n\'êtes pas autorisé à citer ce message</string>
+	<string name="cannot_quote_post_followers_only">Seul·e·s les abonné·e·s peuvent citer ce message</string>
+	<string name="compose_hint_quote">Ajouter quelque chose à la conversation</string>
+	<string name="cancel_quote">Annuler la citation</string>
+	<string name="settings_posting_defaults">Paramètres de publication par défaut</string>
+	<string name="default_post_visibility">Visibilité de la publication</string>
+	<string name="create_quote_manual_approval">Demander à citer</string>
+	<string name="create_quote_manual_approval_subtitle">L\'auteur vérifiera manuellement</string>
+	<string name="remove_quote">Retirer mon message du message de %s</string>
+	<string name="remove_quote_confirm_title">Retirer le message ?</string>
+	<string name="remove_quote_confirm">Cette action ne peut être annulée.</string>
+	<string name="remove_quote_button">Retirer le message</string>
+	<string name="settings_posting_defaults_explanation">Ces paramètres seront utilisés par défaut lorsque vous créez de nouveaux messages, mais vous pouvez les modifier par message dans le champs de saisie.</string>
 </resources>
