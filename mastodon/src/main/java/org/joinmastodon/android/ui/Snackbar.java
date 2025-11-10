@@ -9,7 +9,9 @@ import android.content.res.ColorStateList;
 import android.graphics.Outline;
 import android.graphics.PixelFormat;
 import android.text.TextUtils;
+import android.view.GestureDetector;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
@@ -20,12 +22,18 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.dynamicanimation.animation.DynamicAnimation;
+import androidx.dynamicanimation.animation.SpringAnimation;
+import androidx.dynamicanimation.animation.SpringForce;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 
@@ -40,13 +48,41 @@ public class Snackbar{
 	private AnimatableOutlineProvider outlineProvider;
 	private Animator currentAnim;
 	private Runnable dismissRunnable=this::dismiss;
+	private ViewGroup containerView;
+	private WindowManager.LayoutParams windowLayoutParams;
+	private boolean persistent;
+	private float swipeDistance;
+	private boolean dismissedByGesture;
+	private Runnable dismissListener;
+	private boolean ignoreTouchEvents;
+	private GestureDetector gestureDetector;
+	private GestureDetector.SimpleOnGestureListener gestureListener=new GestureDetector.SimpleOnGestureListener(){
+		@Override
+		public boolean onFling(@Nullable MotionEvent e1, @NonNull MotionEvent e2, float velocityX, float velocityY){
+			if(Math.abs(velocityX)>Math.abs(velocityY)){
+				dismissByGesture(velocityX, velocityX>0);
+			}
+			return true;
+		}
 
-	private Snackbar(Context context, String text, String action, Runnable onActionClick, int bottomOffset){
+		@Override
+		public boolean onScroll(@Nullable MotionEvent e1, @NonNull MotionEvent e2, float distanceX, float distanceY){
+			swipeDistance-=distanceX;
+			contentView.setTranslationX(swipeDistance);
+			contentView.setAlpha(1f-Math.abs(swipeDistance)/contentView.getWidth());
+			return true;
+		}
+	};
+
+	private Snackbar(Context context, String text, String action, Runnable onActionClick, int bottomOffset, boolean persistent){
 		this.context=context;
 		this.bottomOffset=bottomOffset;
 		hasAction=onActionClick!=null;
+		this.persistent=persistent;
 
-		windowView=new FrameLayout(context);
+		gestureDetector=new GestureDetector(context, gestureListener);
+
+		windowView=new WindowFrameLayout(context);
 		windowView.setClipToPadding(false);
 		contentView=new LinearLayout(context);
 		contentView.setOrientation(LinearLayout.HORIZONTAL);
@@ -87,16 +123,35 @@ public class Snackbar{
 	}
 
 	public void show(){
-		if(current!=null)
-			current.dismiss();
-		current=this;
+		Snackbar currentSnackbar=getCurrent();
+		if(currentSnackbar!=null)
+			currentSnackbar.dismiss();
+		setCurrent(this);
 		WindowManager.LayoutParams lp=new WindowManager.LayoutParams(WindowManager.LayoutParams.LAST_APPLICATION_WINDOW, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, PixelFormat.TRANSLUCENT);
 		lp.width=ViewGroup.LayoutParams.MATCH_PARENT;
 		lp.height=ViewGroup.LayoutParams.WRAP_CONTENT;
 		lp.gravity=Gravity.BOTTOM;
 		lp.y=bottomOffset;
+		windowLayoutParams=lp;
 		WindowManager wm=context.getSystemService(WindowManager.class);
 		wm.addView(windowView, lp);
+		playShowAnimation();
+	}
+
+	public void showInView(FrameLayout container){
+		containerView=container;
+		Snackbar currentSnackbar=getCurrent();
+		if(currentSnackbar!=null)
+			currentSnackbar.dismiss();
+		setCurrent(this);
+		FrameLayout.LayoutParams lp=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+		lp.bottomMargin=bottomOffset;
+		lp.gravity=Gravity.BOTTOM;
+		container.addView(windowView, lp);
+		playShowAnimation();
+	}
+
+	private void playShowAnimation(){
 		windowView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 			@Override
 			public boolean onPreDraw(){
@@ -121,13 +176,33 @@ public class Snackbar{
 				return true;
 			}
 		});
-		windowView.postDelayed(dismissRunnable, 4000);
+		if(!persistent)
+			windowView.postDelayed(dismissRunnable, 4000);
+	}
+
+	private void disableTouchEvents(){
+		if(containerView==null){
+			windowLayoutParams.flags |= WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
+			context.getSystemService(WindowManager.class).updateViewLayout(windowView, windowLayoutParams);
+		}else{
+			ignoreTouchEvents=true;
+		}
+	}
+
+	public void setDismissListener(Runnable dismissListener){
+		this.dismissListener=dismissListener;
 	}
 
 	public void dismiss(){
-		current=null;
+		if(getCurrent()==this)
+			setCurrent(null);
 		if(currentAnim!=null){
 			currentAnim.cancel();
+		}
+		disableTouchEvents();
+		if(dismissListener!=null){
+			dismissListener.run();
+			dismissListener=null;
 		}
 		windowView.removeCallbacks(dismissRunnable);
 		ObjectAnimator anim=ObjectAnimator.ofFloat(contentView, View.ALPHA, 0);
@@ -136,13 +211,53 @@ public class Snackbar{
 		anim.addListener(new AnimatorListenerAdapter(){
 			@Override
 			public void onAnimationEnd(Animator animation){
-				if(windowView.isAttachedToWindow()){
-					WindowManager wm=context.getSystemService(WindowManager.class);
-					wm.removeView(windowView);
-				}
+				dismissImmediately();
 			}
 		});
 		anim.start();
+	}
+
+	public void dismissImmediately(){
+		if(getCurrent()==this)
+			setCurrent(null);
+		if(dismissListener!=null)
+			dismissListener.run();
+		if(containerView!=null){
+			containerView.removeView(windowView);
+		}else if(windowView.isAttachedToWindow()){
+			WindowManager wm=context.getSystemService(WindowManager.class);
+			wm.removeView(windowView);
+		}
+	}
+
+	private void dismissByGesture(float velocityX, boolean toRight){
+		if(getCurrent()==this)
+			setCurrent(null);
+		dismissedByGesture=true;
+		disableTouchEvents();
+		if(dismissListener!=null){
+			dismissListener.run();
+			dismissListener=null;
+		}
+		SpringAnimation anim=new SpringAnimation(contentView, DynamicAnimation.TRANSLATION_X, toRight ? contentView.getWidth()*2 : contentView.getWidth()*(-1.5f));
+		anim.setStartVelocity(velocityX);
+		anim.getSpring().setStiffness(SpringForce.STIFFNESS_LOW);
+		anim.getSpring().setDampingRatio(SpringForce.DAMPING_RATIO_NO_BOUNCY);
+		anim.addEndListener((animation, canceled, value, velocity)->dismissImmediately());
+		anim.start();
+	}
+
+	private Snackbar getCurrent(){
+		if(containerView!=null)
+			return (Snackbar) containerView.getTag(R.id.current_snackbar);
+		return current;
+	}
+
+	private void setCurrent(Snackbar sb){
+		if(containerView!=null)
+			containerView.setTag(R.id.current_snackbar, sb);
+		else
+			current=sb;
 	}
 
 	private static class AnimatableOutlineProvider extends ViewOutlineProvider{
@@ -176,6 +291,7 @@ public class Snackbar{
 		private String action;
 		private Runnable onActionClick;
 		private int bottomOffset;
+		private boolean persistent;
 
 		public Builder(Context context){
 			this.context=context;
@@ -209,11 +325,74 @@ public class Snackbar{
 		}
 
 		public Snackbar create(){
-			return new Snackbar(context, text, action, onActionClick, bottomOffset);
+			return new Snackbar(context, text, action, onActionClick, bottomOffset, persistent);
 		}
 
 		public void show(){
 			create().show();
+		}
+
+		public Builder setPersistent(){
+			persistent=true;
+			return this;
+		}
+	}
+
+	private class WindowFrameLayout extends FrameLayout{
+		public WindowFrameLayout(@NonNull Context context){
+			super(context);
+		}
+
+		@Override
+		public boolean dispatchTouchEvent(MotionEvent ev){
+			return ignoreTouchEvents || super.dispatchTouchEvent(ev);
+		}
+
+		@Override
+		public boolean onInterceptTouchEvent(MotionEvent ev){
+			return gestureDetector.onTouchEvent(ev) || super.onInterceptTouchEvent(ev);
+		}
+
+		@Override
+		public boolean onTouchEvent(MotionEvent ev){
+			boolean detectorResult=gestureDetector.onTouchEvent(ev);
+			int action=ev.getAction();
+			if(action==MotionEvent.ACTION_DOWN){
+				if(containerView!=null)
+					containerView.requestDisallowInterceptTouchEvent(true);
+				if(!persistent)
+					windowView.removeCallbacks(dismissRunnable);
+				return true;
+			}else if(!dismissedByGesture && (action==MotionEvent.ACTION_UP || action==MotionEvent.ACTION_CANCEL)){
+				float transX=contentView.getTranslationX();
+				if(transX!=0){
+					if(Math.abs(transX)>contentView.getWidth()/3f){
+						dismissedByGesture=true;
+						dismissByGesture(0, transX>0);
+						return true;
+					}else{
+						AnimatorSet set=new AnimatorSet();
+						set.playTogether(
+								ObjectAnimator.ofFloat(contentView, View.TRANSLATION_X, 0),
+								ObjectAnimator.ofFloat(contentView, View.ALPHA, 1)
+						);
+						set.setInterpolator(CubicBezierInterpolator.DEFAULT);
+						set.setDuration(200);
+						currentAnim=set;
+						set.addListener(new AnimatorListenerAdapter(){
+							@Override
+							public void onAnimationEnd(Animator animation){
+								currentAnim=null;
+							}
+						});
+						set.start();
+					}
+				}
+				if(!persistent)
+					windowView.postDelayed(dismissRunnable, 4000);
+				swipeDistance=0;
+			}
+			return detectorResult || super.onTouchEvent(ev);
 		}
 	}
 }

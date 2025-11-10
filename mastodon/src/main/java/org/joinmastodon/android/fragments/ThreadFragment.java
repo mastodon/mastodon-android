@@ -14,16 +14,20 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetStatusContext;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.AsyncRefresh;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusContext;
 import org.joinmastodon.android.ui.OutlineProviders;
+import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
@@ -37,6 +41,7 @@ import org.parceler.Parcels;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,6 +62,10 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 	private TextView replyButtonText;
 	private int lastBottomInset;
 	private Paint replyLinePaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+	private String asyncRefreshID;
+	private Consumer<AsyncRefresh> asyncRefreshCallback=this::onAsyncRefreshFinished;
+	private Snackbar moreRepliesSnackbar;
+	private Runnable asyncRefreshPartialRunnable=this::checkAsyncRefreshAndMaybeShowSnackbar;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -72,6 +81,14 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 			setTitle(HtmlParser.parseCustomEmoji(getString(R.string.post_from_user, mainStatus.account.displayName), mainStatus.account.emojis));
 		else
 			setTitle(getString(R.string.post_from_user, mainStatus.account.displayName));
+	}
+
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		if(asyncRefreshID!=null){
+			AccountSessionManager.get(accountID).getApiController().cancelPollingAsyncRefresh(asyncRefreshID, asyncRefreshCallback);
+		}
 	}
 
 	@Override
@@ -104,6 +121,7 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(StatusContext result){
+						currentRequest=null;
 						if(getActivity()==null)
 							return;
 						if(refreshing){
@@ -111,6 +129,12 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 							displayItems.clear();
 							data.add(mainStatus);
 							onAppendItems(Collections.singletonList(mainStatus));
+						}else if(result.asyncRefresh!=null){
+							if(BuildConfig.DEBUG)
+								Toast.makeText(getActivity(), "Starting async refresh", Toast.LENGTH_SHORT).show();
+							asyncRefreshID=result.asyncRefresh.id;
+							AccountSessionManager.get(accountID).getApiController().startPollingAsyncRefresh(result.asyncRefresh, asyncRefreshCallback);
+							contentView.postDelayed(asyncRefreshPartialRunnable, 10_000);
 						}
 						filterStatuses(result.descendants);
 						filterStatuses(result.ancestors);
@@ -232,10 +256,6 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 		});
 	}
 
-	public int getSnackbarOffset(){
-		return replyContainer.getHeight()-lastBottomInset;
-	}
-
 	@Override
 	protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint){
 		if(holder instanceof StatusDisplayItem.Holder<?> statusHolder && siblingHolder instanceof StatusDisplayItem.Holder<?> siblingStatusHolder){
@@ -276,6 +296,43 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 			return;
 		}
 		super.navigateToStatus(status);
+	}
+
+	private void onAsyncRefreshFinished(AsyncRefresh ar){
+		asyncRefreshID=null;
+		if(getActivity()==null)
+			return;
+		contentView.removeCallbacks(asyncRefreshPartialRunnable);
+		if(ar.resultCount>0){
+			showMoreRepliesSnackbar();
+		}else if(BuildConfig.DEBUG){
+			Toast.makeText(getActivity(), "Async refresh finished without any results", Toast.LENGTH_SHORT).show();
+		}
+	}
+
+	private void checkAsyncRefreshAndMaybeShowSnackbar(){
+		if(AccountSessionManager.get(accountID).getApiController().getAsyncRefreshResultCount(asyncRefreshID)>0){
+			showMoreRepliesSnackbar();
+		}
+	}
+
+	private void showMoreRepliesSnackbar(){
+		if(moreRepliesSnackbar!=null)
+			return;
+		moreRepliesSnackbar=new Snackbar.Builder(getActivity())
+				.setText(R.string.more_replies_found)
+				.setAction(R.string.show, ()->{
+					moreRepliesSnackbar.dismiss();
+					refresh();
+				})
+				.setPersistent()
+				.create();
+		moreRepliesSnackbar.setDismissListener(()->moreRepliesSnackbar=null);
+		showSnackbar(moreRepliesSnackbar);
+	}
+
+	public void showSnackbar(Snackbar sb){
+		sb.showInView(contentWrap);
 	}
 
 	private class ReplyLinesItemDecoration extends RecyclerView.ItemDecoration{

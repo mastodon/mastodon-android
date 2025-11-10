@@ -31,7 +31,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
-	private static final String TAG="MastodonAPIRequest";
+	protected static final String TAG="MastodonAPIRequest";
 
 	private String domain;
 	private AccountSession account;

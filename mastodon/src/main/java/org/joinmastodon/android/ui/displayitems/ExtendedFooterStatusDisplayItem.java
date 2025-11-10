@@ -182,14 +182,14 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void showTimeSnackbar(){
-			int bottomOffset=0;
-			if(item.callbacks instanceof ThreadFragment tf){
-				bottomOffset=tf.getSnackbarOffset();
-			}
-			new Snackbar.Builder(itemView.getContext())
+			Snackbar sb=new Snackbar.Builder(itemView.getContext())
 					.setText(itemView.getContext().getString(R.string.posted_at, TIME_FORMATTER_LONG.format(item.status.createdAt.atZone(ZoneId.systemDefault()))))
-					.setBottomOffset(bottomOffset)
-					.show();
+					.create();
+			if(item.callbacks instanceof ThreadFragment tf){
+				tf.showSnackbar(sb);
+			}else{
+				sb.show();
+			}
 		}
 	}
 }
