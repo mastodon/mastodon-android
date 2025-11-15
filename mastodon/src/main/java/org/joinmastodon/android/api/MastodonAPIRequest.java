@@ -29,6 +29,7 @@ import me.grishka.appkit.api.ErrorResponse;
 import okhttp3.Call;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.internal.http.HttpMethod;
 
 public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	protected static final String TAG="MastodonAPIRequest";
@@ -172,7 +173,9 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 
 	@CallSuper
 	public void validateAndPostprocessResponse(T respObj, Response httpResponse) throws IOException{
-		if(respObj instanceof BaseModel){
+		if(respObj==null && (respTypeToken!=null || respClass!=null)){
+			throw new ObjectValidationException("Server response is empty");
+		}else if(respObj instanceof BaseModel){
 			((BaseModel) respObj).postprocess();
 		}else if(respObj instanceof List){
 			if(removeUnsupportedItems){
