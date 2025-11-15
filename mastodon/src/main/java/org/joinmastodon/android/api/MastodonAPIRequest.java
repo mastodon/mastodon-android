@@ -177,29 +177,29 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 			throw new ObjectValidationException("Server response is empty");
 		}else if(respObj instanceof BaseModel){
 			((BaseModel) respObj).postprocess();
-		}else if(respObj instanceof List){
+		}else if(respObj instanceof List<?> respList){
 			if(removeUnsupportedItems){
-				Iterator<?> itr=((List<?>) respObj).iterator();
+				Iterator<?> itr=respList.iterator();
 				while(itr.hasNext()){
 					Object item=itr.next();
-					if(item instanceof BaseModel){
+					if(item instanceof BaseModel bm){
 						try{
-							((BaseModel) item).postprocess();
+							bm.postprocess();
 						}catch(ObjectValidationException x){
 							Log.w(TAG, "Removing invalid object from list", x);
 							itr.remove();
 						}
-					}
-				}
-				for(Object item:((List<?>) respObj)){
-					if(item instanceof BaseModel){
-						((BaseModel) item).postprocess();
+					}else if(item==null){
+						Log.w(TAG, "Removing null object from list");
+						itr.remove();
 					}
 				}
 			}else{
-				for(Object item:((List<?>) respObj)){
-					if(item instanceof BaseModel)
-						((BaseModel) item).postprocess();
+				for(Object item:respList){
+					if(item instanceof BaseModel bm)
+						bm.postprocess();
+					else if(item==null)
+						throw new ObjectValidationException("null item in list");
 				}
 			}
 		}

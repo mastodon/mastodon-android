@@ -33,6 +33,7 @@ public class GetAccountStatuses extends MastodonAPIRequest<List<Status>>{
 		}
 		if(!TextUtils.isEmpty(hashtag))
 			addQueryParameter("tagged", hashtag);
+		removeUnsupportedItems=true;
 	}
 
 	public enum Filter{

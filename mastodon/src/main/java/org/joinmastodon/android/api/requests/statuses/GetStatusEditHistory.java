@@ -15,6 +15,7 @@ import okhttp3.Response;
 public class GetStatusEditHistory extends MastodonAPIRequest<List<Status>>{
 	public GetStatusEditHistory(String id){
 		super(HttpMethod.GET, "/statuses/"+id+"/history", new TypeToken<>(){});
+		removeUnsupportedItems=true;
 	}
 
 	@Override

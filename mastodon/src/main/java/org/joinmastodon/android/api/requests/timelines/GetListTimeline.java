@@ -18,5 +18,6 @@ public class GetListTimeline extends MastodonAPIRequest<List<Status>>{
 			addQueryParameter("limit", ""+limit);
 		if(sinceID!=null)
 			addQueryParameter("since_id", sinceID);
+		removeUnsupportedItems=true;
 	}
 }
