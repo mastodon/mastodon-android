@@ -158,7 +158,7 @@
 	<string name="resend">Renvoyer</string>
 	<string name="open_email_app">Ouvrir l’application courriel</string>
 	<string name="resent_email">Courriel de confirmation envoyé</string>
-	<string name="compose_hint">Ecrivez ce qui vous passe par la tête</string>
+	<string name="compose_hint">Écrivez ce qui vous passe par la tête</string>
 	<string name="content_warning">Avertissement sur le contenu</string>
 	<string name="save">Enregistrer</string>
 	<string name="add_alt_text">Ajouter un texte alternatif</string>
@@ -903,9 +903,21 @@
 	<string name="default_post_visibility">Visibilité de la publication</string>
 	<string name="create_quote_manual_approval">Demander à citer</string>
 	<string name="create_quote_manual_approval_subtitle">L\'auteur vérifiera manuellement</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citation</item>
+		<item quantity="other">%,d citations</item>
+	</plurals>
 	<string name="remove_quote">Retirer mon message du message de %s</string>
 	<string name="remove_quote_confirm_title">Retirer le message ?</string>
 	<string name="remove_quote_confirm">Cette action ne peut être annulée.</string>
 	<string name="remove_quote_button">Retirer le message</string>
 	<string name="settings_posting_defaults_explanation">Ces paramètres seront utilisés par défaut lorsque vous créez de nouveaux messages, mais vous pouvez les modifier par message dans le champs de saisie.</string>
+	<string name="cant_quote_in_private_title">Les citations ne peuvent pas être intégrées dans les mentions privées</string>
+	<string name="cant_quote_in_private">Si vous enregistrez les paramètres actuels, la citation sera convertie en lien.</string>
+	<string name="quote_followers_only_confirm_title">Partager avec les personnes abonnées et mentionnées ?</string>
+	<string name="quote_followers_only_confirm">La personne citée et celles mentionnées seront notifiées et pourront voir le message, même si elles ne vous suivent pas.</string>
+	<string name="quote_followers_only_publish">Publier</string>
+	<string name="quote_followers_only_cancel">Retour à l\'édition</string>
+	<string name="quote_followers_only_dont_show_again">Ne plus afficher ce message</string>
+	<string name="more_replies_found">Plus de réponses trouvées</string>
 </resources>
