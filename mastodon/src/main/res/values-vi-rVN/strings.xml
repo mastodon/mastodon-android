@@ -235,7 +235,7 @@
 		<item quantity="other">%,d theo dõi</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="other">%,d lượt thích</item>
+		<item quantity="other">%,d thích</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="other">%,d đăng lại</item>
@@ -680,13 +680,13 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="filtered_notifications">Thông báo đã lọc</string>
 	<string name="filter_notifications">Quản lý thông báo từ…</string>
 	<string name="notification_filter_following">Những người bạn không theo dõi</string>
-	<string name="notification_filter_following_explanation">Cho tới khi bạn duyệt họ</string>
+	<string name="notification_filter_following_explanation">Cho đến khi bạn duyệt họ</string>
 	<string name="notification_filter_followers">Những người không theo dõi bạn</string>
-	<string name="notification_filter_followers_explanation">Bao gồm những người đã theo dõi bạn ít hơn 3 ngày</string>
-	<string name="notification_filter_new_accounts">Tài khoản mới</string>
-	<string name="notification_filter_new_accounts_explanation">Đã tạo trong vòng 30 ngày</string>
-	<string name="notification_filter_mentions">Lượt nhắn riêng không mong muốn</string>
-	<string name="notification_filter_mentions_explanation">Trừ khi nó trả lời lượt nhắc từ bạn hoặc nếu bạn có theo dõi người gửi</string>
+	<string name="notification_filter_followers_explanation">Kể cả người theo dõi bạn dưới 3 ngày</string>
+	<string name="notification_filter_new_accounts">Những người mới tạo tài khoản</string>
+	<string name="notification_filter_new_accounts_explanation">Dưới 30 ngày</string>
+	<string name="notification_filter_mentions">Nhắn riêng không mong muốn</string>
+	<string name="notification_filter_mentions_explanation">Trừ khi bạn nhắn họ trước hoặc bạn có theo dõi họ</string>
 	<string name="allow_notifications">Cho phép gửi thông báo</string>
 	<string name="mute_notifications">Bỏ qua yêu cầu thông báo</string>
 	<plurals name="x_people_you_may_know">
@@ -832,7 +832,7 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="compose_visibility_unlisted_disabled">Hạn chế, tắt trích dẫn</string>
 	<string name="compose_visibility_title">Hiển thị và tương tác</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
-	<string name="compose_visibility_explanation">Kiểm soát những ai có thể tương tác với tút này. Cài đặt chung trong Cài đặt &gt; %s &gt; Mặc định tút.</string>
+	<string name="compose_visibility_explanation">Kiểm soát những ai có thể tương tác với tút này. Truy cập Cài đặt &gt; %s &gt; Mặc định cho tút.</string>
 	<string name="compose_visibility">Hiển thị</string>
 	<string name="compose_quote_policy">Ai có thể trích dẫn</string>
 	<string name="quote_policy_public">Bất cứ ai</string>
@@ -864,7 +864,7 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="remove_quote_confirm_title">Gỡ tút?</string>
 	<string name="remove_quote_confirm">Hành động này không thể hoàn tác.</string>
 	<string name="remove_quote_button">Gỡ tút</string>
-	<string name="settings_posting_defaults_explanation">Các thiết lập này sẽ được sử dụng làm mặc định khi bạn tạo tút mới, nhưng bạn có thể chỉnh sửa cho từng tút khi soạn thảo.</string>
+	<string name="settings_posting_defaults_explanation">Các thiết lập này sẽ được sử dụng làm mặc định khi bạn tạo tút mới. Bạn vẫn có thể chỉnh sửa từng tút khi soạn thảo.</string>
 	<string name="cant_quote_in_private_title">Không thể nhúng trích dẫn vào Nhắn Riêng</string>
 	<string name="cant_quote_in_private">Nếu bạn lưu cài đặt hiện tại, trích dẫn được nhúng sẽ được chuyển đổi thành liên kết.</string>
 	<string name="quote_followers_only_confirm_title">Chia sẻ với người được nhắc đến và người theo dõi?</string>
