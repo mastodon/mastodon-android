@@ -729,6 +729,7 @@
 	<string name="notifications_muted">Les notifications de %s ont été rejetées.</string>
 	<string name="notifications_allowed">%s apparaîtra maintenant dans votre liste de notifications.</string>
 	<string name="visibility_subtitle_public">Tout le monde sur et en dehors de Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Caché des résultats de recherche de Mastodon, des tendances et des fils publics</string>
 	<string name="visibility_subtitle_followers">Vos abonné·e·s uniquement</string>
 	<string name="visibility_subtitle_private">Toute personne mentionnée dans le message</string>
 	<string name="view_boosts">Afficher les partages</string>
@@ -872,14 +873,22 @@
 	<string name="compose_visibility_public_anyone">Public, n\'importe qui peut le citer</string>
 	<string name="compose_visibility_public_limited">Public, citations limitées</string>
 	<string name="compose_visibility_public_disabled">Public, citations désactivées</string>
+	<string name="compose_visibility_unlisted_anyone">Public discret, n\'importe qui peut citer</string>
+	<string name="compose_visibility_unlisted_limited">Public discret, citations limitées</string>
+	<string name="compose_visibility_unlisted_disabled">Public discret, citations désactivées</string>
 	<string name="compose_visibility_title">Visibilité et interaction</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Contrôler qui peut interagir avec ce message. Les paramètres par défaut se trouvent dans Paramètres &gt; %s &gt; Paramètres de publication par défaut.</string>
 	<string name="compose_visibility">Visibilité</string>
 	<string name="compose_quote_policy">Qui peut vous citer ?</string>
 	<string name="quote_policy_public">Tout le monde</string>
 	<string name="quote_policy_followers">Abonné·e·s seulement</string>
 	<string name="quote_policy_nobody">Moi uniquement</string>
+	<string name="quote_policy_for_unlisted_explanation">Les citations de vos messages seront aussi cachées des fils tendances.</string>
+	<string name="quote_policy_for_private_explanation">Les messages limités aux personnes qui vous suivent publiés depuis Mastodon ne peuvent pas être cités.</string>
+	<string name="quote_policy_for_direct_explanation">Les mentions privées envoyées depuis Mastodon ne peuvent pas être citées.</string>
 	<string name="change_quote_policy">Qui peut le citer</string>
+	<string name="edit_visibility_explanation">Vous ne pouvez pas changer la visibilité des messages publiés.</string>
 	<string name="user_quoted_post">%s a cité votre message:</string>
 	<string name="user_edited_quoted_post">%s a modifié un message que vous avez cité</string>
 	<string name="notification_type_quote">Citations</string>
@@ -888,6 +897,8 @@
 	<string name="cannot_quote_post_followers_only">Seul·e·s les abonné·e·s peuvent citer ce message</string>
 	<string name="compose_hint_quote">Ajouter quelque chose à la conversation</string>
 	<string name="cancel_quote">Annuler la citation</string>
+	<string name="unlisted_quote_alert_title">Citation d\'un message public discret</string>
+	<string name="unlisted_quote_alert">En citant un message public discret, votre citation sera cachée des fils tendances.</string>
 	<string name="settings_posting_defaults">Paramètres de publication par défaut</string>
 	<string name="default_post_visibility">Visibilité de la publication</string>
 	<string name="create_quote_manual_approval">Demander à citer</string>
