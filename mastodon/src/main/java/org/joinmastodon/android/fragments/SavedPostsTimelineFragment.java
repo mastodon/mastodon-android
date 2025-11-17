@@ -12,7 +12,6 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetBookmarkedStatuses;
 import org.joinmastodon.android.api.requests.statuses.GetFavoritedStatuses;
-import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.HeaderPaginationList;
@@ -32,6 +31,7 @@ public class SavedPostsTimelineFragment extends StatusListFragment{
 	private Mode mode;
 	private HorizontalScrollView filtersBar;
 	private FilterChipView favoritesChip, bookmarksChip;
+	private String nextPageMaxID;
 
 	public SavedPostsTimelineFragment(){
 		setListLayoutId(R.layout.recycler_fragment_no_refresh);
@@ -59,14 +59,15 @@ public class SavedPostsTimelineFragment extends StatusListFragment{
 	@Override
 	protected void doLoadData(int offset, int count){
 		currentRequest=(switch(mode){
-			case FAVORITES -> new GetFavoritedStatuses(offset>0 ? getMaxID() : null, count);
-			case BOOKMARKS -> new GetBookmarkedStatuses(offset>0 ? getMaxID() : null, count);
+			case FAVORITES -> new GetFavoritedStatuses(offset>0 ? nextPageMaxID : null, count);
+			case BOOKMARKS -> new GetBookmarkedStatuses(offset>0 ? nextPageMaxID : null, count);
 		}).setCallback(new SimpleCallback<>(this){
 			@Override
 			public void onSuccess(HeaderPaginationList<Status> result){
 				if(getActivity()==null)
 					return;
 				onDataLoaded(result, result.nextPageUri!=null);
+				nextPageMaxID=result.getNextPageMaxID();
 			}
 		}).exec(accountID);
 	}
