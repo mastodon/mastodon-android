@@ -707,15 +707,24 @@ Jo flere folk du følger, jo mer aktiv og interessant blir den.</string>
 		<item quantity="one">%,d nytt varsel</item>
 		<item quantity="other">%,d nye varsler</item>
 	</plurals>
+	<string name="settings_donate">Gi en skjerv til Mastodon</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="private_reply">Personlig svar</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<string name="quote_post_unavailable">Innlegget er ikke tilgjengelig</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="compose_visibility_public_limited">Offentlig, avgrensa sitering</string>
+	<string name="compose_visibility_public_disabled">Offentlig, sitering slått av</string>
+	<string name="compose_visibility_unlisted_anyone">Lavmælt offentlig, alle kan sitere</string>
+	<string name="compose_visibility_unlisted_limited">Lavmælt offentlig, avgrensa sitering</string>
+	<string name="compose_visibility_unlisted_disabled">Lavmælt offentlig, sitering slått av</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="cant_quote_in_private_title">Sitater kan ikke bygges inn i personlige omtaler</string>
 	<string name="cant_quote_in_private">Hvis du lagrer gjeldende innstillinger, gjøres det innebygde sitatet om til en lenke.</string>
 	<string name="quote_followers_only_confirm_title">Dele med følgere og omtalte brukere?</string>
 </resources>
