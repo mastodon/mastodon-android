@@ -900,7 +900,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	}
 
 	private void handlePublishError(ErrorResponse error){
-		wm.removeView(sendingOverlay);
+		if(sendingOverlay.isAttachedToWindow())
+			wm.removeView(sendingOverlay);
 		sendingOverlay=null;
 		removeBackCallback(sendingBackButtonBlocker);
 		V.setVisibilityAnimated(sendProgress, View.GONE);
