@@ -60,12 +60,11 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 	private LinearLayout replyButton;
 	private ImageView replyButtonAva;
 	private TextView replyButtonText;
-	private int lastBottomInset;
-	private Paint replyLinePaint=new Paint(Paint.ANTI_ALIAS_FLAG);
 	private String asyncRefreshID;
 	private Consumer<AsyncRefresh> asyncRefreshCallback=this::onAsyncRefreshFinished;
 	private Snackbar moreRepliesSnackbar;
 	private Runnable asyncRefreshPartialRunnable=this::checkAsyncRefreshAndMaybeShowSnackbar;
+	private int prevNewRepliesCount;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -88,8 +87,15 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 	public void onDestroy(){
 		super.onDestroy();
 		if(asyncRefreshID!=null){
+			contentView.removeCallbacks(asyncRefreshPartialRunnable);
 			AccountSessionManager.get(accountID).getApiController().cancelPollingAsyncRefresh(asyncRefreshID, asyncRefreshCallback);
 		}
+	}
+
+	@Override
+	public void onDestroyView(){
+		moreRepliesSnackbar=null;
+		super.onDestroyView();
 	}
 
 	@Override
@@ -244,7 +250,6 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
-		lastBottomInset=insets.getSystemWindowInsetBottom();
 		super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(replyContainer, insets));
 	}
 
@@ -305,21 +310,23 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 		if(getActivity()==null)
 			return;
 		contentView.removeCallbacks(asyncRefreshPartialRunnable);
-		if(ar.resultCount>0){
+		if(ar.resultCount>prevNewRepliesCount){
 			showMoreRepliesSnackbar();
-		}else if(BuildConfig.DEBUG){
+		}else if(BuildConfig.DEBUG && ar.resultCount==0){
 			Toast.makeText(getActivity(), "Async refresh finished without any results", Toast.LENGTH_SHORT).show();
 		}
 	}
 
 	private void checkAsyncRefreshAndMaybeShowSnackbar(){
-		if(AccountSessionManager.get(accountID).getApiController().getAsyncRefreshResultCount(asyncRefreshID)>0){
+		int results=AccountSessionManager.get(accountID).getApiController().getAsyncRefreshResultCount(asyncRefreshID);
+		if(results>0){
 			showMoreRepliesSnackbar();
+			prevNewRepliesCount=results;
 		}
 	}
 
 	private void showMoreRepliesSnackbar(){
-		if(moreRepliesSnackbar!=null)
+		if(moreRepliesSnackbar!=null || getActivity()==null)
 			return;
 		moreRepliesSnackbar=new Snackbar.Builder(getActivity())
 				.setText(R.string.more_replies_found)
