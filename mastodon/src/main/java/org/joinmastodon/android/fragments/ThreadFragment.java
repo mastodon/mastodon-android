@@ -4,6 +4,7 @@ import android.app.assist.AssistContent;
 import android.content.res.ColorStateList;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -346,6 +347,7 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 
 	private class ReplyLinesItemDecoration extends RecyclerView.ItemDecoration{
 		private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
+		private Rect tmpRect=new Rect();
 
 		@Override
 		public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
@@ -379,16 +381,21 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 				float lineX=V.dp(36);
 				paint.setAlpha(Math.round(255*child.getAlpha()));
 				c.save();
-				c.clipRect(child.getX(), child.getY(), child.getX()+child.getWidth(), child.getY()+child.getHeight());
+				parent.getDecoratedBoundsWithMargins(child, tmpRect);
+				int topMargin=child.getTop()-tmpRect.top;
+				int bottomMargin=tmpRect.bottom-child.getBottom();
+				float top=child.getY()-topMargin;
+				float bottom=child.getY()+child.getHeight()+bottomMargin;
+				c.clipRect(child.getX(), top, child.getX()+child.getWidth(), bottom);
 				if(holder instanceof HeaderStatusDisplayItem.Holder){
 					if(connectUp || connectToRoot){
-						c.drawLine(lineX, child.getY()-V.dp(2), lineX, child.getY()+V.dp(14), paint);
+						c.drawLine(lineX, top-V.dp(2), lineX, top+V.dp(14), paint);
 					}
 					if(connectReply){
-						c.drawLine(lineX, child.getY()+V.dp(62), lineX, child.getY()+child.getHeight()+V.dp(2), paint);
+						c.drawLine(lineX, top+V.dp(62), lineX, bottom+V.dp(2), paint);
 					}
 				}else if(connectReply){
-					c.drawLine(lineX, child.getY(), lineX, child.getY()+child.getHeight(), paint);
+					c.drawLine(lineX, top, lineX, bottom, paint);
 				}
 				c.restore();
 			}
