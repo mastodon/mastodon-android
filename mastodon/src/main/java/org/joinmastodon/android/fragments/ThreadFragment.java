@@ -81,6 +81,7 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 			setTitle(HtmlParser.parseCustomEmoji(getString(R.string.post_from_user, mainStatus.account.displayName), mainStatus.account.emojis));
 		else
 			setTitle(getString(R.string.post_from_user, mainStatus.account.displayName));
+		setRefreshEnabled(false);
 	}
 
 	@Override
@@ -153,6 +154,7 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 							adapter.notifyDataSetChanged();
 						}
 						list.scrollToPosition(displayItems.size()-count);
+						setRefreshEnabled(true);
 					}
 				})
 				.exec(accountID);
