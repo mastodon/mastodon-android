@@ -791,13 +791,76 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="relationship_severance_learn_more">Saiba mais</string>
 	<string name="moderation_warning_learn_more">Saiba mais</string>
 	<string name="text_show_more">Mais</string>
+	<string name="avatar_move_and_scale">Mover e Redimensionar</string>
+	<string name="settings_use_dynamic_colors">Usar cor dinâmica do sistema</string>
 	<string name="settings_accounts">Contas</string>
 	<string name="settings_add_account">Adicionar conta...</string>
+	<string name="settings_app_settings">Configurações do aplicativo</string>
+	<string name="account_settings">Configurações da conta</string>
+	<string name="settings_about_this_server">Sobre este servidor</string>
+	<string name="switch_to_this_account">Trocar para esta conta</string>
+	<string name="familiar_followers_one">Seguido por %s</string>
+	<string name="familiar_followers_two">Seguido por %s e %s</string>
+	<string name="profile_saved_posts">Salvo</string>
+	<string name="profile_saved_posts_explanation">Suas publicações salvas só são visíveis para você.</string>
+	<string name="search_people">Pessoas</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Seguido por %1$s, %2$se %3$,d outro</item>
+		<item quantity="other">Seguido por %1$s, %2$se %3$,d outros</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="signup_password_too_short">A senha deve ter pelo menos 8 caracteres.</string>
+	<string name="private_reply">Resposta privada</string>
+	<string name="private_mention">Menção privada</string>
+	<string name="post_header_reply">Resposta</string>
+	<string name="post_header_mention">Menção</string>
+	<string name="report_reason_legal">É ilegal</string>
+	<string name="date_of_birth">Data de nascimento</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Precisamos ter certeza de que você tem, no mínimo, %s anos para usar o Mastodon. Não armazenaremos essa informação.</string>
+	<string name="open_link">Abrir</string>
+	<string name="copy">Copiar</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<string name="quote_post_unavailable">Publicação indisponível</string>
+	<string name="quote_post_pending">Publicação pendente</string>
+	<string name="quote_post_pending_explanation">No Mastodon, você pode controlar se alguém pode citar você. Esta publicação está pendente enquanto estamos recebendo a aprovação do autor original.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Publicação citada por %s</string>
+	<string name="compose_visibility_public_anyone">Público, qualquer um pode citar</string>
+	<string name="compose_visibility_public_limited">Público, citações limitadas</string>
+	<string name="compose_visibility_public_disabled">Público, citações desativadas</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_quote_policy">Quem pode citar</string>
+	<string name="quote_policy_public">Qualquer um</string>
+	<string name="quote_policy_followers">Apenas seguidores</string>
+	<string name="quote_policy_nobody">Apenas eu</string>
+	<string name="quote_policy_for_unlisted_explanation">Quando as pessoas citarem você, suas publicações também ficarão ocultas da linha do tempo em alta.</string>
+	<string name="quote_policy_for_private_explanation">Publicações somente para seguidores feitos no Mastodon não podem ser citados por outros.</string>
+	<string name="quote_policy_for_direct_explanation">Menções privadas autorizadas no Mastodon não podem ser citadas por outros.</string>
+	<string name="change_quote_policy">Mude quem pode citar</string>
+	<string name="user_quoted_post">%s citou sua publicação:</string>
+	<string name="user_edited_quoted_post">%s editou uma publicação que você citou</string>
+	<string name="notification_type_quote">Citações</string>
+	<string name="create_quote">Citar</string>
+	<string name="cannot_quote_post">Você não tem permissão para citar esta publicação</string>
+	<string name="cannot_quote_post_followers_only">Apenas seguidores podem citar esta publicação</string>
+	<string name="compose_hint_quote">Adicionar algo à conversa</string>
+	<string name="cancel_quote">Cancelar citação</string>
+	<string name="unlisted_quote_alert">Ao citar uma publicação pública silenciosa, sua postagem será oculta das linhas de tempo em alta.</string>
+	<string name="create_quote_manual_approval">Solicitar citação</string>
+	<string name="create_quote_manual_approval_subtitle">Autor irá revisar manualmente</string>
+	<string name="remove_quote_confirm_title">Remover publicação?</string>
+	<string name="remove_quote_confirm">Essa ação não pode ser desfeita.</string>
+	<string name="remove_quote_button">Remover publicação</string>
+	<string name="settings_posting_defaults_explanation">Estas configurações serão usadas como padrão quando você criar publicações, mas você pode editá-las por postagem no compositor.</string>
+	<string name="cant_quote_in_private_title">Cotações não podem ser incorporadas em menções privadas</string>
+	<string name="cant_quote_in_private">Se salvar as configurações atuais, a citação incorporada será convertida em um link.</string>
+	<string name="quote_followers_only_confirm_title">Compartilhar com seguidores e usuários mencionados?</string>
+	<string name="quote_followers_only_confirm">A pessoa que está citando e outras menções serão notificadas e poderão ver sua postagem, mesmo que não sigam você.</string>
+	<string name="quote_followers_only_publish">Publicar postagem</string>
+	<string name="quote_followers_only_cancel">Voltar à edição</string>
+	<string name="quote_followers_only_dont_show_again">Não mostrar esta mensagem novamente</string>
+	<string name="more_replies_found">Mais respostas encontradas</string>
 </resources>
