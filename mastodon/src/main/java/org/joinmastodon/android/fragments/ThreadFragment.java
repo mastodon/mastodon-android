@@ -86,16 +86,18 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 
 	@Override
 	public void onDestroy(){
-		super.onDestroy();
 		if(asyncRefreshID!=null){
-			contentView.removeCallbacks(asyncRefreshPartialRunnable);
 			AccountSessionManager.get(accountID).getApiController().cancelPollingAsyncRefresh(asyncRefreshID, asyncRefreshCallback);
 		}
+		super.onDestroy();
 	}
 
 	@Override
 	public void onDestroyView(){
 		moreRepliesSnackbar=null;
+		if(asyncRefreshID!=null){
+			contentView.removeCallbacks(asyncRefreshPartialRunnable);
+		}
 		super.onDestroyView();
 	}
 
