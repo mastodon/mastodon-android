@@ -730,6 +730,7 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="notifications_muted">As notificações de %s foram dispensadas.</string>
 	<string name="notifications_allowed">%s agora aparecerá na sua lista de notificações.</string>
 	<string name="visibility_subtitle_public">Qualquer um dentro ou fora do Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Oculto para os resultados de pesquisa do Mastodon, em alta e linhas do tempo públicas</string>
 	<string name="visibility_subtitle_followers">Mostrar somente seus seguidores</string>
 	<string name="visibility_subtitle_private">Todos mencionados na postagem</string>
 	<string name="view_boosts">Visualizar impulsos</string>
@@ -791,15 +792,24 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_user_domain_block">Você bloqueou %1$s, removendo %2$,d dos seus seguidores e %3$s que você segue.</string>
 	<string name="relationship_severance_learn_more">Saiba mais</string>
+	<string name="moderation_warning_action_none">Sua conta recebeu um aviso de moderação.</string>
+	<string name="moderation_warning_action_disable">Sua conta foi desativada.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Algumas de suas publicações foram marcadas por ter conteúdo sensível.</string>
+	<string name="moderation_warning_action_delete_statuses">Algumas das suas publicações foram removidas.</string>
+	<string name="moderation_warning_action_sensitive">Suas publicações serão marcadas como conteúdo sensível a partir de agora.</string>
+	<string name="moderation_warning_action_silence">Sua conta foi limitada.</string>
+	<string name="moderation_warning_action_suspend">Sua conta foi suspensa.</string>
 	<string name="moderation_warning_learn_more">Saiba mais</string>
 	<string name="text_show_more">Mais</string>
 	<string name="avatar_move_and_scale">Mover e Redimensionar</string>
+	<string name="confirm_avatar_crop">Selecionar</string>
 	<string name="settings_use_dynamic_colors">Usar cor dinâmica do sistema</string>
 	<string name="settings_accounts">Contas</string>
 	<string name="settings_add_account">Adicionar conta...</string>
 	<string name="settings_app_settings">Configurações do aplicativo</string>
 	<string name="account_settings">Configurações da conta</string>
 	<string name="settings_about_this_server">Sobre este servidor</string>
+	<string name="manage_account">Gerenciar conta</string>
 	<string name="switch_to_this_account">Trocar para esta conta</string>
 	<string name="delete_account">Excluir conta</string>
 	<string name="notification_type_status">Novas publicações</string>
@@ -864,7 +874,12 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="compose_visibility_public_anyone">Público, qualquer um pode citar</string>
 	<string name="compose_visibility_public_limited">Público, citações limitadas</string>
 	<string name="compose_visibility_public_disabled">Público, citações desativadas</string>
+	<string name="compose_visibility_unlisted_anyone">Não listado, qualquer um pode citar</string>
+	<string name="compose_visibility_unlisted_limited">Não listado, citações limitadas</string>
+	<string name="compose_visibility_unlisted_disabled">Não listado, citações desativadas</string>
+	<string name="compose_visibility_title">Visibilidade e interação</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Controle quem pode interagir com este post. Configurações globais podem ser encontradas em Configurações &gt; %s &gt; Padrões de publicação.</string>
 	<string name="compose_visibility">Visibilidade</string>
 	<string name="compose_quote_policy">Quem pode citar</string>
 	<string name="quote_policy_public">Qualquer um</string>
@@ -874,6 +889,7 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="quote_policy_for_private_explanation">Publicações somente para seguidores feitos no Mastodon não podem ser citados por outros.</string>
 	<string name="quote_policy_for_direct_explanation">Menções privadas autorizadas no Mastodon não podem ser citadas por outros.</string>
 	<string name="change_quote_policy">Mude quem pode citar</string>
+	<string name="edit_visibility_explanation">Os posts publicados não podem alterar sua visibilidade.</string>
 	<string name="user_quoted_post">%s citou sua publicação:</string>
 	<string name="user_edited_quoted_post">%s editou uma publicação que você citou</string>
 	<string name="notification_type_quote">Citações</string>
@@ -882,7 +898,10 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="cannot_quote_post_followers_only">Apenas seguidores podem citar esta publicação</string>
 	<string name="compose_hint_quote">Adicionar algo à conversa</string>
 	<string name="cancel_quote">Cancelar citação</string>
+	<string name="unlisted_quote_alert_title">Citando publicações públicas silenciadas</string>
 	<string name="unlisted_quote_alert">Ao citar uma publicação pública silenciosa, sua postagem será oculta das linhas de tempo em alta.</string>
+	<string name="settings_posting_defaults">Padrões de publicação</string>
+	<string name="default_post_visibility">Visibilidade da publicação</string>
 	<string name="create_quote_manual_approval">Solicitar citação</string>
 	<string name="create_quote_manual_approval_subtitle">Autor irá revisar manualmente</string>
 	<plurals name="x_quotes">
