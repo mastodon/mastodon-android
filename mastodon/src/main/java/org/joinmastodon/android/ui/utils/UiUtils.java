@@ -128,7 +128,8 @@ import okhttp3.MediaType;
 
 public class UiUtils{
 	private static Handler mainHandler=new Handler(Looper.getMainLooper());
-	private static final String DATE_FORMATTER_SHORT_WITH_YEAR="d MMM uuuu", DATE_FORMATTER_SHORT="d MMM";
+	private static final String DATE_PATTERN_SHORT_WITH_YEAR="d MMM uuuu", DATE_PATTERN_SHORT="d MMM";
+	private static DateTimeFormatter dateFormatterShortWithYear, dateFormatterShort;
 	private static final DateTimeFormatter TIME_FORMATTER=DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
 	public static final DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.SHORT);
 
@@ -182,21 +183,10 @@ public class UiUtils{
 			int days=(int)(diff/(3600_000L*24L));
 			if(days>30){
 				ZonedDateTime dt=instant.atZone(ZoneId.systemDefault());
-				return formatDateShort(context, dt);
+				return formatDateShort(dt);
 			}
 			return context.getString(R.string.time_days_ago_short, days);
 		}
-	}
-
-	private static String formatDateShort(Context context, ZonedDateTime dt){
-		Locale locale=context.getResources().getConfiguration().locale;
-		String pattern;
-		if(dt.getYear()==ZonedDateTime.now().getYear()){
-			pattern=DateFormat.getBestDateTimePattern(locale, DATE_FORMATTER_SHORT);
-		}else{
-			pattern=DateFormat.getBestDateTimePattern(locale, DATE_FORMATTER_SHORT_WITH_YEAR);
-		}
-		return DateTimeFormatter.ofPattern(pattern, locale).format(dt);
 	}
 
 	public static String formatRelativeTimestampAsMinutesAgo(Context context, Instant instant, boolean relativeHours){
@@ -240,9 +230,25 @@ public class UiUtils{
 		}else if(date.equals(today.plusDays(1))){
 			formattedDate=context.getString(R.string.tomorrow);
 		}else{
-			formattedDate=formatDateShort(context, dt);
+			formattedDate=formatDateShort(dt);
 		}
 		return context.getString(R.string.date_at_time, formattedDate, formattedTime);
+	}
+
+	public static void updateLocalizedDateFormatters(Context context) {
+		Locale locale=context.getResources().getConfiguration().locale;
+		var localizedPatternWithYear=DateFormat.getBestDateTimePattern(locale, DATE_PATTERN_SHORT_WITH_YEAR);
+		dateFormatterShortWithYear=DateTimeFormatter.ofPattern(localizedPatternWithYear, locale);
+		var localizedPattern=DateFormat.getBestDateTimePattern(locale, DATE_PATTERN_SHORT);
+		dateFormatterShort=DateTimeFormatter.ofPattern(localizedPattern, locale);
+	}
+
+	private static String formatDateShort(ZonedDateTime dt){
+		if(dt.getYear()==ZonedDateTime.now().getYear()){
+			return dateFormatterShort.format(dt);
+		}else{
+			return dateFormatterShortWithYear.format(dt);
+		}
 	}
 
 	public static String formatTimeLeft(Context context, Instant instant){
