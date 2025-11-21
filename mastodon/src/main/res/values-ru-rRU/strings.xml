@@ -884,8 +884,16 @@
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="load_missing_posts_above">Загрузить недостающие посты выше</string>
 	<string name="load_missing_posts_below">Загрузить недостающие посты ниже</string>
+	<string name="date_of_birth">День рождения</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="open_link">Открыть</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility">Видимость</string>
+	<string name="quote_policy_followers">Только подписчики</string>
+	<string name="quote_policy_nobody">Только я</string>
+	<string name="remove_quote_confirm_title">Убрать пост?</string>
+	<string name="remove_quote_confirm">Это действие не может быть отменено.</string>
+	<string name="remove_quote_button">Убрать пост</string>
 </resources>
