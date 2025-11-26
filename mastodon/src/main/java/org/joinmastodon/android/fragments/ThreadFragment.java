@@ -8,6 +8,9 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -39,12 +42,16 @@ import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
@@ -82,6 +89,7 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 		else
 			setTitle(getString(R.string.post_from_user, mainStatus.account.displayName));
 		setRefreshEnabled(false);
+		setHasOptionsMenu(true);
 	}
 
 	@Override
@@ -134,17 +142,26 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 						currentRequest=null;
 						if(getActivity()==null)
 							return;
+						final ArrayList<Status> prevData;
+						final ArrayList<StatusDisplayItem> prevDisplayItems;
 						if(refreshing){
+							prevData=new ArrayList<>(data);
+							prevDisplayItems=new ArrayList<>(displayItems);
 							data.clear();
 							displayItems.clear();
 							data.add(mainStatus);
 							onAppendItems(Collections.singletonList(mainStatus));
 						}else if(result.asyncRefresh!=null){
+							prevData=null;
+							prevDisplayItems=null;
 							if(BuildConfig.DEBUG)
 								Toast.makeText(getActivity(), "Starting async refresh", Toast.LENGTH_SHORT).show();
 							asyncRefreshID=result.asyncRefresh.id;
 							AccountSessionManager.get(accountID).getApiController().startPollingAsyncRefresh(result.asyncRefresh, asyncRefreshCallback);
 							contentView.postDelayed(asyncRefreshPartialRunnable, 10_000);
+						}else{
+							prevData=null;
+							prevDisplayItems=null;
 						}
 						filterStatuses(result.descendants);
 						filterStatuses(result.ancestors);
@@ -160,9 +177,33 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 						dataLoaded();
 						if(refreshing){
 							refreshDone();
-							adapter.notifyDataSetChanged();
+							DiffUtil.calculateDiff(new DiffUtil.Callback(){
+								@Override
+								public int getOldListSize(){
+									return prevDisplayItems.size();
+								}
+
+								@Override
+								public int getNewListSize(){
+									return displayItems.size();
+								}
+
+								@Override
+								public boolean areItemsTheSame(int oldItemPosition, int newItemPosition){
+									//return prevData.get(oldItemPosition).id.equals(data.get(newItemPosition).id);
+									StatusDisplayItem oldItem=prevDisplayItems.get(oldItemPosition);
+									StatusDisplayItem newItem=displayItems.get(newItemPosition);
+									return oldItem.parentID.equals(newItem.parentID) && oldItem.index==newItem.index && oldItem.getType()==newItem.getType();
+								}
+
+								@Override
+								public boolean areContentsTheSame(int oldItemPosition, int newItemPosition){
+									return true;
+								}
+							}).dispatchUpdatesTo(adapter);
+						}else{
+							list.scrollToPosition(displayItems.size()-count);
 						}
-						list.scrollToPosition(displayItems.size()-count);
 						setRefreshEnabled(true);
 					}
 				})
@@ -254,6 +295,29 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
 		super.onApplyWindowInsets(UiUtils.applyBottomInsetToFixedView(replyContainer, insets));
+	}
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+		if(BuildConfig.DEBUG){
+			menu.add("Simulate new replies");
+		}
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+		if(BuildConfig.DEBUG){
+			ArrayList<Status> toRemove=new ArrayList<>();
+			Random r=ThreadLocalRandom.current();
+			for(Status s:data){
+				if(s!=mainStatus && r.nextBoolean())
+					toRemove.add(s);
+			}
+			for(Status s:toRemove)
+				removeStatus(s);
+			showMoreRepliesSnackbar();
+		}
+		return true;
 	}
 
 	private void openReply(){
