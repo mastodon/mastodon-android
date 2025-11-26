@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -227,7 +228,16 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 		replyButtonAva=replyButton.findViewById(R.id.avatar);
 		replyButton.setOutlineProvider(OutlineProviders.roundedRect(20));
 		replyButton.setClipToOutline(true);
-		replyButtonText.setText(getString(R.string.reply_to_user, mainStatus.account.displayName));
+		if(GlobalUserPreferences.customEmojiInNames){
+			SpannableStringBuilder ssb=new SpannableStringBuilder(getString(R.string.reply_to_user, "{name}"));
+			SpannableStringBuilder name=HtmlParser.parseCustomEmoji(mainStatus.account.displayName, mainStatus.account.emojis);
+			int index=ssb.toString().indexOf("{name}");
+			ssb.replace(index, index+6, name);
+			replyButtonText.setText(ssb);
+			UiUtils.loadCustomEmojiInTextView(replyButtonText);
+		}else{
+			replyButtonText.setText(getString(R.string.reply_to_user, mainStatus.account.displayName));
+		}
 		replyButtonAva.setOutlineProvider(OutlineProviders.OVAL);
 		replyButtonAva.setClipToOutline(true);
 		replyButton.setOnClickListener(v->openReply());
