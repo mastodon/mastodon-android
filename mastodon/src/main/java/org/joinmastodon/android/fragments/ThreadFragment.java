@@ -142,17 +142,14 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 						currentRequest=null;
 						if(getActivity()==null)
 							return;
-						final ArrayList<Status> prevData;
 						final ArrayList<StatusDisplayItem> prevDisplayItems;
 						if(refreshing){
-							prevData=new ArrayList<>(data);
 							prevDisplayItems=new ArrayList<>(displayItems);
 							data.clear();
 							displayItems.clear();
 							data.add(mainStatus);
 							onAppendItems(Collections.singletonList(mainStatus));
 						}else if(result.asyncRefresh!=null){
-							prevData=null;
 							prevDisplayItems=null;
 							if(BuildConfig.DEBUG)
 								Toast.makeText(getActivity(), "Starting async refresh", Toast.LENGTH_SHORT).show();
@@ -160,7 +157,6 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 							AccountSessionManager.get(accountID).getApiController().startPollingAsyncRefresh(result.asyncRefresh, asyncRefreshCallback);
 							contentView.postDelayed(asyncRefreshPartialRunnable, 10_000);
 						}else{
-							prevData=null;
 							prevDisplayItems=null;
 						}
 						filterStatuses(result.descendants);
@@ -190,7 +186,6 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 
 								@Override
 								public boolean areItemsTheSame(int oldItemPosition, int newItemPosition){
-									//return prevData.get(oldItemPosition).id.equals(data.get(newItemPosition).id);
 									StatusDisplayItem oldItem=prevDisplayItems.get(oldItemPosition);
 									StatusDisplayItem newItem=displayItems.get(newItemPosition);
 									return oldItem.parentID.equals(newItem.parentID) && oldItem.index==newItem.index && oldItem.getType()==newItem.getType();
