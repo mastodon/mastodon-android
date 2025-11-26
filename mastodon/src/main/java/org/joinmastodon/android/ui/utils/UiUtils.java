@@ -251,6 +251,10 @@ public class UiUtils{
 		}
 	}
 
+	public static String formatDateLong(ZonedDateTime dt){
+		return dateFormatterShortWithYear.format(dt);
+	}
+
 	public static String formatTimeLeft(Context context, Instant instant){
 		long t=instant.toEpochMilli();
 		long now=System.currentTimeMillis();
