@@ -1,5 +1,8 @@
 package org.joinmastodon.android.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.app.assist.AssistContent;
 import android.content.res.ColorStateList;
 import android.graphics.Canvas;
@@ -9,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.util.Property;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -45,6 +49,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -52,12 +57,15 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
+import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.utils.V;
@@ -74,6 +82,23 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 	private Snackbar moreRepliesSnackbar;
 	private Runnable asyncRefreshPartialRunnable=this::checkAsyncRefreshAndMaybeShowSnackbar;
 	private int prevNewRepliesCount;
+	private HashSet<String> newReplyIDs=new HashSet<>();
+	private boolean highlightDecorationAdded=false;
+	private NewRepliesHighlightDecoration highlightDecoration=new NewRepliesHighlightDecoration();
+	private float highlightAlpha=0;
+	private Animator highlightAlphaAnimator;
+	private final Property<Void, Float> newRepliesHighlightProperty=new Property<>(Float.class, "fdsafdsa"){
+		@Override
+		public Float get(Void object){
+			return highlightAlpha;
+		}
+
+		@Override
+		public void set(Void object, Float value){
+			highlightAlpha=value;
+			list.invalidate();
+		}
+	};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -174,7 +199,7 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 						dataLoaded();
 						if(refreshing){
 							refreshDone();
-							DiffUtil.calculateDiff(new DiffUtil.Callback(){
+							DiffUtil.DiffResult diff=DiffUtil.calculateDiff(new DiffUtil.Callback(){
 								@Override
 								public int getOldListSize(){
 									return prevDisplayItems.size();
@@ -196,7 +221,46 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 								public boolean areContentsTheSame(int oldItemPosition, int newItemPosition){
 									return true;
 								}
-							}).dispatchUpdatesTo(adapter);
+							});
+							newReplyIDs.clear();
+							diff.dispatchUpdatesTo(new ListUpdateCallback(){
+								@Override
+								public void onInserted(int position, int count){
+									newReplyIDs.add(displayItems.get(position).parentID);
+								}
+
+								@Override
+								public void onRemoved(int position, int count){}
+
+								@Override
+								public void onMoved(int fromPosition, int toPosition){}
+
+								@Override
+								public void onChanged(int position, int count, @Nullable Object payload){}
+							});
+							diff.dispatchUpdatesTo(adapter);
+							if(!newReplyIDs.isEmpty()){
+								if(highlightAlphaAnimator!=null)
+									highlightAlphaAnimator.cancel();
+								if(!highlightDecorationAdded){
+									highlightDecorationAdded=true;
+									list.addItemDecoration(highlightDecoration, 0);
+								}
+								highlightAlpha=0.25f;
+								highlightAlphaAnimator=ObjectAnimator.ofFloat(null, newRepliesHighlightProperty, 0.25f, 0f);
+								highlightAlphaAnimator.setDuration(2000);
+								highlightAlphaAnimator.setStartDelay(500);
+								highlightAlphaAnimator.setInterpolator(CubicBezierInterpolator.DEFAULT);
+								highlightAlphaAnimator.addListener(new AnimatorListenerAdapter(){
+									@Override
+									public void onAnimationEnd(Animator animation){
+										highlightAlphaAnimator=null;
+										highlightDecorationAdded=false;
+										list.removeItemDecoration(highlightDecoration);
+									}
+								});
+								highlightAlphaAnimator.start();
+							}
 						}else{
 							list.scrollToPosition(displayItems.size()-count);
 						}
@@ -469,6 +533,26 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 					c.drawLine(lineX, top, lineX, bottom, paint);
 				}
 				c.restore();
+			}
+		}
+	}
+
+	private class NewRepliesHighlightDecoration extends RecyclerView.ItemDecoration{
+		private final Paint paint=new Paint();
+
+		@Override
+		public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+			paint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary));
+			for(int i=0;i<parent.getChildCount();i++){
+				View child=parent.getChildAt(i);
+				if(!(parent.getChildViewHolder(child) instanceof StatusDisplayItem.Holder<?> holder))
+					continue;
+				String id=holder.getItemID();
+				if(newReplyIDs.contains(id)){
+					paint.setAlpha(Math.round(highlightAlpha*child.getAlpha()*255));
+					parent.getDecoratedBoundsWithMargins(child, tmpRect);
+					c.drawRect(tmpRect, paint);
+				}
 			}
 		}
 	}
