@@ -318,7 +318,25 @@
 	<string name="profile_featured">Destacat</string>
 	<string name="profile_timeline">Línia de temps</string>
 	<string name="profile_endorsed_accounts">Comptes</string>
+	<string name="verified_link">Enllaç verificat</string>
+	<string name="show">Mostra</string>
+	<string name="hide">Amaga</string>
+	<string name="pick_server">Tria un altre servidor</string>
+	<string name="signup_or_login">o bé</string>
+	<string name="learn_more">Més informació</string>
+	<string name="welcome_to_mastodon">Et donem la benvinguda a Mastodon</string>
+	<string name="welcome_paragraph1">Mastodon és una xarxa social descentralitzada, el que significa que cap empresa la controla. La formen molts servidors gestionats de manera independent, tots interconnectats.</string>
+	<string name="what_are_servers">Què son els servidors?</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">Imatge, %s</string>
+	<string name="attachment_description_video">Vídeo, %s</string>
+	<string name="attachment_description_audio">Àudio, %s</string>
+	<string name="attachment_description_unknown">Fitxer, %s</string>
+	<string name="attachment_type_image">Imatge</string>
+	<string name="attachment_type_video">Vídeo</string>
+	<string name="attachment_type_audio">Àudio</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Fitxer</string>
 	<string name="attachment_x_percent_uploaded">%d%% pujats</string>
 	<string name="add_poll_option">Afegeix una opció d\'enquesta</string>
 	<string name="poll_length">Durada de l\'enquesta</string>
@@ -340,31 +358,122 @@
 	<string name="media_hidden">Contingut amagat</string>
 	<string name="post_hidden">Publicació amagada</string>
 	<string name="report_title_post">Denuncia la publicació</string>
+	<string name="forward_report_explanation">El compte és d\'un altre servidor. Vols enviar-hi també una còpia anònima de l\'informe?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Reenvia a %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<plurals name="x_weeks">
+		<item quantity="one">%d setmana</item>
+		<item quantity="other">%d setmanes</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s a les %2$s</string>
+	<string name="today">avui</string>
+	<string name="yesterday">ahir</string>
+	<string name="tomorrow">demà</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Acaba %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Les notificacionses reprendran %s.</string>
+	<string name="resume_notifications_now">Reprèn ara</string>
+	<string name="count_three">Tres</string>
+	<string name="count_four">Quatre</string>
+	<string name="alt_text_reminder_post_anyway">Publica</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Voleu deixar de seguir %s?</string>
+	<string name="filter_active">Actiu</string>
+	<string name="filter_inactive">Inactiu</string>
+	<string name="settings_add_filter">Afegeix un filtre</string>
+	<string name="settings_edit_filter">Edita el filtre</string>
+	<string name="settings_filter_duration">Durada</string>
+	<string name="settings_filter_muted_words">Paraules silenciades</string>
+	<string name="settings_filter_show_cw">Mostra l\'avís de contingut</string>
+	<string name="settings_delete_filter">Elimina el filtre</string>
+	<string name="filter_duration_forever">Per sempre</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Acaba %s</string>
+	<string name="filter_context_home_lists">Inici i llistes</string>
+	<string name="filter_context_notifications">Notificacions</string>
 	<string name="filter_context_public_timelines">Línies de temps públiques</string>
+	<string name="filter_context_threads_replies">Fils i respostes</string>
 	<string name="filter_context_profiles">Perfils</string>
+	<string name="settings_filter_title">Títol</string>
+	<string name="settings_delete_filter_title">Voleu eliminar el filtre «%s»?</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="clear_all">Esborra-ho tot</string>
+	<string name="search_open_url">Obre l\'enllaç a Mastodon</string>
+	<string name="posts_matching_hashtag">Publicacions amb «%s»</string>
+	<string name="search_go_to_account">Ves a %s</string>
+	<string name="posts_matching_string">Publicacions amb «%s»</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">fa %d s</string>
+	<string name="time_minutes_ago_short">fa %d min</string>
+	<string name="time_hours_ago_short">fa %d h</string>
+	<string name="time_days_ago_short">fa %d d</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Tradueix del: %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Traduït del: %1$s fent servir %2$s</string>
+	<string name="translation_show_original">Mostra l\'original</string>
 	<string name="timeline_following">Inici</string>
+	<string name="lists">Llistes</string>
+	<string name="followed_hashtags">Etiquetes seguides</string>
+	<string name="manage_lists">Gestionar les llistes</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menú desplegable</string>
+	<string name="edit_list">Edita la llista</string>
+	<string name="list_members">Membres de la llista</string>
+	<string name="delete_list">Elimina la llista</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Voleu eliminar «%s»?</string>
+	<string name="list_exclusive">Amaga els membres en la llista de seguidors</string>
+	<string name="list_name">Nom de la llista</string>
+	<string name="list_replies_no_one">Ningú</string>
+	<string name="list_replies_members">Membres de la llista</string>
+	<string name="list_replies_anyone">A qualsevol que segueixi</string>
+	<string name="confirm_remove_list_members">Voleu eliminar els membres?</string>
+	<string name="remove">Elimina</string>
+	<string name="add_list_member">Afegeix un membre</string>
+	<string name="search_among_people_you_follow">Cerqueu entre les persones que seguiu</string>
+	<string name="add_user_to_list">Afegeix/elimina de les llistes…</string>
+	<string name="add_user_to_list_title">Afegeix a la llista</string>
 	<!-- %s is a username -->
+	<string name="list_no_members">Encara no hi ha membres</string>
+	<string name="non_mutual_sheet_title">Hola, connexió nova!</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="mute_user_confirm_title">Voleu silenciar l\'usuari?</string>
+	<string name="block_user_confirm_title">Voleu blocar l\'usuari?</string>
+	<string name="block_domain_confirm_title">Voleu blocar el domini?</string>
+	<string name="do_block_server">Bloca el servidor</string>
+	<string name="block_user_x_instead">En lloc d\'això, bloca @%s</string>
+	<string name="handle_help_title">Què forma un identificador?</string>
+	<string name="handle_title">El seu identificador</string>
+	<string name="handle_username_explanation">El seu identificador únic al seu servidor. És possible trobar usuaris amb el mateix nom d\'usuari a diferents servidors.</string>
+	<string name="handle_title_own">El vostre identificador</string>
+	<string name="handle_username_explanation_own">El vostre identificador únic en aquest servidor. Hi pot haver usuaris amb el mateix nom a diferents servidors.</string>
+	<string name="server">Servidor</string>
+	<string name="what_is_activitypub_title">Què és l\'ActivityPub?</string>
+	<string name="what_is_activitypub">L\'ActivityPub és com la llengua que el Mastodon parla amb altres xarxes socials.\n\nPermet connectar i interactuar amb gent no només a Mastodon, sinó també arreu de diferents aplicacions socials.</string>
+	<string name="handle_copied">S\'ha copiat l\'identificador al porta-retalls.</string>
+	<string name="qr_code">Codi QR</string>
+	<string name="scan_qr_code">Escaneja un codi QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">S\'he desat</string>
+	<string name="image_saved">S\'ha desat la imatge.</string>
+	<string name="video_saved">S\'ha desat el vídeo.</string>
+	<string name="view_file">Mostra</string>
+	<string name="share_sheet_preview_profile">%s en Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s en Mastodon: «%2$s»</string>
 	<string name="copy_profile_link">Copia l\'enllaç al perfil</string>
+	<string name="in_app_browser">Navegador intern de l\'aplicació</string>
+	<string name="system_browser">Navegador del sistema</string>
+	<string name="add_muted_word_short">Afegeix una paraula</string>
 	<string name="tab_home">Inici</string>
 	<string name="tab_search">Explora</string>
 	<string name="tab_profile">Perfil</string>
 	<string name="pin_post">Fixa en el perfil</string>
+	<string name="unpin_post">Desfixa del perfil</string>
 	<!-- %s is the username -->
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
