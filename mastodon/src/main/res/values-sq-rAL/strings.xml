@@ -12,6 +12,7 @@
 	<string name="notifications">Njoftime</string>
 	<string name="user_followed_you">%s filloi t’ju ndjekë</string>
 	<string name="user_sent_follow_request">%s ju dërgoi një kërkesë për t’ju ndjekur</string>
+	<string name="notification_boosted">%s përforcoi:</string>
 	<string name="settings">Rregullime</string>
 	<string name="publish">Botojeni</string>
 	<string name="discard_draft">Të hidhet tej skica?</string>
@@ -134,6 +135,7 @@
 	<string name="mute_user_explain">S’do të shihni postimet e tyre. Ende mund t’ju ndjekin dhe të shohin postimet tuaja dhe s’do ta dinë që janë heshtuar.</string>
 	<string name="block_user_explain">S’do të shihni postime prej tyre. S’do të jenë në gjendje të shohin postimet tuaja, apo t’ju ndjekin. Do të jenë në gjendje të shohin se janë bllokuar.</string>
 	<string name="report_personal_title">S’doni ta shihni këtë?</string>
+	<string name="report_personal_subtitle">Ja mundësitë tuaja për të kontrolluar ç’shihni në Mastodon:</string>
 	<string name="back">Mbprasht</string>
 	<string name="search_communities">Emër ose URL shërbyesi</string>
 	<string name="instance_rules_title">Rregulla shërbyesi</string>
@@ -223,6 +225,7 @@
 	<string name="local_timeline">Prurje e drejtpërdrejtë</string>
 	<string name="trending_posts_info_banner">Këto janë postimet që po fitojnë tërheqje në qoshen tuaj të Mastodon-it.</string>
 	<!-- %s is the server domain -->
+	<string name="local_timeline_info_banner">Këto janë krejt postimet nga krejt përdoruesit në shërbyesin tuaj (%s).</string>
 	<string name="see_new_posts">Postime të reja</string>
 	<string name="follow_back">Ndiqe gjithashtu</string>
 	<string name="button_follow_pending">Në pritje të shqyrtimit</string>
@@ -373,6 +376,7 @@
 	<string name="language_system">Sistem</string>
 	<string name="language_detecting">Pikasje gjuhe</string>
 	<string name="language_cant_detect">S’arrihet të pikaset gjuhë</string>
+	<string name="language_detected">U pikas</string>
 	<string name="media_hidden">Me media të fshehur</string>
 	<string name="post_hidden">Postim i fshehur</string>
 	<string name="report_title_post">Raportoni postim</string>
@@ -380,6 +384,10 @@
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">Përcilljani %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="reported">Raportuar</string>
+	<string name="report_unfollow_explanation">Për të mos parë më postimet e tyre te prurja juaj e kreut, ndalni ndjekjen e tyre.</string>
+	<string name="muted_user">U heshtua %s</string>
+	<string name="blocked_user">U bllokua %s</string>
 	<string name="mark_all_notifications_read">Vëru të tërave shenjë si të lexuara</string>
 	<string name="settings_filters">Filtra</string>
 	<string name="settings_server_explanation">Përmbledhje, rregulla, moderatorë</string>
@@ -410,11 +418,14 @@
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
 	<string name="pause_notifications_ends">Përfundon më %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_banner">Njoftimet do të rifillojnë më %s.</string>
 	<string name="resume_notifications_now">Rimerre tani</string>
 	<string name="open_system_notification_settings">Kaloni te rregullime njoftimesh</string>
 	<string name="about_server">Mbi</string>
 	<string name="server_rules">Rregulla</string>
 	<string name="server_administrator">Përgjegjës</string>
+	<string name="send_email_to_server_admin">Dërgojini mesazh përgjegjësit</string>
+	<string name="notifications_disabled_in_system">Që të shihni përditësime nga kudo, aktivizoni njoftime që nga rregullimet e pajisjes tuaj.</string>
 	<string name="settings_even_more">Edhe më tepër rregullime</string>
 	<string name="settings_show_cws">Shfaq sinjalizime lënde</string>
 	<string name="settings_hide_sensitive_media">Mbuloji mediat që kanë shenjë si rezervat</string>
@@ -481,8 +492,13 @@
 		<item quantity="one">Të fshihet %d fjalë?</item>
 		<item quantity="other">Të fshihen %d fjalë?</item>
 	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d i përzgjedhur</item>
+		<item quantity="other">%d të përzgjedhur</item>
+	</plurals>
 	<string name="required_form_field_blank">S’mund të jetë e zbrazët</string>
 	<string name="filter_word_already_in_list">Tashmë te lista</string>
+	<string name="app_update_version">Version %s</string>
 	<string name="downloading_update">Po shkarkohet (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">Ka përputhje me filtrin “%s”</string>
@@ -503,7 +519,14 @@
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Përkthyer nga %1$s duke përdorur %2$s</string>
 	<string name="translation_show_original">Shfaq origjinalin</string>
+	<string name="translation_failed">Përkthimi dështoi. Ndoshta përgjegjësi s’ka aktivizuar përkthimet në këtë shërbyes, ose ky shërbyes po xhiron një version të vjetër të Mastodon-it, në të cilin përkthimet s’mbuloheshin ende.</string>
 	<string name="settings_privacy">Privatësi dhe shtrirje</string>
+	<string name="settings_discoverable">Profilin dhe postimet bëji objekt të algoritmeve të zbulimit</string>
+	<string name="settings_indexable">Përfshi postime publike në përfundime kërkimi</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d pjesëmarrës</item>
+		<item quantity="other">%,d pjesëmarrës</item>
+	</plurals>
 	<plurals name="x_posts_today">
 		<item quantity="one">%,d postim sot</item>
 		<item quantity="other">%,d postime sot</item>
@@ -590,6 +613,7 @@
 	<string name="block_domain_confirm_title">Të bllokohet përkatësia?</string>
 	<string name="do_block_server">Bllokoje shërbyesin</string>
 	<string name="server_cant_mention_or_follow_you">Askush prej këtij shërbyesi s’mund t’ju ndjekë.</string>
+	<string name="server_can_interact_with_older">Persona nga ky shërbyes mund të ndërveprojnë me postimet tuaja të vjetra.</string>
 	<string name="unblocked_domain_x">U zhbllokua përkatësi %s</string>
 	<string name="server">Shërbyes</string>
 	<string name="what_is_activitypub_title">Ç’është ActivityPub?</string>
@@ -650,6 +674,7 @@
 	<string name="currency">Monedhë</string>
 	<string name="donation_success_share">Përhapni fjalën</string>
 	<string name="donation_success_title">Faleminderit për kontributiin tuaj!</string>
+	<string name="donation_success_subtitle">Së shpejti duhet të merrni një email që ripohon dhurimin tuaj.</string>
 	<string name="donation_server_error">Na ndjeni, ndodhi një gabim dhe s’qemë në gjendje të përpunojmë dhurimin tuaj.\n\nJu lutemi, riprovoni pas pak minutash.</string>
 	<string name="settings_donate">Dhuroni për Mastodon-in</string>
 	<string name="settings_manage_donations">Administroni dhurime</string>
@@ -671,6 +696,7 @@
 	<string name="own_poll_ended">Pyetësori juaj ka përfunduar</string>
 	<string name="user_just_posted">%s sapo postoi</string>
 	<string name="user_edited_post">%s përpunoi një një postim me të cilin keni ndërvepruar</string>
+	<string name="relationship_severance_account_suspension">Një përgjegjës nga %1$s ka pezulluar %2$s, që do të thotë se s’mund të merrni më përditësime prej tij, apo të ndërveproni me të.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<plurals name="x_accounts">
 		<item quantity="one">%,d llogari</item>
@@ -741,6 +767,7 @@
 	<string name="report_reason_legal_subtitle">Besoni se cenon ligjin e vendit tuaj, ose atij të shërbyesit</string>
 	<string name="date_of_birth">Datëlindje</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="open_link">Hape</string>
 	<string name="copy">Kopjoje</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<string name="quote_post_unavailable">Postim jo i passhëm</string>
@@ -771,6 +798,7 @@
 	<string name="cannot_quote_post_followers_only">Këtë postim mund ta citojnë vetëm ndjekës</string>
 	<string name="compose_hint_quote">Shtoni diçka te biseda</string>
 	<string name="cancel_quote">Anuloje citimin</string>
+	<string name="unlisted_quote_alert">Kur citoni një postim publik të heshtuar, postimi juaj do të kalohet i fshehur te rrjedha kohore e gjërave në modë.</string>
 	<string name="settings_posting_defaults">Parazgjedhje postimesh</string>
 	<string name="default_post_visibility">Dukshmëri postimi</string>
 	<string name="create_quote_manual_approval">Kërkesë për citim</string>
@@ -783,9 +811,11 @@
 	<string name="remove_quote_confirm_title">Të hiqet postimi?</string>
 	<string name="remove_quote_confirm">Ky veprim s’mund të zhbëhet.</string>
 	<string name="remove_quote_button">Hiqe postimin</string>
+	<string name="settings_posting_defaults_explanation">Këto rregullime do të përdoren si parazgjedhje, kur krijoni postime të reja, por mund t’i përpunoni për postim, brenda hartuesit.</string>
 	<string name="cant_quote_in_private_title">Citimet s’mund të trupëzohen në përmendje private</string>
 	<string name="cant_quote_in_private">Nëse ruani rregullimet e tanishme, citimi i trupëzuar do të shndërrohet në një lidhje.</string>
 	<string name="quote_followers_only_confirm_title">Të ndahet me ndjekës dhe përdorues të përmendur?</string>
+	<string name="quote_followers_only_confirm">Personi që po citoni dhe përmendje të tjera do të njoftohen dhe do të jenë në gjendje të shohin postimin tuaj, edhe pse nuk ju ndjekin.</string>
 	<string name="quote_followers_only_publish">Botojeni postimin</string>
 	<string name="quote_followers_only_cancel">Mbrapsht te përpunimi</string>
 	<string name="quote_followers_only_dont_show_again">Mos e shfaq më këtë mesazh</string>
