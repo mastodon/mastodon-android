@@ -1,6 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">Logáil isteach</string>
+	<string name="next">Ar Aghaidh</string>
+	<string name="loading_instance">Ag aisghabháil eolais an fhreastalaí…</string>
+	<string name="error">Earráid</string>
+	<string name="not_a_mastodon_instance">Ní cosúil gur freastalaí Mastodon é %s.</string>
+	<string name="ok">Ceart go leor</string>
+	<string name="preparing_auth">Ag ullmhú don fhíordheimhniú…</string>
+	<string name="finishing_auth">Ag críochnú an fhíordheimhnithe…</string>
+	<string name="in_reply_to">mar fhreagra ar %s</string>
+	<string name="notifications">Fógraí</string>
+	<string name="user_followed_you">Lean %s thú</string>
+	<string name="user_sent_follow_request">Chuir %s iarratas leanúna chugat</string>
+	<string name="user_favorited">%s curtha i bhfabhar:</string>
+	<string name="share_toot_title">Comhroinn</string>
+	<string name="settings">Socruithe</string>
+	<string name="publish">Foilsigh</string>
+	<string name="cancel">Cealaigh</string>
+	<plurals name="followers">
+		<item quantity="one">leantóir</item>
+		<item quantity="two">leantóirí</item>
+		<item quantity="few">leantóirí</item>
+		<item quantity="many">leantóirí</item>
+		<item quantity="other">leantóirí</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">ag leanúint</item>
+		<item quantity="two">ag leanúint</item>
+		<item quantity="few">ag leanúint</item>
+		<item quantity="many">ag leanúint</item>
+		<item quantity="other">ag leanúint</item>
+	</plurals>
+	<string name="posts">Poist</string>
+	<string name="posts_and_replies">Poist agus freagraí</string>
+	<string name="media">Meáin</string>
+	<string name="profile_about">Maidir</string>
+	<string name="button_follow">Lean</string>
+	<string name="button_following">Ag leanúint</string>
+	<string name="edit_profile">Cuir próifíl in eagar</string>
+	<string name="share_user">Comhroinn próifíl trí…</string>
+	<string name="mute_user">Balbhaigh %s</string>
+	<string name="block_user">Bloc %s</string>
+	<string name="unblock_user">Díbhlocáil %s</string>
+	<string name="block_domain">Bloc %s</string>
+	<string name="unblock_domain">Díbhlocáil %s</string>
+	<string name="done">Déanta</string>
+	<string name="loading">Ag lódáil…</string>
+	<string name="field_label">Lipéad</string>
+	<string name="field_content">Ábhar</string>
+	<string name="saving">Ag sábháil…</string>
+	<string name="post_from_user">Postáil ó %s</string>
+	<string name="poll_option_hint">Rogha %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d nóiméad</item>
+		<item quantity="two">%d nóiméad</item>
+		<item quantity="few">%d nóiméad</item>
+		<item quantity="many">%d nóiméad</item>
+		<item quantity="other">%d nóiméad</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d uair an chloig</item>
+		<item quantity="two">%d uair an chloig</item>
+		<item quantity="few">%d uair an chloig</item>
+		<item quantity="many">%d uair an chloig</item>
+		<item quantity="other">%d uair an chloig</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d lá</item>
+		<item quantity="two">%d laethanta</item>
+		<item quantity="few">%d laethanta</item>
+		<item quantity="many">%d laethanta</item>
+		<item quantity="other">%d laethanta</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d soicind ar chlé</item>
+		<item quantity="two">%d soicindí fágtha</item>
+		<item quantity="few">%d soicindí fágtha</item>
+		<item quantity="many">%d soicindí fágtha</item>
+		<item quantity="other">%d soicindí fágtha</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d nóiméad fágtha</item>
+		<item quantity="two">%d nóiméad fágtha</item>
+		<item quantity="few">%d nóiméad fágtha</item>
+		<item quantity="many">%d nóiméad fágtha</item>
+		<item quantity="other">%d nóiméad fágtha</item>
+	</plurals>
 	<!-- %s is the email address -->
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
