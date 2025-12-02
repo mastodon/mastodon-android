@@ -2,41 +2,792 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 	<string name="log_in">Hyni</string>
 	<string name="next">Pasuesi</string>
+	<string name="loading_instance">Po merren hollësi shërbyesi…</string>
 	<string name="error">Gabim</string>
+	<string name="not_a_mastodon_instance">%s s’duket se është shërbyes Mastodon.</string>
 	<string name="ok">OK</string>
+	<string name="preparing_auth">Po përgatitet për mirëfilltësim…</string>
+	<string name="finishing_auth">Po përfundohet mirëfilltësimi…</string>
+	<string name="in_reply_to">si përgjigje për %s</string>
+	<string name="notifications">Njoftime</string>
+	<string name="user_followed_you">%s filloi t’ju ndjekë</string>
+	<string name="user_sent_follow_request">%s ju dërgoi një kërkesë për t’ju ndjekur</string>
+	<string name="settings">Rregullime</string>
+	<string name="publish">Botojeni</string>
+	<string name="discard_draft">Të hidhet tej skica?</string>
+	<string name="discard">Hidhe tej</string>
+	<string name="cancel">Anuloje</string>
+	<plurals name="followers">
+		<item quantity="one">ndjekës</item>
+		<item quantity="other">ndjekës</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">ndjekje</item>
+		<item quantity="other">ndjekje</item>
+	</plurals>
+	<string name="posts">Postime</string>
+	<string name="posts_and_replies">Postime dhe përgjigje</string>
+	<string name="media">Media</string>
+	<string name="profile_about">Mbi</string>
+	<string name="button_follow">Ndiqeni</string>
+	<string name="button_following">Ndjekur prej jush</string>
+	<string name="edit_profile">Përpunoni profil</string>
+	<string name="share_user">Ndajeni profilin me të tjerë përmes…</string>
+	<string name="mute_user">Heshtoje %s</string>
+	<string name="unmute_user">Hiqe heshtimin për %s</string>
+	<string name="block_user">Bllokoje %s</string>
+	<string name="unblock_user">Zhbllokoje %s</string>
+	<string name="report_user">Raportoni për %s</string>
+	<string name="block_domain">Bllokoje %s</string>
+	<string name="unblock_domain">Zhbllokoje %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d postim</item>
+		<item quantity="other">%,d postime</item>
+	</plurals>
+	<string name="profile_joined">U bë pjesë më</string>
+	<string name="done">U bë</string>
+	<string name="loading">Po ngarkohet…</string>
+	<string name="field_label">Etiketë</string>
+	<string name="field_content">Lëndë</string>
+	<string name="saving">Po ruhet…</string>
+	<string name="post_from_user">Postim nga %s</string>
+	<string name="poll_option_hint">Mundësi %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minutë</item>
+		<item quantity="other">%d minuta</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d orë</item>
+		<item quantity="other">%d orë</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d ditë</item>
+		<item quantity="other">%d ditë</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">Edhe 1 sekondë</item>
+		<item quantity="other">Edhe %d sekonda</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">Edhe %d minutë</item>
+		<item quantity="other">Edhe %d minuta</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">Edhe %d orë</item>
+		<item quantity="other">Edhe %d orë</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">Edhe %d ditë</item>
+		<item quantity="other">Edhe %d ditë</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d votë</item>
+		<item quantity="other">%,d vota</item>
+	</plurals>
+	<string name="poll_closed">I mbyllur</string>
+	<string name="do_mute">Heshtoje</string>
+	<string name="do_block">Bllokoje</string>
+	<string name="button_blocked">U bllokua</string>
+	<string name="action_vote">Votoni</string>
+	<string name="confirm">Ripohojeni</string>
+	<string name="delete">Fshije</string>
+	<string name="confirm_delete_title">Fshije postimin</string>
+	<string name="confirm_delete">Jeni i sigurt se doni të fshihet ky postim?</string>
+	<string name="deleting">Po fshihet…</string>
+	<string name="notification_channel_audio_player">Luajtje audioje</string>
+	<string name="play">Luaje</string>
+	<string name="pause">Ndalesë</string>
+	<string name="log_out">Dilni</string>
+	<string name="add_account">Shtoni llogari</string>
+	<string name="search_hint">Kërko</string>
+	<string name="hashtags">Hashtag-ë</string>
+	<string name="news">Lajme</string>
+	<string name="for_you">Për ju</string>
+	<string name="all_notifications">Gjithçka</string>
+	<string name="mentions">Përmendje</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">Po flet %1 person</item>
+		<item quantity="other">Po flasin %1 persona</item>
+	</plurals>
+	<string name="report_choose_reason">Ç’nuk shkon me këtë postim?</string>
+	<string name="report_choose_reason_account">Ç’nuk shkon me %s?</string>
+	<string name="report_choose_reason_subtitle">Përzgjidhni përkimin më të mirë</string>
+	<string name="report_reason_personal">S’më pëlqen</string>
+	<string name="report_reason_personal_subtitle">S’është diçka që do të donit ta shihni</string>
+	<string name="report_reason_spam">Është mesazh i padëshiruar</string>
+	<string name="report_reason_spam_subtitle">Lidhje dashakeqe, angazhim i rremë, ose përgjigje të përsëritura</string>
+	<string name="report_reason_violation">Cenon rregulla shërbyesi</string>
+	<string name="report_reason_violation_subtitle">Jeni i ndërgjegjshëm që cenon rregulla specifike</string>
+	<string name="report_reason_other">Bëhet fjalë për diçka tjetër</string>
+	<string name="report_reason_other_subtitle">Problemi s’hyn te kategori të tjera</string>
+	<string name="report_choose_rule">Cilat rregulla po cenohen?</string>
+	<string name="report_choose_rule_subtitle">Përzgjidhni gjithçka që ka vend</string>
+	<string name="report_choose_posts">A ka postime që dëshmojnë problemet e këtij raporti?</string>
+	<string name="report_choose_posts_subtitle">Përzgjidhni gjithçka që ka vend</string>
+	<string name="report_comment_title">A ka gjë tjetër që mendoni se duhet ta dimë?</string>
+	<string name="report_comment_hint">Komente shtesë</string>
+	<string name="sending_report">Po dërgohet raportimi…</string>
+	<string name="report_sent_title">Faleminderit për raportimin, do ta shohim.</string>
+	<string name="report_sent_subtitle">Teksa e shqyrtojmë, mund të ndërmerrni veprim kundër %s:</string>
+	<string name="unfollow_user">Hiqe ndjekjen e %s</string>
+	<string name="unfollow">Resht së ndjekuri</string>
+	<string name="mute_user_explain">S’do të shihni postimet e tyre. Ende mund t’ju ndjekin dhe të shohin postimet tuaja dhe s’do ta dinë që janë heshtuar.</string>
+	<string name="block_user_explain">S’do të shihni postime prej tyre. S’do të jenë në gjendje të shohin postimet tuaja, apo t’ju ndjekin. Do të jenë në gjendje të shohin se janë bllokuar.</string>
+	<string name="report_personal_title">S’doni ta shihni këtë?</string>
+	<string name="back">Mbprasht</string>
+	<string name="search_communities">Emër ose URL shërbyesi</string>
+	<string name="instance_rules_title">Rregulla shërbyesi</string>
+	<string name="instance_rules_subtitle">Duke vazhduar, pajtoheni të ndiqni rregullat vijuese të hartuara dhe të zbatuara nga moderatorët e %s.</string>
+	<string name="signup_title">Krijo llogari</string>
+	<string name="display_name">Emër</string>
+	<string name="username">Emër përdoruesi</string>
+	<string name="email">Email</string>
+	<string name="password">Fjalëkalim</string>
+	<string name="confirm_password">Ripohoni fjalëkalimin</string>
+	<string name="category_general">Të përgjithshme</string>
+	<string name="confirm_email_title">Shihni te email-et tuaj</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Që të verifikohet %s, prekni lidhjen që ju dërguam. Do të presim këtu.</string>
+	<string name="confirm_email_didnt_get">S’morët një lidhje?</string>
+	<string name="resend">Ridërgoje</string>
+	<string name="open_email_app">Hapni aplikacion email-esh</string>
+	<string name="resent_email">U dërgua email ripohimi</string>
+	<string name="compose_hint">Shtypni, ose ngjitni ç’keni në mendje</string>
+	<string name="content_warning">Sinjalizim lënde</string>
+	<string name="save">Ruaje</string>
+	<string name="add_alt_text">Shtoni tekst alternativ</string>
+	<string name="visibility_public">Publik</string>
+	<string name="visibility_followers_only">Ndjekës</string>
+	<string name="visibility_private">Përmendje private</string>
+	<string name="notification_type_follow">Ndjekës të rinj</string>
+	<string name="notification_type_favorite">Të parapëlqyer</string>
+	<string name="notification_type_reblog">Përforcime</string>
+	<string name="notification_type_mention">Përmendje</string>
+	<string name="notification_type_poll">Pyetësorë</string>
+	<string name="choose_account">Zgjidhni llogari</string>
+	<string name="err_not_logged_in">Ju lutemi, së pari bëni hyrjen në Mastodon</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">S’mund të shtoni më tepër se %d bashkëngjitje media</item>
+		<item quantity="other">S’mund të shtoni më tepër se %d bashkëngjitje media</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">Kartela %s është e një lloji të pambuluar</string>
+	<string name="media_attachment_too_big">Kartela %1$s tejkalon kufirin e madhësive prej %2$s MB</string>
+	<string name="settings_theme">Dukje</string>
+	<string name="theme_auto">Përdor dukje pajisjeje</string>
+	<string name="theme_light">E çelët</string>
+	<string name="theme_dark">E errët</string>
+	<string name="settings_behavior">Sjellje</string>
+	<string name="settings_gif">Luaji avatarët dhe emoxhit e animuara</string>
+	<string name="settings_custom_tabs">Hapi lidhjet në</string>
+	<string name="settings_notifications">Njoftime</string>
+	<string name="settings_contribute">Kontribuoni te Mastodon-i</string>
+	<string name="settings_tos">Kushte shërbimi</string>
+	<string name="settings_privacy_policy">Rregulla privatësie</string>
+	<string name="settings_clear_cache">Spastro fshehtinë mediash</string>
+	<string name="settings_app_version">Mastodon për Android v%1$s (%2$d)</string>
+	<string name="media_cache_cleared">Fshehtina e mediave u spastrua</string>
+	<string name="confirm_log_out">Të dilet nga %s?</string>
+	<string name="sensitive_content_explain">Autori i vuri shenjë këtij objekti media si me spec.</string>
+	<string name="avatar_description">Kaloni te profili i %s</string>
+	<string name="more_options">Më tepër mundësi</string>
+	<string name="new_post">Postim i ri</string>
+	<string name="button_reply">Përgjigjuni</string>
+	<string name="button_reblog">Përforcojeni</string>
+	<string name="button_favorite">I vini shenjë si të parapëlqyer</string>
+	<string name="media_no_description">Media pa përshkrim</string>
+	<string name="add_media">Shtoni media</string>
+	<string name="add_poll">Shtoni një pyetësor</string>
+	<string name="emoji">Emoxhi</string>
+	<string name="home_timeline">Rrjedhë kohore kreu</string>
+	<string name="my_profile">Profili im</string>
+	<string name="media_viewer">Parës mediash</string>
+	<string name="follow_user">Ndiqeni %s</string>
+	<string name="unfollowed_user">U hoq ndjekja për %s</string>
+	<string name="followed_user">S’e ndiqni %s</string>
+	<string name="following_user_requested">U kërkua ndjekje për %s</string>
+	<string name="open_in_browser">Hape në shfletues</string>
+	<string name="hide_boosts_from_user">Fshihi përforcimet</string>
+	<string name="show_boosts_from_user">Shfaq përforcime</string>
+	<string name="signup_reason">Pse doni të bëheni pjesë?</string>
+	<string name="signup_reason_note">Kjo do të na ndihmojë të shqyrtojmë aplikacionin tuaj.</string>
+	<string name="clear">Spastroje</string>
+	<string name="profile_header">Figurë kryeje</string>
+	<string name="profile_picture">Foto profili</string>
+	<string name="reorder">Rirenditi</string>
+	<string name="download">Shkarkoje</string>
+	<string name="permission_required">Leje e domosdoshme</string>
+	<string name="open_settings">Hap rregullimet</string>
+	<string name="error_saving_file">Gabim në ruajtje kartele</string>
+	<string name="downloading">Po shkarkohet…</string>
+	<string name="no_app_to_handle_action">S’ka aplikacion për të trajtuar këtë veprim</string>
+	<string name="local_timeline">Prurje e drejtpërdrejtë</string>
+	<string name="trending_posts_info_banner">Këto janë postimet që po fitojnë tërheqje në qoshen tuaj të Mastodon-it.</string>
 	<!-- %s is the server domain -->
+	<string name="see_new_posts">Postime të reja</string>
+	<string name="follow_back">Ndiqe gjithashtu</string>
+	<string name="button_follow_pending">Në pritje të shqyrtimit</string>
+	<string name="follows_you">Ju ndjek</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
+	<plurals name="x_followers">
+		<item quantity="one">%,d ndjekës</item>
+		<item quantity="other">%,d ndjekës</item>
+	</plurals>
+	<plurals name="x_following">
+		<item quantity="one">%,d ndjekje</item>
+		<item quantity="other">%,d ndjekje</item>
+	</plurals>
+	<plurals name="x_favorites">
+		<item quantity="one">%,d i parapëlqyer</item>
+		<item quantity="other">%,d të parapëlqyer</item>
+	</plurals>
+	<plurals name="x_reblogs">
+		<item quantity="one">%,d përforcim</item>
+		<item quantity="other">%,d përforcime</item>
+	</plurals>
+	<string name="time_now">tani</string>
+	<string name="edit_history">Përpunoni historikun</string>
+	<string name="last_edit_at_x">Përpunimi i fundit më %s</string>
+	<string name="time_just_now">mu tani</string>
+	<plurals name="x_seconds_ago">
+		<item quantity="one">%d sekondë më parë</item>
+		<item quantity="other">%d sekonda më parë</item>
+	</plurals>
+	<plurals name="x_minutes_ago">
+		<item quantity="one">%d minutë më parë</item>
+		<item quantity="other">%d minuta më parë</item>
+	</plurals>
+	<string name="edited_timestamp">u përpunua %s</string>
+	<string name="edit_original_post">Postim origjinal</string>
+	<string name="edit_text_edited">U përpunua tekst</string>
+	<string name="edit_spoiler_added">U shtua sinjalizim lënde</string>
+	<string name="edit_spoiler_edited">U përpunua sinjalizim lënde</string>
+	<string name="edit_spoiler_removed">U hoq sinjalizim lënde</string>
+	<string name="edit_poll_added">U shtua pyetësor</string>
+	<string name="edit_poll_edited">U përpunua pyetësor</string>
+	<string name="edit_poll_removed">U hoq pyetësor</string>
+	<string name="edit_media_added">U shtua media</string>
+	<string name="edit_media_removed">U hoq media</string>
+	<string name="edit_media_reordered">U rirenditën media</string>
+	<string name="edit_marked_sensitive">Iu vu shenjë si rezervat</string>
+	<string name="edit_marked_not_sensitive">Iu hoq shenja si rezervat</string>
+	<string name="edit_multiple_changed">Postimi u përpunua</string>
+	<string name="edit">Përpunojeni</string>
+	<string name="discard_changes">Të hidhen tej ndryshimet?</string>
+	<string name="upload_failed">Ngarkimi dështoi</string>
+	<string name="file_size_bytes">%d bajte</string>
+	<string name="file_size_kb">%.2f KB</string>
+	<string name="file_size_mb">%.2f MB</string>
+	<string name="file_size_gb">%.2f GB</string>
+	<string name="upload_processing">Po përpunohet…</string>
 	<!-- %s is file size -->
+	<string name="download_update">Shkarkoje (%s)</string>
+	<string name="install_update">Instaloje</string>
+	<string name="privacy_policy_title">Privatësia juaj</string>
+	<string name="i_agree">Pajtohem</string>
+	<string name="empty_list">Kjo listë është e zbrazët</string>
+	<string name="instance_signup_closed">Ky shërbyes s’pranon regjistrime të reja.</string>
+	<string name="text_copied">U kopjua në të papastër</string>
+	<string name="add_bookmark">Faqeruaje</string>
+	<string name="remove_bookmark">Hiqe faqerojtësin</string>
+	<string name="bookmarks">Faqerojtës</string>
+	<string name="your_favorites">Të parapëlqyer</string>
+	<string name="login_title">Mirë se vini sërish</string>
+	<string name="login_subtitle">Bëni hyrjen me shërbyesin ku krijuat llogarinë tuaj.</string>
+	<string name="server_url">URL Shërbyesi</string>
+	<string name="server_filter_any_language">Çfarëdo gjuhe</string>
+	<string name="server_filter_instant_signup">Regjistrim i menjëhershëm</string>
+	<string name="server_filter_manual_review">Shqyrtim dorazi</string>
+	<string name="server_filter_region_europe">Evropë</string>
+	<string name="server_filter_region_north_america">Amerikë e Veriut</string>
+	<string name="server_filter_region_south_america">Amerikë e Jugut</string>
+	<string name="server_filter_region_africa">Afrikë</string>
+	<string name="server_filter_region_asia">Azi</string>
+	<string name="server_filter_region_oceania">Oqeani</string>
+	<string name="not_accepting_new_members">S’pranon anëtarë të rinj</string>
+	<string name="category_special_interests">Interesa të posaçme</string>
+	<string name="signup_passwords_dont_match">Fjalëkalimet s’përputhen</string>
+	<string name="profile_add_row">Shtoni rresht</string>
+	<string name="profile_setup">Udjisje profili</string>
+	<string name="profile_setup_subtitle">Këtë mund ta plotësoni përherë më vonë te skeda Profil.</string>
+	<string name="follow_all">Ndiqi të tërë</string>
+	<string name="server_rules_disagree">S’pajtohem</string>
+	<string name="privacy_policy_explanation">TL;DR: S’grumbullojmë apo përpunojmë gjë.</string>
 	<!-- %s is server domain -->
+	<string name="profile_bio">Jetëshkrim</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="signup_email_domain_blocked">%1$s s’lejon regjistrime nga %2$s. Provoni një tjetër, ose &lt;a&gt;zgjidhni një shërbyes tjetër&lt;/a&gt;.</string>
+	<string name="spoiler_show">Shfaqe, sido qoftë</string>
+	<string name="spoiler_hide">Rifshihe</string>
+	<string name="poll_multiple_choice">Zgjidhni një, ose më tepër</string>
+	<string name="save_changes">Ruaji ndryshimet</string>
+	<string name="profile_featured">E zgjedhur</string>
+	<string name="profile_timeline">Rrjedhë kohore</string>
+	<string name="view_all">Shihini krejt</string>
+	<string name="profile_endorsed_accounts">Llogari</string>
+	<string name="verified_link">Lidhje e verifikuar</string>
+	<string name="show">Shfaqe</string>
+	<string name="hide">Fshihe</string>
+	<string name="join_default_server">Hyni te %s</string>
+	<string name="pick_server">Zgjidhni një tjetër shërbyes</string>
+	<string name="signup_or_login">ose</string>
+	<string name="learn_more">Mësoni më tepër</string>
+	<string name="welcome_to_mastodon">Mirë se vini te Mastodon-i</string>
+	<string name="welcome_paragraph1">Mastodon-i është rrjet shoqëror i decentralizuar, që do të thotë se nuk e kontrollon një shoqëri e vetme. Përbëhet nga mjaft shërbyes të mbajtur në punë në mënyrë të pavarur, të lidhur të tërë tok.</string>
+	<string name="what_are_servers">Ç’janë shërbyesit?</string>
+	<string name="welcome_paragraph2">Çdo llogari Mastodon strehohet në një shërbyes — secili prej tyre me vlera, rregullat &amp; përgjegjësit e vet. Pavarësisht se cilin zgjidhni, mund të ndiqni dhe ndërveproni me persona nga cilido shërbyes.</string>
+	<string name="opening_link">Po hapet lidhje…</string>
+	<string name="link_not_supported">Kjo lidhje s’mbulohet te aplikacioni</string>
+	<string name="log_out_all_accounts">Dilni nga krejt llogaritë</string>
+	<string name="confirm_log_out_all_accounts">Të dilet nga krejt llogaritë?</string>
+	<string name="retry">Riprovoni</string>
+	<string name="post_failed">S’u arrit të dërgohet postim</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s figurë</string>
+	<string name="attachment_description_video">%s video</string>
+	<string name="attachment_description_audio">%s audio</string>
+	<string name="attachment_description_unknown">%s kartelë</string>
+	<string name="attachment_type_image">Figurë</string>
+	<string name="attachment_type_video">Video</string>
+	<string name="attachment_type_audio">Audio</string>
+	<string name="attachment_type_gif">GIF</string>
+	<string name="attachment_type_unknown">Kartelë</string>
+	<string name="attachment_x_percent_uploaded">%d%% u ngarkua</string>
+	<string name="add_poll_option">Shtoni mundësi pyetësori</string>
+	<string name="poll_length">Gjatësi pyetësori</string>
+	<string name="poll_style">Stil</string>
+	<string name="compose_poll_single_choice">Zgjidhni një</string>
+	<string name="compose_poll_multiple_choice">Zgjedhje të shumëfishta</string>
+	<string name="delete_poll_option">Fshije mundësinë e pyetësorit</string>
+	<string name="poll_style_title">Stil pyetësori</string>
+	<string name="alt_text">Tekst alternativ</string>
+	<string name="help">Ndihmë</string>
+	<string name="what_is_alt_text">Ç’është teksti alternativ?</string>
+	<string name="edit_post">Përpunojeni postimin</string>
+	<string name="no_verified_link">Pa lidhje të verifikuar</string>
+	<string name="compose_autocomplete_emoji_empty">Shfletoni emoji-t</string>
+	<string name="compose_autocomplete_users_empty">Gjeni ç’po kërkonit</string>
+	<string name="no_search_results">S’u gjet gjë për këto terma kërkimi</string>
+	<string name="language">Gjuhë</string>
+	<string name="language_default">Gjendje</string>
+	<string name="language_system">Sistem</string>
+	<string name="language_detecting">Pikasje gjuhe</string>
+	<string name="language_cant_detect">S’arrihet të pikaset gjuhë</string>
+	<string name="media_hidden">Me media të fshehur</string>
+	<string name="post_hidden">Postim i fshehur</string>
+	<string name="report_title_post">Raportoni postim</string>
+	<string name="forward_report_explanation">Llogaria është nga një tjetër shërbyes. Të dërgohet edhe atje një kopje e anonimizuar e këtij raportimi?</string>
 	<!-- %s is the server domain -->
+	<string name="forward_report_to_server">Përcilljani %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="mark_all_notifications_read">Vëru të tërave shenjë si të lexuara</string>
+	<string name="settings_filters">Filtra</string>
+	<string name="settings_server_explanation">Përmbledhje, rregulla, moderatorë</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
+	<string name="about_app">Mbi %s</string>
+	<string name="default_post_language">Gjuhë postimi</string>
+	<string name="settings_alt_text_reminders">Shtoni kujtues për tekst alternativ figurash</string>
+	<string name="settings_confirm_unfollow">Pyet, para heqjes së ndjekjes për dikë</string>
+	<string name="settings_confirm_boost">Pyet, përpara përforcimi</string>
+	<string name="settings_confirm_delete_post">Pyet, para fshirjeje postimesh</string>
+	<string name="pause_all_notifications">Ndali krejt</string>
+	<string name="notifications_policy_anyone">Cilido</string>
+	<string name="notifications_policy_followed">Persona që ju ndjekin</string>
+	<string name="notifications_policy_follower">Persona që ndiqni</string>
+	<string name="notifications_policy_no_one">Askush</string>
+	<string name="settings_notifications_policy">Merrni njoftime nga</string>
+	<string name="notification_type_mentions_and_replies">Përmendje dhe përgjigje</string>
+	<string name="pause_all_notifications_title">Ndali krejt njoftimet</string>
+	<plurals name="x_weeks">
+		<item quantity="one">%d javë</item>
+		<item quantity="other">%d javë</item>
+	</plurals>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s më %2$s</string>
+	<string name="today">sot</string>
+	<string name="yesterday">dje</string>
+	<string name="tomorrow">nesër</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="pause_notifications_ends">Përfundon më %s</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="resume_notifications_now">Rimerre tani</string>
+	<string name="open_system_notification_settings">Kaloni te rregullime njoftimesh</string>
+	<string name="about_server">Mbi</string>
+	<string name="server_rules">Rregulla</string>
+	<string name="server_administrator">Përgjegjës</string>
+	<string name="settings_even_more">Edhe më tepër rregullime</string>
+	<string name="settings_show_cws">Shfaq sinjalizime lënde</string>
+	<string name="settings_hide_sensitive_media">Mbuloji mediat që kanë shenjë si rezervat</string>
+	<string name="settings_show_interaction_counts">Numra ndërveprimesh me postime</string>
+	<plurals name="in_x_seconds">
+		<item quantity="one">për %d sekondë</item>
+		<item quantity="other">për %d sekonda</item>
+	</plurals>
+	<plurals name="in_x_minutes">
+		<item quantity="one">për %d minutë</item>
+		<item quantity="other">për %d minuta</item>
+	</plurals>
+	<plurals name="in_x_hours">
+		<item quantity="one">për %d orë</item>
+		<item quantity="other">për %d orë</item>
+	</plurals>
+	<plurals name="x_hours_ago">
+		<item quantity="one">%d orë më parë</item>
+		<item quantity="other">%d orë më parë</item>
+	</plurals>
+	<string name="alt_text_reminder_title">Medias i mungon tekst alternativ</string>
+	<string name="count_one">Një</string>
+	<string name="count_two">Dy</string>
+	<string name="count_three">Tre</string>
+	<string name="count_four">Katër</string>
+	<string name="alt_text_reminder_post_anyway">Postim</string>
 	<!-- %s is the username -->
+	<string name="unfollow_confirmation">Të hiqet ndjekja për %s?</string>
+	<string name="filter_active">Aktiv</string>
+	<string name="filter_inactive">Joaktiv</string>
+	<string name="settings_add_filter">Shtoni filtër</string>
+	<string name="settings_edit_filter">Përpunoni filtër</string>
+	<string name="settings_filter_duration">Kohëzgjatje</string>
+	<string name="settings_filter_muted_words">Fjalë të heshtuara</string>
+	<string name="settings_filter_show_cw">Shfaqe me sinjalizim lënde</string>
+	<string name="settings_delete_filter">Fshije filtrin</string>
+	<string name="filter_duration_forever">Përgjithmonë</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="settings_filter_ends">Përfundon më %s</string>
+	<plurals name="settings_x_muted_words">
+		<item quantity="one">%d fjalë ose togfjalësh i heshtuar</item>
+		<item quantity="other">%d fjalë ose togfjalësha të heshtuar</item>
+	</plurals>
+	<string name="selection_2_options">%1$s dhe %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s dhe %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s dhe %3$d të tjerë</string>
+	<string name="filter_context_home_lists">Kreu &amp; lista</string>
+	<string name="filter_context_notifications">Njoftime</string>
+	<string name="filter_context_public_timelines">Rrjedha kohore publike</string>
+	<string name="filter_context_threads_replies">Rrjedha &amp; përgjigje</string>
+	<string name="filter_context_profiles">Profile</string>
+	<string name="settings_filter_title">Titull</string>
+	<string name="settings_delete_filter_title">Të fshihet filtri “%s”?</string>
+	<string name="settings_delete_filter_confirmation">Ky filtër do të fshihet nga llogaria juaj në krejt pajisjet tuaja.</string>
+	<string name="add_muted_word">Shtoni fjalë të heshtuar</string>
+	<string name="edit_muted_word">Përpunoni fjalë të heshtuar</string>
+	<string name="add">Shto</string>
+	<string name="filter_word_or_phrase">Fjalë ose togfjalësh</string>
+	<string name="settings_delete_filter_word">Të fshihet fjala “%s”?</string>
+	<string name="enter_selection_mode">Përzgjidhe</string>
+	<string name="select_all">Përzgjidhe krejt</string>
+	<string name="settings_filter_duration_title">Kohëzgjatje filtrimi</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Të fshihet %d fjalë?</item>
+		<item quantity="other">Të fshihen %d fjalë?</item>
+	</plurals>
+	<string name="required_form_field_blank">S’mund të jetë e zbrazët</string>
+	<string name="filter_word_already_in_list">Tashmë te lista</string>
+	<string name="downloading_update">Po shkarkohet (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Ka përputhje me filtrin “%s”</string>
+	<string name="search_mastodon">Kërkoni në Mastodon</string>
+	<string name="clear_all">Spastroje krejt</string>
+	<string name="search_open_url">Hape URL-në në Mastodon</string>
+	<string name="posts_matching_hashtag">Postime me “%s”</string>
+	<string name="search_go_to_account">Kalo te %s</string>
+	<string name="posts_matching_string">Postime me “%s”</string>
+	<string name="accounts_matching_string">Persona me “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds më parë</string>
+	<string name="time_minutes_ago_short">%dm më parë</string>
+	<string name="time_hours_ago_short">%dh më parë</string>
+	<string name="time_days_ago_short">%dd më parë</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Përktheje nga %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Përkthyer nga %1$s duke përdorur %2$s</string>
+	<string name="translation_show_original">Shfaq origjinalin</string>
+	<string name="settings_privacy">Privatësi dhe shtrirje</string>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d postim sot</item>
+		<item quantity="other">%,d postime sot</item>
+	</plurals>
+	<string name="error_playing_video">Gabim në luajtje videoje</string>
+	<string name="timeline_following">Kreu</string>
+	<string name="lists">Lista</string>
+	<string name="followed_hashtags">Hashtag-ë të ndjekur</string>
+	<string name="manage_lists">Administroni lista</string>
+	<string name="manage_hashtags">Administroni hashtagë</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Menu hapmbyll</string>
+	<string name="edit_list">Përpunoni listën</string>
+	<string name="list_members">Anëtarë të listës</string>
+	<string name="delete_list">Fshije listën</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Të fshihet “%s”?</string>
+	<string name="list_name">Emër liste</string>
+	<string name="list_show_replies_to">Shfaq përgjigje për</string>
+	<string name="list_replies_no_one">Askush</string>
+	<string name="list_replies_members">Anëtarë të listës</string>
+	<string name="list_replies_anyone">Këdo që ndjek</string>
+	<string name="confirm_remove_list_members">Të hiqen anëtarët?</string>
+	<string name="remove">Hiqe</string>
+	<string name="add_list_member">Shtoni anëtar</string>
+	<string name="search_among_people_you_follow">Kërkoni mes personash që ndiqni</string>
+	<string name="add_user_to_list">Shtoni/hiqni prej listash…</string>
+	<string name="add_user_to_list_title">Shtoje te lista</string>
 	<!-- %s is a username -->
+	<string name="manage_user_lists">Administroni lista ku shfaqet %s</string>
+	<string name="remove_from_list">Hiqe prej liste</string>
+	<string name="confirm_remove_list_member">Të hiqet anëtari?</string>
+	<string name="no_followed_hashtags_subtitle">Ndjekjet do të shfaqen këtu</string>
+	<string name="no_lists_title">Sistemojeni me Lista prurjen tuaj të kreut</string>
+	<string name="no_lists_subtitle">Tuajt do të shfaqen këtu</string>
+	<string name="manage_accounts">Shtoni, ose ndërroni llogari</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d postim së fundi</item>
+		<item quantity="other">%,d postime së fundi</item>
+	</plurals>
+	<string name="create_list">Krijoni listë</string>
+	<string name="step_x_of_y">Hapi %1$d nga %2$d</string>
+	<string name="create">Krijoje</string>
+	<string name="manage_list_members">Administroni anëtarë të listës</string>
+	<string name="list_no_members">Ende pa anëtarë</string>
+	<string name="list_find_users">Gjeni përdorues për shtim</string>
+	<string name="reply_to_user">Përgjigjiuni %s</string>
+	<string name="posted_at">Postuar te %s</string>
+	<string name="non_mutual_sheet_title">Tungjatjeta, lidhje e re!</string>
+	<string name="got_it">E mora vesh</string>
+	<string name="dont_remind_again">Mos ma kujto më</string>
 	<!-- %s is a time interval ("5 months") -->
+	<string name="old_post_sheet_title">Ky postim është %s i vjetër</string>
+	<plurals name="x_months">
+		<item quantity="one">%,d muaj</item>
+		<item quantity="other">%,d muaj</item>
+	</plurals>
+	<string name="more_than_two_years">më tepër se 2 vjet</string>
+	<string name="non_mutual_text2">Një ton pozitiv është gjithmonë i çmuar.</string>
+	<string name="non_mutual_title3">Jini i hapur</string>
+	<string name="non_mutual_text3">Stili i bisedës së gjithkujt është unik. Jini të gatshëm të mësoheni.</string>
+	<string name="make_profile_discoverable">Bëje profilin tim të zbulueshëm</string>
+	<string name="app_version_copied">Numri i versionit u kopjua në të papastër</string>
+	<string name="onboarding_recommendations_title">Personalizoni prurjen tuaj të kreut</string>
+	<string name="article_by_author">Nga %s</string>
+	<string name="button_reblogged">U përforcua</string>
+	<string name="button_favorited">U vu si i parapëlqyer</string>
+	<string name="join_server_x_with_invite">Hyni te %s me një ftesë</string>
+	<string name="expired_invite_link">Lidhje ftese e skaduar</string>
+	<string name="invalid_invite_link">Lidhje ftese e pavlefshme</string>
+	<string name="use_invite_link">Përdorni lidhje ftese</string>
+	<string name="enter_invite_link">Jepni lidhje ftese</string>
+	<string name="this_invite_is_invalid">Kjo lidhje ftese s’është e vlefshme.</string>
+	<string name="this_invite_has_expired">Kjo lidhje ftese ka skaduar.</string>
+	<string name="invite_link_pasted">Lidhja u ngjit nga e papastra juaj.</string>
+	<string name="mute_user_confirm_title">Të heshtohet përdoruesi?</string>
+	<string name="user_wont_know_muted">S’do ta dinë se janë heshtuar.</string>
+	<string name="you_wont_see_user_mentions">S’do të shihni postime që i përmendni ata.</string>
+	<string name="user_can_mention_and_follow_you">Mund t’ju përmendim dhe ndjekin, por ju s’do t’i shihni.</string>
+	<string name="block_user_confirm_title">Të bllokohet përdoruesi?</string>
+	<string name="user_can_see_blocked">Mund ta shohin se janë bllokuar.</string>
+	<string name="user_cant_mention_or_follow_you">S’mund t’ju përmendin apo ndjekin.</string>
+	<string name="unblocked_user_x">U zhbllokua %s</string>
+	<string name="block_domain_confirm_title">Të bllokohet përkatësia?</string>
+	<string name="do_block_server">Bllokoje shërbyesin</string>
+	<string name="server_cant_mention_or_follow_you">Askush prej këtij shërbyesi s’mund t’ju ndjekë.</string>
+	<string name="unblocked_domain_x">U zhbllokua përkatësi %s</string>
+	<string name="server">Shërbyes</string>
+	<string name="what_is_activitypub_title">Ç’është ActivityPub?</string>
+	<string name="qr_code">Kod QR</string>
+	<string name="scan_qr_code">Skanoni kodin QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="image_saved">Figura u ruajt.</string>
+	<string name="video_saved">Videoja u ruajt.</string>
+	<string name="view_file">Shiheni</string>
+	<string name="share_sheet_preview_profile">%s në Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s në Mastodon: “%2$s”</string>
+	<string name="copy_profile_link">Kopjoje lidhjen te profili</string>
+	<string name="system_browser">Shfletues i sistemit</string>
+	<string name="add_muted_word_short">Shtoni fjalë</string>
+	<string name="tab_home">Kreu</string>
+	<string name="tab_search">Eksploroni</string>
+	<string name="tab_profile">Profil</string>
+	<string name="pin_post">Fiksoje në profil</string>
+	<string name="unpin_post">Shfiksoje nga profili</string>
+	<string name="post_pinned">Ky postim është fiksuar</string>
 	<!-- %s is the username -->
+	<string name="enable_new_post_notifications">Njoftomë, kur poston %s</string>
+	<string name="disable_new_post_notifications">Resht së njoftuari mua, kur poston %s</string>
+	<string name="mute_conversation">Heshtoje bisedën</string>
+	<string name="unmute_conversation">Ktheji zërin bisedës</string>
+	<string name="notification_filter_following">Persona që s’i ndiqni</string>
+	<string name="notification_filter_following_explanation">Deri sa t’i miratoni dorazi</string>
+	<string name="notification_filter_followers">Persona që s’ju ndjekin</string>
+	<string name="notification_filter_followers_explanation">Përfshi personat që ju ndjekin prej më pak se 3 ditë</string>
+	<string name="notification_filter_new_accounts">Llogari të reja</string>
+	<string name="notification_filter_new_accounts_explanation">Krijuar brenda 30 ditëve të kaluara</string>
+	<string name="notification_filter_mentions">Përmendje private të pakërkuara</string>
+	<string name="notification_filter_mentions_explanation">Filtruar, hiq rastin kur gjendet në përgjigje të përmendjes tuaj, ose nëse ndiqni dërguesin</string>
+	<string name="allow_notifications">Lejo njoftime</string>
+	<string name="mute_notifications">Hidhe tej kërkesën për njoftim</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d person që mund ta njihni</item>
+		<item quantity="other">%,d vetë që mund t’i njihni</item>
+	</plurals>
+	<string name="notifications_from_user">Njoftime prej %s</string>
+	<string name="visibility_subtitle_public">Cilido në dhe jashtë Mastodon-it</string>
+	<string name="visibility_subtitle_unlisted">Fshehur te përfundime kërkimesh, gjërash në modë dhe rrjedha kohore publike në Mastodon</string>
+	<string name="visibility_subtitle_followers">Vetëm ndjekësit tuaj</string>
+	<string name="visibility_subtitle_private">Gjithkush i përmendur te postimi</string>
+	<string name="view_boosts">Shihni përforcime</string>
+	<string name="view_favorites">Shihni të parapëlqyer</string>
+	<string name="undo_reblog">Zhbëje përforcimin</string>
+	<string name="could_not_reach_server">S’u kap dot shërbyesi. Të kontrollohet lidhja juaj dhe të riprovohet?</string>
+	<string name="no_servers_found">S’u gjet shërbyes për “%s”</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d njoftim i ri</item>
+		<item quantity="other">%,d njoftime të reja</item>
+	</plurals>
+	<string name="dismiss">Hidhe tej</string>
+	<string name="donation_once">Vetëm një herë</string>
+	<string name="donation_monthly">Çdo muaj</string>
+	<string name="donation_yearly">Një herë në vit</string>
+	<string name="currency">Monedhë</string>
+	<string name="donation_success_share">Përhapni fjalën</string>
+	<string name="donation_success_title">Faleminderit për kontributiin tuaj!</string>
+	<string name="donation_server_error">Na ndjeni, ndodhi një gabim dhe s’qemë në gjendje të përpunojmë dhurimin tuaj.\n\nJu lutemi, riprovoni pas pak minutash.</string>
+	<string name="settings_donate">Dhuroni për Mastodon-in</string>
+	<string name="settings_manage_donations">Administroni dhurime</string>
+	<string name="cant_load_image">S’u ngarkua dot figura</string>
+	<string name="poll_see_results">Shihni përfundime</string>
+	<string name="poll_hide_results">Fshihi përfundimet</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d bashkëngjitje</item>
+		<item quantity="other">%d bashkëngjitje</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s dhe %2$,d tjetër zunë t’ju ndjekin</item>
+		<item quantity="other">%1$s dhe %2$,d të tjerë zunë t’ju ndjekin</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s dhe %2$,d tjetër përforcuan:</item>
+		<item quantity="other">%1$s dhe %2$,d të tjerë përforcuan:</item>
+	</plurals>
+	<string name="own_poll_ended">Pyetësori juaj ka përfunduar</string>
+	<string name="user_just_posted">%s sapo postoi</string>
+	<string name="user_edited_post">%s përpunoi një një postim me të cilin keni ndërvepruar</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<plurals name="x_accounts">
+		<item quantity="one">%,d llogari</item>
+		<item quantity="other">%,d llogari</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_learn_more">Mësoni më tepër</string>
+	<string name="moderation_warning_action_none">Llogaria juaj ka marrë një sinjalizim moderimi.</string>
+	<string name="moderation_warning_action_disable">Llogaria juaj është çaktivizuar.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Disave nga postimeve tuaja u është vënë shenjë si me spec.</string>
+	<string name="moderation_warning_action_delete_statuses">Disa nga postimet tuaja janë hequr.</string>
+	<string name="moderation_warning_action_sensitive">Tani e tutje, postimeve tuaj do t’u vihet shenjë si me spec.</string>
+	<string name="moderation_warning_action_silence">Llogaria juaj është kufizuar.</string>
+	<string name="moderation_warning_action_suspend">Llogaria juaj është pezulluar.</string>
+	<string name="moderation_warning_learn_more">Mësoni më tepër</string>
+	<string name="text_show_more">Më tepër</string>
+	<string name="avatar_move_and_scale">Lëvizeni dhe ripërmasojeni</string>
+	<string name="confirm_avatar_crop">Zgjidhni</string>
+	<string name="settings_use_dynamic_colors">Përdor ngjyrë dinamike sistemi</string>
+	<string name="settings_accounts">Llogari</string>
+	<string name="settings_add_account">Shtoni llogari…</string>
+	<string name="settings_app_settings">Rregullime aplikacioni</string>
+	<string name="account_settings">Rregullime llogarie</string>
+	<string name="settings_about_this_server">Rreth këtij shërbyesi</string>
+	<string name="manage_account">Administroni llogari</string>
+	<string name="switch_to_this_account">Kaloni te kjo llogari</string>
+	<string name="delete_account">Fshije llogarinë</string>
+	<string name="notification_type_status">Postime të reja</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s dhe %2$,d tjetër zunë t’ju ndjekin</item>
+		<item quantity="other">%1$s dhe %2$,d të tjerë zunë t’ju ndjekin</item>
+	</plurals>
+	<string name="familiar_followers_one">Ndjekur nga %s</string>
+	<string name="familiar_followers_two">Ndjekur nga %s dhe %s</string>
+	<string name="profile_saved_posts_explanation">Postimet tuaja të ruajtura janë të dukshëm vetëm për ju.</string>
+	<string name="search_people">Persona</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Ndjekur nga %1$s, %2$s, dhe %3$,d tjetër</item>
+		<item quantity="other">Ndjekur nga %1$s, %2$s, dhe %3$,d të tjerë</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d ndjekës që e njihni</item>
+		<item quantity="other">%,d ndjekës që i njihni</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">Do të hiqet %,d ndjekës nga ky shërbyes.</item>
+		<item quantity="other">Do të hiqen %,d ndjekës nga ky shërbyes.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Do të humbni %1$s dhe %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d ndjekës</item>
+		<item quantity="other">%,d ndjekës</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%d person që ndiqni</item>
+		<item quantity="other">%,d vetë që ndiqni</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="server_x_following_will_be_removed">Do të humbni %s.</string>
+	<string name="signup_password_too_short">Fjalëkalimi duhet të jetë e pakta 8 shenja.</string>
+	<string name="private_reply">Përgjigje private</string>
+	<string name="private_mention">Përmendje private</string>
+	<string name="post_header_reply">Përgjigjuni</string>
+	<string name="post_header_mention">Përmendje</string>
+	<string name="report_reason_legal">Është i paligjshëm</string>
+	<string name="report_reason_legal_subtitle">Besoni se cenon ligjin e vendit tuaj, ose atij të shërbyesit</string>
+	<string name="date_of_birth">Datëlindje</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="copy">Kopjoje</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<string name="quote_post_unavailable">Postim jo i passhëm</string>
+	<string name="quote_post_pending">Postim në pritje të shqyrtimit</string>
+	<string name="quote_post_pending_explanation">Në Mastodon ju kontrolloni nëse dikush mund t’ju citojë apo jo. Ky postim është pezull, teksa po marrim miratimin e autorit origjinal.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">U citua një postim nga %s</string>
+	<string name="compose_visibility_public_anyone">Publik, mund ta citojë kushdo</string>
+	<string name="compose_visibility_public_limited">Publik, citime të kufizuara</string>
+	<string name="compose_visibility_public_disabled">Publik, citime të çaktivizuara</string>
+	<string name="compose_visibility_title">Dukshmëri dhe ndërveprim</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility">Dukshmëri</string>
+	<string name="compose_quote_policy">Cilët mund të citojnë</string>
+	<string name="quote_policy_public">Cilido</string>
+	<string name="quote_policy_followers">Vetëm ndjekës</string>
+	<string name="quote_policy_nobody">Vetëm unë</string>
+	<string name="quote_policy_for_unlisted_explanation">Kur ju citon dikush, postimi i tij do të fshihet gjithashtu nga rrjedha kohore gjërash në modë.</string>
+	<string name="quote_policy_for_private_explanation">Postime vetëm për ndjekësit, të prodhuara në Mastodon, s’mund të citohen nga të tjerë.</string>
+	<string name="quote_policy_for_direct_explanation">Përmendje private, të prodhuara në Mastodon, s’mund të citohen nga të tjerë.</string>
+	<string name="change_quote_policy">Ndryshoni cilët mund të citojnë</string>
+	<string name="edit_visibility_explanation">Për postimet e botuara s’mund të ndryshohet dukshmëria.</string>
+	<string name="user_quoted_post">%s citoi postimin tuaj:</string>
+	<string name="user_edited_quoted_post">%s përpunoi një postim që e keni cituar</string>
+	<string name="notification_type_quote">Citime</string>
+	<string name="create_quote">Citojeni</string>
+	<string name="cannot_quote_post">S’keni leje të citoni këtë postim</string>
+	<string name="cannot_quote_post_followers_only">Këtë postim mund ta citojnë vetëm ndjekës</string>
+	<string name="compose_hint_quote">Shtoni diçka te biseda</string>
+	<string name="cancel_quote">Anuloje citimin</string>
+	<string name="settings_posting_defaults">Parazgjedhje postimesh</string>
+	<string name="default_post_visibility">Dukshmëri postimi</string>
+	<string name="create_quote_manual_approval">Kërkesë për citim</string>
+	<string name="create_quote_manual_approval_subtitle">Autori do ta shqyrtojë dorazi</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citim</item>
+		<item quantity="other">%,d citime</item>
+	</plurals>
+	<string name="remove_quote">Hiqe postimin tim nga postimi i %s</string>
+	<string name="remove_quote_confirm_title">Të hiqet postimi?</string>
+	<string name="remove_quote_confirm">Ky veprim s’mund të zhbëhet.</string>
+	<string name="remove_quote_button">Hiqe postimin</string>
+	<string name="cant_quote_in_private_title">Citimet s’mund të trupëzohen në përmendje private</string>
+	<string name="cant_quote_in_private">Nëse ruani rregullimet e tanishme, citimi i trupëzuar do të shndërrohet në një lidhje.</string>
+	<string name="quote_followers_only_confirm_title">Të ndahet me ndjekës dhe përdorues të përmendur?</string>
+	<string name="quote_followers_only_publish">Botojeni postimin</string>
+	<string name="quote_followers_only_cancel">Mbrapsht te përpunimi</string>
+	<string name="quote_followers_only_dont_show_again">Mos e shfaq më këtë mesazh</string>
+	<string name="more_replies_found">U gjetën më tepër përgjigje</string>
 </resources>
