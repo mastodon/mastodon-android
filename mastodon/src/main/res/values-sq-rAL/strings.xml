@@ -286,6 +286,7 @@
 	<string name="download_update">Shkarkoje (%s)</string>
 	<string name="install_update">Instaloje</string>
 	<string name="privacy_policy_title">Privatësia juaj</string>
+	<string name="privacy_policy_subtitle">Edhe pse aplikacioni Mastodon s’grumbullon ndonjë të dhënë, shërbyesi ku regjistroheni mund të ketë tjetër politikë.\n\nNëse s’pajtoheni me politikën për %s, mund të shkoni mbrapsht dhe të zgjidhni një tjetër shërbyes.</string>
 	<string name="i_agree">Pajtohem</string>
 	<string name="empty_list">Kjo listë është e zbrazët</string>
 	<string name="instance_signup_closed">Ky shërbyes s’pranon regjistrime të reja.</string>
@@ -300,6 +301,7 @@
 	<string name="server_filter_any_language">Çfarëdo gjuhe</string>
 	<string name="server_filter_instant_signup">Regjistrim i menjëhershëm</string>
 	<string name="server_filter_manual_review">Shqyrtim dorazi</string>
+	<string name="server_filter_any_signup_speed">Çfarëdo shpejtësie regjistrimi</string>
 	<string name="server_filter_region_europe">Evropë</string>
 	<string name="server_filter_region_north_america">Amerikë e Veriut</string>
 	<string name="server_filter_region_south_america">Amerikë e Jugut</string>
@@ -447,6 +449,14 @@
 		<item quantity="other">%d orë më parë</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Medias i mungon tekst alternativ</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s nga figurave tuaja u mungon tekst alternativ. Të postohen, sido qoftë?</item>
+		<item quantity="other">%s nga figurave tuaja i mungon tekst alternativ. Të postohet, sido qoftë?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s nga bashkëngjitjeve tuaja media u mungon tekst alternativ. Të postohen, sido qoftë?</item>
+		<item quantity="other">%s nga bashkëngjitjeve tuaja media i mungon tekst alternativ. Të postohet, sido qoftë?</item>
+	</plurals>
 	<string name="count_one">Një</string>
 	<string name="count_two">Dy</string>
 	<string name="count_three">Tre</string>
@@ -482,7 +492,7 @@
 	<string name="settings_delete_filter_confirmation">Ky filtër do të fshihet nga llogaria juaj në krejt pajisjet tuaja.</string>
 	<string name="add_muted_word">Shtoni fjalë të heshtuar</string>
 	<string name="edit_muted_word">Përpunoni fjalë të heshtuar</string>
-	<string name="add">Shto</string>
+	<string name="add">Shtoni</string>
 	<string name="filter_word_or_phrase">Fjalë ose togfjalësh</string>
 	<string name="settings_delete_filter_word">Të fshihet fjala “%s”?</string>
 	<string name="enter_selection_mode">Përzgjidhe</string>
@@ -498,6 +508,7 @@
 	</plurals>
 	<string name="required_form_field_blank">S’mund të jetë e zbrazët</string>
 	<string name="filter_word_already_in_list">Tashmë te lista</string>
+	<string name="app_update_ready">Ka të gatshëm përditësim aplikacioni</string>
 	<string name="app_update_version">Version %s</string>
 	<string name="downloading_update">Po shkarkohet (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
@@ -585,6 +596,8 @@
 		<item quantity="other">%,d muaj</item>
 	</plurals>
 	<string name="more_than_two_years">më tepër se 2 vjet</string>
+	<string name="non_mutual_text1">Siguroni që përgjigja juaj të jetë </string>
+	<string name="non_mutual_title2">Përqafoni mirësinë</string>
 	<string name="non_mutual_text2">Një ton pozitiv është gjithmonë i çmuar.</string>
 	<string name="non_mutual_title3">Jini i hapur</string>
 	<string name="non_mutual_text3">Stili i bisedës së gjithkujt është unik. Jini të gatshëm të mësoheni.</string>
@@ -612,6 +625,7 @@
 	<string name="unblocked_user_x">U zhbllokua %s</string>
 	<string name="block_domain_confirm_title">Të bllokohet përkatësia?</string>
 	<string name="do_block_server">Bllokoje shërbyesin</string>
+	<string name="block_user_x_instead">Në vend të kësaj, blloko %s</string>
 	<string name="server_cant_mention_or_follow_you">Askush prej këtij shërbyesi s’mund t’ju ndjekë.</string>
 	<string name="server_can_interact_with_older">Persona nga ky shërbyes mund të ndërveprojnë me postimet tuaja të vjetra.</string>
 	<string name="unblocked_domain_x">U zhbllokua përkatësi %s</string>
@@ -654,6 +668,7 @@
 		<item quantity="other">%,d vetë që mund t’i njihni</item>
 	</plurals>
 	<string name="notifications_from_user">Njoftime prej %s</string>
+	<string name="notifications_allowed">%s tani do të shfaqet te lista e njoftimeve tuaja.</string>
 	<string name="visibility_subtitle_public">Cilido në dhe jashtë Mastodon-it</string>
 	<string name="visibility_subtitle_unlisted">Fshehur te përfundime kërkimesh, gjërash në modë dhe rrjedha kohore publike në Mastodon</string>
 	<string name="visibility_subtitle_followers">Vetëm ndjekësit tuaj</string>
@@ -662,7 +677,9 @@
 	<string name="view_favorites">Shihni të parapëlqyer</string>
 	<string name="undo_reblog">Zhbëje përforcimin</string>
 	<string name="could_not_reach_server">S’u kap dot shërbyesi. Të kontrollohet lidhja juaj dhe të riprovohet?</string>
+	<string name="not_found">.</string>
 	<string name="no_servers_found">S’u gjet shërbyes për “%s”</string>
+	<string name="signup_email_taken">Adresë email tashmë në përdorim. Mos &lt;a&gt;harruat fjalëkalimin tuaj&lt;/a&gt;?</string>
 	<plurals name="x_new_notifications">
 		<item quantity="one">%,d njoftim i ri</item>
 		<item quantity="other">%,d njoftime të reja</item>
@@ -692,6 +709,10 @@
 	<plurals name="user_and_x_more_boosted">
 		<item quantity="one">%1$s dhe %2$,d tjetër përforcuan:</item>
 		<item quantity="other">%1$s dhe %2$,d të tjerë përforcuan:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s hartoi një pyetësor dhe ju dhe %2$,d tjetër votuat në të</item>
+		<item quantity="other">%1$s hartoi një pyetësor dhe ju dhe %2$,d të tjerë votuat në të</item>
 	</plurals>
 	<string name="own_poll_ended">Pyetësori juaj ka përfunduar</string>
 	<string name="user_just_posted">%s sapo postoi</string>
@@ -780,6 +801,7 @@
 	<string name="compose_visibility_public_disabled">Publik, citime të çaktivizuara</string>
 	<string name="compose_visibility_title">Dukshmëri dhe ndërveprim</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Kontrolloni cilët mund të ndërveprojnë me këtë postim. Rregullimet globale i gjeni nën Rregullime &gt; %s &gt; Parazgjedhje postimesh.</string>
 	<string name="compose_visibility">Dukshmëri</string>
 	<string name="compose_quote_policy">Cilët mund të citojnë</string>
 	<string name="quote_policy_public">Cilido</string>
