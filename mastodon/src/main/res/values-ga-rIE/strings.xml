@@ -44,6 +44,13 @@
 	<string name="unblock_user">Díbhlocáil %s</string>
 	<string name="block_domain">Bloc %s</string>
 	<string name="unblock_domain">Díbhlocáil %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d post</item>
+		<item quantity="two">%,d poist</item>
+		<item quantity="few">%,d poist</item>
+		<item quantity="many">%,d poist</item>
+		<item quantity="other">%,d poist</item>
+	</plurals>
 	<string name="done">Déanta</string>
 	<string name="loading">Ag lódáil…</string>
 	<string name="field_label">Lipéad</string>
@@ -86,7 +93,69 @@
 		<item quantity="many">%d nóiméad fágtha</item>
 		<item quantity="other">%d nóiméad fágtha</item>
 	</plurals>
+	<string name="poll_closed">Dúnta</string>
+	<string name="do_block">Bloc</string>
+	<string name="button_blocked">Blocáilte</string>
+	<string name="action_vote">Vótaigh</string>
+	<string name="confirm">Deimhnigh</string>
+	<string name="delete">Scrios</string>
+	<string name="confirm_delete_title">Scrios an post</string>
+	<string name="confirm_delete">An bhfuil tú cinnte gur mian leat an post seo a scriosadh?</string>
+	<string name="deleting">Ag scriosadh…</string>
+	<string name="notification_channel_audio_player">Athsheinm fuaime</string>
+	<string name="play">Seinn</string>
+	<string name="pause">Sos</string>
+	<string name="log_out">Logáil amach</string>
+	<string name="add_account">Cuir cuntas leis</string>
+	<string name="search_hint">Cuardaigh</string>
+	<string name="hashtags">Haischlibeanna</string>
+	<string name="news">Nuacht</string>
+	<string name="for_you">Duit féin</string>
+	<string name="all_notifications">Gach rud</string>
+	<string name="mentions">Luaitear</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">Tá %d duine ag caint</item>
+		<item quantity="two">Tá %d daoine ag caint</item>
+		<item quantity="few">Tá %d daoine ag caint</item>
+		<item quantity="many">Tá %d daoine ag caint</item>
+		<item quantity="other">Tá %d daoine ag caint</item>
+	</plurals>
+	<string name="report_title">Tuairiscigh %s</string>
+	<string name="report_choose_reason">Cad atá cearr leis an bpost seo?</string>
+	<string name="report_choose_reason_account">Cad atá cearr le %s?</string>
+	<string name="report_choose_reason_subtitle">Roghnaigh an cluiche is fearr</string>
+	<string name="report_reason_personal">Ní maith liom é</string>
+	<string name="report_reason_personal_subtitle">Ní rud é ar mhaith leat a fheiceáil</string>
+	<string name="report_reason_spam">Is turscar é</string>
+	<string name="report_reason_spam_subtitle">Naisc mailíseacha, rannpháirtíocht bhréige, nó freagraí athchleachtacha</string>
+	<string name="report_reason_violation">Sáraíonn sé rialacha an fhreastalaí</string>
+	<string name="report_reason_violation_subtitle">Tá a fhios agat go mbriseann sé rialacha sonracha</string>
+	<string name="report_reason_other">Is rud éigin eile é</string>
+	<string name="report_reason_other_subtitle">Ní oireann an cheist do chatagóirí eile</string>
+	<string name="report_choose_rule">Cé na rialacha atá á sárú?</string>
+	<string name="report_choose_rule_subtitle">Roghnaigh gach ceann is infheidhme</string>
+	<string name="report_choose_posts">An bhfuil aon phoist ann a thacaíonn leis an tuarascáil seo?</string>
+	<string name="report_choose_posts_subtitle">Roghnaigh gach ceann is infheidhme</string>
+	<string name="report_comment_title">An bhfuil aon rud eile ba chóir dúinn a bheith ar an eolas faoi?</string>
 	<!-- %s is the email address -->
+	<string name="notification_type_poll">Pobalbhreitheanna</string>
+	<string name="choose_account">Roghnaigh cuntas</string>
+	<string name="err_not_logged_in">Logáil isteach i Mastodon ar dtús le do thoil</string>
+	<plurals name="cant_add_more_than_x_attachments">
+		<item quantity="one">Ní féidir leat níos mó ná %d ceangaltán meán a chur leis</item>
+		<item quantity="two">Ní féidir leat níos mó ná %d ceangaltáin meán a chur leis</item>
+		<item quantity="few">Ní féidir leat níos mó ná %d ceangaltáin meán a chur leis</item>
+		<item quantity="many">Ní féidir leat níos mó ná %d ceangaltáin meán a chur leis</item>
+		<item quantity="other">Ní féidir leat níos mó ná %d ceangaltáin meán a chur leis</item>
+	</plurals>
+	<string name="media_attachment_unsupported_type">Tá comhad %s de chineál nach dtacaítear leis</string>
+	<string name="media_attachment_too_big">Tá an comhad %1$s níos mó ná an teorainn méide de %2$s MB</string>
+	<string name="settings_theme">Dealramh</string>
+	<string name="theme_auto">Úsáid cuma an ghléis</string>
+	<string name="theme_light">Solas</string>
+	<string name="theme_dark">Dorcha</string>
+	<string name="settings_behavior">Iompar</string>
+	<string name="settings_gif">Seinn avatáir agus emoji beoite</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is file size -->
