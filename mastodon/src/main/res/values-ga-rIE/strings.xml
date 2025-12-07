@@ -8,14 +8,18 @@
 	<string name="ok">Ceart go leor</string>
 	<string name="preparing_auth">Ag ullmhú don fhíordheimhniú…</string>
 	<string name="finishing_auth">Ag críochnú an fhíordheimhnithe…</string>
+	<string name="user_boosted">%s borrtha</string>
 	<string name="in_reply_to">mar fhreagra ar %s</string>
 	<string name="notifications">Fógraí</string>
 	<string name="user_followed_you">Lean %s thú</string>
 	<string name="user_sent_follow_request">Chuir %s iarratas leanúna chugat</string>
 	<string name="user_favorited">%s curtha i bhfabhar:</string>
+	<string name="notification_boosted">%s borrtha:</string>
 	<string name="share_toot_title">Comhroinn</string>
 	<string name="settings">Socruithe</string>
 	<string name="publish">Foilsigh</string>
+	<string name="discard_draft">An bhfuil tú ag iarraidh an dréacht a chaitheamh amach?</string>
+	<string name="discard">Caith uait</string>
 	<string name="cancel">Cealaigh</string>
 	<plurals name="followers">
 		<item quantity="one">leantóir</item>
@@ -40,8 +44,10 @@
 	<string name="edit_profile">Cuir próifíl in eagar</string>
 	<string name="share_user">Comhroinn próifíl trí…</string>
 	<string name="mute_user">Balbhaigh %s</string>
+	<string name="unmute_user">Díbhalbhaigh %s</string>
 	<string name="block_user">Bloc %s</string>
 	<string name="unblock_user">Díbhlocáil %s</string>
+	<string name="report_user">Gearán %s</string>
 	<string name="block_domain">Bloc %s</string>
 	<string name="unblock_domain">Díbhlocáil %s</string>
 	<plurals name="x_posts">
@@ -51,6 +57,7 @@
 		<item quantity="many">%,d poist</item>
 		<item quantity="other">%,d poist</item>
 	</plurals>
+	<string name="profile_joined">Chuaigh isteach</string>
 	<string name="done">Déanta</string>
 	<string name="loading">Ag lódáil…</string>
 	<string name="field_label">Lipéad</string>
@@ -93,7 +100,29 @@
 		<item quantity="many">%d nóiméad fágtha</item>
 		<item quantity="other">%d nóiméad fágtha</item>
 	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d uair fágtha</item>
+		<item quantity="two">%d uair an chloig fágtha</item>
+		<item quantity="few">%d uair an chloig fágtha</item>
+		<item quantity="many">%d uair an chloig fágtha</item>
+		<item quantity="other">%d uair an chloig fágtha</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d lá fágtha</item>
+		<item quantity="two">%d laethanta fágtha</item>
+		<item quantity="few">%d laethanta fágtha</item>
+		<item quantity="many">%d laethanta fágtha</item>
+		<item quantity="other">%d laethanta fágtha</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d vóta</item>
+		<item quantity="two">%,d vótaí</item>
+		<item quantity="few">%,d vótaí</item>
+		<item quantity="many">%,d vótaí</item>
+		<item quantity="other">%,d vótaí</item>
+	</plurals>
 	<string name="poll_closed">Dúnta</string>
+	<string name="do_mute">Balbhaigh</string>
 	<string name="do_block">Bloc</string>
 	<string name="button_blocked">Blocáilte</string>
 	<string name="action_vote">Vótaigh</string>
@@ -137,7 +166,46 @@
 	<string name="report_choose_posts">An bhfuil aon phoist ann a thacaíonn leis an tuarascáil seo?</string>
 	<string name="report_choose_posts_subtitle">Roghnaigh gach ceann is infheidhme</string>
 	<string name="report_comment_title">An bhfuil aon rud eile ba chóir dúinn a bheith ar an eolas faoi?</string>
+	<string name="report_comment_hint">Tráchtanna breise</string>
+	<string name="sending_report">Ag seoladh tuairisce…</string>
+	<string name="report_sent_title">Go raibh maith agat as an tuairisciú, féachfaimid ar seo.</string>
+	<string name="report_sent_subtitle">Agus muid ag athbhreithniú seo, is féidir leat gníomhú i gcoinne %s:</string>
+	<string name="unfollow_user">Díleanúint %s</string>
+	<string name="unfollow">Díleanúint</string>
+	<string name="mute_user_explain">Ní fheicfidh tú a gcuid postálacha. Is féidir leo leanúint leat fós agus do phoist a fheiceáil agus ní bheidh a fhios acu go bhfuil siad balbhaithe.</string>
+	<string name="block_user_explain">Ní fheicfidh tú a gcuid postálacha. Ní bheidh siad in ann do phoist a fheiceáil ná tú a leanúint. Beidh siad in ann a rá go bhfuil bac orthu.</string>
+	<string name="report_personal_title">Nach mian leat é seo a fheiceáil?</string>
+	<string name="report_personal_subtitle">Seo iad na roghanna atá agat chun rialú a dhéanamh ar a bhfeiceann tú ar Mastodon:</string>
+	<string name="back">Ar ais</string>
+	<string name="search_communities">Ainm nó URL an fhreastalaí</string>
+	<string name="instance_rules_title">Rialacha an fhreastalaí</string>
+	<string name="instance_rules_subtitle">Trí leanúint ar aghaidh, aontaíonn tú cloí leis na rialacha seo a leanas atá leagtha síos agus curtha i bhfeidhm ag modhnóirí %s.</string>
+	<string name="signup_title">Cruthaigh cuntas</string>
+	<string name="display_name">Ainm</string>
+	<string name="username">Ainm úsáideora</string>
+	<string name="email">Ríomhphost</string>
+	<string name="password">Pasfhocal</string>
+	<string name="confirm_password">Deimhnigh pasfhocal</string>
+	<string name="category_general">Ginearálta</string>
+	<string name="confirm_email_title">Seiceáil do bhosca isteach</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_subtitle">Tapáil an nasc a sheolaimid chugat chun %s a fhíorú. Fanfaimid anseo.</string>
+	<string name="confirm_email_didnt_get">Nach bhfuair tú nasc?</string>
+	<string name="resend">Athsheol</string>
+	<string name="open_email_app">Oscail an aip ríomhphoist</string>
+	<string name="resent_email">Ríomhphost deimhnithe seolta</string>
+	<string name="compose_hint">Clóscríobh nó greamaigh a bhfuil ar d\'intinn</string>
+	<string name="content_warning">Rabhadh ábhair</string>
+	<string name="save">Sábháil</string>
+	<string name="add_alt_text">Cuir téacs alt leis</string>
+	<string name="visibility_public">Poiblí</string>
+	<string name="visibility_followers_only">Leantóirí</string>
+	<string name="visibility_private">Lua príobháideach</string>
+	<string name="recent_searches">Le Déanaí</string>
+	<string name="notification_type_follow">Leantóirí nua</string>
+	<string name="notification_type_favorite">Ceanáin</string>
+	<string name="notification_type_reblog">Borradh</string>
+	<string name="notification_type_mention">Luaitear</string>
 	<string name="notification_type_poll">Pobalbhreitheanna</string>
 	<string name="choose_account">Roghnaigh cuntas</string>
 	<string name="err_not_logged_in">Logáil isteach i Mastodon ar dtús le do thoil</string>
