@@ -592,7 +592,36 @@
 	<string name="settings_delete_filter_title">Scrios an scagaire “%s”?</string>
 	<string name="settings_delete_filter_confirmation">Scriosfar an scagaire seo ó do chuntas ar do ghléasanna uile.</string>
 	<string name="add_muted_word">Cuir focal balbhaithe leis</string>
+	<string name="edit_muted_word">Cuir focal balbhaithe in eagar</string>
+	<string name="add">Cuir leis</string>
+	<string name="filter_word_or_phrase">Focal nó frása</string>
+	<string name="filter_add_word_help">Níl na focail íogair ó thaobh cás de agus ní oireann siad ach do fhocail iomlána.\n\nMá dhéanann tú scagadh ar an eochairfhocal “Apple,” cuirfidh sé poist ina bhfuil “apple” nó “aPpLe” i bhfolach ach ní “pineapple”.</string>
+	<string name="settings_delete_filter_word">Scrios an focal “%s”?</string>
+	<string name="enter_selection_mode">Roghnaigh</string>
+	<string name="select_all">Roghnaigh gach rud</string>
+	<string name="settings_filter_duration_title">Fad an scagaire</string>
+	<string name="filter_duration_custom">Saincheaptha</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Scrios %d focal?</item>
+		<item quantity="two">Scrios %d focail?</item>
+		<item quantity="few">Scrios %d focail?</item>
+		<item quantity="many">Scrios %d focail?</item>
+		<item quantity="other">Scrios %d focail?</item>
+	</plurals>
+	<plurals name="x_items_selected">
+		<item quantity="one">%d roghnaithe</item>
+		<item quantity="two">%d roghnaithe</item>
+		<item quantity="few">%d roghnaithe</item>
+		<item quantity="many">%d roghnaithe</item>
+		<item quantity="other">%d roghnaithe</item>
+	</plurals>
+	<string name="required_form_field_blank">Ní féidir é a bheith bán</string>
+	<string name="filter_word_already_in_list">Sa liosta cheana féin</string>
+	<string name="app_update_ready">Nuashonrú aip réidh</string>
+	<string name="app_update_version">Leagan %s</string>
+	<string name="downloading_update">Ag íoslódáil (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
+	<string name="post_matches_filter_x">Meaitseálann an scagaire “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
 	<!-- %s is the name of the post language -->
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
