@@ -1,6 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+	<string name="log_in">Log in</string>
+	<string name="next">Next</string>
+	<string name="loading_instance">Retrieving server info…</string>
+	<string name="error">Error</string>
+	<string name="not_a_mastodon_instance">%s doesn’t appear to be a Mastodon server.</string>
+	<string name="ok">OK</string>
+	<string name="preparing_auth">Preparing for authentication…</string>
+	<string name="finishing_auth">Finishing authentication…</string>
+	<string name="user_boosted">%s boosted</string>
+	<string name="in_reply_to">in reply to %s</string>
+	<string name="notifications">Notifications</string>
+	<string name="user_followed_you">%s followed you</string>
+	<string name="user_sent_follow_request">%s sent you a follow request</string>
+	<string name="user_favorited">%s favourited:</string>
+	<string name="notification_boosted">%s boosted:</string>
+	<string name="share_toot_title">Share</string>
+	<string name="settings">Settings</string>
+	<string name="publish">Publish</string>
+	<string name="discard_draft">Discard draft?</string>
+	<string name="discard">Discard</string>
+	<string name="cancel">Cancel</string>
+	<plurals name="followers">
+		<item quantity="one">follower</item>
+		<item quantity="other">followers</item>
+	</plurals>
+	<plurals name="following">
+		<item quantity="one">following</item>
+		<item quantity="other">following</item>
+	</plurals>
+	<string name="posts">Posts</string>
+	<string name="posts_and_replies">Posts and replies</string>
+	<string name="media">Media</string>
+	<string name="profile_about">About</string>
+	<string name="button_follow">Follow</string>
+	<string name="button_following">Following</string>
+	<string name="edit_profile">Edit profile</string>
+	<string name="share_user">Share profile via…</string>
+	<string name="mute_user">Mute %s</string>
+	<string name="unmute_user">Unmute %s</string>
+	<string name="block_user">Block %s</string>
+	<string name="unblock_user">Unblock %s</string>
+	<string name="report_user">Report %s</string>
+	<string name="block_domain">Block %s</string>
+	<string name="unblock_domain">Unblock %s</string>
+	<plurals name="x_posts">
+		<item quantity="one">%,d post</item>
+		<item quantity="other">%,d posts</item>
+	</plurals>
+	<string name="profile_joined">Joined</string>
+	<string name="done">Done</string>
+	<string name="loading">Loading…</string>
+	<string name="field_label">Label</string>
+	<string name="field_content">Content</string>
+	<string name="saving">Saving…</string>
+	<string name="post_from_user">Post from %s</string>
+	<string name="poll_option_hint">Option %d</string>
+	<plurals name="x_minutes">
+		<item quantity="one">%d minute</item>
+		<item quantity="other">%d minutes</item>
+	</plurals>
+	<plurals name="x_hours">
+		<item quantity="one">%d hour</item>
+		<item quantity="other">%d hours</item>
+	</plurals>
+	<plurals name="x_days">
+		<item quantity="one">%d day</item>
+		<item quantity="other">%d days</item>
+	</plurals>
+	<plurals name="x_seconds_left">
+		<item quantity="one">%d second left</item>
+		<item quantity="other">%d seconds left</item>
+	</plurals>
+	<plurals name="x_minutes_left">
+		<item quantity="one">%d minute left</item>
+		<item quantity="other">%d minutes left</item>
+	</plurals>
+	<plurals name="x_hours_left">
+		<item quantity="one">%d hour left</item>
+		<item quantity="other">%d hours left</item>
+	</plurals>
+	<plurals name="x_days_left">
+		<item quantity="one">%d day left</item>
+		<item quantity="other">%d days left</item>
+	</plurals>
+	<plurals name="x_votes">
+		<item quantity="one">%,d vote</item>
+		<item quantity="other">%,d votes</item>
+	</plurals>
+	<string name="poll_closed">Closed</string>
+	<string name="do_mute">Mute</string>
+	<string name="do_block">Block</string>
+	<string name="button_blocked">Blocked</string>
+	<string name="action_vote">Vote</string>
+	<string name="confirm">Confirm</string>
+	<string name="delete">Delete</string>
+	<string name="confirm_delete_title">Delete post</string>
+	<string name="confirm_delete">Are you sure you want to delete this post?</string>
+	<string name="deleting">Deleting…</string>
+	<string name="notification_channel_audio_player">Audio playback</string>
+	<string name="play">Play</string>
+	<string name="pause">Pause</string>
+	<string name="log_out">Log out</string>
+	<string name="add_account">Add account</string>
+	<string name="search_hint">Search</string>
+	<string name="hashtags">Hashtags</string>
+	<string name="news">News</string>
+	<string name="for_you">For you</string>
+	<string name="all_notifications">Everything</string>
+	<string name="mentions">Mentions</string>
+	<plurals name="x_people_talking">
+		<item quantity="one">%d person is talking</item>
+		<item quantity="other">%d people are talking</item>
+	</plurals>
+	<string name="report_title">Report %s</string>
+	<string name="report_choose_reason">What’s wrong with this post?</string>
+	<string name="report_choose_reason_account">What’s wrong with %s?</string>
+	<string name="report_choose_reason_subtitle">Select the best match</string>
+	<string name="report_reason_personal">I don’t like it</string>
+	<string name="report_reason_personal_subtitle">It is not something you want to see</string>
+	<string name="report_reason_spam">It’s spam</string>
+	<string name="report_reason_spam_subtitle">Malicious links, fake engagement, or repetitive replies</string>
+	<string name="report_reason_violation">It violates server rules</string>
+	<string name="report_reason_violation_subtitle">You are aware that it breaks specific rules</string>
+	<string name="report_reason_other">It’s something else</string>
+	<string name="report_reason_other_subtitle">The issue does not fit into other categories</string>
+	<string name="report_choose_rule">Which rules are being violated?</string>
+	<string name="report_choose_rule_subtitle">Select all that apply</string>
+	<string name="report_choose_posts">Are there any posts that back up this report?</string>
+	<string name="report_choose_posts_subtitle">Select all that apply</string>
+	<string name="report_comment_title">Is there anything else we should know?</string>
+	<string name="report_comment_hint">Additional comments</string>
+	<string name="sending_report">Sending report…</string>
+	<string name="report_sent_title">Thanks for reporting, we’ll look into this.</string>
+	<string name="report_sent_subtitle">While we review this, you can take action against %s:</string>
+	<string name="unfollow_user">Unfollow %s</string>
+	<string name="unfollow">Unfollow</string>
+	<string name="mute_user_explain">You will not see their posts. They can still follow you and see your posts, and will not know that they are muted.</string>
 	<!-- %s is the email address -->
+	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
+	<string name="media_cache_cleared">Media cache cleared</string>
+	<string name="confirm_log_out">Log out of %s?</string>
+	<string name="sensitive_content_explain">The author marked this media as sensitive.</string>
 	<!-- %s is the server domain -->
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<!-- %s is file size -->
