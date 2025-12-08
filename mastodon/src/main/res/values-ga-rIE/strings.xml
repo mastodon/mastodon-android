@@ -622,11 +622,56 @@
 	<string name="downloading_update">Ag íoslódáil (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="post_matches_filter_x">Meaitseálann an scagaire “%s”</string>
+	<string name="search_mastodon">Cuardaigh Mastodon</string>
+	<string name="clear_all">Glan gach rud</string>
+	<string name="search_open_url">Oscail URL i Mastodon</string>
+	<string name="posts_matching_hashtag">Poist le “%s”</string>
+	<string name="search_go_to_account">Téigh go %s</string>
+	<string name="posts_matching_string">Poist le “%s”</string>
+	<string name="accounts_matching_string">Daoine le “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%ds ó shin</string>
+	<string name="time_minutes_ago_short">%dn ó shin</string>
+	<string name="time_hours_ago_short">%du ó shin</string>
+	<string name="time_days_ago_short">%dl ó shin</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Aistrigh ó %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Aistrithe ó %1$s ag baint úsáide as %2$s</string>
+	<string name="translation_show_original">Taispeáin an bunleagan</string>
+	<string name="translation_failed">Theip ar an aistriúchán. B’fhéidir nach bhfuil aistriúcháin cumasaithe ag an riarthóir ar an bhfreastalaí seo nó go bhfuil leagan níos sine de Mastodon á rith ar an bhfreastalaí seo nach bhfuil tacaíocht ann d’aistriúcháin fós.</string>
+	<string name="settings_privacy">Príobháideacht agus rochtain</string>
+	<string name="settings_discoverable">Próifíl ghné agus poist in halgartaim fionnachtana</string>
+	<string name="settings_indexable">Cuir poist phoiblí san áireamh i dtorthaí cuardaigh</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d rannpháirtí</item>
+		<item quantity="two">%,d rannpháirtithe</item>
+		<item quantity="few">%,d rannpháirtithe</item>
+		<item quantity="many">%,d rannpháirtithe</item>
+		<item quantity="other">%,d rannpháirtithe</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d post inniu</item>
+		<item quantity="two">%,d postálacha inniu</item>
+		<item quantity="few">%,d postálacha inniu</item>
+		<item quantity="many">%,d postálacha inniu</item>
+		<item quantity="other">%,d postálacha inniu</item>
+	</plurals>
+	<string name="error_playing_video">Earráid ag seinm físeáin</string>
+	<string name="timeline_following">Baile</string>
+	<string name="lists">Liostaí</string>
+	<string name="followed_hashtags">Haischlibeanna a leanann tú</string>
+	<string name="manage_lists">Bainistigh liostaí</string>
+	<string name="manage_hashtags">Bainistigh haischlibeanna</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
+	<string name="dropdown_menu">Roghchlár anuas</string>
+	<string name="edit_list">Cuir an liosta in eagar</string>
+	<string name="list_members">Baill liosta</string>
+	<string name="delete_list">Scrios liosta</string>
 	<!-- %s is the name of the list -->
+	<string name="delete_list_confirm">Scrios “%s”?</string>
+	<string name="list_exclusive">Folaigh baill i Leanúint</string>
+	<string name="list_exclusive_subtitle">Má tá duine ar an liosta seo, folaigh iad i do líne ama Leanúna chun a gcuid postálacha a sheachaint faoi dhó.</string>
 	<string name="list_name">Ainm an liosta</string>
 	<string name="list_show_replies_to">Taispeáin freagraí chuig</string>
 	<string name="list_replies_no_one">Níl aon duine</string>
@@ -692,7 +737,56 @@ Dá mhéad daoine a leanann tú, is ea is gníomhaí agus is suimiúla a bheidh 
 	<string name="onboarding_recommendations_title">Pearsantaigh do bheatha baile</string>
 	<string name="article_by_author">Faoi %s</string>
 	<string name="button_reblogged">Treisithe</string>
+	<string name="button_favorited">Ceanánaithe</string>
+	<string name="join_server_x_with_invite">Bígí páirteach i %s le cuireadh</string>
+	<string name="expired_invite_link">Nasc cuireadh imithe in éag</string>
+	<string name="expired_clipboard_invite_link_alert">Tá an nasc cuireadh do %1$s i do ghearrthaisce imithe in éag agus ní féidir é a úsáid chun clárú.\n\nIs féidir leat nasc nua a iarraidh ó úsáideoir atá ann cheana féin, clárú trí %2$s, nó freastalaí eile a roghnú le clárú tríd.</string>
+	<string name="invalid_invite_link">Nasc cuireadh neamhbhailí</string>
+	<string name="invalid_clipboard_invite_link_alert">Níl an nasc cuireadh do %1$s i do ghearrthaisce bailí agus ní féidir é a úsáid chun clárú.\n\nIs féidir leat nasc nua a iarraidh ó úsáideoir atá ann cheana féin, clárú trí %2$s, nó freastalaí eile a roghnú le clárú tríd.</string>
+	<string name="use_invite_link">Úsáid nasc an chuireadh</string>
+	<string name="enter_invite_link">Cuir isteach nasc an chuireadh</string>
+	<string name="this_invite_is_invalid">Níl an nasc cuireadh seo bailí.</string>
+	<string name="this_invite_has_expired">Tá an nasc cuireadh seo imithe in éag.</string>
+	<string name="invite_link_pasted">Nasc greamaithe ó do ghearrthaisce.</string>
+	<string name="need_invite_to_join_server">Chun páirt a ghlacadh i %s, beidh nasc cuireadh ó úsáideoir atá ann cheana ag teastáil uait.</string>
+	<string name="mute_user_confirm_title">An bhfuil fonn ort úsáideoir a bhalbhú?</string>
+	<string name="user_wont_know_muted">Ní bheidh a fhios acu go bhfuil siad curtha a bhalbhú.</string>
+	<string name="user_can_still_see_your_posts">Is féidir leo do phoist a fheiceáil fós, ach ní fheicfidh tú a gcuid postálacha.</string>
+	<string name="you_wont_see_user_mentions">Is féidir leo do phoist a fheiceáil fós, ach ní fheicfidh tú a gcuid postálacha.</string>
+	<string name="user_can_mention_and_follow_you">Is féidir leo trácht a dhéanamh ort agus leanúint leat, ach ní fheicfidh tú iad.</string>
+	<string name="block_user_confirm_title">Úsáideoir a bhlocáil?</string>
+	<string name="user_can_see_blocked">Is féidir leo a fheiceáil go bhfuil siad bactha.</string>
+	<string name="user_cant_see_each_other_posts">Ní féidir leo do phoist a fheiceáil agus ní fheicfidh tú a gcuid postálacha.</string>
+	<string name="user_cant_mention_or_follow_you">Ní féidir leo trácht a dhéanamh ort ná tú a leanúint.</string>
+	<string name="unblocked_user_x">%s díbhlocáilte</string>
+	<string name="block_domain_confirm_title">Fearann ​​a bhlocáil?</string>
+	<string name="do_block_server">Freastalaí blocáilte</string>
+	<string name="block_user_x_instead">Blocáil %s ina ionad</string>
+	<string name="users_cant_see_blocked">Ní fheicfidh tú poist ná fógraí ó úsáideoirí ar an bhfreastalaí seo.</string>
+	<string name="you_wont_see_server_posts">Ní fheicfidh tú aon phoist ó úsáideoirí ar an bhfreastalaí seo.</string>
+	<string name="server_cant_mention_or_follow_you">Ní féidir le haon duine ón bhfreastalaí seo tú a leanúint.</string>
+	<string name="server_can_interact_with_older">Is féidir le daoine ón bhfreastalaí seo idirghníomhú le do sheanphoist.</string>
+	<string name="unblocked_domain_x">Fearann ​​%s díbhlocáilte</string>
+	<string name="handle_help_title">Cad atá i láimhseáil?</string>
+	<string name="handle_title">A láimhseáil</string>
+	<string name="handle_username_explanation">A n-aitheantóir uathúil ar a bhfreastalaí. Is féidir úsáideoirí leis an ainm úsáideora céanna a aimsiú ar fhreastalaithe éagsúla.</string>
+	<string name="handle_title_own">Do láimhseáil</string>
+	<string name="handle_username_explanation_own">D\'aitheantóir uathúil ar an bhfreastalaí seo. Is féidir úsáideoirí leis an ainm úsáideora céanna a aimsiú ar fhreastalaithe éagsúla.</string>
+	<string name="server">Freastalaí</string>
+	<string name="handle_server_explanation">A dteach digiteach, áit a bhfuil a gcuid postálacha go léir ina gcónaí.</string>
+	<string name="handle_explanation">Ós rud é go n-insíonn láimhsithe cé hé duine agus cá bhfuil siad, is féidir leat idirghníomhú le daoine ar fud an ghréasáin shóisialta &lt;a&gt;Ardáin faoi thiomáint ag ActivityPub&lt;/a&gt;.</string>
+	<string name="handle_server_explanation_own">Do theach digiteach, áit a bhfuil do phoist go léir ina gcónaí. Nach maith leat an ceann seo? Aistrigh freastalaithe ag am ar bith agus tabhair do leanúna leat freisin.</string>
+	<string name="handle_explanation_own">Ós rud é go ndeir do láimhseáil cé tú féin agus cá bhfuil tú, is féidir le daoine idirghníomhú leat ar fud an ghréasáin shóisialta &lt;a&gt;Ardáin faoi thiomáint ag ActivityPub&lt;/a&gt;.</string>
+	<string name="what_is_activitypub_title">Cad é ActivityPub?</string>
+	<string name="what_is_activitypub">Tá ActivityPub cosúil leis an teanga a labhraíonn Mastodon le líonraí sóisialta eile.\n\nLigeann sé duit ceangal agus idirghníomhú le daoine ní hamháin ar Mastodon, ach ar fud aipeanna sóisialta éagsúla chomh maith.</string>
+	<string name="handle_copied">Láimhseáil cóipeáilte chuig an ghearrthaisce.</string>
+	<string name="qr_code">Cód QR</string>
+	<string name="scan_qr_code">Scanáil cód QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
+	<string name="saved">Sábháilte</string>
+	<string name="image_saved">Íomhá sábháilte.</string>
+	<string name="video_saved">Físeán sábháilte.</string>
+	<string name="view_file">Amharc</string>
 	<string name="share_sheet_preview_profile">%s ar Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s ar Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Cóipeáil nasc chuig próifíl</string>
@@ -750,8 +844,91 @@ Dá mhéad daoine a leanann tú, is ea is gníomhaí agus is suimiúla a bheidh 
 	<string name="not_found">B’fhéidir gur scriosadh é, nó b’fhéidir nárbh ann dó riamh ar chor ar bith.</string>
 	<string name="no_servers_found">Níor aimsíodh aon fhreastalaithe do “%s”</string>
 	<string name="signup_username_taken">Tá an t-ainm úsáideora seo tógtha. Bain triail as ceann eile nó &lt;a&gt;roghnaigh freastalaí difriúil&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Ní cosúil gur seoladh ríomhphoist bailí é sin.</string>
+	<string name="signup_email_taken">Tá an seoladh ríomhphoist in úsáid cheana féin. An ndearna tú &lt;a&gt;dearmad ar do phasfhocal&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d fógra nua</item>
+		<item quantity="two">%,d fógraí nua</item>
+		<item quantity="few">%,d fógraí nua</item>
+		<item quantity="many">%,d fógraí nua</item>
+		<item quantity="other">%,d fógraí nua</item>
+	</plurals>
+	<string name="dismiss">Díbhe</string>
+	<string name="donation_once">Uair amháin</string>
+	<string name="donation_monthly">Míosúil</string>
+	<string name="donation_yearly">Bliantúil</string>
+	<string name="currency">Airgeadra</string>
+	<string name="donation_success_share">Scaip an scéal</string>
+	<string name="donation_success_title">Go raibh maith agat as do ranníocaíocht!</string>
+	<string name="donation_success_subtitle">Ba chóir go bhfaighfeá ríomhphost ag deimhniú do shíntiús go luath.</string>
+	<string name="donation_server_error">Tá brón orainn, tharla earráid agus ní raibh muid in ann do shíntiús a phróiseáil.\n\n\Déan iarracht eile i gceann cúpla nóiméad.</string>
+	<string name="settings_donate">Tabhair síntiús do Mastodon</string>
+	<string name="settings_manage_donations">Bainistigh síntiúis</string>
+	<string name="cant_load_image">Níorbh fhéidir an íomhá a lódáil</string>
+	<string name="poll_see_results">Féach torthaí</string>
+	<string name="poll_hide_results">Folaigh na torthaí</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d ceangaltán</item>
+		<item quantity="two">%d ceangaltáin</item>
+		<item quantity="few">%d ceangaltáin</item>
+		<item quantity="many">%d ceangaltáin</item>
+		<item quantity="other">%d ceangaltáin</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s agus %2$,d eile curtha i ceanánaithe:</item>
+		<item quantity="two">%1$s agus %2$,d eile curtha i ceanánaithe:</item>
+		<item quantity="few">%1$s agus %2$,d eile curtha i ceanánaithe:</item>
+		<item quantity="many">%1$s agus %2$,d eile curtha i ceanánaithe:</item>
+		<item quantity="other">%1$s agus %2$,d eile curtha i ceanánaithe:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s agus %2$,d eile treisithe:</item>
+		<item quantity="two">%1$s agus %2$,d eile treisithe:</item>
+		<item quantity="few">%1$s agus %2$,d eile treisithe:</item>
+		<item quantity="many">%1$s agus %2$,d eile treisithe:</item>
+		<item quantity="other">%1$s agus %2$,d eile treisithe:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">Reáchtáil %1$s pobalbhreith inar vótáil tú féin agus %2$,d eile</item>
+		<item quantity="two">Reáchtáil %1$s pobalbhreith inar vótáil tú féin agus %2$,d duine eile</item>
+		<item quantity="few">Reáchtáil %1$s pobalbhreith inar vótáil tú féin agus %2$,d duine eile</item>
+		<item quantity="many">Reáchtáil %1$s pobalbhreith inar vótáil tú féin agus %2$,d duine eile</item>
+		<item quantity="other">Reáchtáil %1$s pobalbhreith inar vótáil tú féin agus %2$,d duine eile</item>
+	</plurals>
+	<string name="own_poll_ended">Tá deireadh le do vótaíocht</string>
+	<string name="user_just_posted">%s díreach tar éis a phostáil</string>
+	<string name="user_edited_post">Chuir %s post in eagar a raibh idirghníomhaíocht agat leis</string>
+	<string name="relationship_severance_account_suspension">Tá %2$s curtha ar fionraí ag riarthóir ó %1$s, rud a chiallaíonn nach féidir leat nuashonruithe a fháil uathu ná idirghníomhú leo a thuilleadh.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">Tá riarthóir ó %1$s tar éis bac a chur ar %2$s, lena n-áirítear %3$,d de do leanúna agus %4$s a leanann tú.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d cuntas</item>
+		<item quantity="two">%,d cuntais</item>
+		<item quantity="few">%,d cuntais</item>
+		<item quantity="many">%,d cuntais</item>
+		<item quantity="other">%,d cuntais</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Tá %1$s blocáilte agat, ag baint %2$,d de do leanúna agus %3$s a leanann tú.</string>
+	<string name="relationship_severance_learn_more">Foghlaim níos mó</string>
+	<string name="moderation_warning_action_none">Tá foláireamh modhnóireachta faighte ag do chuntas.</string>
+	<string name="moderation_warning_action_disable">Tá do chuntas díchumasaithe.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Tá cuid de do phoist marcáilte mar íogair.</string>
+	<string name="moderation_warning_action_delete_statuses">Baineadh cuid de do phoist.</string>
+	<string name="moderation_warning_action_sensitive">Marcálfar do phoist mar phoist íogaire as seo amach.</string>
+	<string name="moderation_warning_action_silence">Tá teorainn curtha le do chuntas.</string>
+	<string name="moderation_warning_action_suspend">Tá do chuntas curtha ar fionraí.</string>
+	<string name="moderation_warning_learn_more">Foghlaim níos mó</string>
+	<string name="text_show_more">Tuilleadh</string>
+	<string name="avatar_move_and_scale">Bog agus scálú</string>
+	<string name="confirm_avatar_crop">Roghnaigh</string>
+	<string name="settings_use_dynamic_colors">Úsáid dath dinimiciúil an chórais</string>
+	<string name="settings_accounts">Cuntais</string>
+	<string name="settings_add_account">Cuir cuntas leis...</string>
+	<string name="settings_app_settings">Socruithe aipeanna</string>
+	<string name="account_settings">Socruithe cuntais</string>
+	<string name="settings_about_this_server">Maidir leis an bhfreastalaí seo</string>
+	<string name="manage_account">Bainistigh cuntas</string>
 	<plurals name="user_and_x_more_followed">
 		<item quantity="one">Lean %1$s agus %2$,d eile thú</item>
 		<item quantity="two">Lean %1$s agus %2$,d daoine eile thú</item>
@@ -814,4 +991,8 @@ Dá mhéad daoine a leanann tú, is ea is gníomhaí agus is suimiúla a bheidh 
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="remove_quote_confirm">Ní féidir an gníomh seo a chealú.</string>
+	<string name="remove_quote_button">Bain postáil</string>
+	<string name="cant_quote_in_private_title">Ní féidir luachana a leabú i luanna príobháideacha</string>
+	<string name="cant_quote_in_private">Má shábhálann tú na socruithe reatha, déanfar an luachan leabaithe a thiontú ina nasc.</string>
 </resources>
