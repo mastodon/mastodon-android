@@ -754,6 +754,7 @@ Dá mhéad daoine a leanann tú, is ea is gníomhaí agus is suimiúla a bheidh 
 	<string name="user_can_still_see_your_posts">Is féidir leo do phoist a fheiceáil fós, ach ní fheicfidh tú a gcuid postálacha.</string>
 	<string name="you_wont_see_user_mentions">Is féidir leo do phoist a fheiceáil fós, ach ní fheicfidh tú a gcuid postálacha.</string>
 	<string name="user_can_mention_and_follow_you">Is féidir leo trácht a dhéanamh ort agus leanúint leat, ach ní fheicfidh tú iad.</string>
+	<string name="unmuted_user_x">Dífhaomhaithe %s</string>
 	<string name="block_user_confirm_title">Úsáideoir a bhlocáil?</string>
 	<string name="user_can_see_blocked">Is féidir leo a fheiceáil go bhfuil siad bactha.</string>
 	<string name="user_cant_see_each_other_posts">Ní féidir leo do phoist a fheiceáil agus ní fheicfidh tú a gcuid postálacha.</string>
@@ -929,6 +930,9 @@ Dá mhéad daoine a leanann tú, is ea is gníomhaí agus is suimiúla a bheidh 
 	<string name="account_settings">Socruithe cuntais</string>
 	<string name="settings_about_this_server">Maidir leis an bhfreastalaí seo</string>
 	<string name="manage_account">Bainistigh cuntas</string>
+	<string name="switch_to_this_account">Athraigh chuig an gcuntas seo</string>
+	<string name="delete_account">Scrios cuntas</string>
+	<string name="notification_type_status">Poist nua</string>
 	<plurals name="user_and_x_more_followed">
 		<item quantity="one">Lean %1$s agus %2$,d eile thú</item>
 		<item quantity="two">Lean %1$s agus %2$,d daoine eile thú</item>
@@ -987,12 +991,78 @@ Dá mhéad daoine a leanann tú, is ea is gníomhaí agus is suimiúla a bheidh 
 	<string name="private_reply">Freagra príobháideach</string>
 	<string name="private_mention">Lua príobháideach</string>
 	<string name="post_header_reply">Freagra</string>
+	<string name="post_header_mention">Luaigh</string>
+	<string name="report_reason_legal">Tá sé mídhleathach</string>
+	<string name="report_reason_legal_subtitle">Creideann tú go sáraíonn sé dlí do thíre féin nó dlí an fhreastalaí</string>
+	<string name="date_of_birth">Dáta breithe</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Caithfimid a chinntiú go bhfuil tú %s ar a laghad chun Mastodon a úsáid. Ní stórálfar é seo tar éis clárúcháin.</string>
+	<string name="open_link">Oscail</string>
+	<string name="copy">Cóipeáil</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="two">%d</item>
+		<item quantity="few">%d</item>
+		<item quantity="many">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
+	<string name="quote_post_unavailable">Post ar fáil</string>
+	<string name="quote_post_pending">Post ar feitheamh</string>
+	<string name="quote_post_pending_explanation">Ar Mastodon, is féidir leat a rialú an féidir le duine tú a lua nó nach féidir. Tá an post seo ar feitheamh fad is atá ceadú an údair bhunaidh á fháil againn.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Luaigh mé post le %s</string>
+	<string name="compose_visibility_public_anyone">Poiblí, is féidir le duine ar bith lua</string>
+	<string name="compose_visibility_public_limited">Poiblí, luachana teoranta</string>
+	<string name="compose_visibility_public_disabled">Poiblí, luachana díchumasaithe</string>
+	<string name="compose_visibility_unlisted_anyone">Pobal ciúin, is féidir le duine ar bith lua</string>
+	<string name="compose_visibility_unlisted_limited">Pobal ciúin, luachana teoranta</string>
+	<string name="compose_visibility_unlisted_disabled">Pobal ciúin, luachana díchumasaithe</string>
+	<string name="compose_visibility_title">Infheictheacht agus idirghníomhaíocht</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Rialú cé a fhéadfaidh idirghníomhú leis an bpost seo. Is féidir socruithe domhanda a fháil faoi Socruithe &gt; %s &gt; Réamhshocruithe Postála.</string>
+	<string name="compose_visibility">Infheictheacht</string>
+	<string name="compose_quote_policy">Cé a fhéadfaidh lua</string>
+	<string name="quote_policy_public">Aon duine</string>
+	<string name="quote_policy_followers">Leantóirí amháin</string>
+	<string name="quote_policy_nobody">Mise amháin</string>
+	<string name="quote_policy_for_unlisted_explanation">Nuair a luann daoine thú, beidh a bpost i bhfolach ó amlínte treochta freisin.</string>
+	<string name="quote_policy_for_private_explanation">Ní féidir le daoine eile poist atá scríofa ar Mastodon agus atá dírithe ar leanúna amháin a lua.</string>
+	<string name="quote_policy_for_direct_explanation">Ní féidir le daoine eile tráchtanna príobháideacha a scríobhadh ar Mastodon a lua.</string>
+	<string name="change_quote_policy">Athraigh cé a fhéadann luachan a thabhairt</string>
+	<string name="edit_visibility_explanation">Ní féidir infheictheacht postálacha foilsithe a athrú.</string>
+	<string name="user_quoted_post">%s luaigh do phost:</string>
+	<string name="user_edited_quoted_post">%s a chuir in eagar post a luann tú</string>
+	<string name="notification_type_quote">Luachain</string>
+	<string name="create_quote">Luachan</string>
+	<string name="cannot_quote_post">Ní cheadaítear duit an post seo a lua</string>
+	<string name="cannot_quote_post_followers_only">Ní féidir ach le leantóirí an post seo a lua</string>
+	<string name="compose_hint_quote">Cuir rud éigin leis an gcomhrá</string>
+	<string name="cancel_quote">Cealaigh an luachan</string>
+	<string name="unlisted_quote_alert_title">Ag lua poist phoiblí chiúine</string>
+	<string name="unlisted_quote_alert">Agus post poiblí ciúin á lua, beidh do phost i bhfolach ó amlínte treochta.</string>
+	<string name="settings_posting_defaults">Réamhshocruithe postála</string>
+	<string name="default_post_visibility">Infheictheacht postála</string>
+	<string name="create_quote_manual_approval">Iarratas ar luachan</string>
+	<string name="create_quote_manual_approval_subtitle">Déanfaidh an t-údar athbhreithniú de láimh</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d sleacht</item>
+		<item quantity="two">%,d sleachta</item>
+		<item quantity="few">%,d sleachta</item>
+		<item quantity="many">%,d sleachta</item>
+		<item quantity="other">%,d sleachta</item>
+	</plurals>
+	<string name="remove_quote">Bain mo phost ó phost %s</string>
+	<string name="remove_quote_confirm_title">Bain postáil?</string>
 	<string name="remove_quote_confirm">Ní féidir an gníomh seo a chealú.</string>
 	<string name="remove_quote_button">Bain postáil</string>
+	<string name="settings_posting_defaults_explanation">Úsáidfear na socruithe seo mar réamhshocruithe nuair a chruthaíonn tú poist nua, ach is féidir leat iad a chur in eagar in aghaidh an phoist laistigh den chumadóir.</string>
 	<string name="cant_quote_in_private_title">Ní féidir luachana a leabú i luanna príobháideacha</string>
 	<string name="cant_quote_in_private">Má shábhálann tú na socruithe reatha, déanfar an luachan leabaithe a thiontú ina nasc.</string>
+	<string name="quote_followers_only_confirm_title">Roinn le leantóirí agus úsáideoirí luaite?</string>
+	<string name="quote_followers_only_confirm">Cuirfear an duine atá á lua agat agus daoine eile a luann tú ar an eolas agus beidh siad in ann do phost a fheiceáil, fiú mura bhfuil siad ag leanúint thú.</string>
+	<string name="quote_followers_only_publish">Foilsigh an post</string>
+	<string name="quote_followers_only_cancel">Ar ais chuig an eagarthóireacht</string>
+	<string name="quote_followers_only_dont_show_again">Ná taispeáin an teachtaireacht seo arís</string>
+	<string name="more_replies_found">Tuilleadh freagraí aimsithe</string>
 </resources>
