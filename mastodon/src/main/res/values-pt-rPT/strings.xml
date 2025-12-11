@@ -164,6 +164,7 @@
 	<string name="add_alt_text">Adicionar texto descritivo</string>
 	<string name="visibility_public">Público</string>
 	<string name="visibility_followers_only">Seguidores</string>
+	<string name="visibility_private">Menção privadas</string>
 	<string name="recent_searches">Recentes</string>
 	<string name="notification_type_follow">Novos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
@@ -410,6 +411,7 @@
 	<string name="settings_server_explanation">Visão geral, regras, moderadores</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Sobre %s</string>
+	<string name="default_post_language">Idioma de publicação</string>
 	<string name="settings_alt_text_reminders">Adicionar lembretes de texto descritivo</string>
 	<string name="settings_confirm_unfollow">Perguntar antes de deixar de seguir alguém</string>
 	<string name="settings_confirm_boost">Perguntar antes de impulsionar um publicação</string>
@@ -728,6 +730,7 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="notifications_muted">As notificações de %s foram descartadas.</string>
 	<string name="notifications_allowed">%s agora aparecerá na tua lista de notificações.</string>
 	<string name="visibility_subtitle_public">Qualquer um dentro ou fora do Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Oculto dos resultados de pesquisa, destaques e cronologias públicas do Mastodon</string>
 	<string name="visibility_subtitle_followers">Apenas os teus seguidores</string>
 	<string name="visibility_subtitle_private">Todos os mencionados na publicação</string>
 	<string name="view_boosts">Mostrar impulsos</string>
@@ -863,6 +866,13 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 		<item quantity="one">%d</item>
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Publicação indisponível</string>
+	<string name="quote_post_pending">Publicação pendente</string>
+	<string name="quote_post_pending_explanation">No Mastodon, pode controlar se alguém pode citar as suas publicações. Esta publicação está pendente enquanto aguardamos a aprovação do autor original.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Citou uma publicação de %s</string>
+	<string name="compose_visibility_public_anyone">Público, qualquer pessoa pode citar</string>
+	<string name="compose_visibility_public_limited">Público, citações limitadas</string>
+	<string name="compose_visibility_public_disabled">Público, citações desativadas</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 </resources>
