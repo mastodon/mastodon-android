@@ -8,7 +8,9 @@ import org.joinmastodon.android.fragments.ManageListsFragment;
 import org.joinmastodon.android.model.FollowList;
 import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import me.grishka.appkit.Nav;
@@ -26,6 +28,7 @@ public class HomeTimelineListsMenuController extends DropdownSubmenuController{
 		for(FollowList l:lists){
 			items.add(new Item<>(l.title, false, false, l, this::onListSelected));
 		}
+		items.sort(Comparator.comparing(i->i.title, Collator.getInstance()));
 		items.add(new Item<Void>(dropdownController.getActivity().getString(R.string.create_list), false, true, i->{
 			dropdownController.dismiss();
 			Bundle args=new Bundle();
