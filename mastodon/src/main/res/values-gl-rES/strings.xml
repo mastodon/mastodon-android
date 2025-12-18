@@ -737,6 +737,14 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 	<string name="view_favorites">Ver favorecementos</string>
 	<string name="undo_reblog">Retirar promoción</string>
 	<string name="undo_favorite">Retirar favorecemento</string>
+	<string name="could_not_reach_server">Non se acadou o servidor. Comproba a conexión e volve a intentalo.</string>
+	<string name="connection_timed_out">A solicitude caducou. Comproba a conexión e volve a intentalo</string>
+	<string name="server_error">Algo fallou ao intentar acceder ao servidor. Non cremos que sexa culpa túa. Intentámolo outra vez?</string>
+	<string name="not_found">Pode que se borrase, ou que nin chegase a existir.</string>
+	<string name="no_servers_found">Non se atopan servidores para «%s»</string>
+	<string name="signup_username_taken">Xa se está a usar o identificador. Proba con outro diferente ou &lt;a&gt;escolle outro servidor&lt;/a&gt;.</string>
+	<string name="signup_email_invalid">Non semella ser un enderezo de correo válido.</string>
+	<string name="signup_email_taken">Xa se está a usar ese enderezo de correo. &lt;a&gt;Esqueciches o contrasinal&lt;/a&gt;?</string>
 	<plurals name="x_new_notifications">
 		<item quantity="one">%,d nova notificación</item>
 		<item quantity="other">%,d novas notificacións</item>
@@ -759,13 +767,103 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 		<item quantity="one">%d anexo</item>
 		<item quantity="other">%d anexos</item>
 	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s e outras %2$,d favoreceron:</item>
+		<item quantity="other">%1$s e outras %2$,d favoreceron:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s e outras %2$,d promoeron:</item>
+		<item quantity="other">%1$s e outras %2$,d promoeron:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s creou unha enquisa na que ti e %2$,d máis votastes</item>
+		<item quantity="other">%1$s creou unha enquisa na que ti e %2$,d máis votastes</item>
+	</plurals>
+	<string name="own_poll_ended">A túa enquisa rematou</string>
+	<string name="user_just_posted">%s publicou</string>
+	<string name="user_edited_post">%s editou unha publicación coa que interactuaches</string>
+	<string name="relationship_severance_account_suspension">A administración de %1$s suspendeu a %2$s, o que significa que xa non vas recibir actualizacións de esa conta ou interactuar con ela.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_domain_block">A administración de %1$s bloqueou a %2$s, incluíndo %3$,d das túas seguidoras e %4$s que estás a seguir.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d conta</item>
+		<item quantity="other">%,d contas</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
+	<string name="relationship_severance_user_domain_block">Bloqueaches a %1$s, eliminando %2$,d das túas seguidoras e %3$s que estás a seguir.</string>
+	<string name="relationship_severance_learn_more">Saber máis</string>
+	<string name="moderation_warning_action_none">A túa conta recibeu unha advertencia da moderación.</string>
+	<string name="moderation_warning_action_disable">A túa conta foi desactivada.</string>
+	<string name="moderation_warning_action_mark_statuses_as_sensitive">Algunha das túas publicacións foron marcadas como sensibles.</string>
+	<string name="moderation_warning_action_delete_statuses">Algunha das túas publicacións foron eliminadas.</string>
+	<string name="moderation_warning_action_sensitive">De agora en diante as túas publicacións van ser marcadas como sensibles.</string>
+	<string name="moderation_warning_action_silence">A túa conta foi limitada.</string>
+	<string name="moderation_warning_action_suspend">A túa conta foi suspendida.</string>
+	<string name="moderation_warning_learn_more">Saber máis</string>
+	<string name="text_show_more">Máis</string>
+	<string name="avatar_move_and_scale">Mover e cambiar tamaño</string>
+	<string name="confirm_avatar_crop">Elixir</string>
+	<string name="settings_use_dynamic_colors">Usar cor dinámica do sistema</string>
+	<string name="settings_accounts">Contas</string>
+	<string name="settings_add_account">Engadir conta...</string>
+	<string name="settings_app_settings">Axustes da aplicación</string>
+	<string name="account_settings">Axustes da conta</string>
+	<string name="settings_about_this_server">Sobre este servidor</string>
+	<string name="manage_account">Xestionar a conta.</string>
+	<string name="switch_to_this_account">Cambiar a esta conta</string>
+	<string name="delete_account">Eliminar conta</string>
+	<string name="notification_type_status">Novas publicacións</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s e outras %2$,d seguíronte</item>
+		<item quantity="other">%1$s e outras %2$,d seguíronte</item>
+	</plurals>
+	<string name="familiar_followers_one">Seguida por %s</string>
+	<string name="familiar_followers_two">Seguida por %s e %s</string>
+	<string name="profile_saved_posts">Gardada</string>
+	<string name="profile_saved_posts_explanation">As publicacións gardadas só as podes ver ti.</string>
+	<string name="search_people">Persoas</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Seguida por %1$s, %2$s, e outras %3$,d</item>
+		<item quantity="other">Seguida por %1$s, %2$s, e outras %3$,d</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d seguidora que coñeces</item>
+		<item quantity="other">%,d seguidoras que coñeces</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">Vaise eliminar %,d seguidora deste servidor.</item>
+		<item quantity="other">Vanse eliminar %,d seguidoras deste servidor.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
+	<string name="server_x_followers_and_following_will_be_removed">Vas perder a %1$s e %2$s.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d seguidora</item>
+		<item quantity="other">%,d seguidoras</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="default_post_visibility">Visibilidade da publicación</string>
+	<string name="create_quote_manual_approval">Solicitar a citación</string>
+	<string name="create_quote_manual_approval_subtitle">A autora revisará manualmente</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d cita</item>
+		<item quantity="other">%,d citas</item>
+	</plurals>
+	<string name="remove_quote">Retirar a miña publicación da publicación de %s</string>
+	<string name="remove_quote_confirm_title">Retirar a publicación?</string>
+	<string name="remove_quote_confirm">Esta acción non se pode desfacer.</string>
+	<string name="remove_quote_button">Retirar a publicación</string>
+	<string name="settings_posting_defaults_explanation">Estes axustes vanse usar como valores por defecto para as novas publicacións, pero podes axustalas de xeito individual na caixa de edición.</string>
+	<string name="cant_quote_in_private_title">As citas non se poden incluír nas mencións privadas</string>
+	<string name="cant_quote_in_private">Se gardas os axustes actuais a cita incluída vaise converter nunha ligazón.</string>
+	<string name="quote_followers_only_confirm_title">Compartir coas seguidoras e coas usuarias mencionadas?</string>
+	<string name="quote_followers_only_confirm">A persoa que estás a citar e outras contas mencionadas serán notificadas e poderán ver a túa publicación, incluso se non te seguen.</string>
+	<string name="quote_followers_only_publish">Publicar publicación</string>
+	<string name="quote_followers_only_cancel">Volver á edición</string>
+	<string name="quote_followers_only_dont_show_again">Non volver a mostrar esta mensaxe.</string>
+	<string name="more_replies_found">Existen máis respostas</string>
 </resources>

@@ -709,7 +709,7 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="new_post_notifications_disabled">Ez duzu bidalketa berrien jakinarazpenak jasoko.</string>
 	<string name="mute_conversation">Mututu elkarrizketa</string>
 	<string name="unmute_conversation">Desmututu elkarrizketa</string>
-	<string name="visibility_unlisted">Deiadar urrikoa</string>
+	<string name="visibility_unlisted">Ikusgarritasun mugatua</string>
 	<string name="filtered_notifications">Iragazitako jakinarazpenak</string>
 	<string name="filter_notifications">Ez iragazi hemengo jakinarazpenak...</string>
 	<string name="notification_filter_following">Jarraitzen ez duzun jendea</string>
@@ -874,11 +874,12 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="compose_visibility_public_anyone">Publikoa, edonork aipa dezake</string>
 	<string name="compose_visibility_public_limited">Publikoa, aipu mugatuak</string>
 	<string name="compose_visibility_public_disabled">Publikoa, aipuak desgaituta</string>
-	<string name="compose_visibility_unlisted_anyone">Deiadar urrikoa, edonork aipa dezake</string>
-	<string name="compose_visibility_unlisted_limited">Deiadar urrikoa, aipu mugatuak</string>
-	<string name="compose_visibility_unlisted_disabled">Deiadar urrikoa, aipuak desgaituta</string>
+	<string name="compose_visibility_unlisted_anyone">Ikusgarritasun mugatua, edonork aipa dezake</string>
+	<string name="compose_visibility_unlisted_limited">Ikusgarritasun mugatua, aipu mugatuak</string>
+	<string name="compose_visibility_unlisted_disabled">Ikusgarritasun mugatua, aipuak desgaituta</string>
 	<string name="compose_visibility_title">Ikusgarritasuna eta elkarreraginak</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Kontrolatu nork elkarreragin dezakeen zure bidalketekin. Ezarpen orokorrak Ezarpenak &gt; %s &gt; Bidalketarako lehenetsitakoak atalean aurki daitezke.</string>
 	<string name="compose_visibility">Ikusgaitasuna</string>
 	<string name="compose_quote_policy">Nork aipa dezake</string>
 	<string name="quote_policy_public">Edozein</string>
@@ -893,11 +894,12 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="user_edited_quoted_post">%s(e)k aipatu duzun post bat editatu du</string>
 	<string name="notification_type_quote">Aipuak</string>
 	<string name="create_quote">Aipua</string>
+	<string name="cannot_quote_post">Ez duzu bidalketa hau aipatzeko baimenik</string>
 	<string name="cannot_quote_post_followers_only">Jarraitzaileek soilik aipatu dezakete bidalketa hau</string>
 	<string name="compose_hint_quote">Gehitu zerbait elkarrizketari</string>
 	<string name="cancel_quote">Aipua utzi</string>
-	<string name="unlisted_quote_alert_title">Deiadar urriko bidalketa publikoak</string>
-	<string name="unlisted_quote_alert">Deiadar urriko bidalketa bat aipatzen duzunean, zure bidalketa joeretatik ezkutatuko da.</string>
+	<string name="unlisted_quote_alert_title">Ikusgarritasun mugatua bidalketa publikoak</string>
+	<string name="unlisted_quote_alert">Ikusgarritasun mugatuko bidalketa bat aipatzen duzunean, zure bidalketa joeretatik ezkutatuko da.</string>
 	<string name="settings_posting_defaults">Bidalketarako lehenetsitakoak</string>
 	<string name="default_post_visibility">Bidalketarako ikusgarritasuna</string>
 	<string name="create_quote_manual_approval">Aipu eskaera</string>
@@ -910,4 +912,13 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="remove_quote_confirm_title">Ezabatu bidalketa?</string>
 	<string name="remove_quote_confirm">Ekintza hau ezin da desegin.</string>
 	<string name="remove_quote_button">Ezabatu bidalketa</string>
+	<string name="settings_posting_defaults_explanation">Konfigurazio hau lehenetsi gisa erabiliko da argitalpen berriak sortzen dituzunean, baina aldatu egin dezakezu argitalpen bat idaztean.</string>
+	<string name="cant_quote_in_private_title">Aipuak ezin dira sartu aipamen prbatuetan</string>
+	<string name="cant_quote_in_private">Uneko ezarpenak gordez gero, txertatutako aipua lotura bilakatuko da.</string>
+	<string name="quote_followers_only_confirm_title">Partekatu jarraitzaileekin eta aipatutako erabiltzaileekin?</string>
+	<string name="quote_followers_only_confirm">Aipatzen ari zaren pertsonak eta aipatutako besteek jakinarazpena jasoko dute eta zure sarrera ikusi ahalko dute, zure jarraitzaileak ez badira ere.</string>
+	<string name="quote_followers_only_publish">Argitaratu bidalketa</string>
+	<string name="quote_followers_only_cancel">Bueltatu ediziora</string>
+	<string name="quote_followers_only_dont_show_again">Ez erakutsi mezu hau berriro</string>
+	<string name="more_replies_found">Erantzun gehiago aurkitu dira</string>
 </resources>

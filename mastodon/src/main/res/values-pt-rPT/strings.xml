@@ -164,6 +164,7 @@
 	<string name="add_alt_text">Adicionar texto descritivo</string>
 	<string name="visibility_public">Público</string>
 	<string name="visibility_followers_only">Seguidores</string>
+	<string name="visibility_private">Menção privadas</string>
 	<string name="recent_searches">Recentes</string>
 	<string name="notification_type_follow">Novos seguidores</string>
 	<string name="notification_type_favorite">Favoritos</string>
@@ -410,6 +411,7 @@
 	<string name="settings_server_explanation">Visão geral, regras, moderadores</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Sobre %s</string>
+	<string name="default_post_language">Idioma de publicação</string>
 	<string name="settings_alt_text_reminders">Adicionar lembretes de texto descritivo</string>
 	<string name="settings_confirm_unfollow">Perguntar antes de deixar de seguir alguém</string>
 	<string name="settings_confirm_boost">Perguntar antes de impulsionar um publicação</string>
@@ -728,6 +730,7 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="notifications_muted">As notificações de %s foram descartadas.</string>
 	<string name="notifications_allowed">%s agora aparecerá na tua lista de notificações.</string>
 	<string name="visibility_subtitle_public">Qualquer um dentro ou fora do Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Oculto dos resultados de pesquisa, destaques e cronologias públicas do Mastodon</string>
 	<string name="visibility_subtitle_followers">Apenas os teus seguidores</string>
 	<string name="visibility_subtitle_private">Todos os mencionados na publicação</string>
 	<string name="view_boosts">Mostrar impulsos</string>
@@ -863,6 +866,59 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 		<item quantity="one">%d</item>
 		<item quantity="other">%d</item>
 	</plurals>
+	<string name="quote_post_unavailable">Publicação indisponível</string>
+	<string name="quote_post_pending">Publicação pendente</string>
+	<string name="quote_post_pending_explanation">No Mastodon, pode controlar se alguém pode citar as suas publicações. Esta publicação está pendente enquanto aguardamos a aprovação do autor original.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Citou uma publicação de %s</string>
+	<string name="compose_visibility_public_anyone">Público, qualquer pessoa pode citar</string>
+	<string name="compose_visibility_public_limited">Público, citações limitadas</string>
+	<string name="compose_visibility_public_disabled">Público, citações desativadas</string>
+	<string name="compose_visibility_unlisted_anyone">Não listado, qualquer pessoa pode citar</string>
+	<string name="compose_visibility_unlisted_limited">Não listado, citações limitadas</string>
+	<string name="compose_visibility_unlisted_disabled">Não listado, citações desativadas</string>
+	<string name="compose_visibility_title">Visibilidade e interação</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Controle quem pode interagir com esta publicação. As configurações globais podem ser encontradas em Preferências &gt; %s &gt; Padrões de publicação.</string>
+	<string name="compose_visibility">Visibilidade</string>
+	<string name="compose_quote_policy">Quem pode citar</string>
+	<string name="quote_policy_public">Todos</string>
+	<string name="quote_policy_followers">Apenas seguidores</string>
+	<string name="quote_policy_nobody">Apenas eu</string>
+	<string name="quote_policy_for_unlisted_explanation">Quando as pessoas o citarem, as respetivas publicações também serão ocultadas dos destaques.</string>
+	<string name="quote_policy_for_private_explanation">As publicações apenas para seguidores criadas no Mastodon não podem ser citadas por outras pessoas.</string>
+	<string name="quote_policy_for_direct_explanation">As menções privadas criadas no Mastodon não podem ser citadas por outras pessoas.</string>
+	<string name="change_quote_policy">Alterar quem pode citar</string>
+	<string name="edit_visibility_explanation">Publicações publicadas não podem alterar a sua visibilidade.</string>
+	<string name="user_quoted_post">%s citou a sua publicação:</string>
+	<string name="user_edited_quoted_post">%s editou uma publicação que citou</string>
+	<string name="notification_type_quote">Citações</string>
+	<string name="create_quote">Citação</string>
+	<string name="cannot_quote_post">Não lhe é permitido citar esta publicação</string>
+	<string name="cannot_quote_post_followers_only">Apenas seguidores podem citar esta publicação</string>
+	<string name="compose_hint_quote">Contribua com algo para a conversa</string>
+	<string name="cancel_quote">Cancelar citação</string>
+	<string name="unlisted_quote_alert_title">Citação de publicação não listada</string>
+	<string name="unlisted_quote_alert">Ao citar uma publicação não listada, a sua publicação não será exibida nos destaques.</string>
+	<string name="settings_posting_defaults">Padrões de publicação</string>
+	<string name="default_post_visibility">Visibilidade da publicação</string>
+	<string name="create_quote_manual_approval">Pedir para citar</string>
+	<string name="create_quote_manual_approval_subtitle">O autor vai proceder a uma revisão manual</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citação</item>
+		<item quantity="other">%,d citações</item>
+	</plurals>
+	<string name="remove_quote">Remover a minha publicação da publicação de %s</string>
+	<string name="remove_quote_confirm_title">Remover publicação?</string>
+	<string name="remove_quote_confirm">Esta ação é irreversível.</string>
+	<string name="remove_quote_button">Remover publicação</string>
+	<string name="settings_posting_defaults_explanation">Essas configurações serão utilizadas como padrão quando criar novas publicações, mas poderá alterá-las individualmente no editor.</string>
+	<string name="cant_quote_in_private_title">Citações não podem ser incorporadas em menções privadas</string>
+	<string name="cant_quote_in_private">Se guardar as definições atuais, a citação incorporada será convertida numa hiperligação.</string>
+	<string name="quote_followers_only_confirm_title">Partilhar com seguidores e utilizadores mencionados?</string>
+	<string name="quote_followers_only_confirm">A pessoa que está a citar e outras mencionadas serão notificadas e poderão ver a sua publicação, mesmo que não o sigam.</string>
+	<string name="quote_followers_only_publish">Publicar</string>
+	<string name="quote_followers_only_cancel">Voltar à edição</string>
+	<string name="quote_followers_only_dont_show_again">Não mostrar novamente esta mensagem</string>
+	<string name="more_replies_found">Foram encontradas mais respostas</string>
 </resources>
