@@ -132,6 +132,9 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 		if(asyncRefreshID!=null){
 			contentView.removeCallbacks(asyncRefreshPartialRunnable);
 		}
+		if(highlightAlphaAnimator!=null){
+			highlightAlphaAnimator.cancel();
+		}
 		super.onDestroyView();
 	}
 
@@ -226,7 +229,10 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 							diff.dispatchUpdatesTo(new ListUpdateCallback(){
 								@Override
 								public void onInserted(int position, int count){
-									newReplyIDs.add(displayItems.get(position).parentID);
+									if(position<displayItems.size()) // TODO figure out how this could possibly be a thing
+										newReplyIDs.add(displayItems.get(position).parentID);
+									else if(BuildConfig.DEBUG)
+										throw new IllegalStateException("onInserted called with position="+position+" count="+count+", but list size is "+displayItems.size());
 								}
 
 								@Override

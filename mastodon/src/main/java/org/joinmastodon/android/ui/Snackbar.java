@@ -22,7 +22,6 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -182,8 +181,10 @@ public class Snackbar{
 
 	private void disableTouchEvents(){
 		if(containerView==null){
-			windowLayoutParams.flags |= WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
-			context.getSystemService(WindowManager.class).updateViewLayout(windowView, windowLayoutParams);
+			if(windowView.isAttachedToWindow()){
+				windowLayoutParams.flags |= WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
+				context.getSystemService(WindowManager.class).updateViewLayout(windowView, windowLayoutParams);
+			}
 		}else{
 			ignoreTouchEvents=true;
 		}
