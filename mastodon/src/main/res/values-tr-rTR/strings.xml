@@ -184,14 +184,14 @@
 	<string name="theme_light">Aydınlık</string>
 	<string name="theme_dark">Karanlık</string>
 	<string name="settings_behavior">Ayarlar</string>
-	<string name="settings_gif">Animasyonlu görsel ve simgeleri oynat</string>
-	<string name="settings_custom_tabs">Bağlantıyı aç</string>
+	<string name="settings_gif">Hareketli profil resimlerini ve emojileri oynat</string>
+	<string name="settings_custom_tabs">Bağlantıyı şurada aç</string>
 	<string name="settings_notifications">Bildirimler</string>
 	<string name="settings_contribute">Mastodon\'a katkıda bulunun</string>
 	<string name="settings_tos">Kullanım şartları</string>
 	<string name="settings_privacy_policy">Gizlilik politikası</string>
-	<string name="settings_clear_cache">Temizle medya önbellek</string>
-	<string name="settings_app_version">Uygulama için %1$s (%2$d)</string>
+	<string name="settings_clear_cache">Medya önbelleğini temizle</string>
+	<string name="settings_app_version">Android için Mastodon v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Medya önbellek temizlendi</string>
 	<string name="confirm_log_out">%s oturumu kapatılsın mı?</string>
 	<string name="sensitive_content_explain">Medya, gönderi sahibi tarafından hassas olarak işaretlendi.</string>
@@ -199,18 +199,18 @@
 	<string name="more_options">Daha fazla seçenek</string>
 	<string name="new_post">Yeni gönderi</string>
 	<string name="button_reply">Cevapla</string>
-	<string name="button_reblog">Yinele</string>
+	<string name="button_reblog">Yeniden Paylaş</string>
 	<string name="button_favorite">Favorile</string>
 	<string name="button_share">Paylaş</string>
 	<string name="media_no_description">Açıklamasız medya</string>
 	<string name="add_media">Medya ekle</string>
 	<string name="add_poll">Anket ekle</string>
-	<string name="emoji">Simge</string>
-	<string name="home_timeline">Ev akışı</string>
+	<string name="emoji">Emoji</string>
+	<string name="home_timeline">Ana sayfa zaman akışı</string>
 	<string name="my_profile">Profilim</string>
 	<string name="media_viewer">Medya görüntüleyici</string>
-	<string name="follow_user">%s Takip et</string>
-	<string name="unfollowed_user">%s Takip edilmiyor</string>
+	<string name="follow_user">%s Kullanıcısını Takip Et</string>
+	<string name="unfollowed_user">%s takipten çıkarıldı</string>
 	<string name="followed_user">Artık %s kullanıcısını takip ediyorsun</string>
 	<string name="following_user_requested">%s takip isteği gönderdi</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
@@ -302,10 +302,10 @@
 	<string name="instance_signup_closed">Bu sunucu yeni kayıtları kabul etmemektedir.</string>
 	<string name="text_copied">Panoya kopyalandı</string>
 	<string name="add_bookmark">Yer imlerine ekle</string>
-	<string name="remove_bookmark">Yer imini kaldır</string>
+	<string name="remove_bookmark">Yer işaretini kaldır</string>
 	<string name="bookmarks">Yer imleri</string>
 	<string name="your_favorites">Favoriler</string>
-	<string name="login_title">Tekrar hoş geldiniz</string>
+	<string name="login_title">Yeniden Hoş Geldiniz</string>
 	<string name="login_subtitle">Hesabınızı oluşturduğunuz sunucuya giriş yapın.</string>
 	<string name="server_url">Sunucu bağlantısı</string>
 	<string name="server_filter_any_language">Herhangi bir dil</string>
@@ -350,7 +350,7 @@
 	<string name="signup_or_login">veya</string>
 	<string name="learn_more">Daha fazlası</string>
 	<string name="welcome_to_mastodon">Hoş geldiniz</string>
-	<string name="welcome_paragraph1">Merkezi olmayan bir sosyal ağdır, yani onu tek bir şirket kontrol etmiyor. Hepsi birbirine bağlı, bağımsız olarak çalışan birçok sunucudan oluşur.</string>
+	<string name="welcome_paragraph1">Mastodon merkeziyetçi olmayan bir sosyal ağdır, yani tek bir şirketin kontrolünde değildir. Hepsi birbirine bağlı olarak çalışan, birçok bağımsız sunucudan oluşur.</string>
 	<string name="what_are_servers">Sunucular nedir?</string>
 	<string name="welcome_paragraph2">Her ağ hesabı bir sunucuda barındırılır - her birinin kendi değerleri, kuralları ve &amp; yöneticileri vardır. Hangisini seçerseniz seçin, herhangi bir sunucudaki insanları takip edebilir ve onlarla etkileşime geçebilirsiniz.</string>
 	<string name="opening_link">Bağlantı açılıyor…</string>
@@ -383,7 +383,7 @@
 	<string name="alt_text_help">Alternatif metin, görme bozukluğu olan, düşük bant genişliğine sahip bağlantıları olan veya ekstra bağlam arayan kişiler için görsel açıklamaları sağlar.\n\n Net, sade ve nesnel alternatif metin yazarak herkes için erişilebilirliği ve anlaşılabilirliği iyileştirebilirsiniz.\n\n<ul><li>Önemlileri yakalayın</li>\n<li>Resimlerdeki metni özetleyin</li>\n<li>Düzenli cümle yapısı kullanın</li>\n<li>Gereksiz bilgilerden kaçının</li>\n<li>Karmaşık görsellerde (şemalar veya haritalar gibi) trendlere ve temel bulgulara odaklanın</li></ul></string>
 	<string name="edit_post">Gönderiyi düzenle</string>
 	<string name="no_verified_link">Doğrulanmamış bağlantı</string>
-	<string name="compose_autocomplete_emoji_empty">Simge bul</string>
+	<string name="compose_autocomplete_emoji_empty">Emoji bul</string>
 	<string name="compose_autocomplete_users_empty">Kimi aradığınızı bulun</string>
 	<string name="no_search_results">Bu arama terimleri için hiçbir şey bulunamadı</string>
 	<string name="language">Dil</string>
@@ -407,8 +407,8 @@
 	<string name="blocked_user">%s engellendi</string>
 	<string name="mark_all_notifications_read">Tümünü okundu olarak işaretle</string>
 	<string name="settings_display">Görünüm</string>
-	<string name="settings_filters">Süzgeçler</string>
-	<string name="settings_server_explanation">Genel bakış, kurallar, ler</string>
+	<string name="settings_filters">Filtreler</string>
+	<string name="settings_server_explanation">Genel bakış, kurallar, moderatörler</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s Hakkında</string>
 	<string name="default_post_language">Gönderi dili</string>
@@ -443,7 +443,7 @@
 	<string name="about_server">Hakkında</string>
 	<string name="server_rules">Kurallar</string>
 	<string name="server_administrator">Yönetici</string>
-	<string name="send_email_to_server_admin">Yöneticiye ileti gönder</string>
+	<string name="send_email_to_server_admin">Yöneticiye mesaj gönder</string>
 	<string name="notifications_disabled_in_system">Güncellemeleri her yerden görmek için cihaz ayarlarınızdan bildirimleri açın.</string>
 	<string name="settings_even_more">Daha fazla ayar</string>
 	<string name="settings_show_cws">İçerik uyarılarını göster</string>
@@ -525,8 +525,8 @@
 		<item quantity="other">%d kelime silinsin mi?</item>
 	</plurals>
 	<plurals name="x_items_selected">
-		<item quantity="one">%d seçildi</item>
-		<item quantity="other">%d seçildiler</item>
+		<item quantity="one">%d öğe seçildi</item>
+		<item quantity="other">%d öğe seçildi</item>
 	</plurals>
 	<string name="required_form_field_blank">Boş bırakılamaz</string>
 	<string name="filter_word_already_in_list">Zaten listede</string>
@@ -534,7 +534,7 @@
 	<string name="app_update_version">Sürüm %s</string>
 	<string name="downloading_update">İndiriliyor (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
-	<string name="post_matches_filter_x">“%s” süzgeciyle eşleşiyor</string>
+	<string name="post_matches_filter_x">“%s” filtresiyle eşleşiyor</string>
 	<string name="search_mastodon">Ara</string>
 	<string name="clear_all">Tümünü temizle</string>
 	<string name="search_open_url">Bağlantıyı ağ içinde aç</string>
@@ -557,15 +557,15 @@
 	<string name="settings_discoverable">Keşif aracında profil ve gönderileri öne çıkar</string>
 	<string name="settings_indexable">Herkese açık gönderileri arama sonuçlarına ekle</string>
 	<plurals name="x_participants">
-		<item quantity="one">%d katılımcılar</item>
-		<item quantity="other">%d katılımcılar</item>
+		<item quantity="one">%,d katılımcı</item>
+		<item quantity="other">%,d katılımcı</item>
 	</plurals>
 	<plurals name="x_posts_today">
 		<item quantity="one">%,d bunu gönder</item>
 		<item quantity="other">%,d bunları gönder</item>
 	</plurals>
 	<string name="error_playing_video">Video oynatılırken hata oluştu</string>
-	<string name="timeline_following">Ev</string>
+	<string name="timeline_following">Ana Sayfa</string>
 	<string name="lists">Listeler</string>
 	<string name="followed_hashtags">Takip edilen etiketler</string>
 	<string name="manage_lists">Listeleri yönetin</string>
@@ -879,6 +879,7 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="compose_visibility_unlisted_disabled">Sessizce herkese açık, alıntılar kapalı</string>
 	<string name="compose_visibility_title">Görünürlük ve etkileşim</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Bu gönderiyle kimlerin etkileşimde bulunabileceğini kontrol edin. Genel ayarlara Ayarlar &gt; %s &gt; Gönderi varsayılanları bölümünden ulaşabilirsiniz.</string>
 	<string name="compose_visibility">Görünürlük</string>
 	<string name="compose_quote_policy">Kimler alıntılayabilir</string>
 	<string name="quote_policy_public">Herkes</string>
@@ -900,6 +901,23 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="unlisted_quote_alert_title">\"Sessizce herkese açık\" gönderileri alıntılamak</string>
 	<string name="unlisted_quote_alert">\"Sessizce herkese açık\" olarak işaretlenmiş bir bir gönderiyi alıntıladığınızda, gönderiniz öne çıkan zaman akışından gizlenir.</string>
 	<string name="settings_posting_defaults">Gönderi varsayılanları</string>
+	<string name="default_post_visibility">Gönderi görünürlüğü</string>
+	<string name="create_quote_manual_approval">Alıntılama izni iste</string>
+	<string name="create_quote_manual_approval_subtitle">Gönderi yazarı manuel olarak gözden geçirecek</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d alıntı</item>
+		<item quantity="other">%,d alıntı</item>
+	</plurals>
+	<string name="remove_quote">%s kullanıcısının gönderisinden benim gönderimi kaldır</string>
+	<string name="remove_quote_confirm_title">Gönderi kaldırılsın mı?</string>
+	<string name="remove_quote_confirm">Bu işlem geri alınamaz.</string>
+	<string name="remove_quote_button">Gönderiyi kaldır</string>
+	<string name="settings_posting_defaults_explanation">Bu ayarlar yeni gönderi oluşturduğunuzda varsayılan olarak kullanılacaktır, ancak gönderi oluşturucusunda her gönderi için bu ayarları düzenleyebilirsiniz.</string>
+	<string name="cant_quote_in_private_title">Alıntılar özel bahsetmelere eklenemez</string>
+	<string name="cant_quote_in_private">Mevcut ayarları kaydederseniz, eklenecek alıntı bir bağlantıya dönüştürülecektir.</string>
+	<string name="quote_followers_only_confirm_title">Gönderi takipçiler ve bahsedilen kullanıcılarla paylaşılsın mı?</string>
+	<string name="quote_followers_only_confirm">Alıntı yaptığınız kişi ve diğer bahsedilen kişiler, sizi takip etmiyor olsalar bile bildirim alacak ve gönderinizi görüntüleyebileceklerdir.</string>
+	<string name="quote_followers_only_publish">Gönderiyi yayınla</string>
 	<string name="quote_followers_only_cancel">Düzenlemeye dön</string>
 	<string name="quote_followers_only_dont_show_again">Bu mesajı bir daha gösterme</string>
 	<string name="more_replies_found">Daha fazla yanıt bulundu</string>
