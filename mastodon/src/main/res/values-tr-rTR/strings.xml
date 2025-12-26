@@ -164,6 +164,7 @@
 	<string name="add_alt_text">Alternatif metin ekle</string>
 	<string name="visibility_public">Herkese açık</string>
 	<string name="visibility_followers_only">Takipçiler</string>
+	<string name="visibility_private">Özel bahsetme</string>
 	<string name="recent_searches">Son aramalar</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
 	<string name="notification_type_favorite">Gözdeler</string>
@@ -410,6 +411,7 @@
 	<string name="settings_server_explanation">Genel bakış, kurallar, ler</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s Hakkında</string>
+	<string name="default_post_language">Gönderi dili</string>
 	<string name="settings_alt_text_reminders">Alternatif metin hatırlatıcıları ekleyin</string>
 	<string name="settings_confirm_unfollow">Birini takibi bırakmadan önce sor</string>
 	<string name="settings_confirm_boost">Yeniden paylaşmadan önce sor</string>
@@ -728,6 +730,7 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="notifications_muted">%s gelen bildirimler reddedildi.</string>
 	<string name="notifications_allowed">%s artık bildirim listenizde görünecek.</string>
 	<string name="visibility_subtitle_public">Ağdaki herkes</string>
+	<string name="visibility_subtitle_unlisted">Mastodon arama sonuçlarında, öne çıkanlarda, ve herkese açık zaman akışında gizli</string>
 	<string name="visibility_subtitle_followers">Sadece senin takipçilerin</string>
 	<string name="visibility_subtitle_private">Yazıda adı geçen herkes</string>
 	<string name="view_boosts">Destekleri görüntüle</string>
@@ -868,5 +871,17 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="quote_post_pending_explanation">Mastodon\'da, birinin sizi alıntılayıp alıntılayamayacağını kontrol edebilirsiniz. Bu gönderi, orijinal yazarın onayını alma sürecinde beklemede.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">\@%s adlı kullanıcının bir gönderisini alıntıladı</string>
+	<string name="compose_visibility_public_anyone">Herkese açık, herkes alıntılayabilir</string>
+	<string name="compose_visibility_public_limited">Herkese açık, alıntılar sınırlı</string>
+	<string name="compose_visibility_public_disabled">Herkese açık, alıntılar kapalı</string>
+	<string name="compose_visibility_unlisted_anyone">Sessizce herkese açık, herkes alıntılayabilir</string>
+	<string name="compose_visibility_unlisted_limited">Sessizce herkese açık, alıntılar sınırlı</string>
+	<string name="compose_visibility_unlisted_disabled">Sessizce herkese açık, alıntılar kapalı</string>
+	<string name="compose_visibility_title">Görünürlük ve etkileşim</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility">Görünürlük</string>
+	<string name="compose_quote_policy">Kimler alıntılayabilir</string>
+	<string name="quote_followers_only_cancel">Düzenlemeye dön</string>
+	<string name="quote_followers_only_dont_show_again">Bu mesajı bir daha gösterme</string>
+	<string name="more_replies_found">Daha fazla yanıt bulundu</string>
 </resources>
