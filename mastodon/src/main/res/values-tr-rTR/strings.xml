@@ -881,6 +881,25 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<string name="compose_visibility">Görünürlük</string>
 	<string name="compose_quote_policy">Kimler alıntılayabilir</string>
+	<string name="quote_policy_public">Herkes</string>
+	<string name="quote_policy_followers">Sadece takipçiler</string>
+	<string name="quote_policy_nobody">Yalnızca ben</string>
+	<string name="quote_policy_for_unlisted_explanation">Kullanıcılar size alıntı yaptığında, onların gönderileri de öne çıkanlar akışından gizlenecektir.</string>
+	<string name="quote_policy_for_private_explanation">Mastodon\'da sadece takipçilere özel olarak yazılan gönderiler, başkaları tarafından alıntılanamaz.</string>
+	<string name="quote_policy_for_direct_explanation">Mastodon\'da sadece takipçilere özel olarak yazılan gönderiler, başkaları tarafından alıntılanamaz.</string>
+	<string name="change_quote_policy">Kimin Alıntılayabileceğini Değiştir</string>
+	<string name="edit_visibility_explanation">Yayınlanan gönderilerin görünürlüğü değiştirilemez.</string>
+	<string name="user_quoted_post">%s gönderinizi alıntıladı:</string>
+	<string name="user_edited_quoted_post">%s alıntıladığınız bir gönderiyi düzenledi</string>
+	<string name="notification_type_quote">Alıntılar</string>
+	<string name="create_quote">Alıntı</string>
+	<string name="cannot_quote_post">Bu gönderiyi alıntılama izniniz yok</string>
+	<string name="cannot_quote_post_followers_only">Sadece takipçiler bu gönderiyi alıntılayabilir</string>
+	<string name="compose_hint_quote">Tartışmaya bir şeyler katın</string>
+	<string name="cancel_quote">Alıntıyı iptal et</string>
+	<string name="unlisted_quote_alert_title">\"Sessizce herkese açık\" gönderileri alıntılamak</string>
+	<string name="unlisted_quote_alert">\"Sessizce herkese açık\" olarak işaretlenmiş bir bir gönderiyi alıntıladığınızda, gönderiniz öne çıkan zaman akışından gizlenir.</string>
+	<string name="settings_posting_defaults">Gönderi varsayılanları</string>
 	<string name="quote_followers_only_cancel">Düzenlemeye dön</string>
 	<string name="quote_followers_only_dont_show_again">Bu mesajı bir daha gösterme</string>
 	<string name="more_replies_found">Daha fazla yanıt bulundu</string>
