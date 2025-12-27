@@ -36,7 +36,7 @@
 	<string name="button_follow">Takip et</string>
 	<string name="button_following">Takip ediliyor</string>
 	<string name="edit_profile">Profili düzenle</string>
-	<string name="share_user">Profili şu yolla paylaş…</string>
+	<string name="share_user">Profili şununla paylaş…</string>
 	<string name="mute_user">%s kullanıcısını sustur</string>
 	<string name="unmute_user">%s kullanıcısını susturmasını kaldır</string>
 	<string name="block_user">%s kullanıcısını engelle</string>
@@ -147,17 +147,17 @@
 	<string name="signup_title">Hesap oluştur</string>
 	<string name="display_name">Ad</string>
 	<string name="username">Kullanıcı adı</string>
-	<string name="email">Posta</string>
+	<string name="email">E-posta</string>
 	<string name="password">Parola</string>
 	<string name="confirm_password">Parolayı doğrula</string>
 	<string name="category_general">Genel</string>
-	<string name="confirm_email_title">Gelen kutunuzu kontrol ediniz</string>
+	<string name="confirm_email_title">Gelen kutunuzu kontrol edin</string>
 	<!-- %s is the email address -->
 	<string name="confirm_email_subtitle">%s adresini doğrulamak için size gönderdiğimiz bağlantıya dokunun. Hemen burada bekleyeceğiz.</string>
 	<string name="confirm_email_didnt_get">Bağlantı gelmedi mi?</string>
 	<string name="resend">Yeniden gönder</string>
-	<string name="open_email_app">Mail uygulamasını aç</string>
-	<string name="resent_email">Onay mail gönderildi</string>
+	<string name="open_email_app">E-posta uygulamasını aç</string>
+	<string name="resent_email">Onay e-postası gönderildi</string>
 	<string name="compose_hint">Aklınızdan geçenleri yazın veya yapıştırın</string>
 	<string name="content_warning">İçerik uyarısı</string>
 	<string name="save">Kaydet</string>
@@ -167,18 +167,18 @@
 	<string name="visibility_private">Özel bahsetme</string>
 	<string name="recent_searches">Son aramalar</string>
 	<string name="notification_type_follow">Yeni takipçiler</string>
-	<string name="notification_type_favorite">Gözdeler</string>
+	<string name="notification_type_favorite">Favoriler</string>
 	<string name="notification_type_reblog">Yeniden Paylaşımlar</string>
 	<string name="notification_type_mention">Bahsetmeler</string>
 	<string name="notification_type_poll">Anketler</string>
 	<string name="choose_account">Hesap seç</string>
-	<string name="err_not_logged_in">Lütfen önce oturum açın</string>
+	<string name="err_not_logged_in">Lütfen önce Mastodon\'da oturum açın</string>
 	<plurals name="cant_add_more_than_x_attachments">
 		<item quantity="one">%d adetten fazla medya ekleyemezsiniz</item>
 		<item quantity="other">%d adetten fazla medya ekleyemezsiniz</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">%s dosyası desteklenmeyen türde</string>
-	<string name="media_attachment_too_big">%1$s dosyası, %2$s MB boyut sınırını aşıyor</string>
+	<string name="media_attachment_too_big">%1$s dosyası, %2$s MB\'lik boyut sınırını aşıyor</string>
 	<string name="settings_theme">Görünüm</string>
 	<string name="theme_auto">Cihaz görünümünü kullan</string>
 	<string name="theme_light">Aydınlık</string>
@@ -192,7 +192,7 @@
 	<string name="settings_privacy_policy">Gizlilik politikası</string>
 	<string name="settings_clear_cache">Medya önbelleğini temizle</string>
 	<string name="settings_app_version">Android için Mastodon v%1$s (%2$d)</string>
-	<string name="media_cache_cleared">Medya önbellek temizlendi</string>
+	<string name="media_cache_cleared">Medya önbelleği temizlendi</string>
 	<string name="confirm_log_out">%s oturumu kapatılsın mı?</string>
 	<string name="sensitive_content_explain">Medya, gönderi sahibi tarafından hassas olarak işaretlendi.</string>
 	<string name="avatar_description">%s kullanıcısının profiline git</string>
@@ -214,7 +214,7 @@
 	<string name="followed_user">Artık %s kullanıcısını takip ediyorsun</string>
 	<string name="following_user_requested">%s takip isteği gönderdi</string>
 	<string name="open_in_browser">Tarayıcıda aç</string>
-	<string name="hide_boosts_from_user">Yeniden paylaşanları gizle</string>
+	<string name="hide_boosts_from_user">Yeniden paylaşımları gizle</string>
 	<string name="show_boosts_from_user">Yeniden paylaşımları göster</string>
 	<string name="signup_reason">Neden katılmak istiyorsunuz?</string>
 	<string name="signup_reason_note">Bu, başvurunuzu incelememize yardımcı olacaktır.</string>
@@ -229,11 +229,11 @@
 	<string name="error_saving_file">Dosya kaydedilirken hata oluştu</string>
 	<string name="downloading">İndiriliyor…</string>
 	<string name="no_app_to_handle_action">Bu eylemi gerçekleştirebilecek bir uygulama bulunmuyor</string>
-	<string name="local_timeline">Canlı yayın</string>
+	<string name="local_timeline">Canlı zaman akışı</string>
 	<string name="trending_posts_info_banner">Bunlar, Ağda ilgi gören gönderiler.</string>
 	<string name="trending_links_info_banner">Bunlar Ağda konuşulan haberler.</string>
 	<!-- %s is the server domain -->
-	<string name="local_timeline_info_banner">Bunlar, ağlardaki (%s) tüm kullanıcıların gönderileri.</string>
+	<string name="local_timeline_info_banner">Bunlar, sunucunuzdaki (%s) tüm kullanıcıların gönderileridir.</string>
 	<string name="recommended_accounts_info_banner">Takip ettiğiniz hesaplara göre bu hesapları beğenebilirsiniz.</string>
 	<string name="see_new_posts">Yeni gönderiler</string>
 	<string name="follow_back">Geri takip et</string>
