@@ -29,6 +29,17 @@
 				android:contentDescription="@string/back"/>
 
 			<ImageButton
+				android:id="@+id/btn_copy"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_gravity="center_vertical|end"
+				android:layout_marginEnd="56dp"
+				android:src="@drawable/ic_copy_20px"
+				android:tint="#fff"
+				android:background="@drawable/bg_photo_viewer_toolbar_button"
+				android:contentDescription="@string/copy"/>
+
+			<ImageButton
 				android:id="@+id/btn_download"
 				android:layout_width="48dp"
 				android:layout_height="48dp"

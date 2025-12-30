@@ -9,6 +9,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -135,7 +137,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private ImageButton videoPlayPauseButton;
 	private View videoControls;
 	private TextView altText;
-	private ImageButton backButton, downloadButton;
+	private ImageButton backButton, copyButton, downloadButton;
 	private View bottomBar;
 	private View postActions;
 	private View replyBtn, boostBtn, favoriteBtn, shareBtn, bookmarkBtn;
@@ -274,6 +276,12 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		toolbarWrap=uiOverlay.findViewById(R.id.toolbar_wrap);
 		backButton=uiOverlay.findViewById(R.id.btn_back);
 		backButton.setOnClickListener(v->onStartSwipeToDismissTransition(0));
+		copyButton=uiOverlay.findViewById(R.id.btn_copy);
+		if(attachments.get(index).type!=Attachment.Type.IMAGE){
+			copyButton.setVisibility(View.GONE);
+		} else{
+			copyButton.setOnClickListener(v->copyCurrentFile(v.getContext()));
+		}
 		downloadButton=uiOverlay.findViewById(R.id.btn_download);
 		downloadButton.setOnClickListener(v->saveCurrentFile());
 		bottomBar=uiOverlay.findViewById(R.id.bottom_bar);
@@ -414,6 +422,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	}
 
 	public void removeMenu(){
+		copyButton.setVisibility(View.GONE);
 		downloadButton.setVisibility(View.GONE);
 	}
 
@@ -565,6 +574,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 	private void onPageChanged(int index){
 		currentIndex=index;
 		Attachment att=attachments.get(index);
+		V.setVisibilityAnimated(copyButton, att.type==Attachment.Type.IMAGE ? View.VISIBLE : View.GONE);
 		V.setVisibilityAnimated(videoControls, att.type==Attachment.Type.VIDEO ? View.VISIBLE : View.GONE);
 		if(att.type==Attachment.Type.VIDEO){
 			videoSeekBar.setSecondaryProgress(0);
@@ -703,6 +713,20 @@ public class PhotoViewer implements ZoomPanView.Listener{
 
 	public void onPause(){
 		pauseVideo();
+	}
+
+	private void copyCurrentFile(Context context) {
+		Attachment att=attachments.get(pager.getCurrentItem());
+		if(att.type!=Attachment.Type.IMAGE) return;
+		ImageCache cache=ImageCache.getInstance(context);
+		try{
+			File file=cache.getFile(new UrlImageLoaderRequest(att.url));
+			if(file!=null && file.exists()){
+				ClipData clipData=ClipData.newRawUri(null, UiUtils.getFileProviderUri(context, file));
+				ClipboardManager clipboard=(ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
+				clipboard.setPrimaryClip(clipData);
+			}
+		}catch(IOException ignore){}
 	}
 
 	private void saveCurrentFile(){
