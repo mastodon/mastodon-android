@@ -15,6 +15,7 @@
 	<string name="user_sent_follow_request">%s ju dërgoi një kërkesë për t’ju ndjekur</string>
 	<string name="user_favorited">%s vuri si të parapëlqyer:</string>
 	<string name="notification_boosted">%s përforcoi:</string>
+	<string name="share_toot_title">Ndajeni me të tjerë</string>
 	<string name="settings">Rregullime</string>
 	<string name="publish">Botojeni</string>
 	<string name="discard_draft">Të hidhet tej skica?</string>
@@ -405,6 +406,7 @@
 	<string name="report_personal_already_blocked">E keni bllokuar tashmë këtë përdorues, ndaj s’ka gjë tjetër që të duhet ta bëni.\n\nFaleminderit që ndihmoni të mbahet Mastodon-i një vend i parrezik për këdo!</string>
 	<string name="blocked_user">U bllokua %s</string>
 	<string name="mark_all_notifications_read">Vëru të tërave shenjë si të lexuara</string>
+	<string name="settings_display">Shfaqje</string>
 	<string name="settings_filters">Filtra</string>
 	<string name="settings_server_explanation">Përmbledhje, rregulla, moderatorë</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
@@ -415,6 +417,7 @@
 	<string name="settings_confirm_boost">Pyet, përpara përforcimi</string>
 	<string name="settings_confirm_delete_post">Pyet, para fshirjeje postimesh</string>
 	<string name="pause_all_notifications">Ndali krejt</string>
+	<string name="pause_notifications_off">Off</string>
 	<string name="notifications_policy_anyone">Cilido</string>
 	<string name="notifications_policy_followed">Persona që ju ndjekin</string>
 	<string name="notifications_policy_follower">Persona që ndiqni</string>
@@ -485,6 +488,7 @@
 	<string name="settings_edit_filter">Përpunoni filtër</string>
 	<string name="settings_filter_duration">Kohëzgjatje</string>
 	<string name="settings_filter_muted_words">Fjalë të heshtuara</string>
+	<string name="settings_filter_context">Heshto prej</string>
 	<string name="settings_filter_show_cw">Shfaqe me sinjalizim lënde</string>
 	<string name="settings_filter_show_cw_explanation">Shfaq ende postime që përkojnë me këtë filtër, por pas një sinjalizimi lënde</string>
 	<string name="settings_delete_filter">Fshije filtrin</string>
@@ -515,6 +519,7 @@
 	<string name="enter_selection_mode">Përzgjidhe</string>
 	<string name="select_all">Përzgjidhe krejt</string>
 	<string name="settings_filter_duration_title">Kohëzgjatje filtrimi</string>
+	<string name="filter_duration_custom">Vetjake</string>
 	<plurals name="settings_delete_x_filter_words">
 		<item quantity="one">Të fshihet %d fjalë?</item>
 		<item quantity="other">Të fshihen %d fjalë?</item>
@@ -572,6 +577,7 @@
 	<string name="delete_list">Fshije listën</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Të fshihet “%s”?</string>
+	<string name="list_exclusive">Fshihi anëtarët te Ndiqni</string>
 	<string name="list_exclusive_subtitle">Nëse dikush gjendet në këtë listë, fshihni ata te rrjedhja juaj kohore Ndiqen, që të shmangni parjen e postimeve të tyre dy hjerë.</string>
 	<string name="list_name">Emër liste</string>
 	<string name="list_show_replies_to">Shfaq përgjigje për</string>
@@ -624,6 +630,8 @@
 	<string name="non_mutual_title3">Jini i hapur</string>
 	<string name="non_mutual_text3">Stili i bisedës së gjithkujt është unik. Jini të gatshëm të mësoheni.</string>
 	<string name="make_profile_discoverable">Bëje profilin tim të zbulueshëm</string>
+	<string name="discoverability">Dukshmëri</string>
+	<string name="discoverability_help">Kur zgjidhni dukshmëri në Mastodon, postimet tuaja mund të shfaqen në përfundime kërkimi dhe gjëra në modë.\n\nProfili juaj mund t’u sugjerohet personave me interesa të ngjashme me tuajat.\n\nHeqja dorë nga dukshmëria nuk fsheh profilin tuaj, nëse dikush ju kërkon me emër.</string>
 	<string name="app_version_copied">Numri i versionit u kopjua në të papastër</string>
 	<string name="onboarding_recommendations_intro">Prurjen tuaj të kreut e mirëmbani ju. Sa më tepër vetë të ndiqni, aq më aktive dhe interesante do të jetë ajo.</string>
 	<string name="onboarding_recommendations_title">Personalizoni prurjen tuaj të kreut</string>
@@ -660,6 +668,7 @@
 	<string name="server_cant_mention_or_follow_you">Askush prej këtij shërbyesi s’mund t’ju ndjekë.</string>
 	<string name="server_can_interact_with_older">Persona nga ky shërbyes mund të ndërveprojnë me postimet tuaja të vjetra.</string>
 	<string name="unblocked_domain_x">U zhbllokua përkatësi %s</string>
+	<string name="handle_help_title">Ç’përmban një identifikues?</string>
 	<string name="handle_title">Targa e tij</string>
 	<string name="handle_username_explanation">Identifikuesi i tyre unik në shërbyesin e tyre. Është e mundshme të gjenden përdorues me të njëjtin emër përdoruesi në shërbyes të ndryshëm.</string>
 	<string name="handle_title_own">Targa juaj</string>
@@ -671,6 +680,7 @@
 	<string name="handle_explanation_own">Ngaqë targa juaj thotë se cili jeni dhe se ku gjendeni, njerëzit mund të ndërveprojnë me ju nëpër web-in shoqëror të &lt;a&gt;platformave të bazuara në ActivityPub&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Ç’është ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub është si njëfarë gjuhe që flet Mastodon-i me rrjete të tjerë shoqërorë.\n\nJu lejon të lidheni dhe ndërveproni me persona jo thjesht në Mastodon, por edhe nëpër aplikacione të ndryshme shoqërorësh.</string>
+	<string name="handle_copied">Identifikuesi u kopjua në të papastër.</string>
 	<string name="qr_code">Kod QR</string>
 	<string name="scan_qr_code">Skanoni kodin QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
@@ -681,6 +691,7 @@
 	<string name="share_sheet_preview_profile">%s në Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s në Mastodon: “%2$s”</string>
 	<string name="copy_profile_link">Kopjoje lidhjen te profili</string>
+	<string name="in_app_browser">Shfletues i brendshëm i aplikacionit</string>
 	<string name="system_browser">Shfletues i sistemit</string>
 	<string name="add_muted_word_short">Shtoni fjalë</string>
 	<string name="tab_home">Kreu</string>
@@ -697,6 +708,8 @@
 	<string name="new_post_notifications_disabled">S’do të merrni më njoftime rreth postimesh të reja.</string>
 	<string name="mute_conversation">Heshtoje bisedën</string>
 	<string name="unmute_conversation">Ktheji zërin bisedës</string>
+	<string name="visibility_unlisted">Publik, i heshtur</string>
+	<string name="filtered_notifications">Njoftime të filtruar</string>
 	<string name="filter_notifications">Filtroni njoftime prej…</string>
 	<string name="notification_filter_following">Persona që s’i ndiqni</string>
 	<string name="notification_filter_following_explanation">Deri sa t’i miratoni dorazi</string>
@@ -833,6 +846,8 @@
 	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="server_x_following_will_be_removed">Do të humbni %s.</string>
+	<string name="load_missing_posts_above">Ngarko postime që mungojnë më sipër</string>
+	<string name="load_missing_posts_below">Ngarko postime që mungojnë më poshtë</string>
 	<string name="signup_password_too_short">Fjalëkalimi duhet të jetë e pakta 8 shenja.</string>
 	<string name="private_reply">Përgjigje private</string>
 	<string name="private_mention">Përmendje private</string>
@@ -858,6 +873,9 @@
 	<string name="compose_visibility_public_anyone">Publik, mund ta citojë kushdo</string>
 	<string name="compose_visibility_public_limited">Publik, citime të kufizuara</string>
 	<string name="compose_visibility_public_disabled">Publik, citime të çaktivizuara</string>
+	<string name="compose_visibility_unlisted_anyone">Publik, i heshtur, mund të citojë cilido</string>
+	<string name="compose_visibility_unlisted_limited">Publik, i heshtur, citime të kufizuara</string>
+	<string name="compose_visibility_unlisted_disabled">Publik, i heshtur, citime të çaktivizuara</string>
 	<string name="compose_visibility_title">Dukshmëri dhe ndërveprim</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<string name="compose_visibility_explanation">Kontrolloni cilët mund të ndërveprojnë me këtë postim. Rregullimet globale i gjeni nën Rregullime &gt; %s &gt; Parazgjedhje postimesh.</string>
@@ -879,6 +897,7 @@
 	<string name="cannot_quote_post_followers_only">Këtë postim mund ta citojnë vetëm ndjekës</string>
 	<string name="compose_hint_quote">Shtoni diçka te biseda</string>
 	<string name="cancel_quote">Anuloje citimin</string>
+	<string name="unlisted_quote_alert_title">Citim postimesh publikë, të heshtur</string>
 	<string name="unlisted_quote_alert">Kur citoni një postim publik të heshtuar, postimi juaj do të kalohet i fshehur te rrjedha kohore e gjërave në modë.</string>
 	<string name="settings_posting_defaults">Parazgjedhje postimesh</string>
 	<string name="default_post_visibility">Dukshmëri postimi</string>
