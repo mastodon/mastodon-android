@@ -38,7 +38,7 @@
 	<string name="edit_profile">Επεξεργασία προφίλ</string>
 	<string name="share_user">Κοινή χρήση προφίλ μέσω…</string>
 	<string name="mute_user">Σίγαση %s</string>
-	<string name="unmute_user">Κατάργηση σίγασης %s</string>
+	<string name="unmute_user">Άρση σίγασης %s</string>
 	<string name="block_user">Αποκλεισμός %s</string>
 	<string name="unblock_user">Άρση αποκλεισμού %s</string>
 	<string name="report_user">Αναφορά %s</string>
@@ -652,9 +652,9 @@
 	<string name="mute_user_confirm_title">Σίγαση χρήστη;</string>
 	<string name="user_wont_know_muted">Δε θα ξέρει ότι είναι σε σίγαση.</string>
 	<string name="user_can_still_see_your_posts">Μπορεί ακόμα να δει τις αναρτήσεις σου, αλλά δε θα βλέπεις τις δικές του.</string>
-	<string name="you_wont_see_user_mentions">Δε θα βλέπεις τις αναρτήσεις που τον αναφέρουν.</string>
-	<string name="user_can_mention_and_follow_you">Μπορεί να σε αναφέρει και να σε ακολουθήσει, αλλά δε θα τον βλέπεις.</string>
-	<string name="unmuted_user_x">Κατάργηση σίγασης %s</string>
+	<string name="you_wont_see_user_mentions">Δε θα βλέπεις τις αναρτήσεις που τον επισημαίνουν.</string>
+	<string name="user_can_mention_and_follow_you">Μπορεί να σε επισημάνει και να σε ακολουθήσει, αλλά δε θα τον βλέπεις.</string>
+	<string name="unmuted_user_x">Έγινε άρση σίγασης %s</string>
 	<string name="block_user_confirm_title">Αποκλεισμός χρήστη;</string>
 	<string name="user_can_see_blocked">Μπορεί να δει ότι έχει αποκλειστεί.</string>
 	<string name="user_cant_see_each_other_posts">Δεν μπορεί να δει τις αναρτήσεις σου και δε θα δεις τις δικές του.</string>
@@ -707,7 +707,7 @@
 	<string name="new_post_notifications_enabled">Θα λάβεις ειδοποιήσεις για νέες αναρτήσεις.</string>
 	<string name="new_post_notifications_disabled">Δε θα λαμβάνεις πλέον ειδοποιήσεις για νέες αναρτήσεις.</string>
 	<string name="mute_conversation">Σίγαση συνομιλίας</string>
-	<string name="unmute_conversation">Αναίρεση σίγασης συνομιλίας</string>
+	<string name="unmute_conversation">Άρση σίγασης συνομιλίας</string>
 	<string name="visibility_unlisted">Ήσυχη δημόσια</string>
 	<string name="filtered_notifications">Φιλτραρισμένες ειδοποιήσεις</string>
 	<string name="filter_notifications">Φιλτράρισμα ειδοποιήσεων από...</string>
@@ -717,7 +717,7 @@
 	<string name="notification_filter_followers_explanation">Συμπεριλαμβανομένων των ατόμων που σ\' έχουν ακολουθήσει λιγότερο από 3 ημέρες</string>
 	<string name="notification_filter_new_accounts">Νέοι λογαριασμοί</string>
 	<string name="notification_filter_new_accounts_explanation">Δημιουργήθηκαν μέσα στις τελευταίες 30 ημέρες</string>
-	<string name="notification_filter_mentions">Μη συναινετικές ιδιωτικές αναφορές</string>
+	<string name="notification_filter_mentions">Μη συναινετικές ιδιωτικές επισημάνσεις</string>
 	<string name="notification_filter_mentions_explanation">Φιλτράρισμα εκτός αν είναι σε απάντηση στη δική σου επισήμανση ή αν ακολουθείς τον αποστολέα</string>
 	<string name="allow_notifications">Να επιτρέπονται οι ειδοποιήσεις</string>
 	<string name="mute_notifications">Απόρριψη αιτήματος ειδοποίησης</string>
@@ -731,7 +731,7 @@
 	<string name="visibility_subtitle_public">Όλοι εντός και εκτός του Mastodon</string>
 	<string name="visibility_subtitle_unlisted">Κρυμμένο από τα αποτελέσματα αναζήτησης Mastodon, τις τάσεις και τις δημόσιες ροές</string>
 	<string name="visibility_subtitle_followers">Μόνο οι ακόλουθοί σου</string>
-	<string name="visibility_subtitle_private">Όλοι όσοι αναφέρθηκαν στην ανάρτηση</string>
+	<string name="visibility_subtitle_private">Όλοι όσοι επισημάνθηκαν στην ανάρτηση</string>
 	<string name="view_boosts">Εμφάνιση ενισχύσεων</string>
 	<string name="view_favorites">Εμφάνιση αγαπημένων</string>
 	<string name="undo_reblog">Αναίρεση ενίσχυσης</string>
@@ -886,7 +886,7 @@
 	<string name="quote_policy_nobody">Μόνο εγώ</string>
 	<string name="quote_policy_for_unlisted_explanation">Όταν ένα άτομο σε παραθέτει, η ανάρτησή του θα είναι επίσης κρυμμένη από τις δημοφιλείς ροές.</string>
 	<string name="quote_policy_for_private_explanation">Αναρτήσεις μόνο για ακολούθους που έχουν συνταχθεί στο Mastodon, δεν μπορούν να γίνουν παράθεση από άλλους.</string>
-	<string name="quote_policy_for_direct_explanation">Ιδιωτικές αναφορές που έχουν συνταχθεί στο Mastodon δεν μπορούν να γίνουν παράθεση από άλλους.</string>
+	<string name="quote_policy_for_direct_explanation">Ιδιωτικές επισημάνσεις που έχουν συνταχθεί στο Mastodon δεν μπορούν να γίνουν παράθεση από άλλους.</string>
 	<string name="change_quote_policy">Άλλαξε ποιος μπορεί να κάνει παράθεση</string>
 	<string name="edit_visibility_explanation">Δημοσιευμένες αναρτήσεις δεν μπορούν να αλλάξουν την ορατότητά τους.</string>
 	<string name="user_quoted_post">%s έκανε παράθεση την ανάρτησή σου:</string>
