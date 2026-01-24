@@ -515,6 +515,18 @@
 		<item quantity="other">%d godzin temu</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Brak tekstu alternatywnego dla mediów</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s z Twoich obrazów nie ma tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="few">%s z Twoich obrazów nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="many">%s z Twoich obrazów nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="other">%s z Twoich obrazów nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s z Twoich załączników multimedialnych nie ma tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="few">%s z Twoich załączników multimedialnych nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="many">%s z Twoich załączników multimedialnych nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="other">%s z Twoich załączników multimedialnych nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+	</plurals>
 	<string name="count_one">Jeden</string>
 	<string name="count_two">Dwa</string>
 	<string name="count_three">Trzy</string>
@@ -975,7 +987,34 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="user_quoted_post">%s zacytował(a) twój post:</string>
 	<string name="user_edited_quoted_post">%s edytował post, który zacytowałes(-aś)</string>
 	<string name="notification_type_quote">Cytaty</string>
+	<string name="create_quote">Zacytuj</string>
+	<string name="cannot_quote_post">Nie możesz zacytować tego wpisu</string>
+	<string name="cannot_quote_post_followers_only">Tylko obserwujący mogą cytować ten wpis</string>
+	<string name="compose_hint_quote">Dodaj coś do rozmowy</string>
+	<string name="cancel_quote">Anuluj cytat</string>
+	<string name="unlisted_quote_alert_title">Cytowanie cichych wpisów publicznych</string>
+	<string name="unlisted_quote_alert">Kiedy zacytujesz cichy wpis publiczny, twój post zostanie ukryty na popularnych osiach czasu.</string>
 	<string name="settings_posting_defaults">Domyślne ustawienia publikacji</string>
 	<string name="default_post_visibility">Widoczność wpisów</string>
+	<string name="create_quote_manual_approval">Poproś o możliwość zacytowania</string>
+	<string name="create_quote_manual_approval_subtitle">Autor zatwierdzi ręcznie</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d cytat</item>
+		<item quantity="few">%,d cytaty</item>
+		<item quantity="many">%,d cytatów</item>
+		<item quantity="other">%,d cytatów</item>
+	</plurals>
+	<string name="remove_quote">Usuń mój wpis z postu @%s</string>
+	<string name="remove_quote_confirm_title">Usunąć wpis?</string>
+	<string name="remove_quote_confirm">Tej czynności nie można cofnąć.</string>
+	<string name="remove_quote_button">Usuń wpis</string>
 	<string name="settings_posting_defaults_explanation">Te ustawienia będą używane jako domyślne podczas tworzenia nowych wpisów, ale możesz je edytować przy każdym poście w kompozytorze.</string>
+	<string name="cant_quote_in_private_title">Cytaty nie mogą być osadzane we wzmiankach prywatnych</string>
+	<string name="cant_quote_in_private">Jeśli zapiszesz obecne ustawienia, osadzony cytat zostanie zamieniony w link.</string>
+	<string name="quote_followers_only_confirm_title">Udostępnić obserwującym i wspomnianym użytkownikom?</string>
+	<string name="quote_followers_only_confirm">Osoba, którą cytujesz oraz inne wzmianki zostaną poinformowane i będą mogły zobaczyć Twój wpis, nawet jeśli Cię nie obserwują.</string>
+	<string name="quote_followers_only_publish">Opublikuj wpis</string>
+	<string name="quote_followers_only_cancel">Wróć do edycji</string>
+	<string name="quote_followers_only_dont_show_again">Nie pokazuj tej wiadomości ponownie</string>
+	<string name="more_replies_found">Znaleziono więcej odpowiedzi</string>
 </resources>
