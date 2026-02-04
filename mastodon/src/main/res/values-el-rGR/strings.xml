@@ -136,7 +136,7 @@
 	<string name="report_sent_subtitle">Ενώ το εξετάζουμε, μπορείς να δράσεις εναντίον του %s:</string>
 	<string name="unfollow_user">Άρση ακολούθησης του %s</string>
 	<string name="unfollow">Άρση ακολούθησης</string>
-	<string name="mute_user_explain">Δε θα βλέπεις τις αναρτήσεις του. Εκείνος μπορεί ακόμα να σε ακολουθεί και να βλέπει τις αναρτήσεις σου χωρίς να γνωρίζει ότι είναι σε σίγαση.</string>
+	<string name="mute_user_explain">Δε θα βλέπεις τις αναρτήσεις του. Εκείνος μπορεί ακόμη να σε ακολουθεί και να βλέπει τις αναρτήσεις σου χωρίς να γνωρίζει ότι είναι σε σίγαση.</string>
 	<string name="block_user_explain">Δε θα βλέπεις τις αναρτήσεις του. Δε θα μπορεί να δει τις αναρτήσεις σου ή να σε ακολουθήσει. Θα μπορεί να δει ότι έχει αποκλειστεί.</string>
 	<string name="report_personal_title">Δε θες να το βλέπεις;</string>
 	<string name="report_personal_subtitle">Αυτές είναι οι επιλογές σου για να ελέγχεις τί βλέπεις στο Mastodon:</string>
@@ -338,7 +338,7 @@
 	<string name="spoiler_hide">Απόκρυψη ξανά</string>
 	<string name="poll_multiple_choice">Επίλεξε ένα ή περισσότερα</string>
 	<string name="save_changes">Αποθήκευση αλλαγών</string>
-	<string name="profile_featured">﻿Προτεινόμενα</string>
+	<string name="profile_featured">Αναδεδειγμένα</string>
 	<string name="profile_timeline">Ροή</string>
 	<string name="view_all">Εμφάνιση όλων</string>
 	<string name="profile_endorsed_accounts">Λογαριασμοί</string>
@@ -445,7 +445,7 @@
 	<string name="server_administrator">Διαχειριστής</string>
 	<string name="send_email_to_server_admin">Στείλε μήνυμα σε διαχειριστή</string>
 	<string name="notifications_disabled_in_system">Ενεργοποίησε τις ειδοποιήσεις από τις ρυθμίσεις της συσκευής σου για να δεις ενημερώσεις από οπουδήποτε.</string>
-	<string name="settings_even_more">Ακόμη περισσότερες ρυθμίσεις</string>
+	<string name="settings_even_more">Ακόμα περισσότερες ρυθμίσεις</string>
 	<string name="settings_show_cws">Εμφάνιση προειδοποιήσεων περιεχομένου</string>
 	<string name="settings_hide_sensitive_media">Κάλυψη μέσων που χαρακτηρίζονται ως ευαίσθητα</string>
 	<string name="settings_show_interaction_counts">Αριθμός αλληλεπιδράσεων ανάρτησης</string>
@@ -501,7 +501,7 @@
 	</plurals>
 	<string name="selection_2_options">%1$s και %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s και %3$s</string>
-	<string name="selection_4_or_more">%1$s, %2$s και %3$d ακόμη</string>
+	<string name="selection_4_or_more">%1$s, %2$s και %3$d ακόμα</string>
 	<string name="filter_context_home_lists">Αρχική &amp; λίστες</string>
 	<string name="filter_context_notifications">Ειδοποιήσεις</string>
 	<string name="filter_context_public_timelines">Δημόσιες ροές</string>
@@ -552,9 +552,9 @@
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Μεταφράστηκε από %1$s χρησιμοποιώντας %2$s</string>
 	<string name="translation_show_original">Εμφάνιση αρχικού</string>
-	<string name="translation_failed">Η μετάφραση απέτυχε. Ίσως ο διαχειριστής δεν έχει ενεργοποιήσει μεταφράσεις σε αυτόν τον διακομιστή ή αυτός ο διακομιστής εκτελεί μια παλαιότερη έκδοση του Mastodon όπου οι μεταφράσεις δεν υποστηρίζονται ακόμα.</string>
+	<string name="translation_failed">Η μετάφραση απέτυχε. Ίσως ο διαχειριστής δεν έχει ενεργοποιήσει μεταφράσεις σε αυτόν τον διακομιστή ή αυτός ο διακομιστής εκτελεί μια παλαιότερη έκδοση του Mastodon όπου οι μεταφράσεις δεν υποστηρίζονται ακόμη.</string>
 	<string name="settings_privacy">Ιδιωτικότητα και προσιτότητα</string>
-	<string name="settings_discoverable">Παροχή προφίλ και δημοσιεύσεων σε αλγορίθμους ανακάλυψης</string>
+	<string name="settings_discoverable">Παροχή προφίλ και αναρτήσεων σε αλγορίθμους ανακάλυψης</string>
 	<string name="settings_indexable">Συμπερίληψη δημόσιων αναρτήσεων στα αποτελέσματα αναζήτησης</string>
 	<plurals name="x_participants">
 		<item quantity="one">%,d συμμετέχων</item>
@@ -607,17 +607,17 @@
 	<string name="step_x_of_y">Βήμα %1$d από %2$d</string>
 	<string name="create">Δημιουργία</string>
 	<string name="manage_list_members">Διαχείριση μελών λίστας</string>
-	<string name="list_no_members">Κανένα μέλος ακόμα</string>
+	<string name="list_no_members">Κανένα μέλος ακόμη</string>
 	<string name="list_find_users">Εύρεση χρηστών για προσθήκη</string>
 	<string name="reply_to_user">Απάντηση σε %s</string>
 	<string name="posted_at">Αναρτήθηκε σε %s</string>
 	<string name="non_mutual_sheet_title">Γεια σου, νέα σύνδεση!</string>
-	<string name="non_mutual_sheet_text">Φαίνεται ότι ετοιμάζεσαι να απαντήσεις σε κάποιον που δεν είναι αμοιβαία σύνδεση ακόμα. Ας κάνουμε καλή εντύπωση.</string>
+	<string name="non_mutual_sheet_text">Φαίνεται ότι ετοιμάζεσαι να απαντήσεις σε κάποιον που δεν είναι αμοιβαία σύνδεση ακόμη. Ας κάνουμε καλή εντύπωση.</string>
 	<string name="got_it">Το \'πιασα</string>
 	<string name="dont_remind_again">Μη μου το ξαναθυμίσεις</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Αυτή η ανάρτηση έγινε πριν %s</string>
-	<string name="old_post_sheet_text">Μπορείς ακόμα να απαντήσεις αλλά μπορεί να μην είναι πλέον σχετικό.</string>
+	<string name="old_post_sheet_text">Μπορείς ακόμη να απαντήσεις αλλά μπορεί να μην είναι πλέον σχετικό.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d μήνας</item>
 		<item quantity="other">%,d μήνες</item>
@@ -651,7 +651,7 @@
 	<string name="need_invite_to_join_server">Για να γίνεις μέλος στο %s, θα χρειαστείς έναν σύνδεσμο πρόσκλησης από έναν υπάρχοντα χρήστη.</string>
 	<string name="mute_user_confirm_title">Σίγαση χρήστη;</string>
 	<string name="user_wont_know_muted">Δε θα ξέρει ότι είναι σε σίγαση.</string>
-	<string name="user_can_still_see_your_posts">Μπορεί ακόμα να δει τις αναρτήσεις σου, αλλά δε θα βλέπεις τις δικές του.</string>
+	<string name="user_can_still_see_your_posts">Μπορεί ακόμη να δει τις αναρτήσεις σου, αλλά δε θα βλέπεις τις δικές του.</string>
 	<string name="you_wont_see_user_mentions">Δε θα βλέπεις τις αναρτήσεις που τον επισημαίνουν.</string>
 	<string name="user_can_mention_and_follow_you">Μπορεί να σε επισημάνει και να σε ακολουθήσει, αλλά δε θα τον βλέπεις.</string>
 	<string name="unmuted_user_x">Έγινε άρση σίγασης %s</string>
@@ -767,16 +767,16 @@
 		<item quantity="other">%d συνημμένα</item>
 	</plurals>
 	<plurals name="user_and_x_more_favorited">
-		<item quantity="one">Οι %1$s και %2$,d ακόμη αγάπησαν:</item>
-		<item quantity="other">Οι %1$s και %2$,d ακόμη αγάπησαν:</item>
+		<item quantity="one">Οι %1$s και %2$,d ακόμα αγάπησαν:</item>
+		<item quantity="other">Οι %1$s και %2$,d ακόμα αγάπησαν:</item>
 	</plurals>
 	<plurals name="user_and_x_more_boosted">
-		<item quantity="one">Οι %1$s και %2$,d ακόμη ενίσχυσαν:</item>
-		<item quantity="other">Οι %1$s και %2$,d ακόμη ενίσχυσαν:</item>
+		<item quantity="one">Οι %1$s και %2$,d ακόμα ενίσχυσαν:</item>
+		<item quantity="other">Οι %1$s και %2$,d ακόμα ενίσχυσαν:</item>
 	</plurals>
 	<plurals name="poll_ended_x_voters">
-		<item quantity="one">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμη ψηφίσατε</item>
-		<item quantity="other">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμη ψηφίσατε</item>
+		<item quantity="one">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμα ψηφίσατε</item>
+		<item quantity="other">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμα ψηφίσατε</item>
 	</plurals>
 	<string name="own_poll_ended">Η δημοσκόπησή σου έληξε</string>
 	<string name="user_just_posted">Ο χρήστης %s μόλις ανάρτησε</string>
@@ -813,8 +813,8 @@
 	<string name="delete_account">Διαγραφή λογαριασμού</string>
 	<string name="notification_type_status">Νέες αναρτήσεις</string>
 	<plurals name="user_and_x_more_followed">
-		<item quantity="one">Οι %1$s και %2$,d ακόμη σε ακολούθησαν</item>
-		<item quantity="other">Οι %1$s και %2$,d ακόμη σε ακολούθησαν</item>
+		<item quantity="one">Οι %1$s και %2$,d ακόμα σε ακολούθησαν</item>
+		<item quantity="other">Οι %1$s και %2$,d ακόμα σε ακολούθησαν</item>
 	</plurals>
 	<string name="familiar_followers_one">Ακολουθείται από %s</string>
 	<string name="familiar_followers_two">Ακολουθείται από %s και %s</string>
@@ -822,8 +822,8 @@
 	<string name="profile_saved_posts_explanation">Οι αποθηκευμένες αναρτήσεις σου είναι ορατές μόνο σε σένα.</string>
 	<string name="search_people">Άτομα</string>
 	<plurals name="familiar_followers_many">
-		<item quantity="one">Ακολουθείται από %1$s, %2$s, και %3$,d ακόμη</item>
-		<item quantity="other">Ακολουθείται από %1$s, %2$s, και %3$,d ακόμη</item>
+		<item quantity="one">Ακολουθείται από %1$s, %2$s, και %3$,d ακόμα</item>
+		<item quantity="other">Ακολουθείται από %1$s, %2$s, και %3$,d ακόμα</item>
 	</plurals>
 	<plurals name="x_followers_you_know">
 		<item quantity="one">%,d ακόλουθος που ξέρεις</item>
