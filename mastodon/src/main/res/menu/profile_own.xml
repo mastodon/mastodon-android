@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:id="@+id/share" android:title="@string/share_user" android:icon="@drawable/ic_share_24px" android:showAsAction="always"/>
+	<group android:orderInCategory="1" android:id="@+id/menu_group1">
+		<item android:id="@+id/share" android:title="@string/button_share"/>
+		<item android:id="@+id/copy_link" android:title="@string/fallback_menu_item_copy_link"/>
+		<item android:id="@+id/qr_code" android:title="@string/profile_view_qr_code"/>
+		<item android:id="@+id/open_in_browser" android:title="@string/open_in_browser"/>
+	</group>
+	<group android:orderInCategory="2" android:id="@+id/menu_group2">
+		<item android:id="@+id/favorites" android:title="@string/your_favorites"/>
+		<item android:id="@+id/bookmarks" android:title="@string/bookmarks"/>
+		<item android:id="@+id/followed_hashtags" android:title="@string/followed_hashtags"/>
+		<item android:id="@+id/account_settings" android:title="@string/account_settings"/>
+	</group>
 </menu>

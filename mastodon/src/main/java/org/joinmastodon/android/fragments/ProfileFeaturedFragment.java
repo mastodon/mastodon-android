@@ -3,19 +3,15 @@ package org.joinmastodon.android.fragments;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.accounts.GetAccountFeaturedHashtags;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.model.Account;
-import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.HashtagStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.SectionHeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.parceler.Parcels;
@@ -23,7 +19,6 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
@@ -31,10 +26,9 @@ import me.grishka.appkit.api.SimpleCallback;
 
 public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult>{
 	private Account profileAccount;
-	private List<Hashtag> featuredTags;
 //	private List<Account> endorsedAccounts;
 	private List<Status> pinnedStatuses;
-	private boolean tagsLoaded, statusesLoaded;
+	private boolean statusesLoaded;
 
 	public ProfileFeaturedFragment(){
 		setListLayoutId(R.layout.recycler_fragment_no_refresh);
@@ -50,18 +44,18 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 	protected List<StatusDisplayItem> buildDisplayItems(SearchResult s){
 		ArrayList<StatusDisplayItem> items=switch(s.type){
 			case ACCOUNT -> new ArrayList<>(Collections.singletonList(new AccountStatusDisplayItem(s.id, this, getActivity(), s.account, accountID)));
-			case HASHTAG -> new ArrayList<>(Collections.singletonList(new HashtagStatusDisplayItem(s.id, this, getActivity(), s.hashtag)));
+			case HASHTAG -> throw new IllegalStateException();
 			case STATUS -> StatusDisplayItem.buildItems(this, s.status, accountID, s, knownAccounts, true);
 		};
 
 		if(s.firstInSection){
 			items.add(0, new SectionHeaderStatusDisplayItem(this, getActivity(), getString(switch(s.type){
 				case ACCOUNT -> R.string.profile_endorsed_accounts;
-				case HASHTAG -> R.string.hashtags;
+				case HASHTAG -> throw new IllegalStateException();
 				case STATUS -> R.string.posts;
 			}), getString(R.string.view_all), switch(s.type){
 				case ACCOUNT -> (Runnable)this::showAllEndorsedAccounts;
-				case HASHTAG -> (Runnable)this::showAllFeaturedHashtags;
+				case HASHTAG -> throw new IllegalStateException();
 				case STATUS -> (Runnable)this::showAllPinnedPosts;
 			}));
 		}
@@ -130,18 +124,6 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 					 })
 					 .exec(accountID);
 		}
-		if(!tagsLoaded){
-			new GetAccountFeaturedHashtags(profileAccount.id)
-					 .setCallback(new SimpleCallback<>(this){
-						  @Override
-						  public void onSuccess(List<Hashtag> result){
-							  featuredTags=result;
-							  tagsLoaded=true;
-							  onOneApiRequestCompleted();
-						  }
-					 })
-					 .exec(accountID);
-		}
 	}
 
 	@Override
@@ -154,22 +136,16 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 	@Override
 	public void onRefresh(){
 		statusesLoaded=false;
-		tagsLoaded=false;
 		super.onRefresh();
 	}
 
 	private void onOneApiRequestCompleted(){
 		if(getActivity()==null)
 			return;
-		if(tagsLoaded && statusesLoaded){
+		if(statusesLoaded){
 			ArrayList<SearchResult> results=new ArrayList<>();
 			for(int i=0;i<Math.min(2, pinnedStatuses.size());i++){
 				SearchResult res=new SearchResult(pinnedStatuses.get(i));
-				res.firstInSection=(i==0);
-				results.add(res);
-			}
-			for(int i=0;i<Math.min(5, featuredTags.size());i++){
-				SearchResult res=new SearchResult(featuredTags.get(i));
 				res.firstInSection=(i==0);
 				results.add(res);
 			}
@@ -198,15 +174,6 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 		args.putString("account", accountID);
 		args.putParcelable("profileAccount", Parcels.wrap(profileAccount));
 		Nav.go(getActivity(), PinnedPostsListFragment.class, args);
-	}
-
-	private void showAllFeaturedHashtags(){
-		Bundle args=new Bundle();
-		args.putString("account", accountID);
-		args.putParcelable("profileAccount", Parcels.wrap(profileAccount));
-		ArrayList<Parcelable> tags=featuredTags.stream().map(Parcels::wrap).collect(Collectors.toCollection(ArrayList::new));
-		args.putParcelableArrayList("hashtags", tags);
-		Nav.go(getActivity(), FeaturedHashtagsListFragment.class, args);
 	}
 
 	private void showAllEndorsedAccounts(){

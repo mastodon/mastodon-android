@@ -1,47 +1,62 @@
 package org.joinmastodon.android.ui.views;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 
-import java.util.ArrayList;
-
 /**
- * Something like a horizontal LinearLayout, but wraps child views onto a new line if they don't fit
+ * A modification of WrappingLinearLayout that hides child views that don't fit in a single row and shows a button to reveal them.
  */
-public class WrappingLinearLayout extends ViewGroup{
-	protected int verticalGap, horizontalGap;
-	protected ArrayList<Integer> rowHeights=new ArrayList<>();
+public class ExpandableWrappingLinearLayout extends WrappingLinearLayout{
+	private boolean expanded=false;
 
-	public WrappingLinearLayout(Context context){
+	public ExpandableWrappingLinearLayout(Context context){
 		this(context, null);
 	}
 
-	public WrappingLinearLayout(Context context, AttributeSet attrs){
+	public ExpandableWrappingLinearLayout(Context context, AttributeSet attrs){
 		this(context, attrs, 0);
 	}
 
-	public WrappingLinearLayout(Context context, AttributeSet attrs, int defStyle){
+	public ExpandableWrappingLinearLayout(Context context, AttributeSet attrs, int defStyle){
 		super(context, attrs, defStyle);
-		TypedArray ta=context.obtainStyledAttributes(attrs, R.styleable.WrappingLinearLayout);
-		verticalGap=ta.getDimensionPixelOffset(R.styleable.WrappingLinearLayout_android_verticalGap, 0);
-		horizontalGap=ta.getDimensionPixelOffset(R.styleable.WrappingLinearLayout_android_horizontalGap, 0);
-		ta.recycle();
 	}
 
+	@SuppressLint("DefaultLocale")
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
 		int w=MeasureSpec.getSize(widthMeasureSpec)-getPaddingLeft()-getPaddingRight();
 		int heightUsed=0, widthRemain=w, currentRowHeight=0;
 		rowHeights.clear();
+
+		TextView expandButton=findViewById(R.id.expand_button);
+		if(expandButton!=null){
+			expandButton.setVisibility(expanded ? GONE : VISIBLE);
+			// make sure the button is the last view
+			removeViewInLayout(expandButton);
+			addViewInLayout(expandButton, getChildCount(), expandButton.getLayoutParams());
+		}
+		for(int i=0;i<getChildCount();i++){
+			View child=getChildAt(i);
+			if(child!=expandButton)
+				child.setVisibility(VISIBLE);
+		}
+
+		boolean didHide=false;
+
 		for(int i=0;i<getChildCount();i++){
 			View child=getChildAt(i);
 			if(child.getVisibility()==GONE)
 				continue;
+			if(!didHide && child==expandButton){
+				child.setVisibility(GONE);
+				continue;
+			}
 			LayoutParams lp=child.getLayoutParams();
 			int horizontalPadding=getPaddingLeft()+getPaddingRight();
 			int verticalPadding=getPaddingTop()+getPaddingBottom();
@@ -55,6 +70,31 @@ public class WrappingLinearLayout extends ViewGroup{
 			child.measure(getChildMeasureSpec(widthMeasureSpec, horizontalPadding, lp.width), getChildMeasureSpec(heightMeasureSpec, verticalPadding, lp.height));
 			currentRowHeight=Math.max(child.getMeasuredHeight()+verticalMargins, currentRowHeight);
 			if(child.getMeasuredWidth()+(widthRemain<w ? horizontalGap : 0)+horizontalMargins>widthRemain){
+				if(!expanded){
+					if(expandButton!=null && !didHide){
+						for(int j=i;j<getChildCount();j++){
+							child=getChildAt(j);
+							if(child!=expandButton)
+								child.setVisibility(GONE);
+						}
+						if(widthRemain<w)
+							widthRemain-=horizontalGap;
+						widthRemain-=child.getMeasuredWidth()+horizontalMargins;
+
+						int remainingCount=getChildCount()-1-i;
+						expandButton.setText(String.format("+%,d", remainingCount));
+						lp=expandButton.getLayoutParams();
+						expandButton.measure(getChildMeasureSpec(widthMeasureSpec, horizontalPadding, lp.width), getChildMeasureSpec(heightMeasureSpec, verticalPadding, lp.height));
+						if(expandButton.getMeasuredWidth()+horizontalMargins>widthRemain && i>0){ // Didn't fit. Remove one view to make room and measure again
+							getChildAt(i-1).setVisibility(GONE);
+							remainingCount++;
+							expandButton.setText(String.format("+%,d", remainingCount));
+							expandButton.measure(getChildMeasureSpec(widthMeasureSpec, horizontalPadding, lp.width), getChildMeasureSpec(heightMeasureSpec, verticalPadding, lp.height));
+						}
+						didHide=true;
+					}
+					continue;
+				}
 				// Doesn't fit into the current row. Start a new one.
 				heightUsed+=currentRowHeight+verticalGap;
 				rowHeights.add(currentRowHeight);
@@ -73,7 +113,7 @@ public class WrappingLinearLayout extends ViewGroup{
 		setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec), heightUsed+getPaddingTop()+getPaddingBottom());
 	}
 
-	@Override
+	/*@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b){
 		if(rowHeights.isEmpty())
 			return;
@@ -84,6 +124,7 @@ public class WrappingLinearLayout extends ViewGroup{
 		int w=getWidth()-getPaddingLeft()-getPaddingRight();
 		int currentRowIndex=0;
 		boolean firstInRow=true;
+		TextView expandButton=findViewById(R.id.expand_button);
 		for(int i=0;i<getChildCount();i++){
 			View child=getChildAt(i);
 			if(child.getVisibility()==GONE)
@@ -120,10 +161,10 @@ public class WrappingLinearLayout extends ViewGroup{
 			}
 			child.layout(childX, childY, childX+childW, childY+childH);
 		}
-	}
+	}*/
 
-	@Override
-	public LayoutParams generateLayoutParams(AttributeSet attrs){
-		return new MarginLayoutParams(getContext(), attrs);
+	public void expand(){
+		expanded=true;
+		requestLayout();
 	}
 }

@@ -1,50 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:clipToPadding="false"
-	android:paddingStart="16dp"
-	android:paddingTop="6dp"
-	android:paddingEnd="24dp"
-	android:paddingBottom="6dp">
-
-	<ImageView
-		android:id="@+id/verified_icon"
-		android:layout_width="24dp"
-		android:layout_height="24dp"
-		android:layout_alignParentEnd="true"
-		android:layout_centerVertical="true"
-		android:layout_marginStart="16dp"
-		android:tint="?colorM3Primary"
-		android:contentDescription="@string/verified_link"
-		android:src="@drawable/ic_verified_24px"/>
+	android:orientation="horizontal"
+	android:paddingVertical="8dp"
+	android:paddingHorizontal="4dp"
+	android:baselineAligned="false">
 
 	<TextView
 		android:id="@+id/title"
-		android:layout_width="match_parent"
+		android:layout_width="100dp"
 		android:layout_height="wrap_content"
-		android:layout_toStartOf="@id/verified_icon"
-		android:textAppearance="@style/m3_label_medium"
-		android:minHeight="20dp"
-		android:textSize="14sp"
-		android:gravity="center_vertical"
+		android:layout_marginEnd="8dp"
+		android:textSize="13sp"
 		android:textColor="?colorM3OnSurfaceVariant"
-		android:singleLine="true"
+		android:maxLines="2"
 		android:ellipsize="end"
+		android:minHeight="32dp"
+		android:gravity="center_vertical"
 		tools:text="Field title"/>
 
 	<org.joinmastodon.android.ui.views.LinkedTextView
 		android:id="@+id/value"
-		android:layout_width="match_parent"
+		android:layout_width="0dp"
 		android:layout_height="wrap_content"
-		android:layout_below="@id/title"
-		android:layout_toStartOf="@id/verified_icon"
-		android:textAppearance="@style/m3_body_large"
+		android:layout_weight="1"
 		android:textColor="?colorM3OnSurface"
-		android:textSize="16sp"
-		android:minHeight="24dp"
+		android:textSize="13sp"
+		android:ellipsize="end"
+		android:maxLines="2"
+		android:minHeight="32dp"
 		android:gravity="center_vertical"
 		tools:text="Field value"/>
 
-</RelativeLayout>
+	<ImageView
+		android:id="@+id/verified_icon"
+		android:layout_width="16dp"
+		android:layout_height="16dp"
+		android:layout_marginStart="4dp"
+		android:layout_gravity="center_vertical"
+		android:contentDescription="@string/verified_link"
+		android:src="@drawable/ic_verified_link"/>
+
+</LinearLayout>

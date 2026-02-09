@@ -1,13 +1,10 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Fragment;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +17,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
+import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.LinkedTextView;
@@ -39,6 +37,7 @@ import me.grishka.appkit.imageloader.ListImageLoaderWrapper;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
+import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
@@ -46,12 +45,16 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 	private static final int MAX_FIELDS=4;
 
 	public UsableRecyclerView list;
+	public LinkedTextView bio;
 	private List<AccountField> fields=Collections.emptyList();
 	private AboutAdapter adapter;
 	private boolean isInEditMode;
 	private ItemTouchHelper dragHelper=new ItemTouchHelper(new ReorderCallback());
 	private ListImageLoaderWrapper imgLoader;
 	private boolean editDirty;
+	private HideableSingleViewRecyclerAdapter bioAdapter;
+	private MergeRecyclerAdapter mergeAdapter=new MergeRecyclerAdapter();
+	private CharSequence parsedBio;
 
 	public void setFields(List<AccountField> fields){
 		this.fields=fields;
@@ -63,6 +66,22 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 			adapter.notifyDataSetChanged();
 	}
 
+	public void setBio(CharSequence parsedBio){
+		this.parsedBio=parsedBio;
+		if(list!=null)
+			updateBio();
+	}
+
+	private void updateBio(){
+		if(TextUtils.isEmpty(parsedBio)){
+			bioAdapter.setVisible(false);
+		}else{
+			bioAdapter.setVisible(true);
+			bio.setText(parsedBio);
+		}
+		UiUtils.loadCustomEmojiInTextView(bio);
+	}
+
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState){
@@ -72,9 +91,24 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		list.setDrawSelectorOnTop(true);
 		list.setLayoutManager(new LinearLayoutManager(getActivity()));
 		imgLoader=new ListImageLoaderWrapper(getActivity(), list, list, null);
-		list.setAdapter(adapter=new AboutAdapter());
-		list.setPadding(0, V.dp(16), 0, 0);
+
+		adapter=new AboutAdapter();
+		bio=new LinkedTextView(getActivity());
+		bio.setTextSize(15);
+		bio.setLineSpacing(0, 1.4f);
+		bio.setTextColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurface));
+		bio.setPadding(0, 0, 0, V.dp(4));
+		bio.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+		bioAdapter=new HideableSingleViewRecyclerAdapter(bio);
+		mergeAdapter.addAdapter(bioAdapter);
+		mergeAdapter.addAdapter(adapter);
+		list.setAdapter(mergeAdapter);
+
+		UiUtils.setAllPaddings(list, 16);
 		list.setClipToPadding(false);
+
+		updateBio();
+
 		return list;
 	}
 
@@ -194,7 +228,8 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 			super.onBind(item);
 			title.setText(item.parsedName);
 			value.setText(item.parsedValue);
-			verifiedIcon.setVisibility(item.verifiedAt!=null ? View.VISIBLE : View.GONE);
+			verifiedIcon.setVisibility(item.verifiedAt!=null ? View.VISIBLE : View.INVISIBLE);
+			itemView.setBackgroundResource(item.verifiedAt!=null ? R.color.m3_primary_alpha8 : 0);
 		}
 
 		@Override
@@ -247,7 +282,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		}
 
 		private void onRemoveRowClick(View v){
-			int pos=getAbsoluteAdapterPosition();
+			int pos=getAbsoluteAdapterPosition()-mergeAdapter.getPositionForAdapter(adapter);
 			fields.remove(pos);
 			adapter.notifyItemRemoved(pos);
 			for(int i=0;i<list.getChildCount();i++){
@@ -283,8 +318,9 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target){
 			if(target instanceof AddRowViewHolder)
 				return false;
-			int fromPosition=viewHolder.getAbsoluteAdapterPosition();
-			int toPosition=target.getAbsoluteAdapterPosition();
+			int adapterOffset=mergeAdapter.getPositionForAdapter(adapter);
+			int fromPosition=viewHolder.getAbsoluteAdapterPosition()-adapterOffset;
+			int toPosition=target.getAbsoluteAdapterPosition()-adapterOffset;
 			if (fromPosition<toPosition) {
 				for (int i=fromPosition;i<toPosition;i++) {
 					Collections.swap(fields, i, i+1);

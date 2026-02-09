@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.assist.AssistContent;
 import android.content.ClipData;
@@ -14,22 +15,28 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Outline;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
+import android.text.style.StyleSpan;
+import android.text.style.TypefaceSpan;
 import android.transition.ChangeBounds;
 import android.transition.Fade;
 import android.transition.Transition;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,11 +46,12 @@ import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -55,14 +63,18 @@ import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
 import org.joinmastodon.android.api.requests.accounts.GetAccountFamiliarFollowers;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
+import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
+import org.joinmastodon.android.api.requests.accounts.RemoveAccountFromFollowers;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
+import org.joinmastodon.android.api.requests.accounts.SetAccountPersonalNote;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.account_list.FamiliarFollowerListFragment;
 import org.joinmastodon.android.fragments.account_list.FollowerListFragment;
 import org.joinmastodon.android.fragments.account_list.FollowingListFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
+import org.joinmastodon.android.fragments.settings.SettingsAccountFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.model.Attachment;
@@ -86,8 +98,10 @@ import org.joinmastodon.android.ui.utils.SimpleTextWatcher;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CoverImageView;
 import org.joinmastodon.android.ui.views.CustomDrawingOrderLinearLayout;
+import org.joinmastodon.android.ui.views.FloatingHintEditTextLayout;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.joinmastodon.android.ui.views.ProgressBarButton;
+import org.joinmastodon.android.ui.views.WrappingLinearLayout;
 import org.joinmastodon.android.utils.ElevationOnScrollListener;
 import org.parceler.Parcels;
 
@@ -126,14 +140,16 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private ImageView avatar;
 	private CoverImageView cover;
 	private View avatarBorder;
-	private TextView name, username, usernameDomain, bio, followersCount, followersLabel, followingCount, followingLabel;
+	private TextView name, username, followersCount, followersLabel, followingCount, followingLabel;
+	private TextView joinDate;
+	private ImageButton usernameHelp;
 	private ProgressBarButton actionButton;
 	private ViewPager2 pager;
 	private NestedRecyclerScrollView scrollView;
 	private ProfileFeaturedFragment featuredFragment;
 	private AccountTimelineFragment timelineFragment;
+	private AccountSimpleTimelineFragment mediaTimelineFragment;
 	private ProfileAboutFragment aboutFragment;
-	private SavedPostsTimelineFragment savedFragment;
 	private TabLayout tabbar;
 	private SwipeRefreshLayout refreshLayout;
 	private View followersBtn, followingBtn;
@@ -141,18 +157,18 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private ProgressBar actionProgress;
 	private FrameLayout[] tabViews;
 	private TabLayoutMediator tabLayoutMediator;
-	private TextView followsYouView;
-	private LinearLayout countersLayout;
+	private WrappingLinearLayout countersLayout;
 	private View nameEditWrap, bioEditWrap;
 	private View tabsDivider;
 	private View actionButtonWrap;
 	private CustomDrawingOrderLinearLayout scrollableContent;
-	private ImageButton qrCodeButton;
+	private ImageButton menuButton, notificationsButton;
 	private ProgressBar innerProgress;
 	private View actions;
 	private View familiarFollowersRow;
 	private ImageView[] familiarFollowersAvatars;
 	private TextView familiarFollowersLabel;
+	private WrappingLinearLayout badgesLayout;
 
 	private Account account;
 	private String accountID;
@@ -177,6 +193,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private boolean savingEdits;
 	private Runnable editModeBackCallback=this::onEditModeBackCallback;
 	private HashSet<APIRequest<?>> relationshipRequests=new HashSet<>();
+	private PopupMenu buttonMenu;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -214,6 +231,12 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	}
 
 	@Override
+	protected void onShown(){
+		super.onShown();
+		syncScrollState();
+	}
+
+	@Override
 	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		View content=inflater.inflate(R.layout.fragment_profile, container, false);
 
@@ -222,8 +245,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		avatarBorder=content.findViewById(R.id.avatar_border);
 		name=content.findViewById(R.id.name);
 		username=content.findViewById(R.id.username);
-		usernameDomain=content.findViewById(R.id.username_domain);
-		bio=content.findViewById(R.id.bio);
+		usernameHelp=content.findViewById(R.id.username_help);
 		followersCount=content.findViewById(R.id.followers_count);
 		followersLabel=content.findViewById(R.id.followers_label);
 		followersBtn=content.findViewById(R.id.followers_btn);
@@ -241,12 +263,12 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		bioEditWrap=content.findViewById(R.id.bio_edit_wrap);
 		actionProgress=content.findViewById(R.id.action_progress);
 		fab=content.findViewById(R.id.fab);
-		followsYouView=content.findViewById(R.id.follows_you);
 		countersLayout=content.findViewById(R.id.profile_counters);
 		tabsDivider=content.findViewById(R.id.tabs_divider);
 		actionButtonWrap=content.findViewById(R.id.profile_action_btn_wrap);
 		scrollableContent=content.findViewById(R.id.scrollable_content);
-		qrCodeButton=content.findViewById(R.id.qr_code);
+		menuButton=content.findViewById(R.id.options_btn);
+		notificationsButton=content.findViewById(R.id.notifications_btn);
 		innerProgress=content.findViewById(R.id.profile_progress);
 		actions=content.findViewById(R.id.profile_actions);
 		familiarFollowersRow=content.findViewById(R.id.familiar_followers);
@@ -256,8 +278,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 				content.findViewById(R.id.familiar_followers_ava3),
 		};
 		familiarFollowersLabel=content.findViewById(R.id.familiar_followers_label);
+		badgesLayout=content.findViewById(R.id.badges);
+		joinDate=content.findViewById(R.id.join_date);
 
-		avatar.setOutlineProvider(OutlineProviders.roundedRect(24));
+		avatar.setOutlineProvider(OutlineProviders.roundedRect(16));
 		avatar.setClipToOutline(true);
 
 		FrameLayout sizeWrapper=new FrameLayout(getActivity()){
@@ -272,10 +296,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		for(int i=0;i<tabViews.length;i++){
 			FrameLayout tabView=new FrameLayout(getActivity());
 			tabView.setId(switch(i){
-				case 0 -> R.id.profile_featured;
+				case 0 -> R.id.profile_about;
 				case 1 -> R.id.profile_timeline;
-				case 2 -> R.id.profile_about;
-				case 3 -> R.id.profile_saved;
+				case 2 -> R.id.profile_media;
+				case 3 -> R.id.profile_featured;
 				default -> throw new IllegalStateException("Unexpected value: "+i);
 			});
 			tabView.setVisibility(View.GONE);
@@ -295,10 +319,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		tabbar.setTabTextSize(V.dp(14));
 		tabLayoutMediator=new TabLayoutMediator(tabbar, pager, (tab, position)->{
 			tab.setText(switch(position){
-				case 0 -> R.string.profile_featured;
+				case 0 -> R.string.profile_about;
 				case 1 -> R.string.profile_timeline;
-				case 2 -> R.string.profile_about;
-				case 3 -> R.string.profile_saved_posts;
+				case 2 -> R.string.media;
+				case 3 -> R.string.profile_featured;
 				default -> throw new IllegalStateException();
 			});
 			tab.view.textView.setSingleLine();
@@ -335,8 +359,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		if(savedInstanceState!=null){
 			featuredFragment=(ProfileFeaturedFragment) getChildFragmentManager().getFragment(savedInstanceState, "featured");
 			timelineFragment=(AccountTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "timeline");
+			mediaTimelineFragment=(AccountSimpleTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "media");
 			aboutFragment=(ProfileAboutFragment) getChildFragmentManager().getFragment(savedInstanceState, "about");
-			savedFragment=(SavedPostsTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "saved");
 		}
 
 		if(loaded){
@@ -378,22 +402,48 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		nameEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
 		bioEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
 
-		usernameDomain.setOnClickListener(v->{
+		usernameHelp.setOnClickListener(v->{
 			if(account==null)
 				return;
 			new DecentralizationExplainerSheet(getActivity(), accountID, account).show();
 		});
-		qrCodeButton.setOnClickListener(v->{
-			Bundle args=new Bundle();
-			args.putString("account", accountID);
-			args.putParcelable("targetAccount", Parcels.wrap(account));
-			ProfileQrCodeFragment qf=new ProfileQrCodeFragment();
-			qf.setArguments(args);
-			qf.show(getChildFragmentManager(), "qrDialog");
+		menuButton.setOnClickListener(v->{
+			if(buttonMenu==null){
+				buttonMenu=new PopupMenu(getActivity(), menuButton);
+				buttonMenu.setOnMenuItemClickListener(this::onOptionsItemSelected);
+				onCreateOptionsMenu(buttonMenu.getMenu(), buttonMenu.getMenuInflater());
+			}
+			onPrepareOptionsMenu(buttonMenu.getMenu());
+			buttonMenu.show();
+		});
+		notificationsButton.setOnClickListener(v->{
+			new SetAccountFollowed(account.id, true, relationship.showingReblogs, !relationship.notifying)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Relationship result){
+							updateRelationship(result);
+							new Snackbar.Builder(getActivity())
+									.setText(result.notifying ? R.string.new_post_notifications_enabled : R.string.new_post_notifications_disabled)
+									.show();
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(getActivity());
+						}
+					})
+					.wrapProgress(getActivity(), R.string.loading, false)
+					.exec(accountID);
 		});
 		familiarFollowersRow.setVisibility(View.GONE);
 
 		return sizeWrapper;
+	}
+
+	@Override
+	public void onDestroyView(){
+		super.onDestroyView();
+		buttonMenu=null;
 	}
 
 	@Override
@@ -419,8 +469,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 								timelineFragment.onRefresh();
 							if(featuredFragment.loaded)
 								featuredFragment.onRefresh();
-							if(savedFragment!=null && savedFragment.loaded)
-								savedFragment.onRefresh();
+							if(mediaTimelineFragment!=null && mediaTimelineFragment.loaded)
+								mediaTimelineFragment.onRefresh();
 						}
 						V.setVisibilityAnimated(fab, View.VISIBLE);
 					}
@@ -454,25 +504,16 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		}
 		if(timelineFragment==null){
 			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, true);
+			mediaTimelineFragment=AccountSimpleTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
 		}
 		if(aboutFragment==null){
 			aboutFragment=new ProfileAboutFragment();
 			aboutFragment.setFields(fields);
-		}
-		if(savedFragment==null && isOwnProfile){
-			savedFragment=SavedPostsTimelineFragment.newInstance(accountID, account, false);
+			CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, getActivity());
+			aboutFragment.setBio(parsedBio);
 		}
 		if(!refreshing){
 			pager.getAdapter().notifyDataSetChanged();
-			pager.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
-				@Override
-				public boolean onPreDraw(){
-					pager.getViewTreeObserver().removeOnPreDrawListener(this);
-					pager.setCurrentItem(1, false);
-					tabbar.selectTab(tabbar.getTabAt(1));
-					return true;
-				}
-			});
 		}
 		super.dataLoaded();
 	}
@@ -511,19 +552,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 		onScrollListener=new ElevationOnScrollListener((FragmentRootLinearLayout) view, getToolbar());
 		scrollView.setOnScrollChangeListener(this::onScrollChanged);
-		scrollView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
-			@Override
-			public boolean onPreDraw(){
-				scrollView.getViewTreeObserver().removeOnPreDrawListener(this);
-
-				tabBarIsAtTop=!scrollView.canScrollVertically(1) && scrollView.getHeight()>0;
-				tabsColorBackground.setAlpha(tabBarIsAtTop ? 20 : 0);
-				tabbar.setTranslationZ(tabBarIsAtTop ? V.dp(3) : 0);
-				tabsDivider.setAlpha(tabBarIsAtTop ? 0 : 1);
-
-				return true;
-			}
-		});
 		if(!loaded)
 			bindHeaderViewForPreviewMaybe();
 	}
@@ -537,10 +565,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			getChildFragmentManager().putFragment(outState, "featured", featuredFragment);
 		if(timelineFragment.isAdded())
 			getChildFragmentManager().putFragment(outState, "timeline", timelineFragment);
+		if(mediaTimelineFragment.isAdded())
+			getChildFragmentManager().putFragment(outState, "media", mediaTimelineFragment);
 		if(aboutFragment.isAdded())
 			getChildFragmentManager().putFragment(outState, "about", aboutFragment);
-		if(savedFragment!=null && savedFragment.isAdded())
-			getChildFragmentManager().putFragment(outState, "saved", savedFragment);
 	}
 
 	@Override
@@ -566,11 +594,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	}
 
 	private void applyChildWindowInsets(){
-		if(timelineFragment!=null && timelineFragment.isAdded() && childInsets!=null){
+		if(aboutFragment!=null && aboutFragment.isAdded() && childInsets!=null){
 			timelineFragment.onApplyWindowInsets(childInsets);
+			mediaTimelineFragment.onApplyWindowInsets(childInsets);
 			featuredFragment.onApplyWindowInsets(childInsets);
-			if(savedFragment!=null)
-				savedFragment.onApplyWindowInsets(childInsets);
 		}
 	}
 
@@ -585,15 +612,43 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		progress.setVisibility(View.GONE);
 		errorView.setVisibility(View.GONE);
 		innerProgress.setVisibility(View.VISIBLE);
-		this.username.setText(username);
+		this.username.setText("@"+username+"@"+domain);
 		name.setText(username);
-		usernameDomain.setText(domain);
 		avatar.setImageResource(R.drawable.image_placeholder);
 		cover.setImageResource(R.drawable.image_placeholder);
 		actions.setVisibility(View.GONE);
-		bio.setVisibility(View.GONE);
 		countersLayout.setVisibility(View.GONE);
 		tabsDivider.setVisibility(View.GONE);
+	}
+
+	private TextView makeBadge(String text, int iconRes, int bgRes, boolean bgIsColorAttr, int textColorRes, boolean tintIcon){
+		TextView badge=new TextView(getActivity());
+		badge.setText(text);
+		if(bgIsColorAttr)
+			badge.setBackgroundColor(UiUtils.getThemeColor(getActivity(), bgRes));
+		else
+			badge.setBackgroundResource(bgRes);
+		int textColor=UiUtils.getThemeColor(getActivity(), textColorRes);
+		badge.setTextColor(textColor);
+		badge.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 13);
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P)
+			badge.setTypeface(Typeface.create(Typeface.DEFAULT, 600, false));
+		else
+			badge.setTypeface(Typeface.DEFAULT_BOLD);
+		Drawable icon=getResources().getDrawable(iconRes, getActivity().getTheme());
+		icon.setBounds(0, 0, V.dp(16), V.dp(16));
+		if(tintIcon){
+			icon=icon.mutate();
+			icon.setTint(textColor);
+		}
+		badge.setCompoundDrawablesRelative(icon, null, null, null);
+		badge.setCompoundDrawablePadding(V.dp(2));
+		badge.setPadding(V.dp(4), 0, V.dp(4), 0);
+		badge.setOutlineProvider(OutlineProviders.roundedRect(8));
+		badge.setClipToOutline(true);
+		badge.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, V.dp(24)));
+		badge.setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
+		return badge;
 	}
 
 	private void bindHeaderView(){
@@ -610,7 +665,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			tabsDivider.setVisibility(View.VISIBLE);
 		}
 		setTitle(account.displayName);
-		setSubtitle(getResources().getQuantityString(R.plurals.x_posts, (int)(account.statusesCount%1000), account.statusesCount));
 		ViewImageLoader.loadWithoutAnimation(avatar, avatar.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
 		ViewImageLoader.loadWithoutAnimation(cover, cover.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
 		SpannableStringBuilder ssb=new SpannableStringBuilder(account.displayName);
@@ -620,9 +674,15 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		setTitle(ssb);
 
 		boolean isSelf=AccountSessionManager.getInstance().isSelf(accountID, account);
+		String domain=account.getDomain();
+		if(TextUtils.isEmpty(domain))
+			domain=AccountSessionManager.get(accountID).domain;
 
 		if(account.locked){
-			ssb=new SpannableStringBuilder(account.username);
+			ssb=new SpannableStringBuilder("@");
+			ssb.append(account.username);
+			ssb.append("@");
+			ssb.append(domain);
 			ssb.append(" ");
 			Drawable lock=username.getResources().getDrawable(R.drawable.ic_lock_fill1_20px, getActivity().getTheme()).mutate();
 			lock.setBounds(0, 0, lock.getIntrinsicWidth(), lock.getIntrinsicHeight());
@@ -630,46 +690,44 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			ssb.append(getString(R.string.manually_approves_followers), new ImageSpanThatDoesNotBreakShitForNoGoodReason(lock, ImageSpan.ALIGN_BOTTOM), 0);
 			username.setText(ssb);
 		}else{
-			username.setText(account.username);
+			username.setText("@"+account.username+"@"+domain);
 		}
-		String domain=account.getDomain();
-		if(TextUtils.isEmpty(domain))
-			domain=AccountSessionManager.get(accountID).domain;
-		usernameDomain.setText(domain);
 
-		CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, getActivity());
-		if(TextUtils.isEmpty(parsedBio)){
-			bio.setVisibility(View.GONE);
-		}else{
-			bio.setVisibility(View.VISIBLE);
-			bio.setText(parsedBio);
-		}
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
 		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, (int)Math.min(999, account.followersCount)));
 		followingLabel.setText(getResources().getQuantityString(R.plurals.following, (int)Math.min(999, account.followingCount)));
 
 		UiUtils.loadCustomEmojiInTextView(name);
-		UiUtils.loadCustomEmojiInTextView(bio);
 
-		if(AccountSessionManager.getInstance().isSelf(accountID, account)){
+		notificationsButton.setVisibility(View.GONE);
+		if(isSelf){
 			actionButton.setText(R.string.edit_profile);
-			TypedArray ta=actionButton.getContext().obtainStyledAttributes(R.style.Widget_Mastodon_M3_Button_Tonal, new int[]{android.R.attr.background});
+			TypedArray ta=actionButton.getContext().obtainStyledAttributes(R.style.Widget_Mastodon_M3_Button_Outlined_Neutral, new int[]{android.R.attr.background});
 			actionButton.setBackground(ta.getDrawable(0));
 			ta.recycle();
-			ta=actionButton.getContext().obtainStyledAttributes(R.style.Widget_Mastodon_M3_Button_Tonal, new int[]{android.R.attr.textColor});
+			ta=actionButton.getContext().obtainStyledAttributes(R.style.Widget_Mastodon_M3_Button_Outlined_Neutral, new int[]{android.R.attr.textColor});
 			actionButton.setTextColor(ta.getColorStateList(0));
 			ta.recycle();
 		}else{
 			actionButton.setVisibility(View.GONE);
 		}
 
-		fields.clear();
+		updateHeaderBadges();
 
-		AccountField joined=new AccountField();
-		joined.parsedName=joined.name=getString(R.string.profile_joined);
-		joined.parsedValue=joined.value=DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(LocalDateTime.ofInstant(account.createdAt, ZoneId.systemDefault()));
-		fields.add(joined);
+		String joinTemplate=getString(R.string.profile_joined_on_date, "{date}");
+		int dateIndex=joinTemplate.indexOf("{date}");
+		if(dateIndex==-1){
+			dateIndex=joinTemplate.length()+1;
+			joinTemplate+=" {date}";
+		}
+		SpannableStringBuilder joinDateText=new SpannableStringBuilder(joinTemplate);
+		String joinDateDate=DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(LocalDateTime.ofInstant(account.createdAt, ZoneId.systemDefault()));
+		joinDateText.replace(dateIndex, dateIndex+6, joinDateDate);
+		joinDateText.setSpan(makeSemiBoldSpan(), dateIndex, dateIndex+joinDateDate.length(), 0);
+		joinDate.setText(joinDateText);
+
+		fields.clear();
 
 		for(AccountField field:account.fields){
 			field.parsedValue=ssb=HtmlParser.parse(field.value, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, getActivity());
@@ -690,7 +748,34 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 		if(aboutFragment!=null){
 			aboutFragment.setFields(fields);
+			CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, getActivity());
+			aboutFragment.setBio(parsedBio);
 		}
+	}
+
+	private void updateHeaderBadges(){
+		badgesLayout.removeAllViews();
+
+		if(relationship!=null){
+			if(relationship.blocking)
+				badgesLayout.addView(makeBadge(getString(R.string.button_blocked), R.drawable.ic_block_20px, R.attr.colorM3Error, true, R.attr.colorM3OnError, true));
+			if(relationship.muting)
+				badgesLayout.addView(makeBadge(getString(R.string.user_is_muted), R.drawable.ic_badge_muted, R.drawable.bg_m3_surface1_inverse, false, R.attr.colorM3OnSurfaceInverse, true));
+		}
+
+		if(account.roles!=null){
+			for(Account.PublicRole role:account.roles){
+				badgesLayout.addView(makeBadge(role.name, R.drawable.ic_badge_admin, R.drawable.bg_m3_surface1, false, R.attr.colorM3OnSurface, false));
+			}
+		}
+
+		if(account.bot)
+			badgesLayout.addView(makeBadge(getString(R.string.user_is_bot), R.drawable.ic_badge_bot, R.drawable.bg_m3_surface1, false, R.attr.colorM3OnSurface, true));
+
+		if(badgesLayout.getChildCount()==0)
+			badgesLayout.setVisibility(View.GONE);
+		else
+			badgesLayout.setVisibility(View.VISIBLE);
 	}
 
 	private void updateToolbar(){
@@ -721,13 +806,24 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		if(relationship==null && !isOwnProfile)
 			return;
 		inflater.inflate(isOwnProfile ? R.menu.profile_own : R.menu.profile, menu);
-		menu.findItem(R.id.share).setTitle(R.string.share_user);
-		if(isOwnProfile)
-			return;
+		onPrepareOptionsMenu(menu); // TODO make appkit call this
+	}
 
-		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
-		menu.findItem(R.id.block).setTitle(makeRedString(getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername())));
-		menu.findItem(R.id.report).setTitle(makeRedString(getString(R.string.report_user, account.getDisplayUsername())));
+	@Override
+	public void onPrepareOptionsMenu(Menu menu){
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P && !UiUtils.isEMUI() && !UiUtils.isMagic()){
+			menu.setGroupDividerEnabled(true);
+		}
+
+		if(isOwnProfile || relationship==null || isInEditMode)
+			return;
+		if(relationship.followedBy)
+			menu.findItem(R.id.remove_follower).setTitle(makeRedString(getString(R.string.remove_follower)));
+		else
+			menu.findItem(R.id.remove_follower).setVisible(false);
+		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_account : R.string.mute_account, account.getDisplayUsername()));
+		menu.findItem(R.id.block).setTitle(makeRedString(getString(relationship.blocking ? R.string.unblock_account : R.string.block_account)));
+		menu.findItem(R.id.report).setTitle(makeRedString(getString(R.string.report_account)));
 		if(relationship.following)
 			menu.findItem(R.id.hide_boosts).setTitle(getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user));
 		else
@@ -737,17 +833,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		else
 			menu.findItem(R.id.block_domain).setVisible(false);
 		menu.findItem(R.id.add_to_list).setVisible(relationship.following);
-
-		if(relationship.following){
-			MenuItem notifications=menu.findItem(R.id.notifications);
-			notifications.setVisible(true);
-			notifications.setIcon(relationship.notifying ? R.drawable.ic_notifications_fill1_24px : R.drawable.ic_notifications_24px);
-			notifications.setTitle(getString(relationship.notifying ? R.string.disable_new_post_notifications : R.string.enable_new_post_notifications, account.getDisplayUsername()));
-		}
-
-		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P && !UiUtils.isEMUI() && !UiUtils.isMagic()){
-			menu.setGroupDividerEnabled(true);
-		}
+		menu.findItem(R.id.personal_note).setTitle(TextUtils.isEmpty(relationship.note) ? R.string.add_user_personal_note : R.string.edit_user_personal_note);
 	}
 
 	@Override
@@ -795,27 +881,105 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			args.putString("account", accountID);
 			args.putParcelable("targetAccount", Parcels.wrap(account));
 			Nav.go(getActivity(), AddAccountToListsFragment.class, args);
-		}else if(id==R.id.notifications){
-			new SetAccountFollowed(account.id, true, relationship.showingReblogs, !relationship.notifying)
-					.setCallback(new Callback<>(){
-						@Override
-						public void onSuccess(Relationship result){
-							updateRelationship(result);
-							new Snackbar.Builder(getActivity())
-									.setText(result.notifying ? R.string.new_post_notifications_enabled : R.string.new_post_notifications_disabled)
-									.show();
-						}
-
-						@Override
-						public void onError(ErrorResponse error){
-							error.showToast(getActivity());
-						}
-					})
-					.wrapProgress(getActivity(), R.string.loading, false)
-					.exec(accountID);
 		}else if(id==R.id.copy_link){
 			getActivity().getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText(null, account.url));
 			UiUtils.maybeShowTextCopiedToast(getActivity());
+		}else if(id==R.id.qr_code){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("targetAccount", Parcels.wrap(account));
+			ProfileQrCodeFragment qf=new ProfileQrCodeFragment();
+			qf.setArguments(args);
+			qf.show(getChildFragmentManager(), "qrDialog");
+		}else if(id==R.id.favorites){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putBoolean("isFavorites", true);
+			Nav.go(getActivity(), SavedPostsTimelineFragment.class, args);
+		}else if(id==R.id.bookmarks){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putBoolean("isFavorites", false);
+			Nav.go(getActivity(), SavedPostsTimelineFragment.class, args);
+		}else if(id==R.id.followed_hashtags){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			Nav.go(getActivity(), ManageFollowedHashtagsFragment.class, args);
+		}else if(id==R.id.account_settings){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			Nav.go(getActivity(), SettingsAccountFragment.class, args);
+		}else if(id==R.id.remove_follower){
+			AlertDialog alert=new M3AlertDialogBuilder(getActivity())
+					.setTitle(R.string.confirm_remove_follower_title)
+					.setMessage(getString(R.string.confirm_remove_follower, account.getDisplayUsername()))
+					.setPositiveButton(R.string.remove_follower, null)
+					.setNegativeButton(R.string.cancel, null)
+					.show();
+			Button okButton=alert.getButton(AlertDialog.BUTTON_POSITIVE);
+			okButton.setOnClickListener(v->{
+				UiUtils.showProgressForAlertButton(okButton, true);
+				new RemoveAccountFromFollowers(account.id)
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(Relationship result){
+								updateRelationship(result);
+								UiUtils.showProgressForAlertButton(okButton, false);
+								alert.dismiss();
+							}
+
+							@Override
+							public void onError(ErrorResponse error){
+								if(getActivity()==null)
+									return;
+								error.showToast(getActivity());
+								UiUtils.showProgressForAlertButton(okButton, false);
+							}
+						})
+						.wrapProgress(getActivity(), R.string.loading, true)
+						.exec(accountID);
+			});
+		}else if(id==R.id.personal_note){
+			AlertDialog.Builder bldr=new M3AlertDialogBuilder(getActivity())
+					.setHelpText(R.string.user_personal_note_explanation)
+					.setTitle(TextUtils.isEmpty(relationship.note) ? R.string.add_user_personal_note : R.string.edit_user_personal_note)
+					.setNegativeButton(R.string.cancel, null)
+					.setPositiveButton(R.string.save, null);
+
+			FloatingHintEditTextLayout editWrap=(FloatingHintEditTextLayout) bldr.getContext().getSystemService(LayoutInflater.class).inflate(R.layout.floating_hint_edit_text, null);
+			EditText edit=editWrap.findViewById(R.id.edit);
+			edit.setHint(R.string.user_personal_note);
+			edit.setSingleLine(false);
+			edit.setMaxLines(5);
+			edit.setMinLines(2);
+			edit.setGravity(Gravity.TOP | Gravity.START);
+			if(!TextUtils.isEmpty(relationship.note))
+				edit.setText(relationship.note);
+			editWrap.updateHint();
+			bldr.setView(editWrap);
+			AlertDialog alert=bldr.show();
+			Button saveButton=alert.getButton(AlertDialog.BUTTON_POSITIVE);
+			saveButton.setOnClickListener(v->{
+				UiUtils.showProgressForAlertButton(saveButton, true);
+				new SetAccountPersonalNote(account.id, edit.getText().toString())
+						.setCallback(new Callback<>(){
+							@Override
+							public void onSuccess(Relationship result){
+								updateRelationship(result);
+								UiUtils.showProgressForAlertButton(saveButton, false);
+								alert.dismiss();
+							}
+
+							@Override
+							public void onError(ErrorResponse error){
+								if(getActivity()==null)
+									return;
+								error.showToast(getActivity());
+								UiUtils.showProgressForAlertButton(saveButton, false);
+							}
+						})
+						.exec(accountID);
+			});
 		}
 		return true;
 	}
@@ -866,12 +1030,57 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		relationshipRequests.add(followersReq);
 	}
 
+	private void setRelationshipToActionButton(Relationship relationship, Button button){
+		// TODO move this to UiUtils if/when we change the styles of these buttons in the rest of the app
+		int styleRes;
+		if(relationship.blocking){
+			button.setText(R.string.unblock);
+			styleRes=R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
+		}else if(!relationship.following && !relationship.followedBy && !relationship.requested){
+			button.setText(R.string.button_follow);
+			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
+		}else if(!relationship.following && !relationship.requested && account.locked){
+			button.setText(R.string.request_to_follow);
+			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
+		}else if(!relationship.following && relationship.requested){
+			button.setText(R.string.cancel_follow_request);
+			styleRes=R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
+		}else if(!relationship.following && relationship.followedBy){
+			button.setText(R.string.follow_back);
+			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
+		}else{
+			button.setText(R.string.unfollow);
+			styleRes=R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
+		}
+
+		button.setEnabled(!relationship.blockedBy);
+		TypedArray ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.background});
+		button.setBackground(ta.getDrawable(0));
+		ta.recycle();
+		ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.textColor});
+		button.setTextColor(ta.getColorStateList(0));
+		ta.recycle();
+	}
+
 	private void updateRelationship(){
 		invalidateOptionsMenu();
 		actionButton.setVisibility(View.VISIBLE);
-		UiUtils.setRelationshipToActionButtonM3(relationship, actionButton);
+		setRelationshipToActionButton(relationship, actionButton);
 		actionProgress.setIndeterminateTintList(actionButton.getTextColors());
-		followsYouView.setVisibility(relationship.followedBy ? View.VISIBLE : View.GONE);
+		updateHeaderBadges();
+		if(relationship.following){
+			notificationsButton.setVisibility(View.VISIBLE);
+			notificationsButton.setImageResource(relationship.notifying ? R.drawable.ic_notifications_fill1_24px : R.drawable.ic_notifications_24px);
+			notificationsButton.setContentDescription(getString(relationship.notifying ? R.string.disable_new_post_notifications : R.string.enable_new_post_notifications, account.getDisplayUsername()));
+		}else{
+			notificationsButton.setVisibility(View.GONE);
+		}
+	}
+
+	private Object makeSemiBoldSpan(){
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P)
+			return new TypefaceSpan(Typeface.create(Typeface.DEFAULT, 600, false));
+		return new StyleSpan(Typeface.BOLD);
 	}
 
 	private void updateFamiliarFollowers(){
@@ -887,10 +1096,12 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			if(familiarFollowers.size()>1){
 				int index=template.indexOf("{second}");
 				ssb.replace(index, index+8, followers.get(1).parsedName);
+				ssb.setSpan(makeSemiBoldSpan(), index, index+followers.get(1).parsedName.length(), 0);
 				template=template.replace("{second}", "#".repeat(followers.get(1).parsedName.length()));
 			}
 			int index=template.indexOf("{first}");
 			ssb.replace(index, index+7, followers.get(0).parsedName);
+			ssb.setSpan(makeSemiBoldSpan(), index, index+followers.get(0).parsedName.length(), 0);
 			familiarFollowersLabel.setText(ssb);
 			UiUtils.loadCustomEmojiInTextView(familiarFollowersLabel);
 			if(familiarFollowers.size()<3)
@@ -906,7 +1117,22 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		}
 	}
 
+	private void syncScrollState(){
+		scrollView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+			@Override
+			public boolean onPreDraw(){
+				scrollView.getViewTreeObserver().removeOnPreDrawListener(this);
+				onScrollChanged(scrollView, 0, scrollView.getScrollY(), 0, -1, true);
+				return true;
+			}
+		});
+	}
+
 	private void onScrollChanged(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY){
+		onScrollChanged(v, scrollX, scrollY, oldScrollX, oldScrollY, false);
+	}
+
+	private void onScrollChanged(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY, boolean firstCallback){
 		if(scrollY>cover.getHeight()){
 			cover.setTranslationY(scrollY-(cover.getHeight()));
 			cover.setTranslationZ(V.dp(10));
@@ -923,7 +1149,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		onScrollListener.onScrollChange(v, scrollX, scrollY, oldScrollX, oldScrollY);
 
 		boolean newTabBarIsAtTop=!scrollView.canScrollVertically(1);
-		if(newTabBarIsAtTop!=tabBarIsAtTop){
+		if(newTabBarIsAtTop!=tabBarIsAtTop || firstCallback){
 			tabBarIsAtTop=newTabBarIsAtTop;
 
 			if(tabBarIsAtTop){
@@ -935,23 +1161,31 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 			if(tabBarColorAnim!=null)
 				tabBarColorAnim.cancel();
-			AnimatorSet set=new AnimatorSet();
-			set.playTogether(
-					ObjectAnimator.ofInt(tabsColorBackground, "alpha", tabBarIsAtTop ? 20 : 0),
-					ObjectAnimator.ofFloat(tabbar, View.TRANSLATION_Z, tabBarIsAtTop ? V.dp(3) : 0),
-					ObjectAnimator.ofFloat(getToolbar(), View.TRANSLATION_Z, tabBarIsAtTop ? 0 : V.dp(3)),
-					ObjectAnimator.ofFloat(tabsDivider, View.ALPHA, tabBarIsAtTop ? 0 : 1)
-			);
-			set.setDuration(150);
-			set.setInterpolator(CubicBezierInterpolator.DEFAULT);
-			set.addListener(new AnimatorListenerAdapter(){
-				@Override
-				public void onAnimationEnd(Animator animation){
-					tabBarColorAnim=null;
-				}
-			});
-			tabBarColorAnim=set;
-			set.start();
+			if(firstCallback){
+				tabsColorBackground.setAlpha(tabBarIsAtTop ? 20 : 0);
+				tabbar.setTranslationZ(tabBarIsAtTop ? V.dp(3) : 0);
+				getToolbar().setTranslationZ(tabBarIsAtTop || scrollY==0 ? 0 : V.dp(3));
+				tabsDivider.setAlpha(tabBarIsAtTop ? 0 : 1);
+			}else{
+				AnimatorSet set=new AnimatorSet();
+				set.playTogether(
+						ObjectAnimator.ofInt(tabsColorBackground, "alpha", tabBarIsAtTop ? 20 : 0),
+						ObjectAnimator.ofFloat(tabbar, View.TRANSLATION_Z, tabBarIsAtTop ? V.dp(3) : 0),
+						ObjectAnimator.ofFloat(getToolbar(), View.TRANSLATION_Z, tabBarIsAtTop ? 0 : V.dp(3)),
+						ObjectAnimator.ofFloat(tabsDivider, View.ALPHA, tabBarIsAtTop ? 0 : 1)
+				);
+				set.setDuration(150);
+				set.setInterpolator(CubicBezierInterpolator.DEFAULT);
+				set.addListener(new AnimatorListenerAdapter(){
+					@Override
+					public void onAnimationEnd(Animator animation){
+						tabBarColorAnim=null;
+					}
+				});
+				tabBarColorAnim=set;
+				set.start();
+			}
+			setHasOptionsMenu(tabBarIsAtTop);
 		}
 		if(isInEditMode && editSaveMenuItem!=null){
 			boolean buttonInView=isActionButtonInView();
@@ -966,10 +1200,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 	private Fragment getFragmentForPage(int page){
 		return switch(page){
-			case 0 -> featuredFragment;
+			case 0 -> aboutFragment;
 			case 1 -> timelineFragment;
-			case 2 -> aboutFragment;
-			case 3 -> savedFragment;
+			case 2 -> mediaTimelineFragment;
+			case 3 -> featuredFragment;
 			default -> throw new IllegalStateException();
 		};
 	}
@@ -1032,7 +1266,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		invalidateOptionsMenu();
 		pager.setUserInputEnabled(false);
 		actionButton.setText(R.string.save_changes);
-		pager.setCurrentItem(2);
+		pager.setCurrentItem(0);
 		for(int i=0;i<4;i++){
 			tabbar.getTabAt(i).view.setEnabled(false);
 		}
@@ -1084,10 +1318,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 		name.setVisibility(View.INVISIBLE);
 		username.setVisibility(View.INVISIBLE);
-		bio.setVisibility(View.GONE);
 		countersLayout.setVisibility(View.GONE);
-		qrCodeButton.setVisibility(View.GONE);
-		usernameDomain.setVisibility(View.INVISIBLE);
+		menuButton.setVisibility(View.GONE);
+		usernameHelp.setVisibility(View.INVISIBLE);
 
 		nameEditWrap.setVisibility(View.VISIBLE);
 		nameEdit.setText(account.displayName);
@@ -1175,11 +1408,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		bioEditWrap.setVisibility(View.GONE);
 		name.setVisibility(View.VISIBLE);
 		username.setVisibility(View.VISIBLE);
-		bio.setVisibility(View.VISIBLE);
 		countersLayout.setVisibility(View.VISIBLE);
 		refreshLayout.setEnabled(true);
-		usernameDomain.setVisibility(View.VISIBLE);
-		qrCodeButton.setVisibility(View.VISIBLE);
+		usernameHelp.setVisibility(View.VISIBLE);
+		menuButton.setVisibility(View.VISIBLE);
 
 		bindHeaderView();
 		V.setVisibilityAnimated(fab, View.VISIBLE);
@@ -1257,7 +1489,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			Drawable ava=avatar.getDrawable();
 			if(ava==null)
 				return;
-			int radius=V.dp(25);
+			int radius=V.dp(16);
 			currentPhotoViewer=new PhotoViewer(getActivity(), null, createFakeAttachments(account.avatar, ava), 0,
 					null, accountID, new SingleImagePhotoViewerListener(avatar, avatarBorder, new int[]{radius, radius, radius, radius}, this, ()->currentPhotoViewer=null, ()->ava, null, null));
 		}
@@ -1387,7 +1619,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 		@Override
 		public int getItemCount(){
-			return loaded ? (isOwnProfile ? 4 : 3) : 0;
+			return loaded ? 4 : 0;
 		}
 
 		@Override

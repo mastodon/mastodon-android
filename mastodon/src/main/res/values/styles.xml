@@ -602,6 +602,11 @@
 		<item name="android:paddingRight">24dp</item>
 	</style>
 
+	<style name="Widget.Mastodon.M3.Button.Outlined.Neutral">
+		<item name="android:textColor">@color/button_text_m3_neutral</item>
+		<item name="android:background">@drawable/bg_button_m3_outlined_neutral</item>
+	</style>
+
 	<style name="Widget.Mastodon.M3.EditText" parent="android:Widget.Material.EditText">
 		<item name="android:background">@drawable/bg_m3_outlined_text_field_nopad</item>
 		<item name="android:textAppearance">@style/m3_body_large</item>
