@@ -75,14 +75,16 @@ public class StoreScreenshotsGenerator{
 		}
 
 		GlobalUserPreferences.theme=GlobalUserPreferences.ThemePreference.LIGHT;
+		GlobalUserPreferences.useDynamicColors=false;
+		activityScenarioRule.getScenario().recreate();
+
 		Bundle args=InstrumentationRegistry.getArguments();
 		InstrumentationRegistry.getInstrumentation().setInTouchMode(true);
 
 		AccountSession session=AccountSessionManager.getInstance().getAccount(AccountSessionManager.getInstance().getLastActiveAccountID());
-		MastodonApp.context.deleteDatabase(session.getID()+".db");
 
 		onView(isRoot()).perform(waitId(R.id.more, LOAD_WAIT_TIMEOUT));
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		takeScreenshot("HomeTimeline");
 
 		GlobalUserPreferences.theme=GlobalUserPreferences.ThemePreference.DARK;
@@ -99,7 +101,7 @@ public class StoreScreenshotsGenerator{
 		Thread.sleep(500);
 		onView(isRoot()).perform(waitId(R.id.avatar_border, LOAD_WAIT_TIMEOUT)); // wait for profile to load
 		onView(isRoot()).perform(waitId(R.id.more, LOAD_WAIT_TIMEOUT)); // wait for timeline to load
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		takeScreenshot("Profile");
 
 		Status[] _status={null};
@@ -140,7 +142,7 @@ public class StoreScreenshotsGenerator{
 		while(!_fragment[0].loaded){
 			Thread.sleep(50);
 		}
-		Thread.sleep(300);
+		Thread.sleep(1000);
 		takeScreenshot("Thread");
 
 		Instance[] _instance={null};
@@ -185,6 +187,7 @@ public class StoreScreenshotsGenerator{
 			activity.showFragment(fragment);
 			fragment.addFakeMediaAttachment(Uri.fromFile(photo), "Pantheon");
 		});
+		Thread.sleep(500);
 		onView(withId(R.id.toot_text)).perform(typeText("This is a picture I took the last time I visited #Athens, Greece. What a beautiful place!"));
 		InstrumentationRegistry.getInstrumentation().setInTouchMode(true);
 		takeScreenshot("Compose");
