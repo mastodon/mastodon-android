@@ -17,6 +17,22 @@
 		android:paddingBottom="8dp"
 		android:lineSpacingExtra="5.25dp"/>
 
+	<TextView
+		android:id="@+id/read_more"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingTop="16dp"
+		android:paddingLeft="16dp"
+		android:paddingRight="16dp"
+		android:paddingBottom="8dp"
+		android:text="@string/read_more"
+		android:textColor="?android:attr/textColorLink"
+		android:textSize="16sp"
+		android:clickable="true"
+		android:focusable="true"
+		android:visibility="gone"
+		tools:visibility="visible"/>
+
 	<ViewStub
 		android:id="@+id/translation_info"
 		android:layout_width="match_parent"

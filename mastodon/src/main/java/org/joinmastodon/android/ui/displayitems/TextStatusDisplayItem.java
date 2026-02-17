@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
@@ -35,6 +37,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 	public boolean largerFont;
 	public final Status status;
 	private final String accountID;
+	private static final int MAX_LINES = 15;
 
 	public TextStatusDisplayItem(String parentID, CharSequence text, Callbacks callbacks, Context context, Status status, String accountID){
 		super(parentID, callbacks, context);
@@ -71,6 +74,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 
 	public static class Holder extends StatusDisplayItem.Holder<TextStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final LinkedTextView text;
+		private final TextView readMore;
 		private final ViewStub translationFooterStub;
 		private View translationFooter;
 		private TextView translationInfo;
@@ -80,6 +84,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_text, parent);
 			text=findViewById(R.id.text);
+			readMore=findViewById(R.id.read_more);
 			translationFooterStub=findViewById(R.id.translation_info);
 		}
 
@@ -93,6 +98,24 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 			}else{
 				text.setText(item.text);
 			}
+
+			text.setMaxLines(Integer.MAX_VALUE);
+			text.setEllipsize(null);
+			readMore.setVisibility(View.GONE);
+
+			boolean hasSpoiler=!TextUtils.isEmpty(item.status.getContentStatus().spoilerText) ||
+					(item.status.filtered!=null && !item.status.filtered.isEmpty());
+			if(!item.fullWidth && !(item.callbacks instanceof ThreadFragment) && !hasSpoiler){
+				text.post(()->{
+					if (text.getLineCount() > MAX_LINES) {
+						text.setMaxLines(MAX_LINES);
+						text.setEllipsize(TextUtils.TruncateAt.END);
+						readMore.setVisibility(View.VISIBLE);
+						readMore.setOnClickListener(v -> item.callbacks.onItemClick(item.parentID));
+					}
+				});
+			}
+
 			text.setTextIsSelectable(item.textSelectable);
 			text.setInvalidateOnEveryFrame(false);
 			itemView.setClickable(false);
