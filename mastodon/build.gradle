@@ -16,6 +16,7 @@ android {
 		versionCode 159
 		versionName "2.12.0"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+		testBuildType "screenshotsUiTest"
 	}
 
 	buildTypes {
@@ -42,6 +43,12 @@ android {
 		}
 		githubDebug{
 			initWith debug
+		}
+		screenshotsUiTest{
+			// Note: if Android Studio complains that "module not specified", select "screenshotsUiTest" in the "build variants" panel
+			// None of this makes sense, I know. Google enjoys making developers suffer for no good reason.
+			initWith debug
+			debuggable false
 		}
 	}
 	compileOptions {
