@@ -270,57 +270,6 @@
 
 				</org.joinmastodon.android.ui.views.WrappingLinearLayout>
 
-				<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
-					android:id="@+id/name_edit_wrap"
-					android:layout_width="match_parent"
-					android:layout_height="80dp"
-					android:foreground="@drawable/bg_m3_outlined_text_field"
-					android:paddingTop="4dp"
-					android:visibility="gone"
-					app:labelTextColor="@color/m3_outlined_text_field_label">
-
-					<EditText
-						android:id="@+id/name_edit"
-						android:layout_width="match_parent"
-						android:layout_height="56dp"
-						android:layout_marginStart="16dp"
-						android:layout_marginTop="8dp"
-						android:layout_marginEnd="16dp"
-						android:background="@null"
-						android:elevation="0dp"
-						android:hint="@string/display_name"
-						android:inputType="textPersonName|textCapWords"
-						android:padding="16dp"
-						tools:text="Eugen" />
-				</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
-
-				<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
-					android:id="@+id/bio_edit_wrap"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="-8dp"
-					android:layout_marginBottom="-4dp"
-					android:paddingBottom="12dp"
-					android:foreground="@drawable/bg_m3_outlined_text_field"
-					android:paddingTop="4dp"
-					android:visibility="gone"
-					app:labelTextColor="@color/m3_outlined_text_field_label">
-
-					<EditText
-						android:id="@+id/bio_edit"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_marginStart="16dp"
-						android:layout_marginTop="8dp"
-						android:layout_marginEnd="16dp"
-						android:background="@null"
-						android:elevation="0dp"
-						android:hint="@string/profile_bio"
-						android:inputType="textMultiLine|textCapSentences"
-						android:padding="16dp"
-						tools:text="Founder, CEO and lead developer @Mastodon, Germany." />
-				</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
-				
 				<LinearLayout
 					android:id="@+id/profile_actions"
 					android:layout_width="match_parent"

@@ -539,34 +539,29 @@
 		<item name="android:stateListAnimator">@null</item>
 		<item name="android:singleLine">true</item>
 		<item name="android:ellipsize">end</item>
+		<item name="android:minWidth">0dp</item>
+		<item name="android:paddingLeft">16dp</item>
+		<item name="android:paddingRight">16dp</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button.Filled">
 		<item name="android:background">@drawable/bg_button_m3_filled</item>
 		<item name="android:textColor">@color/button_text_m3_filled</item>
-		<item name="android:paddingLeft">24dp</item>
-		<item name="android:paddingRight">24dp</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button.Filled.Secondary">
 		<item name="android:background">@drawable/bg_button_m3_filled_secondary</item>
 		<item name="android:textColor">@color/button_text_m3_filled_secondary</item>
-		<item name="android:paddingLeft">24dp</item>
-		<item name="android:paddingRight">24dp</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button.Text">
 		<item name="android:background">@drawable/bg_button_m3_text</item>
 		<item name="android:textColor">@color/button_text_m3_text</item>
-		<item name="android:paddingLeft">24dp</item>
-		<item name="android:paddingRight">24dp</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button.Tonal">
 		<item name="android:background">@drawable/bg_button_m3_tonal</item>
 		<item name="android:textColor">@color/button_text_m3_tonal</item>
-		<item name="android:paddingLeft">24dp</item>
-		<item name="android:paddingRight">24dp</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button.Tonal.Error">
@@ -577,8 +572,6 @@
 	<style name="Widget.Mastodon.M3.Button.Elevated">
 		<item name="android:background">@drawable/bg_button_m3_elevated</item>
 		<item name="android:textColor">@color/button_text_m3_text</item>
-		<item name="android:paddingLeft">24dp</item>
-		<item name="android:paddingRight">24dp</item>
 		<item name="android:elevation">1dp</item>
 	</style>
 
@@ -598,8 +591,6 @@
 		<item name="android:background">@drawable/bg_button_m3_outlined</item>
 		<item name="android:textColor">@color/button_text_m3_text</item>
 		<item name="android:tint">@color/action_bar_icons</item>
-		<item name="android:paddingLeft">24dp</item>
-		<item name="android:paddingRight">24dp</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button.Outlined.Neutral">

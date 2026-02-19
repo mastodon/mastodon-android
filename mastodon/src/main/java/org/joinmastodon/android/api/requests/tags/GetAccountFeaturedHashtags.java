@@ -1,4 +1,4 @@
-package org.joinmastodon.android.api.requests.accounts;
+package org.joinmastodon.android.api.requests.tags;
 
 import com.google.gson.reflect.TypeToken;
 

@@ -10,8 +10,6 @@ import android.app.Fragment;
 import android.app.assist.AssistContent;
 import android.content.ClipData;
 import android.content.ClipboardManager;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Outline;
@@ -22,7 +20,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.InputType;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -56,7 +53,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.squareup.otto.Subscribe;
+
 import org.joinmastodon.android.BuildConfig;
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIRequest;
@@ -70,9 +70,11 @@ import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountPersonalNote;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.SelfAccountUpdatedEvent;
 import org.joinmastodon.android.fragments.account_list.FamiliarFollowerListFragment;
 import org.joinmastodon.android.fragments.account_list.FollowerListFragment;
 import org.joinmastodon.android.fragments.account_list.FollowingListFragment;
+import org.joinmastodon.android.fragments.profile.ProfileEditFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.fragments.settings.SettingsAccountFragment;
 import org.joinmastodon.android.model.Account;
@@ -86,7 +88,6 @@ import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.SimpleViewHolder;
 import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
 import org.joinmastodon.android.ui.Snackbar;
-import org.joinmastodon.android.ui.photoviewer.AvatarCropper;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.sheets.DecentralizationExplainerSheet;
 import org.joinmastodon.android.ui.tabs.TabLayout;
@@ -134,8 +135,6 @@ import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
 public class ProfileFragment extends LoaderFragment implements ScrollableToTop, AssistContentProviderFragment{
-	private static final int AVATAR_RESULT=722;
-	private static final int COVER_RESULT=343;
 
 	private ImageView avatar;
 	private CoverImageView cover;
@@ -153,12 +152,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private TabLayout tabbar;
 	private SwipeRefreshLayout refreshLayout;
 	private View followersBtn, followingBtn;
-	private EditText nameEdit, bioEdit;
 	private ProgressBar actionProgress;
 	private FrameLayout[] tabViews;
 	private TabLayoutMediator tabLayoutMediator;
 	private WrappingLinearLayout countersLayout;
-	private View nameEditWrap, bioEditWrap;
 	private View tabsDivider;
 	private View actionButtonWrap;
 	private CustomDrawingOrderLinearLayout scrollableContent;
@@ -177,21 +174,16 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private ArrayList<AccountField> fields=new ArrayList<>();
 	private List<Account> familiarFollowers=List.of();
 
-	private boolean isInEditMode, editDirty;
-	private Uri editNewAvatar, editNewCover;
 	private String profileAccountID;
 	private boolean refreshing;
 	private View fab;
 	private WindowInsets childInsets;
 	private PhotoViewer currentPhotoViewer;
-	private boolean editModeLoading;
 	private ElevationOnScrollListener onScrollListener;
 	private Drawable tabsColorBackground;
 	private boolean tabBarIsAtTop;
 	private Animator tabBarColorAnim;
 	private MenuItem editSaveMenuItem;
-	private boolean savingEdits;
-	private Runnable editModeBackCallback=this::onEditModeBackCallback;
 	private HashSet<APIRequest<?>> relationshipRequests=new HashSet<>();
 	private PopupMenu buttonMenu;
 
@@ -214,6 +206,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			if(!getArguments().getBoolean("noAutoLoad", false))
 				loadData();
 		}
+		E.register(this);
 	}
 
 	@Override
@@ -228,6 +221,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		for(APIRequest<?> req:relationshipRequests)
 			req.cancel();
 		relationshipRequests.clear();
+		E.unregister(this);
 	}
 
 	@Override
@@ -257,10 +251,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		scrollView=content.findViewById(R.id.scroller);
 		tabbar=content.findViewById(R.id.tabbar);
 		refreshLayout=content.findViewById(R.id.refresh_layout);
-		nameEdit=content.findViewById(R.id.name_edit);
-		bioEdit=content.findViewById(R.id.bio_edit);
-		nameEditWrap=content.findViewById(R.id.name_edit_wrap);
-		bioEditWrap=content.findViewById(R.id.bio_edit_wrap);
 		actionProgress=content.findViewById(R.id.action_progress);
 		fab=content.findViewById(R.id.fab);
 		countersLayout=content.findViewById(R.id.profile_counters);
@@ -399,9 +389,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		refreshLayout.setProgressBackgroundColorSchemeColor(UiUtils.alphaBlendColors(colorBackground, colorPrimary, 0.11f));
 		refreshLayout.setColorSchemeColors(colorPrimary);
 
-		nameEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
-		bioEdit.addTextChangedListener(new SimpleTextWatcher(e->editDirty=true));
-
 		usernameHelp.setOnClickListener(v->{
 			if(account==null)
 				return;
@@ -539,8 +526,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 					@Override
 					public void onPageScrollStateChanged(int state){
-						if(isInEditMode)
-							return;
 						refreshLayout.setEnabled(state!=ViewPager2.SCROLL_STATE_DRAGGING);
 					}
 				});
@@ -591,6 +576,14 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			}
 		}
 		super.onApplyWindowInsets(insets);
+	}
+
+	@Subscribe
+	public void onAccountUpdated(SelfAccountUpdatedEvent ev){
+		if(ev.accountID().equals(accountID) && account!=null && account.id.equals(ev.account().id)){
+			account=ev.account();
+			bindHeaderView();
+		}
 	}
 
 	private void applyChildWindowInsets(){
@@ -796,13 +789,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
-		if(isOwnProfile && isInEditMode){
-			editSaveMenuItem=menu.add(0, R.id.save, 0, R.string.save_changes);
-			editSaveMenuItem.setIcon(R.drawable.ic_save_24px);
-			editSaveMenuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-			editSaveMenuItem.setVisible(!isActionButtonInView());
-			return;
-		}
 		if(relationship==null && !isOwnProfile)
 			return;
 		inflater.inflate(isOwnProfile ? R.menu.profile_own : R.menu.profile, menu);
@@ -815,7 +801,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			menu.setGroupDividerEnabled(true);
 		}
 
-		if(isOwnProfile || relationship==null || isInEditMode)
+		if(isOwnProfile || relationship==null)
 			return;
 		if(relationship.followedBy)
 			menu.findItem(R.id.remove_follower).setTitle(makeRedString(getString(R.string.remove_follower)));
@@ -873,9 +859,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 					})
 					.wrapProgress(getActivity(), R.string.loading, false)
 					.exec(accountID);
-		}else if(id==R.id.save){
-			if(isInEditMode)
-				saveAndExitEditMode();
 		}else if(id==R.id.add_to_list){
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
@@ -1187,12 +1170,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			}
 			setHasOptionsMenu(tabBarIsAtTop);
 		}
-		if(isInEditMode && editSaveMenuItem!=null){
-			boolean buttonInView=isActionButtonInView();
-			if(buttonInView==editSaveMenuItem.isVisible()){
-				editSaveMenuItem.setVisible(!buttonInView);
-			}
-		}
 		if((scrollY==0 && oldScrollY!=0) || (scrollY!=0 && oldScrollY==0)){
 			refreshLayout.setEnabled(scrollY==0);
 		}
@@ -1214,10 +1191,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 	private void onActionButtonClick(View v){
 		if(isOwnProfile){
-			if(!isInEditMode)
-				loadAccountInfoAndEnterEditMode();
-			else
-				saveAndExitEditMode();
+			Bundle extras=new Bundle();
+			extras.putString("account", accountID);
+			extras.putInt("featuredTagCount", timelineFragment.getFeaturedHashtagCount());
+			Nav.go(getActivity(), ProfileEditFragment.class, extras);
 		}else{
 			UiUtils.performAccountAction(getActivity(), account, accountID, relationship, actionButton, this::setActionProgressVisible, this::updateRelationship);
 		}
@@ -1229,218 +1206,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		if(visible)
 			actionProgress.setIndeterminateTintList(actionButton.getTextColors());
 		actionButton.setClickable(!visible);
-	}
-
-	private void loadAccountInfoAndEnterEditMode(){
-		if(editModeLoading)
-			return;
-		editModeLoading=true;
-		setActionProgressVisible(true);
-		new GetOwnAccount()
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Account result){
-						editModeLoading=false;
-						if(getActivity()==null)
-							return;
-						enterEditMode(result);
-						setActionProgressVisible(false);
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						editModeLoading=false;
-						if(getActivity()==null)
-							return;
-						error.showToast(getActivity());
-						setActionProgressVisible(false);
-					}
-				})
-				.exec(accountID);
-	}
-
-	private void enterEditMode(Account account){
-		if(isInEditMode)
-			throw new IllegalStateException();
-		isInEditMode=true;
-		invalidateOptionsMenu();
-		pager.setUserInputEnabled(false);
-		actionButton.setText(R.string.save_changes);
-		pager.setCurrentItem(0);
-		for(int i=0;i<4;i++){
-			tabbar.getTabAt(i).view.setEnabled(false);
-		}
-		Drawable overlay=getResources().getDrawable(R.drawable.edit_avatar_overlay).mutate();
-		avatar.setForeground(overlay);
-
-		Toolbar toolbar=getToolbar();
-		Drawable close=getToolbarContext().getDrawable(R.drawable.ic_baseline_close_24).mutate();
-		close.setTint(UiUtils.getThemeColor(getToolbarContext(), R.attr.colorM3OnSurfaceVariant));
-		toolbar.setNavigationIcon(close);
-		toolbar.setNavigationContentDescription(R.string.discard);
-
-		ViewGroup parent=contentView.findViewById(R.id.scrollable_content);
-		Runnable updater=new Runnable(){
-			@Override
-			public void run(){
-				// setPadding() calls nullLayouts() internally, forcing the text layout to update
-				actionButton.setPadding(actionButton.getPaddingLeft(), 1, actionButton.getPaddingRight(), 0);
-				actionButton.setPadding(actionButton.getPaddingLeft(), 0, actionButton.getPaddingRight(), 0);
-				actionButton.measure(actionButton.getWidth()|View.MeasureSpec.EXACTLY, actionButton.getHeight()|View.MeasureSpec.EXACTLY);
-				actionButton.postOnAnimation(this);
-			}
-		};
-		actionButton.postOnAnimation(updater);
-		TransitionManager.beginDelayedTransition(parent, new TransitionSet()
-				.addTransition(new Fade(Fade.IN | Fade.OUT))
-				.addTransition(new ChangeBounds())
-				.setDuration(250)
-				.setInterpolator(CubicBezierInterpolator.DEFAULT)
-				.addListener(new Transition.TransitionListener(){
-					@Override
-					public void onTransitionStart(Transition transition){}
-
-					@Override
-					public void onTransitionEnd(Transition transition){
-						actionButton.removeCallbacks(updater);
-					}
-
-					@Override
-					public void onTransitionCancel(Transition transition){}
-
-					@Override
-					public void onTransitionPause(Transition transition){}
-
-					@Override
-					public void onTransitionResume(Transition transition){}
-				})
-		);
-
-		name.setVisibility(View.INVISIBLE);
-		username.setVisibility(View.INVISIBLE);
-		countersLayout.setVisibility(View.GONE);
-		menuButton.setVisibility(View.GONE);
-		usernameHelp.setVisibility(View.INVISIBLE);
-
-		nameEditWrap.setVisibility(View.VISIBLE);
-		nameEdit.setText(account.displayName);
-
-		bioEditWrap.setVisibility(View.VISIBLE);
-		bioEdit.setText(account.source.note);
-
-		aboutFragment.enterEditMode(account.source.fields);
-		refreshLayout.setEnabled(false);
-		editDirty=false;
-		V.setVisibilityAnimated(fab, View.GONE);
-		addBackCallback(editModeBackCallback);
-	}
-
-	private void exitEditMode(){
-		if(savingEdits)
-			return;
-		if(getActivity()==null)
-			return;
-		if(!isInEditMode){
-			if(BuildConfig.DEBUG)
-				throw new IllegalStateException();
-			else
-				return;
-		}
-		isInEditMode=false;
-		removeBackCallback(editModeBackCallback);
-
-		invalidateOptionsMenu();
-		actionButton.setText(R.string.edit_profile);
-		for(int i=0;i<4;i++){
-			tabbar.getTabAt(i).view.setEnabled(true);
-		}
-		pager.setUserInputEnabled(true);
-		avatar.setForeground(null);
-
-		Toolbar toolbar=getToolbar();
-		if(canGoBack()){
-			Drawable back=getToolbarContext().getDrawable(me.grishka.appkit.R.drawable.ic_arrow_back).mutate();
-			back.setTint(UiUtils.getThemeColor(getToolbarContext(), R.attr.colorM3OnSurfaceVariant));
-			toolbar.setNavigationIcon(back);
-			toolbar.setNavigationContentDescription(0);
-		}else{
-			toolbar.setNavigationIcon(null);
-		}
-		editSaveMenuItem=null;
-
-		ViewGroup parent=contentView.findViewById(R.id.scrollable_content);
-		Runnable updater=new Runnable(){
-			@Override
-			public void run(){
-				// setPadding() calls nullLayouts() internally, forcing the text layout to update
-				actionButton.setPadding(actionButton.getPaddingLeft(), 1, actionButton.getPaddingRight(), 0);
-				actionButton.setPadding(actionButton.getPaddingLeft(), 0, actionButton.getPaddingRight(), 0);
-				actionButton.measure(actionButton.getWidth()|View.MeasureSpec.EXACTLY, actionButton.getHeight()|View.MeasureSpec.EXACTLY);
-				actionButton.postOnAnimation(this);
-			}
-		};
-		actionButton.postOnAnimation(updater);
-		TransitionManager.beginDelayedTransition(parent, new TransitionSet()
-				.addTransition(new Fade(Fade.IN | Fade.OUT))
-				.addTransition(new ChangeBounds())
-				.setDuration(250)
-				.setInterpolator(CubicBezierInterpolator.DEFAULT)
-				.addListener(new Transition.TransitionListener(){
-					@Override
-					public void onTransitionStart(Transition transition){}
-
-					@Override
-					public void onTransitionEnd(Transition transition){
-						actionButton.removeCallbacks(updater);
-					}
-
-					@Override
-					public void onTransitionCancel(Transition transition){}
-
-					@Override
-					public void onTransitionPause(Transition transition){}
-
-					@Override
-					public void onTransitionResume(Transition transition){}
-				})
-		);
-		nameEditWrap.setVisibility(View.GONE);
-		bioEditWrap.setVisibility(View.GONE);
-		name.setVisibility(View.VISIBLE);
-		username.setVisibility(View.VISIBLE);
-		countersLayout.setVisibility(View.VISIBLE);
-		refreshLayout.setEnabled(true);
-		usernameHelp.setVisibility(View.VISIBLE);
-		menuButton.setVisibility(View.VISIBLE);
-
-		bindHeaderView();
-		V.setVisibilityAnimated(fab, View.VISIBLE);
-	}
-
-	private void saveAndExitEditMode(){
-		if(!isInEditMode)
-			throw new IllegalStateException();
-		setActionProgressVisible(true);
-		savingEdits=true;
-		new UpdateAccountCredentials(nameEdit.getText().toString(), bioEdit.getText().toString(), editNewAvatar, editNewCover, aboutFragment.getFields())
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Account result){
-						savingEdits=false;
-						account=result;
-						AccountSessionManager.getInstance().updateAccountInfo(accountID, account);
-						exitEditMode();
-						setActionProgressVisible(false);
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						savingEdits=false;
-						error.showToast(getActivity());
-						setActionProgressVisible(false);
-					}
-				})
-				.exec(accountID);
 	}
 
 	private void confirmToggleMuted(){
@@ -1456,20 +1221,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		updateRelationship();
 	}
 
-	private void onEditModeBackCallback(){
-		if(savingEdits)
-			return;
-		if(editDirty || aboutFragment.isEditDirty()){
-			new M3AlertDialogBuilder(getActivity())
-					.setTitle(R.string.discard_changes)
-					.setPositiveButton(R.string.discard, (dlg, btn)->exitEditMode())
-					.setNegativeButton(R.string.cancel, null)
-					.show();
-		}else{
-			exitEditMode();
-		}
-	}
-
 	private List<Attachment> createFakeAttachments(String url, Drawable drawable){
 		Attachment att=new Attachment();
 		att.type=Attachment.Type.IMAGE;
@@ -1483,30 +1234,22 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private void onAvatarClick(View v){
 		if(account==null)
 			return;
-		if(isInEditMode){
-			startImagePicker(AVATAR_RESULT);
-		}else{
-			Drawable ava=avatar.getDrawable();
-			if(ava==null)
-				return;
-			int radius=V.dp(16);
-			currentPhotoViewer=new PhotoViewer(getActivity(), null, createFakeAttachments(account.avatar, ava), 0,
-					null, accountID, new SingleImagePhotoViewerListener(avatar, avatarBorder, new int[]{radius, radius, radius, radius}, this, ()->currentPhotoViewer=null, ()->ava, null, null));
-		}
+		Drawable ava=avatar.getDrawable();
+		if(ava==null)
+			return;
+		int radius=V.dp(16);
+		currentPhotoViewer=new PhotoViewer(getActivity(), null, createFakeAttachments(account.avatar, ava), 0,
+				null, accountID, new SingleImagePhotoViewerListener(avatar, avatarBorder, new int[]{radius, radius, radius, radius}, this, ()->currentPhotoViewer=null, ()->ava, null, null));
 	}
 
 	private void onCoverClick(View v){
 		if(account==null)
 			return;
-		if(isInEditMode){
-			startImagePicker(COVER_RESULT);
-		}else{
-			Drawable drawable=cover.getDrawable();
-			if(drawable==null || drawable instanceof ColorDrawable || account.headerStatic.endsWith("/missing.png"))
-				return;
-			currentPhotoViewer=new PhotoViewer(getActivity(), null, createFakeAttachments(account.header, drawable), 0,
-					null, accountID, new SingleImagePhotoViewerListener(cover, cover, null, this, ()->currentPhotoViewer=null, ()->drawable, ()->avatarBorder.setTranslationZ(2), ()->avatarBorder.setTranslationZ(0)));
-		}
+		Drawable drawable=cover.getDrawable();
+		if(drawable==null || drawable instanceof ColorDrawable || account.headerStatic.endsWith("/missing.png"))
+			return;
+		currentPhotoViewer=new PhotoViewer(getActivity(), null, createFakeAttachments(account.header, drawable), 0,
+				null, accountID, new SingleImagePhotoViewerListener(cover, cover, null, this, ()->currentPhotoViewer=null, ()->drawable, ()->avatarBorder.setTranslationZ(2), ()->avatarBorder.setTranslationZ(0)));
 	}
 
 	private void onFabClick(View v){
@@ -1524,33 +1267,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		args.putParcelable("targetAccount", Parcels.wrap(account));
 		args.putInt("count", familiarFollowers.size());
 		Nav.go(getActivity(), FamiliarFollowerListFragment.class, args);
-	}
-
-	private void startImagePicker(int requestCode){
-		Intent intent=UiUtils.getMediaPickerIntent(new String[]{"image/*"}, 1);
-		startActivityForResult(intent, requestCode);
-	}
-
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data){
-		if(resultCode==Activity.RESULT_OK){
-			if(requestCode==AVATAR_RESULT){
-				if(!isTablet){
-					getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-				}
-				int radius=V.dp(25);
-				new AvatarCropper(getActivity(), data.getData(), new SingleImagePhotoViewerListener(avatar, avatarBorder, new int[]{radius, radius, radius, radius}, this, ()->{}, null, null, null), (thumbnail, uri)->{
-					getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-					avatar.setImageDrawable(thumbnail);
-					editNewAvatar=uri;
-					editDirty=true;
-				}, ()->getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)).show();
-			}else if(requestCode==COVER_RESULT){
-				editNewCover=data.getData();
-				ViewImageLoader.loadWithoutAnimation(cover, null, new UrlImageLoaderRequest(editNewCover, V.dp(1000), V.dp(1000)));
-				editDirty=true;
-			}
-		}
 	}
 
 	@Override

@@ -11,10 +11,15 @@ import android.widget.Checkable;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.squareup.otto.Subscribe;
+
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.accounts.GetAccountFeaturedHashtags;
+import org.joinmastodon.android.api.requests.tags.GetAccountFeaturedHashtags;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.OwnFeaturedHashtagAddedEvent;
+import org.joinmastodon.android.events.OwnFeaturedHashtagRemovedEvent;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FilterContext;
@@ -26,6 +31,7 @@ import org.joinmastodon.android.ui.views.CheckableTextView;
 import org.joinmastodon.android.ui.views.ExpandableWrappingLinearLayout;
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -48,7 +54,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 	private View expandHashtagsButton;
 	private boolean showReplies=false, showBoosts=true;
 	private APIRequest<?> featuredHashtagsRequest;
-	private List<Hashtag> hashtags=List.of();
+	private List<Hashtag> hashtags=new ArrayList<>();
 	private String hashtagFilter=null;
 	private boolean hashtagsLoaded;
 
@@ -76,7 +82,14 @@ public class AccountTimelineFragment extends StatusListFragment{
 	}
 
 	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		E.register(this);
+	}
+
+	@Override
 	public void onDestroy(){
+		E.unregister(this);
 		super.onDestroy();
 		if(featuredHashtagsRequest!=null)
 			featuredHashtagsRequest.cancel();
@@ -102,7 +115,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 						@Override
 						public void onSuccess(List<Hashtag> result){
 							featuredHashtagsRequest=null;
-							hashtags=result;
+							hashtags=result instanceof ArrayList<Hashtag> al ? al : new ArrayList<>(hashtags);
 							updateHashtags();
 							hashtagsLoaded=true;
 						}
@@ -191,6 +204,27 @@ public class AccountTimelineFragment extends StatusListFragment{
 		return mergeAdapter;
 	}
 
+	@Subscribe
+	public void onHashtagAdded(OwnFeaturedHashtagAddedEvent ev){
+		if(ev.accountID().equals(accountID)){
+			hashtags.add(ev.tag());
+			updateHashtags();
+		}
+	}
+
+	@Subscribe
+	public void onHashtagRemoved(OwnFeaturedHashtagRemovedEvent ev){
+		if(ev.accountID().equals(accountID)){
+			for(Hashtag tag:hashtags){
+				if(Objects.equals(tag.id, ev.tag().id)){
+					hashtags.remove(tag);
+					updateHashtags();
+					break;
+				}
+			}
+		}
+	}
+
 	@SuppressLint("SetTextI18n")
 	private CheckableTextView makeHashtagView(String hashtag){
 		CheckableTextView v=new CheckableTextView(getActivity());
@@ -266,5 +300,9 @@ public class AccountTimelineFragment extends StatusListFragment{
 		loaded=false;
 		dataLoading=true;
 		doLoadData();
+	}
+
+	public int getFeaturedHashtagCount(){
+		return hashtags.size();
 	}
 }

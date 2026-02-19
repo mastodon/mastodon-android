@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@drawable/bg_bottom_sheet"
+	android:outlineProvider="background"
+	android:elevation="1dp">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingHorizontal="16dp"
+		android:paddingBottom="16dp">
+
+		<View
+			android:id="@+id/handle"
+			android:layout_width="match_parent"
+			android:layout_height="36dp"
+			android:background="@drawable/bg_bottom_sheet_handle"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="24dp"
+			android:layout_marginHorizontal="8dp"
+			android:textAppearance="@style/m3_headline_small"
+			android:textColor="?colorM3OnSurface"
+			android:text="@string/edit_profile_link_verification_help_title"/>
+
+		<TextView
+			android:id="@+id/subtitle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:layout_marginBottom="24dp"
+			android:layout_marginHorizontal="8dp"
+			android:textAppearance="@style/m3_body_medium"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:text="@string/edit_profile_link_verification_help"/>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingVertical="12dp">
+			
+			<TextView
+				android:id="@+id/number1"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_marginEnd="16dp"
+				android:layout_alignParentStart="true"
+				android:layout_alignParentTop="true"
+				android:gravity="center"
+				android:singleLine="true"
+				android:background="@drawable/white_circle"
+				android:backgroundTint="?colorM3PrimaryContainer"
+				android:textColor="?colorM3OnPrimaryContainer"
+				android:textAppearance="@style/m3_title_medium"
+				tools:text="1"/>
+
+			<TextView
+				android:id="@+id/title1"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_toEndOf="@id/number1"
+				android:layout_marginBottom="4dp"
+				android:textAppearance="@style/m3_body_large"
+				android:textColor="?colorM3OnSurface"
+				android:text="@string/edit_profile_link_verification_title1"/>
+
+			<TextView
+				android:id="@+id/code"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/title1"
+				android:layout_toEndOf="@id/number1"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:paddingVertical="12dp"
+				android:paddingStart="12dp"
+				android:paddingEnd="40dp"
+				android:background="@drawable/bg_m3_surface3"
+				android:clipToOutline="true"
+				android:gravity="center_vertical"
+				android:minHeight="48dp"
+				tools:text="blah blah"/>
+			
+			<ImageButton
+				android:id="@+id/copy_btn"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:background="@drawable/bg_round_ripple_inset_8dp"
+				android:tint="?colorM3OnSurface"
+				android:layout_alignEnd="@id/code"
+				android:layout_alignBottom="@id/code"
+				android:contentDescription="@string/copy"
+				android:src="@drawable/ic_content_copy_20px"/>
+			
+		</RelativeLayout>
+		
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:layout_marginTop="-1dp"
+			android:background="?colorM3OutlineVariant"/>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingVertical="12dp">
+
+			<TextView
+				android:id="@+id/number2"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_marginEnd="16dp"
+				android:layout_alignParentStart="true"
+				android:layout_alignParentTop="true"
+				android:gravity="center"
+				android:singleLine="true"
+				android:background="@drawable/white_circle"
+				android:backgroundTint="?colorM3PrimaryContainer"
+				android:textColor="?colorM3OnPrimaryContainer"
+				android:textAppearance="@style/m3_title_medium"
+				tools:text="2"/>
+
+			<TextView
+				android:id="@+id/title2"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_toEndOf="@id/number2"
+				android:textAppearance="@style/m3_body_large"
+				android:textColor="?colorM3OnSurface"
+				android:text="@string/edit_profile_link_verification_title2"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/title2"
+				android:layout_toEndOf="@id/number2"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:text="@string/edit_profile_link_verification_text2"/>
+
+		</RelativeLayout>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:layout_marginTop="-1dp"
+			android:background="?colorM3OutlineVariant"/>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingVertical="12dp">
+
+			<TextView
+				android:id="@+id/number3"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_marginEnd="16dp"
+				android:layout_alignParentStart="true"
+				android:layout_alignParentTop="true"
+				android:gravity="center"
+				android:singleLine="true"
+				android:background="@drawable/white_circle"
+				android:backgroundTint="?colorM3PrimaryContainer"
+				android:textColor="?colorM3OnPrimaryContainer"
+				android:textAppearance="@style/m3_title_medium"
+				tools:text="3"/>
+
+			<TextView
+				android:id="@+id/title3"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_toEndOf="@id/number3"
+				android:textAppearance="@style/m3_body_large"
+				android:textColor="?colorM3OnSurface"
+				android:text="@string/edit_profile_link_verification_title3"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/title3"
+				android:layout_toEndOf="@id/number3"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?colorM3OnSurfaceVariant"
+				android:text="@string/edit_profile_link_verification_text3"/>
+
+		</RelativeLayout>
+
+	</LinearLayout>
+</org.joinmastodon.android.ui.views.CustomScrollView>

@@ -49,6 +49,7 @@ import org.joinmastodon.android.api.requests.instance.GetInstanceV2;
 import org.joinmastodon.android.api.requests.oauth.CreateOAuthApp;
 import org.joinmastodon.android.events.AccountLoggedOutEvent;
 import org.joinmastodon.android.events.EmojiUpdatedEvent;
+import org.joinmastodon.android.events.SelfAccountUpdatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Emoji;
@@ -484,6 +485,7 @@ public class AccountSessionManager{
 		AccountSession session=getAccount(id);
 		session.self=account;
 		session.infoLastUpdated=System.currentTimeMillis();
+		E.post(new SelfAccountUpdatedEvent(id, account));
 		runOnDbThread(db->{
 			ContentValues values=new ContentValues();
 			values.put("account_obj", MastodonAPIController.gson.toJson(account));

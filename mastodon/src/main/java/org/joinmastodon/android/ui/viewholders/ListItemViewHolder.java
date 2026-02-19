@@ -18,10 +18,10 @@ import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public abstract class ListItemViewHolder<T extends ListItem<?>> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
-	protected final TextView title;
-	protected final TextView subtitle;
-	protected final ImageView icon;
-	protected final LinearLayout view;
+	public final TextView title;
+	public final TextView subtitle;
+	public final ImageView icon;
+	public final LinearLayout view;
 
 	public ListItemViewHolder(Context context, int layout, ViewGroup parent){
 		super(context, layout, parent);
@@ -33,7 +33,7 @@ public abstract class ListItemViewHolder<T extends ListItem<?>> extends Bindable
 
 	@Override
 	public void onBind(T item){
-		if(TextUtils.isEmpty(item.title))
+		if(item.title==null)
 			title.setText(item.titleRes);
 		else
 			title.setText(item.title);

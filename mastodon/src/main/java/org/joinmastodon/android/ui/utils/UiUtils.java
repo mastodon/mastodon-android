@@ -31,11 +31,14 @@ import android.os.Vibrator;
 import android.os.ext.SdkExtensions;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.style.BulletSpan;
+import android.text.style.ForegroundColorSpan;
 import android.transition.ChangeBounds;
 import android.transition.ChangeScroll;
 import android.transition.Fade;
@@ -1177,5 +1180,11 @@ public class UiUtils{
 		holder.itemView.setBackground(UiUtils.getThemeDrawable(parentView.getContext(), android.R.attr.selectableItemBackground));
 		holder.itemView.setOnClickListener(v->holder.onClick());
 		return holder.itemView;
+	}
+
+	public static CharSequence makeColoredString(CharSequence str, int color){
+		Spannable spannable=str instanceof Spannable s ? s : new SpannableString(str);
+		spannable.setSpan(new ForegroundColorSpan(color), 0, spannable.length(), 0);
+		return spannable;
 	}
 }

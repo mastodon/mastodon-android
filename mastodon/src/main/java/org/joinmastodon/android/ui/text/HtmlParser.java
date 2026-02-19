@@ -3,7 +3,6 @@ package org.joinmastodon.android.ui.text;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -305,7 +304,29 @@ public class HtmlParser{
 	}
 
 	public static String strip(String html){
-		return Jsoup.clean(html, Safelist.none());
+		return strip(html, false);
+	}
+
+	public static String strip(String html, boolean keepLineBreaks){
+		Document doc=new Cleaner(new Safelist().addTags("p", "br")).clean(Jsoup.parseBodyFragment(html));
+		StringBuilder sb=new StringBuilder();
+		doc.body().traverse(new NodeVisitor(){
+			@Override
+			public void head(Node node, int depth){
+				if(node instanceof Element el){
+					if("p".equalsIgnoreCase(el.tagName()) && !sb.isEmpty())
+						sb.append(keepLineBreaks ? "\n\n" : " ");
+					else if("br".equalsIgnoreCase(el.tagName()))
+						sb.append(keepLineBreaks ? '\n' : ' ');
+				}else if(node instanceof TextNode tn){
+					sb.append(tn.text());
+				}
+			}
+
+			@Override
+			public void tail(Node node, int depth){}
+		});
+		return sb.toString().trim();
 	}
 
 	public static String stripAndRemoveInvisibleSpans(String html){

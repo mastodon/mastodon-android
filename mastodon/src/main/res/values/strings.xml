@@ -57,7 +57,7 @@
 	<string name="done">Done</string>
 	<string name="loading">Loading…</string>
 	<string name="field_label">Label</string>
-	<string name="field_content">Content</string>
+	<string name="field_content">Value</string>
 	<string name="saving">Saving…</string>
 	<string name="post_from_user">Post from %s</string>
 	<string name="poll_option_hint">Option %d</string>
@@ -956,4 +956,46 @@
 	<string name="timeline_filter_all_activity">All activity</string>
 	<string name="timeline_filter_posts_and_replies">Posts and replies</string>
 	<string name="timeline_filter_posts">Posts</string>
+	<string name="edit_profile_display_name">Display name</string>
+	<string name="edit_profile_x_custom_fields">Custom fields (%d)</string>
+	<string name="edit_profile_custom_fields">Custom fields</string>
+	<string name="edit_profile_custom_fields_description">E.g. pronouns, external links, etc.</string>
+	<string name="edit_profile_featured_hashtags_description">Allow users to filter your timeline by topic</string>
+	<string name="edit_profile_tab_settings">Profile tab settings</string>
+	<string name="edit_profile_add_bio">Add bio</string>
+	<string name="edit_profile_featured_hashtags">Featured hashtags</string>
+	<string name="edit_profile_x_featured_hashtags">Featured hashtags (%d)</string>
+	<string name="edit_profile_replace_image">Replace</string>
+	<string name="edit_profile_edit_display_name">Edit display name</string>
+	<string name="edit_profile_edit_bio">Edit bio</string>
+	<string name="add_profile_field">Add field</string>
+	<string name="edit_profile_custom_fields_help">Tip: Add credibility to your Mastodon account by verifying links to websites you own. <i>Learn more</i></string>
+	<string name="edit_profile_link_verification_help_title">Adding a verified link</string>
+	<string name="edit_profile_link_verification_help">Add credibility to your Mastodon profile by verifying links to personal websites. Here’s how it works:</string>
+	<string name="edit_profile_link_verification_title1">Copy the HTML code below</string>
+	<string name="edit_profile_link_verification_title2">Paste the code into the header HTML of your website</string>
+	<string name="edit_profile_link_verification_text2">Adding the code to your header allows the &lt;a&gt; element to remain invisible. The rel=\"me\" attribute prevents impersonation on websites with user-generated content – so it’s important to keep it.</string>
+	<string name="edit_profile_link_verification_title3">Add your website as a custom field</string>
+	<string name="edit_profile_link_verification_text3">If you’ve already added your website as a custom field, you’ll need to delete and re-add it to trigger verification.</string>
+	<string name="edit_profile_field">Edit field</string>
+	<string name="edit_profile_field_label_example">E.g. ‘Personal website’</string>
+	<string name="edit_profile_field_value_example">E.g. “example.me”</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">%,d character maximum</item>
+		<item quantity="other">%,d characters maximum</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">Used in %,d post</item>
+		<item quantity="other">Used in %,d posts</item>
+	</plurals>
+	<string name="add_featured_hashtag">Add hashtag</string>
+	<string name="hashtag">Hashtag</string>
+	<string name="confirm_remove_featured_hashtag">Remove hashtag?</string>
+	<string name="edit_profile_show_media_tab">‘Media’ tab</string>
+	<string name="edit_profile_show_media_tab_description">Shows your posts containing media</string>
+	<string name="edit_profile_show_media_replies">Include replies</string>
+	<string name="edit_profile_show_featured_tab">‘Featured’ tab</string>
+	<string name="edit_profile_show_featured_tab_description">A space to showcase other accounts</string>
+	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">These settings customize what users see on %s in the official apps, but they may not apply to users on other servers and 3rd party apps.</string>
 </resources>
