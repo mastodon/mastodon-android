@@ -185,12 +185,14 @@ public class AccountTimelineFragment extends StatusListFragment{
 		headerFilterTitle=header.findViewById(R.id.filter_title);
 		ImageButton btn=header.findViewById(R.id.filter_button);
 		headerFilterTitle.setText(R.string.timeline_filter_posts_and_boosts);
+		View anchor=header.findViewById(R.id.filter_menu_anchor);
 		filterMenu=new CheckablePopupMenu(getActivity())
 				.addItem(R.string.timeline_filter_show_replies, false)
 				.addItem(R.string.timeline_filter_show_boosts, true)
 				.setListener(this::onFilterChanged);
 		btn.setOnClickListener(v->{
-			filterMenu.show(v);
+			anchor.setTranslationX(v.getX()-V.dp(4));
+			filterMenu.show(anchor);
 		});
 		hashtagsView=header.findViewById(R.id.hashtags);
 		expandHashtagsButton=makeHashtagView("");

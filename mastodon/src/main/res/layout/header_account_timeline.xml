@@ -1,44 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+	android:orientation="vertical"
 	android:paddingHorizontal="16dp"
 	android:paddingTop="10dp">
 
-	<LinearLayout
+	<FrameLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal">
-		<TextView
-			android:id="@+id/filter_title"
-			android:layout_width="wrap_content"
-			android:layout_height="48dp"
-			android:gravity="start|center_vertical"
-			android:singleLine="true"
-			android:ellipsize="end"
-			android:textSize="15dp"
-			android:textColor="?colorM3OnSurface"
-			android:fontFamily="sans-serif-medium"
-			android:textFontWeight="600"
-			tools:text="Posts and boosts"/>
-		<ImageButton
-			android:id="@+id/filter_button"
-			android:layout_width="48dp"
-			android:layout_height="48dp"
-			android:background="@drawable/bg_rect_4dp_ripple_inset"
-			android:src="@drawable/ic_keyboard_arrow_down_24px"
-			android:tint="?colorM3OnSurfaceVariant"
-			android:contentDescription="@string/settings_filters"/>
-	</LinearLayout>
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/filter_title"
+				android:layout_width="wrap_content"
+				android:layout_height="48dp"
+				android:ellipsize="end"
+				android:fontFamily="sans-serif-medium"
+				android:gravity="start|center_vertical"
+				android:singleLine="true"
+				android:textColor="?colorM3OnSurface"
+				android:textFontWeight="600"
+				android:textSize="15dp"
+				tools:text="Posts and boosts" />
+
+			<ImageButton
+				android:id="@+id/filter_button"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:background="@drawable/bg_rect_4dp_ripple_inset"
+				android:contentDescription="@string/settings_filters"
+				android:src="@drawable/ic_keyboard_arrow_down_24px"
+				android:tint="?colorM3OnSurfaceVariant" />
+		</LinearLayout>
+
+		<View
+			android:id="@+id/filter_menu_anchor"
+			android:layout_width="40dp"
+			android:layout_height="24dp"
+			android:layout_gravity="left|center_vertical"
+			tools:ignore="RtlHardcoded" />
+
+	</FrameLayout>
 
 	<org.joinmastodon.android.ui.views.ExpandableWrappingLinearLayout
 		android:id="@+id/hashtags"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:paddingVertical="8dp"
 		android:horizontalGap="4dp"
-		android:verticalGap="8dp"/>
+		android:paddingVertical="8dp"
+		android:verticalGap="8dp" />
 
 </LinearLayout>
