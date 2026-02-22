@@ -1,4 +1,4 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.profile;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -7,6 +7,10 @@ import android.view.View;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
+import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.fragments.HashtagFeaturedTimelineFragment;
+import org.joinmastodon.android.fragments.PinnedPostsListFragment;
+import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.Status;

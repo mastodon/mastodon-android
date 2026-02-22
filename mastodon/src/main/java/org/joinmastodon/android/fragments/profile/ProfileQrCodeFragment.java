@@ -1,4 +1,4 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.profile;
 
 import android.Manifest;
 import android.animation.Animator;
@@ -53,7 +53,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.window.OnBackInvokedCallback;
 import android.window.OnBackInvokedDispatcher;
 
 import com.google.zxing.BarcodeFormat;

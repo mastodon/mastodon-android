@@ -1,4 +1,4 @@
-package org.joinmastodon.android.fragments;
+package org.joinmastodon.android.fragments.profile;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -21,6 +21,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.OwnFeaturedHashtagAddedEvent;
 import org.joinmastodon.android.events.OwnFeaturedHashtagRemovedEvent;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
+import org.joinmastodon.android.fragments.StatusListFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Hashtag;
