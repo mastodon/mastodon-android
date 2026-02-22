@@ -41,7 +41,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration{
 	}
 
 	@Override
-	public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+	public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
 		boolean isRTL=parent.getLayoutDirection()==View.LAYOUT_DIRECTION_RTL;
 		int padLeft=isRTL ? paddingEnd : paddingStart;
 		int padRight=isRTL ? paddingStart : paddingEnd;

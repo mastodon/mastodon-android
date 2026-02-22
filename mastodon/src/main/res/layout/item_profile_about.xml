@@ -6,7 +6,7 @@
 	android:clipToPadding="false"
 	android:orientation="horizontal"
 	android:paddingVertical="8dp"
-	android:paddingHorizontal="4dp"
+	android:paddingHorizontal="8dp"
 	android:baselineAligned="false">
 
 	<TextView
@@ -33,6 +33,7 @@
 		android:maxLines="2"
 		android:minHeight="32dp"
 		android:gravity="center_vertical"
+		android:textColorLink="?colorM3OnSurface"
 		tools:text="Field value"/>
 
 	<ImageView

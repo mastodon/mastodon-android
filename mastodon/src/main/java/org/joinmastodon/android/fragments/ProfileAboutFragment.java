@@ -1,6 +1,7 @@
 package org.joinmastodon.android.fragments;
 
 import android.app.Fragment;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.ui.BetterItemAnimator;
+import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -26,6 +28,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.fragments.WindowInsetsAwareFragment;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
@@ -37,8 +40,6 @@ import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareFragment{
-	private static final int MAX_FIELDS=4;
-
 	public UsableRecyclerView list;
 	public LinkedTextView bio;
 	private List<AccountField> fields=Collections.emptyList();
@@ -78,6 +79,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		list.setItemAnimator(new BetterItemAnimator());
 		list.setDrawSelectorOnTop(true);
 		list.setLayoutManager(new LinearLayoutManager(getActivity()));
+		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorM3Outline, 0.5f, 0, 0));
 		imgLoader=new ListImageLoaderWrapper(getActivity(), list, list, null);
 
 		adapter=new AboutAdapter();
@@ -117,14 +119,14 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		return false;
 	}
 
-	private class AboutAdapter extends UsableRecyclerView.Adapter<BaseViewHolder> implements ImageLoaderRecyclerAdapter{
+	private class AboutAdapter extends UsableRecyclerView.Adapter<AboutViewHolder> implements ImageLoaderRecyclerAdapter{
 		public AboutAdapter(){
 			super(imgLoader);
 		}
 
 		@NonNull
 		@Override
-		public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+		public AboutViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
 			return switch(viewType){
 				case 0 -> new AboutViewHolder();
 				default -> throw new IllegalStateException("Unexpected value: "+viewType);
@@ -132,7 +134,7 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		}
 
 		@Override
-		public void onBindViewHolder(BaseViewHolder holder, int position){
+		public void onBindViewHolder(AboutViewHolder holder, int position){
 			if(position<fields.size()){
 				holder.bind(fields.get(position));
 			}else{
@@ -162,23 +164,13 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 		}
 	}
 
-	private abstract class BaseViewHolder extends BindableViewHolder<AccountField>{
-		public BaseViewHolder(int layout){
-			super(getActivity(), layout, list);
-		}
-
-		@Override
-		public void onBind(AccountField item){
-		}
-	}
-
-	private class AboutViewHolder extends BaseViewHolder implements ImageLoaderViewHolder{
+	private class AboutViewHolder extends BindableViewHolder<AccountField> implements ImageLoaderViewHolder{
 		private final TextView title;
 		private final LinkedTextView value;
 		private final ImageView verifiedIcon;
 
 		public AboutViewHolder(){
-			super(R.layout.item_profile_about);
+			super(getActivity(), R.layout.item_profile_about, list);
 			title=findViewById(R.id.title);
 			value=findViewById(R.id.value);
 			verifiedIcon=findViewById(R.id.verified_icon);
@@ -186,11 +178,10 @@ public class ProfileAboutFragment extends Fragment implements WindowInsetsAwareF
 
 		@Override
 		public void onBind(AccountField item){
-			super.onBind(item);
 			title.setText(item.parsedName);
 			value.setText(item.parsedValue);
 			verifiedIcon.setVisibility(item.verifiedAt!=null ? View.VISIBLE : View.INVISIBLE);
-			itemView.setBackgroundResource(item.verifiedAt!=null ? R.color.m3_primary_alpha8 : 0);
+			itemView.setBackgroundColor(item.verifiedAt!=null ? (UiUtils.isDarkTheme() ? 0xff032E15 : 0xffF0FDF4) : 0);
 		}
 
 		@Override
