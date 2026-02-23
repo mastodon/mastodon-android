@@ -1,38 +1,32 @@
-package org.joinmastodon.android.ui;
+package org.joinmastodon.android.ui.tooltips;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.ui.OutlineProviders;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.StringRes;
-import me.grishka.appkit.utils.V;
 
-public class RichTooltip extends PopupWindow{
-	private final Context context;
+public class RichTooltip extends BaseRichTooltip{
 	private CharSequence title;
 	private CharSequence message;
 	private List<CharSequence> buttonTitles;
 	private List<DialogInterface.OnClickListener> buttonListeners;
 
-	private View contentView;
 	private TextView titleView, messageView;
 	private Button button1, button2;
 
 	public RichTooltip(Context context){
-		this.context=context;
-		setOutsideTouchable(true);
+		super(context);
 	}
 
 	public RichTooltip setTitle(CharSequence title){
@@ -71,10 +65,8 @@ public class RichTooltip extends PopupWindow{
 		return addButton(context.getString(text), listener);
 	}
 
-	public View initView(){
-		if(contentView!=null)
-			return contentView;
-
+	@Override
+	protected void initView(){
 		contentView=LayoutInflater.from(context).inflate(R.layout.rich_tooltip, null);
 		titleView=contentView.findViewById(R.id.title);
 		messageView=contentView.findViewById(R.id.content);
@@ -101,14 +93,6 @@ public class RichTooltip extends PopupWindow{
 				button2.setOnClickListener(v->onButtonClick(1));
 			}
 		}
-
-		View contentWrap=contentView.findViewById(R.id.content_wrap);
-		contentWrap.setOutlineProvider(OutlineProviders.roundedRect(12));
-		contentWrap.setClipToOutline(true);
-
-		setContentView(contentView);
-
-		return contentView;
 	}
 
 	private void onButtonClick(int index){
@@ -119,11 +103,4 @@ public class RichTooltip extends PopupWindow{
 			dismiss();
 	}
 
-	public void show(View anchor){
-		initView();
-		contentView.measure(View.MeasureSpec.AT_MOST | V.dp(312), View.MeasureSpec.UNSPECIFIED);
-		setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
-		setHeight(contentView.getMeasuredHeight());
-		showAsDropDown(anchor);
-	}
 }
