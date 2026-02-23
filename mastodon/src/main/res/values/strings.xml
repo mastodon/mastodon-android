@@ -998,4 +998,8 @@
 	<string name="edit_profile_show_featured_tab_description">A space to showcase other accounts</string>
 	<!-- %s is the current user's server domain -->
 	<string name="edit_profile_tabs_explanation">These settings customize what users see on %s in the official apps, but they may not apply to users on other servers and 3rd party apps.</string>
+	<string name="handle_explanation_title">A handle is like an email address.</string>
+	<string name="handle_explanation_username">%s is this account’s username on their server. Someone on another server might have the same username.</string>
+	<string name="handle_explanation_domain">%s is the server that hosts the user’s profile and posts.</string>
+	<string name="handle_explanation_summary">Just like you can send emails to people using different email clients, you can interact with people on other Mastodon servers – and with anyone on other social apps powered by the same set of rules as Mastodon uses (the ActivityPub protocol).</string>
 </resources>

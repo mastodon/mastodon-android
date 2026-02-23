@@ -89,12 +89,12 @@ import org.joinmastodon.android.ui.SimpleViewHolder;
 import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
 import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
-import org.joinmastodon.android.ui.sheets.DecentralizationExplainerSheet;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.text.ImageSpanThatDoesNotBreakShitForNoGoodReason;
+import org.joinmastodon.android.ui.tooltips.DecentralizationExplainerTooltip;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CoverImageView;
 import org.joinmastodon.android.ui.views.CustomDrawingOrderLinearLayout;
@@ -185,6 +185,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private MenuItem editSaveMenuItem;
 	private HashSet<APIRequest<?>> relationshipRequests=new HashSet<>();
 	private PopupMenu buttonMenu;
+	private DecentralizationExplainerTooltip handleTooltip;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -391,7 +392,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		usernameHelp.setOnClickListener(v->{
 			if(account==null)
 				return;
-			new DecentralizationExplainerSheet(getActivity(), accountID, account).show();
+			if(handleTooltip==null)
+				handleTooltip=new DecentralizationExplainerTooltip(getActivity(), account, accountID);
+			handleTooltip.show(v);
 		});
 		menuButton.setOnClickListener(v->{
 			if(buttonMenu==null){

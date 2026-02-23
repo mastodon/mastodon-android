@@ -1187,4 +1187,17 @@ public class UiUtils{
 		spannable.setSpan(new ForegroundColorSpan(color), 0, spannable.length(), 0);
 		return spannable;
 	}
+
+	public static CharSequence substituteStringWithSpan(Context ctx, @StringRes int res, String arg, Object span){
+		String str=ctx.getString(res, "{str}");
+		int index=str.indexOf("{str}");
+		if(index==-1)
+			return str;
+		SpannableStringBuilder ssb=new SpannableStringBuilder(index>0 ? str.substring(0, index) : "");
+		ssb.append(arg, span, 0);
+		int end=index+5;
+		if(end<str.length())
+			ssb.append(str.substring(end));
+		return ssb;
+	}
 }
