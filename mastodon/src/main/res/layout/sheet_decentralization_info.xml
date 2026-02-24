@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@drawable/bg_bottom_sheet"
+	android:outlineProvider="background"
+	android:elevation="1dp">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingHorizontal="16dp">
+
+		<View
+			android:id="@+id/sheet_handle"
+			android:layout_width="match_parent"
+			android:layout_height="36dp"
+			android:background="@drawable/bg_bottom_sheet_handle"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="24dp"
+			android:layout_marginBottom="16dp"
+			android:layout_marginHorizontal="8dp"
+			android:textAppearance="@style/m3_headline_small"
+			android:textColor="?colorM3OnSurface"
+			android:text="@string/handle_explanation_title"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="16dp"
+			android:orientation="horizontal">
+
+			<ImageView
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_marginEnd="16dp"
+				android:layout_gravity="top"
+				android:background="@drawable/white_circle"
+				android:backgroundTint="?colorM3SecondaryContainer"
+				android:scaleType="center"
+				android:tint="?colorM3OnSecondaryContainer"
+				android:src="@drawable/ic_alternate_email_24px"
+				android:importantForAccessibility="no"/>
+
+			<TextView
+				android:id="@+id/username"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?colorM3OnSurfaceVariant"
+				tools:text="@string/handle_explanation_username"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="16dp"
+			android:orientation="horizontal">
+
+			<ImageView
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_marginEnd="16dp"
+				android:layout_gravity="top"
+				android:background="@drawable/white_circle"
+				android:backgroundTint="?colorM3SecondaryContainer"
+				android:scaleType="center"
+				android:tint="?colorM3OnSecondaryContainer"
+				android:src="@drawable/ic_language_24px"
+				android:importantForAccessibility="no"/>
+
+			<TextView
+				android:id="@+id/domain"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:textAppearance="@style/m3_body_medium"
+				android:textColor="?colorM3OnSurfaceVariant"
+				tools:text="@string/handle_explanation_domain"/>
+
+		</LinearLayout>
+
+		<TextView
+			android:id="@+id/handle_explanation"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="16dp"
+			android:textAppearance="@style/m3_body_medium"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:text="@string/handle_explanation_summary"/>
+
+	</LinearLayout>
+</org.joinmastodon.android.ui.views.CustomScrollView>
