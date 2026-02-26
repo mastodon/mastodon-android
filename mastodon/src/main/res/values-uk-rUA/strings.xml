@@ -115,6 +115,7 @@
 	<string name="do_block">Заблокувати</string>
 	<string name="button_blocked">Заблоковано</string>
 	<string name="action_vote">Проголосувати</string>
+	<string name="confirm">Підтвердити</string>
 	<string name="delete">Видалити</string>
 	<string name="confirm_delete_title">Видалити допис</string>
 	<string name="confirm_delete">Ви дійсно бажаєте видалити цей допис?</string>
@@ -187,6 +188,7 @@
 	<string name="add_alt_text">Додати альтернативний текст</string>
 	<string name="visibility_public">Для всіх</string>
 	<string name="visibility_followers_only">Підписники</string>
+	<string name="visibility_private">Особиста згадка</string>
 	<string name="recent_searches">Нещодавні</string>
 	<string name="notification_type_follow">Нові підписники</string>
 	<string name="notification_type_favorite">Улюблені</string>
@@ -340,6 +342,7 @@
 	<string name="add_bookmark">До закладок</string>
 	<string name="remove_bookmark">Вилучити закладку</string>
 	<string name="bookmarks">Закладки</string>
+	<string name="your_favorites">Вподобане</string>
 	<string name="login_title">З поверненням</string>
 	<string name="login_subtitle">Увійдіть за допомогою сервера, де ви створили свій обліковий запис.</string>
 	<string name="server_url">URL-адреса сервера</string>
@@ -446,6 +449,7 @@
 	<string name="settings_server_explanation">Правила та модерування</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Про %s</string>
+	<string name="default_post_language">Мова дописів</string>
 	<string name="settings_alt_text_reminders">Нагадувати про альтернативний текст</string>
 	<string name="settings_confirm_unfollow">Запитувати перед тим, як відписатися</string>
 	<string name="settings_confirm_boost">Запитувати перед тим, як поширити</string>
@@ -794,6 +798,7 @@
 	<string name="notifications_muted">Сповіщення від %s було відхилено.</string>
 	<string name="notifications_allowed">%s тепер з\'явиться у вашому списку сповіщень.</string>
 	<string name="visibility_subtitle_public">Усі з Mastodon та поза Mastodon</string>
+	<string name="visibility_subtitle_unlisted">Сховано з результатів пошуку Mastodon, трендових і публічних стрічок</string>
 	<string name="visibility_subtitle_followers">Лише ваші підписники</string>
 	<string name="visibility_subtitle_private">Усі згадані в дописі</string>
 	<string name="view_boosts">Переглянути поширення</string>
@@ -875,6 +880,8 @@
 	<string name="moderation_warning_action_silence">Ваш обліковий запис було обмежено.</string>
 	<string name="moderation_warning_action_suspend">Ваш обліковий запис було заблоковано.</string>
 	<string name="moderation_warning_learn_more">Дізнатися більше</string>
+	<string name="text_show_more">Більше</string>
+	<string name="confirm_avatar_crop">Вибрати</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
