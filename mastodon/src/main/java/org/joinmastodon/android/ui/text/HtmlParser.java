@@ -76,6 +76,24 @@ public class HtmlParser{
 	 * @return a spanned string
 	 */
 	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, List<Hashtag> tags, String accountID, Object parentObject, Context context){
+		return parse(source, emojis, mentions, tags, accountID, parentObject, context, true);
+	}
+
+	/**
+	 * Parse HTML and custom emoji into a spanned string for display.
+	 * Supported tags: <ul>
+	 * <li>&lt;a class="hashtag | mention | (none)"></li>
+	 * <li>&lt;span class="invisible | ellipsis"></li>
+	 * <li>&lt;br/></li>
+	 * <li>&lt;p></li>
+	 * </ul>
+	 *
+	 * @param source      Source HTML
+	 * @param emojis      Custom emojis that are present in source as <code>:code:</code>
+	 * @param useEllipsis
+	 * @return a spanned string
+	 */
+	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, List<Hashtag> tags, String accountID, Object parentObject, Context context, boolean useEllipsis){
 		class SpanInfo{
 			public Object span;
 			public int start;
@@ -90,7 +108,6 @@ public class HtmlParser{
 
 		Map<String, String> idsByUrl=mentions.stream().distinct().collect(Collectors.toMap(m->m.url, m->m.id, (a, b)->b));
 		// Hashtags in remote posts have remote URLs, these have local URLs so they don't match.
-//		Map<String, String> tagsByUrl=tags.stream().collect(Collectors.toMap(t->t.url, t->t.name));
 		Map<String, Hashtag> tagsByTag=tags.stream().distinct().collect(Collectors.toMap(t->t.name.toLowerCase(), Function.identity(), (a, b)->a));
 		Map<String, Mention> mentionsByID=mentions.stream().distinct().collect(Collectors.toMap(m->m.id, Function.identity(), (a, b)->a));
 
@@ -175,7 +192,10 @@ public class HtmlParser{
 						case "br" -> ssb.append('\n');
 						case "span" -> {
 							if(el.hasClass("invisible")){
-								openSpans.add(new SpanInfo(new InvisibleSpan(), ssb.length(), el));
+								Element sibling=el.previousElementSibling();
+								// match the sequence <span class="ellipsis">blah</span><span class="invisible">blahblah</span> that is used for server-side truncation of long URLs
+								if(useEllipsis || sibling==null || !sibling.hasClass("ellipsis"))
+									openSpans.add(new SpanInfo(new InvisibleSpan(), ssb.length(), el));
 							}
 						}
 						case "b", "strong" -> openSpans.add(new SpanInfo(new StyleSpan(Typeface.BOLD), ssb.length(), el));
@@ -226,7 +246,8 @@ public class HtmlParser{
 					String name=el.nodeName();
 					lastElementWasBlock|=el.isBlock();
 					if("span".equals(name) && el.hasClass("ellipsis")){
-						ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+						if(useEllipsis)
+							ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 					}
 					if(!openSpans.isEmpty()){
 						SpanInfo si=openSpans.get(openSpans.size()-1);

@@ -1,47 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:clipToPadding="false"
+	android:layout_width="wrap_content"
+	android:layout_height="47dp"
 	android:orientation="horizontal"
-	android:paddingVertical="8dp"
-	android:paddingHorizontal="8dp"
-	android:baselineAligned="false">
+	android:padding="8dp"
+	android:clipToPadding="false"
+	android:foreground="@drawable/bg_profile_field">
 
-	<TextView
-		android:id="@+id/title"
-		android:layout_width="100dp"
-		android:layout_height="wrap_content"
-		android:layout_marginEnd="8dp"
-		android:textSize="13sp"
-		android:textColor="?colorM3OnSurfaceVariant"
-		android:maxLines="2"
-		android:ellipsize="end"
-		android:minHeight="32dp"
-		android:gravity="center_vertical"
-		tools:text="Field title"/>
-
-	<org.joinmastodon.android.ui.views.LinkedTextView
-		android:id="@+id/value"
+	<FrameLayout
 		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:layout_weight="1"
-		android:textColor="?colorM3OnSurface"
-		android:textSize="13sp"
-		android:ellipsize="end"
-		android:maxLines="2"
-		android:minHeight="32dp"
-		android:gravity="center_vertical"
-		android:textColorLink="?colorM3OnSurface"
-		tools:text="Field value"/>
+		android:layout_height="match_parent"
+		android:layout_weight="1">
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="15dp"
+			android:layout_gravity="top|start"
+			android:textSize="13dp"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:singleLine="true"
+			android:ellipsize="none"
+			android:requiresFadingEdge="horizontal"
+			android:gravity="center_vertical"
+			android:includeFontPadding="false"
+			tools:text="Field title"/>
+
+		<org.joinmastodon.android.ui.views.LinkedTextView
+			android:id="@+id/value"
+			android:layout_width="wrap_content"
+			android:layout_height="16dp"
+			android:layout_gravity="bottom|start"
+			android:textColor="?colorM3OnSurface"
+			android:textSize="13dp"
+			android:singleLine="true"
+			android:ellipsize="none"
+			android:requiresFadingEdge="horizontal"
+			android:textColorLink="?colorM3OnSurface"
+			android:fontFamily="sans-serif-medium"
+			android:gravity="center_vertical"
+			android:includeFontPadding="false"
+			tools:text="Field value"/>
+		
+		<ImageButton
+			android:id="@+id/title_ellipsis"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_gravity="end|top"
+			android:layout_marginEnd="-2dp"
+			android:layout_marginTop="-4dp"
+			android:src="@drawable/ic_ellipsis"
+			android:tint="?colorM3OnSurfaceVariant"
+			android:contentDescription="@string/text_show_more"
+			android:background="?android:selectableItemBackgroundBorderless"/>
+
+		<ImageButton
+			android:id="@+id/value_ellipsis"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_gravity="end|bottom"
+			android:layout_marginEnd="-2dp"
+			android:layout_marginBottom="-2dp"
+			android:src="@drawable/ic_ellipsis"
+			android:tint="?colorM3OnSurfaceVariant"
+			android:contentDescription="@string/text_show_more"
+			android:background="?android:selectableItemBackgroundBorderless"/>
+
+	</FrameLayout>
 
 	<ImageView
 		android:id="@+id/verified_icon"
 		android:layout_width="16dp"
 		android:layout_height="16dp"
 		android:layout_marginStart="4dp"
-		android:layout_gravity="center_vertical"
 		android:contentDescription="@string/verified_link"
 		android:src="@drawable/ic_verified_link"/>
 

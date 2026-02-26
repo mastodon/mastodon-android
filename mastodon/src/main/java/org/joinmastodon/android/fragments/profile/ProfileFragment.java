@@ -30,6 +30,7 @@ import android.text.style.TypefaceSpan;
 import android.transition.Fade;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -90,6 +91,7 @@ import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
 import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.sheets.DecentralizationExplainerSheet;
+import org.joinmastodon.android.ui.sheets.LongProfileFieldSheet;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
@@ -100,6 +102,7 @@ import org.joinmastodon.android.ui.views.CoverImageView;
 import org.joinmastodon.android.ui.views.CustomDrawingOrderLinearLayout;
 import org.joinmastodon.android.ui.views.FloatingHintEditTextLayout;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
+import org.joinmastodon.android.ui.views.ProfileFieldsGridLayout;
 import org.joinmastodon.android.ui.views.ProgressBarButton;
 import org.joinmastodon.android.ui.views.WrappingLinearLayout;
 import org.joinmastodon.android.utils.ElevationOnScrollListener;
@@ -138,7 +141,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private ImageView avatar;
 	private CoverImageView cover;
 	private View avatarBorder;
-	private TextView name, username, followersCount, followersLabel, followingCount, followingLabel;
+	private TextView name, username, bio, followersCount, followersLabel, followingCount, followingLabel;
 	private TextView joinDate;
 	private ImageButton usernameHelp;
 	private ProgressBarButton actionButton;
@@ -147,7 +150,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private ProfileFeaturedFragment featuredFragment;
 	private AccountTimelineFragment timelineFragment;
 	private AccountSimpleTimelineFragment mediaTimelineFragment;
-	private ProfileAboutFragment aboutFragment;
 	private TabLayout tabbar;
 	private SwipeRefreshLayout refreshLayout;
 	private View followersBtn, followingBtn;
@@ -165,6 +167,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private ImageView[] familiarFollowersAvatars;
 	private TextView familiarFollowersLabel;
 	private WrappingLinearLayout badgesLayout;
+	private ProfileFieldsGridLayout fieldsLayout;
 
 	private Account account;
 	private String accountID;
@@ -239,6 +242,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		name=content.findViewById(R.id.name);
 		username=content.findViewById(R.id.username);
 		usernameHelp=content.findViewById(R.id.username_help);
+		bio=content.findViewById(R.id.bio);
 		followersCount=content.findViewById(R.id.followers_count);
 		followersLabel=content.findViewById(R.id.followers_label);
 		followersBtn=content.findViewById(R.id.followers_btn);
@@ -269,6 +273,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		familiarFollowersLabel=content.findViewById(R.id.familiar_followers_label);
 		badgesLayout=content.findViewById(R.id.badges);
 		joinDate=content.findViewById(R.id.join_date);
+		fieldsLayout=content.findViewById(R.id.fields);
 
 		avatar.setOutlineProvider(OutlineProviders.roundedRect(16));
 		avatar.setClipToOutline(true);
@@ -308,10 +313,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		tabbar.setTabTextSize(V.dp(14));
 		tabLayoutMediator=new TabLayoutMediator(tabbar, pager, (tab, position)->{
 			tab.setText(switch(position){
-				case 0 -> R.string.profile_about;
-				case 1 -> R.string.profile_timeline;
-				case 2 -> R.string.media;
-				case 3 -> R.string.profile_featured;
+				case 0 -> R.string.profile_timeline;
+				case 1 -> R.string.media;
+				case 2 -> R.string.profile_featured;
 				default -> throw new IllegalStateException();
 			});
 			tab.view.textView.setSingleLine();
@@ -349,7 +353,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			featuredFragment=(ProfileFeaturedFragment) getChildFragmentManager().getFragment(savedInstanceState, "featured");
 			timelineFragment=(AccountTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "timeline");
 			mediaTimelineFragment=(AccountSimpleTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "media");
-			aboutFragment=(ProfileAboutFragment) getChildFragmentManager().getFragment(savedInstanceState, "about");
 		}
 
 		if(loaded){
@@ -423,6 +426,28 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		});
 		familiarFollowersRow.setVisibility(View.GONE);
 
+		fieldsLayout.setColumnCount(getResources().getConfiguration().screenWidthDp>=640 ? 4 : 2);
+		fieldsLayout.setLayoutCallback(()->{
+			for(int i=0;i<fieldsLayout.getChildCount();i++){
+				View field=fieldsLayout.getChildAt(i);
+				FieldViewHolder vh=(FieldViewHolder) field.getTag();
+				if(vh.value.getLayout().getLineWidth(0)>vh.value.getMeasuredWidth()){
+					vh.valueEllipsis.setVisibility(View.VISIBLE);
+					vh.value.setPaddingRelative(0, 0, V.dp(24), 0);
+				}else{
+					vh.valueEllipsis.setVisibility(View.INVISIBLE);
+					vh.value.setPadding(0, 0, 0, 0);
+				}
+				if(vh.name.getLayout().getLineWidth(0)>vh.name.getMeasuredWidth()){
+					vh.nameEllipsis.setVisibility(View.VISIBLE);
+					vh.name.setPaddingRelative(0, 0, V.dp(24), 0);
+				}else{
+					vh.nameEllipsis.setVisibility(View.INVISIBLE);
+					vh.name.setPadding(0, 0, 0, 0);
+				}
+			}
+		});
+
 		return sizeWrapper;
 	}
 
@@ -492,12 +517,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, true);
 			mediaTimelineFragment=AccountSimpleTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
 		}
-		if(aboutFragment==null){
-			aboutFragment=new ProfileAboutFragment();
-			aboutFragment.setFields(fields);
-			CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, getActivity());
-			aboutFragment.setBio(parsedBio);
-		}
 		if(!refreshing){
 			pager.getAdapter().notifyDataSetChanged();
 		}
@@ -551,14 +570,13 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			getChildFragmentManager().putFragment(outState, "timeline", timelineFragment);
 		if(mediaTimelineFragment.isAdded())
 			getChildFragmentManager().putFragment(outState, "media", mediaTimelineFragment);
-		if(aboutFragment.isAdded())
-			getChildFragmentManager().putFragment(outState, "about", aboutFragment);
 	}
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig){
 		super.onConfigurationChanged(newConfig);
 		updateToolbar();
+		fieldsLayout.setColumnCount(newConfig.screenWidthDp>=640 ? 4 : 2);
 	}
 
 	@Override
@@ -586,7 +604,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	}
 
 	private void applyChildWindowInsets(){
-		if(aboutFragment!=null && aboutFragment.isAdded() && childInsets!=null){
+		if(timelineFragment!=null && timelineFragment.isAdded() && childInsets!=null){
 			timelineFragment.onApplyWindowInsets(childInsets);
 			mediaTimelineFragment.onApplyWindowInsets(childInsets);
 			featuredFragment.onApplyWindowInsets(childInsets);
@@ -685,12 +703,20 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			username.setText("@"+account.username+"@"+domain);
 		}
 
+		CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, getActivity());
+		if(TextUtils.isEmpty(parsedBio)){
+			bio.setVisibility(View.GONE);
+		}else{
+			bio.setVisibility(View.VISIBLE);
+			bio.setText(parsedBio);
+		}
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
 		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, (int)Math.min(999, account.followersCount)));
 		followingLabel.setText(getResources().getQuantityString(R.plurals.following, (int)Math.min(999, account.followingCount)));
 
 		UiUtils.loadCustomEmojiInTextView(name);
+		UiUtils.loadCustomEmojiInTextView(bio);
 
 		notificationsButton.setVisibility(View.GONE);
 		if(isSelf){
@@ -721,27 +747,46 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 		fields.clear();
 
-		for(AccountField field:account.fields){
-			field.parsedValue=ssb=HtmlParser.parse(field.value, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, getActivity());
-			field.valueEmojis=ssb.getSpans(0, ssb.length(), CustomEmojiSpan.class);
-			ssb=new SpannableStringBuilder(field.name);
-			HtmlParser.parseCustomEmoji(ssb, account.emojis);
-			field.parsedName=ssb;
-			field.nameEmojis=ssb.getSpans(0, ssb.length(), CustomEmojiSpan.class);
-			field.emojiRequests=new ArrayList<>(field.nameEmojis.length+field.valueEmojis.length);
-			for(CustomEmojiSpan span:field.nameEmojis){
-				field.emojiRequests.add(span.createImageLoaderRequest());
-			}
-			for(CustomEmojiSpan span:field.valueEmojis){
-				field.emojiRequests.add(span.createImageLoaderRequest());
-			}
-			fields.add(field);
-		}
+		fieldsLayout.removeAllViews();
+		if(account.fields.isEmpty()){
+			fieldsLayout.setVisibility(View.GONE);
+		}else{
+			fieldsLayout.setVisibility(View.VISIBLE);
+			for(AccountField field:account.fields){
+				View fv=getActivity().getLayoutInflater().inflate(R.layout.item_profile_about, fieldsLayout, false);
+				TextView nameView=fv.findViewById(R.id.title);
+				TextView valueView=fv.findViewById(R.id.value);
+				View verifiedIcon=fv.findViewById(R.id.verified_icon);
 
-		if(aboutFragment!=null){
-			aboutFragment.setFields(fields);
-			CharSequence parsedBio=HtmlParser.parse(account.note, account.emojis, Collections.emptyList(), Collections.emptyList(), accountID, account, getActivity());
-			aboutFragment.setBio(parsedBio);
+				SpannableStringBuilder name=HtmlParser.parseCustomEmoji(field.name, account.emojis);
+				nameView.setText(name);
+				SpannableStringBuilder value=HtmlParser.parse(field.value, account.emojis, List.of(), List.of(), accountID, account, getActivity(), false);
+				valueView.setText(value);
+
+				UiUtils.loadCustomEmojiInTextView(nameView);
+				UiUtils.loadCustomEmojiInTextView(valueView);
+
+				if(field.verifiedAt!=null){
+					fv.setBackgroundColor(UiUtils.isDarkTheme() ? 0xff032E15 : 0xffF0FDF4);
+					fv.setOutlineProvider(OutlineProviders.roundedRect(8));
+					fv.setClipToOutline(true);
+				}else{
+					verifiedIcon.setVisibility(View.GONE);
+				}
+
+				FieldViewHolder fvh=new FieldViewHolder();
+				fvh.name=nameView;
+				fvh.value=valueView;
+				fvh.nameEllipsis=fv.findViewById(R.id.title_ellipsis);
+				fvh.valueEllipsis=fv.findViewById(R.id.value_ellipsis);
+				fv.setTag(fvh);
+
+				View.OnClickListener expandListener=v->new LongProfileFieldSheet(getActivity(), name, value).show();
+				fvh.nameEllipsis.setOnClickListener(expandListener);
+				fvh.valueEllipsis.setOnClickListener(expandListener);
+
+				fieldsLayout.addView(fv);
+			}
 		}
 	}
 
@@ -1176,10 +1221,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 	private Fragment getFragmentForPage(int page){
 		return switch(page){
-			case 0 -> aboutFragment;
-			case 1 -> timelineFragment;
-			case 2 -> mediaTimelineFragment;
-			case 3 -> featuredFragment;
+			case 0 -> timelineFragment;
+			case 1 -> mediaTimelineFragment;
+			case 2 -> featuredFragment;
 			default -> throw new IllegalStateException();
 		};
 	}
@@ -1334,12 +1378,17 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 		@Override
 		public int getItemCount(){
-			return loaded ? 4 : 0;
+			return loaded ? 3 : 0;
 		}
 
 		@Override
 		public int getItemViewType(int position){
 			return position;
 		}
+	}
+
+	private static class FieldViewHolder{
+		public TextView name, value;
+		public ImageButton nameEllipsis, valueEllipsis;
 	}
 }

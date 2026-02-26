@@ -178,6 +178,23 @@
 
 				</LinearLayout>
 
+				<org.joinmastodon.android.ui.views.LinkedTextView
+					android:id="@+id/bio"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginVertical="8dp"
+					android:layout_marginHorizontal="16dp"
+					android:textSize="15sp"
+					android:textColor="?colorM3OnSurface"
+					android:lineSpacingMultiplier="1.4" />
+
+				<org.joinmastodon.android.ui.views.ProfileFieldsGridLayout
+					android:id="@+id/fields"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginVertical="8dp"
+					android:layout_marginHorizontal="16dp" />
+
 				<org.joinmastodon.android.ui.views.WrappingLinearLayout
 					android:id="@+id/profile_counters"
 					android:layout_width="match_parent"
