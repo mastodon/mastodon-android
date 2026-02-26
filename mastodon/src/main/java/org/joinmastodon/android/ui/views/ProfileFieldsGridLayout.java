@@ -15,6 +15,7 @@ public class ProfileFieldsGridLayout extends ViewGroup implements CustomViewHelp
 	private int spacing;
 	private int[] spanWidths=new int[numColumns];
 	private Runnable layoutCallback;
+	private boolean hasHiddenViews;
 
 	public ProfileFieldsGridLayout(Context context){
 		this(context, null);
@@ -47,11 +48,14 @@ public class ProfileFieldsGridLayout extends ViewGroup implements CustomViewHelp
 		}
 		spanWidths[numColumns-1]=availWidth;
 
+		hasHiddenViews=false;
+
 		int columnIndex=0;
 		int rowIndex=0;
 		int rowHeight=0;
 		for(int i=0;i<getChildCount();i++){
 			View child=getChildAt(i);
+			child.setVisibility(View.VISIBLE);
 			LayoutParams lp=child.getLayoutParams();
 			if(lp.height==LayoutParams.MATCH_PARENT)
 				throw new IllegalArgumentException("Height must be wrap_content or a constant value");
@@ -73,6 +77,14 @@ public class ProfileFieldsGridLayout extends ViewGroup implements CustomViewHelp
 					View prev=getChildAt(i-1);
 					ViewPosition prevPos=(ViewPosition) prev.getTag(R.id.profile_grid_layout_position);
 					prevPos.colSpan+=columnsAvail;
+				}
+
+				if(rowIndex==maxRows-2){
+					for(int j=i;j<getChildCount();j++){
+						getChildAt(j).setVisibility(View.GONE);
+					}
+					hasHiddenViews=true;
+					break;
 				}
 
 				columnIndex=0;
@@ -110,6 +122,8 @@ public class ProfileFieldsGridLayout extends ViewGroup implements CustomViewHelp
 		int columnWidth=(availWidth-spacing*(numColumns-1))/numColumns;
 		for(int i=0;i<getChildCount();i++){
 			View child=getChildAt(i);
+			if(child.getVisibility()==GONE)
+				continue;
 			ViewPosition pos=(ViewPosition) child.getTag(R.id.profile_grid_layout_position);
 			if(pos.row>0 && pos.row!=currentRow){
 				yOffset+=rowHeight+spacing;
@@ -134,6 +148,15 @@ public class ProfileFieldsGridLayout extends ViewGroup implements CustomViewHelp
 			spanWidths=new int[columns];
 			requestLayout();
 		}
+	}
+
+	public boolean hasHiddenViews(){
+		return hasHiddenViews;
+	}
+
+	public void setMaxRows(int maxRows){
+		this.maxRows=maxRows;
+		requestLayout();
 	}
 
 	private static class ViewPosition{

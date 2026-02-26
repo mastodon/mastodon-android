@@ -30,7 +30,6 @@ import android.text.style.TypefaceSpan;
 import android.transition.Fade;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -94,7 +93,6 @@ import org.joinmastodon.android.ui.sheets.DecentralizationExplainerSheet;
 import org.joinmastodon.android.ui.sheets.LongProfileFieldSheet;
 import org.joinmastodon.android.ui.tabs.TabLayout;
 import org.joinmastodon.android.ui.tabs.TabLayoutMediator;
-import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.text.ImageSpanThatDoesNotBreakShitForNoGoodReason;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -168,6 +166,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private TextView familiarFollowersLabel;
 	private WrappingLinearLayout badgesLayout;
 	private ProfileFieldsGridLayout fieldsLayout;
+	private Button expandFieldsButton;
 
 	private Account account;
 	private String accountID;
@@ -274,6 +273,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		badgesLayout=content.findViewById(R.id.badges);
 		joinDate=content.findViewById(R.id.join_date);
 		fieldsLayout=content.findViewById(R.id.fields);
+		expandFieldsButton=content.findViewById(R.id.expand_fields_button);
 
 		avatar.setOutlineProvider(OutlineProviders.roundedRect(16));
 		avatar.setClipToOutline(true);
@@ -430,6 +430,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		fieldsLayout.setLayoutCallback(()->{
 			for(int i=0;i<fieldsLayout.getChildCount();i++){
 				View field=fieldsLayout.getChildAt(i);
+				if(field.getVisibility()==View.GONE)
+					continue;
 				FieldViewHolder vh=(FieldViewHolder) field.getTag();
 				if(vh.value.getLayout().getLineWidth(0)>vh.value.getMeasuredWidth()){
 					vh.valueEllipsis.setVisibility(View.VISIBLE);
@@ -446,6 +448,11 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 					vh.name.setPadding(0, 0, 0, 0);
 				}
 			}
+			expandFieldsButton.setVisibility(fieldsLayout.hasHiddenViews() ? View.VISIBLE : View.GONE);
+		});
+		expandFieldsButton.setOnClickListener(v->{
+			UiUtils.beginLayoutTransition(contentView);
+			fieldsLayout.setMaxRows(Integer.MAX_VALUE);
 		});
 
 		return sizeWrapper;
