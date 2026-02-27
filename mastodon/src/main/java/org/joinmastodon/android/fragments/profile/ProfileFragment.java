@@ -128,6 +128,7 @@ import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.fragments.BaseRecyclerFragment;
 import me.grishka.appkit.fragments.LoaderFragment;
+import me.grishka.appkit.fragments.WindowInsetsAwareFragment;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
@@ -184,9 +185,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private Drawable tabsColorBackground;
 	private boolean tabBarIsAtTop;
 	private Animator tabBarColorAnim;
-	private MenuItem editSaveMenuItem;
 	private HashSet<APIRequest<?>> relationshipRequests=new HashSet<>();
 	private PopupMenu buttonMenu;
+	private ArrayList<Tab> tabs=new ArrayList<>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -286,14 +287,13 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			}
 		};
 
-		tabViews=new FrameLayout[4];
+		tabViews=new FrameLayout[3];
 		for(int i=0;i<tabViews.length;i++){
 			FrameLayout tabView=new FrameLayout(getActivity());
 			tabView.setId(switch(i){
-				case 0 -> R.id.profile_about;
-				case 1 -> R.id.profile_timeline;
-				case 2 -> R.id.profile_media;
-				case 3 -> R.id.profile_featured;
+				case 0 -> R.id.profile_tab0;
+				case 1 -> R.id.profile_tab1;
+				case 2 -> R.id.profile_tab2;
 				default -> throw new IllegalStateException("Unexpected value: "+i);
 			});
 			tabView.setVisibility(View.GONE);
@@ -312,12 +312,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		tabbar.setTabTextColors(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OnSurfaceVariant), UiUtils.getThemeColor(getActivity(), R.attr.colorM3Primary));
 		tabbar.setTabTextSize(V.dp(14));
 		tabLayoutMediator=new TabLayoutMediator(tabbar, pager, (tab, position)->{
-			tab.setText(switch(position){
-				case 0 -> R.string.profile_timeline;
-				case 1 -> R.string.media;
-				case 2 -> R.string.profile_featured;
-				default -> throw new IllegalStateException();
-			});
+			tab.setText(tabs.get(position).title);
 			tab.view.textView.setSingleLine();
 			tab.view.textView.setEllipsize(TextUtils.TruncateAt.END);
 		});
@@ -525,6 +520,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			mediaTimelineFragment=AccountSimpleTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
 		}
 		if(!refreshing){
+			tabs.clear();
+			tabs.add(new Tab(timelineFragment, getString(R.string.profile_timeline)));
+			tabs.add(new Tab(mediaTimelineFragment, getString(R.string.media)));
+			tabs.add(new Tab(featuredFragment, getString(R.string.profile_featured)));
 			pager.getAdapter().notifyDataSetChanged();
 		}
 		super.dataLoaded();
@@ -612,9 +611,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 	private void applyChildWindowInsets(){
 		if(timelineFragment!=null && timelineFragment.isAdded() && childInsets!=null){
-			timelineFragment.onApplyWindowInsets(childInsets);
-			mediaTimelineFragment.onApplyWindowInsets(childInsets);
-			featuredFragment.onApplyWindowInsets(childInsets);
+			for(Tab t:tabs){
+				if(t.fragment instanceof WindowInsetsAwareFragment waf)
+					waf.onApplyWindowInsets(childInsets);
+			}
 		}
 	}
 
@@ -1227,12 +1227,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	}
 
 	private Fragment getFragmentForPage(int page){
-		return switch(page){
-			case 0 -> timelineFragment;
-			case 1 -> mediaTimelineFragment;
-			case 2 -> featuredFragment;
-			default -> throw new IllegalStateException();
-		};
+		return tabs.get(page).fragment;
 	}
 
 	private RecyclerView getScrollableRecyclerView(){
@@ -1385,7 +1380,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 		@Override
 		public int getItemCount(){
-			return loaded ? 3 : 0;
+			return loaded ? tabs.size() : 0;
 		}
 
 		@Override
@@ -1397,5 +1392,15 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private static class FieldViewHolder{
 		public TextView name, value;
 		public ImageButton nameEllipsis, valueEllipsis;
+	}
+
+	private static class Tab{
+		public Fragment fragment;
+		public String title;
+
+		public Tab(Fragment fragment, String title){
+			this.fragment=fragment;
+			this.title=title;
+		}
 	}
 }
