@@ -203,7 +203,7 @@
 					android:layout_marginTop="-4dp"
 					android:layout_marginBottom="8dp"
 					style="@style/Widget.Mastodon.M3.Button.Outlined.Neutral"
-					android:text="@string/text_show_more"/>
+					android:text="@string/profile_show_all_fields"/>
 
 				<org.joinmastodon.android.ui.views.WrappingLinearLayout
 					android:id="@+id/profile_counters"
