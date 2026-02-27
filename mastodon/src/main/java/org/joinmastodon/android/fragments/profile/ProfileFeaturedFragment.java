@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
+import org.joinmastodon.android.api.requests.BatchRequest;
+import org.joinmastodon.android.api.requests.accounts.GetAccountEndorsements;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
+import org.joinmastodon.android.fragments.FeaturedHashtagsListFragment;
 import org.joinmastodon.android.fragments.HashtagFeaturedTimelineFragment;
-import org.joinmastodon.android.fragments.PinnedPostsListFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
+import org.joinmastodon.android.fragments.account_list.FeaturedAccountListFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
@@ -23,6 +26,7 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
@@ -30,9 +34,6 @@ import me.grishka.appkit.api.SimpleCallback;
 
 public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult>{
 	private Account profileAccount;
-//	private List<Account> endorsedAccounts;
-	private List<Status> pinnedStatuses;
-	private boolean statusesLoaded;
 
 	public ProfileFeaturedFragment(){
 		setListLayoutId(R.layout.recycler_fragment_no_refresh);
@@ -48,19 +49,16 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 	protected List<StatusDisplayItem> buildDisplayItems(SearchResult s){
 		ArrayList<StatusDisplayItem> items=switch(s.type){
 			case ACCOUNT -> new ArrayList<>(Collections.singletonList(new AccountStatusDisplayItem(s.id, this, getActivity(), s.account, accountID)));
-			case HASHTAG -> throw new IllegalStateException();
-			case STATUS -> StatusDisplayItem.buildItems(this, s.status, accountID, s, knownAccounts, true);
+			case HASHTAG, STATUS -> throw new IllegalStateException();
 		};
 
 		if(s.firstInSection){
 			items.add(0, new SectionHeaderStatusDisplayItem(this, getActivity(), getString(switch(s.type){
 				case ACCOUNT -> R.string.profile_endorsed_accounts;
-				case HASHTAG -> throw new IllegalStateException();
-				case STATUS -> R.string.posts;
+				case HASHTAG, STATUS -> throw new IllegalStateException();
 			}), getString(R.string.view_all), switch(s.type){
 				case ACCOUNT -> (Runnable)this::showAllEndorsedAccounts;
-				case HASHTAG -> throw new IllegalStateException();
-				case STATUS -> (Runnable)this::showAllPinnedPosts;
+				case HASHTAG, STATUS -> throw new IllegalStateException();
 			}));
 		}
 
@@ -116,18 +114,24 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		if(!statusesLoaded){
-			new GetAccountStatuses(profileAccount.id, null, null, 2, GetAccountStatuses.Filter.PINNED, null)
-					 .setCallback(new SimpleCallback<>(this){
-						  @Override
-						  public void onSuccess(List<Status> result){
-							  pinnedStatuses=result;
-							  statusesLoaded=true;
-							  onOneApiRequestCompleted();
-						  }
-					 })
-					 .exec(accountID);
-		}
+		// Batch request because this will also load collections when those are ready
+		currentRequest=new BatchRequest(Map.of("accounts", new GetAccountEndorsements(profileAccount.id, 5, null)))
+				.setCallback(new SimpleCallback<>(this){
+					@Override
+					public void onSuccess(Map<String, Object> result){
+						if(getActivity()==null)
+							return;
+						HeaderPaginationList<Account> accounts=(HeaderPaginationList<Account>) result.get("accounts");
+						ArrayList<SearchResult> results=new ArrayList<>();
+						for(int i=0;i<accounts.size();i++){
+							SearchResult res=new SearchResult(accounts.get(i));
+							res.firstInSection=(i==0);
+							results.add(res);
+						}
+						onDataLoaded(results, false);
+					}
+				})
+				.exec(accountID);
 	}
 
 	@Override
@@ -135,26 +139,6 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 		super.onShown();
 		if(!getArguments().getBoolean("noAutoLoad") && !loaded && !dataLoading)
 			loadData();
-	}
-
-	@Override
-	public void onRefresh(){
-		statusesLoaded=false;
-		super.onRefresh();
-	}
-
-	private void onOneApiRequestCompleted(){
-		if(getActivity()==null)
-			return;
-		if(statusesLoaded){
-			ArrayList<SearchResult> results=new ArrayList<>();
-			for(int i=0;i<Math.min(2, pinnedStatuses.size());i++){
-				SearchResult res=new SearchResult(pinnedStatuses.get(i));
-				res.firstInSection=(i==0);
-				results.add(res);
-			}
-			onDataLoaded(results, false);
-		}
 	}
 
 	protected SearchResult getResultByID(String id){
@@ -167,20 +151,25 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 	}
 
 	@Override
+	protected void onRelationshipsLoaded(){
+		for(int i=0;i<list.getChildCount();i++){
+			if(list.getChildViewHolder(list.getChildAt(i)) instanceof AccountStatusDisplayItem.Holder ah){
+				ah.realHolder.bindRelationship();
+			}
+		}
+	}
+
+	@Override
 	protected void drawDivider(View child, View bottomSibling, RecyclerView.ViewHolder holder, RecyclerView.ViewHolder siblingHolder, RecyclerView parent, Canvas c, Paint paint){
 		if(holder instanceof FooterStatusDisplayItem.Holder && siblingHolder instanceof StatusDisplayItem.Holder<?> sdi && sdi.getItemID().startsWith("post_")){
 			super.drawDivider(child, bottomSibling, holder, siblingHolder, parent, c, paint);
 		}
 	}
 
-	private void showAllPinnedPosts(){
+	private void showAllEndorsedAccounts(){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
-		args.putParcelable("profileAccount", Parcels.wrap(profileAccount));
-		Nav.go(getActivity(), PinnedPostsListFragment.class, args);
-	}
-
-	private void showAllEndorsedAccounts(){
-
+		args.putParcelable("targetAccount", Parcels.wrap(profileAccount));
+		Nav.go(getActivity(), FeaturedAccountListFragment.class, args);
 	}
 }

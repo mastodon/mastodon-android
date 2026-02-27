@@ -37,6 +37,7 @@ import org.joinmastodon.android.ui.views.ProgressBarButton;
 import org.parceler.Parcels;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -63,7 +64,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 
 	private final String accountID;
 	private final Fragment fragment;
-	private final HashMap<String, Relationship> relationships;
+	private final Map<String, Relationship> relationships;
 
 	private Consumer<AccountViewHolder> onClick;
 	private Predicate<AccountViewHolder> onLongClick;
@@ -72,11 +73,11 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	private boolean showBio;
 	private boolean checked;
 
-	public AccountViewHolder(Fragment fragment, ViewGroup list, HashMap<String, Relationship> relationships){
+	public AccountViewHolder(Fragment fragment, ViewGroup list, Map<String, Relationship> relationships){
 		this(fragment, list, relationships, R.layout.item_account_list);
 	}
 
-	public AccountViewHolder(Fragment fragment, ViewGroup list, HashMap<String, Relationship> relationships, @LayoutRes int layout){
+	public AccountViewHolder(Fragment fragment, ViewGroup list, Map<String, Relationship> relationships, @LayoutRes int layout){
 		super(fragment.getActivity(), layout, list);
 		this.fragment=fragment;
 		this.accountID=Objects.requireNonNull(fragment.getArguments().getString("account"));

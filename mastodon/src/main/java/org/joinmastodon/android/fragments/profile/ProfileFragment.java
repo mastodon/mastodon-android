@@ -61,6 +61,7 @@ import org.joinmastodon.android.api.requests.accounts.GetAccountFamiliarFollower
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.requests.accounts.RemoveAccountFromFollowers;
+import org.joinmastodon.android.api.requests.accounts.SetAccountEndorsed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountPersonalNote;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -752,6 +753,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		fields.clear();
 
 		fieldsLayout.removeAllViews();
+		expandFieldsButton.setVisibility(View.GONE);
 		if(account.fields.isEmpty()){
 			fieldsLayout.setVisibility(View.GONE);
 		}else{
@@ -858,10 +860,17 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_account : R.string.mute_account, account.getDisplayUsername()));
 		menu.findItem(R.id.block).setTitle(makeRedString(getString(relationship.blocking ? R.string.unblock_account : R.string.block_account)));
 		menu.findItem(R.id.report).setTitle(makeRedString(getString(R.string.report_account)));
-		if(relationship.following)
-			menu.findItem(R.id.hide_boosts).setTitle(getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user));
-		else
+		if(relationship.following){
+			MenuItem hideBoosts=menu.findItem(R.id.hide_boosts);
+			hideBoosts.setVisible(true);
+			hideBoosts.setTitle(getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user));
+			MenuItem feature=menu.findItem(R.id.feature);
+			feature.setVisible(true);
+			feature.setTitle(getString(relationship.endorsed ? R.string.unfeature_user : R.string.feature_user));
+		}else{
 			menu.findItem(R.id.hide_boosts).setVisible(false);
+			menu.findItem(R.id.feature).setVisible(false);
+		}
 		if(!account.isLocal())
 			menu.findItem(R.id.block_domain).setTitle(makeRedString(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain())));
 		else
@@ -1011,6 +1020,23 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 						})
 						.exec(accountID);
 			});
+		}else if(id==R.id.feature){
+			new SetAccountEndorsed(account.id, !relationship.endorsed)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Relationship result){
+							updateRelationship(result);
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							if(getActivity()==null)
+								return;
+							error.showToast(getActivity());
+						}
+					})
+					.wrapProgress(getActivity(), R.string.loading, true)
+					.exec(accountID);
 		}
 		return true;
 	}

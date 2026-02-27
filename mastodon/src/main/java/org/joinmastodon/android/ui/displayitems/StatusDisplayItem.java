@@ -83,7 +83,7 @@ public abstract class StatusDisplayItem{
 			case CARD_LARGE -> new LinkCardStatusDisplayItem.Holder(activity, parent, true, parentFragment.getArguments().getString("account"));
 			case CARD_COMPACT -> new LinkCardStatusDisplayItem.Holder(activity, parent, false, parentFragment.getArguments().getString("account"));
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
-			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, null));
+			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, parentFragment instanceof BaseStatusListFragment<?> slf ? slf.getRelationships() : null));
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
 			case GAP -> new GapStatusDisplayItem.Holder(activity, parent);
 			case EXTENDED_FOOTER -> new ExtendedFooterStatusDisplayItem.Holder(activity, parent);

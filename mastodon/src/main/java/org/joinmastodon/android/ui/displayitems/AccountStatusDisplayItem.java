@@ -36,12 +36,12 @@ public class AccountStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<AccountStatusDisplayItem> implements ImageLoaderViewHolder{
-		private final AccountViewHolder realHolder;
+		public final AccountViewHolder realHolder;
 
 		public Holder(AccountViewHolder realHolder){
 			super(realHolder.itemView);
 			this.realHolder=realHolder;
-			realHolder.setStyle(AccountViewHolder.AccessoryType.NONE, false);
+			realHolder.setStyle(AccountViewHolder.AccessoryType.BUTTON, false);
 		}
 
 		@Override

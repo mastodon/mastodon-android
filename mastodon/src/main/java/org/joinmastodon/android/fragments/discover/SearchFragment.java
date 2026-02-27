@@ -36,7 +36,6 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 	private String currentQuery;
 	private List<StatusDisplayItem> prevDisplayItems;
 	private EnumSet<SearchResult.Type> currentFilter=EnumSet.allOf(SearchResult.Type.class);
-	private List<SearchResult> unfilteredResults=Collections.emptyList();
 	private InputMethodManager imm;
 
 	public SearchFragment(){
@@ -161,7 +160,6 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 							}
 						}
 						prevDisplayItems=new ArrayList<>(displayItems);
-						unfilteredResults=results;
 						boolean wasRefreshing=refreshing;
 						onDataLoaded(filterSearchResults(results), type!=null && !results.isEmpty());
 						if(wasRefreshing)
@@ -198,16 +196,6 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 		loadData();
 	}
 
-	private void setFilter(EnumSet<SearchResult.Type> filter){
-		if(filter.equals(currentFilter))
-			return;
-		currentFilter=filter;
-		// This can be optimized by not rebuilding display items every time filter is changed, but I'm too lazy
-		prevDisplayItems=new ArrayList<>(displayItems);
-		refreshing=true;
-		onDataLoaded(filterSearchResults(unfilteredResults), false);
-	}
-
 	private List<SearchResult> filterSearchResults(List<SearchResult> input){
 		if(currentFilter.size()==SearchResult.Type.values().length)
 			return input;
@@ -231,8 +219,12 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 		}
 	}
 
-	@FunctionalInterface
-	public interface ProgressVisibilityListener{
-		void onProgressVisibilityChanged(boolean visible);
+	@Override
+	protected void onRelationshipsLoaded(){
+		for(int i=0;i<list.getChildCount();i++){
+			if(list.getChildViewHolder(list.getChildAt(i)) instanceof AccountStatusDisplayItem.Holder ah){
+				ah.realHolder.bindRelationship();
+			}
+		}
 	}
 }

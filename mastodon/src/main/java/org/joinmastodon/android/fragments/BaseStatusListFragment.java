@@ -61,6 +61,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -690,6 +691,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	public void putRelationship(String id, Relationship rel){
 		relationships.put(id, rel);
+	}
+
+	public Map<String, Relationship> getRelationships(){
+		return relationships;
 	}
 
 	protected void loadRelationships(Set<String> ids){
