@@ -49,10 +49,10 @@
 	<string name="block_domain">Блокувати %s</string>
 	<string name="unblock_domain">Розблокувати %s</string>
 	<plurals name="x_posts">
-		<item quantity="one">%,d Публікація</item>
-		<item quantity="few">%,d Публікації</item>
-		<item quantity="many">%,d Публікацій</item>
-		<item quantity="other">%,d Публікацій</item>
+		<item quantity="one">%,d допис</item>
+		<item quantity="few">%,d дописи</item>
+		<item quantity="many">%,d дописів</item>
+		<item quantity="other">%,d дописа</item>
 	</plurals>
 	<string name="profile_joined">Приєднався</string>
 	<string name="done">Готово</string>
@@ -166,14 +166,14 @@
 	<string name="report_personal_subtitle">Ось ваші варіанти керування тим, що ви бачите в Mastodon:</string>
 	<string name="back">Назад</string>
 	<string name="search_communities">Назва сервера або URL</string>
-	<string name="instance_rules_title">Правила серверу</string>
+	<string name="instance_rules_title">Правила сервера</string>
 	<string name="instance_rules_subtitle">Продовжуючи, ви погоджуєтеся дотримуватися правил встановлених модерацією %s.</string>
 	<string name="signup_title">Створити акаунт</string>
 	<string name="display_name">Ім\'я</string>
 	<string name="username">Ім\'я користувача</string>
 	<string name="email">Email</string>
 	<string name="password">Пароль</string>
-	<string name="confirm_password">Підтвердження паролю</string>
+	<string name="confirm_password">Підтвердження пароля</string>
 	<string name="category_general">Загальні</string>
 	<string name="confirm_email_title">Перевірте вашу поштову скриньку</string>
 	<!-- %s is the email address -->
