@@ -648,10 +648,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		int textColor=UiUtils.getThemeColor(getActivity(), textColorRes);
 		badge.setTextColor(textColor);
 		badge.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 13);
-		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P)
-			badge.setTypeface(Typeface.create(Typeface.DEFAULT, 600, false));
-		else
-			badge.setTypeface(Typeface.DEFAULT_BOLD);
+		badge.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
 		Drawable icon=getResources().getDrawable(iconRes, getActivity().getTheme());
 		icon.setBounds(0, 0, V.dp(16), V.dp(16));
 		if(tintIcon){
@@ -749,7 +746,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		SpannableStringBuilder joinDateText=new SpannableStringBuilder(joinTemplate);
 		String joinDateDate=DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(LocalDateTime.ofInstant(account.createdAt, ZoneId.systemDefault()));
 		joinDateText.replace(dateIndex, dateIndex+6, joinDateDate);
-		joinDateText.setSpan(makeSemiBoldSpan(), dateIndex, dateIndex+joinDateDate.length(), 0);
+		joinDateText.setSpan(new TypefaceSpan("sans-serif-medium"), dateIndex, dateIndex+joinDateDate.length(), 0);
 		joinDate.setText(joinDateText);
 
 		fields.clear();
@@ -1111,12 +1108,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		}
 	}
 
-	private Object makeSemiBoldSpan(){
-		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P)
-			return new TypefaceSpan(Typeface.create(Typeface.DEFAULT, 600, false));
-		return new StyleSpan(Typeface.BOLD);
-	}
-
 	private void updateFamiliarFollowers(){
 		if(!familiarFollowers.isEmpty()){
 			familiarFollowersRow.setVisibility(View.VISIBLE);
@@ -1130,12 +1121,12 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			if(familiarFollowers.size()>1){
 				int index=template.indexOf("{second}");
 				ssb.replace(index, index+8, followers.get(1).parsedName);
-				ssb.setSpan(makeSemiBoldSpan(), index, index+followers.get(1).parsedName.length(), 0);
+				ssb.setSpan(new TypefaceSpan("sans-serif-medium"), index, index+followers.get(1).parsedName.length(), 0);
 				template=template.replace("{second}", "#".repeat(followers.get(1).parsedName.length()));
 			}
 			int index=template.indexOf("{first}");
 			ssb.replace(index, index+7, followers.get(0).parsedName);
-			ssb.setSpan(makeSemiBoldSpan(), index, index+followers.get(0).parsedName.length(), 0);
+			ssb.setSpan(new TypefaceSpan("sans-serif-medium"), index, index+followers.get(0).parsedName.length(), 0);
 			familiarFollowersLabel.setText(ssb);
 			UiUtils.loadCustomEmojiInTextView(familiarFollowersLabel);
 			if(familiarFollowers.size()<3)
