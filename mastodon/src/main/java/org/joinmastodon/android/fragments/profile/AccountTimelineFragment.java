@@ -15,8 +15,10 @@ import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.tags.GetAccountFeaturedHashtags;
+import org.joinmastodon.android.api.MastodonAPIRequest;
+import org.joinmastodon.android.api.requests.BatchRequest;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
+import org.joinmastodon.android.api.requests.tags.GetAccountFeaturedHashtags;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.OwnFeaturedHashtagAddedEvent;
 import org.joinmastodon.android.events.OwnFeaturedHashtagRemovedEvent;
@@ -27,6 +29,9 @@ import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.CheckablePopupMenu;
+import org.joinmastodon.android.ui.displayitems.ButtonStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.HeaderStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CheckableTextView;
 import org.joinmastodon.android.ui.views.ExpandableWrappingLinearLayout;
@@ -34,13 +39,12 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import androidx.recyclerview.widget.RecyclerView;
-import me.grishka.appkit.api.APIRequest;
-import me.grishka.appkit.api.Callback;
-import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
@@ -54,10 +58,11 @@ public class AccountTimelineFragment extends StatusListFragment{
 	private ExpandableWrappingLinearLayout hashtagsView;
 	private View expandHashtagsButton;
 	private boolean showReplies=false, showBoosts=true;
-	private APIRequest<?> featuredHashtagsRequest;
 	private List<Hashtag> hashtags=new ArrayList<>();
 	private String hashtagFilter=null;
-	private boolean hashtagsLoaded;
+	private boolean hashtagsLoaded, pinnedPostsLoaded;
+	private List<Status> pinnedPosts=new ArrayList<>();
+	private boolean pinnedPostsExpanded;
 
 	public AccountTimelineFragment(){
 		setListLayoutId(R.layout.recycler_fragment_no_refresh);
@@ -92,42 +97,73 @@ public class AccountTimelineFragment extends StatusListFragment{
 	public void onDestroy(){
 		E.unregister(this);
 		super.onDestroy();
-		if(featuredHashtagsRequest!=null)
-			featuredHashtagsRequest.cancel();
 	}
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetAccountStatuses(user.id, offset>0 ? getMaxID() : null, null, count, filter, hashtagFilter)
+		HashMap<String, MastodonAPIRequest<?>> requests=new HashMap<>();
+		requests.put("posts", new GetAccountStatuses(user.id, offset>0 ? getMaxID() : null, null, count, filter, hashtagFilter));
+		if(offset==0 && (refreshing || !hashtagsLoaded)){
+			requests.put("hashtags", new GetAccountFeaturedHashtags(user.id));
+		}
+		if(offset==0 && (refreshing || !pinnedPostsLoaded)){
+			requests.put("pinned", new GetAccountStatuses(user.id, null, null, 40, GetAccountStatuses.Filter.PINNED, null));
+		}
+		currentRequest=new BatchRequest(requests)
 				.setCallback(new SimpleCallback<>(this){
+					@SuppressWarnings("unchecked")
 					@Override
-					public void onSuccess(List<Status> result){
+					public void onSuccess(Map<String, Object> result){
 						if(getActivity()==null)
 							return;
-						boolean empty=result.isEmpty();
-						AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.ACCOUNT);
-						onDataLoaded(result, !empty);
-					}
-				})
-				.exec(accountID);
-		if(offset==0 && (refreshing || !hashtagsLoaded)){
-			featuredHashtagsRequest=new GetAccountFeaturedHashtags(user.id)
-					.setCallback(new Callback<>(){
-						@Override
-						public void onSuccess(List<Hashtag> result){
-							featuredHashtagsRequest=null;
-							hashtags=result instanceof ArrayList<Hashtag> al ? al : new ArrayList<>(hashtags);
+
+						if(result.containsKey("hashtags")){
+							List<Hashtag> tags=(List<Hashtag>) result.get("hashtags");
+							hashtags=tags instanceof ArrayList<Hashtag> al ? al : new ArrayList<>(tags);
 							updateHashtags();
 							hashtagsLoaded=true;
 						}
 
-						@Override
-						public void onError(ErrorResponse error){
-							featuredHashtagsRequest=null;
+						if(result.containsKey("pinned")){
+							pinnedPosts.clear();
+							List<Status> pinned=(List<Status>) result.get("pinned");
+							pinnedPosts.addAll(pinned);
+							for(Status s:pinnedPosts)
+								s.pinned=true;
+							pinnedPostsLoaded=true;
 						}
-					})
-					.exec(accountID);
+
+						List<Status> posts=(List<Status>) result.get("posts");
+						boolean empty=posts.isEmpty();
+						if(offset==0 && !pinnedPosts.isEmpty() && hashtagFilter==null){
+							ArrayList<Status> postsWithPinned=new ArrayList<>();
+							postsWithPinned.add(pinnedPosts.getFirst());
+							postsWithPinned.addAll(posts);
+							posts=postsWithPinned;
+							pinnedPostsExpanded=false;
+						}
+						AccountSessionManager.get(accountID).filterStatuses(posts, FilterContext.ACCOUNT);
+						onDataLoaded(posts, !empty);
+					}
+				})
+				.exec(accountID);
+	}
+
+	@Override
+	protected List<StatusDisplayItem> buildDisplayItems(Status s){
+		List<StatusDisplayItem> items=super.buildDisplayItems(s);
+		if(s.pinned!=null && s.pinned){
+			for(StatusDisplayItem item:items){
+				if(item instanceof HeaderStatusDisplayItem header){
+					header.isPinned=true;
+					break;
+				}
+			}
+			if(!pinnedPostsExpanded && pinnedPosts.size()>1){
+				items.add(new ButtonStatusDisplayItem(s.id, this, getActivity(), getString(R.string.view_all_pinned), R.drawable.ic_pin_20px, this::expandPinnedPosts));
+			}
 		}
+		return items;
 	}
 
 	@Override
@@ -141,6 +177,32 @@ public class AccountTimelineFragment extends StatusListFragment{
 		super.onShown();
 		if(!getArguments().getBoolean("noAutoLoad") && !loaded && !dataLoading)
 			loadData();
+	}
+
+	private void expandPinnedPosts(){
+		if(pinnedPostsExpanded) // User may have tapped the button a second time while the animation was running
+			return;
+		pinnedPostsExpanded=true;
+		int indexOfButton=-1;
+		for(int i=0;i<displayItems.size();i++){
+			if(displayItems.get(i) instanceof ButtonStatusDisplayItem){
+				indexOfButton=i;
+				displayItems.remove(i);
+				adapter.notifyItemRemoved(i);
+				break;
+			}
+		}
+		if(indexOfButton==-1)
+			throw new IllegalStateException("Can't find the button item");
+
+		ArrayList<StatusDisplayItem> newItems=new ArrayList<>();
+		for(int i=1;i<pinnedPosts.size();i++){
+			Status s=pinnedPosts.get(i);
+			newItems.addAll(buildDisplayItems(s));
+			data.add(i, s);
+		}
+		displayItems.addAll(indexOfButton, newItems);
+		adapter.notifyItemRangeInserted(indexOfButton, newItems.size());
 	}
 
 	private void updateHashtags(){

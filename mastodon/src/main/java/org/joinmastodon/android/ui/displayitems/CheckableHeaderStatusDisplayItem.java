@@ -15,8 +15,8 @@ import java.time.Instant;
 import java.util.function.Predicate;
 
 public class CheckableHeaderStatusDisplayItem extends HeaderStatusDisplayItem{
-	public CheckableHeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, Callbacks callbacks, Context context, String accountID, Status status, String extraText){
-		super(parentID, user, createdAt, callbacks, context, accountID, status, extraText);
+	public CheckableHeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, Callbacks callbacks, Context context, String accountID, Status status){
+		super(parentID, user, createdAt, callbacks, context, accountID, status);
 	}
 
 	@Override

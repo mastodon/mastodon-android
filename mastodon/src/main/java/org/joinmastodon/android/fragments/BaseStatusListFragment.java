@@ -390,7 +390,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				}
 				RecyclerView.ViewHolder holder=list.getChildViewHolder(view);
 				if(holder instanceof StatusDisplayItem.Holder<?> sih){
-					if(sih.getItem() instanceof StatusDisplayItem sdi && sdi.getType()==StatusDisplayItem.Type.GAP){
+					if(!sih.shouldHighlight()){
 						outRect.setEmpty();
 						return;
 					}
@@ -435,7 +435,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 						for(int i=0;i<list.getChildCount();i++){
 							View child=list.getChildAt(i);
 							holder=list.getChildViewHolder(child);
-							if(holder instanceof StatusDisplayItem.Holder<?> sih2){
+							if(holder instanceof StatusDisplayItem.Holder<?> sih2 && sih2.shouldHighlight()){
 								String otherID=sih2.getItemID();
 								if(otherID.equals(id)){
 									list.getDecoratedBoundsWithMargins(child, tmpRect);
