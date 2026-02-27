@@ -1,5 +1,4 @@
-Mastodon for Android
-======================
+# Mastodon for Android
 
 [![Crowdin](https://badges.crowdin.net/mastodon-for-android/localized.svg)](https://crowdin.com/project/mastodon-for-android)
 
@@ -12,11 +11,13 @@ This is the repository for the official Android app for Mastodon.
      alt="Get it on Google Play"
      height="80">](https://play.google.com/store/apps/details?id=org.joinmastodon.android)
 
-Or get the APK from the [The Releases Section](https://github.com/mastodon/mastodon-android/releases/latest).
+You can also get the APK from the [the Releases section](https://github.com/mastodon/mastodon-android/releases/latest).
 
 ## Contributing
 
-Our goal is delivering a polished, professionally designed and user-friendly app. We proceed according to wireframes provided by a professional UX designer that works with Mastodon gGmbH. This means that any outside contributions that change the app visually must first be coordinated with the UX designer. *This can take time.* Furthermore, we work off of an internal roadmap and aim for feature-parity and consistency with our iOS app. The iOS app is designated as the "primary" between the two, therefore, if you want to request features, please do so in the [Mastodon for iOS](https://github.com/mastodon/mastodon-ios) repository, as you are requesting a feature to be both in iOS and Android (exceptions being system integrations specific to Android). On the other hand, any contributions that improve existing functionality, performance, or accessibility should not have any roadblocks to being merged.
+First, please read the Mastodon project [Contributing guide](https://github.com/mastodon/.github/blob/main/CONTRIBUTING.md).
+
+In addition, note that user interface changes for our official apps are carried out through a design process that involves core team review - most changes of this kind will not be accepted as community contributions; if they are accepted, they will take time to go through this review.
 
 If you would like to help translate the app into your language, please go to [Crowdin](https://crowdin.com/project/mastodon-for-android). If your language is not listed in the Crowdin project, please create an issue and we will add it. Please do not create pull requests that modify `strings.xml` files for languages other than English.
 
@@ -24,7 +25,7 @@ If you would like to help translate the app into your language, please go to [Cr
 
 As this app is using Java 17 features, you need JDK 17 or newer to build it. Other than that, everything is pretty standard. You can either import the project into Android Studio and build it from there, or run the following command in the project directory:
 
-```
+```shell
 ./gradlew assembleRelease
 ```
 
@@ -32,4 +33,4 @@ As this app is using Java 17 features, you need JDK 17 or newer to build it. Oth
 
 This project is released under the [GPL-3 License](./LICENSE).
 
-The Mastodon name and logo are trademarks of Mastodon gGmbH. If you intend to redistribute a modified version of this app, use a unique name and icon for your app that does not mistakenly imply any official connection with or endorsement by Mastodon gGmbH.
+The Mastodon name and logo are trademarks. If you intend to redistribute a modified version of this app, use a unique name and icon for your app that does not mistakenly imply any official connection with or endorsement by the Mastodon non-profit organisation.
