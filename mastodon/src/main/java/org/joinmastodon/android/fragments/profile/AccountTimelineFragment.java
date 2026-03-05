@@ -137,7 +137,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 						boolean empty=posts.isEmpty();
 						if(offset==0 && !pinnedPosts.isEmpty() && hashtagFilter==null){
 							ArrayList<Status> postsWithPinned=new ArrayList<>();
-							postsWithPinned.add(pinnedPosts.getFirst());
+							postsWithPinned.add(pinnedPosts.get(0));
 							postsWithPinned.addAll(posts);
 							posts=postsWithPinned;
 							pinnedPostsExpanded=false;
@@ -247,15 +247,11 @@ public class AccountTimelineFragment extends StatusListFragment{
 		headerFilterTitle=header.findViewById(R.id.filter_title);
 		ImageButton btn=header.findViewById(R.id.filter_button);
 		headerFilterTitle.setText(R.string.timeline_filter_posts_and_boosts);
-		View anchor=header.findViewById(R.id.filter_menu_anchor);
 		filterMenu=new CheckablePopupMenu(getActivity())
 				.addItem(R.string.timeline_filter_show_replies, false)
 				.addItem(R.string.timeline_filter_show_boosts, true)
 				.setListener(this::onFilterChanged);
-		btn.setOnClickListener(v->{
-			anchor.setTranslationX(v.getX()-V.dp(4));
-			filterMenu.show(anchor);
-		});
+		btn.setOnClickListener(v->filterMenu.show(headerFilterTitle));
 		hashtagsView=header.findViewById(R.id.hashtags);
 		expandHashtagsButton=makeHashtagView("");
 		expandHashtagsButton.setId(R.id.expand_button);
