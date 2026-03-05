@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.StyleSpan;
@@ -115,6 +116,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -141,7 +143,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private ImageView avatar;
 	private CoverImageView cover;
 	private View avatarBorder;
-	private TextView name, username, bio, followersCount, followersLabel, followingCount, followingLabel;
+	private TextView name, username, bio, followersCount, followingCount, postsCount;
 	private TextView joinDate;
 	private ImageButton usernameHelp;
 	private ProgressBarButton actionButton;
@@ -245,11 +247,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		usernameHelp=content.findViewById(R.id.username_help);
 		bio=content.findViewById(R.id.bio);
 		followersCount=content.findViewById(R.id.followers_count);
-		followersLabel=content.findViewById(R.id.followers_label);
 		followersBtn=content.findViewById(R.id.followers_btn);
 		followingCount=content.findViewById(R.id.following_count);
-		followingLabel=content.findViewById(R.id.following_label);
 		followingBtn=content.findViewById(R.id.following_btn);
+		postsCount=content.findViewById(R.id.posts_count);
 		actionButton=content.findViewById(R.id.profile_action_btn);
 		pager=content.findViewById(R.id.pager);
 		scrollView=content.findViewById(R.id.scroller);
@@ -700,7 +701,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			ssb.append(domain);
 			ssb.append(" ");
 			Drawable lock=username.getResources().getDrawable(R.drawable.ic_lock_fill1_20px, getActivity().getTheme()).mutate();
-			lock.setBounds(0, 0, lock.getIntrinsicWidth(), lock.getIntrinsicHeight());
+			lock.setBounds(0, 0, V.dp(16), V.dp(16));
 			lock.setTint(username.getCurrentTextColor());
 			ssb.append(getString(R.string.manually_approves_followers), new ImageSpanThatDoesNotBreakShitForNoGoodReason(lock, ImageSpan.ALIGN_BOTTOM), 0);
 			username.setText(ssb);
@@ -717,8 +718,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		}
 		followersCount.setText(UiUtils.abbreviateNumber(account.followersCount));
 		followingCount.setText(UiUtils.abbreviateNumber(account.followingCount));
-		followersLabel.setText(getResources().getQuantityString(R.plurals.followers, (int)Math.min(999, account.followersCount)));
-		followingLabel.setText(getResources().getQuantityString(R.plurals.following, (int)Math.min(999, account.followingCount)));
+		postsCount.setText(UiUtils.abbreviateNumber(account.statusesCount));
 
 		UiUtils.loadCustomEmojiInTextView(name);
 		UiUtils.loadCustomEmojiInTextView(bio);
@@ -738,16 +738,12 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 		updateHeaderBadges();
 
-		String joinTemplate=getString(R.string.profile_joined_on_date, "{date}");
-		int dateIndex=joinTemplate.indexOf("{date}");
-		if(dateIndex==-1){
-			dateIndex=joinTemplate.length()+1;
-			joinTemplate+=" {date}";
-		}
-		SpannableStringBuilder joinDateText=new SpannableStringBuilder(joinTemplate);
-		String joinDateDate=DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(LocalDateTime.ofInstant(account.createdAt, ZoneId.systemDefault()));
-		joinDateText.replace(dateIndex, dateIndex+6, joinDateDate);
-		joinDateText.setSpan(new TypefaceSpan("sans-serif-medium"), dateIndex, dateIndex+joinDateDate.length(), 0);
+		LocalDateTime joinDateValue=LocalDateTime.ofInstant(account.createdAt, ZoneId.systemDefault());
+		String joinDateText;
+		if(joinDateValue.getYear()==LocalDateTime.now().getYear())
+			joinDateText=DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "d MMM")).format(joinDateValue);
+		else
+			joinDateText=DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "yyyy")).format(joinDateValue);
 		joinDate.setText(joinDateText);
 
 		fields.clear();

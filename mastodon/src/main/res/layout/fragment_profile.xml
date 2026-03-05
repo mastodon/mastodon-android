@@ -211,22 +211,30 @@
 					android:layout_marginHorizontal="8dp"
 					android:layout_marginTop="4dp"
 					android:layout_marginBottom="12dp"
-					android:horizontalGap="-4dp">
+					android:horizontalGap="24dp">
 
 					<LinearLayout
-						android:id="@+id/followers_btn"
 						android:layout_width="wrap_content"
-						android:layout_height="23dp"
-						android:background="@drawable/bg_button_borderless_rounded"
-						android:gravity="center_horizontal"
-						android:orientation="horizontal"
-						android:paddingHorizontal="8dp">
+						android:layout_height="wrap_content"
+						android:background="@drawable/bg_rect_4dp_ripple"
+						android:gravity="center_horizontal|start"
+						android:orientation="vertical"
+						android:padding="8dp">
 
 						<TextView
-							android:id="@+id/followers_count"
 							android:layout_width="wrap_content"
 							android:layout_height="match_parent"
-							android:layout_marginEnd="4dp"
+							android:ellipsize="middle"
+							android:gravity="center_vertical"
+							android:singleLine="true"
+							android:textColor="?colorM3OnSurface"
+							android:textSize="13dp"
+							android:text="@string/posts" />
+
+						<TextView
+							android:id="@+id/posts_count"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
 							android:ellipsize="end"
 							android:fontFamily="sans-serif-medium"
 							android:gravity="center_vertical"
@@ -234,6 +242,16 @@
 							android:textColor="?colorM3OnSurface"
 							android:textSize="13dp"
 							tools:text="123" />
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/followers_btn"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/bg_rect_4dp_ripple"
+						android:gravity="center_horizontal|start"
+						android:orientation="vertical"
+						android:padding="8dp">
 
 						<TextView
 							android:id="@+id/followers_label"
@@ -244,17 +262,40 @@
 							android:singleLine="true"
 							android:textColor="?colorM3OnSurface"
 							android:textSize="13dp"
-							tools:text="followers" />
+							android:text="@string/profile_followers" />
+
+						<TextView
+							android:id="@+id/followers_count"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:ellipsize="end"
+							android:fontFamily="sans-serif-medium"
+							android:gravity="center_vertical"
+							android:singleLine="true"
+							android:textColor="?colorM3OnSurface"
+							android:textSize="13dp"
+							tools:text="123" />
 					</LinearLayout>
 
 					<LinearLayout
 						android:id="@+id/following_btn"
 						android:layout_width="wrap_content"
-						android:layout_height="23dp"
-						android:background="@drawable/bg_button_borderless_rounded"
-						android:gravity="center_horizontal"
-						android:orientation="horizontal"
-						android:paddingHorizontal="8dp">
+						android:layout_height="wrap_content"
+						android:background="@drawable/bg_rect_4dp_ripple"
+						android:gravity="center_horizontal|start"
+						android:orientation="vertical"
+						android:padding="8dp">
+
+						<TextView
+							android:id="@+id/following_label"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:ellipsize="middle"
+							android:gravity="center_vertical"
+							android:singleLine="true"
+							android:textColor="?colorM3OnSurface"
+							android:textSize="13dp"
+							android:text="@string/profile_following" />
 
 						<TextView
 							android:id="@+id/following_count"
@@ -268,9 +309,17 @@
 							android:textColor="?colorM3OnSurface"
 							android:textSize="13dp"
 							tools:text="123" />
+					</LinearLayout>
+
+
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:gravity="center_horizontal|start"
+						android:orientation="vertical"
+						android:padding="8dp">
 
 						<TextView
-							android:id="@+id/following_label"
 							android:layout_width="wrap_content"
 							android:layout_height="match_parent"
 							android:ellipsize="middle"
@@ -278,19 +327,21 @@
 							android:singleLine="true"
 							android:textColor="?colorM3OnSurface"
 							android:textSize="13dp"
-							tools:text="following" />
-					</LinearLayout>
+							android:text="@string/profile_joined" />
 
-					<TextView
-						android:id="@+id/join_date"
-						android:layout_width="wrap_content"
-						android:layout_height="23dp"
-						android:gravity="center_vertical"
-						android:paddingHorizontal="8dp"
-						android:singleLine="true"
-						android:textColor="?colorM3OnSurface"
-						android:textSize="13dp"
-						tools:text="Joined on 7 Sep 2007"/>
+						<TextView
+							android:id="@+id/join_date"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:layout_marginEnd="4dp"
+							android:ellipsize="end"
+							android:fontFamily="sans-serif-medium"
+							android:gravity="center_vertical"
+							android:singleLine="true"
+							android:textColor="?colorM3OnSurface"
+							android:textSize="13dp"
+							tools:text="2007" />
+					</LinearLayout>
 
 				</org.joinmastodon.android.ui.views.WrappingLinearLayout>
 
