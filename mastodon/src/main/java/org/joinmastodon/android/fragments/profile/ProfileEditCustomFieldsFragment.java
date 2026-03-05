@@ -12,27 +12,38 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.otto.Subscribe;
+
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.MastodonErrorResponse;
+import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.SelfAccountUpdatedEvent;
 import org.joinmastodon.android.fragments.MastodonRecyclerFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.ui.OutlineProviders;
+import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.sheets.M3BottomSheet;
 import org.joinmastodon.android.ui.text.LinkSpan;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.LinkedTextView;
 import org.parceler.Parcels;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
@@ -44,6 +55,9 @@ public class ProfileEditCustomFieldsFragment extends MastodonRecyclerFragment<Ac
 	private FieldsAdapter adapter;
 	private String accountID;
 	private ItemTouchHelper dragHelper=new ItemTouchHelper(new ReorderCallback());
+	private Button addButton;
+	private boolean needReorder;
+	private boolean ignoreUpdatedEvent;
 
 	public ProfileEditCustomFieldsFragment(){
 		super(1);
@@ -60,6 +74,23 @@ public class ProfileEditCustomFieldsFragment extends MastodonRecyclerFragment<Ac
 			fields.add(Parcels.unwrap(p));
 		}
 		onDataLoaded(fields);
+		E.register(this);
+	}
+
+	@Override
+	public void onDestroy(){
+		E.unregister(this);
+		super.onDestroy();
+	}
+
+	@Subscribe
+	public void onAccountUpdated(SelfAccountUpdatedEvent ev){
+		if(ev.accountID().equals(accountID) && !ignoreUpdatedEvent){
+			data.clear();
+			data.addAll(ev.account().fields);
+			adapter.notifyDataSetChanged();
+			updateAddButtonVisibility();
+		}
 	}
 
 	@Override
@@ -69,8 +100,8 @@ public class ProfileEditCustomFieldsFragment extends MastodonRecyclerFragment<Ac
 	protected RecyclerView.Adapter<?> getAdapter(){
 		adapter=new FieldsAdapter();
 
-		View footer=getLayoutInflater().inflate(R.layout.footer_profile_edit_fields, list, false);
-		Button addButton=footer.findViewById(R.id.add);
+		View footer=getActivity().getLayoutInflater().inflate(R.layout.footer_profile_edit_fields, list, false);
+		addButton=footer.findViewById(R.id.add);
 		LinkedTextView helpText=footer.findViewById(R.id.help_text);
 		SpannableString text=new SpannableString(getResources().getText(R.string.edit_profile_custom_fields_help));
 		StyleSpan[] spans=text.getSpans(0, text.length(), StyleSpan.class);
@@ -82,11 +113,8 @@ public class ProfileEditCustomFieldsFragment extends MastodonRecyclerFragment<Ac
 			text.setSpan(link, start, end, 0);
 		}
 		helpText.setText(text);
-		addButton.setOnClickListener(v->{
-			Bundle args=new Bundle();
-			args.putString("account", accountID);
-			Nav.go(getActivity(), ProfileEditFieldFragment.class, args);
-		});
+		addButton.setOnClickListener(v->startFieldEditFragment(-1));
+		updateAddButtonVisibility();
 
 		MergeRecyclerAdapter mergeAdapter=new MergeRecyclerAdapter();
 		mergeAdapter.addAdapter(adapter);
@@ -100,9 +128,13 @@ public class ProfileEditCustomFieldsFragment extends MastodonRecyclerFragment<Ac
 		dragHelper.attachToRecyclerView(list);
 	}
 
+	private void updateAddButtonVisibility(){
+		addButton.setVisibility(data.size()<4 ? View.VISIBLE : View.GONE);
+	}
+
 	private void showLinkVerificationSheet(){
 		BottomSheet sheet=new M3BottomSheet(getActivity());
-		sheet.setContentView(getLayoutInflater().inflate(R.layout.sheet_link_verification_help, null));
+		sheet.setContentView(getActivity().getLayoutInflater().inflate(R.layout.sheet_link_verification_help, null));
 		int i=1;
 		for(int id:new int[]{R.id.number1, R.id.number2, R.id.number3}){
 			TextView v=sheet.findViewById(id);
@@ -119,6 +151,44 @@ public class ProfileEditCustomFieldsFragment extends MastodonRecyclerFragment<Ac
 			UiUtils.maybeShowTextCopiedToast(getActivity());
 		});
 		sheet.show();
+	}
+
+	private void startFieldEditFragment(int editIndex){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		args.putParcelableArrayList("fields", (ArrayList<? extends Parcelable>) data.stream().map(Parcels::wrap).collect(Collectors.toCollection(ArrayList::new)));
+		if(editIndex!=-1)
+			args.putInt("fieldIndex", editIndex);
+		Nav.go(getActivity(), ProfileEditFieldFragment.class, args);
+	}
+
+	private void saveReorderedFields(){
+		new UpdateAccountCredentials(null, null, (File)null, null, data)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Account result){
+						ignoreUpdatedEvent=true;
+						AccountSessionManager.getInstance().updateAccountInfo(accountID, result);
+						ignoreUpdatedEvent=false;
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						if(getActivity()==null || !(error instanceof MastodonErrorResponse me))
+							return;
+						Snackbar[] sb={null};
+						sb[0]=new Snackbar.Builder(getActivity())
+								.setText(me.getErrorMessage())
+								.setAction(R.string.retry, ()->{
+									saveReorderedFields();
+									sb[0].dismiss();
+								})
+								.setPersistent()
+								.create();
+						sb[0].show();
+					}
+				})
+				.exec(accountID);
 	}
 
 	private class FieldsAdapter extends RecyclerView.Adapter<FieldViewHolder>{
@@ -153,13 +223,7 @@ public class ProfileEditCustomFieldsFragment extends MastodonRecyclerFragment<Ac
 				dragHelper.startDrag(this);
 				return true;
 			});
-			editBtn.setOnClickListener(v->{
-				Bundle args=new Bundle();
-				args.putString("account", accountID);
-				args.putString("label", item.name);
-				args.putString("value", item.value);
-				Nav.go(getActivity(), ProfileEditFieldFragment.class, args);
-			});
+			editBtn.setOnClickListener(v->startFieldEditFragment(getLayoutPosition()));
 		}
 
 		@Override
@@ -192,6 +256,7 @@ public class ProfileEditCustomFieldsFragment extends MastodonRecyclerFragment<Ac
 			adapter.notifyItemMoved(fromPosition, toPosition);
 			((BindableViewHolder<?>) viewHolder).rebind();
 			((BindableViewHolder<?>) target).rebind();
+			needReorder=true;
 			return true;
 		}
 
@@ -216,6 +281,10 @@ public class ProfileEditCustomFieldsFragment extends MastodonRecyclerFragment<Ac
 				viewHolder.itemView.setHasTransientState(false);
 				viewHolder.itemView.setBackground(null);
 			}).start();
+			if(needReorder){
+				needReorder=false;
+				saveReorderedFields();
+			}
 		}
 
 		@Override
