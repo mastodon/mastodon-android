@@ -1,9 +1,12 @@
 package org.joinmastodon.android.fragments.profile;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -11,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
@@ -19,16 +23,25 @@ import com.squareup.otto.Subscribe;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.MastodonAPIRequest;
+import org.joinmastodon.android.api.MastodonErrorResponse;
+import org.joinmastodon.android.api.requests.accounts.DeleteProfileAvatar;
+import org.joinmastodon.android.api.requests.accounts.DeleteProfileHeader;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
+import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.OwnFeaturedHashtagAddedEvent;
 import org.joinmastodon.android.events.OwnFeaturedHashtagRemovedEvent;
 import org.joinmastodon.android.events.SelfAccountUpdatedEvent;
 import org.joinmastodon.android.fragments.settings.BaseSettingsFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.AccountField;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.model.viewmodel.ListItemWithTrailingIcon;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
+import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
 import org.joinmastodon.android.ui.photoviewer.AvatarCropper;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -36,12 +49,15 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
 import org.parceler.Parcels;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
@@ -92,9 +108,6 @@ public class ProfileEditFragment extends BaseSettingsFragment<Void>{
 							return;
 
 						account=result;
-						ViewImageLoader.loadWithoutAnimation(avatar, avatar.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
-						ViewImageLoader.loadWithoutAnimation(cover, cover.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
-
 						updateItems();
 						dataLoaded();
 					}
@@ -124,12 +137,16 @@ public class ProfileEditFragment extends BaseSettingsFragment<Void>{
 		avatarMenu.setOnMenuItemClickListener(item->{
 			if(item.getItemId()==0)
 				startImagePicker(AVATAR_RESULT);
+			else
+				confirmAndDeleteImage(R.string.confirm_delete_avatar, new DeleteProfileAvatar(), ()->avatar.setImageResource(R.drawable.image_placeholder));
 			return true;
 		});
 		coverMenu=new PopupMenu(getActivity(), coverBadge);
 		coverMenu.setOnMenuItemClickListener(item->{
 			if(item.getItemId()==0)
 				startImagePicker(COVER_RESULT);
+			else
+				confirmAndDeleteImage(R.string.confirm_delete_cover, new DeleteProfileHeader(), ()->cover.setImageResource(R.drawable.image_placeholder));
 			return true;
 		});
 		populateImageMenu(coverMenu);
@@ -162,16 +179,63 @@ public class ProfileEditFragment extends BaseSettingsFragment<Void>{
 					getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 				}
 				int radius=V.dp(25);
-				new AvatarCropper(getActivity(), data.getData(), new SingleImagePhotoViewerListener(avatar, avatarBorder, new int[]{radius, radius, radius, radius}, this, ()->{}, null, null, null), (thumbnail, uri)->{
-					getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-					avatar.setImageDrawable(thumbnail);
-					//editNewAvatar=uri;
-				}, ()->getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)).show();
+				new AvatarCropper(getActivity(), data.getData(), new SingleImagePhotoViewerListener(avatar, avatarBorder, new int[]{radius, radius, radius, radius}, this, ()->{}, null, null, null),
+						this::uploadAvatar, ()->getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)).show();
 			}else if(requestCode==COVER_RESULT){
-				//editNewCover=data.getData();
-				//ViewImageLoader.loadWithoutAnimation(cover, null, new UrlImageLoaderRequest(editNewCover, V.dp(1000), V.dp(1000)));
+				uploadCover(data.getData());
 			}
 		}
+	}
+
+	private void uploadAvatar(Drawable thumbnail, Uri uri, Runnable cropperDismiss){
+		new UpdateAccountCredentials(null, null, uri, null, null)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Account result){
+						getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+						avatar.setImageDrawable(thumbnail);
+						cropperDismiss.run();
+						AccountSessionManager.getInstance().updateAccountInfo(accountID, result);
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						if(getActivity()==null)
+							return;
+						error.showToast(getActivity());
+					}
+				})
+				.wrapProgress(getActivity(), R.string.loading, false)
+				.exec(accountID);
+	}
+
+	private void uploadCover(Uri uri){
+		new UpdateAccountCredentials(null, null, null, uri, null)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(Account result){
+						ViewImageLoader.loadWithoutAnimation(cover, null, new UrlImageLoaderRequest(uri, V.dp(1000), V.dp(1000)));
+						AccountSessionManager.getInstance().updateAccountInfo(accountID, result);
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						if(getActivity()==null || !(error instanceof MastodonErrorResponse me))
+							return;
+						Snackbar[] sb={null};
+						sb[0]=new Snackbar.Builder(getActivity())
+								.setText(me.getErrorMessage())
+								.setAction(R.string.retry, ()->{
+									uploadCover(uri);
+									sb[0].dismiss();
+								})
+								.setPersistent()
+								.create();
+						sb[0].show();
+					}
+				})
+				.wrapProgress(getActivity(), R.string.loading, false)
+				.exec(accountID);
 	}
 
 	@Subscribe
@@ -234,6 +298,9 @@ public class ProfileEditFragment extends BaseSettingsFragment<Void>{
 
 		featuredHashtagsItem.title=getString(R.string.edit_profile_x_featured_hashtags, featuredHashtagCount);
 		rebindItem(featuredHashtagsItem);
+
+		ViewImageLoader.loadWithoutAnimation(avatar, avatar.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
+		ViewImageLoader.loadWithoutAnimation(cover, cover.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
 	}
 
 	private void onDisplayNameClick(ListItem<?> item){
@@ -281,5 +348,39 @@ public class ProfileEditFragment extends BaseSettingsFragment<Void>{
 	private void startImagePicker(int requestCode){
 		Intent intent=UiUtils.getMediaPickerIntent(new String[]{"image/*"}, 1);
 		startActivityForResult(intent, requestCode);
+	}
+
+	private void confirmAndDeleteImage(int confirmStr, MastodonAPIRequest<Account> req, Runnable onDone){
+		AlertDialog alert=new M3AlertDialogBuilder(getActivity())
+				.setTitle(confirmStr)
+				.setPositiveButton(R.string.remove, null)
+				.setNegativeButton(R.string.cancel, null)
+				.create();
+		Button positiveBtn=alert.getButton(AlertDialog.BUTTON_POSITIVE);
+		Button negativeBtn=alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+		positiveBtn.setOnClickListener(v->{
+			alert.setCancelable(false);
+			UiUtils.showProgressForAlertButton(positiveBtn, true);
+			negativeBtn.setEnabled(false);
+
+			req.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Account result){
+							onDone.run();
+							alert.dismiss();
+							AccountSessionManager.getInstance().updateAccountInfo(accountID, result);
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(getActivity());
+							alert.setCancelable(true);
+							UiUtils.showProgressForAlertButton(positiveBtn, false);
+							negativeBtn.setEnabled(true);
+						}
+					})
+					.exec(accountID);
+		});
+		alert.show();
 	}
 }

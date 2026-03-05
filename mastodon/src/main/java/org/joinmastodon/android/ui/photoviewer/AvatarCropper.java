@@ -217,12 +217,6 @@ public class AvatarCropper implements ZoomPanView.Listener{
 	}
 
 	private void confirm(){
-		// stop receiving input events to allow the user to interact with the underlying UI while the animation is still running
-		WindowManager.LayoutParams wlp=(WindowManager.LayoutParams) windowView.getLayoutParams();
-		wlp.flags|=WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-		windowView.setSystemUiVisibility(windowView.getSystemUiVisibility() | (activity.getWindow().getDecorView().getSystemUiVisibility() & (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR)));
-		wm.updateViewLayout(windowView, wlp);
-
 		Drawable drawable=image.getDrawable();
 		zoomPanView.endAllAnimations();
 		Rect rect=new Rect();
@@ -232,8 +226,7 @@ public class AvatarCropper implements ZoomPanView.Listener{
 		int y=Math.round((zoomPanView.getPaddingTop()-rect.top)/scale);
 		int size=Math.round(V.dp(192)/scale);
 		if(x==0 && y==0 && drawable.getIntrinsicWidth()==drawable.getIntrinsicHeight() && size==drawable.getIntrinsicWidth()){
-			dismissWithTransition();
-			cropChosenListener.onCropChosen(drawable, originalUri);
+			cropChosenListener.onCropChosen(drawable, originalUri, this::dismissWithTransition);
 			return;
 		}
 
@@ -268,16 +261,23 @@ public class AvatarCropper implements ZoomPanView.Listener{
 			}
 			outputFile.deleteOnExit();
 			activity.runOnUiThread(()->{
-				image.setImageBitmap(croppedBitmap);
-				image.getLayoutParams().width=image.getLayoutParams().height=size;
-				zoomPanView.updateLayout();
-				cropChosenListener.onCropChosen(new BitmapDrawable(croppedBitmap), Uri.fromFile(outputFile));
-				dismissWithTransition();
+				cropChosenListener.onCropChosen(new BitmapDrawable(croppedBitmap), Uri.fromFile(outputFile), ()->{
+					image.setImageBitmap(croppedBitmap);
+					image.getLayoutParams().width=image.getLayoutParams().height=size;
+					zoomPanView.updateLayout();
+					dismissWithTransition();
+				});
 			});
 		});
 	}
 
 	private void dismissWithTransition(){
+		// stop receiving input events to allow the user to interact with the underlying UI while the animation is still running
+		WindowManager.LayoutParams wlp=(WindowManager.LayoutParams) windowView.getLayoutParams();
+		wlp.flags|=WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+		windowView.setSystemUiVisibility(windowView.getSystemUiVisibility() | (activity.getWindow().getDecorView().getSystemUiVisibility() & (View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR)));
+		wm.updateViewLayout(windowView, wlp);
+
 		zoomPanView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 			@Override
 			public boolean onPreDraw(){
@@ -300,6 +300,7 @@ public class AvatarCropper implements ZoomPanView.Listener{
 				return true;
 			}
 		});
+		zoomPanView.invalidate();
 	}
 
 	private static class OverlayDrawable extends Drawable{
@@ -355,6 +356,6 @@ public class AvatarCropper implements ZoomPanView.Listener{
 	}
 
 	public interface OnCropChosenListener{
-		void onCropChosen(Drawable thumbnail, Uri uri);
+		void onCropChosen(Drawable thumbnail, Uri uri, Runnable dismiss);
 	}
 }
