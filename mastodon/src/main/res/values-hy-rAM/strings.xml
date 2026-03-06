@@ -164,6 +164,7 @@
 	<string name="add_alt_text">Ավելացնել բացատրություն</string>
 	<string name="visibility_public">Հրապարակային</string>
 	<string name="visibility_followers_only">Հետևորդներ</string>
+	<string name="visibility_private">Գաղտնի հիշատակում</string>
 	<string name="recent_searches">Վերջին</string>
 	<string name="notification_type_follow">Նոր հետևորդներ</string>
 	<string name="notification_type_favorite">Հավանումներ</string>
@@ -410,6 +411,7 @@
 	<string name="settings_server_explanation">Կանոններ, մոդերատորներ</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">%s-ի մասին</string>
+	<string name="default_post_language">Հրապարակման լեզու</string>
 	<string name="settings_alt_text_reminders">Ավելացնել բացատրության մասին հիշեցումներ</string>
 	<string name="settings_confirm_unfollow">Հարցնել` մեկին ապահետեւելուց առաջ</string>
 	<string name="settings_confirm_boost">Հարցնել տարածելուց առաջ</string>
@@ -727,6 +729,7 @@
 	<string name="notifications_muted">%s-ից ծանուցումները ջնջվել են։</string>
 	<string name="notifications_allowed">%s-ը այժմ կհայտնվի ձեր ծանուցումների ցանկում։</string>
 	<string name="visibility_subtitle_public">Բոլորը Մաստոդոնում և Մաստոդոնից դուրս</string>
+	<string name="visibility_subtitle_unlisted">Թաքնված Մաստոդոնում որոնման արդյունքներից, թրենդների բաժնից և հանրային հոսքերից</string>
 	<string name="visibility_subtitle_followers">Միայն ձեր հետևորդները</string>
 	<string name="visibility_subtitle_private">Բոլորը, ովքեր նշված են գրառման մեջ</string>
 	<string name="view_boosts">Տեսնել տարածումները</string>
@@ -868,4 +871,5 @@
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Մեջբերել է %s֊ի գրառումը</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="quote_policy_for_unlisted_explanation">Եթե մեկը ձեզ ցիտի, իր գրառումը նույնպես կթաքցվի թրենդերի հոսքերից։</string>
 </resources>

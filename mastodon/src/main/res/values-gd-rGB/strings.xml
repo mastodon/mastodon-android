@@ -188,6 +188,7 @@
 	<string name="add_alt_text">Cuir roghainn teacsa ris</string>
 	<string name="visibility_public">Poblach</string>
 	<string name="visibility_followers_only">Luchd-leantainn</string>
+	<string name="visibility_private">Iomradh prìobhaideach</string>
 	<string name="recent_searches">O chionn goirid</string>
 	<string name="notification_type_follow">Luchd-leantainn ùr</string>
 	<string name="notification_type_favorite">Annsachdan</string>
@@ -210,7 +211,7 @@
 	<string name="theme_dark">Dorcha</string>
 	<string name="settings_behavior">Giùlan</string>
 	<string name="settings_gif">Cluich beothachadh nan avataran ’s nan emoji</string>
-	<string name="settings_custom_tabs">Fosgail ceanglaichean le </string>
+	<string name="settings_custom_tabs">Fosgail ceanglaichean le</string>
 	<string name="settings_notifications">Brathan</string>
 	<string name="settings_contribute">Cuidich le leasachadh Mastodon</string>
 	<string name="settings_tos">Teirmichean na seirbheise</string>
@@ -254,7 +255,7 @@
 	<string name="error_saving_file">Mearachd a’ sàbhaladh an fhaidhle</string>
 	<string name="downloading">’Ga luchdadh a-nuas…</string>
 	<string name="no_app_to_handle_action">Chan eil aplacaid ann a làimhsicheas an gnìomh seo</string>
-	<string name="local_timeline">An inbhir bheò</string>
+	<string name="local_timeline">Loidhne-ama bheò</string>
 	<string name="trending_posts_info_banner">Seo na postaichean fèillmhor thar Mastodon.</string>
 	<string name="trending_links_info_banner">Seo na sgeulachdan naidheachd air a bheilear a’ bruidhinn air Mastodon.</string>
 	<!-- %s is the server domain -->
@@ -448,6 +449,7 @@
 	<string name="settings_server_explanation">Foir-shealladh, riaghailtean, maoir</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Mu %s</string>
+	<string name="default_post_language">Cànan postaidh</string>
 	<string name="settings_alt_text_reminders">Cuir cuimhneachaidhean air roghainn teacsa ris</string>
 	<string name="settings_confirm_unfollow">Faighnich dhiom mus sguir mi de chuideigin a leantainn</string>
 	<string name="settings_confirm_boost">Faighnich dhiom mus dèan mi brosnachadh</string>
@@ -795,6 +797,7 @@
 	<string name="notifications_muted">Chaidh na brathan o %s a leigeil seachad.</string>
 	<string name="notifications_allowed">Nochdaidh %s ann an liosta nam brathan agad a-nis.</string>
 	<string name="visibility_subtitle_public">Duine sam bith taobh a-staigh no a-muigh Mhastodon</string>
+	<string name="visibility_subtitle_unlisted">Falaichte o na toraidhean-luirg, na treandaichean ’s na loidhnichean-ama poblach</string>
 	<string name="visibility_subtitle_followers">An luchd-leantainn agad a-mhàin</string>
 	<string name="visibility_subtitle_private">A h-uile duine air a bheil iomradh sa phost</string>
 	<string name="view_boosts">Seall na brosnachaidhean</string>
@@ -956,6 +959,61 @@
 		<item quantity="few">%d bliadhnaichean</item>
 		<item quantity="other">%d bliadhna</item>
 	</plurals>
+	<string name="quote_post_unavailable">Chan eil am post ri fhaighinn</string>
+	<string name="quote_post_pending">Cha deach dèiligeadh ris a’ phost fhathast</string>
+	<string name="quote_post_pending_explanation">Air Mastodon, ’s urrainn dhut stiùireadh am faod cuideigin do luaidh gus nach fhaod. Tha am post seo a’ feitheamh air aonta an ùghdair thùsail.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Luaidh air post le %s</string>
+	<string name="compose_visibility_public_anyone">Poblach, faodaidh neach sam bith a luaidh</string>
+	<string name="compose_visibility_public_limited">Poblach, luaidhean cuingichte</string>
+	<string name="compose_visibility_public_disabled">Poblach, luaidhean à comas</string>
+	<string name="compose_visibility_unlisted_anyone">Sàmhach, faodaidh neach sam bith a luaidh</string>
+	<string name="compose_visibility_unlisted_limited">Sàmhach, luaidhean cuingichte</string>
+	<string name="compose_visibility_unlisted_disabled">Sàmhach, luaidhean à comas</string>
+	<string name="compose_visibility_title">Faicsinneachd ⁊ eadar-ghabhail</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Stiùirich cò dh’fhaodas eadar-ghabhail leis a’ phost seo. Gheibh thu na roghainnean coitcheann fo Roghainnean &gt; %s &gt; Bun-roghainnean a’ phostaidh.</string>
+	<string name="compose_visibility">Faicsinneachd</string>
+	<string name="compose_quote_policy">Cò dh’fhaodas luaidh</string>
+	<string name="quote_policy_public">Duine sam bith</string>
+	<string name="quote_policy_followers">Luchd-leantainn a-mhàin</string>
+	<string name="quote_policy_nobody">Mi fhìn a-mhàin</string>
+	<string name="quote_policy_for_unlisted_explanation">Nuair a luaidheas daoine thu, thèid am post aca-san fhalach o loidhnichean-ama nan treandaichean.</string>
+	<string name="quote_policy_for_private_explanation">Chan urrainn do chàch postaichean dhan luchd-leantainn a-mhàin a chaidh a sgrìobhadh le Mastodon a luaidh.</string>
+	<string name="quote_policy_for_direct_explanation">Chan urrainn do chàch iomraidhean prìobhaideach a chaidh a sgrìobhadh le Mastodon a luaidh.</string>
+	<string name="change_quote_policy">Atharraich cò dh’fhaodas luaidh</string>
+	<string name="edit_visibility_explanation">Cha ghabh faicsinneachd phostaichean poblach atharrachadh.</string>
+	<string name="user_quoted_post">Luaidh %s am post agad:</string>
+	<string name="user_edited_quoted_post">Dheasaich %s post a luaidh thu</string>
+	<string name="notification_type_quote">Luaidhean</string>
+	<string name="create_quote">Luaidh</string>
+	<string name="cannot_quote_post">Chan fhaod thu am post seo a luaidh</string>
+	<string name="cannot_quote_post_followers_only">Chan fhaod ach luchd-leantainn am post seo a luaidh</string>
+	<string name="compose_hint_quote">Cuir ris an conaltradh</string>
+	<string name="cancel_quote">Sguir dhen luaidh</string>
+	<string name="unlisted_quote_alert_title">Luaidh air postaichean sàmhach</string>
+	<string name="unlisted_quote_alert">Nuair a luaidheas tu post sàmhach, thèid am post agad fhalach o loidhnichean-ama nan treandaichean.</string>
+	<string name="settings_posting_defaults">Bun-roghainnean a’ phostaidh</string>
+	<string name="default_post_visibility">Faicsinneachd nam post</string>
+	<string name="create_quote_manual_approval">Iarr luaidh</string>
+	<string name="create_quote_manual_approval_subtitle">Nì an t-ùghdar lèirmheas air a làimh</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d luaidh</item>
+		<item quantity="two">%,d luaidh</item>
+		<item quantity="few">%,d luaidhean</item>
+		<item quantity="other">%,d luaidh</item>
+	</plurals>
+	<string name="remove_quote">Thoir am post agam air falbh on phost le %s</string>
+	<string name="remove_quote_confirm_title">A bheil thu airson am post a thoirt air falbh?</string>
+	<string name="remove_quote_confirm">Cha ghabh seo a neo-dhèanamh.</string>
+	<string name="remove_quote_button">Thoir am post air falbh</string>
+	<string name="settings_posting_defaults_explanation">Thèid na roghainnean seo a chleachdadh nam bun-roghainnean nuair a chruthaicheas tu post ùr ach ’s urrainn dhut an deasachadh fhathast do gach post fa leth fhad ’s a bhios tu ri sgrìobhadh.</string>
+	<string name="cant_quote_in_private_title">Chan urrainn dhut luaidh a leabachadh ann an iomradh prìobhaideach</string>
+	<string name="cant_quote_in_private">Ma shàbhaileas tu na roghainnean làithreach, thèid ceangal a dhèanamh dhen luaidh leabaichte.</string>
+	<string name="quote_followers_only_confirm_title">A bheil thu airson a cho-roinneadh leis an luchd-leantainn ’s na cleachdaichean le iomradh orra?</string>
+	<string name="quote_followers_only_confirm">Cuiridh sinn brath dhan neach a tha thu a’ luaidh ’s do na daoine eile le iomradh orra agus chì iad am post agad fiù mur eil iad ’gad leantainn.</string>
+	<string name="quote_followers_only_publish">Foillsich am post</string>
+	<string name="quote_followers_only_cancel">Till dhan deasachadh</string>
+	<string name="quote_followers_only_dont_show_again">Na seall an teachdaireachd seo a-rithist</string>
+	<string name="more_replies_found">Fhuair sinn lorg air barrachd fhreagairtean</string>
 </resources>

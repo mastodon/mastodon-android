@@ -38,7 +38,7 @@
 	<string name="edit_profile">Επεξεργασία προφίλ</string>
 	<string name="share_user">Κοινή χρήση προφίλ μέσω…</string>
 	<string name="mute_user">Σίγαση %s</string>
-	<string name="unmute_user">Κατάργηση σίγασης %s</string>
+	<string name="unmute_user">Άρση σίγασης %s</string>
 	<string name="block_user">Αποκλεισμός %s</string>
 	<string name="unblock_user">Άρση αποκλεισμού %s</string>
 	<string name="report_user">Αναφορά %s</string>
@@ -136,7 +136,7 @@
 	<string name="report_sent_subtitle">Ενώ το εξετάζουμε, μπορείς να δράσεις εναντίον του %s:</string>
 	<string name="unfollow_user">Άρση ακολούθησης του %s</string>
 	<string name="unfollow">Άρση ακολούθησης</string>
-	<string name="mute_user_explain">Δε θα βλέπεις τις αναρτήσεις του. Εκείνος μπορεί ακόμα να σε ακολουθεί και να βλέπει τις αναρτήσεις σου χωρίς να γνωρίζει ότι είναι σε σίγαση.</string>
+	<string name="mute_user_explain">Δε θα βλέπεις τις αναρτήσεις του. Εκείνος μπορεί ακόμη να σε ακολουθεί και να βλέπει τις αναρτήσεις σου χωρίς να γνωρίζει ότι είναι σε σίγαση.</string>
 	<string name="block_user_explain">Δε θα βλέπεις τις αναρτήσεις του. Δε θα μπορεί να δει τις αναρτήσεις σου ή να σε ακολουθήσει. Θα μπορεί να δει ότι έχει αποκλειστεί.</string>
 	<string name="report_personal_title">Δε θες να το βλέπεις;</string>
 	<string name="report_personal_subtitle">Αυτές είναι οι επιλογές σου για να ελέγχεις τί βλέπεις στο Mastodon:</string>
@@ -338,7 +338,7 @@
 	<string name="spoiler_hide">Απόκρυψη ξανά</string>
 	<string name="poll_multiple_choice">Επίλεξε ένα ή περισσότερα</string>
 	<string name="save_changes">Αποθήκευση αλλαγών</string>
-	<string name="profile_featured">﻿Προτεινόμενα</string>
+	<string name="profile_featured">Αναδεδειγμένα</string>
 	<string name="profile_timeline">Ροή</string>
 	<string name="view_all">Εμφάνιση όλων</string>
 	<string name="profile_endorsed_accounts">Λογαριασμοί</string>
@@ -445,7 +445,7 @@
 	<string name="server_administrator">Διαχειριστής</string>
 	<string name="send_email_to_server_admin">Στείλε μήνυμα σε διαχειριστή</string>
 	<string name="notifications_disabled_in_system">Ενεργοποίησε τις ειδοποιήσεις από τις ρυθμίσεις της συσκευής σου για να δεις ενημερώσεις από οπουδήποτε.</string>
-	<string name="settings_even_more">Ακόμη περισσότερες ρυθμίσεις</string>
+	<string name="settings_even_more">Ακόμα περισσότερες ρυθμίσεις</string>
 	<string name="settings_show_cws">Εμφάνιση προειδοποιήσεων περιεχομένου</string>
 	<string name="settings_hide_sensitive_media">Κάλυψη μέσων που χαρακτηρίζονται ως ευαίσθητα</string>
 	<string name="settings_show_interaction_counts">Αριθμός αλληλεπιδράσεων ανάρτησης</string>
@@ -501,7 +501,7 @@
 	</plurals>
 	<string name="selection_2_options">%1$s και %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s και %3$s</string>
-	<string name="selection_4_or_more">%1$s, %2$s και %3$d ακόμη</string>
+	<string name="selection_4_or_more">%1$s, %2$s και %3$d ακόμα</string>
 	<string name="filter_context_home_lists">Αρχική &amp; λίστες</string>
 	<string name="filter_context_notifications">Ειδοποιήσεις</string>
 	<string name="filter_context_public_timelines">Δημόσιες ροές</string>
@@ -552,9 +552,9 @@
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Μεταφράστηκε από %1$s χρησιμοποιώντας %2$s</string>
 	<string name="translation_show_original">Εμφάνιση αρχικού</string>
-	<string name="translation_failed">Η μετάφραση απέτυχε. Ίσως ο διαχειριστής δεν έχει ενεργοποιήσει μεταφράσεις σε αυτόν τον διακομιστή ή αυτός ο διακομιστής εκτελεί μια παλαιότερη έκδοση του Mastodon όπου οι μεταφράσεις δεν υποστηρίζονται ακόμα.</string>
+	<string name="translation_failed">Η μετάφραση απέτυχε. Ίσως ο διαχειριστής δεν έχει ενεργοποιήσει μεταφράσεις σε αυτόν τον διακομιστή ή αυτός ο διακομιστής εκτελεί μια παλαιότερη έκδοση του Mastodon όπου οι μεταφράσεις δεν υποστηρίζονται ακόμη.</string>
 	<string name="settings_privacy">Ιδιωτικότητα και προσιτότητα</string>
-	<string name="settings_discoverable">Παροχή προφίλ και δημοσιεύσεων σε αλγορίθμους ανακάλυψης</string>
+	<string name="settings_discoverable">Παροχή προφίλ και αναρτήσεων σε αλγορίθμους ανακάλυψης</string>
 	<string name="settings_indexable">Συμπερίληψη δημόσιων αναρτήσεων στα αποτελέσματα αναζήτησης</string>
 	<plurals name="x_participants">
 		<item quantity="one">%,d συμμετέχων</item>
@@ -607,17 +607,17 @@
 	<string name="step_x_of_y">Βήμα %1$d από %2$d</string>
 	<string name="create">Δημιουργία</string>
 	<string name="manage_list_members">Διαχείριση μελών λίστας</string>
-	<string name="list_no_members">Κανένα μέλος ακόμα</string>
+	<string name="list_no_members">Κανένα μέλος ακόμη</string>
 	<string name="list_find_users">Εύρεση χρηστών για προσθήκη</string>
 	<string name="reply_to_user">Απάντηση σε %s</string>
 	<string name="posted_at">Αναρτήθηκε σε %s</string>
 	<string name="non_mutual_sheet_title">Γεια σου, νέα σύνδεση!</string>
-	<string name="non_mutual_sheet_text">Φαίνεται ότι ετοιμάζεσαι να απαντήσεις σε κάποιον που δεν είναι αμοιβαία σύνδεση ακόμα. Ας κάνουμε καλή εντύπωση.</string>
+	<string name="non_mutual_sheet_text">Φαίνεται ότι ετοιμάζεσαι να απαντήσεις σε κάποιον που δεν είναι αμοιβαία σύνδεση ακόμη. Ας κάνουμε καλή εντύπωση.</string>
 	<string name="got_it">Το \'πιασα</string>
 	<string name="dont_remind_again">Μη μου το ξαναθυμίσεις</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Αυτή η ανάρτηση έγινε πριν %s</string>
-	<string name="old_post_sheet_text">Μπορείς ακόμα να απαντήσεις αλλά μπορεί να μην είναι πλέον σχετικό.</string>
+	<string name="old_post_sheet_text">Μπορείς ακόμη να απαντήσεις αλλά μπορεί να μην είναι πλέον σχετικό.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d μήνας</item>
 		<item quantity="other">%,d μήνες</item>
@@ -651,10 +651,10 @@
 	<string name="need_invite_to_join_server">Για να γίνεις μέλος στο %s, θα χρειαστείς έναν σύνδεσμο πρόσκλησης από έναν υπάρχοντα χρήστη.</string>
 	<string name="mute_user_confirm_title">Σίγαση χρήστη;</string>
 	<string name="user_wont_know_muted">Δε θα ξέρει ότι είναι σε σίγαση.</string>
-	<string name="user_can_still_see_your_posts">Μπορεί ακόμα να δει τις αναρτήσεις σου, αλλά δε θα βλέπεις τις δικές του.</string>
-	<string name="you_wont_see_user_mentions">Δε θα βλέπεις τις αναρτήσεις που τον αναφέρουν.</string>
-	<string name="user_can_mention_and_follow_you">Μπορεί να σε αναφέρει και να σε ακολουθήσει, αλλά δε θα τον βλέπεις.</string>
-	<string name="unmuted_user_x">Κατάργηση σίγασης %s</string>
+	<string name="user_can_still_see_your_posts">Μπορεί ακόμη να δει τις αναρτήσεις σου, αλλά δε θα βλέπεις τις δικές του.</string>
+	<string name="you_wont_see_user_mentions">Δε θα βλέπεις τις αναρτήσεις που τον επισημαίνουν.</string>
+	<string name="user_can_mention_and_follow_you">Μπορεί να σε επισημάνει και να σε ακολουθήσει, αλλά δε θα τον βλέπεις.</string>
+	<string name="unmuted_user_x">Έγινε άρση σίγασης %s</string>
 	<string name="block_user_confirm_title">Αποκλεισμός χρήστη;</string>
 	<string name="user_can_see_blocked">Μπορεί να δει ότι έχει αποκλειστεί.</string>
 	<string name="user_cant_see_each_other_posts">Δεν μπορεί να δει τις αναρτήσεις σου και δε θα δεις τις δικές του.</string>
@@ -702,12 +702,12 @@
 	<string name="post_pinned">Η ανάρτηση καρφιτσώθηκε</string>
 	<string name="post_unpinned">Η ανάρτηση ξεκαρφιτσώθηκε</string>
 	<!-- %s is the username -->
-	<string name="enable_new_post_notifications">Ειδοποίησέ με όταν δημοσιεύει ο @%s</string>
-	<string name="disable_new_post_notifications">Σταμάτα να με ειδοποιείς όταν δημοσιεύει ο @%s</string>
+	<string name="enable_new_post_notifications">Ειδοποίησέ με όταν δημοσιεύει ο/η @%s</string>
+	<string name="disable_new_post_notifications">Σταμάτα να με ειδοποιείς όταν δημοσιεύει ο/η @%s</string>
 	<string name="new_post_notifications_enabled">Θα λάβεις ειδοποιήσεις για νέες αναρτήσεις.</string>
 	<string name="new_post_notifications_disabled">Δε θα λαμβάνεις πλέον ειδοποιήσεις για νέες αναρτήσεις.</string>
 	<string name="mute_conversation">Σίγαση συνομιλίας</string>
-	<string name="unmute_conversation">Αναίρεση σίγασης συνομιλίας</string>
+	<string name="unmute_conversation">Άρση σίγασης συνομιλίας</string>
 	<string name="visibility_unlisted">Ήσυχη δημόσια</string>
 	<string name="filtered_notifications">Φιλτραρισμένες ειδοποιήσεις</string>
 	<string name="filter_notifications">Φιλτράρισμα ειδοποιήσεων από...</string>
@@ -717,21 +717,21 @@
 	<string name="notification_filter_followers_explanation">Συμπεριλαμβανομένων των ατόμων που σ\' έχουν ακολουθήσει λιγότερο από 3 ημέρες</string>
 	<string name="notification_filter_new_accounts">Νέοι λογαριασμοί</string>
 	<string name="notification_filter_new_accounts_explanation">Δημιουργήθηκαν μέσα στις τελευταίες 30 ημέρες</string>
-	<string name="notification_filter_mentions">Μη συναινετικές ιδιωτικές αναφορές</string>
+	<string name="notification_filter_mentions">Μη συναινετικές ιδιωτικές επισημάνσεις</string>
 	<string name="notification_filter_mentions_explanation">Φιλτράρισμα εκτός αν είναι σε απάντηση στη δική σου επισήμανση ή αν ακολουθείς τον αποστολέα</string>
 	<string name="allow_notifications">Να επιτρέπονται οι ειδοποιήσεις</string>
-	<string name="mute_notifications">Απόρριψη αιτήματος ειδοποίησης</string>
+	<string name="mute_notifications">Παράβλεψη αιτήματος ειδοποίησης</string>
 	<plurals name="x_people_you_may_know">
 		<item quantity="one">%,d άτομο που μπορεί να ξέρεις</item>
 		<item quantity="other">%,d άτομα που μπορεί να ξέρεις</item>
 	</plurals>
 	<string name="notifications_from_user">Ειδοποιήσεις από %s</string>
-	<string name="notifications_muted">Οι ειδοποιήσεις από %s έχουν απορριφθεί.</string>
+	<string name="notifications_muted">Οι ειδοποιήσεις από %s έχουν παραβλεφθεί.</string>
 	<string name="notifications_allowed">%s θα εμφανιστεί τώρα στη λίστα ειδοποιήσεών σου.</string>
 	<string name="visibility_subtitle_public">Όλοι εντός και εκτός του Mastodon</string>
 	<string name="visibility_subtitle_unlisted">Κρυμμένο από τα αποτελέσματα αναζήτησης Mastodon, τις τάσεις και τις δημόσιες ροές</string>
 	<string name="visibility_subtitle_followers">Μόνο οι ακόλουθοί σου</string>
-	<string name="visibility_subtitle_private">Όλοι όσοι αναφέρθηκαν στην ανάρτηση</string>
+	<string name="visibility_subtitle_private">Όλοι όσοι επισημάνθηκαν στην ανάρτηση</string>
 	<string name="view_boosts">Εμφάνιση ενισχύσεων</string>
 	<string name="view_favorites">Εμφάνιση αγαπημένων</string>
 	<string name="undo_reblog">Αναίρεση ενίσχυσης</string>
@@ -757,7 +757,7 @@
 	<string name="donation_success_title">Ευχαριστούμε για τη συνεισφορά σου!</string>
 	<string name="donation_success_subtitle">Θα λάβεις σύντομα ένα email που θα επιβεβαιώνει τη δωρεά σου.</string>
 	<string name="donation_server_error">Λυπούμαστε, πρόεκυψε ένα σφάλμα και δεν καταφέραμε να διεκπαιρεώσουμε την δωρέα.\n\nΔοκίμασε ξανά σε λίγα λεπτά.</string>
-	<string name="settings_donate">Συνείσφερε στο Mastodon</string>
+	<string name="settings_donate">Δωρεά στο Mastodon</string>
 	<string name="settings_manage_donations">Διαχείριση δωρεών</string>
 	<string name="cant_load_image">Αδυναμία φόρτωσης εικόνας</string>
 	<string name="poll_see_results">Εμφάνιση αποτελεσμάτων</string>
@@ -767,16 +767,16 @@
 		<item quantity="other">%d συνημμένα</item>
 	</plurals>
 	<plurals name="user_and_x_more_favorited">
-		<item quantity="one">Οι %1$s και %2$,d ακόμη αγάπησαν:</item>
-		<item quantity="other">Οι %1$s και %2$,d ακόμη αγάπησαν:</item>
+		<item quantity="one">Οι %1$s και %2$,d ακόμα αγάπησαν:</item>
+		<item quantity="other">Οι %1$s και %2$,d ακόμα αγάπησαν:</item>
 	</plurals>
 	<plurals name="user_and_x_more_boosted">
-		<item quantity="one">Οι %1$s και %2$,d ακόμη ενίσχυσαν:</item>
-		<item quantity="other">Οι %1$s και %2$,d ακόμη ενίσχυσαν:</item>
+		<item quantity="one">Οι %1$s και %2$,d ακόμα ενίσχυσαν:</item>
+		<item quantity="other">Οι %1$s και %2$,d ακόμα ενίσχυσαν:</item>
 	</plurals>
 	<plurals name="poll_ended_x_voters">
-		<item quantity="one">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμη ψηφίσατε</item>
-		<item quantity="other">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμη ψηφίσατε</item>
+		<item quantity="one">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμα ψηφίσατε</item>
+		<item quantity="other">Ο χρήστης %1$s έτρεξε μια δημοσκόπηση στην οποία εσύ και %2$,d ακόμα ψηφίσατε</item>
 	</plurals>
 	<string name="own_poll_ended">Η δημοσκόπησή σου έληξε</string>
 	<string name="user_just_posted">Ο χρήστης %s μόλις ανάρτησε</string>
@@ -813,8 +813,8 @@
 	<string name="delete_account">Διαγραφή λογαριασμού</string>
 	<string name="notification_type_status">Νέες αναρτήσεις</string>
 	<plurals name="user_and_x_more_followed">
-		<item quantity="one">Οι %1$s και %2$,d ακόμη σε ακολούθησαν</item>
-		<item quantity="other">Οι %1$s και %2$,d ακόμη σε ακολούθησαν</item>
+		<item quantity="one">Οι %1$s και %2$,d ακόμα σε ακολούθησαν</item>
+		<item quantity="other">Οι %1$s και %2$,d ακόμα σε ακολούθησαν</item>
 	</plurals>
 	<string name="familiar_followers_one">Ακολουθείται από %s</string>
 	<string name="familiar_followers_two">Ακολουθείται από %s και %s</string>
@@ -822,12 +822,12 @@
 	<string name="profile_saved_posts_explanation">Οι αποθηκευμένες αναρτήσεις σου είναι ορατές μόνο σε σένα.</string>
 	<string name="search_people">Άτομα</string>
 	<plurals name="familiar_followers_many">
-		<item quantity="one">Ακολουθείται από %1$s, %2$s, και %3$,d ακόμη</item>
-		<item quantity="other">Ακολουθείται από %1$s, %2$s, και %3$,d ακόμη</item>
+		<item quantity="one">Ακολουθείται από %1$s, %2$s, και %3$,d ακόμα</item>
+		<item quantity="other">Ακολουθείται από %1$s, %2$s, και %3$,d ακόμα</item>
 	</plurals>
 	<plurals name="x_followers_you_know">
 		<item quantity="one">%,d ακόλουθος που ξέρεις</item>
-		<item quantity="other">%,d ακόλουθοι ξέρεις</item>
+		<item quantity="other">%,d ακόλουθοι που ξέρεις</item>
 	</plurals>
 	<!-- appears when you're about to block a server -->
 	<plurals name="server_x_followers_will_be_removed">
@@ -870,12 +870,12 @@
 	<string name="quote_post_pending_explanation">Στο Mastodon, μπορείς να ελέγξεις αν κάποιος μπορεί να σε αναφέρει. Αυτή η ανάρτηση εκκρεμεί ενώ λαμβάνουμε την έγκριση του αρχικού συγγραφέα.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Παράθεση ανάρτησης από %s</string>
-	<string name="compose_visibility_public_anyone">Δημόσιο, οποιοσδήποτε μπορεί να παραθέσει</string>
-	<string name="compose_visibility_public_limited">Δημόσιο, παραθέσεις περιορισμένες</string>
-	<string name="compose_visibility_public_disabled">Δημόσιο, παραθέσεις απενεργοποιημένες</string>
-	<string name="compose_visibility_unlisted_anyone">Αθόρυβο δημόσιο, οποιοσδήποτε μπορεί να παραθέσει</string>
-	<string name="compose_visibility_unlisted_limited">Αθόρυβο δημόσιο, παραθέσεις περιορισμένες</string>
-	<string name="compose_visibility_unlisted_disabled">Αθόρυβο δημόσιο, παραθέσεις απενεργοποιημένες</string>
+	<string name="compose_visibility_public_anyone">Δημόσια, οποιοσδήποτε μπορεί να παραθέσει</string>
+	<string name="compose_visibility_public_limited">Δημόσια, παραθέσεις περιορισμένες</string>
+	<string name="compose_visibility_public_disabled">Δημόσια, παραθέσεις απενεργοποιημένες</string>
+	<string name="compose_visibility_unlisted_anyone">Αθόρυβα δημόσια, οποιοσδήποτε μπορεί να παραθέσει</string>
+	<string name="compose_visibility_unlisted_limited">Αθόρυβα δημόσια, παραθέσεις περιορισμένες</string>
+	<string name="compose_visibility_unlisted_disabled">Αθόρυβα δημόσια, παραθέσεις απενεργοποιημένες</string>
 	<string name="compose_visibility_title">Ορατότητα και αλληλεπίδραση</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<string name="compose_visibility_explanation">Έλεγξε ποιος μπορεί να αλληλεπιδράσει μ\' αυτή την ανάρτηση. Οι καθολικές ρυθμίσεις μπορούν να βρεθούν στο Ρυθμίσεις &gt; %s &gt; Προεπιλογές ανάρτησης.</string>
@@ -886,7 +886,7 @@
 	<string name="quote_policy_nobody">Μόνο εγώ</string>
 	<string name="quote_policy_for_unlisted_explanation">Όταν ένα άτομο σε παραθέτει, η ανάρτησή του θα είναι επίσης κρυμμένη από τις δημοφιλείς ροές.</string>
 	<string name="quote_policy_for_private_explanation">Αναρτήσεις μόνο για ακολούθους που έχουν συνταχθεί στο Mastodon, δεν μπορούν να γίνουν παράθεση από άλλους.</string>
-	<string name="quote_policy_for_direct_explanation">Ιδιωτικές αναφορές που έχουν συνταχθεί στο Mastodon δεν μπορούν να γίνουν παράθεση από άλλους.</string>
+	<string name="quote_policy_for_direct_explanation">Ιδιωτικές επισημάνσεις που έχουν συνταχθεί στο Mastodon δεν μπορούν να γίνουν παράθεση από άλλους.</string>
 	<string name="change_quote_policy">Άλλαξε ποιος μπορεί να κάνει παράθεση</string>
 	<string name="edit_visibility_explanation">Δημοσιευμένες αναρτήσεις δεν μπορούν να αλλάξουν την ορατότητά τους.</string>
 	<string name="user_quoted_post">%s έκανε παράθεση την ανάρτησή σου:</string>
@@ -900,14 +900,14 @@
 	<string name="unlisted_quote_alert_title">Παράθεση ήσυχων δημόσιων αναρτήσεων</string>
 	<string name="unlisted_quote_alert">Όταν παραθέτεις μια ήσυχη δημόσια ανάρτηση, η ανάρτηση σου θα είναι κρυμμένη από τις δημοφιλείς ροές.</string>
 	<string name="settings_posting_defaults">Προεπιλογές ανάρτησης</string>
-	<string name="default_post_visibility">Ορατότητα αναρτήσεων</string>
+	<string name="default_post_visibility">Ορατότητα ανάρτησης</string>
 	<string name="create_quote_manual_approval">Αίτημα για παράθεση</string>
-	<string name="create_quote_manual_approval_subtitle">Ο συντάκτης εξετάσει χειροκίνητα</string>
+	<string name="create_quote_manual_approval_subtitle">Ο συντάκτης θα εξετάσει χειροκίνητα</string>
 	<plurals name="x_quotes">
 		<item quantity="one">%,d παράθεση</item>
 		<item quantity="other">%,d παραθέσεις</item>
 	</plurals>
-	<string name="remove_quote">Κατάργηση της ανάρτησής μου από την ανάρτηση του χρήστη %s</string>
+	<string name="remove_quote">Αφαίρεση της ανάρτησής μου από την ανάρτηση του χρήστη %s</string>
 	<string name="remove_quote_confirm_title">Αφαίρεση ανάρτησης;</string>
 	<string name="remove_quote_confirm">Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
 	<string name="remove_quote_button">Αφαίρεση ανάρτησης</string>
