@@ -390,6 +390,17 @@ public class CacheController{
 			values.put("json", MastodonAPIController.gson.toJson(result));
 			values.put("time", (int)(System.currentTimeMillis()/1000));
 			db.insertWithOnConflict("recent_searches", null, values, SQLiteDatabase.CONFLICT_REPLACE);
+			db.execSQL("DELETE FROM recent_searches WHERE id NOT IN (SELECT id FROM recent_searches ORDER BY time DESC LIMIT 20)");
+		});
+	}
+
+	public void updateRecentSearches(List<SearchResult> results){
+		runOnDbThread(db->{
+			ContentValues values=new ContentValues(1);
+			for(SearchResult res:results){
+				values.put("json", MastodonAPIController.gson.toJson(res));
+				db.update("recent_searches", values, "id=?", new String[]{res.getID()});
+			}
 		});
 	}
 
