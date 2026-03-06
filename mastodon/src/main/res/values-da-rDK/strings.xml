@@ -96,7 +96,7 @@
 	<string name="confirm">Bekræft</string>
 	<string name="delete">Slet</string>
 	<string name="confirm_delete_title">Slet indlæg</string>
-	<string name="confirm_delete">Sikker på, at dette indlæg skal slettes?</string>
+	<string name="confirm_delete">Er du sikker på, at du vil slette dette indlæg?</string>
 	<string name="deleting">Sletter…</string>
 	<string name="notification_channel_audio_player">Lydafspilning</string>
 	<string name="play">Afspil</string>
@@ -296,7 +296,7 @@
 	<string name="download_update">Download (%s)</string>
 	<string name="install_update">Installér</string>
 	<string name="privacy_policy_title">Brugerfortrolighed</string>
-	<string name="privacy_policy_subtitle">Selvom Mastodon-appen ikke indsamler data, kan serveren, via hvilken man tilmelder sig, have en anden politik.\n\nEr man uenig i politikken for %s, kan man gå tilbage og vælge en anden server.</string>
+	<string name="privacy_policy_subtitle">Selvom Mastodon-appen ikke indsamler data, kan den server du tilmelder dig gennem, have en anden politik.\n\nHvis du er uenig i politikken for %s, kan du gå tilbage og vælge en anden server.</string>
 	<string name="i_agree">Jeg accepterer</string>
 	<string name="empty_list">Denne liste er tom</string>
 	<string name="instance_signup_closed">Denne server accepterer ikke nye tilmeldinger.</string>
@@ -331,7 +331,7 @@
 	<string name="server_policy_disagree">Uenig med %s</string>
 	<string name="profile_bio">Biografi</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
-	<string name="sending_follows">Følger brugere …</string>
+	<string name="sending_follows">Følger brugere…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s tillader ikke tilmeldinger fra %2$s. Prøv en anden eller &lt;a&gt;vælg en anden server&lt;/a&gt;.</string>
 	<string name="spoiler_show">Vis alligevel</string>
@@ -419,8 +419,8 @@
 	<string name="pause_all_notifications">Pausér alle</string>
 	<string name="pause_notifications_off">Fra</string>
 	<string name="notifications_policy_anyone">Alle</string>
-	<string name="notifications_policy_followed">Personer, som er følgere</string>
-	<string name="notifications_policy_follower">Personer, som følges</string>
+	<string name="notifications_policy_followed">Personer, som følger dig</string>
+	<string name="notifications_policy_follower">Personer, du følger</string>
 	<string name="notifications_policy_no_one">Ingen</string>
 	<string name="settings_notifications_policy">Få notifikationer fra</string>
 	<string name="notification_type_mentions_and_replies">Omtaler og svar</string>
@@ -597,7 +597,7 @@
 	<string name="no_followed_hashtags_title">Følg med i interesser ved at følge hashtags</string>
 	<string name="no_followed_hashtags_subtitle">Dem som følges vises her</string>
 	<string name="no_lists_title">Organiser hjemme-feed med Lister</string>
-	<string name="no_lists_subtitle">Egne lister vises her</string>
+	<string name="no_lists_subtitle">Dine lister vises her</string>
 	<string name="manage_accounts">Tilføj eller skift konti</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d nyligt indlæg</item>
@@ -617,7 +617,7 @@
 	<string name="dont_remind_again">Påmind ikke igen</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="old_post_sheet_title">Dette indlæg er %s gammelt</string>
-	<string name="old_post_sheet_text">Det kan stadig besvares, men er måske ikke længere relevant.</string>
+	<string name="old_post_sheet_text">Du kan stadig svare, men det er måske ikke længere relevant.</string>
 	<plurals name="x_months">
 		<item quantity="one">%,d måned</item>
 		<item quantity="other">%,d måneder</item>
@@ -653,7 +653,7 @@ Jo flere du følger, jo mere aktiv og interessant bliver det.</string>
 	<string name="mute_user_confirm_title">Skjul bruger?</string>
 	<string name="user_wont_know_muted">Vedkommende ser ikke, at de er blevet skjult.</string>
 	<string name="user_can_still_see_your_posts">Vedkommende kan stadig se dine indlæg, med vedkommendes vise ikke.</string>
-	<string name="you_wont_see_user_mentions">Indlæg, som nævner vedkommende, vises ikke.</string>
+	<string name="you_wont_see_user_mentions">Du vil ikke se indlæg, der nævner vedkommende.</string>
 	<string name="user_can_mention_and_follow_you">Vedkommende kan nævne og følge dig, men vil ikke blive vist.</string>
 	<string name="unmuted_user_x">Viser %s igen</string>
 	<string name="block_user_confirm_title">Blokér bruger?</string>

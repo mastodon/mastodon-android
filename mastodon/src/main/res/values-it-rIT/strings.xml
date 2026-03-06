@@ -22,8 +22,8 @@
 	<string name="discard">Scarta</string>
 	<string name="cancel">Annulla</string>
 	<plurals name="followers">
-		<item quantity="one">seguace</item>
-		<item quantity="other">seguaci</item>
+		<item quantity="one">follower</item>
+		<item quantity="other">follower</item>
 	</plurals>
 	<plurals name="following">
 		<item quantity="one">seguito</item>
@@ -163,10 +163,10 @@
 	<string name="save">Salva</string>
 	<string name="add_alt_text">Aggiungi testo alt</string>
 	<string name="visibility_public">Pubblico</string>
-	<string name="visibility_followers_only">Seguaci</string>
+	<string name="visibility_followers_only">Follower</string>
 	<string name="visibility_private">Menzione privata</string>
 	<string name="recent_searches">Recenti</string>
-	<string name="notification_type_follow">Nuovi seguaci</string>
+	<string name="notification_type_follow">Nuovi follower</string>
 	<string name="notification_type_favorite">Preferiti</string>
 	<string name="notification_type_reblog">Condivisioni</string>
 	<string name="notification_type_mention">Menzioni</string>
@@ -239,7 +239,7 @@
 	<string name="follow_back">Segui anche tu</string>
 	<string name="button_follow_pending">In attesa</string>
 	<string name="follows_you">Ha iniziato a seguirti</string>
-	<string name="manually_approves_followers">Approva manualmente i followers</string>
+	<string name="manually_approves_followers">Approva manualmente i follower</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d follower</item>
@@ -577,8 +577,8 @@
 	<string name="delete_list">Elimina la lista</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Eliminare “%s”?</string>
-	<string name="list_exclusive">Nascondi i membri nell\'elenco \"Stai seguendo\"</string>
-	<string name="list_exclusive_subtitle">Se qualcuno è presente in questa lista, nascondilo nella timeline degli utenti \"Sto seguendo\" per evitare di vedere i suoi post due volte.</string>
+	<string name="list_exclusive">Nascondi i membri nell\'elenco \"Seguiti\"</string>
+	<string name="list_exclusive_subtitle">Se qualcuno è presente in questa lista, nascondilo nella timeline degli utenti \"Seguiti\" per evitare di vedere i suoi post due volte.</string>
 	<string name="list_name">Elenco dei nomi</string>
 	<string name="list_show_replies_to">Mostra le risposte a</string>
 	<string name="list_replies_no_one">Nessuno</string>
@@ -677,7 +677,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="server">Server</string>
 	<string name="handle_server_explanation">La loro casa digitale, dove risiedono tutti i loro post.</string>
 	<string name="handle_explanation">Poiché i nomi univoci indicano chi sia qualcuno e dove si trovi, puoi interagire con le persone attraverso la rete sociale delle &lt;a&gt;piattaforme basate su ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">La tua casa digitale, dove vivono tutti i tuoi post. Non ti piace questa? Cambia server in qualsiasi momento e porta con te anche i tuoi seguaci.</string>
+	<string name="handle_server_explanation_own">La tua casa digitale, dove vivono tutti i tuoi post. Non ti piace questa? Cambia server in qualsiasi momento e porta con te anche i tuoi follower.</string>
 	<string name="handle_explanation_own">Poiché il tuo nome univoco indica chi tu sia e dove ti trovi, le persone possono interagire con te attraverso la rete sociale delle &lt;a&gt;piattaforme basate su ActivityPub&lt;/a&gt;.</string>
 	<string name="what_is_activitypub_title">Cos\'è ActivityPub?</string>
 	<string name="what_is_activitypub">ActivityPub è come il linguaggio che Mastodon parla con altri social network.\n\nTi consente di connetterti e interagire con le persone non solo su Mastodon, ma anche attraverso diverse app social.</string>
@@ -731,7 +731,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="notifications_allowed">%s apparirà ora nella tua lista di notifiche.</string>
 	<string name="visibility_subtitle_public">Tutti, dentro e fuori Mastodon</string>
 	<string name="visibility_subtitle_unlisted">Nascosto dai risultati di ricerca di Mastodon, dalle tendenze e dalle timeline pubbliche</string>
-	<string name="visibility_subtitle_followers">Solo i tuoi seguaci</string>
+	<string name="visibility_subtitle_followers">Solo i tuoi follower</string>
 	<string name="visibility_subtitle_private">Tutti quelli menzionati nel post</string>
 	<string name="view_boosts">Visualizza potenziamenti</string>
 	<string name="view_favorites">Visualizza preferiti</string>
@@ -784,13 +784,13 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="user_edited_post">%s ha modificato un post con cui hai interagito</string>
 	<string name="relationship_severance_account_suspension">Un amministratore da %1$s ha sospeso %2$s, il che significa che non puoi più ricevere aggiornamenti da essi o interagire con loro.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
-	<string name="relationship_severance_domain_block">Un amministratore da %1$s ha bloccato %2$s, includendo %3$,d dei tuoi seguaci e %4$s che segui.</string>
+	<string name="relationship_severance_domain_block">Un amministratore da %1$s ha bloccato %2$s, includendo %3$,d dei tuoi follower e %4$s che segui.</string>
 	<plurals name="x_accounts">
 		<item quantity="one">%,d account</item>
 		<item quantity="other">%,d account</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
-	<string name="relationship_severance_user_domain_block">Hai bloccato %1$s, rimuovendo %2$,d dei tuoi seguaci e %3$s che segui.</string>
+	<string name="relationship_severance_user_domain_block">Hai bloccato %1$s, rimuovendo %2$,d dei tuoi follower e %3$s che segui.</string>
 	<string name="relationship_severance_learn_more">Per saperne di più</string>
 	<string name="moderation_warning_action_none">Il tuo account ha ricevuto un avviso di moderazione.</string>
 	<string name="moderation_warning_action_disable">Il tuo account è stato disabilitato.</string>
@@ -827,19 +827,19 @@ Più persone segui, più sarà attivo e interessante.</string>
 		<item quantity="other">Seguito da %1$s, %2$s e altri %3$,d</item>
 	</plurals>
 	<plurals name="x_followers_you_know">
-		<item quantity="one">%,d seguace che conosci</item>
-		<item quantity="other">%,d seguaci che conosci</item>
+		<item quantity="one">%,d follower che conosci</item>
+		<item quantity="other">%,d follower che conosci</item>
 	</plurals>
 	<!-- appears when you're about to block a server -->
 	<plurals name="server_x_followers_will_be_removed">
-		<item quantity="one">%,d seguace sarà rimosso da questo server.</item>
-		<item quantity="other">%,d seguaci saranno rimossi da questo server.</item>
+		<item quantity="one">%,d follower sarà rimosso da questo server.</item>
+		<item quantity="other">%,d follower saranno rimossi da questo server.</item>
 	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
-	<string name="server_x_followers_and_following_will_be_removed">Perderai %1$s seguaci e %2$s persone che segui.</string>
+	<string name="server_x_followers_and_following_will_be_removed">Perderai %1$s follower e %2$s persone che segui.</string>
 	<plurals name="will_lose_x_followers">
-		<item quantity="one">%,d seguace</item>
-		<item quantity="other">%,d seguaci</item>
+		<item quantity="one">%,d follower</item>
+		<item quantity="other">%,d follower</item>
 	</plurals>
 	<plurals name="will_lose_x_following">
 		<item quantity="one">%,d persona che segui</item>
@@ -883,10 +883,10 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="compose_visibility">Visibilità</string>
 	<string name="compose_quote_policy">Chi può citare</string>
 	<string name="quote_policy_public">Chiunque</string>
-	<string name="quote_policy_followers">Solo i seguaci</string>
+	<string name="quote_policy_followers">Solo i follower</string>
 	<string name="quote_policy_nobody">Solo io</string>
 	<string name="quote_policy_for_unlisted_explanation">Quando le persone ti citano, il loro post verrà nascosto anche dalle timeline di tendenza.</string>
-	<string name="quote_policy_for_private_explanation">I post scritti e riservati ai seguaci su Mastodon non possono essere citati da altri.</string>
+	<string name="quote_policy_for_private_explanation">I post scritti e riservati ai follower su Mastodon non possono essere citati da altri.</string>
 	<string name="quote_policy_for_direct_explanation">Le menzioni private scritte su Mastodon non possono essere citate da altri.</string>
 	<string name="change_quote_policy">Cambia chi può citare</string>
 	<string name="edit_visibility_explanation">La visibilità dei post pubblicati non può essere modificata.</string>
@@ -895,7 +895,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="notification_type_quote">Citazioni</string>
 	<string name="create_quote">Cita</string>
 	<string name="cannot_quote_post">Non ti è consentito citare questo post</string>
-	<string name="cannot_quote_post_followers_only">Solo i seguaci possono citare questo post</string>
+	<string name="cannot_quote_post_followers_only">Solo i follower possono citare questo post</string>
 	<string name="compose_hint_quote">Aggiungi qualcosa alla conversazione</string>
 	<string name="cancel_quote">Annulla la citazione</string>
 	<string name="unlisted_quote_alert_title">Citazione di post pubblici silenziosi</string>
@@ -915,7 +915,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="settings_posting_defaults_explanation">Queste impostazioni verranno utilizzate come predefinite quando crei nuovi post, ma puoi modificarle per ogni post all\'interno del compositore.</string>
 	<string name="cant_quote_in_private_title">Le citazioni non possono essere incorporate in menzioni private</string>
 	<string name="cant_quote_in_private">Se si salvano le impostazioni correnti, la citazione incorporata verrà convertita in un collegamento.</string>
-	<string name="quote_followers_only_confirm_title">Condividere con i seguaci e gli utenti menzionati?</string>
+	<string name="quote_followers_only_confirm_title">Condividere con i follower e gli utenti menzionati?</string>
 	<string name="quote_followers_only_confirm">La persona che stai citando e le altre persone menzionate riceveranno una notifica e potranno visualizzare il tuo post, anche se non ti seguono.</string>
 	<string name="quote_followers_only_publish">Pubblica il post</string>
 	<string name="quote_followers_only_cancel">Torna a modificare</string>

@@ -280,10 +280,10 @@
 		<item quantity="other">%,d падпісак</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d упадабанае</item>
-		<item quantity="few">%,d упадабаных</item>
-		<item quantity="many">%,d упадабаных</item>
-		<item quantity="other">%,d упадабаных</item>
+		<item quantity="one">%,d упадабанне</item>
+		<item quantity="few">%,d упадабанні</item>
+		<item quantity="many">%,d упадабанняў</item>
+		<item quantity="other">%,d упадабанні</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d пашырэнне</item>
@@ -342,7 +342,7 @@
 	<string name="add_bookmark">Закладка</string>
 	<string name="remove_bookmark">Выдаліць закладку</string>
 	<string name="bookmarks">Закладкі</string>
-	<string name="your_favorites">Упадабаныя</string>
+	<string name="your_favorites">Упадабанні</string>
 	<string name="login_title">З вяртаннем</string>
 	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
@@ -802,9 +802,9 @@
 	<string name="visibility_subtitle_followers">Толькі падпісчыкі</string>
 	<string name="visibility_subtitle_private">Усе згаданыя ў допісе</string>
 	<string name="view_boosts">Праглядзець пашырэнні</string>
-	<string name="view_favorites">Праглядзець упадабанае</string>
+	<string name="view_favorites">Праглядзець упадабанні</string>
 	<string name="undo_reblog">Адмяніць пашырэнне</string>
-	<string name="undo_favorite">Адмяніць упадабанае</string>
+	<string name="undo_favorite">Скасаваць упадабанне</string>
 	<string name="could_not_reach_server">Не ўдалося звязацца з серверам. Праверце злучэнне і паспрабуйце яшчэ раз.</string>
 	<string name="connection_timed_out">Запыт быў перапынены. Праверце злучэнне і паспрабуйце яшчэ раз.</string>
 	<string name="server_error">Нешта пайшло не так у злучэнні з Вашым серверам. Хутчэй за ўсё, гэта не Ваша віна. Паспрабаваць яшчэ раз?</string>
@@ -986,7 +986,7 @@
 	<string name="edit_visibility_explanation">Апублікаваныя допісы не могуць змяняць сваю бачнасць.</string>
 	<string name="user_quoted_post">%s цытаваў(-ла) Ваш допіс:</string>
 	<string name="user_edited_quoted_post">%s адрэдагаваў(-ла) допіс, які Вы цытавалі</string>
-	<string name="notification_type_quote">Цытаты</string>
+	<string name="notification_type_quote">Цытаванні</string>
 	<string name="create_quote">Цытаваць</string>
 	<string name="cannot_quote_post">Вы не маеце дазвол цытаваць гэты допіс</string>
 	<string name="cannot_quote_post_followers_only">Толькі падпісчыкі могуць цытаваць гэты допіс</string>
@@ -1001,7 +1001,7 @@
 	<plurals name="x_quotes">
 		<item quantity="one">%,d% цытата</item>
 		<item quantity="few">%,d цытаты</item>
-		<item quantity="many">%,d цытат</item>
+		<item quantity="many">%,d цытаванняў</item>
 		<item quantity="other">%,d цытаты</item>
 	</plurals>
 	<string name="remove_quote">Выдаліць мой допіс з допісу %s</string>

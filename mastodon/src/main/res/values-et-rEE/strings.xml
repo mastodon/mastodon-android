@@ -119,7 +119,7 @@
 	<string name="report_choose_reason_subtitle">Vali parim vaste</string>
 	<string name="report_reason_personal">Mulle ei meeldi see</string>
 	<string name="report_reason_personal_subtitle">See on midagi sellist, mida ma näha ei taha</string>
-	<string name="report_reason_spam">See on rämpspost</string>
+	<string name="report_reason_spam">See on rämpspostitus</string>
 	<string name="report_reason_spam_subtitle">Pahatahtlikud lingid, võltssuhtlus või korduvad vastused</string>
 	<string name="report_reason_violation">Rikub serveri reegleid</string>
 	<string name="report_reason_violation_subtitle">Tead, et see rikub konkreetseid reegleid</string>
@@ -185,7 +185,7 @@
 	<string name="theme_dark">Tume kujundus</string>
 	<string name="settings_behavior">Käitumine</string>
 	<string name="settings_gif">Esita animeeritud tunnuspilte ja emojisid</string>
-	<string name="settings_custom_tabs">Ava link rakendusega</string>
+	<string name="settings_custom_tabs">Ava lingid rakendusega</string>
 	<string name="settings_notifications">Teavitused</string>
 	<string name="settings_contribute">Tee kaastööd Mastodonile</string>
 	<string name="settings_tos">Kasutustingimused</string>
@@ -246,8 +246,8 @@
 		<item quantity="other">%,d jälgijat</item>
 	</plurals>
 	<plurals name="x_following">
-		<item quantity="one">%,d jälgija</item>
-		<item quantity="other">%,d jälgijat</item>
+		<item quantity="one">%,d jälgitav</item>
+		<item quantity="other">%,d jälgitavat</item>
 	</plurals>
 	<plurals name="x_favorites">
 		<item quantity="one">%,d lemmik</item>
@@ -296,10 +296,10 @@
 	<string name="download_update">Laadi alla (%s)</string>
 	<string name="install_update">Paigalda</string>
 	<string name="privacy_policy_title">Sinu privaatsus</string>
-	<string name="privacy_policy_subtitle">Kuigi Mastodoni rakendus ei kogu mingeid andmeid, siis sinu kasutatavas koduserveris võivad kehtida muud reeglid.\n\nKui sulle %s koduserveri reeglid ei sobi, siis saad sa valiida mõne muu koduserveri.</string>
+	<string name="privacy_policy_subtitle">Kuigi Mastodoni rakendus ei kogu mingeid andmeid, siis sinu kasutatavas koduserveris võivad kehtida muud reeglid.\n\nKui sulle %s koduserveri reeglid ei sobi, siis saad sa valida mõne muu koduserveri.</string>
 	<string name="i_agree">Ma nõustun</string>
 	<string name="empty_list">See loend on tühi</string>
-	<string name="instance_signup_closed">Koduserver hetkel ei võimalda uuteel kasutajatel registreeruda.</string>
+	<string name="instance_signup_closed">Koduserver hetkel ei võimalda uutel kasutajatel registreeruda.</string>
 	<string name="text_copied">Kopeeritud lõikelauale</string>
 	<string name="add_bookmark">Lisa järjehoidjana</string>
 	<string name="remove_bookmark">Eemalda järjehoidja</string>
@@ -392,7 +392,7 @@
 	<string name="language_detecting">Tuvastan keelt</string>
 	<string name="language_cant_detect">Keele tuvastamine ei õnnestu</string>
 	<string name="language_detected">Tuvastatud</string>
-	<string name="media_hidden">Meedia on peidetud</string>
+	<string name="media_hidden">Meedium on peidetud</string>
 	<string name="post_hidden">Postitus on peidetud</string>
 	<string name="report_title_post">Teata sobimatust postitusest</string>
 	<string name="forward_report_explanation">See kasutajakonto on teisest koduserverist. Kas saadan anonümiseeritud koopia sellest teatest sinna ka?</string>
