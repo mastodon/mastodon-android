@@ -143,11 +143,11 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 
 			String defaultTab=getArguments().getString("tab");
 			if("notifications".equals(defaultTab)){
-				tabBar.selectTab(R.id.tab_notifications);
 				fragmentContainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 					@Override
 					public boolean onPreDraw(){
 						fragmentContainer.getViewTreeObserver().removeOnPreDrawListener(this);
+						tabBar.selectTab(R.id.tab_notifications);
 						onTabSelected(R.id.tab_notifications);
 						return true;
 					}
