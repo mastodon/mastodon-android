@@ -129,7 +129,7 @@ public abstract class Instance extends BaseModel{
 		public MediaAttachmentsConfiguration mediaAttachments;
 		public PollsConfiguration polls;
 		public URLsConfiguration urls;
-		public TimelineAccessConfiguration timelineAccess;
+		public TimelineAccessConfiguration timelinesAccess;
 	}
 
 	@Parcel

@@ -388,7 +388,7 @@ public class AccountSession{
 		if(self.source!=null && self.source.role!=null && ((self.source.role.permissions & Role.PERMISSION_VIEW_LIVE_AND_TOPIC_FEEDS)!=0 || (self.source.role.permissions & Role.PERMISSION_ADMINISTRATOR)!=0))
 			return true;
 		Instance instance=getInstanceInfo();
-		return instance==null || instance.configuration==null || instance.configuration.timelineAccess==null
-				|| instance.configuration.timelineAccess.liveFeeds==null || instance.configuration.timelineAccess.liveFeeds.local!=Instance.TimelineAccessValue.DISABLED;
+		return instance==null || instance.configuration==null || instance.configuration.timelinesAccess==null
+				|| instance.configuration.timelinesAccess.liveFeeds==null || instance.configuration.timelinesAccess.liveFeeds.local!=Instance.TimelineAccessValue.DISABLED;
 	}
 }
