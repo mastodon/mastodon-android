@@ -133,6 +133,7 @@ public class Account extends BaseModel{
 	 */
 	public Instant muteExpiresAt;
 	public boolean noindex;
+	public Role role;
 
 
 	@Override
@@ -150,6 +151,13 @@ public class Account extends BaseModel{
 			moved.postprocess();
 		if(TextUtils.isEmpty(displayName))
 			displayName=username;
+		if(role!=null){
+			try{
+				role.postprocess();
+			}catch(ObjectValidationException x){
+				role=null;
+			}
+		}
 	}
 
 	public boolean isLocal(){
