@@ -96,6 +96,8 @@ import org.parceler.Parcels;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -132,6 +134,12 @@ public class UiUtils{
 	private static DateTimeFormatter dateFormatterShortWithYear, dateFormatterShort;
 	private static final DateTimeFormatter TIME_FORMATTER=DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
 	public static final DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.SHORT);
+	private static final DecimalFormat ABBREVIATED_NUMBER_FORMAT=new DecimalFormat();
+
+	static{
+		ABBREVIATED_NUMBER_FORMAT.setRoundingMode(RoundingMode.DOWN);
+		ABBREVIATED_NUMBER_FORMAT.setMaximumFractionDigits(1);
+	}
 
 	private UiUtils(){}
 
@@ -277,13 +285,13 @@ public class UiUtils{
 	@SuppressLint("DefaultLocale")
 	public static String abbreviateNumber(int n){
 		if(n<1000){
-			return String.format("%,d", n);
+			return ABBREVIATED_NUMBER_FORMAT.format(n);
 		}else if(n<1_000_000){
-			float a=n/1000f;
-			return a>99f ? String.format("%,dK", (int)Math.floor(a)) : String.format("%,.1fK", a);
+			double a=n/1000.0;
+			return (a>=10.0 ? ABBREVIATED_NUMBER_FORMAT.format((long)a) : ABBREVIATED_NUMBER_FORMAT.format(a))+"K";
 		}else{
 			float a=n/1_000_000f;
-			return a>99f ? String.format("%,dM", (int)Math.floor(a)) : String.format("%,.1fM", n/1_000_000f);
+			return (a>=10.0 ? ABBREVIATED_NUMBER_FORMAT.format((long)a) : ABBREVIATED_NUMBER_FORMAT.format(a))+"M";
 		}
 	}
 
@@ -293,7 +301,7 @@ public class UiUtils{
 			return abbreviateNumber((int)n);
 
 		double a=n/1_000_000_000.0;
-		return a>99f ? String.format("%,dB", (int)Math.floor(a)) : String.format("%,.1fB", n/1_000_000_000.0);
+		return (a>=10.0 ? ABBREVIATED_NUMBER_FORMAT.format((long)a) : ABBREVIATED_NUMBER_FORMAT.format(a))+"B";
 	}
 
 	/**
