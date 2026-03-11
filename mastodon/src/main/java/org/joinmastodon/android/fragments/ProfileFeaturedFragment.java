@@ -11,6 +11,7 @@ import org.joinmastodon.android.api.requests.accounts.GetAccountFeaturedHashtags
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Hashtag;
+import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
@@ -122,7 +123,7 @@ public class ProfileFeaturedFragment extends BaseStatusListFragment<SearchResult
 			new GetAccountStatuses(profileAccount.id, null, null, 2, GetAccountStatuses.Filter.PINNED, null)
 					 .setCallback(new SimpleCallback<>(this){
 						  @Override
-						  public void onSuccess(List<Status> result){
+						  public void onSuccess(HeaderPaginationList<Status> result){
 							  pinnedStatuses=result;
 							  statusesLoaded=true;
 							  onOneApiRequestCompleted();

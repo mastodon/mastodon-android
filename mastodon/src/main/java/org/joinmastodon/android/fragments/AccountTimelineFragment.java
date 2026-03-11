@@ -12,6 +12,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FilterContext;
+import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.drawables.EmptyDrawable;
 import org.joinmastodon.android.ui.views.FilterChipView;
@@ -31,6 +32,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 	private GetAccountStatuses.Filter filter;
 	private HorizontalScrollView filtersBar;
 	private FilterChipView defaultFilter, withRepliesFilter, mediaFilter;
+	private String maxID;
 
 	public AccountTimelineFragment(){
 		setListLayoutId(R.layout.recycler_fragment_no_refresh);
@@ -57,15 +59,15 @@ public class AccountTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetAccountStatuses(user.id, offset>0 ? getMaxID() : null, null, count, filter, null)
+		currentRequest=new GetAccountStatuses(user.id, offset>0 ? maxID : null, null, count, filter, null)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
-					public void onSuccess(List<Status> result){
+					public void onSuccess(HeaderPaginationList<Status> result){
 						if(getActivity()==null)
 							return;
-						boolean empty=result.isEmpty();
 						AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.ACCOUNT);
-						onDataLoaded(result, !empty);
+						maxID=result.getNextPageMaxID();
+						onDataLoaded(result, result.nextPageUri!=null);
 					}
 				})
 				.exec(accountID);

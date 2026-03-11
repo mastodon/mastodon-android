@@ -8,16 +8,16 @@ import android.view.MenuItem;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.timelines.GetListTimeline;
 import org.joinmastodon.android.model.FollowList;
+import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Status;
 import org.parceler.Parcels;
-
-import java.util.List;
 
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
 
 public class ListTimelineFragment extends StatusListFragment{
 	private FollowList followList;
+	private String maxID;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -30,11 +30,12 @@ public class ListTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetListTimeline(followList.id, offset>0 ? getMaxID() : null, null, count, null)
+		currentRequest=new GetListTimeline(followList.id, offset>0 ? maxID : null, null, count, null)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
-					public void onSuccess(List<Status> result){
-						onDataLoaded(result, !result.isEmpty());
+					public void onSuccess(HeaderPaginationList<Status> result){
+						maxID=result.getNextPageMaxID();
+						onDataLoaded(result, result.nextPageUri!=null);
 					}
 				})
 				.exec(accountID);

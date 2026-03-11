@@ -223,15 +223,6 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		}
 	}
 
-	protected String getMaxID(){
-		if(!preloadedData.isEmpty())
-			return preloadedData.get(preloadedData.size()-1).getID();
-		else if(!data.isEmpty())
-			return data.get(data.size()-1).getID();
-		else
-			return null;
-	}
-
 	protected abstract List<StatusDisplayItem> buildDisplayItems(T s);
 	protected abstract void addAccountToKnown(T s);
 	protected abstract Status asStatus(T s);
