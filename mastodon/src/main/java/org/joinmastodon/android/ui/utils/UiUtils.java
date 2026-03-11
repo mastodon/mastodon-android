@@ -620,7 +620,7 @@ public class UiUtils{
 			delete.run();
 	}
 
-	public static void setRelationshipToActionButtonM3(Relationship relationship, Button button){
+	public static void setRelationshipToActionButtonM3(Relationship relationship, Account account, Button button){
 		int styleRes;
 		if(relationship.blocking){
 			button.setText(R.string.button_blocked);
@@ -639,7 +639,7 @@ public class UiUtils{
 			styleRes=R.style.Widget_Mastodon_M3_Button_Tonal;
 		}
 
-		button.setEnabled(!relationship.blockedBy);
+		button.setEnabled(relationship.blocking || (!relationship.blockedBy && !account.suspended));
 		TypedArray ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.background});
 		button.setBackground(ta.getDrawable(0));
 		ta.recycle();

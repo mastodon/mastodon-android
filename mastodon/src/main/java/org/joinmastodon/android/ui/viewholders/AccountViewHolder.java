@@ -149,7 +149,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 			button.setVisibility(View.GONE);
 		}else{
 			button.setVisibility(View.VISIBLE);
-			UiUtils.setRelationshipToActionButtonM3(rel, button);
+			UiUtils.setRelationshipToActionButtonM3(rel, item.account, button);
 		}
 	}
 
