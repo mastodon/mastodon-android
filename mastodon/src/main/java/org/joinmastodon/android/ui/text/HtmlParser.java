@@ -150,15 +150,14 @@ public class HtmlParser{
 							Object linkObject=null;
 							String href=el.attr("href");
 							LinkSpan.Type linkType;
-							if(el.hasClass("hashtag")){
-								String text=el.text();
-								if(text.startsWith("#")){
-									linkType=LinkSpan.Type.HASHTAG;
-									href=text.substring(1);
-									linkObject=tagsByTag.get(text.substring(1).toLowerCase());
-								}else{
-									linkType=LinkSpan.Type.URL;
-								}
+							String text=el.text();
+							boolean startsWithHash=text.startsWith("#");
+							Node previous=el.previousSibling();
+							if(startsWithHash || previous != null && previous.text().endsWith("#")){
+								String tag=startsWithHash ? text.substring(1) : text;
+								linkType=LinkSpan.Type.HASHTAG;
+								href=tag;
+								linkObject=tagsByTag.get(tag.toLowerCase());
 							}else if(el.hasClass("mention")){
 								String id=idsByUrl.get(href);
 								if(id!=null){
