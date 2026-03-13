@@ -284,7 +284,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		FrameLayout sizeWrapper=new FrameLayout(getActivity()){
 			@Override
 			protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
-				pager.getLayoutParams().height=MeasureSpec.getSize(heightMeasureSpec)-getPaddingTop()-getPaddingBottom()-V.dp(48);
+				pager.getLayoutParams().height=MeasureSpec.getSize(heightMeasureSpec)-getPaddingTop()-getPaddingBottom()-(tabbar.getVisibility()==View.GONE ? 0 : V.dp(48));
 				super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 			}
 		};
@@ -521,13 +521,15 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, true);
 			mediaTimelineFragment=AccountSimpleTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
 		}
-		if(!refreshing){
-			tabs.clear();
-			tabs.add(new Tab(timelineFragment, getString(R.string.profile_timeline)));
+		tabs.clear();
+		tabs.add(new Tab(timelineFragment, getString(R.string.profile_timeline)));
+		if(account.showMedia)
 			tabs.add(new Tab(mediaTimelineFragment, getString(R.string.media)));
+		if(AccountSessionManager.get(accountID).getInstanceInfo().supportsGettingFeaturedAccounts() && account.showFeatured)
 			tabs.add(new Tab(featuredFragment, getString(R.string.profile_featured)));
-			pager.getAdapter().notifyDataSetChanged();
-		}
+		pager.getAdapter().notifyDataSetChanged();
+		tabbar.setVisibility(tabs.size()>1 ? View.VISIBLE : View.GONE);
+		tabsDivider.setVisibility(tabs.size()>1 ? View.VISIBLE : View.GONE);
 		super.dataLoaded();
 	}
 
@@ -1198,6 +1200,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		boolean newTabBarIsAtTop=!scrollView.canScrollVertically(1);
 		if(newTabBarIsAtTop!=tabBarIsAtTop || firstCallback){
 			tabBarIsAtTop=newTabBarIsAtTop;
+			boolean tabBarIsVisible=tabbar.getVisibility()!=View.GONE;
 
 			if(tabBarIsAtTop){
 				// ScrollView would sometimes leave 1 pixel unscrolled, force it into the correct scrollY
@@ -1218,7 +1221,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 				set.playTogether(
 						ObjectAnimator.ofInt(tabsColorBackground, "alpha", tabBarIsAtTop ? 20 : 0),
 						ObjectAnimator.ofFloat(tabbar, View.TRANSLATION_Z, tabBarIsAtTop ? V.dp(3) : 0),
-						ObjectAnimator.ofFloat(getToolbar(), View.TRANSLATION_Z, tabBarIsAtTop ? 0 : V.dp(3)),
+						ObjectAnimator.ofFloat(getToolbar(), View.TRANSLATION_Z, tabBarIsAtTop && tabBarIsVisible ? 0 : V.dp(3)),
 						ObjectAnimator.ofFloat(tabsDivider, View.ALPHA, tabBarIsAtTop ? 0 : 1)
 				);
 				set.setDuration(150);

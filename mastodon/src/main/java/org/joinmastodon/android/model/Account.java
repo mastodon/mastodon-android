@@ -135,6 +135,9 @@ public class Account extends BaseModel{
 	public boolean noindex;
 	public List<PublicRole> roles;
 	public Role role;
+	public boolean showMedia=true;
+	public boolean showMediaReplies=false;
+	public boolean showFeatured=true;
 
 
 	@Override

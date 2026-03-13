@@ -13,8 +13,6 @@ import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Status;
 import org.parceler.Parcels;
 
-import java.util.List;
-
 import me.grishka.appkit.api.SimpleCallback;
 
 public class AccountSimpleTimelineFragment extends StatusListFragment{
@@ -48,7 +46,8 @@ public class AccountSimpleTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetAccountStatuses(user.id, offset>0 ? maxID : null, null, count, filter, null)
+		GetAccountStatuses.Filter actualFilter=filter==GetAccountStatuses.Filter.MEDIA && user.showMediaReplies ? GetAccountStatuses.Filter.MEDIA_WITH_REPLIES : GetAccountStatuses.Filter.MEDIA;
+		currentRequest=new GetAccountStatuses(user.id, offset>0 ? maxID : null, null, count, actualFilter, null)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(HeaderPaginationList<Status> result){

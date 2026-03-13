@@ -26,6 +26,10 @@ public class GetAccountStatuses extends HeaderPaginationRequest<Status>{
 				addQueryParameter("exclude_replies", "true");
 				addQueryParameter("exclude_reblogs", "true");
 			}
+			case MEDIA_WITH_REPLIES -> {
+				addQueryParameter("only_media", "true");
+				addQueryParameter("exclude_reblogs", "true");
+			}
 			case NO_REBLOGS -> {
 				addQueryParameter("exclude_replies", "true");
 				addQueryParameter("exclude_reblogs", "true");
@@ -42,6 +46,7 @@ public class GetAccountStatuses extends HeaderPaginationRequest<Status>{
 		DEFAULT,
 		INCLUDE_REPLIES,
 		MEDIA,
+		MEDIA_WITH_REPLIES,
 		NO_REBLOGS,
 		OWN_POSTS_AND_REPLIES,
 		PINNED
