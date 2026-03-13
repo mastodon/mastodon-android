@@ -1,4 +1,4 @@
-package org.joinmastodon.android.api.requests.accounts;
+package org.joinmastodon.android.api.requests.profile;
 
 import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.model.Account;

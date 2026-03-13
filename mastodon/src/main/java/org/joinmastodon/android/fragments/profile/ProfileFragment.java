@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -521,6 +522,12 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, true);
 			mediaTimelineFragment=AccountSimpleTimelineFragment.newInstance(accountID, account, GetAccountStatuses.Filter.MEDIA, false);
 		}
+		updateTabs();
+		super.dataLoaded();
+	}
+
+	@SuppressLint("NotifyDataSetChanged")
+	private void updateTabs(){
 		tabs.clear();
 		tabs.add(new Tab(timelineFragment, getString(R.string.profile_timeline)));
 		if(account.showMedia)
@@ -530,7 +537,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		pager.getAdapter().notifyDataSetChanged();
 		tabbar.setVisibility(tabs.size()>1 ? View.VISIBLE : View.GONE);
 		tabsDivider.setVisibility(tabs.size()>1 ? View.VISIBLE : View.GONE);
-		super.dataLoaded();
 	}
 
 	@Override
@@ -610,13 +616,14 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		if(ev.accountID().equals(accountID) && account!=null && account.id.equals(ev.account().id)){
 			account=ev.account();
 			bindHeaderView();
+			updateTabs();
 		}
 	}
 
 	private void applyChildWindowInsets(){
 		if(timelineFragment!=null && timelineFragment.isAdded() && childInsets!=null){
 			for(Tab t:tabs){
-				if(t.fragment instanceof WindowInsetsAwareFragment waf)
+				if(t.fragment instanceof WindowInsetsAwareFragment waf && t.fragment.isAdded())
 					waf.onApplyWindowInsets(childInsets);
 			}
 		}

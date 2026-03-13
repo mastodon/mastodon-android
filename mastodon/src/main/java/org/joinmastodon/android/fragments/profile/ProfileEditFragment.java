@@ -25,17 +25,18 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.MastodonErrorResponse;
-import org.joinmastodon.android.api.requests.accounts.DeleteProfileAvatar;
-import org.joinmastodon.android.api.requests.accounts.DeleteProfileHeader;
+import org.joinmastodon.android.api.requests.profile.DeleteProfileAvatar;
+import org.joinmastodon.android.api.requests.profile.DeleteProfileHeader;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
+import org.joinmastodon.android.api.requests.profile.GetProfile;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.OwnFeaturedHashtagAddedEvent;
 import org.joinmastodon.android.events.OwnFeaturedHashtagRemovedEvent;
 import org.joinmastodon.android.events.SelfAccountUpdatedEvent;
 import org.joinmastodon.android.fragments.settings.BaseSettingsFragment;
 import org.joinmastodon.android.model.Account;
-import org.joinmastodon.android.model.AccountField;
+import org.joinmastodon.android.model.Profile;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.model.viewmodel.ListItemWithTrailingIcon;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -49,7 +50,6 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
 import org.parceler.Parcels;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -72,21 +72,26 @@ public class ProfileEditFragment extends BaseSettingsFragment<Void>{
 	private View header;
 	private ImageView avatar, cover;
 	private Account account;
+	private Profile profile;
 	private ListItem<Void> displayNameItem, bioItem, customFieldsItem, featuredHashtagsItem, tabSettingsItem;
 	private View avatarBadge, coverBadge, avatarBorder;
 	private int featuredHashtagCount;
 	private PopupMenu avatarMenu, coverMenu;
+	private boolean useNewAPI;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		featuredHashtagCount=getArguments().getInt("featuredTagCount");
 		setTitle(R.string.edit_profile);
+		useNewAPI=AccountSessionManager.get(accountID).getInstanceInfo().supportsNewProfileEditingEndpoints();
 		data.add(displayNameItem=new ListItem<>(getString(R.string.edit_profile_display_name), "", 0, this::onDisplayNameClick, null, 0, true));
 		data.add(bioItem=new ListItemWithTrailingIcon<>(getString(R.string.profile_bio), "", 0, this::onBioClick, null, 0, true));
 		data.add(customFieldsItem=new ListItemWithTrailingIcon<>("", getString(R.string.edit_profile_custom_fields_description), R.drawable.ic_arrow_right_24px, this::onCustomFieldsClick, null, 0, true));
 		data.add(featuredHashtagsItem=new ListItemWithTrailingIcon<>("", getString(R.string.edit_profile_featured_hashtags_description), R.drawable.ic_arrow_right_24px, this::onFeaturedHashtagsClick, null, 0, true));
-		data.add(tabSettingsItem=new ListItemWithTrailingIcon<>(getString(R.string.edit_profile_tab_settings), null, R.drawable.ic_arrow_right_24px, this::onTabSettingsClick, null, 0, true));
+		if(useNewAPI)
+			data.add(tabSettingsItem=new ListItemWithTrailingIcon<>(getString(R.string.edit_profile_tab_settings), null, R.drawable.ic_arrow_right_24px, this::onTabSettingsClick, null, 0, true));
+		account=AccountSessionManager.get(accountID).self;
 		loadData();
 		setRefreshEnabled(false);
 		E.register(this);
@@ -100,19 +105,44 @@ public class ProfileEditFragment extends BaseSettingsFragment<Void>{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetOwnAccount()
-				.setCallback(new SimpleCallback<>(this){
-					@Override
-					public void onSuccess(Account result){
-						if(getActivity()==null)
-							return;
+		if(useNewAPI){
+			currentRequest=new GetProfile()
+					.setCallback(new SimpleCallback<>(this){
+						@Override
+						public void onSuccess(Profile result){
+							if(getActivity()==null)
+								return;
 
-						account=result;
-						updateItems();
-						dataLoaded();
-					}
-				})
-				.exec(accountID);
+							profile=result;
+							if(result.avatar!=null){
+								account.avatar=result.avatar;
+								account.avatarStatic=result.avatarStatic;
+							}
+							if(result.header!=null){
+								account.header=result.header;
+								account.headerStatic=result.headerStatic;
+							}
+							updateItems();
+							dataLoaded();
+						}
+					})
+					.exec(accountID);
+		}else{
+			currentRequest=new GetOwnAccount()
+					.setCallback(new SimpleCallback<>(this){
+						@Override
+						public void onSuccess(Account result){
+							if(getActivity()==null)
+								return;
+
+							account=result;
+							profile=new Profile(result);
+							updateItems();
+							dataLoaded();
+						}
+					})
+					.exec(accountID);
+		}
 	}
 
 	@Override
@@ -242,6 +272,7 @@ public class ProfileEditFragment extends BaseSettingsFragment<Void>{
 	public void onAccountUpdated(SelfAccountUpdatedEvent ev){
 		if(ev.accountID().equals(accountID)){
 			account=ev.account();
+			profile=new Profile(account);
 			updateItems();
 		}
 	}
@@ -279,48 +310,52 @@ public class ProfileEditFragment extends BaseSettingsFragment<Void>{
 	}
 
 	private void updateItems(){
-		displayNameItem.subtitle=account.displayName;
+		displayNameItem.subtitle=profile.displayName;
 		rebindItem(displayNameItem);
 
-		if(TextUtils.isEmpty(account.note)){
+		if(TextUtils.isEmpty(profile.note)){
 			bioItem.subtitle=null;
 			bioItem.title=getString(R.string.edit_profile_add_bio);
 			bioItem.iconRes=R.drawable.ic_add_24px;
 		}else{
-			bioItem.subtitle=HtmlParser.strip(account.note, true);
+			bioItem.subtitle=HtmlParser.strip(profile.note, true);
 			bioItem.title=getString(R.string.profile_bio);
 			bioItem.iconRes=0;
 		}
 		rebindItem(bioItem);
 
-		customFieldsItem.title=getString(R.string.edit_profile_x_custom_fields, account.fields.size());
+		customFieldsItem.title=getString(R.string.edit_profile_x_custom_fields, profile.fields.size());
 		rebindItem(customFieldsItem);
 
 		featuredHashtagsItem.title=getString(R.string.edit_profile_x_featured_hashtags, featuredHashtagCount);
 		rebindItem(featuredHashtagsItem);
 
-		ViewImageLoader.loadWithoutAnimation(avatar, avatar.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic, V.dp(100), V.dp(100)));
-		ViewImageLoader.loadWithoutAnimation(cover, cover.getDrawable(), new UrlImageLoaderRequest(GlobalUserPreferences.playGifs ? account.header : account.headerStatic, 1000, 1000));
+		String avatarURL=GlobalUserPreferences.playGifs ? account.avatar : account.avatarStatic;
+		String coverURL=GlobalUserPreferences.playGifs ? account.header : account.headerStatic;
+		if(avatarURL!=null)
+			ViewImageLoader.loadWithoutAnimation(avatar, avatar.getDrawable(), new UrlImageLoaderRequest(avatarURL, V.dp(100), V.dp(100)));
+		if(coverURL!=null)
+			ViewImageLoader.loadWithoutAnimation(cover, cover.getDrawable(), new UrlImageLoaderRequest(coverURL, 1000, 1000));
 	}
 
 	private void onDisplayNameClick(ListItem<?> item){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
-		args.putString("name", account.displayName);
+		args.putString("name", profile.displayName);
 		Nav.go(getActivity(), ProfileEditNameFragment.class, args);
 	}
 
 	private void onBioClick(ListItem<?> item){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
-		args.putString("bio", account.source.note);
+		args.putString("bio", profile.note);
 		Nav.go(getActivity(), ProfileEditBioFragment.class, args);
 	}
 
 	private void onCustomFieldsClick(ListItem<?> item){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
-		args.putParcelableArrayList("fields", (ArrayList<? extends Parcelable>) account.source.fields.stream().map(Parcels::wrap).collect(Collectors.toCollection(ArrayList::new)));
+		args.putParcelableArrayList("fields", (ArrayList<? extends Parcelable>) profile.fields.stream().map(Parcels::wrap).collect(Collectors.toCollection(ArrayList::new)));
 		Nav.go(getActivity(), ProfileEditCustomFieldsFragment.class, args);
 	}
 
@@ -333,16 +368,22 @@ public class ProfileEditFragment extends BaseSettingsFragment<Void>{
 	private void onTabSettingsClick(ListItem<?> item){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
+		args.putBooleanArray("toggles", new boolean[]{profile.showMedia, profile.showMediaReplies, profile.showFeatured});
 		Nav.go(getActivity(), ProfileEditTabSettingsFragment.class, args);
 	}
 
 	private void onAvatarClick(View v){
-		// TODO if there's no avatar
-		avatarMenu.show();
+		if(profile.avatar==null)
+			startImagePicker(AVATAR_RESULT);
+		else
+			avatarMenu.show();
 	}
 
 	private void onCoverClick(View v){
-		coverMenu.show();
+		if(profile.header==null)
+			startImagePicker(COVER_RESULT);
+		else
+			coverMenu.show();
 	}
 
 	private void startImagePicker(int requestCode){

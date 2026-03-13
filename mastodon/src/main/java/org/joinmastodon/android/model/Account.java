@@ -221,6 +221,12 @@ public class Account extends BaseModel{
 				'}';
 	}
 
+	public void update(Profile profile){
+		showMedia=profile.showMedia;
+		showMediaReplies=profile.showMediaReplies;
+		showFeatured=profile.showFeatured;
+	}
+
 	@Parcel
 	public static class PublicRole extends BaseModel{
 		@RequiredField
