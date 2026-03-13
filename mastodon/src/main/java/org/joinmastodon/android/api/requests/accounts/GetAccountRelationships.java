@@ -15,5 +15,6 @@ public class GetAccountRelationships extends MastodonAPIRequest<List<Relationshi
 		super(HttpMethod.GET, "/accounts/relationships", new TypeToken<>(){});
 		for(String id:ids)
 			addQueryParameter("id[]", id);
+		addQueryParameter("with_suspended", "true");
 	}
 }

@@ -385,7 +385,7 @@ public class AccountSession{
 	}
 
 	public boolean canAccessLocalTimeline(){
-		if(self.source!=null && self.source.role!=null && ((self.source.role.permissions & Role.PERMISSION_VIEW_LIVE_AND_TOPIC_FEEDS)!=0 || (self.source.role.permissions & Role.PERMISSION_ADMINISTRATOR)!=0))
+		if(self.role!=null && ((self.role.permissions & Role.PERMISSION_VIEW_LIVE_AND_TOPIC_FEEDS)!=0 || (self.role.permissions & Role.PERMISSION_ADMINISTRATOR)!=0))
 			return true;
 		Instance instance=getInstanceInfo();
 		return instance==null || instance.configuration==null || instance.configuration.timelinesAccess==null

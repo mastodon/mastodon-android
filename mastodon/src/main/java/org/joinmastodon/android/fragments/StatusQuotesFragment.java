@@ -12,6 +12,7 @@ import me.grishka.appkit.api.SimpleCallback;
 
 public class StatusQuotesFragment extends StatusListFragment{
 	private Status status;
+	private String maxID;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -23,12 +24,13 @@ public class StatusQuotesFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		new GetStatusQuotes(status.id, offset>0 ? getMaxID() : null, count)
+		new GetStatusQuotes(status.id, offset>0 ? maxID : null, count)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(HeaderPaginationList<Status> result){
 						if(getActivity()==null)
 							return;
+						maxID=result.getNextPageMaxID();
 						onDataLoaded(result, result.nextPageUri!=null);
 					}
 				})

@@ -38,10 +38,12 @@ public class CustomEmojiHelper{
 	}
 
 	public void setImageDrawable(int image, Drawable drawable){
+		if(image>=spans.size())
+			return;
 		for(CustomEmojiSpan span:spans.get(image)){
 			span.setDrawable(drawable);
 		}
-		if(drawable instanceof Animatable && !((Animatable) drawable).isRunning())
-			((Animatable) drawable).start();
+		if(drawable instanceof Animatable a && !a.isRunning())
+			a.start();
 	}
 }

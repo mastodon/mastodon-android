@@ -149,11 +149,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 													sr.account=new AccountViewModel(updatedAccount, accountID, getActivity());
 												}
 											}
-											for(int i=0;i<list.getChildCount();i++){
-												if(list.getChildViewHolder(list.getChildAt(i)) instanceof CustomAccountViewHolder avh)
-													avh.rebind();
-											}
-											imgLoader.updateImages();
+											mergeAdapter.notifyDataSetChanged();
 										}
 									}
 

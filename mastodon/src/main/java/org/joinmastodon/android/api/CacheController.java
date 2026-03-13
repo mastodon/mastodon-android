@@ -22,6 +22,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.FollowList;
+import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.NotificationGroup;
 import org.joinmastodon.android.model.NotificationType;
@@ -102,10 +103,10 @@ public class CacheController{
 				new GetHomeTimeline(maxID, null, count, null)
 						.setCallback(new Callback<>(){
 							@Override
-							public void onSuccess(List<Status> result){
+							public void onSuccess(HeaderPaginationList<Status> result){
 								ArrayList<Status> filtered=new ArrayList<>(result);
 								AccountSessionManager.get(accountID).filterStatuses(filtered, FilterContext.HOME);
-								callback.onSuccess(new CacheablePaginatedResponse<>(filtered, result.isEmpty() ? null : result.get(result.size()-1).id, false));
+								callback.onSuccess(new CacheablePaginatedResponse<>(filtered, result.getNextPageMaxID(), false));
 								putHomeTimeline(result, maxID==null);
 							}
 

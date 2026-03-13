@@ -134,6 +134,7 @@ public class Account extends BaseModel{
 	public Instant muteExpiresAt;
 	public boolean noindex;
 	public List<PublicRole> roles;
+	public Role role;
 
 
 	@Override
@@ -162,6 +163,13 @@ public class Account extends BaseModel{
 				if(r==null)
 					throw new ObjectValidationException("roles array contains null");
 				r.postprocess();
+			}
+		}
+		if(role!=null){
+			try{
+				role.postprocess();
+			}catch(ObjectValidationException x){
+				role=null;
 			}
 		}
 	}

@@ -27,6 +27,7 @@ import org.joinmastodon.android.fragments.StatusListFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Hashtag;
+import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.CheckablePopupMenu;
 import org.joinmastodon.android.ui.displayitems.ButtonStatusDisplayItem;
@@ -63,6 +64,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 	private boolean hashtagsLoaded, pinnedPostsLoaded;
 	private List<Status> pinnedPosts=new ArrayList<>();
 	private boolean pinnedPostsExpanded;
+	private String maxID;
 
 	public AccountTimelineFragment(){
 		setListLayoutId(R.layout.recycler_fragment_no_refresh);
@@ -102,7 +104,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 	@Override
 	protected void doLoadData(int offset, int count){
 		HashMap<String, MastodonAPIRequest<?>> requests=new HashMap<>();
-		requests.put("posts", new GetAccountStatuses(user.id, offset>0 ? getMaxID() : null, null, count, filter, hashtagFilter));
+		requests.put("posts", new GetAccountStatuses(user.id, offset>0 ? maxID : null, null, count, filter, hashtagFilter));
 		if(offset==0 && (refreshing || !hashtagsLoaded)){
 			requests.put("hashtags", new GetAccountFeaturedHashtags(user.id));
 		}
@@ -133,17 +135,20 @@ public class AccountTimelineFragment extends StatusListFragment{
 							pinnedPostsLoaded=true;
 						}
 
-						List<Status> posts=(List<Status>) result.get("posts");
+						HeaderPaginationList<Status> posts=(HeaderPaginationList<Status>) result.get("posts");
+						maxID=posts.getNextPageMaxID();
 						boolean empty=posts.isEmpty();
+						List<Status> postsWithPinned;
 						if(offset==0 && !pinnedPosts.isEmpty() && hashtagFilter==null){
-							ArrayList<Status> postsWithPinned=new ArrayList<>();
+							postsWithPinned=new ArrayList<>();
 							postsWithPinned.add(pinnedPosts.get(0));
 							postsWithPinned.addAll(posts);
-							posts=postsWithPinned;
 							pinnedPostsExpanded=false;
+						}else{
+							postsWithPinned=posts;
 						}
-						AccountSessionManager.get(accountID).filterStatuses(posts, FilterContext.ACCOUNT);
-						onDataLoaded(posts, !empty);
+						AccountSessionManager.get(accountID).filterStatuses(postsWithPinned, FilterContext.ACCOUNT);
+						onDataLoaded(posts, posts.nextPageUri!=null);
 					}
 				})
 				.exec(accountID);

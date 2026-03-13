@@ -1106,7 +1106,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			styleRes=R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
 		}
 
-		button.setEnabled(!relationship.blockedBy);
+		button.setEnabled(relationship.blocking || (!relationship.blockedBy && !account.suspended));
 		TypedArray ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.background});
 		button.setBackground(ta.getDrawable(0));
 		ta.recycle();

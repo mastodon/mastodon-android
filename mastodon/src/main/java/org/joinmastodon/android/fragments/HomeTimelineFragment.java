@@ -42,6 +42,7 @@ import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIRequest;
+import org.joinmastodon.android.api.requests.HeaderPaginationRequest;
 import org.joinmastodon.android.api.requests.catalog.GetDonationCampaigns;
 import org.joinmastodon.android.api.requests.markers.SaveMarkers;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
@@ -54,6 +55,7 @@ import org.joinmastodon.android.fragments.settings.SettingsMainFragment;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.FollowList;
+import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.model.donations.DonationCampaign;
@@ -238,12 +240,12 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 				currentRequest=new GetPublicTimeline(true, false, offset>0 ? maxID : null, null, count, null)
 						.setCallback(new SimpleCallback<>(this){
 							@Override
-							public void onSuccess(List<Status> result){
+							public void onSuccess(HeaderPaginationList<Status> result){
 								if(refreshing)
 									list.scrollToPosition(0);
-								maxID=result.isEmpty() ? null : result.get(result.size()-1).id;
+								maxID=result.getNextPageMaxID();
 								AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.PUBLIC);
-								onDataLoaded(result, !result.isEmpty());
+								onDataLoaded(result, result.nextPageUri!=null);
 							}
 						})
 						.exec(accountID);
@@ -252,12 +254,12 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 				currentRequest=new GetListTimeline(currentList.id, offset>0 ? maxID : null, null, count, null)
 						.setCallback(new SimpleCallback<>(this){
 							@Override
-							public void onSuccess(List<Status> result){
+							public void onSuccess(HeaderPaginationList<Status> result){
 								if(refreshing)
 									list.scrollToPosition(0);
-								maxID=result.isEmpty() ? null : result.get(result.size()-1).id;
+								maxID=result.getNextPageMaxID();
 								AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.HOME);
-								onDataLoaded(result, !result.isEmpty());
+								onDataLoaded(result, result.nextPageUri!=null);
 							}
 						})
 						.exec(accountID);
@@ -444,7 +446,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		boolean needCache=listMode==ListMode.FOLLOWING;
 		loadAdditionalPosts(null, null, 20, sinceID, new Callback<>(){
 					@Override
-					public void onSuccess(List<Status> result){
+					public void onSuccess(HeaderPaginationList<Status> result){
 						currentRequest=null;
 						dataLoading=false;
 						if(result.isEmpty() || getActivity()==null)
@@ -509,8 +511,8 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		}
 		loadAdditionalPosts(maxID, minID, 20, null, new Callback<>(){
 					@Override
-					public void onSuccess(List<Status> result){
-
+					public void onSuccess(HeaderPaginationList<Status> _result){
+						List<Status> result=_result;
 						currentRequest=null;
 						dataLoading=false;
 						if(getActivity()==null)
@@ -648,8 +650,8 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 				});
 	}
 
-	private void loadAdditionalPosts(String maxID, String minID, int limit, String sinceID, Callback<List<Status>> callback){
-		MastodonAPIRequest<List<Status>> req=switch(listMode){
+	private void loadAdditionalPosts(String maxID, String minID, int limit, String sinceID, Callback<HeaderPaginationList<Status>> callback){
+		HeaderPaginationRequest<Status> req=switch(listMode){
 			case FOLLOWING -> new GetHomeTimeline(maxID, minID, limit, sinceID);
 			case LOCAL -> new GetPublicTimeline(true, false, maxID, minID, limit, sinceID);
 			case LIST -> new GetListTimeline(currentList.id, maxID, minID, limit, sinceID);

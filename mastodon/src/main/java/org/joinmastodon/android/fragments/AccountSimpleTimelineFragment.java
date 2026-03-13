@@ -9,6 +9,7 @@ import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FilterContext;
+import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Status;
 import org.parceler.Parcels;
 
@@ -19,6 +20,7 @@ import me.grishka.appkit.api.SimpleCallback;
 public class AccountSimpleTimelineFragment extends StatusListFragment{
 	private Account user;
 	private GetAccountStatuses.Filter filter;
+	private String maxID;
 
 	public static AccountSimpleTimelineFragment newInstance(String accountID, Account profileAccount, GetAccountStatuses.Filter filter, boolean load){
 		AccountSimpleTimelineFragment f=new AccountSimpleTimelineFragment();
@@ -46,15 +48,15 @@ public class AccountSimpleTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetAccountStatuses(user.id, offset>0 ? getMaxID() : null, null, count, filter, null)
+		currentRequest=new GetAccountStatuses(user.id, offset>0 ? maxID : null, null, count, filter, null)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
-					public void onSuccess(List<Status> result){
+					public void onSuccess(HeaderPaginationList<Status> result){
 						if(getActivity()==null)
 							return;
-						boolean empty=result.isEmpty();
 						AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.ACCOUNT);
-						onDataLoaded(result, !empty);
+						maxID=result.getNextPageMaxID();
+						onDataLoaded(result, result.nextPageUri!=null);
 					}
 				})
 				.exec(accountID);
