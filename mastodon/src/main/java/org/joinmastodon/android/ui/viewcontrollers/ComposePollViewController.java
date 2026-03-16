@@ -43,6 +43,7 @@ public class ComposePollViewController{
 			30*60,
 			3600,
 			6*3600,
+			12*3600,
 			24*3600,
 			3*24*3600,
 			7*24*3600,
