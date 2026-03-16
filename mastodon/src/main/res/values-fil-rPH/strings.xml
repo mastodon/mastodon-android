@@ -14,17 +14,8 @@
 	<string name="discard_draft">Ipagliban ang draft?</string>
 	<string name="discard">Ipagliban</string>
 	<string name="cancel">Kanselahin</string>
-	<plurals name="followers">
-		<item quantity="one">tagasunod</item>
-		<item quantity="other">mga tagasunod</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">sumusunod</item>
-		<item quantity="other">sumusunod</item>
-	</plurals>
 	<string name="posts">Mga Post</string>
 	<string name="media">Media</string>
-	<string name="profile_about">Tungkol</string>
 	<string name="button_follow">Sundan</string>
 	<string name="button_following">Sumusunod</string>
 	<string name="mute_user">I-mute %s</string>
@@ -168,7 +159,6 @@
 	<string name="downloading">Nagda-download…</string>
 	<!-- %s is the server domain -->
 	<string name="button_follow_pending">Nakabinbin</string>
-	<string name="follows_you">Sinundan ka</string>
 	<string name="manually_approves_followers">Manu-manong aprubahan ang mga tagasunod</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">

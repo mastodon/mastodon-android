@@ -21,18 +21,8 @@
 	<string name="discard_draft">Supprimer le brouillon ?</string>
 	<string name="discard">Supprimer</string>
 	<string name="cancel">Annuler</string>
-	<plurals name="followers">
-		<item quantity="one">abonné·e·s</item>
-		<item quantity="other">abonné·e·s</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">abonnement</item>
-		<item quantity="other">abonnements</item>
-	</plurals>
 	<string name="posts">Messages</string>
-	<string name="posts_and_replies">Messages et réponses</string>
 	<string name="media">Médias</string>
-	<string name="profile_about">À propos</string>
 	<string name="button_follow">Suivre</string>
 	<string name="button_following">Abonné·e</string>
 	<string name="edit_profile">Modifier le profil</string>
@@ -238,7 +228,6 @@
 	<string name="see_new_posts">Nouveaux messages </string>
 	<string name="follow_back">Suivre en retour</string>
 	<string name="button_follow_pending">En attente</string>
-	<string name="follows_you">Vous suit</string>
 	<string name="manually_approves_followers">Approuver manuellement les demande de suivie</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -321,7 +310,6 @@
 	<string name="not_accepting_new_members">N\'accepte pas de nouveaux membres</string>
 	<string name="category_special_interests">Intérêts particuliers</string>
 	<string name="signup_passwords_dont_match">Les mots de passe ne correspondent pas</string>
-	<string name="profile_add_row">Ajouter une ligne</string>
 	<string name="profile_setup">Configuration du profil</string>
 	<string name="profile_setup_subtitle">Vous pourrez toujours compléter cela plus tard dans l\'onglet Profil.</string>
 	<string name="follow_all">Tout suivre</string>
@@ -598,7 +586,6 @@
 	<string name="no_followed_hashtags_subtitle">Les abonnements apparaîtront ici</string>
 	<string name="no_lists_title">Organisez votre fil d\'accueil avec des listes</string>
 	<string name="no_lists_subtitle">Vos listes apparaîtront ici</string>
-	<string name="manage_accounts">Ajouter ou changer de compte</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d message récemment</item>
 		<item quantity="other">%,d messages récemment</item>
@@ -668,20 +655,6 @@
 	<string name="server_cant_mention_or_follow_you">Personne de ce serveur ne peut vous suivre.</string>
 	<string name="server_can_interact_with_older">Les personnes de ce serveur peuvent interagir avec vos anciennes publications.</string>
 	<string name="unblocked_domain_x">Débloquage du domaine %s</string>
-	<string name="handle_help_title">Qu\'est-ce qu\'un identifiant ?</string>
-	<string name="handle_title">Leur identifiant</string>
-	<string name="handle_username_explanation">Leur identifiant unique sur leur serveur. Il est possible de trouver des utilisateur·rice·s ayant le même nom d\'utilisateur sur différents serveurs.</string>
-	<string name="handle_title_own">Votre identifiant</string>
-	<string name="handle_username_explanation_own">Votre identifiant unique sur ce serveur. Il est possible de trouver des utilisateurs ayant le même nom d\'utilisateur sur différents serveurs.</string>
-	<string name="server">Serveur</string>
-	<string name="handle_server_explanation">Leur foyer numérique, là où leurs messages résident.</string>
-	<string name="handle_explanation">Comme un identifiant contient le nom et le service hébergeant une personne, vous pouvez interagir sur &lt;a&gt;les plateformes sociales implémentant ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Votre foyer numérique, là où vos messages résident. Vous souhaitez changer ? Lancez un transfert vers un autre serveur quand vous le voulez et vos abonné·e·s suivront automatiquement.</string>
-	<string name="handle_explanation_own">Comme un identifiant indique votre nom et le service vous hébergeant, vous pouvez interagir avec &lt;a&gt;les autres plateformes sociales implémentant ActivityPub&lt;/a&gt;.</string>
-	<string name="what_is_activitypub_title">Qu\'est-ce que ActivityPub ?</string>
-	<string name="what_is_activitypub">ActivityPub est comme la langue que Mastodon parle avec d\'autres réseaux sociaux.\n\nIl vous permet de vous connecter et d\'interagir avec des personnes non seulement sur Mastodon, mais aussi sur différentes applications sociales.</string>
-	<string name="handle_copied">Identifiant copié dans le presse-papiers.</string>
-	<string name="qr_code">Code QR</string>
 	<string name="scan_qr_code">Scanner le code QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Enregistré</string>
@@ -690,7 +663,6 @@
 	<string name="view_file">Afficher</string>
 	<string name="share_sheet_preview_profile">%s sur Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s sur Mastodon : \"%2$s\"</string>
-	<string name="copy_profile_link">Copier le lien vers le profil</string>
 	<string name="in_app_browser">Navigateur intégré</string>
 	<string name="system_browser">Navigateur système</string>
 	<string name="add_muted_word_short">Ajouter un mot</string>
@@ -818,7 +790,6 @@
 	</plurals>
 	<string name="familiar_followers_one">Suivi·e par %s</string>
 	<string name="familiar_followers_two">Suivi·e par %s et %s</string>
-	<string name="profile_saved_posts">Enregistré</string>
 	<string name="profile_saved_posts_explanation">Vos publications enregistrées ne sont visibles que par vous.</string>
 	<string name="search_people">Personnes</string>
 	<plurals name="familiar_followers_many">

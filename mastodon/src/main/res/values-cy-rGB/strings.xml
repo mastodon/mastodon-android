@@ -15,26 +15,8 @@
 	<string name="discard_draft">Dileu drafft?</string>
 	<string name="discard">Dileu</string>
 	<string name="cancel">Canslo</string>
-	<plurals name="followers">
-		<item quantity="zero">dilynwyr</item>
-		<item quantity="one">dilynwr</item>
-		<item quantity="two">ddilynwr</item>
-		<item quantity="few">dilynwr</item>
-		<item quantity="many">dilynwr</item>
-		<item quantity="other">dilynwr</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="zero">yn dilyn</item>
-		<item quantity="one">yn dilyn</item>
-		<item quantity="two">yn dilyn</item>
-		<item quantity="few">yn dilyn</item>
-		<item quantity="many">yn dilyn</item>
-		<item quantity="other">yn dilyn</item>
-	</plurals>
 	<string name="posts">Postiadau</string>
-	<string name="posts_and_replies">Postiadau ac atebion</string>
 	<string name="media">Cyfryngau</string>
-	<string name="profile_about">Ynghylch</string>
 	<string name="button_follow">Dilyn</string>
 	<string name="button_following">Yn dilyn</string>
 	<string name="edit_profile">Golygu proffil</string>
@@ -257,7 +239,6 @@
 	<string name="see_new_posts">Postiadau newydd</string>
 	<string name="follow_back">Dilyn yn ôl</string>
 	<string name="button_follow_pending">Yn aros</string>
-	<string name="follows_you">Yn eich dilyn chi</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="zero">%,d dilynwr</item>
@@ -346,7 +327,6 @@
 	<string name="server_filter_region_asia">Asia</string>
 	<string name="server_filter_region_oceania">Oceania</string>
 	<string name="not_accepting_new_members">Nid yw\'n derbyn aelodau newydd</string>
-	<string name="profile_add_row">Ychwanegu rhes</string>
 	<string name="profile_setup">Gosodiad proffil</string>
 	<string name="follow_all">Dilyn pawb</string>
 	<string name="server_rules_disagree">Anghytuno</string>
@@ -602,13 +582,6 @@
 	<string name="block_domain_confirm_title">Blocio parth?</string>
 	<string name="do_block_server">Blocio gweinydd</string>
 	<string name="block_user_x_instead">Blocio %s yn ei le</string>
-	<string name="handle_help_title">Beth sydd mewn handlen?</string>
-	<string name="handle_title">Eu handlen</string>
-	<string name="handle_title_own">Eich handlen</string>
-	<string name="server">Gweinydd</string>
-	<string name="what_is_activitypub_title">Beth yw ActivityPub?</string>
-	<string name="handle_copied">Copïwyd yr handlen i\'r clipfwrdd.</string>
-	<string name="qr_code">Cod QR</string>
 	<string name="scan_qr_code">Sganio cod QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Cadwyd</string>
@@ -617,7 +590,6 @@
 	<string name="view_file">Gweld</string>
 	<string name="share_sheet_preview_profile">%s ar Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s ar Mastodon: “%2$s”</string>
-	<string name="copy_profile_link">Copïo dolen i\'r proffil</string>
 	<string name="in_app_browser">Porwr yr ap</string>
 	<string name="system_browser">Porwr y system</string>
 	<string name="add_muted_word_short">Ychwanegu gair</string>

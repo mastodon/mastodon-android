@@ -19,22 +19,8 @@
 	<string name="discard_draft">Ali želite zavreči osnutek?</string>
 	<string name="discard">Opusti</string>
 	<string name="cancel">Prekliči</string>
-	<plurals name="followers">
-		<item quantity="one">sledilec</item>
-		<item quantity="two">sledilca</item>
-		<item quantity="few">sledilci</item>
-		<item quantity="other">sledilcev</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">sledi</item>
-		<item quantity="two">sledi</item>
-		<item quantity="few">sledi</item>
-		<item quantity="other">sledi</item>
-	</plurals>
 	<string name="posts">Objave</string>
-	<string name="posts_and_replies">Objave in odgovori</string>
 	<string name="media">Mediji</string>
-	<string name="profile_about">O računu</string>
 	<string name="button_follow">Sledi</string>
 	<string name="button_following">Sleden</string>
 	<string name="edit_profile">Uredi profil</string>
@@ -260,7 +246,6 @@
 	<string name="see_new_posts">Nove objave</string>
 	<string name="follow_back">Sledi nazaj</string>
 	<string name="button_follow_pending">Na čakanju</string>
-	<string name="follows_you">Vam sledi</string>
 	<string name="manually_approves_followers">Ročno odobri sledilce</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -354,7 +339,6 @@
 	<string name="not_accepting_new_members">Ne sprejema novih članov</string>
 	<string name="category_special_interests">Posebni interesi</string>
 	<string name="signup_passwords_dont_match">Vneseni gesli se ne ujemata</string>
-	<string name="profile_add_row">Dodaj vrstico</string>
 	<string name="profile_setup">Nastavitev profila</string>
 	<string name="profile_setup_subtitle">To lahko vedno izpolnite kasneje na zavihku Profil.</string>
 	<string name="follow_all">Sledi vsem</string>
@@ -654,7 +638,6 @@
 	<string name="no_followed_hashtags_subtitle">Tu bodo prikazana sledenja</string>
 	<string name="no_lists_title">Organizirajte domači vir s seznami</string>
 	<string name="no_lists_subtitle">Tu bodo prikazan seznami</string>
-	<string name="manage_accounts">Dodajte profile ali preklopite med njimi</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d nedavna objava</item>
 		<item quantity="two">%,d nedavni objavi</item>
@@ -729,20 +712,6 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="server_cant_mention_or_follow_you">Nihče s tega strežnika vam ne more slediti.</string>
 	<string name="server_can_interact_with_older">Osebe s tega strežnika se lahko odzivajo na vaše stare objave.</string>
 	<string name="unblocked_domain_x">Odblokirana domena %s</string>
-	<string name="handle_help_title">Kaj je v ročici?</string>
-	<string name="handle_title">Njihova ročica</string>
-	<string name="handle_username_explanation">Njihov edinstveni identifikator na njihovem strežniku. Uporabnike z istim uporabniškim imenom lahko najdete na različnih strežnikih.</string>
-	<string name="handle_title_own">Vaša ročica</string>
-	<string name="handle_username_explanation_own">Vaš edinstveni identifikator na tem strežniku. Uporabnike z istim uporabniškim imenom je možno najti na različnih strežnikih.</string>
-	<string name="server">Strežnik</string>
-	<string name="handle_server_explanation">Njihovo digitalno domovanje, kjer bivajo vse njihove objave.</string>
-	<string name="handle_explanation">Ker ročice povedo, kdo je kdo in kje so, ste lahko z osebami v interakciji prek družabnega spleta &lt;a&gt;platform, ki jih poganja ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Vaše digitalno domovanje, kjer bivajo vse vaše objave. Vam ta ni všeč? Prenesite ga med strežniki kadar koli in z njim tudi svoje sledilce.</string>
-	<string name="handle_explanation_own">Ker ročice povedo, kdo ste in kje ste, ste lahko z osebami v interakciji prek družabnega spleta &lt;a&gt;platform, ki jih poganja ActivityPub&lt;/a&gt;.</string>
-	<string name="what_is_activitypub_title">Kaj je ActivityPub?</string>
-	<string name="what_is_activitypub">ActivityPubb je kot jezik, ki ga Mastodon uprablja z drugimi družbenimi omrežji.\n\nOmogočq povezovanje in interakcijo z osebami ne le na Mastodonu, ampak tudi na drugih družabnih omrežjih.</string>
-	<string name="handle_copied">Ročica je kopirana na odložišče.</string>
-	<string name="qr_code">QR-koda</string>
 	<string name="scan_qr_code">Skeniraj QR-kodo</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Shranjeno</string>
@@ -751,7 +720,6 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<string name="view_file">Pogled</string>
 	<string name="share_sheet_preview_profile">%s na Mastodonu</string>
 	<string name="share_sheet_preview_post">%1$s na Mastodonu: »%2$s«</string>
-	<string name="copy_profile_link">Kopiraj povezavo do profila</string>
 	<string name="in_app_browser">Brskalnik v okviru programa</string>
 	<string name="system_browser">Sistemski brskalnik</string>
 	<string name="add_muted_word_short">Dodaj besedo</string>
