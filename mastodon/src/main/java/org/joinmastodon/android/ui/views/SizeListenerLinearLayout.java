@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 
 public class SizeListenerLinearLayout extends LinearLayout{
 	private OnSizeChangedListener sizeListener;
+	private int oldWidth, oldHeight;
 
 	public SizeListenerLinearLayout(Context context){
 		super(context);
@@ -22,9 +23,15 @@ public class SizeListenerLinearLayout extends LinearLayout{
 	}
 
 	@Override
-	protected void onSizeChanged(int w, int h, int oldw, int oldh){
-		if(sizeListener!=null)
-			sizeListener.onSizeChanged(w, h, oldw, oldh);
+	protected void onLayout(boolean changed, int l, int t, int r, int b){
+		super.onLayout(changed, l, t, r, b);
+		if(changed && sizeListener!=null){
+			int w=r-l;
+			int h=b-t;
+			sizeListener.onSizeChanged(w, h, oldWidth, oldHeight);
+			oldWidth=w;
+			oldHeight=h;
+		}
 	}
 
 	public void setSizeListener(OnSizeChangedListener sizeListener){
