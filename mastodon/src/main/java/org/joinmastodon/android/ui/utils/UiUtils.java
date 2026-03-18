@@ -338,6 +338,10 @@ public class UiUtils{
 		return startValue + Math.round(fraction * (endValue - startValue));
 	}
 
+	public static float lerp(float startValue, float endValue, float fraction) {
+		return startValue+fraction*(endValue-startValue);
+	}
+
 	public static String getFileName(Uri uri){
 		if(uri.getScheme().equals("content")){
 			try(Cursor cursor=MastodonApp.context.getContentResolver().query(uri, new String[]{OpenableColumns.DISPLAY_NAME}, null, null, null)){
