@@ -1374,18 +1374,13 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 
 	@Override
 	public Animator onCreateEnterTransition(View prev, View container){
+		if(!getArguments().getBoolean("fromThreadFragment"))
+			return null;
 		AnimatorSet anim=new AnimatorSet();
-		if(getArguments().getBoolean("fromThreadFragment")){
-			anim.playTogether(
-					ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
-					ObjectAnimator.ofFloat(container, View.TRANSLATION_Y, V.dp(200), 0)
-			);
-		}else{
-			anim.playTogether(
-					ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
-					ObjectAnimator.ofFloat(container, View.TRANSLATION_X, V.dp(100), 0)
-			);
-		}
+		anim.playTogether(
+				ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
+				ObjectAnimator.ofFloat(container, View.TRANSLATION_Y, V.dp(200), 0)
+		);
 		anim.setDuration(300);
 		anim.setInterpolator(CubicBezierInterpolator.DEFAULT);
 		return anim;
@@ -1393,14 +1388,12 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 
 	@Override
 	public Animator onCreateExitTransition(View prev, View container){
-		AnimatorSet anim=new AnimatorSet();
-		anim.playTogether(
-				ObjectAnimator.ofFloat(container, View.TRANSLATION_X, V.dp(100)),
-				ObjectAnimator.ofFloat(container, View.ALPHA, 0)
-		);
-		anim.setDuration(200);
-		anim.setInterpolator(CubicBezierInterpolator.DEFAULT);
-		return anim;
+		return null;
+	}
+
+	@Override
+	public boolean wantsPredictiveBackExitTransition(){
+		return true;
 	}
 
 	@RequiresApi(Build.VERSION_CODES.R)
