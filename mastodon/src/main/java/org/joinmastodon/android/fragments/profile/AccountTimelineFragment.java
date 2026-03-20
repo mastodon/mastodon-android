@@ -137,7 +137,6 @@ public class AccountTimelineFragment extends StatusListFragment{
 
 						HeaderPaginationList<Status> posts=(HeaderPaginationList<Status>) result.get("posts");
 						maxID=posts.getNextPageMaxID();
-						boolean empty=posts.isEmpty();
 						List<Status> postsWithPinned;
 						if(offset==0 && !pinnedPosts.isEmpty() && hashtagFilter==null){
 							postsWithPinned=new ArrayList<>();
@@ -148,7 +147,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 							postsWithPinned=posts;
 						}
 						AccountSessionManager.get(accountID).filterStatuses(postsWithPinned, FilterContext.ACCOUNT);
-						onDataLoaded(posts, posts.nextPageUri!=null);
+						onDataLoaded(postsWithPinned, posts.nextPageUri!=null);
 					}
 				})
 				.exec(accountID);
@@ -157,7 +156,10 @@ public class AccountTimelineFragment extends StatusListFragment{
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
 		List<StatusDisplayItem> items=super.buildDisplayItems(s);
-		if(s.pinned!=null && s.pinned){
+		// This relies on the fact that pinned posts at the top of the list and their copies in the timeline, if any, are distinct objects.
+		// It might cause bugs in the future if they somehow become references to the same object.
+		// (only the single top post need the "view all pinned posts" button)
+		if(s.pinned!=null && s.pinned && pinnedPosts.contains(s)){
 			for(StatusDisplayItem item:items){
 				if(item instanceof HeaderStatusDisplayItem header){
 					header.isPinned=true;
