@@ -140,8 +140,10 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			avatar.setOutlineProvider(OutlineProviders.roundedRect(10));
 			avatar.setClipToOutline(true);
 			more.setOnClickListener(this::onMoreClick);
-			badge.setOutlineProvider(OutlineProviders.roundedRect(8));
-			badge.setClipToOutline(true);
+			if(badge!=null){
+				badge.setOutlineProvider(OutlineProviders.roundedRect(8));
+				badge.setClipToOutline(true);
+			}
 
 			optionsMenu=new PopupMenu(activity, more);
 			optionsMenu.inflate(R.menu.post);
@@ -317,16 +319,18 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			if(clickableThing!=null){
 				clickableThing.setContentDescription(item.context.getString(R.string.avatar_description, item.user.acct));
 			}
-			if(item.isPinned){
-				badge.setVisibility(View.VISIBLE);
-				badge.setText(R.string.pinned_post);
-				badge.setBackgroundResource(R.drawable.bg_m3_surface1);
-				int textColor=UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3OnSurface);
-				badge.setTextColor(textColor);
-				badge.setCompoundDrawableTintList(ColorStateList.valueOf(textColor));
-				badge.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_pin_16px, 0, 0, 0);
-			}else{
-				badge.setVisibility(View.GONE);
+			if(badge!=null){
+				if(item.isPinned){
+					badge.setVisibility(View.VISIBLE);
+					badge.setText(R.string.pinned_post);
+					badge.setBackgroundResource(R.drawable.bg_m3_surface1);
+					int textColor=UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3OnSurface);
+					badge.setTextColor(textColor);
+					badge.setCompoundDrawableTintList(ColorStateList.valueOf(textColor));
+					badge.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_pin_16px, 0, 0, 0);
+				}else{
+					badge.setVisibility(View.GONE);
+				}
 			}
 		}
 
