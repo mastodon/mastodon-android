@@ -25,6 +25,7 @@ import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
@@ -62,7 +63,7 @@ public class ProfileEditFeaturedHashtagsFragment extends BaseSettingsFragment<Ha
 					public void onSuccess(List<Hashtag> result){
 						if(getActivity()==null)
 							return;
-						onDataLoaded(result.stream().map(ProfileEditFeaturedHashtagsFragment.this::makeItem).toList());
+						onDataLoaded(result.stream().map(ProfileEditFeaturedHashtagsFragment.this::makeItem).collect(Collectors.toList()));
 					}
 				})
 				.exec(accountID);
