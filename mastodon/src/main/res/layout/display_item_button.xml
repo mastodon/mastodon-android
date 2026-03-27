@@ -24,6 +24,8 @@
 			android:padding="0dp"
 			android:drawablePadding="8dp"
 			android:drawableTint="?colorM3OnSurface"
+			android:clickable="false"
+			android:focusable="false"
 			tools:drawableStart="@drawable/ic_pin_20px"
 			tools:text="@string/view_all_pinned"/>
 
