@@ -240,7 +240,7 @@ public class AccountTimelineFragment extends StatusListFragment{
 			if(status.mediaAttachments.isEmpty())
 				return;
 		}
-		prependItems(Collections.singletonList(status), true);
+		insertItems(Collections.singletonList(status), true, pinnedPosts.isEmpty() ? 0 : (pinnedPostsExpanded ? pinnedPosts.size() : 1));
 	}
 
 	@Override

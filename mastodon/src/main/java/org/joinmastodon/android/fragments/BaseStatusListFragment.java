@@ -9,7 +9,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -20,7 +19,6 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.polls.SubmitPollVote;
-import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
 import org.joinmastodon.android.api.requests.statuses.GetStatusesByIDs;
 import org.joinmastodon.android.api.requests.statuses.TranslateStatus;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -31,7 +29,6 @@ import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.Translation;
-import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
@@ -149,20 +146,38 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	}
 
 	protected void prependItems(List<T> items, boolean notify){
-		data.addAll(0, items);
-		int offset=0;
+		insertItems(items, notify, 0);
+	}
+
+	protected void insertItems(List<T> items, boolean notify, int index){
+		data.addAll(index, items);
+		int newItemCount=0;
+		int offsetIntoItems=0;
 		for(T s:items){
 			addAccountToKnown(s);
 		}
 		postprocessNewlyLoadedStatuses(items);
+		if(index>0){
+			T insertAfter=data.get(index-1);
+			String insertAfterID=insertAfter.getID();
+			boolean insideItemSpan=false;
+			for(StatusDisplayItem item:displayItems){
+				if(item.parentID.equals(insertAfterID)){
+					insideItemSpan=true;
+				}else if(insideItemSpan){
+					break;
+				}
+				offsetIntoItems++;
+			}
+		}
 		for(T s:items){
 			List<StatusDisplayItem> toAdd=buildDisplayItems(s);
 			populateNestedQuotes(toAdd);
-			displayItems.addAll(offset, toAdd);
-			offset+=toAdd.size();
+			displayItems.addAll(offsetIntoItems+newItemCount, toAdd);
+			newItemCount+=toAdd.size();
 		}
 		if(notify)
-			adapter.notifyItemRangeInserted(0, offset);
+			adapter.notifyItemRangeInserted(offsetIntoItems, newItemCount);
 		loadRelationships(items.stream().map(DisplayItemsParent::getAccountID).filter(Objects::nonNull).collect(Collectors.toSet()));
 	}
 
