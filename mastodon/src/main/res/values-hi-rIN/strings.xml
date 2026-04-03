@@ -18,17 +18,8 @@
 	<string name="discard_draft">ड्राफ्ट फैंक दें?</string>
 	<string name="discard">फैंक दें</string>
 	<string name="cancel">कैंसिल करें</string>
-	<plurals name="followers">
-		<item quantity="one">फॉलो कर रहे</item>
-		<item quantity="other">फॉलो कर रहे</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">को फॉलो कर रहे</item>
-		<item quantity="other">को फॉलो कर रहे</item>
-	</plurals>
 	<string name="posts">पोस्ट</string>
 	<string name="media">मीडिया</string>
-	<string name="profile_about">आपके बारे में</string>
 	<string name="button_follow">फॉलो करें</string>
 	<string name="button_following">फॉलो कर रहे</string>
 	<string name="mute_user">%s को म्यूट करें</string>
@@ -46,7 +37,6 @@
 	<string name="done">हो गया</string>
 	<string name="loading">लोड कर रहे…</string>
 	<string name="field_label">लेबल</string>
-	<string name="field_content">कंटेंट</string>
 	<string name="saving">सेव कर रहे…</string>
 	<string name="post_from_user">%s से पोस्ट</string>
 	<string name="poll_option_hint">ऑप्शन %d</string>
@@ -220,7 +210,6 @@
 	<string name="server_filter_region_asia">एशिया</string>
 	<string name="server_filter_region_oceania">ओशिआनिया</string>
 	<string name="signup_passwords_dont_match">पासवर्ड मैच नहीं कर रहे</string>
-	<string name="profile_add_row">लाइन जोड़ें</string>
 	<string name="profile_setup">प्रोफाइल सेटअप</string>
 	<string name="follow_all">सबको फॉलो करें</string>
 	<string name="privacy_policy_explanation">छोटे शब्दों में, हम कुछ भी इकट्ठा या प्रॉसेस नहीं करते है।</string>
@@ -230,7 +219,6 @@
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="poll_multiple_choice">एक या उससे ज़्यादा चुनें</string>
 	<string name="save_changes">बदलाव सेव करें</string>
-	<string name="profile_timeline">टाइमलाइन</string>
 	<string name="view_all">सब देखें</string>
 	<string name="profile_endorsed_accounts">अकाउंट</string>
 	<string name="join_default_server">%s को जॉइन करें</string>
@@ -356,4 +344,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>
