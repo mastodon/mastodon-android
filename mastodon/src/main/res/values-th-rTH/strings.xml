@@ -21,16 +21,8 @@
 	<string name="discard_draft">ละทิ้งแบบร่าง?</string>
 	<string name="discard">ละทิ้ง</string>
 	<string name="cancel">ยกเลิก</string>
-	<plurals name="followers">
-		<item quantity="other">ผู้ติดตาม</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="other">กำลังติดตาม</item>
-	</plurals>
 	<string name="posts">โพสต์</string>
-	<string name="posts_and_replies">โพสต์และการตอบกลับ</string>
 	<string name="media">สื่อ</string>
-	<string name="profile_about">เกี่ยวกับ</string>
 	<string name="button_follow">ติดตาม</string>
 	<string name="button_following">กำลังติดตาม</string>
 	<string name="edit_profile">แก้ไขโปรไฟล์</string>
@@ -49,7 +41,6 @@
 	<string name="done">เสร็จสิ้น</string>
 	<string name="loading">กำลังโหลด…</string>
 	<string name="field_label">ป้ายชื่อ</string>
-	<string name="field_content">เนื้อหา</string>
 	<string name="saving">กำลังบันทึก…</string>
 	<string name="post_from_user">โพสต์จาก %s</string>
 	<string name="poll_option_hint">ตัวเลือก %d</string>
@@ -200,8 +191,6 @@
 	<string name="followed_user">ตอนนี้คุณกำลังติดตาม %s</string>
 	<string name="following_user_requested">ขอติดตาม %s แล้ว</string>
 	<string name="open_in_browser">เปิดในเบราว์เซอร์</string>
-	<string name="hide_boosts_from_user">ซ่อนการดัน</string>
-	<string name="show_boosts_from_user">แสดงการดัน</string>
 	<string name="signup_reason">ทำไมคุณจึงต้องการเข้าร่วม?</string>
 	<string name="signup_reason_note">นี่จะช่วยให้เราตรวจทานใบสมัครของคุณ</string>
 	<string name="clear">ล้าง</string>
@@ -224,7 +213,6 @@
 	<string name="see_new_posts">โพสต์ใหม่</string>
 	<string name="follow_back">ติดตามกลับ</string>
 	<string name="button_follow_pending">รอดำเนินการ</string>
-	<string name="follows_you">ติดตามคุณ</string>
 	<string name="manually_approves_followers">อนุมัติผู้ติดตามด้วยตนเอง</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -301,7 +289,6 @@
 	<string name="not_accepting_new_members">ไม่ได้กำลังเปิดรับสมาชิกใหม่</string>
 	<string name="category_special_interests">ความสนใจพิเศษ</string>
 	<string name="signup_passwords_dont_match">รหัสผ่านไม่ตรงกัน</string>
-	<string name="profile_add_row">เพิ่มแถว</string>
 	<string name="profile_setup">การตั้งค่าโปรไฟล์</string>
 	<string name="profile_setup_subtitle">คุณสามารถทำสิ่งนี้ให้เสร็จสมบูรณ์ได้ในภายหลังเสมอในแท็บโปรไฟล์</string>
 	<string name="follow_all">ติดตามทั้งหมด</string>
@@ -319,7 +306,6 @@
 	<string name="poll_multiple_choice">เลือกจำนวนหนึ่งหรือมากกว่า</string>
 	<string name="save_changes">บันทึกการเปลี่ยนแปลง</string>
 	<string name="profile_featured">น่าสนใจ</string>
-	<string name="profile_timeline">เส้นเวลา</string>
 	<string name="view_all">ดูทั้งหมด</string>
 	<string name="profile_endorsed_accounts">บัญชี</string>
 	<string name="verified_link">ลิงก์ที่ยืนยันแล้ว</string>
@@ -555,7 +541,6 @@
 	<string name="remove">เอาออก</string>
 	<string name="add_list_member">เพิ่มสมาชิก</string>
 	<string name="search_among_people_you_follow">ค้นหาในหมู่ผู้คนที่คุณติดตาม</string>
-	<string name="add_user_to_list">เพิ่ม/เอาออกจากรายการ…</string>
 	<string name="add_user_to_list_title">เพิ่มไปยังรายการ</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">จัดการรายการที่ %s ปรากฏอยู่ใน</string>
@@ -565,7 +550,6 @@
 	<string name="no_followed_hashtags_subtitle">การติดตามจะปรากฏที่นี่</string>
 	<string name="no_lists_title">จัดระเบียบฟีดหน้าแรกของคุณด้วยรายการ</string>
 	<string name="no_lists_subtitle">ของคุณจะปรากฏที่นี่</string>
-	<string name="manage_accounts">เพิ่มหรือสลับบัญชี</string>
 	<plurals name="x_posts_recently">
 		<item quantity="other">%,d โพสต์ล่าสุด</item>
 	</plurals>
@@ -634,20 +618,6 @@
 	<string name="server_cant_mention_or_follow_you">ไม่มีใครจากเซิร์ฟเวอร์นี้สามารถติดตามคุณ</string>
 	<string name="server_can_interact_with_older">ผู้คนจากเซิร์ฟเวอร์นี้สามารถโต้ตอบกับโพสต์เก่า ๆ ของคุณ</string>
 	<string name="unblocked_domain_x">เลิกปิดกั้นโดเมน %s แล้ว</string>
-	<string name="handle_help_title">ในนามมีอะไรอยู่?</string>
-	<string name="handle_title">นามของเขา</string>
-	<string name="handle_username_explanation">ตัวระบุที่ไม่ซ้ำกันของเขาในเซิร์ฟเวอร์ของเขา เป็นไปได้ที่จะค้นหาผู้ใช้ที่มีชื่อผู้ใช้เดียวกันในเซิร์ฟเวอร์ที่แตกต่างกัน</string>
-	<string name="handle_title_own">นามของคุณ</string>
-	<string name="handle_username_explanation_own">ตัวระบุที่ไม่ซ้ำกันของคุณในเซิร์ฟเวอร์นี้ เป็นไปได้ที่จะค้นหาผู้ใช้ที่มีชื่อผู้ใช้เดียวกันในเซิร์ฟเวอร์ที่แตกต่างกัน</string>
-	<string name="server">เซิร์ฟเวอร์</string>
-	<string name="handle_server_explanation">บ้านดิจิทัลของเขา ที่ซึ่งโพสต์ทั้งหมดของเขาอาศัยอยู่</string>
-	<string name="handle_explanation">เนื่องจากนามบอกว่าใครสักคนคือใครและเขาอยู่ที่ไหน คุณสามารถโต้ตอบกับผู้คนทั่วทั้งเว็บสังคมของ &lt;a&gt;แพลตฟอร์มที่ขับเคลื่อนโดย ActivityPub&lt;/a&gt;</string>
-	<string name="handle_server_explanation_own">บ้านดิจิทัลของคุณ ที่ซึ่งโพสต์ทั้งหมดของคุณอาศัยอยู่ ไม่ชอบเซิร์ฟเวอร์นี้? ถ่ายโอนเซิร์ฟเวอร์เมื่อใดก็ได้และนำผู้ติดตามของคุณไปด้วยเช่นกัน</string>
-	<string name="handle_explanation_own">เนื่องจากนามของคุณบอกว่าคุณคือใครและคุณอยู่ที่ไหน ผู้คนสามารถโต้ตอบกับคุณทั่วทั้งเว็บสังคมของ &lt;a&gt;แพลตฟอร์มที่ขับเคลื่อนโดย ActivityPub&lt;/a&gt;</string>
-	<string name="what_is_activitypub_title">ActivityPub คืออะไร?</string>
-	<string name="what_is_activitypub">ActivityPub เป็นเหมือนภาษาที่ Mastodon พูดกับเครือข่ายสังคมอื่น ๆ\n\nโปรโตคอลช่วยให้คุณเชื่อมต่อและโต้ตอบกับผู้คนไม่ใช่แค่ใน Mastodon แต่ทั่วทั้งแอปสังคมต่าง ๆ เช่นกัน</string>
-	<string name="handle_copied">คัดลอกนามไปยังคลิปบอร์ดแล้ว</string>
-	<string name="qr_code">รหัส QR</string>
 	<string name="scan_qr_code">สแกนรหัส QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">บันทึกแล้ว</string>
@@ -656,7 +626,6 @@
 	<string name="view_file">ดู</string>
 	<string name="share_sheet_preview_profile">%s ใน Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s ใน Mastodon: “%2$s”</string>
-	<string name="copy_profile_link">คัดลอกลิงก์ไปยังโปรไฟล์</string>
 	<string name="in_app_browser">เบราว์เซอร์ในแอป</string>
 	<string name="system_browser">เบราว์เซอร์ของระบบ</string>
 	<string name="add_muted_word_short">เพิ่มคำ</string>
@@ -775,7 +744,6 @@
 	</plurals>
 	<string name="familiar_followers_one">ติดตามโดย %s</string>
 	<string name="familiar_followers_two">ติดตามโดย %s และ %s</string>
-	<string name="profile_saved_posts">บันทึกแล้ว</string>
 	<string name="profile_saved_posts_explanation">โพสต์ที่บันทึกไว้ของคุณปรากฏแก่คุณเท่านั้น</string>
 	<string name="search_people">ผู้คน</string>
 	<plurals name="familiar_followers_many">
@@ -817,4 +785,5 @@
 	</plurals>
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>
