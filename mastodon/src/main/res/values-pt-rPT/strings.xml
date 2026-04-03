@@ -21,18 +21,8 @@
 	<string name="discard_draft">Descartar o rascunho?</string>
 	<string name="discard">Descartar</string>
 	<string name="cancel">Cancelar</string>
-	<plurals name="followers">
-		<item quantity="one">seguidor</item>
-		<item quantity="other">seguidores</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">seguindo</item>
-		<item quantity="other">seguindo</item>
-	</plurals>
 	<string name="posts">Publicações</string>
-	<string name="posts_and_replies">Publicações e respostas</string>
 	<string name="media">Multimédia</string>
-	<string name="profile_about">Sobre</string>
 	<string name="button_follow">Seguir</string>
 	<string name="button_following">Seguindo</string>
 	<string name="edit_profile">Editar perfil</string>
@@ -52,7 +42,6 @@
 	<string name="done">Concluído</string>
 	<string name="loading">A carregar…</string>
 	<string name="field_label">Etiqueta</string>
-	<string name="field_content">Conteúdo</string>
 	<string name="saving">A guardar…</string>
 	<string name="post_from_user">Publicação de %s</string>
 	<string name="poll_option_hint">Opção %d</string>
@@ -214,8 +203,6 @@
 	<string name="followed_user">Estás a seguir %s</string>
 	<string name="following_user_requested">%s pedido para te seguir</string>
 	<string name="open_in_browser">Abrir no navegador</string>
-	<string name="hide_boosts_from_user">Ocultar impulsos</string>
-	<string name="show_boosts_from_user">Mostrar impulsos</string>
 	<string name="signup_reason">Porque é que queres aderir?</string>
 	<string name="signup_reason_note">Isto ajudar-nos-á a analisar o teu pedido.</string>
 	<string name="clear">Limpar</string>
@@ -238,7 +225,6 @@
 	<string name="see_new_posts">Novas publicações</string>
 	<string name="follow_back">Seguir também</string>
 	<string name="button_follow_pending">Pendente</string>
-	<string name="follows_you">Segue-te</string>
 	<string name="manually_approves_followers">Aprova manualmente os seguidores</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -321,7 +307,6 @@
 	<string name="not_accepting_new_members">Não aceita novos membros neste momento</string>
 	<string name="category_special_interests">Interesses especiais</string>
 	<string name="signup_passwords_dont_match">As palavras-passe não coincidem</string>
-	<string name="profile_add_row">Adicionar linha</string>
 	<string name="profile_setup">Configuração do perfil</string>
 	<string name="profile_setup_subtitle">Pode completar isto mais tarde, no separador Perfil.</string>
 	<string name="follow_all">Seguir todos</string>
@@ -339,7 +324,6 @@
 	<string name="poll_multiple_choice">Escolha uma ou mais</string>
 	<string name="save_changes">Guardar alterações</string>
 	<string name="profile_featured">Em destaque</string>
-	<string name="profile_timeline">Cronologia</string>
 	<string name="view_all">Ver tudo</string>
 	<string name="profile_endorsed_accounts">Contas</string>
 	<string name="verified_link">Hiperligação verificada</string>
@@ -588,7 +572,6 @@
 	<string name="remove">Remover</string>
 	<string name="add_list_member">Adicionar membro</string>
 	<string name="search_among_people_you_follow">Pesquisar entre as pessoas que segues</string>
-	<string name="add_user_to_list">Adicionar ou remover das listas…</string>
 	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Gerir as listas em que %s aparece</string>
@@ -598,7 +581,6 @@
 	<string name="no_followed_hashtags_subtitle">Os seguidores aparecerão aqui</string>
 	<string name="no_lists_title">Organiza a tua cronologia inicial com listas</string>
 	<string name="no_lists_subtitle">As tuas aparecerão aqui</string>
-	<string name="manage_accounts">Adicionar ou mudar de conta</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d publicação recente</item>
 		<item quantity="other">%,d publicações recentes</item>
@@ -669,20 +651,6 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="server_cant_mention_or_follow_you">Ninguém deste servidor pode seguir-te.</string>
 	<string name="server_can_interact_with_older">As pessoas deste servidor podem interagir com as tuas publicações antigas.</string>
 	<string name="unblocked_domain_x">Domínio %s desbloqueado</string>
-	<string name="handle_help_title">Em que consiste um identificador?</string>
-	<string name="handle_title">O identificador dele</string>
-	<string name="handle_username_explanation">O identificador único dele no seu servidor. É possível encontrar utilizadores com o mesmo nome de utilizador em servidores diferentes.</string>
-	<string name="handle_title_own">O teu identificador</string>
-	<string name="handle_username_explanation_own">O teu identificador único neste servidor. É possível encontrares utilizadores com o mesmo nome de utilizador em diferentes servidores.</string>
-	<string name="server">Servidor</string>
-	<string name="handle_server_explanation">A casa digital deste utilizador, onde se encontram todas as suas publicações.</string>
-	<string name="handle_explanation">Uma vez que os identificadores dizem quem é alguém e onde está, podes interagir com as pessoas através da rede social de &lt;a&gt;plataformas que suportam ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">A tua casa digital, onde se encontram todas as tuas publicações. Não gostas deste? Muda de servidor a qualquer momento e leva também os teus seguidores.</string>
-	<string name="handle_explanation_own">Uma vez que o teu identificador indica quem és e onde estás, as pessoas podem interagir contigo através da rede social de &lt;a&gt;plataformas que suportam ActivityPub&lt;/a&gt;.</string>
-	<string name="what_is_activitypub_title">Qual é o ActivityPub?</string>
-	<string name="what_is_activitypub">O ActivityPub é como a linguagem que o Mastodon fala com outras redes sociais.\n\nPermite que te ligues e interajas com pessoas não só no Mastodon, mas também em diferentes aplicações sociais.</string>
-	<string name="handle_copied">Identificador copiado para área de transferência.</string>
-	<string name="qr_code">Código QR</string>
 	<string name="scan_qr_code">Ler código QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Guardado</string>
@@ -691,7 +659,6 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="view_file">Ver</string>
 	<string name="share_sheet_preview_profile">%s no Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s no Mastodon: “%2$s”</string>
-	<string name="copy_profile_link">Copiar hiperligação do perfil</string>
 	<string name="in_app_browser">Navegador interno</string>
 	<string name="system_browser">Navegador do sistema</string>
 	<string name="add_muted_word_short">Adicionar palavra</string>
@@ -819,7 +786,6 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	</plurals>
 	<string name="familiar_followers_one">Seguido por %s</string>
 	<string name="familiar_followers_two">Seguido por %s e %s</string>
-	<string name="profile_saved_posts">Guardado</string>
 	<string name="profile_saved_posts_explanation">As publicações guardadas só são visíveis para ti.</string>
 	<string name="search_people">Pessoas</string>
 	<plurals name="familiar_followers_many">
@@ -921,4 +887,5 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="quote_followers_only_cancel">Voltar à edição</string>
 	<string name="quote_followers_only_dont_show_again">Não mostrar novamente esta mensagem</string>
 	<string name="more_replies_found">Foram encontradas mais respostas</string>
+	<!-- %s is the current user's server domain -->
 </resources>
