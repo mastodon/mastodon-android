@@ -13,19 +13,8 @@
 	<string name="discard_draft">Briši nacrt?</string>
 	<string name="discard">Odbaci</string>
 	<string name="cancel">Poništi</string>
-	<plurals name="followers">
-		<item quantity="one">pratilac</item>
-		<item quantity="few">prati</item>
-		<item quantity="other">pratilaca</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">prati</item>
-		<item quantity="few">prati</item>
-		<item quantity="other">prati</item>
-	</plurals>
 	<string name="posts">Objave</string>
 	<string name="media">Slike / Video</string>
-	<string name="profile_about">O</string>
 	<string name="button_follow">Prati</string>
 	<string name="button_following">Prati</string>
 	<string name="mute_user">Utišaj %s</string>
@@ -39,7 +28,6 @@
 	<string name="done">Učinjeno</string>
 	<string name="loading">Učitava se…</string>
 	<string name="field_label">Oznaka</string>
-	<string name="field_content">Sadržaj</string>
 	<string name="saving">Sačuvano…</string>
 	<string name="post_from_user">Objava od %s</string>
 	<string name="poll_option_hint">Opcija %d</string>
@@ -165,4 +153,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>
