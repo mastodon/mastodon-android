@@ -21,18 +21,8 @@
 	<string name="discard_draft">Vil du slette utkastet?</string>
 	<string name="discard">Slett</string>
 	<string name="cancel">Avbryt</string>
-	<plurals name="followers">
-		<item quantity="one">følger</item>
-		<item quantity="other">følgere</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">følges</item>
-		<item quantity="other">følges</item>
-	</plurals>
 	<string name="posts">Innlegg</string>
-	<string name="posts_and_replies">Innlegg og svar</string>
 	<string name="media">Medier</string>
-	<string name="profile_about">Info</string>
 	<string name="button_follow">Følg</string>
 	<string name="button_following">Følger</string>
 	<string name="edit_profile">Rediger profil</string>
@@ -52,7 +42,6 @@
 	<string name="done">Ferdig</string>
 	<string name="loading">Laster…</string>
 	<string name="field_label">Etikett</string>
-	<string name="field_content">Innhold</string>
 	<string name="saving">Lagrer…</string>
 	<string name="post_from_user">Innlegg fra %s</string>
 	<string name="poll_option_hint">Valgmulighet %d</string>
@@ -214,8 +203,6 @@
 	<string name="followed_user">Du følger nå %s</string>
 	<string name="following_user_requested">Forespør å følge %s</string>
 	<string name="open_in_browser">Åpne i nettleser</string>
-	<string name="hide_boosts_from_user">Skjul boostere</string>
-	<string name="show_boosts_from_user">Vis boostere</string>
 	<string name="signup_reason">Hvorfor vil du bli med?</string>
 	<string name="signup_reason_note">Dette vil hjelpe oss med å gjennomgå din søknad.</string>
 	<string name="clear">Tøm</string>
@@ -238,7 +225,6 @@
 	<string name="see_new_posts">Nye innlegg</string>
 	<string name="follow_back">Følg tilbake</string>
 	<string name="button_follow_pending">Ventende</string>
-	<string name="follows_you">Følger deg</string>
 	<string name="manually_approves_followers">Godkjenn følgere manuelt</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -321,7 +307,6 @@
 	<string name="not_accepting_new_members">Aksepterer ikke nye medlemmer</string>
 	<string name="category_special_interests">Spesielle interesser</string>
 	<string name="signup_passwords_dont_match">Passordet samsvarer ikke</string>
-	<string name="profile_add_row">Legg til rad</string>
 	<string name="profile_setup">Konfigurering av profil</string>
 	<string name="profile_setup_subtitle">Du kan alltid fullføre dette senere i profilfanen.</string>
 	<string name="follow_all">Følg alle</string>
@@ -339,7 +324,6 @@
 	<string name="poll_multiple_choice">Velg en eller flere</string>
 	<string name="save_changes">Lagre endringer</string>
 	<string name="profile_featured">Utvalgt</string>
-	<string name="profile_timeline">Tidslinje</string>
 	<string name="view_all">Vis alle</string>
 	<string name="profile_endorsed_accounts">Kontoer</string>
 	<string name="verified_link">Bekreftet lenke</string>
@@ -588,7 +572,6 @@
 	<string name="remove">Fjern</string>
 	<string name="add_list_member">Legg til medlem</string>
 	<string name="search_among_people_you_follow">Søk blant personer du følger</string>
-	<string name="add_user_to_list">Legg til/fjern fra lister…</string>
 	<string name="add_user_to_list_title">Legg til i liste</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Behandle liste %s vises på</string>
@@ -598,7 +581,6 @@
 	<string name="no_followed_hashtags_subtitle">Følgere vises her</string>
 	<string name="no_lists_title">Organiser tidslinjen din med lister</string>
 	<string name="no_lists_subtitle">Din vil vises her</string>
-	<string name="manage_accounts">Legg til eller bytt konto</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d nylig innlegg</item>
 		<item quantity="other">%,d nylig innlegg</item>
@@ -666,14 +648,6 @@ Jo flere folk du følger, jo mer aktiv og interessant blir den.</string>
 	<string name="block_user_x_instead">Blokker %s i stedet</string>
 	<string name="users_cant_see_blocked">Du vil ikke se innlegg eller få varsler fra brukere på denne tjeneren.</string>
 	<string name="server_cant_mention_or_follow_you">Ingen i denne serveren kan følge deg.</string>
-	<string name="handle_username_explanation">Brukerens unike identifikator på sin egen tjener. Det er mulig å finne brukere med samme brukernavn på ulike tjenere.</string>
-	<string name="handle_title_own">Ditt håndtak</string>
-	<string name="handle_username_explanation_own">Din unike identifikator på denne tjeneren. Det er mulig å finne brukere med samme brukernavn på ulike tjenere.</string>
-	<string name="server">Server</string>
-	<string name="handle_server_explanation">Brukerens digitale hjem, hvor alle innleggene hennes er å finne.</string>
-	<string name="handle_server_explanation_own">Ditt digitale hjem, hvor alle innleggene dine er å finne. Liker du ikke dette stedet? Flytt til en annen tjener når som helst og ta med deg følgerne dine.</string>
-	<string name="what_is_activitypub">ActivityPub er språket Mastodon snakker med andre sosiale nettverk.\n\nDet lar deg koble til og samhandle med mennesker ikke bare på Mastodon, men også på andre sosiale media.</string>
-	<string name="qr_code">QR-kode</string>
 	<string name="scan_qr_code">Skann QR-kode</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Lagret</string>
@@ -734,4 +708,5 @@ Jo flere folk du følger, jo mer aktiv og interessant blir den.</string>
 	<string name="cant_quote_in_private_title">Sitater kan ikke bygges inn i personlige omtaler</string>
 	<string name="cant_quote_in_private">Hvis du lagrer gjeldende innstillinger, gjøres det innebygde sitatet om til en lenke.</string>
 	<string name="quote_followers_only_confirm_title">Dele med følgere og omtalte brukere?</string>
+	<!-- %s is the current user's server domain -->
 </resources>
