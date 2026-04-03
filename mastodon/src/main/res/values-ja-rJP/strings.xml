@@ -21,16 +21,8 @@
 	<string name="discard_draft">下書きを破棄しますか？</string>
 	<string name="discard">破棄</string>
 	<string name="cancel">キャンセル</string>
-	<plurals name="followers">
-		<item quantity="other">フォロワー</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="other">フォロー中</item>
-	</plurals>
 	<string name="posts">投稿</string>
-	<string name="posts_and_replies">投稿と返信</string>
 	<string name="media">メディア</string>
-	<string name="profile_about">概要</string>
 	<string name="button_follow">フォロー</string>
 	<string name="button_following">フォロー中</string>
 	<string name="edit_profile">プロフィールを編集</string>
@@ -49,7 +41,6 @@
 	<string name="done">完了</string>
 	<string name="loading">読み込み中…</string>
 	<string name="field_label">ラベル</string>
-	<string name="field_content">コンテンツ</string>
 	<string name="saving">保存中…</string>
 	<string name="post_from_user">%s さんの投稿</string>
 	<string name="poll_option_hint">オプション %d</string>
@@ -201,8 +192,6 @@
 	<string name="followed_user">%s さんをフォローしました</string>
 	<string name="following_user_requested">%s さんにフォローリクエストを送信しました</string>
 	<string name="open_in_browser">ブラウザーで開く</string>
-	<string name="hide_boosts_from_user">ブーストを非表示</string>
-	<string name="show_boosts_from_user">ブーストを表示</string>
 	<string name="signup_reason">参加したい理由を入力してください</string>
 	<string name="signup_reason_note">申請の確認に役立つメッセージを添えてください。</string>
 	<string name="clear">クリア</string>
@@ -225,7 +214,6 @@
 	<string name="see_new_posts">新着投稿</string>
 	<string name="follow_back">フォローバック</string>
 	<string name="button_follow_pending">保留</string>
-	<string name="follows_you">フォローされています</string>
 	<string name="manually_approves_followers">フォロワーを手動で承認</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -302,7 +290,6 @@
 	<string name="not_accepting_new_members">新規登録を受け付けていません</string>
 	<string name="category_special_interests">テーマ</string>
 	<string name="signup_passwords_dont_match">パスワードが一致しません</string>
-	<string name="profile_add_row">フィールドを追加</string>
 	<string name="profile_setup">プロフィールの設定</string>
 	<string name="profile_setup_subtitle">プロフィール画面であとから設定することもできます。</string>
 	<string name="follow_all">すべてフォロー</string>
@@ -320,7 +307,6 @@
 	<string name="poll_multiple_choice">複数選択可</string>
 	<string name="save_changes">変更を保存</string>
 	<string name="profile_featured">おすすめ</string>
-	<string name="profile_timeline">タイムライン</string>
 	<string name="view_all">すべて表示</string>
 	<string name="profile_endorsed_accounts">アカウント</string>
 	<string name="verified_link">確認済みのリンク</string>
@@ -557,7 +543,6 @@
 	<string name="remove">削除</string>
 	<string name="add_list_member">メンバーを追加</string>
 	<string name="search_among_people_you_follow">フォローしている人の中から検索</string>
-	<string name="add_user_to_list">リストに追加/削除…</string>
 	<string name="add_user_to_list_title">リストに追加</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">%s さんが表示されるリストを管理</string>
@@ -567,7 +552,6 @@
 	<string name="no_followed_hashtags_subtitle">ここにフォローが表示されます</string>
 	<string name="no_lists_title">リストでホームフィードを整理する</string>
 	<string name="no_lists_subtitle">ここにリストが表示されます</string>
-	<string name="manage_accounts">アカウントの追加または切り替え</string>
 	<plurals name="x_posts_recently">
 		<item quantity="other">最近の投稿 %,d 件</item>
 	</plurals>
@@ -636,20 +620,6 @@
 	<string name="server_cant_mention_or_follow_you">このサーバーのユーザーはあなたをフォローできなくなります。</string>
 	<string name="server_can_interact_with_older">このサーバーのユーザーはあなたの古い投稿に反応できます。</string>
 	<string name="unblocked_domain_x">ドメイン %s のブロックを解除</string>
-	<string name="handle_help_title">ユーザー ID とは何ですか？</string>
-	<string name="handle_title">ユーザー ID</string>
-	<string name="handle_username_explanation">サーバー上での一意の識別子です。別のサーバーには同じユーザー名のユーザーがいるかもしれません。</string>
-	<string name="handle_title_own">あなたのユーザー ID</string>
-	<string name="handle_username_explanation_own">このサーバー上でのあなたの一意の識別子です。別のサーバーには同じユーザー名のユーザーがいるかもしれません。</string>
-	<string name="server">サーバー</string>
-	<string name="handle_server_explanation">それぞれの投稿が住むデジタルの家です。</string>
-	<string name="handle_explanation">ユーザー ID は、そのユーザーが誰であり、どのサーバーにいるかを示すもので、あなたが &lt;a&gt;ActivityPub 搭載のプラットフォーム&lt;/a&gt;が形成するソーシャルウェブを介してそのユーザーと交流するときに使用します。</string>
-	<string name="handle_server_explanation_own">あなたの投稿が住むデジタルの家です。気に入らなければ、フォロワーを維持したまま、サーバーをいつでも引っ越せます。</string>
-	<string name="handle_explanation_own">あなたのユーザー ID は、あなたが誰であり、どのサーバーにいるかを示すもので、他のユーザーが &lt;a&gt;ActivityPub 搭載のプラットフォーム&lt;/a&gt;が形成するソーシャルウェブを介してあなたと交流するときに使用します。</string>
-	<string name="what_is_activitypub_title">ActivityPub とは？</string>
-	<string name="what_is_activitypub">ActivityPub は、Mastodon と他のソーシャルネットワークとの間で話されている言語のようなものです。\n\nMastodon 同士だけでなく、異なるソーシャルアプリの人とつながり、交流することができます。</string>
-	<string name="handle_copied">ユーザー ID をクリップボードにコピーしました。</string>
-	<string name="qr_code">QR コード</string>
 	<string name="scan_qr_code">QR コードをスキャン</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">保存しました</string>
@@ -658,7 +628,6 @@
 	<string name="view_file">表示</string>
 	<string name="share_sheet_preview_profile">%s の Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s の Mastodon:「%2$s」</string>
-	<string name="copy_profile_link">プロフィールへのリンクをコピー</string>
 	<string name="in_app_browser">アプリ内ブラウザー</string>
 	<string name="system_browser">システムのブラウザー</string>
 	<string name="add_muted_word_short">言葉を追加</string>
@@ -778,7 +747,6 @@
 	</plurals>
 	<string name="familiar_followers_one">%s さんにフォローされています</string>
 	<string name="familiar_followers_two">%s さんと %s さんにフォローされています</string>
-	<string name="profile_saved_posts">保存した投稿</string>
 	<string name="profile_saved_posts_explanation">保存した投稿はあなたのみ閲覧できます。</string>
 	<string name="search_people">人々</string>
 	<plurals name="familiar_followers_many">
@@ -865,4 +833,5 @@
 	<string name="remove_quote_confirm">この操作は元に戻せません。</string>
 	<string name="remove_quote_button">投稿を削除</string>
 	<string name="settings_posting_defaults_explanation">以下の設定は投稿を新規作成するときにデフォルトとして使用されますが、作成画面で投稿ごとに変更できます。</string>
+	<!-- %s is the current user's server domain -->
 </resources>
