@@ -142,12 +142,15 @@ public abstract class StatusDisplayItem{
 
 		ArrayList<StatusDisplayItem> contentItems=items;
 		ArrayList<StatusDisplayItem> cwParentItems=items;
-		boolean needAddCWItems=false;
+		boolean needAddCWItems=false, needAddFilteredItems=false;
+		SpoilerStatusDisplayItem cwItem=null, filterItem=null;
 		if(filtered){
 			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, callbacks, context, context.getString(R.string.post_matches_filter_x, status.filtered.get(0).filter.title), status, statusForContent, Type.FILTER_SPOILER, Status.SpoilerType.FILTER);
 			contentItems.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
 			cwParentItems=contentItems;
+			needAddFilteredItems=status.revealedSpoilers.contains(Status.SpoilerType.FILTER);
+			filterItem=spoilerItem;
 		}
 		if(!TextUtils.isEmpty(statusForContent.spoilerText)){
 			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, callbacks, context, null, status, statusForContent, Type.SPOILER, Status.SpoilerType.CONTENT_WARNING);
@@ -157,6 +160,7 @@ public abstract class StatusDisplayItem{
 				status.revealedSpoilers.add(Status.SpoilerType.CONTENT_WARNING);
 			}
 			needAddCWItems=status.revealedSpoilers.contains(Status.SpoilerType.CONTENT_WARNING);
+			cwItem=spoilerItem;
 		}
 
 		if(!TextUtils.isEmpty(statusForContent.content)){
@@ -220,8 +224,11 @@ public abstract class StatusDisplayItem{
 				contentItems.add(new QuoteErrorStatusDisplayItem(parentID, callbacks, context, statusForContent.quote.state));
 			}
 		}
+		if(needAddFilteredItems){
+			items.addAll(filterItem.contentItems);
+		}
 		if(needAddCWItems){
-			cwParentItems.addAll(contentItems);
+			items.addAll(cwItem.contentItems);
 		}
 		if((flags & FLAG_NO_FOOTER)==0){
 			FooterStatusDisplayItem footer=new FooterStatusDisplayItem(parentID, callbacks, context, statusForContent, accountID);
@@ -235,6 +242,18 @@ public abstract class StatusDisplayItem{
 		for(StatusDisplayItem item:items){
 			item.fullWidth=fullWidth;
 			item.index=i++;
+			if(item instanceof SpoilerStatusDisplayItem spoiler && !status.revealedSpoilers.contains(spoiler.spoilerType)){
+				for(StatusDisplayItem subItem:spoiler.contentItems){
+					subItem.fullWidth=fullWidth;
+					subItem.index=i++;
+					if(subItem instanceof SpoilerStatusDisplayItem nestedSpoiler && !status.revealedSpoilers.contains(nestedSpoiler.spoilerType)){
+						for(StatusDisplayItem nestedSubItem:nestedSpoiler.contentItems){
+							nestedSubItem.fullWidth=fullWidth;
+							nestedSubItem.index=i++;
+						}
+					}
+				}
+			}
 		}
 		if(items!=contentItems){
 			for(StatusDisplayItem item:contentItems){

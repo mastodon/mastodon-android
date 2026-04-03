@@ -35,6 +35,7 @@ import org.joinmastodon.android.model.AsyncRefresh;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusContext;
+import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
@@ -49,8 +50,11 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -140,26 +144,28 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 
 	@Override
 	protected List<StatusDisplayItem> buildDisplayItems(Status s){
-		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, getActivity(), s, accountID, s, knownAccounts, StatusDisplayItem.FLAG_NO_IN_REPLY_TO);
+		int flags=StatusDisplayItem.FLAG_NO_IN_REPLY_TO;
+		if(s.id.equals(mainStatus.id))
+			flags|=StatusDisplayItem.FLAG_FULL_WIDTH;
+		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, getActivity(), s, accountID, s, knownAccounts, flags);
 		if(s.id.equals(mainStatus.id)){
-			for(StatusDisplayItem item:items){
-				item.fullWidth=true;
-				if(item instanceof TextStatusDisplayItem text){
-					text.textSelectable=!item.isQuote;
-					text.largerFont=true;
-				}
-				else if(item instanceof FooterStatusDisplayItem footer)
-					footer.hideCounts=true;
-				else if(item instanceof SpoilerStatusDisplayItem spoiler){
-					for(StatusDisplayItem subItem:spoiler.contentItems){
-						if(subItem instanceof TextStatusDisplayItem text)
-							text.textSelectable=!subItem.isQuote;
-					}
-				}
-			}
+			modifyMainStatusItems(items);
 			items.add(items.size()-1, new ExtendedFooterStatusDisplayItem(s.id, this, getActivity(), s.getContentStatus(), accountID));
 		}
 		return items;
+	}
+
+	private void modifyMainStatusItems(List<StatusDisplayItem> items){
+		for(StatusDisplayItem item:items){
+			if(item instanceof TextStatusDisplayItem text){
+				text.textSelectable=!item.isQuote;
+				text.largerFont=true;
+			}else if(item instanceof FooterStatusDisplayItem footer){
+				footer.hideCounts=true;
+			}else if(item instanceof SpoilerStatusDisplayItem spoiler){
+				modifyMainStatusItems(spoiler.contentItems);
+			}
+		}
 	}
 
 	@Override
@@ -172,8 +178,13 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 						if(getActivity()==null)
 							return;
 						final ArrayList<StatusDisplayItem> prevDisplayItems;
+						Map<String, EnumSet<Status.SpoilerType>> prevSpoilerStates;
 						if(refreshing){
 							prevDisplayItems=new ArrayList<>(displayItems);
+							prevSpoilerStates=new HashMap<>();
+							for(Status s:data){
+								prevSpoilerStates.put(s.id, s.revealedSpoilers);
+							}
 							data.clear();
 							displayItems.clear();
 							data.add(mainStatus);
@@ -185,8 +196,20 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 							asyncRefreshID=result.asyncRefresh.id;
 							AccountSessionManager.get(accountID).getApiController().startPollingAsyncRefresh(result.asyncRefresh, asyncRefreshCallback);
 							contentView.postDelayed(asyncRefreshPartialRunnable, 10_000);
+							prevSpoilerStates=Map.of();
 						}else{
 							prevDisplayItems=null;
+							prevSpoilerStates=Map.of();
+						}
+						for(Status s:result.descendants){
+							EnumSet<Status.SpoilerType> spoilers=prevSpoilerStates.get(s.id);
+							if(spoilers!=null)
+								s.revealedSpoilers=spoilers;
+						}
+						for(Status s:result.ancestors){
+							EnumSet<Status.SpoilerType> spoilers=prevSpoilerStates.get(s.id);
+							if(spoilers!=null)
+								s.revealedSpoilers=spoilers;
 						}
 						filterStatuses(result.descendants);
 						filterStatuses(result.ancestors);
@@ -222,15 +245,22 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 
 								@Override
 								public boolean areContentsTheSame(int oldItemPosition, int newItemPosition){
-									return true;
+									StatusDisplayItem oldItem=prevDisplayItems.get(oldItemPosition);
+									StatusDisplayItem newItem=displayItems.get(newItemPosition);
+									// Spoiler items pass themselves to BaseStatusListFragment::toggleSpoiler so holders need to be re-bound
+									// to new item objects even if nothing has changed about the data itself
+									return !(oldItem instanceof SpoilerStatusDisplayItem) || !(newItem instanceof SpoilerStatusDisplayItem);
 								}
 							});
 							newReplyIDs.clear();
 							diff.dispatchUpdatesTo(new ListUpdateCallback(){
 								@Override
 								public void onInserted(int position, int count){
-									if(position<displayItems.size()) // TODO figure out how this could possibly be a thing
-										newReplyIDs.add(displayItems.get(position).parentID);
+									if(position<displayItems.size()){ // TODO figure out how this could possibly be a thing
+										String id=displayItems.get(position).parentID;
+										if(!prevSpoilerStates.containsKey(id))
+											newReplyIDs.add(id);
+									}
 									else if(BuildConfig.DEBUG)
 										throw new IllegalStateException("onInserted called with position="+position+" count="+count+", but list size is "+displayItems.size());
 								}
@@ -321,6 +351,7 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 			footerProgress.setVisibility(View.VISIBLE);
 
 		list.addItemDecoration(new ReplyLinesItemDecoration());
+		list.setItemAnimator(new FlickerFreeItemAnimator());
 	}
 
 	protected void onStatusCreated(Status status){
@@ -560,6 +591,14 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 					c.drawRect(tmpRect, paint);
 				}
 			}
+		}
+	}
+
+	// Prevents crossfade animation on spoiler items during refresh
+	private static class FlickerFreeItemAnimator extends BetterItemAnimator{
+		@Override
+		public boolean canReuseUpdatedViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull List<Object> payloads){
+			return viewHolder instanceof SpoilerStatusDisplayItem.Holder || super.canReuseUpdatedViewHolder(viewHolder, payloads);
 		}
 	}
 }

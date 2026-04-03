@@ -443,7 +443,6 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				}
 			}
 		});
-		list.setItemAnimator(new BetterItemAnimator());
 		((UsableRecyclerView) list).setIncludeMarginsInItemHitbox(true);
 		updateToolbar();
 	}
@@ -648,6 +647,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	private void toggleSpoiler(Status status, SpoilerStatusDisplayItem spoilerItem){
 		int index=displayItems.indexOf(spoilerItem);
+		if(index==-1)
+			throw new IllegalStateException("toggleSpoiler called by item not in list");
 		if(status.revealedSpoilers.contains(spoilerItem.spoilerType)){
 			int itemCount=spoilerItem.contentItems.size();
 			displayItems.addAll(index+1, spoilerItem.contentItems);
