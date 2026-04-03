@@ -21,18 +21,8 @@
 	<string name="discard_draft">پیش‌نویس‌ کنار گذاشته شود؟</string>
 	<string name="discard">صرف‌نظر کردن</string>
 	<string name="cancel">لغو</string>
-	<plurals name="followers">
-		<item quantity="one">پی‌گیر</item>
-		<item quantity="other">پی‌گیرنده</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">پی‌گرفته</item>
-		<item quantity="other">پی‌گرفته</item>
-	</plurals>
 	<string name="posts">فرسته‌ها</string>
-	<string name="posts_and_replies">فرسته‌ها و پاسخ‌ها</string>
 	<string name="media">رسانه</string>
-	<string name="profile_about">درباره</string>
 	<string name="button_follow">پی‌گیری</string>
 	<string name="button_following">پی می‌گیرید</string>
 	<string name="edit_profile">ویرایش نمایه</string>
@@ -52,7 +42,6 @@
 	<string name="done">انجام شد</string>
 	<string name="loading">درحال بارگذاری…</string>
 	<string name="field_label">برچسب</string>
-	<string name="field_content">محتوا</string>
 	<string name="saving">درحال ذخیره‌سازی…</string>
 	<string name="post_from_user">فرسته از %s</string>
 	<string name="poll_option_hint">گزینه %d</string>
@@ -213,8 +202,6 @@
 	<string name="followed_user">شما اکنون %s را پی می‌گیرید</string>
 	<string name="following_user_requested">درخواست پی‌گیری %s شد</string>
 	<string name="open_in_browser">بازکردن در مرورگر</string>
-	<string name="hide_boosts_from_user">نهفتن تقویت‌ها</string>
-	<string name="show_boosts_from_user">نمایش تقویت‌ها</string>
 	<string name="signup_reason">چرا می‌خواهید عضو شوید؟</string>
 	<string name="signup_reason_note">این برای بررسی درخواست شما به ما کمک خواهد کرد.</string>
 	<string name="clear">پاک‌کردن</string>
@@ -237,7 +224,6 @@
 	<string name="see_new_posts">فرسته‌های جدید</string>
 	<string name="follow_back">پیگیری متقابل</string>
 	<string name="button_follow_pending">منتظر</string>
-	<string name="follows_you">پی‌گیرتان است</string>
 	<string name="manually_approves_followers">به‌صورت دستی پی‌گیران را تایید می‌کند</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -320,7 +306,6 @@
 	<string name="not_accepting_new_members">عدم پذیرش اعضای جدید</string>
 	<string name="category_special_interests">منافع خاص</string>
 	<string name="signup_passwords_dont_match">گذرواژه‌ها مطابقت ندارند</string>
-	<string name="profile_add_row">افزودن سطر</string>
 	<string name="profile_setup">تنظیم نمایه</string>
 	<string name="profile_setup_subtitle">همیشه می‌توانید این را بعداً در برگه نمایه تکمیل کنید.</string>
 	<string name="follow_all">پی‌گیری همه</string>
@@ -338,7 +323,6 @@
 	<string name="poll_multiple_choice">یک یا چند مورد را انتخاب کنید</string>
 	<string name="save_changes">ذخیرهٔ تغییرات</string>
 	<string name="profile_featured"> پيشنهادي</string>
-	<string name="profile_timeline">خط زمانی</string>
 	<string name="view_all">مشاهده همه</string>
 	<string name="profile_endorsed_accounts">حساب‌ها</string>
 	<string name="verified_link">پیوند تأییدشده</string>
@@ -586,7 +570,6 @@
 	<string name="remove">برداشتن</string>
 	<string name="add_list_member">افزودن عضو</string>
 	<string name="search_among_people_you_follow">جست‌وجو بین کسانی که پی‌گرفته‌اید</string>
-	<string name="add_user_to_list">افزودن یا برداشتن از سیاهه‌ها…</string>
 	<string name="add_user_to_list_title">افزودن به سیاهه</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">مدیریت سیاهه‌هایی که %s در آن ظاهر می‌شود</string>
@@ -596,7 +579,6 @@
 	<string name="no_followed_hashtags_subtitle">پی‌گیرهای شما اینجا ظاهر می‌شود</string>
 	<string name="no_lists_title">سازماندهی کردن خوراک خانه خود با سیاهه‌ها</string>
 	<string name="no_lists_subtitle">مال شما اینجا ظاهر می‌شود</string>
-	<string name="manage_accounts">افزودن یا جابجا شدن بین حساب‌ها</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d فرسته اخیرا ارسال کرده</item>
 		<item quantity="other">%,d فرسته اخیرا ارسال کرده</item>
@@ -667,20 +649,6 @@
 	<string name="server_cant_mention_or_follow_you">هیچ‌کسی از این کارساز نمی‌تواند پیتان بگیرد.</string>
 	<string name="server_can_interact_with_older">افراد روی این کارساز می‌توانند با فرسته‌های قدیمیتان تعامل داشته باشند.</string>
 	<string name="unblocked_domain_x">مسدودیت دامنه %s رفع شد</string>
-	<string name="handle_help_title">شناسه چیست؟</string>
-	<string name="handle_title">شناسه آنها</string>
-	<string name="handle_username_explanation">شناسهٔ یکتایش در کارسازش. ممکن است کاربرانی با نام کاربری مشابه روی کارسازهای مختلف باشند.</string>
-	<string name="handle_title_own">شناسه شما</string>
-	<string name="handle_username_explanation_own">شناسه منحصر به فرد شما در این کارساز. امکان یافتن کاربرانی با نام کاربری مشابه در کارسازهای مختلف وجود دارد.</string>
-	<string name="server">کارساز</string>
-	<string name="handle_server_explanation">خانه دیجیتالی آنها، جایی که همه فرسته‌های آنها در آن زندگی می کنند.</string>
-	<string name="handle_explanation">از آنجایی که شناسه‌ها می‌گوید کسی کیست و کجاست، می‌توانید با افراد در سراسر وب اجتماعی &lt;a&gt;سکوهای قدرت گرفته از اکتیویتی پاپ&lt;/a&gt; تعامل داشته باشید.</string>
-	<string name="handle_server_explanation_own">خانهٔ رقمیتان. جایی که همهٔ فرسته‌هایتان می‌زیند. دوستش ندارید؟ در هر زمان کارسازتان را جابه‌جا کرده و پی‌گیرندگانتان را نیز بیاورید.</string>
-	<string name="handle_explanation_own">از آنجایی که شناسه شما می‌گوید شما کی هستید و کجا هستید، افراد می‌توانند در &lt;a&gt;سکوهای قدرت گرفته از اکتیویتی پاپ&lt;/a&gt; از وب اجتماعی با شما تعامل داشته باشند.</string>
-	<string name="what_is_activitypub_title">اکتیویتی پاپ چیست؟</string>
-	<string name="what_is_activitypub">اکتیویتی‌پاب مانند زبانی است که ماستودون با سایر شبکه های اجتماعی صحبت می کند.\n\nاین به شما امکان می دهد نه تنها در ماستودون، بلکه در برنامه های اجتماعی مختلف نیز با افراد ارتباط برقرار کرده و با آنها تعامل داشته باشید.</string>
-	<string name="handle_copied">شناسه در بریده‌دان رونوشت شد.</string>
-	<string name="qr_code">کد QR</string>
 	<string name="scan_qr_code">اسکن کد QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">ذخیره شد</string>
@@ -689,7 +657,6 @@
 	<string name="view_file">نمایش</string>
 	<string name="share_sheet_preview_profile">%s در ماستودون است</string>
 	<string name="share_sheet_preview_post">%1$s در ماستودون است: \"%2$s\"</string>
-	<string name="copy_profile_link">رونوشت پیوند به نمایه</string>
 	<string name="in_app_browser">مرورگر درون برنامه‌ای</string>
 	<string name="system_browser">مرورگر سیستم</string>
 	<string name="add_muted_word_short">افزودن کلمه</string>
@@ -816,7 +783,6 @@
 	</plurals>
 	<string name="familiar_followers_one">دنبال شده توسط %s</string>
 	<string name="familiar_followers_two">دنبال شده توسط %s و %s</string>
-	<string name="profile_saved_posts">ذخیره شد</string>
 	<string name="profile_saved_posts_explanation">پست های ذخیره شده شما فقط برای شما قابل مشاهده است.</string>
 	<string name="search_people">افراد</string>
 	<plurals name="familiar_followers_many">
@@ -852,4 +818,5 @@
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<string name="more_replies_found">پاسخ‌های بیش‌تری پیدا شد</string>
+	<!-- %s is the current user's server domain -->
 </resources>
