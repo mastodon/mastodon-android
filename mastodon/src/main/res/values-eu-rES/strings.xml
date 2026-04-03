@@ -21,18 +21,8 @@
 	<string name="discard_draft">Zirriborroa baztertu?</string>
 	<string name="discard">Baztertu</string>
 	<string name="cancel">Utzi</string>
-	<plurals name="followers">
-		<item quantity="one">jarraitzaile</item>
-		<item quantity="other">jarraitzaile</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">jarraitzen</item>
-		<item quantity="other">jarraitzen</item>
-	</plurals>
 	<string name="posts">Bidalketak</string>
-	<string name="posts_and_replies">Bidalketak eta erantzunak</string>
 	<string name="media">Multimedia</string>
-	<string name="profile_about">Honi buruz</string>
 	<string name="button_follow">Jarraitu</string>
 	<string name="button_following">Jarraitzen</string>
 	<string name="edit_profile">Editatu profila</string>
@@ -52,7 +42,6 @@
 	<string name="done">Egina</string>
 	<string name="loading">Kargatzen…</string>
 	<string name="field_label">Etiketa</string>
-	<string name="field_content">Edukia</string>
 	<string name="saving">Gordetzen…</string>
 	<string name="post_from_user">%s(r)en bidalketa</string>
 	<string name="poll_option_hint">%d aukera</string>
@@ -214,8 +203,6 @@
 	<string name="followed_user">%s jarraitzen ari zara</string>
 	<string name="following_user_requested">%s jarraitzea eskatuta</string>
 	<string name="open_in_browser">Ireki nabigatzailean</string>
-	<string name="hide_boosts_from_user">Ezkutatu bultzadak</string>
-	<string name="show_boosts_from_user">Erakutsi bultzadak</string>
 	<string name="signup_reason">Zergatik elkartu nahi duzu?</string>
 	<string name="signup_reason_note">Honek zure eskaera berrikustean lagunduko digu.</string>
 	<string name="clear">Garbitu</string>
@@ -238,7 +225,6 @@
 	<string name="see_new_posts">Bidalketa berriak</string>
 	<string name="follow_back">Jarraitu bueltan</string>
 	<string name="button_follow_pending">Zain</string>
-	<string name="follows_you">Jarraitzen dizu</string>
 	<string name="manually_approves_followers">Jarraitzaileak eskuz onartu</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -321,7 +307,6 @@
 	<string name="not_accepting_new_members">Ez da kide berririk onartzen</string>
 	<string name="category_special_interests">Interes bereziak</string>
 	<string name="signup_passwords_dont_match">Pasahitzak ez datoz bat</string>
-	<string name="profile_add_row">Gehitu errenkada</string>
 	<string name="profile_setup">Profilaren konfigurazioa</string>
 	<string name="profile_setup_subtitle">Beti osa dezakezu hau geroago Profila fitxan.</string>
 	<string name="follow_all">Jarraitu denak</string>
@@ -339,7 +324,6 @@
 	<string name="poll_multiple_choice">Aukeratu bat edo gehiago</string>
 	<string name="save_changes">Gorde aldaketak</string>
 	<string name="profile_featured">Nabarmenak</string>
-	<string name="profile_timeline">Denbora-lerroa</string>
 	<string name="view_all">Ikusi guztia</string>
 	<string name="profile_endorsed_accounts">Kontuak</string>
 	<string name="verified_link">Lotura egiaztatua</string>
@@ -588,7 +572,6 @@
 	<string name="remove">Kendu</string>
 	<string name="add_list_member">Gehitu kidea</string>
 	<string name="search_among_people_you_follow">Bilatu jarraitzen dituzun pertsonen artean</string>
-	<string name="add_user_to_list">Gehitu edo kendu zerrendetatik…</string>
 	<string name="add_user_to_list_title">Gehitu zerrendara</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">%s agertzen den zerrendak kudeatu</string>
@@ -598,7 +581,6 @@
 	<string name="no_followed_hashtags_subtitle">Jarraituak hemen agertuko dira</string>
 	<string name="no_lists_title">Antolatu zure hasiera lerroa zerrendekin</string>
 	<string name="no_lists_subtitle">Zurea hemen agertuko da</string>
-	<string name="manage_accounts">Gehitu edo aldatu kontuz</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">Bidalketa berri %,d</item>
 		<item quantity="other">%,d bidalketa berri</item>
@@ -669,20 +651,6 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="server_cant_mention_or_follow_you">Zerbitzari honetako inork ezin zaitu jarraitu.</string>
 	<string name="server_can_interact_with_older">Zerbitzari honetako erabiltzaileek zure bidalketa zaharrekin elkarreragin dezakete.</string>
 	<string name="unblocked_domain_x">%s domeinua desblokeatu da</string>
-	<string name="handle_help_title">Zer dago helbidean?</string>
-	<string name="handle_title">Haien helbidea</string>
-	<string name="handle_username_explanation">Haien helbide bakarra beraien zerbitzarian. Erabiltzaile-izen bera duten erabiltzaileak hainbat zerbitzaritan aurki daitezke.</string>
-	<string name="handle_title_own">Zure helbidea</string>
-	<string name="handle_username_explanation_own">Zure helbide bakarra zerbitzari honetan. Erabiltzaile-izen bera duten erabiltzaileak hainbat zerbitzaritan aurki daitezke.</string>
-	<string name="server">Zerbitzaria</string>
-	<string name="handle_server_explanation">Beraien etxe digitala, beraien bidalketa guztiak bizi diren tokia.</string>
-	<string name="handle_explanation">Helbideek nor diren eta non dauden adierazten duelako, pertsonekin elkarreraginean jardun zaitezke &lt;a&gt;ActivityPub-ek bultzatutako plataformen&lt;/a&gt; sare sozialaren bidez.</string>
-	<string name="handle_server_explanation_own">Zure etxe digitala, zure bidalketa guztiak bizi diren tokia. Ez duzu hau gustuko? Transferitu zerbitzariak noiznahi, eta eraman zure jarraitzaileak ere.</string>
-	<string name="handle_explanation_own">Zure helbideak nor zaren eta non zauden adierazten duenez, jendeak zurekin elkarreraginean jardun daiteke, &lt;a&gt;ActivityPub-ek bultzatutako plataformen&lt;/a&gt; sare sozialaren bidez.</string>
-	<string name="what_is_activitypub_title">Zer da ActivityPub?</string>
-	<string name="what_is_activitypub">ActivityPub Mastodonek beste sare sozial batzuekin hitz egiten duen hizkuntza da.\n\nMastodonen ez ezik, bestelako aplikazio sozialetan ere konektatzeko eta elkarreraginean aritzeko aukera ematen dizu.</string>
-	<string name="handle_copied">Helbidea arbelera kopiatu da.</string>
-	<string name="qr_code">QR kodea</string>
 	<string name="scan_qr_code">Eskaneatu QR kodea</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Gordea</string>
@@ -691,7 +659,6 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="view_file">Ikusi</string>
 	<string name="share_sheet_preview_profile">%s Mastodonen</string>
 	<string name="share_sheet_preview_post">%1$s Mastodonen: “%2$s”</string>
-	<string name="copy_profile_link">Kopiatu profilerako esteka</string>
 	<string name="in_app_browser">Aplikazio barneko nabigatzailea</string>
 	<string name="system_browser">Sistemaren nabigatzailea</string>
 	<string name="add_muted_word_short">Gehitu hitza</string>
@@ -819,7 +786,6 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	</plurals>
 	<string name="familiar_followers_one">%s(e)k jarraitua</string>
 	<string name="familiar_followers_two">%s(e)k eta %s(e)k jarraitua</string>
-	<string name="profile_saved_posts">Gordea</string>
 	<string name="profile_saved_posts_explanation">Gordetako bidalketak zuretzat bakarrik dira ikusgai.</string>
 	<string name="search_people">Jendea</string>
 	<plurals name="familiar_followers_many">
@@ -921,4 +887,5 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="quote_followers_only_cancel">Bueltatu ediziora</string>
 	<string name="quote_followers_only_dont_show_again">Ez erakutsi mezu hau berriro</string>
 	<string name="more_replies_found">Erantzun gehiago aurkitu dira</string>
+	<!-- %s is the current user's server domain -->
 </resources>
