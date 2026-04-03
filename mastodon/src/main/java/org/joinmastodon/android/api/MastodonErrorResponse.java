@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
+import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
 
 import java.net.SocketTimeoutException;
@@ -62,5 +63,11 @@ public class MastodonErrorResponse extends ErrorResponse{
 			message=error;
 		}
 		Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+	}
+
+	public String getErrorMessage(){
+		if(messageResource>0)
+			return MastodonApp.context.getString(messageResource, error);
+		return error;
 	}
 }

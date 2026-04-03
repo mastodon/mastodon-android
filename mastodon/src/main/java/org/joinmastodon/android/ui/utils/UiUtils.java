@@ -31,11 +31,14 @@ import android.os.Vibrator;
 import android.os.ext.SdkExtensions;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.style.BulletSpan;
+import android.text.style.ForegroundColorSpan;
 import android.transition.ChangeBounds;
 import android.transition.ChangeScroll;
 import android.transition.Fade;
@@ -72,7 +75,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
-import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
@@ -336,6 +339,10 @@ public class UiUtils{
 	/** Linear interpolation between {@code startValue} and {@code endValue} by {@code fraction}. */
 	public static int lerp(int startValue, int endValue, float fraction) {
 		return startValue + Math.round(fraction * (endValue - startValue));
+	}
+
+	public static float lerp(float startValue, float endValue, float fraction) {
+		return startValue+fraction*(endValue-startValue);
 	}
 
 	public static String getFileName(Uri uri){
@@ -1185,5 +1192,24 @@ public class UiUtils{
 		holder.itemView.setBackground(UiUtils.getThemeDrawable(parentView.getContext(), android.R.attr.selectableItemBackground));
 		holder.itemView.setOnClickListener(v->holder.onClick());
 		return holder.itemView;
+	}
+
+	public static CharSequence makeColoredString(CharSequence str, int color){
+		Spannable spannable=str instanceof Spannable s ? s : new SpannableString(str);
+		spannable.setSpan(new ForegroundColorSpan(color), 0, spannable.length(), 0);
+		return spannable;
+	}
+
+	public static CharSequence substituteStringWithSpan(Context ctx, @StringRes int res, String arg, Object span){
+		String str=ctx.getString(res, "{str}");
+		int index=str.indexOf("{str}");
+		if(index==-1)
+			return str;
+		SpannableStringBuilder ssb=new SpannableStringBuilder(index>0 ? str.substring(0, index) : "");
+		ssb.append(arg, span, 0);
+		int end=index+5;
+		if(end<str.length())
+			ssb.append(str.substring(end));
+		return ssb;
 	}
 }

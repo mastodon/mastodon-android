@@ -61,6 +61,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -381,7 +382,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				}
 				RecyclerView.ViewHolder holder=list.getChildViewHolder(view);
 				if(holder instanceof StatusDisplayItem.Holder<?> sih){
-					if(sih.getItem() instanceof StatusDisplayItem sdi && sdi.getType()==StatusDisplayItem.Type.GAP){
+					if(!sih.shouldHighlight()){
 						outRect.setEmpty();
 						return;
 					}
@@ -426,7 +427,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 						for(int i=0;i<list.getChildCount();i++){
 							View child=list.getChildAt(i);
 							holder=list.getChildViewHolder(child);
-							if(holder instanceof StatusDisplayItem.Holder<?> sih2){
+							if(holder instanceof StatusDisplayItem.Holder<?> sih2 && sih2.shouldHighlight()){
 								String otherID=sih2.getItemID();
 								if(otherID.equals(id)){
 									list.getDecoratedBoundsWithMargins(child, tmpRect);
@@ -681,6 +682,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	public void putRelationship(String id, Relationship rel){
 		relationships.put(id, rel);
+	}
+
+	public Map<String, Relationship> getRelationships(){
+		return relationships;
 	}
 
 	protected void loadRelationships(Set<String> ids){

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/bg_bottom_sheet"
+	android:outlineProvider="background"
+	android:elevation="1dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingBottom="16dp"
+		android:paddingHorizontal="16dp">
+
+		<View
+			android:id="@+id/handle"
+			android:layout_width="match_parent"
+			android:layout_height="36dp"
+			android:background="@drawable/bg_bottom_sheet_handle"/>
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="8dp"
+			android:textSize="13sp"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:includeFontPadding="false"
+			tools:text="Field title"/>
+
+		<org.joinmastodon.android.ui.views.LinkedTextView
+			android:id="@+id/value"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="?colorM3OnSurface"
+			android:textSize="15sp"
+			android:textColorLink="?colorM3OnSurface"
+			android:fontFamily="sans-serif-medium"
+			android:includeFontPadding="false"
+			tools:text="Field value"/>
+
+	</LinearLayout>
+
+</org.joinmastodon.android.ui.views.CustomScrollView>

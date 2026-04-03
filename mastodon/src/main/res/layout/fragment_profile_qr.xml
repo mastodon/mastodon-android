@@ -10,7 +10,7 @@
 
 	<include layout="@layout/profile_qr_toolbar" />
 
-	<view class="org.joinmastodon.android.fragments.ProfileQrCodeFragment$CustomizedLinearLayout"
+	<view class="org.joinmastodon.android.fragments.profile.ProfileQrCodeFragment$CustomizedLinearLayout"
 		android:id="@+id/particle_animation_container"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"

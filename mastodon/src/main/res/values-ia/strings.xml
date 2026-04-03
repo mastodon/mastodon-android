@@ -20,18 +20,8 @@
 	<string name="discard_draft">Abandonar le version provisori?</string>
 	<string name="discard">Abandonar</string>
 	<string name="cancel">Cancellar</string>
-	<plurals name="followers">
-		<item quantity="one">sequitor</item>
-		<item quantity="other">sequitores</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">sequite</item>
-		<item quantity="other">sequites</item>
-	</plurals>
 	<string name="posts">Messages</string>
-	<string name="posts_and_replies">Messages e responsas</string>
 	<string name="media">Multimedia</string>
-	<string name="profile_about">A proposito</string>
 	<string name="button_follow">Sequer</string>
 	<string name="button_following">Sequente</string>
 	<string name="edit_profile">Modificar profilo</string>
@@ -235,7 +225,6 @@
 	<string name="see_new_posts">Nove messages</string>
 	<string name="follow_back">Sequer in retorno</string>
 	<string name="button_follow_pending">In tractamento</string>
-	<string name="follows_you">Te seque</string>
 	<string name="manually_approves_followers">Approbar manualmente le sequitores</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -317,7 +306,6 @@
 	<string name="not_accepting_new_members">Non accepta nove membros</string>
 	<string name="category_special_interests">Interesses special</string>
 	<string name="signup_passwords_dont_match">Le contrasignos non correponde</string>
-	<string name="profile_add_row">Adder linea</string>
 	<string name="profile_setup">Configuration del profilo</string>
 	<string name="profile_setup_subtitle">Tu pote sempre completar isto plus tarde in le scheda Profilo.</string>
 	<string name="follow_all">Sequer totes</string>
@@ -593,7 +581,6 @@
 	<string name="no_followed_hashtags_subtitle">Illos que tu seque apparera hic</string>
 	<string name="no_lists_title">Organisa tu fluxo de initio con Listas</string>
 	<string name="no_lists_subtitle">Le tue apparera hic</string>
-	<string name="manage_accounts">Adder o cambiar de conto</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d message recente</item>
 		<item quantity="other">%,d messages recente</item>
@@ -664,20 +651,6 @@ Quanto plus personas tu seque, tanto plus active e interessante illo essera.</st
 	<string name="server_cant_mention_or_follow_you">Necuno de iste servitor pote sequer te.</string>
 	<string name="server_can_interact_with_older">Le personas de iste servitor pote interager con tu messages ancian.</string>
 	<string name="unblocked_domain_x">Dominio %s disblocate</string>
-	<string name="handle_help_title">Que significa un pseudonymo?</string>
-	<string name="handle_title">Su pseudonymo</string>
-	<string name="handle_username_explanation">Su identificator unic sur su servitor. Es possibile trovar usatores con le mesme nomine de usator sur servitores differente.</string>
-	<string name="handle_title_own">Tu pseudonymo</string>
-	<string name="handle_username_explanation_own">Tu identificator unic sur iste servitor. Es possibile trovar usatores con le mesme nomine de usator sur servitores differente.</string>
-	<string name="server">Servitor</string>
-	<string name="handle_server_explanation">Su casa digital, ubi vive tote su messages.</string>
-	<string name="handle_explanation">Un pseudonymo indica qui un persona es e ubi se trova, de maniera que tu pote interager con personas sur tote le rete social de &lt;a&gt;platteformas basate sur ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Tu casa digital, ubi vive tote tu messages. Non te place? Cambia de servitor a omne momento e porta tu sequitores con te.</string>
-	<string name="handle_explanation_own">Perque tu pseudonymo indica qui tu es e ubi tu te trova, le gente pote interager con te desde tote le rete social de &lt;a&gt;platteformas basate sur ActivityPub&lt;/a&gt;.</string>
-	<string name="what_is_activitypub_title">Que es ActivityPub?</string>
-	<string name="what_is_activitypub">ActivityPub es como le lingua que Mastodon parla con altere retes social.\n\nIllo te permitte connecter te e interager con le personas non solmente sur Mastodon, ma alsi inter apps social differente.</string>
-	<string name="handle_copied">Pseudonymo copiate al area de transferentia.</string>
-	<string name="qr_code">Codice QR</string>
 	<string name="scan_qr_code">Scannar codice QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Salvate</string>
@@ -686,7 +659,6 @@ Quanto plus personas tu seque, tanto plus active e interessante illo essera.</st
 	<string name="view_file">Vider</string>
 	<string name="share_sheet_preview_profile">%s sur Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s sur Mastodon: “%2$s”</string>
-	<string name="copy_profile_link">Copiar ligamine a profilo</string>
 	<string name="in_app_browser">Navigator in app</string>
 	<string name="system_browser">Navigator de systema</string>
 	<string name="add_muted_word_short">Adder parola</string>

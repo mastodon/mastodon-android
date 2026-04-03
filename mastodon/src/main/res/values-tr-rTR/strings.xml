@@ -21,18 +21,8 @@
 	<string name="discard_draft">Taslak silinsin mi?</string>
 	<string name="discard">Sil</string>
 	<string name="cancel">İptal et</string>
-	<plurals name="followers">
-		<item quantity="one">takipçi</item>
-		<item quantity="other">takipçi</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">takip</item>
-		<item quantity="other">takip</item>
-	</plurals>
 	<string name="posts">Gönderiler</string>
-	<string name="posts_and_replies">Gönderiler ve yanıtlar</string>
 	<string name="media">Medya</string>
-	<string name="profile_about">Hakkında</string>
 	<string name="button_follow">Takip et</string>
 	<string name="button_following">Takip ediliyor</string>
 	<string name="edit_profile">Profili düzenle</string>
@@ -238,7 +228,6 @@
 	<string name="see_new_posts">Yeni gönderiler</string>
 	<string name="follow_back">Geri takip et</string>
 	<string name="button_follow_pending">Bekliyor</string>
-	<string name="follows_you">Seni takip ediyor</string>
 	<string name="manually_approves_followers">Takipçileri elle kabul et</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -321,7 +310,6 @@
 	<string name="not_accepting_new_members">Yeni üyelikler kabul edilmiyor</string>
 	<string name="category_special_interests">Özel ilgi alanları</string>
 	<string name="signup_passwords_dont_match">Parolalar eşleşmiyor</string>
-	<string name="profile_add_row">Satır ekle</string>
 	<string name="profile_setup">Profilini ayarla</string>
 	<string name="profile_setup_subtitle">Bunu istediğin zaman Profil sekmesinden tamamla.</string>
 	<string name="follow_all">Hepsini takip et</string>
@@ -598,7 +586,6 @@
 	<string name="no_followed_hashtags_subtitle">Takipler burada görüntülenecek</string>
 	<string name="no_lists_title">Ev beslemenizi Listeler ile düzenleyin</string>
 	<string name="no_lists_subtitle">Sizinki burada görüntülenecek</string>
-	<string name="manage_accounts">Hesap ekleme veya değiştirme</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d son zamanlardaki yayın</item>
 		<item quantity="other">%,d yakın zamanda yayınlarım</item>
@@ -669,20 +656,6 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="server_cant_mention_or_follow_you">Bu sunucudan kimse sizi takip edemez.</string>
 	<string name="server_can_interact_with_older">Bu sunucudaki kişiler eski yayınlarınız ile etkileşime geçebilir.</string>
 	<string name="unblocked_domain_x">Engellenmemiş alan %s</string>
-	<string name="handle_help_title">Tanıtıcı nedir?</string>
-	<string name="handle_title">Onların adı</string>
-	<string name="handle_username_explanation">Sunucularındaki benzersiz tanımlama. Aynı kullanıcı adına sahip kullanıcıları farklı sunucularda bulmak mümkündür.</string>
-	<string name="handle_title_own">Takma adınız</string>
-	<string name="handle_username_explanation_own">Sunucularındaki benzersiz tanımlama. Aynı kullanıcı adına sahip kullanıcıları farklı sunucularda bulmak mümkündür.</string>
-	<string name="server">Sunucu</string>
-	<string name="handle_server_explanation">Tüm gönderilerinin bulunduğu dijital evleri.</string>
-	<string name="handle_explanation">Tanım bir kişinin kim olduğunu ve nerede olduğunu söylediği için, &lt;a&gt;Etkin destekli platformların&lt;/a&gt; sosyal ağındaki insanlarla etkileşime geçebilirsiniz.</string>
-	<string name="handle_server_explanation_own">Tüm yayının yer aldığı dijital eviniz. Bunu beğenmediniz mi? İstediğiniz zaman sunucularınızı değiştirin ve takipçilerinizi de, getirin.</string>
-	<string name="handle_explanation_own">Tanım bir kişinin kim olduğunu ve nerede olduğunu söylediği için, &lt;a&gt;Etnik destekli platformların&lt;/a&gt; sosyal ağındaki insanlarla etkileşime geçebilirsiniz.</string>
-	<string name="what_is_activitypub_title">Etkin nedir?</string>
-	<string name="what_is_activitypub">ActivityPub nedir?, Mastodon\'un diğer sosyal ağlarla konuştuğu bir dil gibidir.\n\nSadece Mastodon\'da değil, farklı sosyal uygulamalarda da insanlarla bağlantı kurmanızı ve etkileşimde bulunmanızı sağlar.</string>
-	<string name="handle_copied">Panoya kopyalanan tutamaç.</string>
-	<string name="qr_code">QR kod</string>
 	<string name="scan_qr_code">QR kodu tarayın</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Kaydet</string>
@@ -691,7 +664,6 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	<string name="view_file">Görüntüle</string>
 	<string name="share_sheet_preview_profile">%s üzerinden</string>
 	<string name="share_sheet_preview_post">%1$s üzerinden: “%2$s”</string>
-	<string name="copy_profile_link">Bağlantıyı profile kopyala</string>
 	<string name="in_app_browser">Uygulama içi tarayıcı</string>
 	<string name="system_browser">Sistem tarayıcısı</string>
 	<string name="add_muted_word_short">Kelime ekle</string>
@@ -819,7 +791,6 @@ Ne kadar çok kişiyi takip ederseniz, o kadar aktif ve ilginç olacaktır.</str
 	</plurals>
 	<string name="familiar_followers_one">%s takip ediyor</string>
 	<string name="familiar_followers_two">%s ve %s takip ediyor</string>
-	<string name="profile_saved_posts">Kaydedildi</string>
 	<string name="profile_saved_posts_explanation">Kaydettiğiniz gönderileri sadece siz görebilirsiniz.</string>
 	<string name="search_people">Kullanıcılar</string>
 	<plurals name="familiar_followers_many">

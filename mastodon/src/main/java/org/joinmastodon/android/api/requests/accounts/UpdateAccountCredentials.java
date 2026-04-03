@@ -51,9 +51,11 @@ public class UpdateAccountCredentials extends MastodonAPIRequest<Account>{
 	@Override
 	public RequestBody getRequestBody() throws IOException{
 		MultipartBody.Builder bldr=new MultipartBody.Builder()
-				.setType(MultipartBody.FORM)
-				.addFormDataPart("display_name", displayName)
-				.addFormDataPart("note", bio);
+				.setType(MultipartBody.FORM);
+		if(displayName!=null)
+			bldr.addFormDataPart("display_name", displayName);
+		if(bio!=null)
+			bldr.addFormDataPart("note", bio);
 
 		if(avatar!=null){
 			bldr.addFormDataPart("avatar", UiUtils.getFileName(avatar), new AvatarResizedImageRequestBody(avatar, null));

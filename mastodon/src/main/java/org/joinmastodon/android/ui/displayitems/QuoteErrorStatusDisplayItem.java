@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Quote;
-import org.joinmastodon.android.ui.RichTooltip;
+import org.joinmastodon.android.ui.tooltips.RichTooltip;
 
 import me.grishka.appkit.utils.V;
 

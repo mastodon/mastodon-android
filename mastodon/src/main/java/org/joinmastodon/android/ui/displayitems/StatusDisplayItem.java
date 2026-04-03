@@ -83,7 +83,7 @@ public abstract class StatusDisplayItem{
 			case CARD_LARGE -> new LinkCardStatusDisplayItem.Holder(activity, parent, true, parentFragment.getArguments().getString("account"));
 			case CARD_COMPACT -> new LinkCardStatusDisplayItem.Holder(activity, parent, false, parentFragment.getArguments().getString("account"));
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
-			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, null));
+			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, parentFragment instanceof BaseStatusListFragment<?> slf ? slf.getRelationships() : null));
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
 			case GAP -> new GapStatusDisplayItem.Holder(activity, parent);
 			case EXTENDED_FOOTER -> new ExtendedFooterStatusDisplayItem.Holder(activity, parent);
@@ -96,6 +96,7 @@ public abstract class StatusDisplayItem{
 			case FOLLOW_REQUEST_ACTIONS -> new FollowRequestActionsDisplayItem.Holder(activity, parent);
 			case QUOTE_ERROR -> new QuoteErrorStatusDisplayItem.Holder(activity, parent);
 			case NESTED_QUOTE -> new NestedQuoteStatusDisplayItem.Holder(activity, parent);
+			case BUTTON -> new ButtonStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -122,11 +123,11 @@ public abstract class StatusDisplayItem{
 				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, callbacks, context, context.getString(R.string.in_reply_to), account, R.drawable.ic_reply_wght700_20px, accountID));
 			}
 			if((flags & FLAG_CHECKABLE)!=0)
-				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent, null));
+				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent));
 			else if((flags &FLAG_IS_QUOTE)!=0)
 				items.add(header=new CompactHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent));
 			else
-				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent, null));
+				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent));
 		}
 
 		boolean filtered=false;
@@ -277,7 +278,8 @@ public abstract class StatusDisplayItem{
 		FOLLOW_REQUEST_ACTIONS,
 		HEADER_COMPACT,
 		QUOTE_ERROR,
-		NESTED_QUOTE
+		NESTED_QUOTE,
+		BUTTON
 	}
 
 	public static abstract class Holder<T> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
@@ -324,6 +326,10 @@ public abstract class StatusDisplayItem{
 		@Override
 		public boolean isEnabled(){
 			return item instanceof StatusDisplayItem sdi && sdi.callbacks.isItemEnabled(sdi);
+		}
+
+		public boolean shouldHighlight(){
+			return true;
 		}
 	}
 

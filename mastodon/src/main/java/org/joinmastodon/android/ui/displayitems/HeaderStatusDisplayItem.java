@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -34,7 +35,7 @@ import org.joinmastodon.android.events.StatusUpdatedEvent;
 import org.joinmastodon.android.fragments.AddAccountToListsFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.NotificationsListFragment;
-import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Attachment;
@@ -72,9 +73,9 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
 	private boolean hasVisibilityToggle;
 	boolean needBottomPadding;
-	private String extraText;
+	public boolean isPinned;
 
-	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, Callbacks callbacks, Context context, String accountID, Status status, String extraText){
+	public HeaderStatusDisplayItem(String parentID, Account user, Instant createdAt, Callbacks callbacks, Context context, String accountID, Status status){
 		super(parentID, callbacks, context);
 		this.user=user;
 		this.createdAt=createdAt;
@@ -96,7 +97,6 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 				}
 			}
 		}
-		this.extraText=extraText;
 	}
 
 	@Override
@@ -118,7 +118,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<HeaderStatusDisplayItem> implements ImageLoaderViewHolder{
-		private final TextView name, timeAndUsername, extraText;
+		private final TextView name, timeAndUsername, badge;
 		private final ImageView avatar, more;
 		private final PopupMenu optionsMenu;
 		private final View clickableThing;
@@ -133,13 +133,17 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			timeAndUsername=findViewById(R.id.time_and_username);
 			avatar=findViewById(R.id.avatar);
 			more=findViewById(R.id.more);
-			extraText=findViewById(R.id.extra_text);
 			clickableThing=findViewById(R.id.clickable_thing);
+			badge=findViewById(R.id.badge);
 			if(clickableThing!=null)
 				clickableThing.setOnClickListener(this::onAvaClick);
 			avatar.setOutlineProvider(OutlineProviders.roundedRect(10));
 			avatar.setClipToOutline(true);
 			more.setOnClickListener(this::onMoreClick);
+			if(badge!=null){
+				badge.setOutlineProvider(OutlineProviders.roundedRect(8));
+				badge.setClipToOutline(true);
+			}
 
 			optionsMenu=new PopupMenu(activity, more);
 			optionsMenu.inflate(R.menu.post);
@@ -312,14 +316,21 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 
 			timeAndUsername.setText(time+" · @"+item.user.acct);
 			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(6) : V.dp(4));
-			if(TextUtils.isEmpty(item.extraText)){
-				extraText.setVisibility(View.GONE);
-			}else{
-				extraText.setVisibility(View.VISIBLE);
-				extraText.setText(item.extraText);
-			}
 			if(clickableThing!=null){
 				clickableThing.setContentDescription(item.context.getString(R.string.avatar_description, item.user.acct));
+			}
+			if(badge!=null){
+				if(item.isPinned){
+					badge.setVisibility(View.VISIBLE);
+					badge.setText(R.string.pinned_post);
+					badge.setBackgroundResource(R.drawable.bg_m3_surface1);
+					int textColor=UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3OnSurface);
+					badge.setTextColor(textColor);
+					badge.setCompoundDrawableTintList(ColorStateList.valueOf(textColor));
+					badge.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_pin_16px, 0, 0, 0);
+				}else{
+					badge.setVisibility(View.GONE);
+				}
 			}
 		}
 

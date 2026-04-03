@@ -21,22 +21,8 @@
 	<string name="discard_draft">Скасаваць чарнавік?</string>
 	<string name="discard">Выйсці</string>
 	<string name="cancel">Скасаваць</string>
-	<plurals name="followers">
-		<item quantity="one">падпісчык</item>
-		<item quantity="few">падпісчыка</item>
-		<item quantity="many">падпісчыкаў</item>
-		<item quantity="other">падпісчыкаў</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">падпіска</item>
-		<item quantity="few">падпіскі</item>
-		<item quantity="many">падпісак</item>
-		<item quantity="other">падпіскі</item>
-	</plurals>
 	<string name="posts">Допісы</string>
-	<string name="posts_and_replies">Допісы і адказы</string>
 	<string name="media">Медыя</string>
-	<string name="profile_about">Пра сябе</string>
 	<string name="button_follow">Падпісацца</string>
 	<string name="button_following">Вы падпісаны</string>
 	<string name="edit_profile">Рэдагаваць профіль</string>
@@ -264,7 +250,6 @@
 	<string name="see_new_posts">Новыя допісы</string>
 	<string name="follow_back">Падпісацца ў адказ</string>
 	<string name="button_follow_pending">Чакаюць</string>
-	<string name="follows_you">Падпісаны(-ая) на вас</string>
 	<string name="manually_approves_followers">Уручную пацвярджае падпісчыкаў</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -359,7 +344,6 @@
 	<string name="not_accepting_new_members">Не прымае новых удзельнікаў</string>
 	<string name="category_special_interests">Асаблівыя інтарэсы</string>
 	<string name="signup_passwords_dont_match">Паролі не супадаюць</string>
-	<string name="profile_add_row">Дадаць радок</string>
 	<string name="profile_setup">Налады профілю</string>
 	<string name="profile_setup_subtitle">Вы можаце завяршыць гэта пазней на ўкладцы Профіль.</string>
 	<string name="follow_all">Падпісацца на ўсіх</string>
@@ -660,7 +644,6 @@
 	<string name="no_followed_hashtags_subtitle">Тут з\'явяцца хэштэгі</string>
 	<string name="no_lists_title">Арганізуйце сваю стужку з дапамогай спісаў</string>
 	<string name="no_lists_subtitle">Ваш з\'явіцца тут</string>
-	<string name="manage_accounts">Дадаць або пераключыць уліковы запіс</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d нядаўні допіс</item>
 		<item quantity="few">%,d нядаўніх допісаў</item>
@@ -735,20 +718,6 @@
 	<string name="server_cant_mention_or_follow_you">Ніхто з гэтага сервера не можа сачыць за вамі.</string>
 	<string name="server_can_interact_with_older">Людзі з гэтага сервера могуць узаемадзейнічаць з вашымі старымі допісамі.</string>
 	<string name="unblocked_domain_x">Разблакіраваны дамен %s</string>
-	<string name="handle_help_title">Што такое ідэнтыфікатар карыстальніка?</string>
-	<string name="handle_title">Ідэнтыфікатар карыстальніка</string>
-	<string name="handle_username_explanation">Іх унікальны ідэнтыфікатар на серверы. Можна знайсці карыстальнікаў з аднолькавым імем карыстальніка на розных серверах.</string>
-	<string name="handle_title_own">Ваш ідэнтыфікатар</string>
-	<string name="handle_username_explanation_own">Ваш унікальны ідэнтыфікатар на гэтым серверы. Можна знайсці карыстальнікаў з аднолькавым імем карыстальніка на розных серверах.</string>
-	<string name="server">Сервер</string>
-	<string name="handle_server_explanation">Іх лічбавы дом, дзе захоўваюцца ўсе допісы.</string>
-	<string name="handle_explanation">Паколькі ідэнтыфікатары кажуць аб тым, хто чалавек і дзе ён знаходзіцца, вы можаце ўзаемадзейнічаць з людзьмі ў сацыяльнай сетцы &lt;a&gt; на платформах, якія падтрымліваюцца ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Ваш лічбавы дом, дзе захоўваюцца ўсе вашыя допісы. Не падабаецца гэты? Змяняйце сервер у любы час і прыводзьце сваіх падпісчыкаў.</string>
-	<string name="handle_explanation_own">Паколькі ваш лагін кажа аб тым, хто вы і дзе знаходзіцеся, людзі могуць узаемадзейнічаць з вамі ў сацыяльнай сетцы &lt;a&gt; на платформах, якія падтрымліваюцца ActivityPub&lt;/a&gt;.</string>
-	<string name="what_is_activitypub_title">Што такое ActivityPub?</string>
-	<string name="what_is_activitypub">ActivityPub - гэта мова, на якой Mastodon размаўляе з іншымі сацыяльнымі сеткамі.\n\nГэта дазваляе вам звязвацца і ўзаемадзейнічаць з людзьмі не толькі ў Mastodon, але і ў розных сацыяльных праграмах.</string>
-	<string name="handle_copied">Ідэнтыфікатар карыстальніка скапіяваны ў буфер абмену.</string>
-	<string name="qr_code">QR-код</string>
 	<string name="scan_qr_code">Сканіраваць QR-код</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Захавана</string>
@@ -757,7 +726,6 @@
 	<string name="view_file">Паглядзець</string>
 	<string name="share_sheet_preview_profile">%s у Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s у Mastodon “%2$s”</string>
-	<string name="copy_profile_link">Скапіраваць спасылку на профіль</string>
 	<string name="in_app_browser">Убудаваны браўзер</string>
 	<string name="system_browser">Сістэмны браўзер</string>
 	<string name="add_muted_word_short">Дадаць слова</string>
@@ -901,7 +869,6 @@
 	</plurals>
 	<string name="familiar_followers_one">Падпісаны(-ая) %s</string>
 	<string name="familiar_followers_two">Падпісаныя %s і %s</string>
-	<string name="profile_saved_posts">Захаванае</string>
 	<string name="profile_saved_posts_explanation">Вашыя захаваныя допісы бачныя толькі Вам.</string>
 	<string name="search_people">Людзі</string>
 	<plurals name="familiar_followers_many">

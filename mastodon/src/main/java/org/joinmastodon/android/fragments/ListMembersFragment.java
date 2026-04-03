@@ -26,6 +26,7 @@ import org.joinmastodon.android.events.AccountAddedToListEvent;
 import org.joinmastodon.android.events.AccountRemovedFromListEvent;
 import org.joinmastodon.android.fragments.account_list.AddNewListMembersFragment;
 import org.joinmastodon.android.fragments.account_list.PaginatedAccountListFragment;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FollowList;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
