@@ -42,6 +42,7 @@
 	<string name="done">Fatto</string>
 	<string name="loading">Caricamento…</string>
 	<string name="field_label">Etichetta</string>
+	<string name="field_content">Valore</string>
 	<string name="saving">Salvataggio…</string>
 	<string name="post_from_user">Post di %s</string>
 	<string name="poll_option_hint">Opzione %d</string>
@@ -203,6 +204,8 @@
 	<string name="followed_user">Ora stai seguendo %s</string>
 	<string name="following_user_requested">Richiesto di seguire %s</string>
 	<string name="open_in_browser">Apri nel browser</string>
+	<string name="hide_boosts_from_user">Nascondi le condivisioni nella timeline</string>
+	<string name="show_boosts_from_user">Mostra le condivisioni nella timeline</string>
 	<string name="signup_reason">Perché vuoi unirti?</string>
 	<string name="signup_reason_note">Questo ci aiuterà ad esaminare la tua richiesta.</string>
 	<string name="clear">Cancella</string>
@@ -324,6 +327,7 @@
 	<string name="poll_multiple_choice">Scegli una o più risposte</string>
 	<string name="save_changes">Salva le modifiche</string>
 	<string name="profile_featured">In primo piano</string>
+	<string name="profile_timeline">Attività</string>
 	<string name="view_all">Vedi tutto</string>
 	<string name="profile_endorsed_accounts">Account</string>
 	<string name="verified_link">Collegamento verificato</string>
@@ -572,6 +576,7 @@
 	<string name="remove">Rimuovi</string>
 	<string name="add_list_member">Aggiungi membro</string>
 	<string name="search_among_people_you_follow">Cerca tra le persone che segui</string>
+	<string name="add_user_to_list">Aggiungi alla lista…</string>
 	<string name="add_user_to_list_title">Aggiungi alla lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Gestisci gli elenchi in cui appare %s</string>
@@ -887,5 +892,8 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="quote_followers_only_cancel">Torna a modificare</string>
 	<string name="quote_followers_only_dont_show_again">Non mostrare più questo messaggio</string>
 	<string name="more_replies_found">Sono state trovate altre risposte</string>
+	<string name="user_is_muted">Silenziato</string>
+	<string name="user_is_bot">Account automatizzato</string>
+	<string name="profile_view_qr_code">Visualizza il codice QR</string>
 	<!-- %s is the current user's server domain -->
 </resources>
