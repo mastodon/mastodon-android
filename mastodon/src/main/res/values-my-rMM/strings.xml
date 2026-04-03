@@ -13,15 +13,8 @@
 	<string name="discard_draft">စာကြမ်းကို ဖျက်မှာလား?</string>
 	<string name="discard">ဖယ်ရှား</string>
 	<string name="cancel">မလုပ်တော့</string>
-	<plurals name="followers">
-		<item quantity="other">ဦးက ဖောလိုးထား</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="other">ဦးကို ဖောလိုးထား</item>
-	</plurals>
 	<string name="posts">ပို့စ်များ</string>
 	<string name="media">ဓာတ်ပုံနှင့် ဗီဒီယိုများ</string>
-	<string name="profile_about">အကြောင်း</string>
 	<string name="button_follow">ဖောလိုး</string>
 	<string name="button_following">ဖောလိုးလုပ်ထား</string>
 	<string name="mute_user">%s ကို mute</string>
@@ -169,4 +162,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>
