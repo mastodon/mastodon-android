@@ -21,22 +21,8 @@
 	<string name="discard_draft">An tilg thu air falbh an dreachd?</string>
 	<string name="discard">Tilg air falbh</string>
 	<string name="cancel">Sguir dheth</string>
-	<plurals name="followers">
-		<item quantity="one">neach-leantainn</item>
-		<item quantity="two">luchd-leantainn</item>
-		<item quantity="few">luchd-leantainn</item>
-		<item quantity="other">luchd-leantainn</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">’ga leantainn</item>
-		<item quantity="two">’ga leantainn</item>
-		<item quantity="few">’ga leantainn</item>
-		<item quantity="other">’ga leantainn</item>
-	</plurals>
 	<string name="posts">Postaichean</string>
-	<string name="posts_and_replies">Postaichean ’s freagairtean</string>
 	<string name="media">Meadhanan</string>
-	<string name="profile_about">Mu dhèidhinn</string>
 	<string name="button_follow">Lean</string>
 	<string name="button_following">A’ leantainn</string>
 	<string name="edit_profile">Deasaich a’ phròifil</string>
@@ -58,7 +44,6 @@
 	<string name="done">Deiseil</string>
 	<string name="loading">’Ga luchdadh…</string>
 	<string name="field_label">Leubail</string>
-	<string name="field_content">Susbaint</string>
 	<string name="saving">’Ga shàbhaladh…</string>
 	<string name="post_from_user">Post le %s</string>
 	<string name="poll_option_hint">Roghainn %d</string>
@@ -240,8 +225,6 @@
 	<string name="followed_user">Tha thu a’ leantainn %s a-nis</string>
 	<string name="following_user_requested">Dh’iarr thu %s a leantainn</string>
 	<string name="open_in_browser">Fosgail sa bhrabhsair</string>
-	<string name="hide_boosts_from_user">Falaich na brosnachaidhean</string>
-	<string name="show_boosts_from_user">Seall na brosnachaidhean</string>
 	<string name="signup_reason">Carson a bu mhiann leat ballrachd fhaighinn?</string>
 	<string name="signup_reason_note">Bidh e nas fhasa dhuinn lèirmheas a dhèanamh air d’ iarrtas.</string>
 	<string name="clear">Falamhaich</string>
@@ -264,7 +247,6 @@
 	<string name="see_new_posts">Postaichean ùra</string>
 	<string name="follow_back">Lean air ais</string>
 	<string name="button_follow_pending">Ri dhèiligeadh</string>
-	<string name="follows_you">’Gad leantainn</string>
 	<string name="manually_approves_followers">Ag aontachadh ri luchd-leantainn ùra a làimh</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -359,7 +341,6 @@
 	<string name="not_accepting_new_members">Gun ghabhail ri buill ùra</string>
 	<string name="category_special_interests">Ùidhean sònraichte</string>
 	<string name="signup_passwords_dont_match">Chan eil an dà fhacal-faire co-ionnann</string>
-	<string name="profile_add_row">Cuir ràgh ris</string>
 	<string name="profile_setup">Suidheachadh na pròifile</string>
 	<string name="profile_setup_subtitle">’S urrainn dhut seo a choileanadh air taba na Pròifile uair sam bith.</string>
 	<string name="follow_all">Lean na h-uile</string>
@@ -377,7 +358,6 @@
 	<string name="poll_multiple_choice">Tagh co-dhiù aonan</string>
 	<string name="save_changes">Sàbhail na h-atharraichean</string>
 	<string name="profile_featured">’Ga bhrosnachadh</string>
-	<string name="profile_timeline">Loidhne-ama</string>
 	<string name="view_all">Seall a h-uile</string>
 	<string name="profile_endorsed_accounts">Cunntasan</string>
 	<string name="verified_link">Ceangal dearbhte</string>
@@ -650,7 +630,6 @@
 	<string name="remove">Thoir air falbh</string>
 	<string name="add_list_member">Cuir ball ris</string>
 	<string name="search_among_people_you_follow">Lorg am measg nan daoine a leanas tu</string>
-	<string name="add_user_to_list">Cuir ris/Thoir air falbh o liostaichean…</string>
 	<string name="add_user_to_list_title">Cuir ris an liosta</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Stiùirich na liostaichean air an nochd %s</string>
@@ -660,7 +639,6 @@
 	<string name="no_followed_hashtags_subtitle">Nochdaidh na leanas tu an-seo</string>
 	<string name="no_lists_title">Cuir rian air do dhachaigh le liostaichean</string>
 	<string name="no_lists_subtitle">Nochdaidh an fheadhainn agad an-seo</string>
-	<string name="manage_accounts">Cuir ris no leum eadar cunntasan</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d phost o chionn goirid</item>
 		<item quantity="two">%,d phost o chionn goirid</item>
@@ -734,20 +712,6 @@
 	<string name="server_cant_mention_or_follow_you">Chan urrainn do neach sam bith a th’ air an fhrithealaiche seo do leantainn.</string>
 	<string name="server_can_interact_with_older">’S urrainn do dhaoine a th’ air an fhrithealaiche seo eadar-ghabhail leis na seann-phostaichean agad.</string>
 	<string name="unblocked_domain_x">Dhì-bhac thu an àrainn %s</string>
-	<string name="handle_help_title">Dè th’ ann an aithnichear?</string>
-	<string name="handle_title">An t-aithnichear aca</string>
-	<string name="handle_username_explanation">Seo an t-aithnichear àraidh aca air an fhrithealaiche aca. Dh’fhaoidte gu bheil luchd-cleachdaidh air a bheil an t-aon ainm air frithealaichean eile.</string>
-	<string name="handle_title_own">An t-aithnichear agad</string>
-	<string name="handle_username_explanation_own">Seo an t-aithnichear àraidh agad air an fhrithealaiche seo. Dh’fhaoidte gu bheil luchd-cleachdaidh air a bheil an t-aon ainm air frithealaichean eile.</string>
-	<string name="server">Frithealaiche</string>
-	<string name="handle_server_explanation">An dachaigh dhigiteach far a bheil na postaichean uile aca a’ fuireach.</string>
-	<string name="handle_explanation">On a dh’innseas aithnichearan cò cuideigin agus càit a bheil iad, ’s urrainn dhut conaltradh le daoine thar an lìonraidh shòisealta de &lt;a&gt;dh’ùrlaran le cumhachd ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Do dhachaigh dhigiteach far a bheil na postaichean uile agad a’ fuireach. Nach toigh leat an tè seo? Dèan imrich gu frithealaiche eile uair sam bith is thoir an luchd-leantainn agad leat cuideachd.</string>
-	<string name="handle_explanation_own">On a dh’innseas d’ aithnichear cò thusa agus càit a bheil thu, ’s urrainn do dhaoine conaltradh leat thar an lìonraidh shòisealta de &lt;a&gt;dh’ùrlaran le cumhachd ActivityPub&lt;/a&gt;.</string>
-	<string name="what_is_activitypub_title">Dè th’ ann an ActivityPub?</string>
-	<string name="what_is_activitypub">Tha ActivityPub coltach ri cànan a bhruidhneas Mastodon ri lìonraidhean sòisealta eile.\n\nLeigidh e leat ceangal a dhèanamh ri daoine chan ann air Mastodon a-mhàin ach air feadh aplacaidean sòisealta eile cuideachd agus conaltradh leotha.</string>
-	<string name="handle_copied">Chaidh lethbhreac dhen aithnichear a chur air an stòr-bhòrd.</string>
-	<string name="qr_code">Còd QR</string>
 	<string name="scan_qr_code">Sganaich còd QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Chaidh a shàbhaladh</string>
@@ -756,7 +720,6 @@
 	<string name="view_file">Seall</string>
 	<string name="share_sheet_preview_profile">%s air Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s air Mastodon: “%2$s”</string>
-	<string name="copy_profile_link">Dèan lethbhreac dhen cheangal dhan phròifil</string>
 	<string name="in_app_browser">Brabhsair am broinn na h-aplacaid</string>
 	<string name="system_browser">Brabhsair an t-siostaim</string>
 	<string name="add_muted_word_short">Cuir facal ris</string>
@@ -900,7 +863,6 @@
 	</plurals>
 	<string name="familiar_followers_one">’Ga leantainn le %s</string>
 	<string name="familiar_followers_two">’Ga leantainn le %s ’s %s</string>
-	<string name="profile_saved_posts">Air a shàbhaladh</string>
 	<string name="profile_saved_posts_explanation">Chan fhaic ach thu fhèin na postaichean a shàbhail thu.</string>
 	<string name="search_people">Daoine</string>
 	<plurals name="familiar_followers_many">
@@ -1016,4 +978,5 @@
 	<string name="quote_followers_only_cancel">Till dhan deasachadh</string>
 	<string name="quote_followers_only_dont_show_again">Na seall an teachdaireachd seo a-rithist</string>
 	<string name="more_replies_found">Fhuair sinn lorg air barrachd fhreagairtean</string>
+	<!-- %s is the current user's server domain -->
 </resources>
