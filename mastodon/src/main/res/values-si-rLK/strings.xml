@@ -11,7 +11,6 @@
 	<string name="discard">ඉවතලන්න</string>
 	<string name="cancel">අවලංගු</string>
 	<string name="media">මාධ්‍ය</string>
-	<string name="profile_about">පිළිබඳව</string>
 	<string name="mute_user">%s නිහඬ</string>
 	<string name="unmute_user">%s නොනිහඬ</string>
 	<string name="block_user">%s අවහිර</string>
@@ -23,7 +22,6 @@
 	<string name="done">අහවරයි</string>
 	<string name="loading">පූරණය වෙමින්…</string>
 	<string name="field_label">නම්පත</string>
-	<string name="field_content">අන්තර්ගතය</string>
 	<string name="saving">සුරැකෙමින්…</string>
 	<plurals name="x_minutes">
 		<item quantity="one">විනාඩි %d</item>
@@ -87,4 +85,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>
