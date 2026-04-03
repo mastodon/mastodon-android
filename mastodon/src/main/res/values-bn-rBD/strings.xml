@@ -13,10 +13,6 @@
 	<string name="settings">সেটিংস</string>
 	<string name="discard">বাতিল করুন</string>
 	<string name="cancel">বাতিল করুন</string>
-	<plurals name="followers">
-		<item quantity="one">জন ফলোয়ার</item>
-		<item quantity="other">জন ফলোয়ারস</item>
-	</plurals>
 	<string name="posts">পোস্টগুলো</string>
 	<string name="media">মিডিয়া</string>
 	<string name="button_follow">ফলো করুন</string>
@@ -148,7 +144,6 @@
 	<string name="downloading">ডাউনলোড হচ্ছে…</string>
 	<!-- %s is the server domain -->
 	<string name="button_follow_pending">বাকি আছে</string>
-	<string name="follows_you">আপনাকে ফলো করছেন</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d জন ফলোয়ার</item>
@@ -199,4 +194,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>
