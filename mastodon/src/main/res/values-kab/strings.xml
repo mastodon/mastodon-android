@@ -13,17 +13,8 @@
 	<string name="discard_draft">Kkes arewway?</string>
 	<string name="discard">Sefsex</string>
 	<string name="cancel">Sefsex</string>
-	<plurals name="followers">
-		<item quantity="one">aneḍfar</item>
-		<item quantity="other">ineḍfaren</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">yeṭṭafr</item>
-		<item quantity="other">ṭṭafaren</item>
-	</plurals>
 	<string name="posts">Tisuffaɣ</string>
 	<string name="media">Amidya</string>
-	<string name="profile_about">Ɣef</string>
 	<string name="button_follow">Ḍfeṛ</string>
 	<string name="button_following">Aḍfar</string>
 	<string name="edit_profile">Ẓreg amaɣnu</string>
@@ -42,7 +33,6 @@
 	<string name="done">Immed</string>
 	<string name="loading">Asali…</string>
 	<string name="field_label">Tabzimt</string>
-	<string name="field_content">Agbur</string>
 	<string name="saving">Asekles…</string>
 	<string name="post_from_user">Tasuffeɣt sɣur %s</string>
 	<string name="poll_option_hint">Taxtiṛt %d</string>
@@ -184,7 +174,6 @@
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Tisuffaɣ timaynutin</string>
 	<string name="button_follow_pending">Yettraǧu</string>
-	<string name="follows_you">Yeṭṭafaṛ-ik·em-id</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<string name="time_now">tura</string>
 	<string name="time_just_now">tura kan</string>
@@ -275,8 +264,6 @@
 	<string name="create">Snulfu</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="article_by_author">S-ɣur %s</string>
-	<string name="server">Aqeddac</string>
-	<string name="qr_code">Tangalt QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Yettwasekles</string>
 	<string name="view_file">Wali</string>
@@ -310,4 +297,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>
