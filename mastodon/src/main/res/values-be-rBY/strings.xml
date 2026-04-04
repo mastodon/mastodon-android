@@ -44,6 +44,7 @@
 	<string name="done">Гатова</string>
 	<string name="loading">Загрузка…</string>
 	<string name="field_label">Метка</string>
+	<string name="field_content">Значэнне</string>
 	<string name="saving">Захаванне…</string>
 	<string name="post_from_user">Допіс ад %s</string>
 	<string name="poll_option_hint">Варыянт %d</string>
@@ -225,6 +226,8 @@
 	<string name="followed_user">Цяпер вы падпісаны на %s</string>
 	<string name="following_user_requested">Запыт падпісацца на %s</string>
 	<string name="open_in_browser">Адкрыць у браўзеры</string>
+	<string name="hide_boosts_from_user">Схаваць пашырэнні ў стужцы</string>
+	<string name="show_boosts_from_user">Паказваць пашырэнні ў стужцы</string>
 	<string name="signup_reason">Чаму вы хочаце далучыцца?</string>
 	<string name="signup_reason_note">Гэта дапаможа нам разгледзець вашу заяўку.</string>
 	<string name="clear">Ачысціць</string>
@@ -358,6 +361,7 @@
 	<string name="poll_multiple_choice">Абярыце адзін або некалькі</string>
 	<string name="save_changes">Захаваць змены</string>
 	<string name="profile_featured">Рэкамендаванае</string>
+	<string name="profile_timeline">Актыўнасць</string>
 	<string name="view_all">Праглядзець усё</string>
 	<string name="profile_endorsed_accounts">Уліковыя запісы</string>
 	<string name="verified_link">Правераная спасылка</string>
@@ -630,6 +634,7 @@
 	<string name="remove">Выдаліць</string>
 	<string name="add_list_member">Дадаць удзельніка</string>
 	<string name="search_among_people_you_follow">Шукайце сярод людзей, на якіх Вы падпісаныя</string>
+	<string name="add_user_to_list">Дадаць у спіс…</string>
 	<string name="add_user_to_list_title">Дадаць да спісу</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Кіраваць спісамі з %s</string>
@@ -979,5 +984,11 @@
 	<string name="quote_followers_only_cancel">Вярнуцца да рэдагавання</string>
 	<string name="quote_followers_only_dont_show_again">Больш не паказваць гэтае паведамленне</string>
 	<string name="more_replies_found">Знойдзеныя іншыя адказы</string>
+	<string name="user_is_muted">Ігнаруецца</string>
+	<string name="user_is_bot">Аўтаматызаваны ўліковы запіс</string>
+	<string name="profile_view_qr_code">Праглядзець QR-код</string>
+	<string name="feature_user">Паказваць у маім профілі</string>
+	<string name="add_user_personal_note">Дадаць асабістую нататку</string>
+	<string name="mute_account">Ігнараваць уліковы запіс</string>
 	<!-- %s is the current user's server domain -->
 </resources>
