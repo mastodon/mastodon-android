@@ -930,5 +930,44 @@
 	<string name="edit_profile_edit_bio">Biografie bearbeiten</string>
 	<string name="add_profile_field">Zusatzfeld hinzufügen</string>
 	<string name="edit_profile_custom_fields_help">Tipp: Beweise die Echtheit deines Mastodon-Profils, indem du verifizierte Links zu deinen persönlichen Websites ergänzt. <i>Mehr erfahren</i></string>
+	<string name="edit_profile_link_verification_help_title">Ergänze verifizierte Links</string>
+	<string name="edit_profile_link_verification_help">Beweise die Echtheit deines Mastodon-Profils, indem du verifizierte Links zu deinen persönlichen Websites ergänzt. So funktioniert’s:</string>
+	<string name="edit_profile_link_verification_title1">Kopiere den unten stehenden HTML-Code</string>
+	<string name="edit_profile_link_verification_title2">Füge den Code in den Header deiner Website ein</string>
+	<string name="edit_profile_link_verification_title3">Ergänze deine Website in ein Zusatzfeld</string>
+	<string name="edit_profile_link_verification_text3">Wenn du deine Website bereits in ein Zusatzfeld eingetragen hast, musst du es noch einmal löschen und sie neu hinzufügen, damit die Verifizierung startet.</string>
+	<string name="edit_profile_field">Zusatzfeld bearbeiten</string>
+	<string name="edit_profile_field_label_example">z. B. „Meine Website“</string>
+	<string name="edit_profile_field_value_example">z. B. „example.me“</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">Maximal %,d Zeichen</item>
+		<item quantity="other">Maximal %,d Zeichen</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">In %,d Beitrag verwendet</item>
+		<item quantity="other">In %,d Beiträgen verwendet</item>
+	</plurals>
+	<string name="add_featured_hashtag">Hashtag hinzufügen</string>
+	<string name="hashtag">Hashtag</string>
+	<string name="confirm_remove_featured_hashtag">Hashtag entfernen?</string>
+	<string name="edit_profile_show_media_tab">„Medien“-Tab</string>
+	<string name="edit_profile_show_media_tab_description">Zeigt deine Beiträge mit Audio, Bildern oder Videos</string>
+	<string name="edit_profile_show_media_replies">Antworten anzeigen</string>
+	<string name="edit_profile_show_featured_tab">„Vorgestellt“-Tab</string>
+	<string name="edit_profile_show_featured_tab_description">Ein Bereich, um andere Konten vorzustellen</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Diese Einstellungen legen fest, was andere in den offiziellen Apps auf %s sehen können. Möglicherweise werden sie nicht von anderen Servern oder Apps von Dritten berücksichtigt.</string>
+	<string name="handle_explanation_title">Deine Adresse im Fediverse ist wie eine E-Mail-Adresse.</string>
+	<string name="handle_explanation_username">%s ist der Profilname auf deren Server. Es ist möglich, dass jemand auf einem anderen Server den gleichen Profilnamen hat.</string>
+	<string name="handle_explanation_domain">%s ist der Server, auf dem das Profil registriert ist und die Beiträge verwaltet werden.</string>
+	<string name="handle_explanation_summary">So wie du E-Mails an andere trotz unterschiedlicher E-Mail-Provider senden kannst, so kannst du auch mit anderen Profilen auf unterschiedlichen Mastodon-Servern interagieren. Wenn andere soziale Apps die gleichen Kommunikationsregeln (das ActivityPub-Protokoll) wie Mastodon verwenden, dann funktioniert die Kommunikation auch dort.</string>
+	<string name="pinned_post">Angeheftet</string>
+	<string name="view_all_pinned">Alle angehefteten Beiträge anzeigen</string>
+	<string name="profile_show_all_fields">Alle Felder anzeigen</string>
+	<string name="unfeature_user">Im Profil nicht mehr vorstellen</string>
+	<string name="confirm_delete_profile_field">Zusatzfeld löschen?</string>
+	<string name="confirm_delete_avatar">Profilbild entfernen?</string>
+	<string name="confirm_delete_cover">Profilbanner entfernen?</string>
+	<string name="profile_followers">Follower</string>
+	<string name="profile_following">Folge ich</string>
 </resources>
