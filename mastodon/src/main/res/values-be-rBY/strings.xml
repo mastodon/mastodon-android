@@ -360,7 +360,7 @@
 	<string name="spoiler_hide">Схаваць зноў</string>
 	<string name="poll_multiple_choice">Абярыце адзін або некалькі</string>
 	<string name="save_changes">Захаваць змены</string>
-	<string name="profile_featured">Рэкамендаванае</string>
+	<string name="profile_featured">Выбранае</string>
 	<string name="profile_timeline">Актыўнасць</string>
 	<string name="view_all">Праглядзець усё</string>
 	<string name="profile_endorsed_accounts">Уліковыя запісы</string>
@@ -987,7 +987,7 @@
 	<string name="user_is_muted">Ігнаруецца</string>
 	<string name="user_is_bot">Аўтаматызаваны ўліковы запіс</string>
 	<string name="profile_view_qr_code">Праглядзець QR-код</string>
-	<string name="feature_user">Паказваць у маім профілі</string>
+	<string name="feature_user">Дадаць у \"Выбранае\" ў маім профілі</string>
 	<string name="add_user_personal_note">Дадаць асабістую нататку</string>
 	<string name="mute_account">Ігнараваць уліковы запіс</string>
 	<string name="block_account">Заблакіраваць ул. запіс</string>
@@ -1016,6 +1016,8 @@
 	<string name="edit_profile_featured_hashtags_description">Дазволіць карыстальнікам фільтраваць Вашу стужку па тэме</string>
 	<string name="edit_profile_tab_settings">Налады ўкладкі профілю</string>
 	<string name="edit_profile_add_bio">Апісаць сябе</string>
+	<string name="edit_profile_featured_hashtags">Выбраныя хэштэгі</string>
+	<string name="edit_profile_x_featured_hashtags">Выбраныя хэштэгі (%d)</string>
 	<string name="edit_profile_replace_image">Замяніць</string>
 	<string name="edit_profile_edit_display_name">Рэдагаваць бачнае імя</string>
 	<string name="edit_profile_edit_bio">Змяніць апісанне</string>
@@ -1049,7 +1051,7 @@
 	<string name="edit_profile_show_media_tab">Укладка \"Медыя\"</string>
 	<string name="edit_profile_show_media_tab_description">Паказвае Вашы допісы, якія ўтрымліваюць медыя файлы</string>
 	<string name="edit_profile_show_media_replies">Уключыць адказы</string>
-	<string name="edit_profile_show_featured_tab">Укладка \"Рэкамендаванае\"</string>
+	<string name="edit_profile_show_featured_tab">Укладка \"Выбранае\"</string>
 	<string name="edit_profile_show_featured_tab_description">Прастора для паказу іншых уліковых запісаў</string>
 	<!-- %s is the current user's server domain -->
 	<string name="edit_profile_tabs_explanation">Гэтыя налады змяняюць тое, што бачаць карыстальнікі %s у афіцыйных праграмах, але гэта можа не ўплываць на карыстальнікаў іншых сервераў і неафіцыйных праграм.</string>
@@ -1060,7 +1062,7 @@
 	<string name="pinned_post">Замацавана</string>
 	<string name="view_all_pinned">Паказаць усе замацаваныя допісы</string>
 	<string name="profile_show_all_fields">Паказаць усе палі</string>
-	<string name="unfeature_user">Не паказваць у маім профілі</string>
+	<string name="unfeature_user">Прыбраць з \"Выбранага\" ў маім профілі</string>
 	<string name="confirm_delete_profile_field">Выдаліць поле?</string>
 	<string name="confirm_delete_avatar">Выдаліць фота профілю?</string>
 	<string name="confirm_delete_cover">Выдаліць відарыс вокладкі?</string>
