@@ -52,6 +52,13 @@ public class ExternalShareActivity extends FragmentStackActivity{
 
 		Intent intent=getIntent();
 		String text=intent.getStringExtra(Intent.EXTRA_TEXT);
+		String subject=intent.getStringExtra(Intent.EXTRA_SUBJECT);
+		if(!TextUtils.isEmpty(subject)){
+			if(!TextUtils.isEmpty(text))
+				text=subject+"\n"+text;
+			else
+				text=subject;
+		}
 		List<Uri> mediaUris;
 		if(Intent.ACTION_SEND.equals(intent.getAction())){
 			Uri singleUri=intent.getParcelableExtra(Intent.EXTRA_STREAM);
@@ -67,6 +74,15 @@ public class ExternalShareActivity extends FragmentStackActivity{
 			}else{
 				mediaUris=null;
 			}
+		}else if(Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData()!=null){
+			Uri uri=intent.getData();
+			if(!"mastodon".equals(uri.getScheme()) || !"share".equals(uri.getHost())){
+				Toast.makeText(this, "Unexpected intent URI: "+uri, Toast.LENGTH_SHORT).show();
+				finish();
+				return;
+			}
+			mediaUris=List.of();
+			text=uri.getQueryParameter("text");
 		}else{
 			Toast.makeText(this, "Unexpected intent action: "+intent.getAction(), Toast.LENGTH_SHORT).show();
 			finish();

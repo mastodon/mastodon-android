@@ -21,26 +21,12 @@
 	<string name="discard_draft">Скасаваць чарнавік?</string>
 	<string name="discard">Выйсці</string>
 	<string name="cancel">Скасаваць</string>
-	<plurals name="followers">
-		<item quantity="one">падпісчык</item>
-		<item quantity="few">падпісчыка</item>
-		<item quantity="many">падпісчыкаў</item>
-		<item quantity="other">падпісчыкаў</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">падпіска</item>
-		<item quantity="few">падпіскі</item>
-		<item quantity="many">падпісак</item>
-		<item quantity="other">падпіскі</item>
-	</plurals>
 	<string name="posts">Допісы</string>
-	<string name="posts_and_replies">Допісы і адказы</string>
 	<string name="media">Медыя</string>
-	<string name="profile_about">Пра сябе</string>
 	<string name="button_follow">Падпісацца</string>
 	<string name="button_following">Вы падпісаны</string>
 	<string name="edit_profile">Рэдагаваць профіль</string>
-	<string name="share_user">Падзяліцца профілем праз…</string>
+	<string name="share_user">Абагуліць профіль праз…</string>
 	<string name="mute_user">Ігнараваць %s</string>
 	<string name="unmute_user">Не ігнараваць %s</string>
 	<string name="block_user">Заблакіраваць %s</string>
@@ -264,7 +250,6 @@
 	<string name="see_new_posts">Новыя допісы</string>
 	<string name="follow_back">Падпісацца ў адказ</string>
 	<string name="button_follow_pending">Чакаюць</string>
-	<string name="follows_you">Падпісаны(-ая) на вас</string>
 	<string name="manually_approves_followers">Уручную пацвярджае падпісчыкаў</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -280,10 +265,10 @@
 		<item quantity="other">%,d падпісак</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d упадабанае</item>
-		<item quantity="few">%,d упадабаных</item>
-		<item quantity="many">%,d упадабаных</item>
-		<item quantity="other">%,d упадабаных</item>
+		<item quantity="one">%,d упадабанне</item>
+		<item quantity="few">%,d упадабанні</item>
+		<item quantity="many">%,d упадабанняў</item>
+		<item quantity="other">%,d упадабанні</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d пашырэнне</item>
@@ -342,7 +327,7 @@
 	<string name="add_bookmark">Закладка</string>
 	<string name="remove_bookmark">Выдаліць закладку</string>
 	<string name="bookmarks">Закладкі</string>
-	<string name="your_favorites">Упадабаныя</string>
+	<string name="your_favorites">Упадабанні</string>
 	<string name="login_title">З вяртаннем</string>
 	<string name="login_subtitle">Увайдзіце з дапамогай сервера, на якім вы стварылі свой уліковы запіс.</string>
 	<string name="server_url">URL-адрас сервера</string>
@@ -359,7 +344,6 @@
 	<string name="not_accepting_new_members">Не прымае новых удзельнікаў</string>
 	<string name="category_special_interests">Асаблівыя інтарэсы</string>
 	<string name="signup_passwords_dont_match">Паролі не супадаюць</string>
-	<string name="profile_add_row">Дадаць радок</string>
 	<string name="profile_setup">Налады профілю</string>
 	<string name="profile_setup_subtitle">Вы можаце завяршыць гэта пазней на ўкладцы Профіль.</string>
 	<string name="follow_all">Падпісацца на ўсіх</string>
@@ -376,7 +360,7 @@
 	<string name="spoiler_hide">Схаваць зноў</string>
 	<string name="poll_multiple_choice">Абярыце адзін або некалькі</string>
 	<string name="save_changes">Захаваць змены</string>
-	<string name="profile_featured">Рэкамендаванае</string>
+	<string name="profile_featured">Абранае</string>
 	<string name="profile_timeline">Стужка</string>
 	<string name="view_all">Праглядзець усё</string>
 	<string name="profile_endorsed_accounts">Уліковыя запісы</string>
@@ -660,7 +644,6 @@
 	<string name="no_followed_hashtags_subtitle">Тут з\'явяцца хэштэгі</string>
 	<string name="no_lists_title">Арганізуйце сваю стужку з дапамогай спісаў</string>
 	<string name="no_lists_subtitle">Ваш з\'явіцца тут</string>
-	<string name="manage_accounts">Дадаць або пераключыць уліковы запіс</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d нядаўні допіс</item>
 		<item quantity="few">%,d нядаўніх допісаў</item>
@@ -735,20 +718,6 @@
 	<string name="server_cant_mention_or_follow_you">Ніхто з гэтага сервера не можа сачыць за вамі.</string>
 	<string name="server_can_interact_with_older">Людзі з гэтага сервера могуць узаемадзейнічаць з вашымі старымі допісамі.</string>
 	<string name="unblocked_domain_x">Разблакіраваны дамен %s</string>
-	<string name="handle_help_title">Што такое ідэнтыфікатар карыстальніка?</string>
-	<string name="handle_title">Ідэнтыфікатар карыстальніка</string>
-	<string name="handle_username_explanation">Іх унікальны ідэнтыфікатар на серверы. Можна знайсці карыстальнікаў з аднолькавым імем карыстальніка на розных серверах.</string>
-	<string name="handle_title_own">Ваш ідэнтыфікатар</string>
-	<string name="handle_username_explanation_own">Ваш унікальны ідэнтыфікатар на гэтым серверы. Можна знайсці карыстальнікаў з аднолькавым імем карыстальніка на розных серверах.</string>
-	<string name="server">Сервер</string>
-	<string name="handle_server_explanation">Іх лічбавы дом, дзе захоўваюцца ўсе допісы.</string>
-	<string name="handle_explanation">Паколькі ідэнтыфікатары кажуць аб тым, хто чалавек і дзе ён знаходзіцца, вы можаце ўзаемадзейнічаць з людзьмі ў сацыяльнай сетцы &lt;a&gt; на платформах, якія падтрымліваюцца ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Ваш лічбавы дом, дзе захоўваюцца ўсе вашыя допісы. Не падабаецца гэты? Змяняйце сервер у любы час і прыводзьце сваіх падпісчыкаў.</string>
-	<string name="handle_explanation_own">Паколькі ваш лагін кажа аб тым, хто вы і дзе знаходзіцеся, людзі могуць узаемадзейнічаць з вамі ў сацыяльнай сетцы &lt;a&gt; на платформах, якія падтрымліваюцца ActivityPub&lt;/a&gt;.</string>
-	<string name="what_is_activitypub_title">Што такое ActivityPub?</string>
-	<string name="what_is_activitypub">ActivityPub - гэта мова, на якой Mastodon размаўляе з іншымі сацыяльнымі сеткамі.\n\nГэта дазваляе вам звязвацца і ўзаемадзейнічаць з людзьмі не толькі ў Mastodon, але і ў розных сацыяльных праграмах.</string>
-	<string name="handle_copied">Ідэнтыфікатар карыстальніка скапіяваны ў буфер абмену.</string>
-	<string name="qr_code">QR-код</string>
 	<string name="scan_qr_code">Сканіраваць QR-код</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Захавана</string>
@@ -757,7 +726,6 @@
 	<string name="view_file">Паглядзець</string>
 	<string name="share_sheet_preview_profile">%s у Mastodon</string>
 	<string name="share_sheet_preview_post">%1$s у Mastodon “%2$s”</string>
-	<string name="copy_profile_link">Скапіраваць спасылку на профіль</string>
 	<string name="in_app_browser">Убудаваны браўзер</string>
 	<string name="system_browser">Сістэмны браўзер</string>
 	<string name="add_muted_word_short">Дадаць слова</string>
@@ -802,9 +770,9 @@
 	<string name="visibility_subtitle_followers">Толькі падпісчыкі</string>
 	<string name="visibility_subtitle_private">Усе згаданыя ў допісе</string>
 	<string name="view_boosts">Праглядзець пашырэнні</string>
-	<string name="view_favorites">Праглядзець упадабанае</string>
+	<string name="view_favorites">Праглядзець упадабанні</string>
 	<string name="undo_reblog">Адмяніць пашырэнне</string>
-	<string name="undo_favorite">Адмяніць упадабанае</string>
+	<string name="undo_favorite">Скасаваць упадабанне</string>
 	<string name="could_not_reach_server">Не ўдалося звязацца з серверам. Праверце злучэнне і паспрабуйце яшчэ раз.</string>
 	<string name="connection_timed_out">Запыт быў перапынены. Праверце злучэнне і паспрабуйце яшчэ раз.</string>
 	<string name="server_error">Нешта пайшло не так у злучэнні з Вашым серверам. Хутчэй за ўсё, гэта не Ваша віна. Паспрабаваць яшчэ раз?</string>
@@ -901,7 +869,6 @@
 	</plurals>
 	<string name="familiar_followers_one">Падпісаны(-ая) %s</string>
 	<string name="familiar_followers_two">Падпісаныя %s і %s</string>
-	<string name="profile_saved_posts">Захаванае</string>
 	<string name="profile_saved_posts_explanation">Вашыя захаваныя допісы бачныя толькі Вам.</string>
 	<string name="search_people">Людзі</string>
 	<plurals name="familiar_followers_many">
@@ -986,7 +953,7 @@
 	<string name="edit_visibility_explanation">Апублікаваныя допісы не могуць змяняць сваю бачнасць.</string>
 	<string name="user_quoted_post">%s цытаваў(-ла) Ваш допіс:</string>
 	<string name="user_edited_quoted_post">%s адрэдагаваў(-ла) допіс, які Вы цытавалі</string>
-	<string name="notification_type_quote">Цытаты</string>
+	<string name="notification_type_quote">Цытаванні</string>
 	<string name="create_quote">Цытаваць</string>
 	<string name="cannot_quote_post">Вы не маеце дазвол цытаваць гэты допіс</string>
 	<string name="cannot_quote_post_followers_only">Толькі падпісчыкі могуць цытаваць гэты допіс</string>
@@ -1001,7 +968,7 @@
 	<plurals name="x_quotes">
 		<item quantity="one">%,d% цытата</item>
 		<item quantity="few">%,d цытаты</item>
-		<item quantity="many">%,d цытат</item>
+		<item quantity="many">%,d цытаванняў</item>
 		<item quantity="other">%,d цытаты</item>
 	</plurals>
 	<string name="remove_quote">Выдаліць мой допіс з допісу %s</string>
@@ -1009,4 +976,12 @@
 	<string name="remove_quote_confirm">Гэтае дзеянне немагчыма скасаваць.</string>
 	<string name="remove_quote_button">Выдаліць допіс</string>
 	<string name="settings_posting_defaults_explanation">Гэтыя налады будуць ужывацца па змаўчанні, калі Вы будзеце ствараць новыя допісы, але Вы зможаце змяняць іх для кожнага допісу ў акне для напісання.</string>
+	<string name="cant_quote_in_private_title">Цытаты нельга далучаць да прыватных узгадванняў</string>
+	<string name="cant_quote_in_private">Калі Вы захавайце бягучыя налады, прымацаваная цытата будзе пераробленая ў спасылку.</string>
+	<string name="quote_followers_only_confirm_title">Падзяліцца з падпісчыкамі і ўзгаданымі карыстальнікамі?</string>
+	<string name="quote_followers_only_confirm">Асоба, якую Вы цытуеце, і іншыя, хто быў узгаданы, атрымаюць апавяшчэнні і змогуць пабачыць Ваш допіс, нават калі яны не падпісаныя на Вас.</string>
+	<string name="quote_followers_only_publish">Апублікаваць допіс</string>
+	<string name="quote_followers_only_cancel">Вярнуцца да рэдагавання</string>
+	<string name="quote_followers_only_dont_show_again">Больш не паказваць гэтае паведамленне</string>
+	<string name="more_replies_found">Знойдзеныя іншыя адказы</string>
 </resources>

@@ -4,14 +4,12 @@ import android.text.TextUtils;
 
 import com.google.gson.reflect.TypeToken;
 
-import org.joinmastodon.android.api.MastodonAPIRequest;
+import org.joinmastodon.android.api.requests.HeaderPaginationRequest;
 import org.joinmastodon.android.model.Status;
-
-import java.util.List;
 
 import androidx.annotation.NonNull;
 
-public class GetAccountStatuses extends MastodonAPIRequest<List<Status>>{
+public class GetAccountStatuses extends HeaderPaginationRequest<Status>{
 	public GetAccountStatuses(String id, String maxID, String minID, int limit, @NonNull Filter filter, String hashtag){
 		super(HttpMethod.GET, "/accounts/"+id+"/statuses", new TypeToken<>(){});
 		if(maxID!=null)
@@ -23,7 +21,15 @@ public class GetAccountStatuses extends MastodonAPIRequest<List<Status>>{
 		switch(filter){
 			case DEFAULT -> addQueryParameter("exclude_replies", "true");
 			case INCLUDE_REPLIES -> {}
-			case MEDIA -> addQueryParameter("only_media", "true");
+			case MEDIA -> {
+				addQueryParameter("only_media", "true");
+				addQueryParameter("exclude_replies", "true");
+				addQueryParameter("exclude_reblogs", "true");
+			}
+			case MEDIA_WITH_REPLIES -> {
+				addQueryParameter("only_media", "true");
+				addQueryParameter("exclude_reblogs", "true");
+			}
 			case NO_REBLOGS -> {
 				addQueryParameter("exclude_replies", "true");
 				addQueryParameter("exclude_reblogs", "true");
@@ -33,12 +39,14 @@ public class GetAccountStatuses extends MastodonAPIRequest<List<Status>>{
 		}
 		if(!TextUtils.isEmpty(hashtag))
 			addQueryParameter("tagged", hashtag);
+		removeUnsupportedItems=true;
 	}
 
 	public enum Filter{
 		DEFAULT,
 		INCLUDE_REPLIES,
 		MEDIA,
+		MEDIA_WITH_REPLIES,
 		NO_REBLOGS,
 		OWN_POSTS_AND_REPLIES,
 		PINNED

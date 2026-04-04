@@ -14,6 +14,8 @@ import org.joinmastodon.android.ui.viewholders.SectionHeaderListItemViewHolder;
 import org.joinmastodon.android.ui.viewholders.SettingsAccountListItemViewHolder;
 import org.joinmastodon.android.ui.viewholders.SimpleListItemViewHolder;
 import org.joinmastodon.android.ui.viewholders.SwitchListItemViewHolder;
+import org.joinmastodon.android.ui.viewholders.TrailingIconButtonListItemViewHolder;
+import org.joinmastodon.android.ui.viewholders.TrailingIconListItemViewHolder;
 
 import java.util.List;
 
@@ -55,6 +57,10 @@ public class GenericListItemsAdapter<T> extends UsableRecyclerView.Adapter<ListI
 			return new SettingsAccountListItemViewHolder(parent.getContext(), parent);
 		if(viewType==R.id.list_item_section_header)
 			return new SectionHeaderListItemViewHolder(parent.getContext(), parent);
+		if(viewType==R.id.list_item_simple_trailing_icon)
+			return new TrailingIconListItemViewHolder(parent.getContext(), parent);
+		if(viewType==R.id.list_item_simple_trailing_icon_button)
+			return new TrailingIconButtonListItemViewHolder(parent.getContext(), parent);
 
 		throw new IllegalArgumentException("Unexpected view type "+viewType);
 	}

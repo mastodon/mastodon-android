@@ -3,6 +3,7 @@ package org.joinmastodon.android.model;
 import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
 
+import java.time.Instant;
 import java.util.List;
 
 @Parcel
@@ -14,6 +15,8 @@ public class Hashtag extends BaseModel implements DisplayItemsParent{
 	public List<History> history;
 	public int statusesCount;
 	public boolean following;
+	public String id; // Featured hashtags only
+	public Instant lastStatusAt; // Featured hashtags only
 
 	@Override
 	public String toString(){

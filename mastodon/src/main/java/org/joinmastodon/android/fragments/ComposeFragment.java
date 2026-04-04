@@ -36,10 +36,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.view.WindowInsetsAnimation;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -109,6 +111,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -117,6 +120,7 @@ import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
+import me.grishka.appkit.views.FragmentRootLinearLayout;
 
 public class ComposeFragment extends MastodonToolbarFragment implements ComposeEditText.SelectionListener, CustomTransitionsFragment{
 
@@ -191,6 +195,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	private Runnable discardConfirmationCallback=this::confirmDiscardDraftBackCallback;
 	private boolean prevHadDraft;
 	private boolean keyboardVisible;
+	private FragmentRootLinearLayout rootView;
+	private boolean ignoreNextKeyboardAnimation;
 
 	public ComposeFragment(){
 		super(R.layout.toolbar_fragment_with_progressbar);
@@ -314,7 +320,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 			});
 		}
 		pollBtn.setOnClickListener(v->togglePoll());
-		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
+		emojiBtn.setOnClickListener(v->{
+			ignoreNextKeyboardAnimation=true;
+			emojiKeyboard.toggleKeyboardPopup(mainEditText);
+		});
 		spoilerBtn.setOnClickListener(v->toggleSpoiler());
 		languageBtn.setOnClickListener(v->showLanguageAlert());
 		visibilityBtn.setOnClickListener(this::onVisibilityClick);
@@ -411,17 +420,21 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 		outerScroller.setScrollableChildSupplier(()->innerScroller);
 
 		view.findViewById(R.id.quote_post_remove).setOnClickListener(v->{
-			if(quotedStatus!=null){
-				quotedStatus=null;
-				quotedPostWrap.setVisibility(View.GONE);
-				updateMediaPollStates();
-				mainEditText.setHint(R.string.compose_hint);
-			}
+			removeQuote();
 		});
 
 		creatingView=false;
 
 		return view;
+	}
+
+	private void removeQuote(){
+		if(quotedStatus!=null){
+			quotedStatus=null;
+			quotedPostWrap.setVisibility(View.GONE);
+			updateMediaPollStates();
+			mainEditText.setHint(R.string.compose_hint);
+		}
 	}
 
 	@Override
@@ -462,6 +475,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
+		rootView=(FragmentRootLinearLayout) view;
+		rootView.setClipToPadding(false);
 		if(editingStatus==null)
 			loadDefaultStatusVisibility(savedInstanceState);
 		contentView.setSizeListener(emojiKeyboard::onContentViewSizeChanged);
@@ -641,6 +656,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 			visibilityBtn.setAlpha(0.5f);
 		}
 		updateMediaPollStates();
+
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.R){
+			view.setWindowInsetsAnimationCallback(new InsetsAnimationCallback());
+		}
 	}
 
 	@Override
@@ -786,21 +805,39 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	}
 
 	private void publish(){
-		sendingOverlay=new View(getActivity());
-		WindowManager.LayoutParams overlayParams=new WindowManager.LayoutParams();
-		overlayParams.type=WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
-		overlayParams.flags=WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR | WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
-		overlayParams.width=overlayParams.height=WindowManager.LayoutParams.MATCH_PARENT;
-		overlayParams.format=PixelFormat.TRANSLUCENT;
-		overlayParams.softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED;
-		overlayParams.token=mainEditText.getWindowToken();
-		wm.addView(sendingOverlay, overlayParams);
-		addBackCallback(sendingBackButtonBlocker);
+		Runnable publishAction=()->{
+			sendingOverlay=new View(getActivity());
+			WindowManager.LayoutParams overlayParams=new WindowManager.LayoutParams();
+			overlayParams.type=WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
+			overlayParams.flags=WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR | WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
+			overlayParams.width=overlayParams.height=WindowManager.LayoutParams.MATCH_PARENT;
+			overlayParams.format=PixelFormat.TRANSLUCENT;
+			overlayParams.softInputMode=WindowManager.LayoutParams.SOFT_INPUT_STATE_UNCHANGED;
+			overlayParams.token=mainEditText.getWindowToken();
+			wm.addView(sendingOverlay, overlayParams);
+			addBackCallback(sendingBackButtonBlocker);
 
-		publishButton.setEnabled(false);
-		V.setVisibilityAnimated(sendProgress, View.VISIBLE);
+			publishButton.setEnabled(false);
+			V.setVisibilityAnimated(sendProgress, View.VISIBLE);
 
-		mediaViewController.saveAltTextsBeforePublishing(this::actuallyPublish, this::handlePublishError);
+			mediaViewController.saveAltTextsBeforePublishing(this::actuallyPublish, this::handlePublishError);
+		};
+		if(quotedStatus!=null && !AccountSessionManager.getInstance().isSelf(accountID, quotedStatus.account) && statusVisibility==StatusPrivacy.PRIVATE && !GlobalUserPreferences.alertSeen("quoteFollowersOnly")){
+			new M3AlertDialogBuilder(getActivity())
+					.setCheckboxText(R.string.quote_followers_only_dont_show_again)
+					.setTitle(R.string.quote_followers_only_confirm_title)
+					.setMessage(R.string.quote_followers_only_confirm)
+					.setPositiveButton(R.string.quote_followers_only_publish, (dlg, which)->{
+						CheckBox cb=((AlertDialog)dlg).findViewById(R.id.checkbox);
+						if(cb!=null && cb.isChecked())
+							GlobalUserPreferences.setAlertSeen("quoteFollowersOnly");
+						publishAction.run();
+					})
+					.setNegativeButton(R.string.quote_followers_only_cancel, null)
+					.show();
+		}else{
+			publishAction.run();
+		}
 	}
 
 	private void actuallyPublish(){
@@ -874,7 +911,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	}
 
 	private void handlePublishError(ErrorResponse error){
-		wm.removeView(sendingOverlay);
+		if(sendingOverlay.isAttachedToWindow())
+			wm.removeView(sendingOverlay);
 		sendingOverlay=null;
 		removeBackCallback(sendingBackButtonBlocker);
 		V.setVisibilityAnimated(sendProgress, View.GONE);
@@ -1058,11 +1096,15 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	private void onVisibilityClick(View v){
 		if(instance.supportsQuotePostAuthoring()){
 			ComposerVisibilitySheet sheet=new ComposerVisibilitySheet(getActivity(), statusVisibility, statusQuotePolicy,
-					true, quotedStatus==null ? StatusPrivacy.PUBLIC : quotedStatus.visibility, accountID, (s, visibility, policy)->{
+					true, quotedStatus!=null, quotedStatus==null ? StatusPrivacy.PUBLIC : quotedStatus.visibility, accountID, (s, visibility, policy)->{
 				if(statusVisibility!=visibility || statusQuotePolicy!=policy){
 					statusVisibility=visibility;
 					statusQuotePolicy=policy;
 					updateVisibilityButton(true);
+					if(quotedStatus!=null && visibility==StatusPrivacy.DIRECT){
+						mainEditText.append("\n\n"+quotedStatus.url);
+						removeQuote();
+					}
 				}
 				return true;
 			});
@@ -1332,18 +1374,13 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 
 	@Override
 	public Animator onCreateEnterTransition(View prev, View container){
+		if(!getArguments().getBoolean("fromThreadFragment"))
+			return null;
 		AnimatorSet anim=new AnimatorSet();
-		if(getArguments().getBoolean("fromThreadFragment")){
-			anim.playTogether(
-					ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
-					ObjectAnimator.ofFloat(container, View.TRANSLATION_Y, V.dp(200), 0)
-			);
-		}else{
-			anim.playTogether(
-					ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
-					ObjectAnimator.ofFloat(container, View.TRANSLATION_X, V.dp(100), 0)
-			);
-		}
+		anim.playTogether(
+				ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
+				ObjectAnimator.ofFloat(container, View.TRANSLATION_Y, V.dp(200), 0)
+		);
 		anim.setDuration(300);
 		anim.setInterpolator(CubicBezierInterpolator.DEFAULT);
 		return anim;
@@ -1351,13 +1388,84 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 
 	@Override
 	public Animator onCreateExitTransition(View prev, View container){
-		AnimatorSet anim=new AnimatorSet();
-		anim.playTogether(
-				ObjectAnimator.ofFloat(container, View.TRANSLATION_X, V.dp(100)),
-				ObjectAnimator.ofFloat(container, View.ALPHA, 0)
-		);
-		anim.setDuration(200);
-		anim.setInterpolator(CubicBezierInterpolator.DEFAULT);
-		return anim;
+		return null;
+	}
+
+	@Override
+	public boolean wantsPredictiveBackExitTransition(){
+		return true;
+	}
+
+	@RequiresApi(Build.VERSION_CODES.R)
+	private class InsetsAnimationCallback extends WindowInsetsAnimation.Callback{
+		private int bottomBarStartY, bottomBarEndY;
+		private ViewGroup contentWrap;
+
+		public InsetsAnimationCallback(){
+			super(WindowInsetsAnimation.Callback.DISPATCH_MODE_STOP);
+		}
+
+		@Override
+		public void onPrepare(@NonNull WindowInsetsAnimation animation){
+			if(ignoreNextKeyboardAnimation)
+				return;
+			if((animation.getTypeMask() & WindowInsets.Type.ime())!=0){
+				int[] location={0, 0};
+				bottomBar.getLocationInWindow(location);
+				bottomBarStartY=location[1];
+				contentWrap=rootView.findViewById(R.id.appkit_content);
+			}
+		}
+
+		@NonNull
+		@Override
+		public WindowInsetsAnimation.Bounds onStart(@NonNull WindowInsetsAnimation animation, @NonNull WindowInsetsAnimation.Bounds bounds){
+			if(ignoreNextKeyboardAnimation)
+				return bounds;
+			if((animation.getTypeMask() & WindowInsets.Type.ime())!=0){
+				int[] location={0, 0};
+				bottomBar.getLocationInWindow(location);
+				bottomBarEndY=location[1];
+				bottomBar.setTranslationY(bottomBarStartY-bottomBarEndY);
+				contentWrap.setBottom(rootView.getHeight());
+				contentView.setBottom(rootView.getHeight());
+			}
+			return bounds;
+		}
+
+		@NonNull
+		@Override
+		public WindowInsets onProgress(@NonNull WindowInsets insets, @NonNull List<WindowInsetsAnimation> runningAnimations){
+			if(ignoreNextKeyboardAnimation)
+				return insets;
+			WindowInsetsAnimation anim=null;
+			for(WindowInsetsAnimation a:runningAnimations){
+				if((a.getTypeMask() & WindowInsets.Type.ime())!=0){
+					anim=a;
+					break;
+				}
+			}
+			if(anim!=null){
+				int imeBottomInset=insets.getInsets(WindowInsets.Type.ime()).bottom;
+				int navBarBottomInset=insets.getInsets(WindowInsets.Type.systemBars()).bottom;
+				int offset=imeBottomInset>navBarBottomInset ? imeBottomInset-navBarBottomInset : 0;
+				bottomBar.setTranslationY(Math.max(0, bottomBarStartY-bottomBarEndY)-offset);
+				contentWrap.setBottom(rootView.getHeight());
+				contentView.setBottom(rootView.getHeight());
+			}
+			return insets;
+		}
+
+		@Override
+		public void onEnd(@NonNull WindowInsetsAnimation animation){
+			if(ignoreNextKeyboardAnimation){
+				ignoreNextKeyboardAnimation=false;
+				return;
+			}
+			if((animation.getTypeMask() & WindowInsets.Type.ime())!=0){
+				bottomBar.setTranslationY(0);
+				rootView.requestLayout();
+			}
+		}
 	}
 }

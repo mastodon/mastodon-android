@@ -19,6 +19,7 @@ import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
 import org.joinmastodon.android.events.FinishReportFragmentsEvent;
 import org.joinmastodon.android.fragments.StatusListFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.displayitems.AudioStatusDisplayItem;
@@ -48,6 +49,7 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 	private String accountID;
 	private Account reportAccount;
 	private Status reportStatus;
+	private String maxID;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -81,14 +83,15 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetAccountStatuses(reportAccount.id, offset>0 ? getMaxID() : null, null, count, GetAccountStatuses.Filter.OWN_POSTS_AND_REPLIES, null)
+		currentRequest=new GetAccountStatuses(reportAccount.id, offset>0 ? maxID : null, null, count, GetAccountStatuses.Filter.OWN_POSTS_AND_REPLIES, null)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
-					public void onSuccess(List<Status> result){
+					public void onSuccess(HeaderPaginationList<Status> result){
 						for(Status s:result){
 							s.sensitive=true;
 						}
-						onDataLoaded(result, !result.isEmpty());
+						maxID=result.getNextPageMaxID();
+						onDataLoaded(result, result.nextPageUri!=null);
 					}
 				})
 				.exec(accountID);

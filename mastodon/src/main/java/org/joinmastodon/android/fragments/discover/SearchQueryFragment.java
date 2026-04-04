@@ -26,12 +26,16 @@ import android.widget.Toolbar;
 
 import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
+import org.joinmastodon.android.api.requests.accounts.GetAccountsByIDs;
 import org.joinmastodon.android.api.requests.search.GetSearchResults;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.MastodonRecyclerFragment;
+import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.SearchResult;
 import org.joinmastodon.android.model.SearchResults;
+import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.model.viewmodel.SearchResultViewModel;
 import org.joinmastodon.android.ui.DividerItemDecoration;
@@ -44,6 +48,9 @@ import org.joinmastodon.android.ui.viewholders.SimpleListItemViewHolder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -55,6 +62,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.fragments.CustomTransitionsFragment;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
@@ -72,6 +81,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 	private ListItem<Void> openUrlItem, goToHashtagItem, goToAccountItem, goToStatusSearchItem, goToAccountSearchItem;
 	private ArrayList<ListItem<Void>> topOptions=new ArrayList<>();
 	private GenericListItemsAdapter<Void> topOptionsAdapter;
+	private boolean reloadedRecents;
 
 	private String accountID;
 	private SearchViewHelper searchViewHelper;
@@ -119,6 +129,36 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 					return vm;
 				}).collect(Collectors.toList()), false);
 				recentsHeader.setVisible(!data.isEmpty());
+				if(!reloadedRecents){
+					reloadedRecents=true;
+					Set<String> needAccounts=results.stream().map(sr->sr.account==null ? null : sr.account.id).collect(Collectors.toSet());
+					if(!needAccounts.isEmpty()){
+						new GetAccountsByIDs(needAccounts)
+								.setCallback(new Callback<>(){
+									@Override
+									public void onSuccess(List<Account> result){
+										AccountSessionManager.get(accountID).getCacheController().updateRecentSearches(result.stream().map(SearchResult::new).collect(Collectors.toList()));
+										if(isInRecentMode() && getActivity()!=null){
+											Map<String, Account> accountsByID=result.stream().collect(Collectors.toMap(a->a.id, Function.identity(), (a, b)->b));
+											for(SearchResultViewModel sr:data){
+												if(sr.result.type==SearchResult.Type.ACCOUNT){
+													Account updatedAccount=accountsByID.get(sr.result.account.id);
+													if(updatedAccount==null)
+														continue;
+													sr.result.account=updatedAccount;
+													sr.account=new AccountViewModel(updatedAccount, accountID, getActivity());
+												}
+											}
+											mergeAdapter.notifyDataSetChanged();
+										}
+									}
+
+									@Override
+									public void onError(ErrorResponse error){}
+								})
+								.exec(accountID);
+					}
+				}
 			});
 		}else{
 			currentRequest=new GetSearchResults(currentQuery, null, false, null, 0, 0)
@@ -518,7 +558,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position){
 			if(holder instanceof CustomAccountViewHolder avh){
 				avh.bind(data.get(position).account);
-				avh.searchResult=data.get(position).result;
+				avh.searchResult=data.get(position);
 			}else if(holder instanceof SimpleListItemViewHolder ivh){
 				ivh.bind(data.get(position).hashtagItem);
 			}
@@ -559,7 +599,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 	}
 
 	private class CustomAccountViewHolder extends AccountViewHolder{
-		public SearchResult searchResult;
+		public SearchResultViewModel searchResult;
 
 		public CustomAccountViewHolder(Fragment fragment, ViewGroup list, HashMap<String, Relationship> relationships){
 			super(fragment, list, relationships);
@@ -569,7 +609,12 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 		@Override
 		public void onClick(){
 			super.onClick();
-			AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putRecentSearch(searchResult);
+			AccountSessionManager.getInstance().getAccount(accountID).getCacheController().putRecentSearch(searchResult.result);
+		}
+
+		@Override
+		public void rebind(){
+			onBind(searchResult.account);
 		}
 	}
 }

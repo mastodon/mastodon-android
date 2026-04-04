@@ -27,9 +27,11 @@ import org.joinmastodon.android.api.requests.notifications.GetUnreadNotification
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.NotificationsMarkerUpdatedEvent;
+import org.joinmastodon.android.events.SelfAccountUpdatedEvent;
 import org.joinmastodon.android.events.StatusDisplaySettingsChangedEvent;
 import org.joinmastodon.android.fragments.discover.DiscoverFragment;
 import org.joinmastodon.android.fragments.onboarding.OnboardingFollowSuggestionsFragment;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Notification;
@@ -143,11 +145,11 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 
 			String defaultTab=getArguments().getString("tab");
 			if("notifications".equals(defaultTab)){
-				tabBar.selectTab(R.id.tab_notifications);
 				fragmentContainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 					@Override
 					public boolean onPreDraw(){
 						fragmentContainer.getViewTreeObserver().removeOnPreDrawListener(this);
+						tabBar.selectTab(R.id.tab_notifications);
 						onTabSelected(R.id.tab_notifications);
 						return true;
 					}
@@ -379,6 +381,13 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 			homeTimelineFragment.rebuildAllDisplayItems();
 		if(notificationsFragment.loaded)
 			notificationsFragment.rebuildAllDisplayItems();
+	}
+
+	@Subscribe
+	public void onAccountUpdated(SelfAccountUpdatedEvent ev){
+		if(ev.accountID().equals(accountID)){
+			ViewImageLoader.loadWithoutAnimation(tabBarAvatar, null, new UrlImageLoaderRequest(ev.account().avatar, V.dp(24), V.dp(24)));
+		}
 	}
 
 	@Override

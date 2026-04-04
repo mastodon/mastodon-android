@@ -3,7 +3,6 @@ package org.joinmastodon.android.ui.text;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -77,6 +76,24 @@ public class HtmlParser{
 	 * @return a spanned string
 	 */
 	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, List<Hashtag> tags, String accountID, Object parentObject, Context context){
+		return parse(source, emojis, mentions, tags, accountID, parentObject, context, true);
+	}
+
+	/**
+	 * Parse HTML and custom emoji into a spanned string for display.
+	 * Supported tags: <ul>
+	 * <li>&lt;a class="hashtag | mention | (none)"></li>
+	 * <li>&lt;span class="invisible | ellipsis"></li>
+	 * <li>&lt;br/></li>
+	 * <li>&lt;p></li>
+	 * </ul>
+	 *
+	 * @param source      Source HTML
+	 * @param emojis      Custom emojis that are present in source as <code>:code:</code>
+	 * @param useEllipsis
+	 * @return a spanned string
+	 */
+	public static SpannableStringBuilder parse(String source, List<Emoji> emojis, List<Mention> mentions, List<Hashtag> tags, String accountID, Object parentObject, Context context, boolean useEllipsis){
 		class SpanInfo{
 			public Object span;
 			public int start;
@@ -89,9 +106,8 @@ public class HtmlParser{
 			}
 		}
 
-		Map<String, String> idsByUrl=mentions.stream().distinct().collect(Collectors.toMap(m->m.url, m->m.id));
+		Map<String, String> idsByUrl=mentions.stream().distinct().collect(Collectors.toMap(m->m.url, m->m.id, (a, b)->b));
 		// Hashtags in remote posts have remote URLs, these have local URLs so they don't match.
-//		Map<String, String> tagsByUrl=tags.stream().collect(Collectors.toMap(t->t.url, t->t.name));
 		Map<String, Hashtag> tagsByTag=tags.stream().distinct().collect(Collectors.toMap(t->t.name.toLowerCase(), Function.identity(), (a, b)->a));
 		Map<String, Mention> mentionsByID=mentions.stream().distinct().collect(Collectors.toMap(m->m.id, Function.identity(), (a, b)->a));
 
@@ -176,7 +192,10 @@ public class HtmlParser{
 						case "br" -> ssb.append('\n');
 						case "span" -> {
 							if(el.hasClass("invisible")){
-								openSpans.add(new SpanInfo(new InvisibleSpan(), ssb.length(), el));
+								Element sibling=el.previousElementSibling();
+								// match the sequence <span class="ellipsis">blah</span><span class="invisible">blahblah</span> that is used for server-side truncation of long URLs
+								if(useEllipsis || sibling==null || !sibling.hasClass("ellipsis"))
+									openSpans.add(new SpanInfo(new InvisibleSpan(), ssb.length(), el));
 							}
 						}
 						case "b", "strong" -> openSpans.add(new SpanInfo(new StyleSpan(Typeface.BOLD), ssb.length(), el));
@@ -227,7 +246,8 @@ public class HtmlParser{
 					String name=el.nodeName();
 					lastElementWasBlock|=el.isBlock();
 					if("span".equals(name) && el.hasClass("ellipsis")){
-						ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+						if(useEllipsis)
+							ssb.append("…", new DeleteWhenCopiedSpan(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 					}
 					if(!openSpans.isEmpty()){
 						SpanInfo si=openSpans.get(openSpans.size()-1);
@@ -305,7 +325,29 @@ public class HtmlParser{
 	}
 
 	public static String strip(String html){
-		return Jsoup.clean(html, Safelist.none());
+		return strip(html, false);
+	}
+
+	public static String strip(String html, boolean keepLineBreaks){
+		Document doc=new Cleaner(new Safelist().addTags("p", "br")).clean(Jsoup.parseBodyFragment(html));
+		StringBuilder sb=new StringBuilder();
+		doc.body().traverse(new NodeVisitor(){
+			@Override
+			public void head(Node node, int depth){
+				if(node instanceof Element el){
+					if("p".equalsIgnoreCase(el.tagName()) && !sb.isEmpty())
+						sb.append(keepLineBreaks ? "\n\n" : " ");
+					else if("br".equalsIgnoreCase(el.tagName()))
+						sb.append(keepLineBreaks ? '\n' : ' ');
+				}else if(node instanceof TextNode tn){
+					sb.append(tn.text());
+				}
+			}
+
+			@Override
+			public void tail(Node node, int depth){}
+		});
+		return sb.toString().trim();
 	}
 
 	public static String stripAndRemoveInvisibleSpans(String html){

@@ -50,6 +50,7 @@ import java.util.stream.Stream;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
@@ -67,6 +68,7 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 	private GenericListItemsAdapter<Void> requestsRowAdapter=new GenericListItemsAdapter<>(requestsItems);
 	private NotificationsPolicy lastPolicy;
 	private boolean refreshAfterLoading;
+	private APIRequest<?> policyRequest;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -81,6 +83,10 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 	public void onDestroy(){
 		super.onDestroy();
 		E.unregister(this);
+		if(policyRequest!=null){
+			policyRequest.cancel();
+			policyRequest=null;
+		}
 	}
 
 	@Override
@@ -347,16 +353,19 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 	}
 
 	private void reloadPolicy(){
-		new GetNotificationsPolicy()
+		policyRequest=new GetNotificationsPolicy()
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(NotificationsPolicy policy){
+						policyRequest=null;
+						if(getActivity()==null)
+							return;
 						updatePolicy(policy);
 					}
 
 					@Override
 					public void onError(ErrorResponse errorResponse){
-
+						policyRequest=null;
 					}
 				})
 				.exec(accountID);

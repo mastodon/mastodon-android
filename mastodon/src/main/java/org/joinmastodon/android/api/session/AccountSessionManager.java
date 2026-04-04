@@ -47,7 +47,9 @@ import org.joinmastodon.android.api.requests.instance.GetCustomEmojis;
 import org.joinmastodon.android.api.requests.instance.GetInstanceV1;
 import org.joinmastodon.android.api.requests.instance.GetInstanceV2;
 import org.joinmastodon.android.api.requests.oauth.CreateOAuthApp;
+import org.joinmastodon.android.events.AccountLoggedOutEvent;
 import org.joinmastodon.android.events.EmojiUpdatedEvent;
+import org.joinmastodon.android.events.SelfAccountUpdatedEvent;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Emoji;
@@ -57,6 +59,7 @@ import org.joinmastodon.android.model.InstanceV1;
 import org.joinmastodon.android.model.InstanceV2;
 import org.joinmastodon.android.model.LegacyFilter;
 import org.joinmastodon.android.model.Preferences;
+import org.joinmastodon.android.model.Profile;
 import org.joinmastodon.android.model.Token;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
@@ -223,6 +226,7 @@ public class AccountSessionManager{
 			}catch(Exception ignore){}
 		}
 		maybeUpdateShortcuts();
+		E.post(new AccountLoggedOutEvent(id));
 	}
 
 	@NonNull
@@ -469,8 +473,8 @@ public class AccountSessionManager{
 		if(i!=null)
 			return i;
 		Log.e(TAG, "Instance info for "+domain+" was not found. This should normally never happen. Returning fake instance object");
-		if(BuildConfig.DEBUG)
-			throw new IllegalStateException("Instance info for "+domain+" missing");
+		//if(BuildConfig.DEBUG)
+		//	throw new IllegalStateException("Instance info for "+domain+" missing");
 		InstanceV1 fake=new InstanceV1();
 		fake.uri=fake.title=domain;
 		fake.description=fake.version=fake.email="";
@@ -482,10 +486,25 @@ public class AccountSessionManager{
 		AccountSession session=getAccount(id);
 		session.self=account;
 		session.infoLastUpdated=System.currentTimeMillis();
+		E.post(new SelfAccountUpdatedEvent(id, account));
 		runOnDbThread(db->{
 			ContentValues values=new ContentValues();
 			values.put("account_obj", MastodonAPIController.gson.toJson(account));
 			values.put("info_last_updated", session.infoLastUpdated);
+			db.update("accounts", values, "`id`=?", new String[]{session.getID()});
+		});
+	}
+
+	/**
+	 * Only updates the account's <b>profile tab preferences</b> for now
+	 */
+	public void updateAccountProfile(String id, Profile profile){
+		AccountSession session=getAccount(id);
+		session.self.update(profile);
+		E.post(new SelfAccountUpdatedEvent(id, session.self));
+		runOnDbThread(db->{
+			ContentValues values=new ContentValues();
+			values.put("account_obj", MastodonAPIController.gson.toJson(session.self));
 			db.update("accounts", values, "`id`=?", new String[]{session.getID()});
 		});
 	}

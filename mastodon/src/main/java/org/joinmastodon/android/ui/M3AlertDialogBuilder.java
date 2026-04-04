@@ -5,17 +5,21 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.ui.utils.UiUtils;
 
 import androidx.annotation.StringRes;
 import me.grishka.appkit.utils.V;
 
 public class M3AlertDialogBuilder extends AlertDialog.Builder{
-	private CharSequence supportingText, title, helpText;
+	private CharSequence supportingText, title, helpText, checkboxTitle;
 	private AlertDialog alert;
 
 	public M3AlertDialogBuilder(Context context){
@@ -89,9 +93,18 @@ public class M3AlertDialogBuilder extends AlertDialog.Builder{
 		}
 		int scrollViewID=getContext().getResources().getIdentifier("scrollView", "id", "android");
 		if(scrollViewID!=0){
-			View scrollView=alert.findViewById(scrollViewID);
+			ViewGroup scrollView=alert.findViewById(scrollViewID);
 			if(scrollView!=null){
 				scrollView.setPadding(0, 0, 0, 0);
+				if(!TextUtils.isEmpty(checkboxTitle) && scrollView.getChildAt(0) instanceof LinearLayout ll){
+					CheckBox checkbox=new CheckBox(getContext());
+					checkbox.setTextAppearance(R.style.m3_body_large);
+					checkbox.setTextColor(UiUtils.getThemeColor(getContext(), R.attr.colorM3OnSurface));
+					checkbox.setText(checkboxTitle);
+					checkbox.setPaddingRelative(V.dp(8), 0, 0, 0);
+					checkbox.setId(R.id.checkbox);
+					ll.addView(checkbox, UiUtils.makeLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 16, 16, 16, 0));
+				}
 			}
 		}
 		return alert;
@@ -128,6 +141,16 @@ public class M3AlertDialogBuilder extends AlertDialog.Builder{
 
 	public M3AlertDialogBuilder setHelpText(@StringRes int text){
 		helpText=getContext().getString(text);
+		return this;
+	}
+
+	public M3AlertDialogBuilder setCheckboxText(String text){
+		checkboxTitle=text;
+		return this;
+	}
+
+	public M3AlertDialogBuilder setCheckboxText(@StringRes int text){
+		checkboxTitle=getContext().getString(text);
 		return this;
 	}
 }

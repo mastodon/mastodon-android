@@ -4,12 +4,10 @@ import android.text.TextUtils;
 
 import com.google.gson.reflect.TypeToken;
 
-import org.joinmastodon.android.api.MastodonAPIRequest;
+import org.joinmastodon.android.api.requests.HeaderPaginationRequest;
 import org.joinmastodon.android.model.Status;
 
-import java.util.List;
-
-public class GetPublicTimeline extends MastodonAPIRequest<List<Status>>{
+public class GetPublicTimeline extends HeaderPaginationRequest<Status>{
 	public GetPublicTimeline(boolean local, boolean remote, String maxID, String minID, int limit, String sinceID){
 		super(HttpMethod.GET, "/timelines/public", new TypeToken<>(){});
 		if(local)
@@ -24,5 +22,6 @@ public class GetPublicTimeline extends MastodonAPIRequest<List<Status>>{
 			addQueryParameter("since_id", sinceID);
 		if(limit>0)
 			addQueryParameter("limit", limit+"");
+		removeUnsupportedItems=true;
 	}
 }

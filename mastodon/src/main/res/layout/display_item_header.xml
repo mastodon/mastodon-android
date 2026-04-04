@@ -44,7 +44,7 @@
 		android:layout_marginEnd="8dp"
 		android:importantForAccessibility="no"/>
 
-	<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
+	<LinearLayout
 		android:id="@+id/name_wrap"
 		android:layout_width="match_parent"
 		android:layout_height="24dp"
@@ -54,29 +54,29 @@
 
 		<TextView
 			android:id="@+id/name"
-			android:layout_width="wrap_content"
+			android:layout_width="0dp"
 			android:layout_height="24dp"
+			android:layout_weight="1"
 			android:ellipsize="end"
 			android:singleLine="true"
 			android:textAppearance="@style/m3_title_medium"
 			android:textColor="?colorM3OnSurface"
 			android:gravity="start|center_vertical"
 			tools:text="Eugen" />
-
+		
 		<TextView
-			android:id="@+id/extra_text"
+			android:id="@+id/badge"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
+			android:paddingHorizontal="4dp"
 			android:layout_marginStart="8dp"
-			android:ellipsize="end"
-			android:singleLine="true"
-			android:textAppearance="@style/m3_title_medium"
-			android:fontFamily="sans-serif"
-			android:textAlignment="viewStart"
-			android:textColor="?colorM3OnSurface"
-			tools:text="boosted your cat picture" />
+			android:gravity="center_vertical"
+			android:drawablePadding="2dp"
+			android:fontFamily="sans-serif-medium"
+			android:textSize="13dp"
+			android:visibility="gone"/>
 
-	</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
+	</LinearLayout>
 
 	<TextView
 		android:id="@+id/time_and_username"

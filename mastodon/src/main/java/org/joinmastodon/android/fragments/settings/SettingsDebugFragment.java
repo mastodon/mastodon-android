@@ -51,7 +51,7 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 				selfUpdateItem=new ListItem<>("Force self-update", null, this::onForceSelfUpdateClick),
 				resetUpdateItem=new ListItem<>("Reset self-updater", null, this::onResetUpdaterClick),
 				new ListItem<>("Reset search info banners", null, this::onResetDiscoverBannersClick),
-				new ListItem<>("Reset pre-reply sheets", null, this::onResetPreReplySheetsClick),
+				new ListItem<>("Reset pre-reply sheets and other alerts", null, this::onResetPreReplySheetsClick),
 				new ListItem<>("Clear dismissed donation campaigns", null, this::onClearDismissedCampaignsClick),
 				donationsStagingItem=new CheckableListItem<>("Use staging environment for donations", "Restart app to apply", CheckableListItem.Style.SWITCH, getPrefs().getBoolean("donationsStaging", false), this::toggleCheckableItem),
 				new ListItem<>("Delete cached instance info", null, this::onDeleteInstanceInfoClick),
@@ -105,7 +105,7 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 
 	private void onResetPreReplySheetsClick(ListItem<?> item){
 		GlobalUserPreferences.resetPreReplySheets();
-		Toast.makeText(getActivity(), "Pre-reply sheets were reset", Toast.LENGTH_SHORT).show();
+		Toast.makeText(getActivity(), "Alerts were reset", Toast.LENGTH_SHORT).show();
 	}
 
 	private void onClearDismissedCampaignsClick(ListItem<?> item){

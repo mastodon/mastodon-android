@@ -18,7 +18,9 @@ import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.gson.IsoInstantTypeAdapter;
 import org.joinmastodon.android.api.gson.IsoLocalDateTypeAdapter;
+import org.joinmastodon.android.api.requests.async_refreshes.GetAsyncRefresh;
 import org.joinmastodon.android.api.session.AccountSession;
+import org.joinmastodon.android.model.AsyncRefresh;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,9 +35,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.utils.WorkerThread;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
@@ -66,6 +70,7 @@ public class MastodonAPIController{
 	private static final CacheControl NO_CACHE_WHATSOEVER=new CacheControl.Builder().noCache().noStore().build();
 
 	private AccountSession session;
+	private HashMap<String, AsyncRefreshPollRecord> asyncRefreshPolls=new HashMap<>();
 
 	static{
 		thread.start();
@@ -252,5 +257,81 @@ public class MastodonAPIController{
 
 	private static String logTag(AccountSession session){
 		return "["+(session==null ? "no-auth" : session.getID())+"] ";
+	}
+
+	public void startPollingAsyncRefresh(AsyncRefreshHeader header, Consumer<AsyncRefresh> callback){
+		AsyncRefreshPollRecord existingRecord=asyncRefreshPolls.get(header.id);
+		if(existingRecord!=null){
+			if(existingRecord.callbacks.contains(callback))
+				throw new IllegalStateException("This callback is already polling this async refresh");
+			existingRecord.callbacks.add(callback);
+			return;
+		}
+		AsyncRefreshPollRecord r=new AsyncRefreshPollRecord();
+		r.callbacks.add(callback);
+		r.retryInterval=header.retryInterval;
+		r.upcomingApiCall=()->doAsyncRefreshPoll(header.id, r);
+		asyncRefreshPolls.put(header.id, r);
+		thread.postRunnable(r.upcomingApiCall, r.retryInterval*1000);
+		if(BuildConfig.DEBUG)
+			Log.d(TAG, "Starting async refresh poll for id "+header.id);
+	}
+
+	private void doAsyncRefreshPoll(String id, AsyncRefreshPollRecord r){
+		r.currentApiCall=new GetAsyncRefresh(id)
+				.setCallback(new me.grishka.appkit.api.Callback<>(){
+					@Override
+					public void onSuccess(GetAsyncRefresh.Response result){
+						AsyncRefresh ar=result.asyncRefresh;
+						if(ar.status==AsyncRefresh.RefreshStatus.FINISHED){
+							for(Consumer<AsyncRefresh> callback:r.callbacks){
+								callback.accept(ar);
+							}
+							asyncRefreshPolls.remove(id);
+							r.currentApiCall=null;
+						}else if(ar.status==AsyncRefresh.RefreshStatus.RUNNING){
+							r.resultCount=ar.resultCount;
+							r.currentApiCall=null;
+							thread.postRunnable(r.upcomingApiCall, r.retryInterval*1000);
+						}
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						if(BuildConfig.DEBUG)
+							Log.w(TAG, "Async refresh "+id+" polling failed");
+						asyncRefreshPolls.remove(id);
+						r.currentApiCall=null;
+					}
+				})
+				.exec(session.getID());
+	}
+
+	public void cancelPollingAsyncRefresh(String id, Consumer<AsyncRefresh> callback){
+		AsyncRefreshPollRecord r=asyncRefreshPolls.get(id);
+		if(r==null)
+			return;
+		r.callbacks.remove(callback);
+		if(r.callbacks.isEmpty()){
+			if(BuildConfig.DEBUG)
+				Log.d(TAG, "Canceling async refresh poll "+id+" because there are no callbacks left");
+			asyncRefreshPolls.remove(id);
+			thread.handler.removeCallbacks(r.upcomingApiCall);
+			if(r.currentApiCall!=null)
+				r.currentApiCall.cancel();
+		}
+	}
+
+	public int getAsyncRefreshResultCount(String id){
+		AsyncRefreshPollRecord r=asyncRefreshPolls.get(id);
+		return r==null ? 0 : r.resultCount;
+	}
+
+	private static class AsyncRefreshPollRecord{
+		public ArrayList<Consumer<AsyncRefresh>> callbacks=new ArrayList<>();
+		public int retryInterval;
+		public Runnable upcomingApiCall;
+		public MastodonAPIRequest<?> currentApiCall;
+		public int resultCount;
 	}
 }

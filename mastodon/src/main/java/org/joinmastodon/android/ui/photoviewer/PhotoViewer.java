@@ -17,6 +17,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Insets;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
@@ -51,6 +52,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.PathInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -58,6 +61,8 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.window.BackEvent;
+import android.window.OnBackAnimationCallback;
 import android.window.OnBackInvokedDispatcher;
 
 import com.squareup.otto.Subscribe;
@@ -88,6 +93,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
@@ -330,8 +336,74 @@ public class PhotoViewer implements ZoomPanView.Listener{
 			wlp.layoutInDisplayCutoutMode=Build.VERSION.SDK_INT>=30 ? WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS : WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
 		windowView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 		wm.addView(windowView, wlp);
-		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
-			// TODO make use of the progress callback for nicer animation
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
+			windowView.findOnBackInvokedDispatcher().registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, new OnBackAnimationCallback(){
+				private PathInterpolator progressInterpolator=new PathInterpolator(0, 0, 0, 1);
+				private DecelerateInterpolator yOffsetInterpolator=new DecelerateInterpolator();
+				private BaseHolder holder;
+				private Matrix initialMatrix=new Matrix(), matrix=new Matrix();
+				private float[] matrixValues=new float[9];
+				private float initialScale, initialTransX, initialTransY;
+				private float initialTouchY;
+
+				@Override
+				public void onBackInvoked(){
+					onStartSwipeToDismissTransition(0);
+				}
+
+				@Override
+				public void onBackStarted(@NonNull BackEvent backEvent){
+					onStartSwipeToDismiss();
+					RecyclerView rv=(RecyclerView) pager.getChildAt(0);
+					holder=Objects.requireNonNull((BaseHolder) rv.findViewHolderForAdapterPosition(index));
+					holder.zoomPanView.endAllAnimations();
+					holder.zoomPanView.getTransformMatrix(initialMatrix);
+					initialMatrix.getValues(matrixValues);
+					initialScale=matrixValues[Matrix.MSCALE_X];
+					initialTransX=matrixValues[Matrix.MTRANS_X];
+					initialTransY=matrixValues[Matrix.MTRANS_Y];
+					initialTouchY=backEvent.getTouchY();
+					update(backEvent);
+				}
+
+				@Override
+				public void onBackProgressed(@NonNull BackEvent backEvent){
+					update(backEvent);
+				}
+
+				@Override
+				public void onBackCancelled(){
+					onSwipeToDismissCanceled();
+					holder.zoomPanView.setTransformMatrix(initialMatrix);
+					holder=null;
+				}
+
+				private void update(@NonNull BackEvent ev){
+					float progress=progressInterpolator.getInterpolation(ev.getProgress());
+					float targetScale=holder.zoomPanView.getMinScale()*0.9f;
+					float resultingScale=UiUtils.lerp(initialScale, targetScale, progress);
+
+					float transX;
+					if(ev.getSwipeEdge()==BackEvent.EDGE_NONE)
+						transX=0;
+					else
+						transX=(windowView.getWidth()/20f-V.dp(8))*(ev.getSwipeEdge()==BackEvent.EDGE_RIGHT ? -1 : 1);
+
+					float touchY=ev.getTouchY();
+					float transY=0;
+					if(Float.isFinite(touchY)){
+						float touchOffset=Math.max(Math.min((touchY-initialTouchY)/(windowView.getHeight()/2f), 1f), -1f);
+						float interpolatedOffset=Math.copySign(yOffsetInterpolator.getInterpolation(Math.abs(touchOffset)), touchOffset);
+						transY=(windowView.getHeight()/20f-V.dp(8))*interpolatedOffset*progress;
+					}
+
+					holder.zoomPanView.setBackgroundAlpha((1f-progress)*0.3f+0.7f);
+					matrix.setScale(resultingScale, resultingScale);
+					matrix.postTranslate(UiUtils.lerp(initialTransX, transX, progress), UiUtils.lerp(initialTransY, transY, progress));
+					holder.zoomPanView.setTransformMatrix(matrix);
+				}
+			});
+		}else if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU){
 			windowView.findOnBackInvokedDispatcher().registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, ()->onStartSwipeToDismissTransition(0));
 		}
 
@@ -748,20 +820,44 @@ public class PhotoViewer implements ZoomPanView.Listener{
 
 	private OutputStream destinationStreamForFile(Attachment att) throws IOException{
 		String fileName=Uri.parse(att.url).getLastPathSegment();
+		if(TextUtils.isEmpty(fileName))
+			fileName="MastodonImage_"+System.currentTimeMillis()+".jpg";
+		int dotIndex=fileName.lastIndexOf('.');
+		if(dotIndex==-1 || dotIndex<fileName.length()-5){
+			fileName+=".jpg";
+		}
 		if(Build.VERSION.SDK_INT>=29){
-			ContentValues values=new ContentValues();
-//			values.put(MediaStore.Downloads.DOWNLOAD_URI, att.url);
-			values.put(MediaStore.MediaColumns.DISPLAY_NAME, fileName);
-			values.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS);
-			String mime=mimeTypeForFileName(fileName);
-			if(mime!=null)
-				values.put(MediaStore.MediaColumns.MIME_TYPE, mime);
+			Uri itemUri;
+			try{
+				itemUri=tryInsertImage(fileName);
+			}catch(IllegalStateException x){
+				// "Failed to build unique file"
+				String ext=fileName.substring(fileName.lastIndexOf('.'));
+				fileName="MastodonImage_"+System.currentTimeMillis()+ext;
+				itemUri=tryInsertImage(fileName);
+			}
 			ContentResolver cr=activity.getContentResolver();
-			Uri itemUri=cr.insert(MediaStore.Files.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY), values);
 			return cr.openOutputStream(itemUri);
 		}else{
-			return new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName));
+			File file=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
+			if(file.exists()){
+				String ext=fileName.substring(fileName.lastIndexOf('.'));
+				fileName="MastodonImage_"+System.currentTimeMillis()+ext;
+				file=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
+			}
+			return new FileOutputStream(file);
 		}
+	}
+
+	private Uri tryInsertImage(String fileName){
+		ContentValues values=new ContentValues();
+		values.put(MediaStore.MediaColumns.DISPLAY_NAME, fileName);
+		values.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS);
+		String mime=mimeTypeForFileName(fileName);
+		if(mime!=null)
+			values.put(MediaStore.MediaColumns.MIME_TYPE, mime);
+		ContentResolver cr=activity.getContentResolver();
+		return cr.insert(MediaStore.Files.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY), values);
 	}
 
 	private void doSaveCurrentFile(){

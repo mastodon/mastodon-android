@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.Card;
 import org.joinmastodon.android.model.viewmodel.CardViewModel;
 import org.joinmastodon.android.ui.FuriganaHelper;

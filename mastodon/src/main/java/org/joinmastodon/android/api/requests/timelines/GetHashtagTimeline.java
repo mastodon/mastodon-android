@@ -16,5 +16,6 @@ public class GetHashtagTimeline extends MastodonAPIRequest<List<Status>>{
 			addQueryParameter("min_id", minID);
 		if(limit>0)
 			addQueryParameter("limit", ""+limit);
+		removeUnsupportedItems=true;
 	}
 }

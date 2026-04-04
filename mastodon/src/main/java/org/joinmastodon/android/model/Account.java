@@ -133,23 +133,48 @@ public class Account extends BaseModel{
 	 */
 	public Instant muteExpiresAt;
 	public boolean noindex;
+	public List<PublicRole> roles;
+	public Role role;
+	public boolean showMedia=true;
+	public boolean showMediaReplies=false;
+	public boolean showFeatured=true;
 
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
 		if(fields!=null){
-			for(AccountField f:fields)
+			for(AccountField f:fields){
+				if(f==null)
+					throw new ObjectValidationException("fields array contains null");
 				f.postprocess();
+			}
 		}
 		if(emojis!=null){
-			for(Emoji e:emojis)
+			for(Emoji e:emojis){
+				if(e==null)
+					throw new ObjectValidationException("emojis array contains null");
 				e.postprocess();
+			}
 		}
 		if(moved!=null)
 			moved.postprocess();
 		if(TextUtils.isEmpty(displayName))
 			displayName=username;
+		if(roles!=null){
+			for(PublicRole r:roles){
+				if(r==null)
+					throw new ObjectValidationException("roles array contains null");
+				r.postprocess();
+			}
+		}
+		if(role!=null){
+			try{
+				role.postprocess();
+			}catch(ObjectValidationException x){
+				role=null;
+			}
+		}
 	}
 
 	public boolean isLocal(){
@@ -194,5 +219,20 @@ public class Account extends BaseModel{
 				", muteExpiresAt="+muteExpiresAt+
 				", noindex="+noindex+
 				'}';
+	}
+
+	public void update(Profile profile){
+		showMedia=profile.showMedia;
+		showMediaReplies=profile.showMediaReplies;
+		showFeatured=profile.showFeatured;
+	}
+
+	@Parcel
+	public static class PublicRole extends BaseModel{
+		@RequiredField
+		public String id;
+		@RequiredField
+		public String name;
+		public String color;
 	}
 }

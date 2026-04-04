@@ -14,8 +14,8 @@ import java.util.ArrayList;
  * Something like a horizontal LinearLayout, but wraps child views onto a new line if they don't fit
  */
 public class WrappingLinearLayout extends ViewGroup{
-	private int verticalGap, horizontalGap;
-	private ArrayList<Integer> rowHeights=new ArrayList<>();
+	protected int verticalGap, horizontalGap;
+	protected ArrayList<Integer> rowHeights=new ArrayList<>();
 
 	public WrappingLinearLayout(Context context){
 		this(context, null);
@@ -59,7 +59,7 @@ public class WrappingLinearLayout extends ViewGroup{
 				heightUsed+=currentRowHeight+verticalGap;
 				rowHeights.add(currentRowHeight);
 				currentRowHeight=child.getMeasuredHeight()+verticalMargins;
-				widthRemain=w;
+				widthRemain=w-child.getMeasuredWidth()+horizontalMargins;
 			}else{
 				// Does fit. Advance horizontally.
 				if(widthRemain<w)
@@ -104,6 +104,7 @@ public class WrappingLinearLayout extends ViewGroup{
 				currentRowIndex++;
 				childX=xOffset;
 				rowHeight=rowHeights.get(currentRowIndex);
+				xOffset+=childW+horizontalGap;
 			}
 			if(childH<rowHeight){
 				childY=yOffset+rowHeight/2-childH/2;

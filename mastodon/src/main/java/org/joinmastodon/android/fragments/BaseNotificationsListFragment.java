@@ -10,6 +10,7 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusUpdatedEvent;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.Status;

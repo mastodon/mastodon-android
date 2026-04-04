@@ -16,7 +16,7 @@ import android.widget.TextView;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
-import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;

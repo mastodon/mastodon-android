@@ -8,34 +8,21 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Przygotowywanie do uwierzytelniania…</string>
 	<string name="finishing_auth">Kończenie uwierzytelniania…</string>
-	<string name="user_boosted">%s podaje dalej</string>
+	<string name="user_boosted">%s podbił(a)</string>
 	<string name="in_reply_to">w odpowiedzi do %s</string>
 	<string name="notifications">Powiadomienia</string>
 	<string name="user_followed_you">%s obserwuje Cię</string>
 	<string name="user_sent_follow_request">%s wysyła Tobie prośbę o obserwację</string>
-	<string name="notification_boosted">%s podbija:</string>
+	<string name="user_favorited">%s dodał(a) do ulubionych:</string>
+	<string name="notification_boosted">%s podbił(a):</string>
 	<string name="share_toot_title">Udostępnij</string>
 	<string name="settings">Ustawienia</string>
-	<string name="publish">Publikuj</string>
+	<string name="publish">Opublikuj</string>
 	<string name="discard_draft">Odrzucić szkic?</string>
 	<string name="discard">Odrzuć</string>
 	<string name="cancel">Anuluj</string>
-	<plurals name="followers">
-		<item quantity="one">obserwujący</item>
-		<item quantity="few">obserwujących</item>
-		<item quantity="many">obserwujących</item>
-		<item quantity="other">obserwujących</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">obserwowany</item>
-		<item quantity="few">obserwowanych</item>
-		<item quantity="many">obserwowanych</item>
-		<item quantity="other">śledzonych</item>
-	</plurals>
 	<string name="posts">Wpisy</string>
-	<string name="posts_and_replies">Wpisy i odpowiedzi</string>
 	<string name="media">Media</string>
-	<string name="profile_about">Informacje</string>
 	<string name="button_follow">Obserwuj</string>
 	<string name="button_following">Obserwujesz</string>
 	<string name="edit_profile">Edytuj profil</string>
@@ -80,28 +67,28 @@
 		<item quantity="other">%d dni</item>
 	</plurals>
 	<plurals name="x_seconds_left">
-		<item quantity="one">Została %d sekunda</item>
-		<item quantity="few">Zostały %d sekundy</item>
-		<item quantity="many">Zostało %d sekund</item>
-		<item quantity="other">Zostało %d sekund</item>
+		<item quantity="one">Pozostała %d sekunda</item>
+		<item quantity="few">Pozostały %d sekundy</item>
+		<item quantity="many">Pozostało %d sekund</item>
+		<item quantity="other">Pozostało %d sekund</item>
 	</plurals>
 	<plurals name="x_minutes_left">
-		<item quantity="one">Została %d minuta</item>
-		<item quantity="few">Zostały %d minuty</item>
-		<item quantity="many">Zostało %d minut</item>
-		<item quantity="other">Zostało %d minut</item>
+		<item quantity="one">Pozostała %d minuta</item>
+		<item quantity="few">Pozostały %d minuty</item>
+		<item quantity="many">Pozostało %d minut</item>
+		<item quantity="other">Pozostało %d minut</item>
 	</plurals>
 	<plurals name="x_hours_left">
-		<item quantity="one">Została %d godzina</item>
-		<item quantity="few">Zostały %d godziny</item>
-		<item quantity="many">Zostało %d godzin</item>
-		<item quantity="other">Zostało %d godzin</item>
+		<item quantity="one">Pozostała %d godzina</item>
+		<item quantity="few">Pozostały %d godziny</item>
+		<item quantity="many">Pozostało %d godzin</item>
+		<item quantity="other">Pozostało %d godzin</item>
 	</plurals>
 	<plurals name="x_days_left">
-		<item quantity="one">Został %d dzień</item>
-		<item quantity="few">Zostało %d dni</item>
-		<item quantity="many">Zostało %d dni</item>
-		<item quantity="other">Zostało %d dni</item>
+		<item quantity="one">Pozostał %d dzień</item>
+		<item quantity="few">Pozostały %d dni</item>
+		<item quantity="many">Pozostało %d dni</item>
+		<item quantity="other">Pozostało %d dni</item>
 	</plurals>
 	<plurals name="x_votes">
 		<item quantity="one">%,d głos</item>
@@ -121,54 +108,54 @@
 	<string name="deleting">Usuwanie…</string>
 	<string name="notification_channel_audio_player">Odtwarzanie dźwięku</string>
 	<string name="play">Odtwórz</string>
-	<string name="pause">Pauzuj</string>
+	<string name="pause">Wstrzymaj</string>
 	<string name="log_out">Wyloguj się</string>
 	<string name="add_account">Dodaj konto</string>
 	<string name="search_hint">Szukaj</string>
-	<string name="hashtags">Hashtagi</string>
+	<string name="hashtags">Hasztagi</string>
 	<string name="news">Aktualności</string>
 	<string name="for_you">Dla Ciebie</string>
 	<string name="all_notifications">Wszystko</string>
-	<string name="mentions">Wspomnienia</string>
+	<string name="mentions">Wzmianki</string>
 	<plurals name="x_people_talking">
-		<item quantity="one">%d mówi o tym</item>
-		<item quantity="few">%d osoby mówią o tym</item>
-		<item quantity="many">%d osób mówi o tym</item>
-		<item quantity="other">%d osób mówi o tym</item>
+		<item quantity="one">%d osoba o tym mówi</item>
+		<item quantity="few">%d osoby o tym mówią</item>
+		<item quantity="many">%d osób o tym mówi</item>
+		<item quantity="other">%d osób o tym mówi</item>
 	</plurals>
 	<string name="report_title">Zgłoś %s</string>
 	<string name="report_choose_reason">Co jest nie tak z tym postem?</string>
 	<string name="report_choose_reason_account">Co jest nie tak z %s?</string>
 	<string name="report_choose_reason_subtitle">Wybierz to, co pasuje najbardziej</string>
-	<string name="report_reason_personal">Nie lubię tego</string>
+	<string name="report_reason_personal">Nie podoba mi się to</string>
 	<string name="report_reason_personal_subtitle">To coś, czego inni nie chcieliby widzieć</string>
 	<string name="report_reason_spam">To spam</string>
 	<string name="report_reason_spam_subtitle">Niebezpieczne odnośniki, fałszywe zaangażowanie lub powtarzające się odpowiedzi</string>
 	<string name="report_reason_violation">To narusza zasady serwera</string>
 	<string name="report_reason_violation_subtitle">Wiesz, że narusza to określone zasady</string>
-	<string name="report_reason_other">To coś innego</string>
+	<string name="report_reason_other">Coś innego</string>
 	<string name="report_reason_other_subtitle">Zgłoszenie nie pasuje do żadnej z pozostałych kategorii</string>
 	<string name="report_choose_rule">Które zasady zostały złamane?</string>
 	<string name="report_choose_rule_subtitle">Wybierz wszystkie pasujące</string>
 	<string name="report_choose_posts">Czy są jakieś wpisy, które obrazują opisany w zgłoszeniu problem?</string>
 	<string name="report_choose_posts_subtitle">Wybierz wszystkie pasujące</string>
-	<string name="report_comment_title">Czy powinienem jeszcze o czymś wiedzieć?</string>
+	<string name="report_comment_title">Czy jest coś jeszcze, o czym powinniśmy wiedzieć?</string>
 	<string name="report_comment_hint">Dodatkowe komentarze</string>
 	<string name="sending_report">Wysyłanie zgłoszenia…</string>
 	<string name="report_sent_title">Dziękujemy za zgłoszenie, sprawdzimy to.</string>
 	<string name="report_sent_subtitle">W międzyczasie możesz podjąć się dodatkowych akcji wobec %s:</string>
 	<string name="unfollow_user">Przestań obserwować %s</string>
 	<string name="unfollow">Przestań obserwować</string>
-	<string name="mute_user_explain">Nie zobaczysz postów tej osoby. Możesz być dalej obserwowany przez tę osobę, ale nie dowie się o nałożonym wyciszeniu.</string>
-	<string name="block_user_explain">Nie zobaczysz postów tej osoby. Dodatkowo, ta osoba nie będzie mogła zobaczyć postów od ciebie. Będzie również w stanie sprawdzić, czy została ona przez Ciebie zablokowana.</string>
+	<string name="mute_user_explain">Nie będziesz widzieć wpisów tej osoby. Możesz być dalej przez nią obserwowany, ale nie dowie się o nałożonym wyciszeniu.</string>
+	<string name="block_user_explain">Nie będziesz widzieć wpisów tej osoby. Dodatkowo, nie będzie ona mogła zobaczyć Twoich postów ani Cię obserwować, ale będzie w stanie zauważyć, że została przez Ciebie zablokowana.</string>
 	<string name="report_personal_title">Nie chcesz tego widzieć?</string>
-	<string name="report_personal_subtitle">Oto opcje, za pomocą których możesz kontrolować to co widzisz na Mastodonie:</string>
+	<string name="report_personal_subtitle">Oto opcje, za pomocą których możesz kontrolować to, co widzisz na Mastodonie:</string>
 	<string name="back">Wróć</string>
-	<string name="search_communities">Nazwa serwera lub jego adres URL</string>
+	<string name="search_communities">Nazwa lub adres URL serwera</string>
 	<string name="instance_rules_title">Zasady serwera</string>
-	<string name="instance_rules_subtitle">Kontynuując, zgadzasz się przestrzegać następujących zasad ustalonych i wymuszonych przez %s moderatorów.</string>
+	<string name="instance_rules_subtitle">Kontynuując, zgadzasz się przestrzegać następujących zasad ustalonych i egzekwowanych przez %s moderatorów.</string>
 	<string name="signup_title">Utwórz konto</string>
-	<string name="display_name">Nazwa</string>
+	<string name="display_name">Wyświetlana nazwa</string>
 	<string name="username">Nazwa użytkownika</string>
 	<string name="email">Adres e-mail</string>
 	<string name="password">Hasło</string>
@@ -176,30 +163,31 @@
 	<string name="category_general">Ogólne</string>
 	<string name="confirm_email_title">Sprawdź swoją skrzynkę odbiorczą</string>
 	<!-- %s is the email address -->
-	<string name="confirm_email_subtitle">Kliknij w link, który wysłaliśmy, żeby zweryfikować %s. Poczekamy na Ciebie.</string>
-	<string name="confirm_email_didnt_get">Nie masz linku?</string>
+	<string name="confirm_email_subtitle">Kliknij w link, który wysłaliśmy, aby zweryfikować %s. Poczekamy na Ciebie.</string>
+	<string name="confirm_email_didnt_get">Nie otrzymałeś linku?</string>
 	<string name="resend">Wyślij ponownie</string>
 	<string name="open_email_app">Otwórz aplikację e-mail</string>
-	<string name="resent_email">Wysłano potwierdzający e-mail</string>
+	<string name="resent_email">Wysłano e-mail z potwierdzeniem</string>
 	<string name="compose_hint">Wpisz albo wklej, co masz na myśli</string>
 	<string name="content_warning">Ostrzeżenie o zawartości</string>
 	<string name="save">Zapisz</string>
 	<string name="add_alt_text">Dodaj tekst alternatywny</string>
 	<string name="visibility_public">Publiczny</string>
 	<string name="visibility_followers_only">Obserwujący</string>
+	<string name="visibility_private">Wzmianka prywatna</string>
 	<string name="recent_searches">Ostatnie</string>
 	<string name="notification_type_follow">Nowi obserwujący</string>
-	<string name="notification_type_favorite">Polubienia</string>
+	<string name="notification_type_favorite">Ulubione</string>
 	<string name="notification_type_reblog">Podbicia</string>
-	<string name="notification_type_mention">Wspomienia</string>
-	<string name="notification_type_poll">Głosowania</string>
+	<string name="notification_type_mention">Wzmianki</string>
+	<string name="notification_type_poll">Ankiety</string>
 	<string name="choose_account">Wybierz konto</string>
 	<string name="err_not_logged_in">Najpierw zaloguj się do Mastodona</string>
 	<plurals name="cant_add_more_than_x_attachments">
-		<item quantity="one">Nie możesz dodać więcej niż %d załącznik</item>
-		<item quantity="few">Nie możesz dodać więcej niż %d załączniki</item>
-		<item quantity="many">Nie możesz dodać więcej niż %d załączników</item>
-		<item quantity="other">Nie możesz dodać więcej niż %d załączników</item>
+		<item quantity="one">Nie możesz dodać więcej niż %d załącznik medialny</item>
+		<item quantity="few">Nie możesz dodać więcej niż %d załączniki medialne</item>
+		<item quantity="many">Nie możesz dodać więcej niż %d załączników medialnych</item>
+		<item quantity="other">Nie możesz dodać więcej niż %d załączników medialnych</item>
 	</plurals>
 	<string name="media_attachment_unsupported_type">Plik %s jest nieobsługiwanego rodzaju</string>
 	<string name="media_attachment_too_big">Plik %1$s przekracza limit rozmiaru %2$s MB</string>
@@ -223,31 +211,31 @@
 	<string name="more_options">Więcej opcji</string>
 	<string name="new_post">Nowy wpis</string>
 	<string name="button_reply">Odpowiedz</string>
-	<string name="button_reblog">Podaj dalej</string>
+	<string name="button_reblog">Podbij</string>
 	<string name="button_favorite">Dodaj do ulubionych</string>
 	<string name="button_share">Udostępnij</string>
 	<string name="media_no_description">Media bez opisu</string>
 	<string name="add_media">Dodaj media</string>
-	<string name="add_poll">Dodaj głosowanie</string>
+	<string name="add_poll">Dodaj ankietę</string>
 	<string name="emoji">Emoji</string>
-	<string name="home_timeline">Strona główna</string>
+	<string name="home_timeline">Główna oś czasu</string>
 	<string name="my_profile">Mój profil</string>
 	<string name="media_viewer">Przeglądarka mediów</string>
 	<string name="follow_user">Obserwuj %s</string>
 	<string name="unfollowed_user">Przestano obserwować %s</string>
-	<string name="followed_user">Obserwujesz %s</string>
-	<string name="following_user_requested">Wysłano prośbę o obserwację %s</string>
+	<string name="followed_user">Obserwujesz teraz %s</string>
+	<string name="following_user_requested">Wysłano prośbę o obserwację do %s</string>
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
 	<string name="hide_boosts_from_user">Ukryj podbicia</string>
 	<string name="show_boosts_from_user">Pokaż podbicia</string>
 	<string name="signup_reason">Dlaczego chcesz dołączyć?</string>
-	<string name="signup_reason_note">To pomoże nam ocenić Twoją aplikację.</string>
+	<string name="signup_reason_note">To pomoże nam ocenić Twój wniosek.</string>
 	<string name="clear">Wyczyść</string>
 	<string name="profile_header">Obraz nagłówka</string>
 	<string name="profile_picture">Zdjęcie profilowe</string>
 	<string name="reorder">Zmień kolejność</string>
 	<string name="download">Pobierz</string>
-	<string name="permission_required">Wymagane jest uprawnienie</string>
+	<string name="permission_required">Wymagane uprawnienie</string>
 	<string name="storage_permission_to_download">Ta aplikacja potrzebuje dostępu do pamięci, aby zapisać ten plik.</string>
 	<string name="open_settings">Otwórz ustawienia</string>
 	<string name="error_saving_file">Błąd podczas zapisywania pliku</string>
@@ -258,11 +246,10 @@
 	<string name="trending_links_info_banner">To są wiadomości które są szerzej omawiane na całej sieci Mastodona.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">To są wszystkie posty od wszystkich użytkowników na Twoim serwerze (%s).</string>
-	<string name="recommended_accounts_info_banner">Może spodobają się Tobie te konta, bazując na tych, których już obserwujesz?</string>
-	<string name="see_new_posts">Zobacz nowe posty</string>
+	<string name="recommended_accounts_info_banner">Na podstawie obserwowanych kont, mogą Ci się również spodobać poniższe.</string>
+	<string name="see_new_posts">Zobacz nowe wpisy</string>
 	<string name="follow_back">Obserwuj wzajemnie</string>
 	<string name="button_follow_pending">Oczekujące</string>
-	<string name="follows_you">Obserwuje cię</string>
 	<string name="manually_approves_followers">Ręcznie zatwierdza obserwujących</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -357,7 +344,6 @@
 	<string name="not_accepting_new_members">Nie przyjmuje nowych członków</string>
 	<string name="category_special_interests">Inne zainteresowania</string>
 	<string name="signup_passwords_dont_match">Hasła się nie zgadzają</string>
-	<string name="profile_add_row">Dodaj wiersz</string>
 	<string name="profile_setup">Ustawienia profilu</string>
 	<string name="profile_setup_subtitle">Zawsze możesz to uzupełnić później w zakładce Profil.</string>
 	<string name="follow_all">Obserwuj każdego</string>
@@ -367,7 +353,7 @@
 	<string name="server_policy_disagree">Nie zgadzam się z %s</string>
 	<string name="profile_bio">O mnie</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
-	<string name="sending_follows">Obserwowani użytkownicy…</string>
+	<string name="sending_follows">Obserwowanie użytkowników…</string>
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="signup_email_domain_blocked">%1$s nie zezwala na rejestracje z poziomu %2$s. Wypróbuj inną metodę, &lt;a&gt;lub wybierz inną instancję&lt;/a&gt;.</string>
 	<string name="spoiler_show">Pokaż mimo to</string>
@@ -447,14 +433,15 @@
 	<string name="settings_server_explanation">Przegląd, zasady, moderacja</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">O %sie</string>
+	<string name="default_post_language">Język wpisów</string>
 	<string name="settings_alt_text_reminders">Przypomnienia o dodaniu opisu obrazów</string>
 	<string name="settings_confirm_unfollow">Zapytaj przed usunięciem obserwacji</string>
-	<string name="settings_confirm_boost">Zapytaj przed podbijaniem</string>
+	<string name="settings_confirm_boost">Zapytaj przed podbiciem</string>
 	<string name="settings_confirm_delete_post">Zapytaj przed usunięciem wpisów</string>
 	<string name="pause_all_notifications">Wstrzymaj wszystkie powiadomienia</string>
 	<string name="pause_notifications_off">Wyłącz</string>
 	<string name="notifications_policy_anyone">Każdy</string>
-	<string name="notifications_policy_followed">Ludzie, którzy ciebie obserwują</string>
+	<string name="notifications_policy_followed">Osoby, które Cię obserwują</string>
 	<string name="notifications_policy_follower">Ludzie, których obserwujesz</string>
 	<string name="notifications_policy_no_one">Nikt</string>
 	<string name="settings_notifications_policy">Otrzymuj powiadomienia od</string>
@@ -485,7 +472,7 @@
 	<string name="settings_even_more">Jeszcze więcej ustawień</string>
 	<string name="settings_show_cws">Pokazuj ostrzeżenia o zawartości</string>
 	<string name="settings_hide_sensitive_media">Ukrywaj zawartość multimedialną oznaczoną jako wrażliwa</string>
-	<string name="settings_show_interaction_counts">Liczniki interakcji ze wpisami</string>
+	<string name="settings_show_interaction_counts">Liczniki interakcji z wpisami</string>
 	<string name="settings_show_emoji_in_names">Niestandardowe emoji w nazwach użytkownika</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">za %d sekundę</item>
@@ -512,6 +499,18 @@
 		<item quantity="other">%d godzin temu</item>
 	</plurals>
 	<string name="alt_text_reminder_title">Brak tekstu alternatywnego dla mediów</string>
+	<plurals name="alt_text_reminder_x_images">
+		<item quantity="one">%s z Twoich obrazów nie ma tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="few">%s z Twoich obrazów nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="many">%s z Twoich obrazów nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="other">%s z Twoich obrazów nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+	</plurals>
+	<plurals name="alt_text_reminder_x_attachments">
+		<item quantity="one">%s z Twoich załączników multimedialnych nie ma tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="few">%s z Twoich załączników multimedialnych nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="many">%s z Twoich załączników multimedialnych nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+		<item quantity="other">%s z Twoich załączników multimedialnych nie mają tekstu alternatywnego. Opublikować mimo to?</item>
+	</plurals>
 	<string name="count_one">Jeden</string>
 	<string name="count_two">Dwa</string>
 	<string name="count_three">Trzy</string>
@@ -559,6 +558,12 @@
 	<string name="select_all">Zaznacz wszystkie</string>
 	<string name="settings_filter_duration_title">Czas trwania filtra</string>
 	<string name="filter_duration_custom">Niestandardowy</string>
+	<plurals name="settings_delete_x_filter_words">
+		<item quantity="one">Usunąć %d słowo?</item>
+		<item quantity="few">Usunąć %d słowa?</item>
+		<item quantity="many">Usunąć %d słów?</item>
+		<item quantity="other">Usunąć %d słów?</item>
+	</plurals>
 	<plurals name="x_items_selected">
 		<item quantity="one">%d wybrany</item>
 		<item quantity="few">%d wybrane</item>
@@ -593,6 +598,18 @@
 	<string name="settings_privacy">Prywatność i zasięg</string>
 	<string name="settings_discoverable">Udostępniaj profil i wpisy funkcjom odkrywania</string>
 	<string name="settings_indexable">Pokaż publiczne wpisy w wynikach wyszukiwania</string>
+	<plurals name="x_participants">
+		<item quantity="one">%,d uczestnik</item>
+		<item quantity="few">%,d uczestnicy</item>
+		<item quantity="many">%,d uczestników</item>
+		<item quantity="other">%,d uczestników</item>
+	</plurals>
+	<plurals name="x_posts_today">
+		<item quantity="one">%,d wpis dzisiaj</item>
+		<item quantity="few">%,d wpisy dzisiaj</item>
+		<item quantity="many">%,d wpisów dzisiaj</item>
+		<item quantity="other">%,d wpisów dzisiaj</item>
+	</plurals>
 	<string name="error_playing_video">Błąd odtwarzania wideo</string>
 	<string name="timeline_following">Strona główna</string>
 	<string name="lists">Listy</string>
@@ -627,7 +644,12 @@
 	<string name="no_followed_hashtags_subtitle">Obserwowane pojawią się tutaj</string>
 	<string name="no_lists_title">Organizuj swoją stronę główną za pomocą List</string>
 	<string name="no_lists_subtitle">Twoje pojawią się tutaj</string>
-	<string name="manage_accounts">Dodaj lub przełącz konta</string>
+	<plurals name="x_posts_recently">
+		<item quantity="one">%,d wpis ostatnio</item>
+		<item quantity="few">%,d wpisy ostatnio</item>
+		<item quantity="many">%,d wpisów ostatnio</item>
+		<item quantity="other">%,d wpisów ostatnio</item>
+	</plurals>
 	<string name="create_list">Utwórz listę</string>
 	<string name="step_x_of_y">Krok %1$d z %2$d</string>
 	<string name="create">Utwórz</string>
@@ -664,7 +686,7 @@
 Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się staje.</string>
 	<string name="onboarding_recommendations_title">Spersonalizuj swoją stronę główną</string>
 	<string name="article_by_author">Od %s</string>
-	<string name="button_reblogged">Podano dalej</string>
+	<string name="button_reblogged">Podbito</string>
 	<string name="button_favorited">Dodano do ulubionych</string>
 	<string name="join_server_x_with_invite">Dołącz do %s z zaproszeniem</string>
 	<string name="expired_invite_link">Link zaproszenia wygasł</string>
@@ -696,20 +718,6 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="server_cant_mention_or_follow_you">Nikt z tego serwera nie może Cię obserwować.</string>
 	<string name="server_can_interact_with_older">Ludzie z tego serwera mogą wchodzić w interakcje z Twoimi starymi wpisami.</string>
 	<string name="unblocked_domain_x">Odblokowano domenę %s</string>
-	<string name="handle_help_title">Co zawiera uchwyt użytkownika?</string>
-	<string name="handle_title">Uchwyt</string>
-	<string name="handle_username_explanation">Unikalny identyfikator na serwerze. Umożliwia istnienie użytkowników o tej samej nazwie użytkownika na różnych serwerach.</string>
-	<string name="handle_title_own">Twój uchwyt</string>
-	<string name="handle_username_explanation_own">Twój unikalny identyfikator na tym serwerze. Możliwe jest znalezienie użytkowników o tej samej nazwie użytkownika na różnych serwerach.</string>
-	<string name="server">Serwer</string>
-	<string name="handle_server_explanation">Cyfrowy dom, w którym znajdują się wszystkie posty.</string>
-	<string name="handle_explanation">Ponieważ uchwyty mówią, kto jest kim i gdzie się znajduje, możesz wchodzić w interakcje z ludźmi korzystającymi z &lt;a&gt;serwisów opartych o ActivityPub&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Twój cyfrowy dom, w którym żyją wszystkie Twoje posty. Nie lubisz tego? Zmień serwer w dowolnym momencie i przenieś swoich obserwujących.</string>
-	<string name="handle_explanation_own">Ponieważ Twój uchwyt mówi, kim jesteś i gdzie się znajdujesz, inni mogą wchodzić z Tobą w interakcje korzystając z &lt;a&gt;różnych serwisów opartych o ActivityPub&lt;/a&gt;.</string>
-	<string name="what_is_activitypub_title">Co to jest ActivityPub?</string>
-	<string name="what_is_activitypub">ActivityPub jest jak język, dzięki któremu Mastodon rozmawia z innymi sieciami społecznościowymi.\n\nPozwala łączyć się i wchodzić w interakcje z ludźmi nie tylko korzystającymi z Mastodona, ale także z innych aplikacji społecznościowych.</string>
-	<string name="handle_copied">Uchwyt skopiowany do schowka.</string>
-	<string name="qr_code">Kod QR</string>
 	<string name="scan_qr_code">Skanuj kod QR</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Zapisano</string>
@@ -718,7 +726,6 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="view_file">Zobacz</string>
 	<string name="share_sheet_preview_profile">%s na Mastodonie</string>
 	<string name="share_sheet_preview_post">%1$s na Mastodonie: „%2$s”</string>
-	<string name="copy_profile_link">Skopiuj link do profilu</string>
 	<string name="in_app_browser">Przeglądarka w aplikacji</string>
 	<string name="system_browser">Systemowa przeglądarka</string>
 	<string name="add_muted_word_short">Dodaj słowo</string>
@@ -738,21 +745,28 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="unmute_conversation">Cofnij wyciszenie konwersacji</string>
 	<string name="visibility_unlisted">Cicho publicznie</string>
 	<string name="filtered_notifications">Filtrowane powiadomienia</string>
-	<string name="filter_notifications">Odfiltruj powiadomienia od...</string>
-	<string name="notification_filter_following">Osoby, których nie obserwujesz</string>
+	<string name="filter_notifications">Filtruj powiadomienia od...</string>
+	<string name="notification_filter_following">Osób, które nie obserwujesz</string>
 	<string name="notification_filter_following_explanation">Dopóki nie zatwierdzisz ich ręcznie</string>
-	<string name="notification_filter_followers">Ludzie, którzy cię nie obserwują</string>
+	<string name="notification_filter_followers">Osób, które Cię nie obserwują</string>
 	<string name="notification_filter_followers_explanation">Łącznie z osobami obserwującymi Cię przez mniej niż 3 dni</string>
-	<string name="notification_filter_new_accounts">Nowe konta</string>
-	<string name="notification_filter_new_accounts_explanation">Utworzone w ciągu ostatnich 30 dni</string>
-	<string name="notification_filter_mentions">Nieproszone prywatne wzmianki</string>
-	<string name="notification_filter_mentions_explanation">Odfiltrowane, chyba że są odpowiedzią na twoją własną wzmiankę, lub obserwujesz wysyłającego</string>
+	<string name="notification_filter_new_accounts">Nowych kont</string>
+	<string name="notification_filter_new_accounts_explanation">Utworzonych w ciągu ostatnich 30 dni</string>
+	<string name="notification_filter_mentions">Nieproszonych wzmianek prywatnych</string>
+	<string name="notification_filter_mentions_explanation">Odfiltrowane, chyba że są odpowiedzią na Twoją własną wzmiankę lub obserwujesz wysyłającego</string>
 	<string name="allow_notifications">Zezwalaj na powiadomienia</string>
 	<string name="mute_notifications">Odrzuć żądanie powiadomienia</string>
+	<plurals name="x_people_you_may_know">
+		<item quantity="one">%,d osoba, którą możesz znać</item>
+		<item quantity="few">%,d osoby, które możesz znać</item>
+		<item quantity="many">%,d osób, które możesz znać</item>
+		<item quantity="other">%,d osób, które możesz znać</item>
+	</plurals>
 	<string name="notifications_from_user">Powiadomienia od %s</string>
 	<string name="notifications_muted">Powiadomienia od %s zostały odrzucone.</string>
 	<string name="notifications_allowed">%s pojawi się teraz na liście powiadomień.</string>
 	<string name="visibility_subtitle_public">Wszyscy na i poza Mastodonem</string>
+	<string name="visibility_subtitle_unlisted">Ukryte w wynikach wyszukiwania Mastodona, trendach oraz publicznych osiach czasu</string>
 	<string name="visibility_subtitle_followers">Tylko dla osób, które Cię obserwują</string>
 	<string name="visibility_subtitle_private">Tylko wspomniane osoby</string>
 	<string name="view_boosts">Zobacz podbicia</string>
@@ -767,6 +781,12 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="signup_username_taken">Ten login jest już zajęty. Spróbuj innego, albo &lt;a&gt;wybierz inny serwer&lt;/a&gt;.</string>
 	<string name="signup_email_invalid">To nie wygląda na adres e-mail.</string>
 	<string name="signup_email_taken">Ten adres e-mail jest już w użyciu. Potrzebujesz &lt;a&gt;przypomnienia hasła&lt;/a&gt;?</string>
+	<plurals name="x_new_notifications">
+		<item quantity="one">%,d nowe powiadomienie</item>
+		<item quantity="few">%,d nowe powiadomienia</item>
+		<item quantity="many">%,d nowych powiadomień</item>
+		<item quantity="other">%,d nowych powiadomień</item>
+	</plurals>
 	<string name="dismiss">Odrzuć</string>
 	<string name="donation_once">Jednorazowo</string>
 	<string name="donation_monthly">Miesięcznie</string>
@@ -781,12 +801,42 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="cant_load_image">Nie udało się załadować obrazu</string>
 	<string name="poll_see_results">Pokaż wyniki</string>
 	<string name="poll_hide_results">Ukryj wyniki</string>
+	<plurals name="x_attachments">
+		<item quantity="one">%d załącznik</item>
+		<item quantity="few">%d załączniki</item>
+		<item quantity="many">%d załączników</item>
+		<item quantity="other">%d załączników</item>
+	</plurals>
+	<plurals name="user_and_x_more_favorited">
+		<item quantity="one">%1$s i %2$,d osoba więcej dodały do ulubionych:</item>
+		<item quantity="few">%1$s i %2$,d osoby więcej dodały do ulubionych:</item>
+		<item quantity="many">%1$s i %2$,d osób więcej dodały do ulubionych:</item>
+		<item quantity="other">%1$s i %2$,d osób więcej dodały do ulubionych:</item>
+	</plurals>
+	<plurals name="user_and_x_more_boosted">
+		<item quantity="one">%1$s i %2$,d osoba więcej podbiły:</item>
+		<item quantity="few">%1$s i %2$,d osoby więcej podbiły:</item>
+		<item quantity="many">%1$s i %2$,d osób więcej podbiły:</item>
+		<item quantity="other">%1$s i %2$,d osób więcej podbiły:</item>
+	</plurals>
+	<plurals name="poll_ended_x_voters">
+		<item quantity="one">%1$s przeprowadził(a) ankietę, w której Ty i %2$,d osoba więcej głosowaliście</item>
+		<item quantity="few">%1$s przeprowadził(a) ankietę, w której Ty i %2$,d osoby więcej głosowaliście</item>
+		<item quantity="many">%1$s przeprowadził(a) ankietę, w której Ty i %2$,d osób więcej głosowaliście</item>
+		<item quantity="other">%1$s przeprowadził(a) ankietę, w której Ty i %2$,d osób więcej głosowaliście</item>
+	</plurals>
 	<string name="own_poll_ended">Twoje głosowanie zakończyło się</string>
 	<string name="user_just_posted">Świeżo od %s</string>
 	<string name="user_edited_post">Post %s, który miał Twoją reakcję został zmodyfikowany</string>
 	<string name="relationship_severance_account_suspension">Administracja %1$s zawiesiła %2$s, więc nie będziesz już otrzymywać wpisów, ani móc wchodzić interakcje ze znajdującymi się tam kontami.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_domain_block">Administracja %1$s zablokowała %2$s, w tym %3$,d kont obserwujących Cię i %4$s, które obserwujesz.</string>
+	<plurals name="x_accounts">
+		<item quantity="one">%,d konto</item>
+		<item quantity="few">%,d konta</item>
+		<item quantity="many">%,d kont</item>
+		<item quantity="other">%,d kont</item>
+	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_user_domain_block">Zablokowano %1$s, usuwając %2$,d obserwujących i %3$s obserwowanych.</string>
 	<string name="relationship_severance_learn_more">Dowiedz się więcej</string>
@@ -811,20 +861,127 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="switch_to_this_account">Przełącz na to konto</string>
 	<string name="delete_account">Usuń konto</string>
 	<string name="notification_type_status">Nowe wpisy</string>
+	<plurals name="user_and_x_more_followed">
+		<item quantity="one">%1$s i %2$,d osoba więcej zaczęły Cię obserwować</item>
+		<item quantity="few">%1$s i %2$,d osoby więcej zaczęły Cię obserwować</item>
+		<item quantity="many">%1$s i %2$,d osób więcej zaczęły Cię obserwować</item>
+		<item quantity="other">%1$s i %2$,d osób więcej zaczęły Cię obserwować</item>
+	</plurals>
 	<string name="familiar_followers_one">%s obserwuje</string>
 	<string name="familiar_followers_two">%s i %s obserwują</string>
-	<string name="profile_saved_posts">Zapisane</string>
 	<string name="profile_saved_posts_explanation">Zapisane wpisy są widoczne tylko dla Ciebie.</string>
 	<string name="search_people">Ludzie</string>
+	<plurals name="familiar_followers_many">
+		<item quantity="one">Obserwowany(-na) przez %1$s, %2$s, i %3$,d osbę więcej</item>
+		<item quantity="few">Obserwowany(-na) przez %1$s, %2$s, i %3$,d osby więcej</item>
+		<item quantity="many">Obserwowany(-na) przez %1$s, %2$s, i %3$,d osób więcej</item>
+		<item quantity="other">Obserwowany(-na) przez %1$s, %2$s, i %3$,d osób więcej</item>
+	</plurals>
+	<plurals name="x_followers_you_know">
+		<item quantity="one">%,d obserwujący, którego znasz</item>
+		<item quantity="few">%,d obserwujący, których znasz</item>
+		<item quantity="many">%,d obserwujących, których znasz</item>
+		<item quantity="other">%,d obserwujących, których znasz</item>
+	</plurals>
 	<!-- appears when you're about to block a server -->
+	<plurals name="server_x_followers_will_be_removed">
+		<item quantity="one">%,d obserwujący z tego serwera zostanie usunięty.</item>
+		<item quantity="few">%,d obserwujący z tego serwera zostaną usunięci.</item>
+		<item quantity="many">%,d obserwujących z tego serwera zostanie usuniętych.</item>
+		<item quantity="other">%,d obserwujących z tego serwera zostanie usuniętych.</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<string name="server_x_followers_and_following_will_be_removed">Stracisz %1$s obserwujących i %2$s obserwowanych.</string>
+	<plurals name="will_lose_x_followers">
+		<item quantity="one">%,d obserwującego</item>
+		<item quantity="few">%,d obserwujących</item>
+		<item quantity="many">%,d obserwujących</item>
+		<item quantity="other">%,d obserwujących</item>
+	</plurals>
+	<plurals name="will_lose_x_following">
+		<item quantity="one">%,d konto, które obserwujesz</item>
+		<item quantity="few">%,d konta, które obserwujesz</item>
+		<item quantity="many">%,d kont, które obserwujesz</item>
+		<item quantity="other">%,d kont, które obserwujesz</item>
+	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="server_x_following_will_be_removed">Stracisz %s obserwujących.</string>
 	<string name="load_missing_posts_above">Załaduj brakujące wpisy powyżej</string>
 	<string name="load_missing_posts_below">Załaduj brakujące wpisy poniżej</string>
+	<string name="signup_password_too_short">Hasło powinno zawierać co najmniej 8 znaków.</string>
+	<string name="private_reply">Odpowiedź prywatna</string>
+	<string name="private_mention">Wzmianka prywatna</string>
+	<string name="post_header_reply">Odpowiedź</string>
+	<string name="post_header_mention">Wzmianka</string>
+	<string name="report_reason_legal">To jest nielegalne</string>
+	<string name="report_reason_legal_subtitle">Uważasz, że to narusza prawo twojego kraju lub kraju, w którym znajduje się serwer</string>
+	<string name="date_of_birth">Data urodzenia</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="date_of_birth_explanation">Musimy się upewnić, że masz przynajmniej %s lat, by móc używać Mastodona. Twój wiek nie zostanie przechowany po rejestracji.</string>
+	<string name="open_link">Otwórz</string>
+	<string name="copy">Kopiuj</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d rok</item>
+		<item quantity="few">%d lata</item>
+		<item quantity="many">%d lat</item>
+		<item quantity="other">%d lat</item>
+	</plurals>
+	<string name="quote_post_unavailable">Wpis niedostępny</string>
+	<string name="quote_post_pending">Wpis oczekuje na zatwierdzenie</string>
+	<string name="quote_post_pending_explanation">Na Mastodonie możesz kontrolować, czy ktoś może cytowac Twoje wpisy. Ten post oczekuje na zatwierdznie przez autora cytatu.</string>
 	<!-- %s is a username, i.e. @Gargron -->
+	<string name="nested_quote">Zacytowano wpis od @%s</string>
+	<string name="compose_visibility_public_anyone">Publiczny, każdy może cytować</string>
+	<string name="compose_visibility_public_limited">Publiczny, cytowanie ograniczone</string>
+	<string name="compose_visibility_public_disabled">Publiczny, cytowanie wyłączone</string>
+	<string name="compose_visibility_unlisted_anyone">Cichy publiczny, każdy może cytować</string>
+	<string name="compose_visibility_unlisted_limited">Cichy publiczny, cytowanie ograniczone</string>
+	<string name="compose_visibility_unlisted_disabled">Cichy publiczny, cytowanie wyłączone</string>
+	<string name="compose_visibility_title">Widoczność i interakcja</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Kotroluj, kto może wchodzić w interackje z tym wpisem. Ustawienia globalne można znaleźć w: Ustawienia &gt; %s &gt; Domyślne ustawienia publikacji.</string>
+	<string name="compose_visibility">Widoczność</string>
+	<string name="compose_quote_policy">Kto może cytować</string>
+	<string name="quote_policy_public">Każdy</string>
+	<string name="quote_policy_followers">Tylko dla obserwujących</string>
+	<string name="quote_policy_nobody">Tylko ja</string>
+	<string name="quote_policy_for_unlisted_explanation">Kiedy ktoś Cię zacytuje, jego wpis również będzie ukryty na popularnych osiach czasu.</string>
+	<string name="quote_policy_for_private_explanation">Wpisy opublikowane na Mastodonie wyłącznie dla obserwujących nie mogą być cytowane przez inne osoby.</string>
+	<string name="quote_policy_for_direct_explanation">Prywatne wzmianki opublikowane na Mastodonie nie mogą być cytowane przez inne osoby.</string>
+	<string name="change_quote_policy">Zmień kto może cytować</string>
+	<string name="edit_visibility_explanation">Nie można zmienić widoczności opublikowanych wpisów.</string>
+	<string name="user_quoted_post">%s zacytował(a) twój post:</string>
+	<string name="user_edited_quoted_post">%s edytował post, który zacytowałes(-aś)</string>
+	<string name="notification_type_quote">Cytaty</string>
+	<string name="create_quote">Zacytuj</string>
+	<string name="cannot_quote_post">Nie możesz zacytować tego wpisu</string>
+	<string name="cannot_quote_post_followers_only">Tylko obserwujący mogą cytować ten wpis</string>
+	<string name="compose_hint_quote">Dodaj coś do rozmowy</string>
+	<string name="cancel_quote">Anuluj cytat</string>
+	<string name="unlisted_quote_alert_title">Cytowanie cichych wpisów publicznych</string>
+	<string name="unlisted_quote_alert">Kiedy zacytujesz cichy wpis publiczny, twój post zostanie ukryty na popularnych osiach czasu.</string>
+	<string name="settings_posting_defaults">Domyślne ustawienia publikacji</string>
+	<string name="default_post_visibility">Widoczność wpisów</string>
+	<string name="create_quote_manual_approval">Poproś o możliwość zacytowania</string>
+	<string name="create_quote_manual_approval_subtitle">Autor zatwierdzi ręcznie</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d cytat</item>
+		<item quantity="few">%,d cytaty</item>
+		<item quantity="many">%,d cytatów</item>
+		<item quantity="other">%,d cytatów</item>
+	</plurals>
+	<string name="remove_quote">Usuń mój wpis z postu @%s</string>
+	<string name="remove_quote_confirm_title">Usunąć wpis?</string>
+	<string name="remove_quote_confirm">Tej czynności nie można cofnąć.</string>
+	<string name="remove_quote_button">Usuń wpis</string>
+	<string name="settings_posting_defaults_explanation">Te ustawienia będą używane jako domyślne podczas tworzenia nowych wpisów, ale możesz je edytować przy każdym poście w kompozytorze.</string>
+	<string name="cant_quote_in_private_title">Cytaty nie mogą być osadzane we wzmiankach prywatnych</string>
+	<string name="cant_quote_in_private">Jeśli zapiszesz obecne ustawienia, osadzony cytat zostanie zamieniony w link.</string>
+	<string name="quote_followers_only_confirm_title">Udostępnić obserwującym i wspomnianym użytkownikom?</string>
+	<string name="quote_followers_only_confirm">Osoba, którą cytujesz oraz inne wzmianki zostaną poinformowane i będą mogły zobaczyć Twój wpis, nawet jeśli Cię nie obserwują.</string>
+	<string name="quote_followers_only_publish">Opublikuj wpis</string>
+	<string name="quote_followers_only_cancel">Wróć do edycji</string>
+	<string name="quote_followers_only_dont_show_again">Nie pokazuj tej wiadomości ponownie</string>
+	<string name="more_replies_found">Znaleziono więcej odpowiedzi</string>
 </resources>

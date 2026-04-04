@@ -9,7 +9,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -20,7 +19,6 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.polls.SubmitPollVote;
-import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
 import org.joinmastodon.android.api.requests.statuses.GetStatusesByIDs;
 import org.joinmastodon.android.api.requests.statuses.TranslateStatus;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -31,7 +29,6 @@ import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.Translation;
-import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
@@ -61,6 +58,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -148,20 +146,38 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	}
 
 	protected void prependItems(List<T> items, boolean notify){
-		data.addAll(0, items);
-		int offset=0;
+		insertItems(items, notify, 0);
+	}
+
+	protected void insertItems(List<T> items, boolean notify, int index){
+		data.addAll(index, items);
+		int newItemCount=0;
+		int offsetIntoItems=0;
 		for(T s:items){
 			addAccountToKnown(s);
 		}
 		postprocessNewlyLoadedStatuses(items);
+		if(index>0){
+			T insertAfter=data.get(index-1);
+			String insertAfterID=insertAfter.getID();
+			boolean insideItemSpan=false;
+			for(StatusDisplayItem item:displayItems){
+				if(item.parentID.equals(insertAfterID)){
+					insideItemSpan=true;
+				}else if(insideItemSpan){
+					break;
+				}
+				offsetIntoItems++;
+			}
+		}
 		for(T s:items){
 			List<StatusDisplayItem> toAdd=buildDisplayItems(s);
 			populateNestedQuotes(toAdd);
-			displayItems.addAll(offset, toAdd);
-			offset+=toAdd.size();
+			displayItems.addAll(offsetIntoItems+newItemCount, toAdd);
+			newItemCount+=toAdd.size();
 		}
 		if(notify)
-			adapter.notifyItemRangeInserted(0, offset);
+			adapter.notifyItemRangeInserted(offsetIntoItems, newItemCount);
 		loadRelationships(items.stream().map(DisplayItemsParent::getAccountID).filter(Objects::nonNull).collect(Collectors.toSet()));
 	}
 
@@ -221,15 +237,6 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				populateNestedQuotes(spoiler.contentItems, needExtraStatuses, itemsWithMissingStatuses);
 			}
 		}
-	}
-
-	protected String getMaxID(){
-		if(!preloadedData.isEmpty())
-			return preloadedData.get(preloadedData.size()-1).getID();
-		else if(!data.isEmpty())
-			return data.get(data.size()-1).getID();
-		else
-			return null;
 	}
 
 	protected abstract List<StatusDisplayItem> buildDisplayItems(T s);
@@ -390,7 +397,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				}
 				RecyclerView.ViewHolder holder=list.getChildViewHolder(view);
 				if(holder instanceof StatusDisplayItem.Holder<?> sih){
-					if(sih.getItem() instanceof StatusDisplayItem sdi && sdi.getType()==StatusDisplayItem.Type.GAP){
+					if(!sih.shouldHighlight()){
 						outRect.setEmpty();
 						return;
 					}
@@ -435,7 +442,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 						for(int i=0;i<list.getChildCount();i++){
 							View child=list.getChildAt(i);
 							holder=list.getChildViewHolder(child);
-							if(holder instanceof StatusDisplayItem.Holder<?> sih2){
+							if(holder instanceof StatusDisplayItem.Holder<?> sih2 && sih2.shouldHighlight()){
 								String otherID=sih2.getItemID();
 								if(otherID.equals(id)){
 									list.getDecoratedBoundsWithMargins(child, tmpRect);
@@ -451,7 +458,6 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 				}
 			}
 		});
-		list.setItemAnimator(new BetterItemAnimator());
 		((UsableRecyclerView) list).setIncludeMarginsInItemHitbox(true);
 		updateToolbar();
 	}
@@ -656,6 +662,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	private void toggleSpoiler(Status status, SpoilerStatusDisplayItem spoilerItem){
 		int index=displayItems.indexOf(spoilerItem);
+		if(index==-1)
+			throw new IllegalStateException("toggleSpoiler called by item not in list");
 		if(status.revealedSpoilers.contains(spoilerItem.spoilerType)){
 			int itemCount=spoilerItem.contentItems.size();
 			displayItems.addAll(index+1, spoilerItem.contentItems);
@@ -690,6 +698,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	public void putRelationship(String id, Relationship rel){
 		relationships.put(id, rel);
+	}
+
+	public Map<String, Relationship> getRelationships(){
+		return relationships;
 	}
 
 	protected void loadRelationships(Set<String> ids){

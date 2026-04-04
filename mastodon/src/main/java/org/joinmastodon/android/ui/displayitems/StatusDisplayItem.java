@@ -88,7 +88,7 @@ public abstract class StatusDisplayItem{
 			case CARD_LARGE -> new LinkCardStatusDisplayItem.Holder(activity, parent, true, parentFragment.getArguments().getString("account"));
 			case CARD_COMPACT -> new LinkCardStatusDisplayItem.Holder(activity, parent, false, parentFragment.getArguments().getString("account"));
 			case FOOTER -> new FooterStatusDisplayItem.Holder(activity, parent);
-			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, null));
+			case ACCOUNT -> new AccountStatusDisplayItem.Holder(new AccountViewHolder(parentFragment, parent, parentFragment instanceof BaseStatusListFragment<?> slf ? slf.getRelationships() : null));
 			case HASHTAG -> new HashtagStatusDisplayItem.Holder(activity, parent);
 			case GAP -> new GapStatusDisplayItem.Holder(activity, parent);
 			case EXTENDED_FOOTER -> new ExtendedFooterStatusDisplayItem.Holder(activity, parent);
@@ -101,6 +101,7 @@ public abstract class StatusDisplayItem{
 			case FOLLOW_REQUEST_ACTIONS -> new FollowRequestActionsDisplayItem.Holder(activity, parent);
 			case QUOTE_ERROR -> new QuoteErrorStatusDisplayItem.Holder(activity, parent);
 			case NESTED_QUOTE -> new NestedQuoteStatusDisplayItem.Holder(activity, parent);
+			case BUTTON -> new ButtonStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -127,11 +128,11 @@ public abstract class StatusDisplayItem{
 				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, callbacks, context, context.getString(R.string.in_reply_to), account, R.drawable.ic_reply_wght700_20px, accountID));
 			}
 			if((flags & FLAG_CHECKABLE)!=0)
-				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent, null));
+				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent));
 			else if((flags &FLAG_IS_QUOTE)!=0)
 				items.add(header=new CompactHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent));
 			else
-				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent, null));
+				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent));
 		}
 
 		boolean filtered=false;
@@ -146,12 +147,15 @@ public abstract class StatusDisplayItem{
 
 		ArrayList<StatusDisplayItem> contentItems=items;
 		ArrayList<StatusDisplayItem> cwParentItems=items;
-		boolean needAddCWItems=false;
+		boolean needAddCWItems=false, needAddFilteredItems=false;
+		SpoilerStatusDisplayItem cwItem=null, filterItem=null;
 		if(filtered){
 			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, callbacks, context, context.getString(R.string.post_matches_filter_x, status.filtered.get(0).filter.title), status, statusForContent, Type.FILTER_SPOILER, Status.SpoilerType.FILTER);
 			contentItems.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
 			cwParentItems=contentItems;
+			needAddFilteredItems=status.revealedSpoilers.contains(Status.SpoilerType.FILTER);
+			filterItem=spoilerItem;
 		}
 		if(!TextUtils.isEmpty(statusForContent.spoilerText)){
 			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, callbacks, context, null, status, statusForContent, Type.SPOILER, Status.SpoilerType.CONTENT_WARNING);
@@ -161,6 +165,7 @@ public abstract class StatusDisplayItem{
 				status.revealedSpoilers.add(Status.SpoilerType.CONTENT_WARNING);
 			}
 			needAddCWItems=status.revealedSpoilers.contains(Status.SpoilerType.CONTENT_WARNING);
+			cwItem=spoilerItem;
 		}
 
 		if(!TextUtils.isEmpty(statusForContent.content)){
@@ -225,8 +230,11 @@ public abstract class StatusDisplayItem{
 				contentItems.add(new QuoteErrorStatusDisplayItem(parentID, callbacks, context, statusForContent.quote.state));
 			}
 		}
+		if(needAddFilteredItems){
+			items.addAll(filterItem.contentItems);
+		}
 		if(needAddCWItems){
-			cwParentItems.addAll(contentItems);
+			items.addAll(cwItem.contentItems);
 		}
 		if((flags & FLAG_NO_FOOTER)==0){
 			FooterStatusDisplayItem footer=new FooterStatusDisplayItem(parentID, callbacks, context, statusForContent, accountID);
@@ -240,6 +248,18 @@ public abstract class StatusDisplayItem{
 		for(StatusDisplayItem item:items){
 			item.fullWidth=fullWidth;
 			item.index=i++;
+			if(item instanceof SpoilerStatusDisplayItem spoiler && !status.revealedSpoilers.contains(spoiler.spoilerType)){
+				for(StatusDisplayItem subItem:spoiler.contentItems){
+					subItem.fullWidth=fullWidth;
+					subItem.index=i++;
+					if(subItem instanceof SpoilerStatusDisplayItem nestedSpoiler && !status.revealedSpoilers.contains(nestedSpoiler.spoilerType)){
+						for(StatusDisplayItem nestedSubItem:nestedSpoiler.contentItems){
+							nestedSubItem.fullWidth=fullWidth;
+							nestedSubItem.index=i++;
+						}
+					}
+				}
+			}
 		}
 		if(items!=contentItems){
 			for(StatusDisplayItem item:contentItems){
@@ -283,7 +303,8 @@ public abstract class StatusDisplayItem{
 		FOLLOW_REQUEST_ACTIONS,
 		HEADER_COMPACT,
 		QUOTE_ERROR,
-		NESTED_QUOTE
+		NESTED_QUOTE,
+		BUTTON
 	}
 
 	public static abstract class Holder<T> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
@@ -330,6 +351,10 @@ public abstract class StatusDisplayItem{
 		@Override
 		public boolean isEnabled(){
 			return item instanceof StatusDisplayItem sdi && sdi.callbacks.isItemEnabled(sdi);
+		}
+
+		public boolean shouldHighlight(){
+			return true;
 		}
 	}
 

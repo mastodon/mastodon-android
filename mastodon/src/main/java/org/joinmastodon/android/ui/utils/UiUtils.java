@@ -31,10 +31,14 @@ import android.os.Vibrator;
 import android.os.ext.SdkExtensions;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.text.style.BulletSpan;
+import android.text.style.ForegroundColorSpan;
 import android.transition.ChangeBounds;
 import android.transition.ChangeScroll;
 import android.transition.Fade;
@@ -71,7 +75,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
-import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
@@ -79,19 +83,24 @@ import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.ColorContrastMode;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.Snackbar;
+import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
 import org.joinmastodon.android.ui.sheets.BlockAccountConfirmationSheet;
 import org.joinmastodon.android.ui.sheets.BlockDomainConfirmationSheet;
 import org.joinmastodon.android.ui.sheets.MuteAccountConfirmationSheet;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.SpacerSpan;
+import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
 import org.parceler.Parcels;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -100,6 +109,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.BiPredicate;
@@ -123,9 +133,16 @@ import okhttp3.MediaType;
 
 public class UiUtils{
 	private static Handler mainHandler=new Handler(Looper.getMainLooper());
-	private static final DateTimeFormatter DATE_FORMATTER_SHORT_WITH_YEAR=DateTimeFormatter.ofPattern("d MMM uuuu"), DATE_FORMATTER_SHORT=DateTimeFormatter.ofPattern("d MMM");
+	private static final String DATE_PATTERN_SHORT_WITH_YEAR="d MMM uuuu", DATE_PATTERN_SHORT="d MMM";
+	private static DateTimeFormatter dateFormatterShortWithYear, dateFormatterShort;
 	private static final DateTimeFormatter TIME_FORMATTER=DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
 	public static final DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.SHORT);
+	private static final DecimalFormat ABBREVIATED_NUMBER_FORMAT=new DecimalFormat();
+
+	static{
+		ABBREVIATED_NUMBER_FORMAT.setRoundingMode(RoundingMode.DOWN);
+		ABBREVIATED_NUMBER_FORMAT.setMaximumFractionDigits(1);
+	}
 
 	private UiUtils(){}
 
@@ -177,11 +194,7 @@ public class UiUtils{
 			int days=(int)(diff/(3600_000L*24L));
 			if(days>30){
 				ZonedDateTime dt=instant.atZone(ZoneId.systemDefault());
-				if(dt.getYear()==ZonedDateTime.now().getYear()){
-					return DATE_FORMATTER_SHORT.format(dt);
-				}else{
-					return DATE_FORMATTER_SHORT_WITH_YEAR.format(dt);
-				}
+				return formatDateShort(dt);
 			}
 			return context.getString(R.string.time_days_ago_short, days);
 		}
@@ -227,12 +240,30 @@ public class UiUtils{
 			formattedDate=context.getString(R.string.yesterday);
 		}else if(date.equals(today.plusDays(1))){
 			formattedDate=context.getString(R.string.tomorrow);
-		}else if(date.getYear()==today.getYear()){
-			formattedDate=DATE_FORMATTER_SHORT.format(dt);
 		}else{
-			formattedDate=DATE_FORMATTER_SHORT_WITH_YEAR.format(dt);
+			formattedDate=formatDateShort(dt);
 		}
 		return context.getString(R.string.date_at_time, formattedDate, formattedTime);
+	}
+
+	public static void updateLocalizedDateFormatters(Context context) {
+		Locale locale=context.getResources().getConfiguration().locale;
+		var localizedPatternWithYear=DateFormat.getBestDateTimePattern(locale, DATE_PATTERN_SHORT_WITH_YEAR);
+		dateFormatterShortWithYear=DateTimeFormatter.ofPattern(localizedPatternWithYear, locale);
+		var localizedPattern=DateFormat.getBestDateTimePattern(locale, DATE_PATTERN_SHORT);
+		dateFormatterShort=DateTimeFormatter.ofPattern(localizedPattern, locale);
+	}
+
+	private static String formatDateShort(ZonedDateTime dt){
+		if(dt.getYear()==ZonedDateTime.now().getYear()){
+			return dateFormatterShort.format(dt);
+		}else{
+			return dateFormatterShortWithYear.format(dt);
+		}
+	}
+
+	public static String formatDateLong(ZonedDateTime dt){
+		return dateFormatterShortWithYear.format(dt);
 	}
 
 	public static String formatTimeLeft(Context context, Instant instant){
@@ -257,13 +288,13 @@ public class UiUtils{
 	@SuppressLint("DefaultLocale")
 	public static String abbreviateNumber(int n){
 		if(n<1000){
-			return String.format("%,d", n);
+			return ABBREVIATED_NUMBER_FORMAT.format(n);
 		}else if(n<1_000_000){
-			float a=n/1000f;
-			return a>99f ? String.format("%,dK", (int)Math.floor(a)) : String.format("%,.1fK", a);
+			double a=n/1000.0;
+			return (a>=10.0 ? ABBREVIATED_NUMBER_FORMAT.format((long)a) : ABBREVIATED_NUMBER_FORMAT.format(a))+"K";
 		}else{
 			float a=n/1_000_000f;
-			return a>99f ? String.format("%,dM", (int)Math.floor(a)) : String.format("%,.1fM", n/1_000_000f);
+			return (a>=10.0 ? ABBREVIATED_NUMBER_FORMAT.format((long)a) : ABBREVIATED_NUMBER_FORMAT.format(a))+"M";
 		}
 	}
 
@@ -273,7 +304,7 @@ public class UiUtils{
 			return abbreviateNumber((int)n);
 
 		double a=n/1_000_000_000.0;
-		return a>99f ? String.format("%,dB", (int)Math.floor(a)) : String.format("%,.1fB", n/1_000_000_000.0);
+		return (a>=10.0 ? ABBREVIATED_NUMBER_FORMAT.format((long)a) : ABBREVIATED_NUMBER_FORMAT.format(a))+"B";
 	}
 
 	/**
@@ -308,6 +339,10 @@ public class UiUtils{
 	/** Linear interpolation between {@code startValue} and {@code endValue} by {@code fraction}. */
 	public static int lerp(int startValue, int endValue, float fraction) {
 		return startValue + Math.round(fraction * (endValue - startValue));
+	}
+
+	public static float lerp(float startValue, float endValue, float fraction) {
+		return startValue+fraction*(endValue-startValue);
 	}
 
 	public static String getFileName(Uri uri){
@@ -592,7 +627,7 @@ public class UiUtils{
 			delete.run();
 	}
 
-	public static void setRelationshipToActionButtonM3(Relationship relationship, Button button){
+	public static void setRelationshipToActionButtonM3(Relationship relationship, Account account, Button button){
 		int styleRes;
 		if(relationship.blocking){
 			button.setText(R.string.button_blocked);
@@ -611,7 +646,7 @@ public class UiUtils{
 			styleRes=R.style.Widget_Mastodon_M3_Button_Tonal;
 		}
 
-		button.setEnabled(!relationship.blockedBy);
+		button.setEnabled(relationship.blocking || (!relationship.blockedBy && !account.suspended));
 		TypedArray ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.background});
 		button.setBackground(ta.getDrawable(0));
 		ta.recycle();
@@ -1148,5 +1183,33 @@ public class UiUtils{
 			return true;
 		}
 		return false;
+	}
+
+	public static View makeListItemView(ListItem<?> item, ViewGroup parentView){
+		GenericListItemsAdapter<?> fakeAdapter=new GenericListItemsAdapter<>(List.of(item));
+		ListItemViewHolder<?> holder=fakeAdapter.onCreateViewHolder(parentView, fakeAdapter.getItemViewType(0));
+		fakeAdapter.bindViewHolder(holder, 0);
+		holder.itemView.setBackground(UiUtils.getThemeDrawable(parentView.getContext(), android.R.attr.selectableItemBackground));
+		holder.itemView.setOnClickListener(v->holder.onClick());
+		return holder.itemView;
+	}
+
+	public static CharSequence makeColoredString(CharSequence str, int color){
+		Spannable spannable=str instanceof Spannable s ? s : new SpannableString(str);
+		spannable.setSpan(new ForegroundColorSpan(color), 0, spannable.length(), 0);
+		return spannable;
+	}
+
+	public static CharSequence substituteStringWithSpan(Context ctx, @StringRes int res, String arg, Object span){
+		String str=ctx.getString(res, "{str}");
+		int index=str.indexOf("{str}");
+		if(index==-1)
+			return str;
+		SpannableStringBuilder ssb=new SpannableStringBuilder(index>0 ? str.substring(0, index) : "");
+		ssb.append(arg, span, 0);
+		int end=index+5;
+		if(end<str.length())
+			ssb.append(str.substring(end));
+		return ssb;
 	}
 }

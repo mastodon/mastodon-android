@@ -78,6 +78,13 @@
 
 		</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
 
+		<include
+			layout="@layout/item_settings_banner"
+			android:id="@+id/banner"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="0dp"/>
+
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="88dp"

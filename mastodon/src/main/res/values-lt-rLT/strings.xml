@@ -21,22 +21,8 @@
 	<string name="discard_draft">Atmesti juodraštį?</string>
 	<string name="discard">Atmesti</string>
 	<string name="cancel">Atšaukti</string>
-	<plurals name="followers">
-		<item quantity="one">sekėjas</item>
-		<item quantity="few">sekėjai</item>
-		<item quantity="many">sekėjo</item>
-		<item quantity="other">sekėjų</item>
-	</plurals>
-	<plurals name="following">
-		<item quantity="one">sekimas</item>
-		<item quantity="few">sekimai</item>
-		<item quantity="many">sekimo</item>
-		<item quantity="other">sekimų</item>
-	</plurals>
 	<string name="posts">Įrašai</string>
-	<string name="posts_and_replies">Įrašai ir atsakymai</string>
 	<string name="media">Medija</string>
-	<string name="profile_about">Apie</string>
 	<string name="button_follow">Sekti</string>
 	<string name="button_following">Sekama</string>
 	<string name="edit_profile">Redaguoti profilį</string>
@@ -188,6 +174,7 @@
 	<string name="add_alt_text">Pridėti alternatyvųjį tekstą</string>
 	<string name="visibility_public">Viešas</string>
 	<string name="visibility_followers_only">Sekėjai</string>
+	<string name="visibility_private">Privatus paminėjimas</string>
 	<string name="recent_searches">Naujausiai</string>
 	<string name="notification_type_follow">Nauji sekėjai</string>
 	<string name="notification_type_favorite">Mėgstami</string>
@@ -263,7 +250,6 @@
 	<string name="see_new_posts">Nauji įrašai</string>
 	<string name="follow_back">Sekti atgal</string>
 	<string name="button_follow_pending">Laukiama</string>
-	<string name="follows_you">Seka jus</string>
 	<string name="manually_approves_followers">Rankiniu būdu patvirtina sekėjus</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
@@ -358,7 +344,6 @@
 	<string name="not_accepting_new_members">Naujų narių nepriima</string>
 	<string name="category_special_interests">Ypatingūs pomėgiai</string>
 	<string name="signup_passwords_dont_match">Slaptažodžiai nesutampa.</string>
-	<string name="profile_add_row">Pridėti eilutę</string>
 	<string name="profile_setup">Profilio sąranka</string>
 	<string name="profile_setup_subtitle">Tai visada galite užbaigti vėliau Profilio kortelėje.</string>
 	<string name="follow_all">Sekti viską</string>
@@ -448,6 +433,7 @@
 	<string name="settings_server_explanation">Apžvalga, taisyklės, prižiūrėtojai</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Apie „%s“</string>
+	<string name="default_post_language">Skelbimo kalba</string>
 	<string name="settings_alt_text_reminders">Pridėti alternatyvių teksto priminimus</string>
 	<string name="settings_confirm_unfollow">Klausti prieš nebesekant kažkokio</string>
 	<string name="settings_confirm_boost">Klausti prieš pasidalinat</string>
@@ -658,7 +644,6 @@
 	<string name="no_followed_hashtags_subtitle">Sekimai pasirodys čia</string>
 	<string name="no_lists_title">Organizuokite savo pagrindinį srautą su sąrašais</string>
 	<string name="no_lists_subtitle">Jūsų pasirodys čia</string>
-	<string name="manage_accounts">Pridėti arba perjungti paskyras</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d naujausias įrašas</item>
 		<item quantity="few">%,d naujausiai įrašai</item>
@@ -733,20 +718,6 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="server_cant_mention_or_follow_you">Niekas iš šio serverio negali jūsų sekti.</string>
 	<string name="server_can_interact_with_older">Asmenys iš šio serverio gali bendrauti su jūsų senais įrašais.</string>
 	<string name="unblocked_domain_x">Atblokuotas domenas %s</string>
-	<string name="handle_help_title">Kas yra socialiniame medijos varde?</string>
-	<string name="handle_title">Jų socialinis medijos vardas</string>
-	<string name="handle_username_explanation">Jų unikalus identifikatorius jų serveryje. Skirtinguose serveriuose galima rasti naudotojų su tuo pačiu naudotojo vardu.</string>
-	<string name="handle_title_own">Jūsų socialinis medijos vardas</string>
-	<string name="handle_username_explanation_own">Jūsų unikalus identifikatorius šiame serveryje. Skirtinguose serveriuose galima rasti naudotojų su tuo pačiu naudotojo vardu.</string>
-	<string name="server">Serveris</string>
-	<string name="handle_server_explanation">Jų skaitmeniniai namai, kuriuose saugomi visi jų įrašai.</string>
-	<string name="handle_explanation">Kadangi socialines medijos vardai pasako, kas ir kur jie yra, galima bendrauti su žmonėmis visame socialiniame internete, kurį sudaro &lt;a&gt;„ActivityPub“ veikiančios platformos&lt;/a&gt;.</string>
-	<string name="handle_server_explanation_own">Jūsų skaitmeniniai namai, kuriuose saugomi jūsų visi įrašai. Nepatinka šis? Bet kada perkelkite serverius ir atsiveskite bei savo sekėjus.</string>
-	<string name="handle_explanation_own">Kadangi jūsų socialinis medijos vardas pasako, kas ir kur esate, žmonės gali bendrauti su jumis visame socialiniame internete, kurį sudaro &lt;a&gt;„ActivityPub“ veikiančios platformos&lt;/a&gt;.</string>
-	<string name="what_is_activitypub_title">Kas yra „ActivityPub“?</string>
-	<string name="what_is_activitypub">„ActivityPub“ – tai tarsi kalba, kuria „Mastodon“ kalba su kitais socialiniais tinklais.\n\nJi leidžia jums prisijungti ir bendrauti su asmenimis ne tik platformoje „Mastodon“, bet ir įvairiose socialinėse programuose.</string>
-	<string name="handle_copied">Socialinis medijos vardas nukopijuotas į iškarpinę.</string>
-	<string name="qr_code">QR kodas</string>
 	<string name="scan_qr_code">Skenuoti QR kodą</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Išsaugota</string>
@@ -755,7 +726,6 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="view_file">Peržiūrėti</string>
 	<string name="share_sheet_preview_profile">%s, platformoje „Mastodon“</string>
 	<string name="share_sheet_preview_post">%1$s, platformoje „Mastodon“: %2$s</string>
-	<string name="copy_profile_link">Kopijuoti nuorodą į profilį</string>
 	<string name="in_app_browser">Programos naršyklę</string>
 	<string name="system_browser">Sistemos naršyklę</string>
 	<string name="add_muted_word_short">Įtraukti žodį</string>
@@ -796,6 +766,7 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="notifications_muted">Pranešimai iš %s atmesti.</string>
 	<string name="notifications_allowed">%s dabar bus rodomi pranešimų sąraše.</string>
 	<string name="visibility_subtitle_public">Kiekvienas iš ir ne „Mastodon“ platformos</string>
+	<string name="visibility_subtitle_unlisted">Paslėptas nuo „Mastodon“ paieškos rezultatų, tendencingumo ir viešų laiko skalių</string>
 	<string name="visibility_subtitle_followers">Tik jūsų sekėjams</string>
 	<string name="visibility_subtitle_private">Visus, paminėtus įraše</string>
 	<string name="view_boosts">Peržiūrėti pasidalinimus</string>
@@ -898,7 +869,6 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	</plurals>
 	<string name="familiar_followers_one">Sekama %s</string>
 	<string name="familiar_followers_two">Sekama %s ir %s</string>
-	<string name="profile_saved_posts">Išsaugoti</string>
 	<string name="profile_saved_posts_explanation">Jūsų išsaugoti įrašai matomi tik jums.</string>
 	<string name="search_people">Žmonės</string>
 	<plurals name="familiar_followers_many">
@@ -962,5 +932,56 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="quote_post_pending_explanation">Platformoje „Mastodon“ galite valdyti, ar kas nors gali jus cituoti. Šis įrašas yra laukiamas, kol gausime originalaus autoriaus patvirtinimą.</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Įrašą citavo %s</string>
+	<string name="compose_visibility_public_anyone">Viešas, bet kas gali cituoti</string>
+	<string name="compose_visibility_public_limited">Viešas, citatos ribotos</string>
+	<string name="compose_visibility_public_disabled">Viešas, citatos išjungtos</string>
+	<string name="compose_visibility_unlisted_anyone">Tyliai viešas, bet kas gali cituoti</string>
+	<string name="compose_visibility_unlisted_limited">Tyliai viešas, citatos ribotos</string>
+	<string name="compose_visibility_unlisted_disabled">Tyliai viešas, citatos išjungtos</string>
+	<string name="compose_visibility_title">Matomumas ir sąveika</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility_explanation">Valdykite, kas gali bendrauti su šiuo įrašu. Visuotiniai nustatymai galima rasti per „Nustatymai“ &gt; %s &gt; „Skelbimo nustatymai“.</string>
+	<string name="compose_visibility">Matomumas</string>
+	<string name="compose_quote_policy">Kas gali cituoti</string>
+	<string name="quote_policy_public">Bet kas</string>
+	<string name="quote_policy_followers">Tik sekėjai</string>
+	<string name="quote_policy_nobody">Tik aš</string>
+	<string name="quote_policy_for_unlisted_explanation">Kai žmonės jus cituoja, jų įrašai taip pat bus paslėpti iš tendencijos laiko skalių.</string>
+	<string name="quote_policy_for_private_explanation">Tik sekėjams skirti įrašai, parašyti platformoje „Mastodon“, negali būti cituojami kitų.</string>
+	<string name="quote_policy_for_direct_explanation">Privatūs paminėjimai, parašyti platformoje „Mastodon“, negali būti cituojami kitų.</string>
+	<string name="change_quote_policy">Keisti, kas gali cituoti</string>
+	<string name="edit_visibility_explanation">Paskelbti įrašai negali pakeisti savo matomumo.</string>
+	<string name="user_quoted_post">%s citavo jūsų įrašą:</string>
+	<string name="user_edited_quoted_post">%s redagavo įrašą, kurį citavote</string>
+	<string name="notification_type_quote">Citatos</string>
+	<string name="create_quote">Cituoti</string>
+	<string name="cannot_quote_post">Jums neleidžiama cituoti šio įrašo.</string>
+	<string name="cannot_quote_post_followers_only">Tik sekėjai gali cituoti šį įrašą.</string>
+	<string name="compose_hint_quote">Pridėkite kažką prie pokalbio.</string>
+	<string name="cancel_quote">Atsisakyti citatos</string>
+	<string name="unlisted_quote_alert_title">Cituojant tyliai viešus įrašus</string>
+	<string name="unlisted_quote_alert">Kai cituojant tyliai viešą įrašą, jūsų įrašas bus paslėptas iš tendencijos laiko skalių.</string>
+	<string name="settings_posting_defaults">Skelbimo numatytieji</string>
+	<string name="default_post_visibility">Skelbimo matomumas</string>
+	<string name="create_quote_manual_approval">Prašyti cituoti</string>
+	<string name="create_quote_manual_approval_subtitle">Autorius peržiūrės rankiniu būdu</string>
+	<plurals name="x_quotes">
+		<item quantity="one">%,d citata</item>
+		<item quantity="few">%,d citatos</item>
+		<item quantity="many">%,d citatos</item>
+		<item quantity="other">%,d citatų</item>
+	</plurals>
+	<string name="remove_quote">Šalinti mano įrašą iš %s įrašo</string>
+	<string name="remove_quote_confirm_title">Pašalinti įrašą?</string>
+	<string name="remove_quote_confirm">Šio veiksmo negalima anuliuoti.</string>
+	<string name="remove_quote_button">Šalinti įrašą</string>
+	<string name="settings_posting_defaults_explanation">Šie nustatymai bus naudojami kaip numatytieji, kai kuriate naujus įrašus, bet juos galite redaguoti kiekvienam įrašui atskirai rengyklėje.</string>
+	<string name="cant_quote_in_private_title">Citatos negali būti įterptos privačiuose paminėjimuose.</string>
+	<string name="cant_quote_in_private">Jei išsaugosite dabartinius nustatymus, įterpta citata bus konvertuota į nuorodą.</string>
+	<string name="quote_followers_only_confirm_title">Bendrinti su sekėjais ir paminėtais naudotojais?</string>
+	<string name="quote_followers_only_confirm">Asmuo, kurį cituojate, ir kiti paminėti bus pranešti ir galės peržiūrėti jūsų įrašą, net jei jie neseka jūsų.</string>
+	<string name="quote_followers_only_publish">Skelbti įrašą</string>
+	<string name="quote_followers_only_cancel">Grįžti į redagavimą</string>
+	<string name="quote_followers_only_dont_show_again">Nerodyti šios žinutės vėl</string>
+	<string name="more_replies_found">Daugiau atsakymų rasta</string>
 </resources>

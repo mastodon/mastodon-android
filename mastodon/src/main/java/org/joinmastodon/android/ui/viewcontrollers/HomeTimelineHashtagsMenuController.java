@@ -15,6 +15,7 @@ import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -86,7 +87,7 @@ public class HomeTimelineHashtagsMenuController extends DropdownSubmenuControlle
 						currentRequest=null;
 						dropdownController.resizeOnNextFrame();
 						largeProgressAdapter.setVisible(false);
-						((List<Hashtag>) result).sort(Comparator.comparing(tag->tag.name));
+						((List<Hashtag>) result).sort(Comparator.comparing(tag->tag.name, Collator.getInstance()));
 						int prevSize=items.size();
 						for(Hashtag tag:result){
 							items.add(new Item<>("#"+tag.name, false, false, tag, HomeTimelineHashtagsMenuController.this::onTagClick));

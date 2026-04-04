@@ -13,10 +13,6 @@
 	<string name="settings">সেটিংস</string>
 	<string name="discard">বাতিল করুন</string>
 	<string name="cancel">বাতিল করুন</string>
-	<plurals name="followers">
-		<item quantity="one">জন ফলোয়ার</item>
-		<item quantity="other">জন ফলোয়ারস</item>
-	</plurals>
 	<string name="posts">পোস্টগুলো</string>
 	<string name="media">মিডিয়া</string>
 	<string name="button_follow">ফলো করুন</string>
@@ -109,9 +105,13 @@
 	<string name="email">ই-মেইল</string>
 	<string name="password">পাসওয়ার্ড</string>
 	<string name="confirm_password">পাসওয়ার্ড নিশ্চিত করুন</string>
+	<string name="confirm_email_title">আপনার ইনবক্স দেখুন</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_didnt_get">আপনি কোনো লিঙ্ক পাননি?</string>
+	<string name="resend">আবার পাঠান</string>
 	<string name="open_email_app">ই-মেইল অ্যাপ খুলুন</string>
 	<string name="resent_email">নিশ্চিতকরনের ই-মেইল পাঠানো হয়েছে</string>
+	<string name="save">সেভ করুন</string>
 	<string name="notification_type_follow">নতুন ফলোয়াররা</string>
 	<string name="err_not_logged_in">Mastodon-এ প্রথমে লগ ইন করুন</string>
 	<plurals name="cant_add_more_than_x_attachments">
@@ -144,7 +144,6 @@
 	<string name="downloading">ডাউনলোড হচ্ছে…</string>
 	<!-- %s is the server domain -->
 	<string name="button_follow_pending">বাকি আছে</string>
-	<string name="follows_you">আপনাকে ফলো করছেন</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<plurals name="x_followers">
 		<item quantity="one">%,d জন ফলোয়ার</item>
@@ -167,6 +166,7 @@
 	<string name="welcome_paragraph1">Mastodon হল একটি বিকেন্দ্রীভূত সামাজিক নেটওয়ার্ক, যার মানে কোনো একক কোম্পানি এটিকে নিয়ন্ত্রণ করে না। এটি অনেকগুলি স্বাধীনভাবে চালিত সার্ভারের সমন্বয়ে গঠিত, যেখানে সব সার্ভারগুলি একসাথে সংযুক্ত৷</string>
 	<string name="what_are_servers">সার্ভার কি?</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="language">ভাষা</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->

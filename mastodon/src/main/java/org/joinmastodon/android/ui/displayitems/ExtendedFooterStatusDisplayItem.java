@@ -45,7 +45,6 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 
 	private static final DateTimeFormatter TIME_FORMATTER=DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
 	private static final DateTimeFormatter TIME_FORMATTER_LONG=DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
-	private static final DateTimeFormatter DATE_FORMATTER=DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
 
 	public ExtendedFooterStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Status status, String accountID){
 		super(parentID, callbacks, context);
@@ -98,7 +97,7 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 				ZonedDateTime dt=s.editedAt.atZone(ZoneId.systemDefault());
 				String time=TIME_FORMATTER.format(dt);
 				if(!dt.toLocalDate().equals(LocalDate.now())){
-					time+=" · "+DATE_FORMATTER.format(dt);
+					time+=" · "+UiUtils.formatDateLong(dt);
 				}
 				editHistory.setText(getFormattedSubstitutedString(R.string.last_edit_at_x, time));
 			}else{
@@ -106,7 +105,7 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 			}
 			ZonedDateTime dt=item.status.createdAt.atZone(ZoneId.systemDefault());
 			time.setText(TIME_FORMATTER.format(dt));
-			date.setText(DATE_FORMATTER.format(dt));
+			date.setText(UiUtils.formatDateLong(dt));
 			if(item.status.application!=null && !TextUtils.isEmpty(item.status.application.name)){
 				app.setVisibility(View.VISIBLE);
 				dateAppSeparator.setVisibility(View.VISIBLE);
@@ -182,14 +181,14 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void showTimeSnackbar(){
-			int bottomOffset=0;
-			if(item.callbacks instanceof ThreadFragment tf){
-				bottomOffset=tf.getSnackbarOffset();
-			}
-			new Snackbar.Builder(itemView.getContext())
+			Snackbar sb=new Snackbar.Builder(itemView.getContext())
 					.setText(itemView.getContext().getString(R.string.posted_at, TIME_FORMATTER_LONG.format(item.status.createdAt.atZone(ZoneId.systemDefault()))))
-					.setBottomOffset(bottomOffset)
-					.show();
+					.create();
+			if(item.callbacks instanceof ThreadFragment tf){
+				tf.showSnackbar(sb);
+			}else{
+				sb.show();
+			}
 		}
 	}
 }

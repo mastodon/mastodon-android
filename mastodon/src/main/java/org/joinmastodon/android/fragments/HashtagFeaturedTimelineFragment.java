@@ -7,6 +7,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.Hashtag;
+import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Status;
 import org.parceler.Parcels;
 
@@ -19,6 +20,7 @@ import me.grishka.appkit.api.SimpleCallback;
 public class HashtagFeaturedTimelineFragment extends StatusListFragment{
 	private Account targetAccount;
 	private Hashtag hashtag;
+	private String maxID;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -31,15 +33,15 @@ public class HashtagFeaturedTimelineFragment extends StatusListFragment{
 
 	@Override
 	protected void doLoadData(int offset, int count){
-		currentRequest=new GetAccountStatuses(targetAccount.id, offset>0 ? getMaxID() : null, null, count, GetAccountStatuses.Filter.DEFAULT, hashtag.name)
+		currentRequest=new GetAccountStatuses(targetAccount.id, offset>0 ? maxID : null, null, count, GetAccountStatuses.Filter.DEFAULT, hashtag.name)
 				.setCallback(new SimpleCallback<>(this){
 					@Override
-					public void onSuccess(List<Status> result){
+					public void onSuccess(HeaderPaginationList<Status> result){
 						if(getActivity()==null)
 							return;
-						boolean empty=result.isEmpty();
 						AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.ACCOUNT);
-						onDataLoaded(result, !empty);
+						maxID=result.getNextPageMaxID();
+						onDataLoaded(result, result.nextPageUri!=null);
 					}
 				})
 				.exec(accountID);

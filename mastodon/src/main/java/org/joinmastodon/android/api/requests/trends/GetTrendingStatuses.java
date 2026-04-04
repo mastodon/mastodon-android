@@ -14,5 +14,6 @@ public class GetTrendingStatuses extends MastodonAPIRequest<List<Status>>{
 			addQueryParameter("limit", ""+limit);
 		if(offset>0)
 			addQueryParameter("offset", ""+offset);
+		removeUnsupportedItems=true;
 	}
 }
