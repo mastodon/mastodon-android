@@ -30,10 +30,10 @@
 	<string name="mute_user">%s stummschalten</string>
 	<string name="unmute_user">%s nicht mehr stummschalten</string>
 	<string name="block_user">%s blockieren</string>
-	<string name="unblock_user">%s entsperren</string>
+	<string name="unblock_user">Blockierung von %s aufheben</string>
 	<string name="report_user">%s melden</string>
 	<string name="block_domain">%s blockieren</string>
-	<string name="unblock_domain">%s nicht mehr blockieren</string>
+	<string name="unblock_domain">Blockierung von %s aufheben</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d Beitrag</item>
 		<item quantity="other">%,d Beiträge</item>
@@ -42,6 +42,7 @@
 	<string name="done">Fertig</string>
 	<string name="loading">Wird geladen …</string>
 	<string name="field_label">Beschriftung</string>
+	<string name="field_content">Inhalt</string>
 	<string name="saving">Wird gespeichert …</string>
 	<string name="post_from_user">Beitrag von %s</string>
 	<string name="poll_option_hint">%d. Auswahl</string>
@@ -203,6 +204,8 @@
 	<string name="followed_user">Du folgst nun %s</string>
 	<string name="following_user_requested">Deine Follower-Anfrage an %s wurde gesendet</string>
 	<string name="open_in_browser">Im Browser öffnen</string>
+	<string name="hide_boosts_from_user">Geteilte Beiträge in der Timeline ausblenden</string>
+	<string name="show_boosts_from_user">Geteilte Beiträge in der Timeline anzeigen</string>
 	<string name="signup_reason">Weshalb möchtest du beitreten?</string>
 	<string name="signup_reason_note">Das erleichtert uns die Prüfung deiner Anmeldung.</string>
 	<string name="clear">Leeren</string>
@@ -324,6 +327,7 @@
 	<string name="poll_multiple_choice">Wähle ein/e oder mehrere aus</string>
 	<string name="save_changes">Änderungen speichern</string>
 	<string name="profile_featured">Vorgestellt</string>
+	<string name="profile_timeline">Aktivitäten</string>
 	<string name="view_all">Alle anzeigen</string>
 	<string name="profile_endorsed_accounts">Konten</string>
 	<string name="verified_link">Verifizierter Link</string>
@@ -572,6 +576,7 @@
 	<string name="remove">Entfernen</string>
 	<string name="add_list_member">Mitglied hinzufügen</string>
 	<string name="search_among_people_you_follow">Suche nach Leuten, denen du folgst</string>
+	<string name="add_user_to_list">Zur Liste hinzufügen …</string>
 	<string name="add_user_to_list_title">Zur Liste hinzufügen</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listen mit %s verwalten</string>
@@ -642,14 +647,14 @@
 	<string name="user_cant_see_each_other_posts">Deine Beiträge können nicht mehr angesehen werden und du wirst deren Beiträge nicht mehr sehen.</string>
 	<string name="user_cant_mention_or_follow_you">Das Profil wird dich nicht erwähnen oder dir folgen können.</string>
 	<string name="unblocked_user_x">Blockierung von %s aufgehoben</string>
-	<string name="block_domain_confirm_title">Domain sperren?</string>
+	<string name="block_domain_confirm_title">Domain blockieren?</string>
 	<string name="do_block_server">Server sperren</string>
 	<string name="block_user_x_instead">Stattdessen %s blockieren</string>
 	<string name="users_cant_see_blocked">Du wirst keine Beiträge oder Benachrichtigungen von Profilen auf diesem Server sehen.</string>
 	<string name="you_wont_see_server_posts">Du wirst keine Beiträge von Profilen auf jenem Server mehr sehen.</string>
 	<string name="server_cant_mention_or_follow_you">Niemand von diesem Server wird dir folgen können.</string>
 	<string name="server_can_interact_with_older">Profile von diesem Server werden mit deinen älteren Beiträgen interagieren können.</string>
-	<string name="unblocked_domain_x">Domain %s entblockt</string>
+	<string name="unblocked_domain_x">Blockierung von %s aufgehoben</string>
 	<string name="scan_qr_code">QR-Code scannen</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Gespeichert</string>
@@ -886,5 +891,44 @@
 	<string name="quote_followers_only_cancel">Zurück zum Bearbeiten</string>
 	<string name="quote_followers_only_dont_show_again">Diesen Hinweis nicht mehr anzeigen</string>
 	<string name="more_replies_found">Weitere Antworten verfügbar</string>
+	<string name="user_is_muted">Stummgeschaltet</string>
+	<string name="user_is_bot">Bot</string>
+	<string name="profile_view_qr_code">QR-Code anzeigen</string>
+	<string name="feature_user">Im Profil vorstellen</string>
+	<string name="add_user_personal_note">Persönliche Notiz hinzufügen</string>
+	<string name="mute_account">Konto stummschalten</string>
+	<string name="block_account">Konto blockieren</string>
+	<string name="remove_follower">Follower entfernen</string>
+	<string name="report_account">Konto melden</string>
+	<string name="unblock_account">Blockierung aufheben</string>
+	<string name="unmute_account">Stummschaltung aufheben</string>
+	<string name="unblock">Blockierung aufheben</string>
+	<string name="request_to_follow">Folgen anfragen</string>
+	<string name="cancel_follow_request">Anfrage zurückziehen</string>
+	<string name="confirm_remove_follower_title">Follower entfernen?</string>
+	<string name="confirm_remove_follower">%s wird dir nicht länger folgen. Bist du dir sicher?</string>
+	<string name="edit_user_personal_note">Persönliche Notiz bearbeiten</string>
+	<string name="user_personal_note_explanation">Persönliche Notizen sind nur für dich sichtbar.</string>
+	<string name="user_personal_note">Persönliche Notiz</string>
+	<string name="timeline_filter_posts_and_boosts">Beiträge &amp; geteilte Beiträge</string>
+	<string name="timeline_filter_show_replies">Antworten anzeigen</string>
+	<string name="timeline_filter_show_boosts">Geteilte Beiträge anzeigen</string>
+	<string name="timeline_filter_all_activity">Alle Aktivitäten</string>
+	<string name="timeline_filter_posts_and_replies">Beiträge &amp; Antworten</string>
+	<string name="timeline_filter_posts">Beiträge</string>
+	<string name="edit_profile_display_name">Anzeigename</string>
+	<string name="edit_profile_x_custom_fields">Zusatzfelder (%d)</string>
+	<string name="edit_profile_custom_fields">Zusatzfelder</string>
+	<string name="edit_profile_custom_fields_description">Deine Website, Pronomen, dein Alter – alles, was du möchtest.</string>
+	<string name="edit_profile_featured_hashtags_description">Ermöglicht anderen deine Timeline nach Themen zu filtern</string>
+	<string name="edit_profile_tab_settings">Profil-Tab-Einstellungen</string>
+	<string name="edit_profile_add_bio">Biografie hinzufügen</string>
+	<string name="edit_profile_featured_hashtags">Vorgestellte Hashtags</string>
+	<string name="edit_profile_x_featured_hashtags">Vorgestellte Hashtags (%d)</string>
+	<string name="edit_profile_replace_image">Ersetzen</string>
+	<string name="edit_profile_edit_display_name">Anzeigenamen bearbeiten</string>
+	<string name="edit_profile_edit_bio">Biografie bearbeiten</string>
+	<string name="add_profile_field">Zusatzfeld hinzufügen</string>
+	<string name="edit_profile_custom_fields_help">Tipp: Beweise die Echtheit deines Mastodon-Profils, indem du verifizierte Links zu deinen persönlichen Websites ergänzt. <i>Mehr erfahren</i></string>
 	<!-- %s is the current user's server domain -->
 </resources>
