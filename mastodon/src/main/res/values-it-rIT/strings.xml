@@ -904,6 +904,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="unblock_account">Sblocca l\'account</string>
 	<string name="unmute_account">Riattiva l\'account</string>
 	<string name="unblock">Sblocca</string>
+	<string name="request_to_follow">Richiedi di seguire</string>
 	<string name="cancel_follow_request">Annulla la richiesta</string>
 	<string name="confirm_remove_follower_title">Rimuovere il follower?</string>
 	<string name="confirm_remove_follower">%s smetterà di seguirti. Si è sicuri di voler procedere?</string>
@@ -940,5 +941,35 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="edit_profile_field">Modifica il campo</string>
 	<string name="edit_profile_field_label_example">Per esempio: \"Sito web personale\"</string>
 	<string name="edit_profile_field_value_example">Per esempio: \"example.me\"</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">Massimo %,d carattere</item>
+		<item quantity="other">Massimo %,d caratteri</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">Usato in %,d post</item>
+		<item quantity="other">Usato in %,d post</item>
+	</plurals>
+	<string name="add_featured_hashtag">Aggiungi hashtag</string>
+	<string name="hashtag">Hashtag</string>
+	<string name="confirm_remove_featured_hashtag">Rimuovere l\'hashtag?</string>
+	<string name="edit_profile_show_media_tab">Scheda \"Media\"</string>
+	<string name="edit_profile_show_media_tab_description">Mostra i tuoi post contenenti contenuti multimediali</string>
+	<string name="edit_profile_show_media_replies">Includi le risposte</string>
+	<string name="edit_profile_show_featured_tab">Scheda \"In evidenza\"</string>
+	<string name="edit_profile_show_featured_tab_description">Uno spazio per mostrare altri account</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Queste impostazioni personalizzano ciò che gli utenti vedono su %s nelle app ufficiali, ma potrebbero non essere applicate agli utenti su altri server e app di terze parti.</string>
+	<string name="handle_explanation_title">Un nome univoco è come un indirizzo email.</string>
+	<string name="handle_explanation_username">%s è il nome utente di questo account sul suo server. Qualcuno su un altro server potrebbe avere lo stesso nome utente.</string>
+	<string name="handle_explanation_domain">%s è il server che ospita il profilo e i post dell\'utente.</string>
+	<string name="handle_explanation_summary">Proprio come puoi inviare email a persone che usano client di posta elettronica diversi, tu puoi interagire con le persone su altri server Mastodon — e con chiunque utilizzi altre app social basate sulle stesse regole che Mastodon usa (il protocollo ActivityPub).</string>
+	<string name="pinned_post">Fissato</string>
+	<string name="view_all_pinned">Visualizza tutti i post fissati</string>
+	<string name="profile_show_all_fields">Mostra tutti i campi</string>
+	<string name="unfeature_user">Non mostrare sul mio profilo</string>
+	<string name="confirm_delete_profile_field">Eliminare il campo?</string>
+	<string name="confirm_delete_avatar">Rimuovere l\'immagine del profilo?</string>
+	<string name="confirm_delete_cover">Rimuovere l\'immagine dell\'intestazione?</string>
+	<string name="profile_followers">Follower</string>
+	<string name="profile_following">Seguiti</string>
 </resources>
