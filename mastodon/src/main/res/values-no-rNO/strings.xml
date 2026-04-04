@@ -42,7 +42,6 @@
 	<string name="done">Ferdig</string>
 	<string name="loading">Laster…</string>
 	<string name="field_label">Etikett</string>
-	<string name="field_content">Innhold</string>
 	<string name="saving">Lagrer…</string>
 	<string name="post_from_user">Innlegg fra %s</string>
 	<string name="poll_option_hint">Valgmulighet %d</string>
@@ -204,8 +203,6 @@
 	<string name="followed_user">Du følger nå %s</string>
 	<string name="following_user_requested">Forespør å følge %s</string>
 	<string name="open_in_browser">Åpne i nettleser</string>
-	<string name="hide_boosts_from_user">Skjul boostere</string>
-	<string name="show_boosts_from_user">Vis boostere</string>
 	<string name="signup_reason">Hvorfor vil du bli med?</string>
 	<string name="signup_reason_note">Dette vil hjelpe oss med å gjennomgå din søknad.</string>
 	<string name="clear">Tøm</string>
@@ -327,7 +324,6 @@
 	<string name="poll_multiple_choice">Velg en eller flere</string>
 	<string name="save_changes">Lagre endringer</string>
 	<string name="profile_featured">Utvalgt</string>
-	<string name="profile_timeline">Tidslinje</string>
 	<string name="view_all">Vis alle</string>
 	<string name="profile_endorsed_accounts">Kontoer</string>
 	<string name="verified_link">Bekreftet lenke</string>
@@ -576,7 +572,6 @@
 	<string name="remove">Fjern</string>
 	<string name="add_list_member">Legg til medlem</string>
 	<string name="search_among_people_you_follow">Søk blant personer du følger</string>
-	<string name="add_user_to_list">Legg til/fjern fra lister…</string>
 	<string name="add_user_to_list_title">Legg til i liste</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Behandle liste %s vises på</string>
@@ -713,4 +708,5 @@ Jo flere folk du følger, jo mer aktiv og interessant blir den.</string>
 	<string name="cant_quote_in_private_title">Sitater kan ikke bygges inn i personlige omtaler</string>
 	<string name="cant_quote_in_private">Hvis du lagrer gjeldende innstillinger, gjøres det innebygde sitatet om til en lenke.</string>
 	<string name="quote_followers_only_confirm_title">Dele med følgere og omtalte brukere?</string>
+	<!-- %s is the current user's server domain -->
 </resources>

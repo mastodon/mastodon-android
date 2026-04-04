@@ -42,7 +42,7 @@
 	<string name="done">Udført</string>
 	<string name="loading">Indlæser…</string>
 	<string name="field_label">Etiket</string>
-	<string name="field_content">Indhold</string>
+	<string name="field_content">Værdi</string>
 	<string name="saving">Gemmer…</string>
 	<string name="post_from_user">Indlæg fra %s</string>
 	<string name="poll_option_hint">Valgmulighed %d</string>
@@ -179,7 +179,7 @@
 	<string name="settings_notifications">Notifikationer</string>
 	<string name="settings_contribute">Bidrag til Mastodon</string>
 	<string name="settings_tos">Tjenestevilkår</string>
-	<string name="settings_privacy_policy">Fortrolighedspolitik</string>
+	<string name="settings_privacy_policy">Privatlivspolitik</string>
 	<string name="settings_clear_cache">Ryd mediecache</string>
 	<string name="settings_app_version">Mastodon til Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Mediecache ryddet</string>
@@ -204,12 +204,12 @@
 	<string name="followed_user">Du følger nu %s</string>
 	<string name="following_user_requested">Anmodede om at følge %s</string>
 	<string name="open_in_browser">Åbn i browser</string>
-	<string name="hide_boosts_from_user">Skjul fremhævninger</string>
-	<string name="show_boosts_from_user">Vis fremhævninger</string>
+	<string name="hide_boosts_from_user">Skjul fremhævelser på tidslinje</string>
+	<string name="show_boosts_from_user">Vis fremhævelser på tidslinje</string>
 	<string name="signup_reason">Hvorfor ønsker du at tilmelde dig?</string>
 	<string name="signup_reason_note">Dette hjælper os med at vurdere din ansøgning.</string>
 	<string name="clear">Ryd</string>
-	<string name="profile_header">Overskriftsbillede</string>
+	<string name="profile_header">Bannerbillede</string>
 	<string name="profile_picture">Profilbillede</string>
 	<string name="reorder">Omarrangér</string>
 	<string name="download">Download</string>
@@ -284,7 +284,7 @@
 	<!-- %s is file size -->
 	<string name="download_update">Download (%s)</string>
 	<string name="install_update">Installér</string>
-	<string name="privacy_policy_title">Brugerfortrolighed</string>
+	<string name="privacy_policy_title">Privatliv</string>
 	<string name="privacy_policy_subtitle">Selvom Mastodon-appen ikke indsamler data, kan den server du tilmelder dig gennem, have en anden politik.\n\nHvis du er uenig i politikken for %s, kan du gå tilbage og vælge en anden server.</string>
 	<string name="i_agree">Jeg accepterer</string>
 	<string name="empty_list">Denne liste er tom</string>
@@ -327,7 +327,7 @@
 	<string name="poll_multiple_choice">Vælg en eller flere</string>
 	<string name="save_changes">Gem ændringer</string>
 	<string name="profile_featured">Fremhævet</string>
-	<string name="profile_timeline">Tidslinje</string>
+	<string name="profile_timeline">Aktivitet</string>
 	<string name="view_all">Se alle</string>
 	<string name="profile_endorsed_accounts">Konti</string>
 	<string name="verified_link">Bekræftet link</string>
@@ -576,7 +576,7 @@
 	<string name="remove">Fjern</string>
 	<string name="add_list_member">Tilføj nogen som medlem</string>
 	<string name="search_among_people_you_follow">Søg blandt personer, som du følger</string>
-	<string name="add_user_to_list">Tilføj/fjern fra lister…</string>
+	<string name="add_user_to_list">Føj til liste…</string>
 	<string name="add_user_to_list_title">Føj til liste</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Administrer listerne %s vises på</string>
@@ -892,4 +892,84 @@ Jo flere du følger, jo mere aktiv og interessant bliver det.</string>
 	<string name="quote_followers_only_cancel">Tilbage til redigering</string>
 	<string name="quote_followers_only_dont_show_again">Vis ikke denne besked igen</string>
 	<string name="more_replies_found">Flere svar fundet</string>
+	<string name="user_is_muted">Skjult</string>
+	<string name="user_is_bot">Automatiseret konto</string>
+	<string name="profile_view_qr_code">Vis QR-kode</string>
+	<string name="feature_user">Fremhæv på min profil</string>
+	<string name="add_user_personal_note">Tilføj en personlig note</string>
+	<string name="mute_account">Skjul konto</string>
+	<string name="block_account">Blokér konto</string>
+	<string name="remove_follower">Fjern følger</string>
+	<string name="report_account">Anmeld konto</string>
+	<string name="unblock_account">Fjern blokering af konto</string>
+	<string name="unmute_account">Vis konto igen</string>
+	<string name="unblock">Fjern blokering</string>
+	<string name="request_to_follow">Anmod om at følge</string>
+	<string name="cancel_follow_request">Annuller anmodning</string>
+	<string name="confirm_remove_follower_title">Fjern følger?</string>
+	<string name="confirm_remove_follower">%s vil ikke længere følge dig. Er du sikker på, at du vil fortsætte?</string>
+	<string name="edit_user_personal_note">Rediger personlig note</string>
+	<string name="user_personal_note_explanation">Personlige noter er kun synlige for dig.</string>
+	<string name="user_personal_note">Personlig note</string>
+	<string name="timeline_filter_posts_and_boosts">Indlæg og fremhævelser</string>
+	<string name="timeline_filter_show_replies">Vis svar</string>
+	<string name="timeline_filter_show_boosts">Vis fremhævelser</string>
+	<string name="timeline_filter_all_activity">Al aktivitet</string>
+	<string name="timeline_filter_posts_and_replies">Indlæg og svar</string>
+	<string name="timeline_filter_posts">Indlæg</string>
+	<string name="edit_profile_display_name">Vist navn</string>
+	<string name="edit_profile_x_custom_fields">Brugerdefinerede felter (%d)</string>
+	<string name="edit_profile_custom_fields">Brugerdefinerede felter</string>
+	<string name="edit_profile_custom_fields_description">F.eks. pronominer, eksterne links, osv.</string>
+	<string name="edit_profile_featured_hashtags_description">Tillad brugere at filtrere din tidslinje efter emne</string>
+	<string name="edit_profile_tab_settings">Indstillinger for profil-fane</string>
+	<string name="edit_profile_add_bio">Tilføj bio</string>
+	<string name="edit_profile_featured_hashtags">Fremhævede hashtags</string>
+	<string name="edit_profile_x_featured_hashtags">Fremhævede hashtags (%d)</string>
+	<string name="edit_profile_replace_image">Erstat</string>
+	<string name="edit_profile_edit_display_name">Rediger vist navn</string>
+	<string name="edit_profile_edit_bio">Rediger bio</string>
+	<string name="add_profile_field">Tilføj felt</string>
+	<string name="edit_profile_custom_fields_help">Tip: Gør din Mastodon-konto mere troværdig ved at bekræfte links til de websteder, du ejer. <i>Få mere at vide</i></string>
+	<string name="edit_profile_link_verification_help_title">Tilføjelse af et bekræftet link</string>
+	<string name="edit_profile_link_verification_help">Giv din Mastodon-profil mere troværdighed ved at bekræfte links til personlige websteder. Sådan fungerer det:</string>
+	<string name="edit_profile_link_verification_title1">Kopier HTML-koden nedenfor</string>
+	<string name="edit_profile_link_verification_title2">Indsæt koden i HTML-koden i dit websteds header</string>
+	<string name="edit_profile_link_verification_text2">Når du tilføjer koden til din header, forbliver &lt;a&gt;-elementet usynligt. Attributten rel=\"me\" forhindrer identitetstyveri på websteder med brugergenereret indhold – derfor er det vigtigt at beholde den.</string>
+	<string name="edit_profile_link_verification_title3">Tilføj dit websted som et brugerdefineret felt</string>
+	<string name="edit_profile_link_verification_text3">Hvis du allerede har tilføjet dit websted som et brugerdefineret felt, skal du slette og tilføje det igen for at udløse bekræftelse.</string>
+	<string name="edit_profile_field">Rediger felt</string>
+	<string name="edit_profile_field_label_example">F.eks. ‘Personligt websted’</string>
+	<string name="edit_profile_field_value_example">F.eks. “eksempel.me“</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">Maksimalt %,d tegn</item>
+		<item quantity="other">Maksimalt %,d tegn</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">Brugt i %,d indlæg</item>
+		<item quantity="other">Brugt i %,d indlæg</item>
+	</plurals>
+	<string name="add_featured_hashtag">Tilføj hashtag</string>
+	<string name="hashtag">Hashtag</string>
+	<string name="confirm_remove_featured_hashtag">Fjern hashtag?</string>
+	<string name="edit_profile_show_media_tab">‘Medier\'-fane</string>
+	<string name="edit_profile_show_media_tab_description">Viser dine indlæg, der indeholder medier</string>
+	<string name="edit_profile_show_media_replies">Inkluder svar</string>
+	<string name="edit_profile_show_featured_tab">‘Fremhævet‘-fane</string>
+	<string name="edit_profile_show_featured_tab_description">Et sted at fremvise andre konti</string>
+	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Disse indstillinger tilpasser det, brugerne ser på %s i de officielle apps, men de gælder muligvis ikke for brugere på andre servere og i tredjepartsapps.</string>
+	<string name="handle_explanation_title">Et handle svarer til en e-mailadresse.</string>
+	<string name="handle_explanation_username">%s er denne kontos brugernavn på dens server. En person på en anden server kan have det samme brugernavn.</string>
+	<string name="handle_explanation_domain">%s er den server, der er vært for brugerens profil og indlæg.</string>
+	<string name="handle_explanation_summary">Ligesom du kan sende e-mails til personer, der bruger forskellige e-mail-klienter, kan du interagere med personer på andre Mastodon-servere – og med enhver på andre sociale apps, der fungerer efter de samme regler som Mastodon (ActivityPub-protokollen).</string>
+	<string name="pinned_post">Fastgjort</string>
+	<string name="view_all_pinned">Se alle fastgjorte indlæg</string>
+	<string name="profile_show_all_fields">Vis alle felter</string>
+	<string name="unfeature_user">Vis ikke på min profil</string>
+	<string name="confirm_delete_profile_field">Slet felt?</string>
+	<string name="confirm_delete_avatar">Fjern profilbillede?</string>
+	<string name="confirm_delete_cover">Fjern bannerbillede?</string>
+	<string name="profile_followers">Følgere</string>
+	<string name="profile_following">Fulgte</string>
 </resources>

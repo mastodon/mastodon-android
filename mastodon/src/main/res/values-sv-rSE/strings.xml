@@ -42,7 +42,6 @@
 	<string name="done">Klar</string>
 	<string name="loading">Laddar…</string>
 	<string name="field_label">Etikett</string>
-	<string name="field_content">Innehåll</string>
 	<string name="saving">Sparar…</string>
 	<string name="post_from_user">Inlägg från %s</string>
 	<string name="poll_option_hint">Alternativ %d</string>
@@ -203,8 +202,6 @@
 	<string name="followed_user">Du följer nu %s</string>
 	<string name="following_user_requested">Begär att följa %s</string>
 	<string name="open_in_browser">Öppna i webbläsare</string>
-	<string name="hide_boosts_from_user">Dölj förstärkningar</string>
-	<string name="show_boosts_from_user">Visa förstärkningar</string>
 	<string name="signup_reason">Varför vill du gå med?</string>
 	<string name="signup_reason_note">Detta kommer hjälpa oss att granska din ansökan.</string>
 	<string name="clear">Rensa</string>
@@ -324,7 +321,6 @@
 	<string name="spoiler_hide">Dölj igen</string>
 	<string name="poll_multiple_choice">Välj en eller flera</string>
 	<string name="save_changes">Spara ändringar</string>
-	<string name="profile_timeline">Tidslinje</string>
 	<string name="view_all">Visa alla</string>
 	<string name="profile_endorsed_accounts">Konton</string>
 	<string name="verified_link">Verifierad länk</string>
@@ -552,7 +548,6 @@
 	<string name="remove">Ta bort</string>
 	<string name="add_list_member">Lägg till medlem</string>
 	<string name="search_among_people_you_follow">Sök bland personer du följer</string>
-	<string name="add_user_to_list">Lägg till/ta bort från listor…</string>
 	<string name="add_user_to_list_title">Lägg till i lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Hantera listorna %s visas på</string>
@@ -715,4 +710,5 @@
 	<string name="remove_quote_button">Ta bort inlägg</string>
 	<string name="quote_followers_only_publish">Publicera inlägg</string>
 	<string name="quote_followers_only_cancel">Tillbaka till redigering</string>
+	<!-- %s is the current user's server domain -->
 </resources>

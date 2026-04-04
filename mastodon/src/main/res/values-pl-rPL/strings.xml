@@ -44,7 +44,6 @@
 	<string name="done">Gotowe</string>
 	<string name="loading">Pobieranie…</string>
 	<string name="field_label">Etykieta</string>
-	<string name="field_content">Zawartość</string>
 	<string name="saving">Zapisywanie…</string>
 	<string name="post_from_user">Wpis od %s</string>
 	<string name="poll_option_hint">Opcja %d</string>
@@ -226,8 +225,6 @@
 	<string name="followed_user">Obserwujesz teraz %s</string>
 	<string name="following_user_requested">Wysłano prośbę o obserwację do %s</string>
 	<string name="open_in_browser">Otwórz w przeglądarce</string>
-	<string name="hide_boosts_from_user">Ukryj podbicia</string>
-	<string name="show_boosts_from_user">Pokaż podbicia</string>
 	<string name="signup_reason">Dlaczego chcesz dołączyć?</string>
 	<string name="signup_reason_note">To pomoże nam ocenić Twój wniosek.</string>
 	<string name="clear">Wyczyść</string>
@@ -361,7 +358,6 @@
 	<string name="poll_multiple_choice">Wybierz jeden lub więcej</string>
 	<string name="save_changes">Zapisz zmiany</string>
 	<string name="profile_featured">Wyróżnione</string>
-	<string name="profile_timeline">Oś czasu</string>
 	<string name="view_all">Wyświetl wszystko</string>
 	<string name="profile_endorsed_accounts">Konta</string>
 	<string name="verified_link">Zweryfikowany link</string>
@@ -634,7 +630,6 @@
 	<string name="remove">Usuń</string>
 	<string name="add_list_member">Dodaj członka</string>
 	<string name="search_among_people_you_follow">Szukaj wśród osób, które obserwujesz</string>
-	<string name="add_user_to_list">Dodaj lub usuń z list…</string>
 	<string name="add_user_to_list_title">Dodaj do listy</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Zarządzaj listami, na których pojawia się %s</string>
@@ -984,4 +979,5 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="quote_followers_only_cancel">Wróć do edycji</string>
 	<string name="quote_followers_only_dont_show_again">Nie pokazuj tej wiadomości ponownie</string>
 	<string name="more_replies_found">Znaleziono więcej odpowiedzi</string>
+	<!-- %s is the current user's server domain -->
 </resources>

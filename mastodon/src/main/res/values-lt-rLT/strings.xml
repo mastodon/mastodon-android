@@ -44,7 +44,6 @@
 	<string name="done">Atlikta</string>
 	<string name="loading">Įkeliama…</string>
 	<string name="field_label">Žyma</string>
-	<string name="field_content">Turinys</string>
 	<string name="saving">Išsaugoma…</string>
 	<string name="post_from_user">Įrašas iš %s</string>
 	<string name="poll_option_hint">%d parinktis</string>
@@ -226,8 +225,6 @@
 	<string name="followed_user">Dabar sekate %s</string>
 	<string name="following_user_requested">Paprašyta sekti %s</string>
 	<string name="open_in_browser">Atverti naršyklėje</string>
-	<string name="hide_boosts_from_user">Slėpti pasidalinimus</string>
-	<string name="show_boosts_from_user">Rodyti pasidalinimus</string>
 	<string name="signup_reason">Kodėl norite jungtis?</string>
 	<string name="signup_reason_note">Tai padės mums peržiūrėti jūsų paraišką.</string>
 	<string name="clear">Valyti</string>
@@ -361,7 +358,6 @@
 	<string name="poll_multiple_choice">Pasirinkite vieną ar daugiau</string>
 	<string name="save_changes">Išsaugoti pakeitimus</string>
 	<string name="profile_featured">Rodomi</string>
-	<string name="profile_timeline">Laiko skalė</string>
 	<string name="view_all">Peržiūrėti viską</string>
 	<string name="profile_endorsed_accounts">Paskyros</string>
 	<string name="verified_link">Patvirtinta nuoroda</string>
@@ -634,7 +630,6 @@
 	<string name="remove">Šalinti</string>
 	<string name="add_list_member">Pridėti narį</string>
 	<string name="search_among_people_you_follow">Ieškokite tarp asmenų, kuriuos sekate</string>
-	<string name="add_user_to_list">Pridėti / šalinti iš sąrašų…</string>
 	<string name="add_user_to_list_title">Pridėti į sąrašą</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Tvarkyti sąrašus, kuriuose pasirodo %s</string>
@@ -984,4 +979,5 @@ Kuo daugiau žmonių sekate, tuo aktyvesnis ir įdomesnis jis bus.</string>
 	<string name="quote_followers_only_cancel">Grįžti į redagavimą</string>
 	<string name="quote_followers_only_dont_show_again">Nerodyti šios žinutės vėl</string>
 	<string name="more_replies_found">Daugiau atsakymų rasta</string>
+	<!-- %s is the current user's server domain -->
 </resources>

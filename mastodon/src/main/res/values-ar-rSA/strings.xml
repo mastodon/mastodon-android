@@ -41,7 +41,6 @@
 	<string name="done">تمّ</string>
 	<string name="loading">يحمل…</string>
 	<string name="field_label">التسمية</string>
-	<string name="field_content">المحتوى</string>
 	<string name="saving">يحفظ…</string>
 	<string name="post_from_user">مَنشور مِن %s</string>
 	<string name="poll_option_hint">الخيار %d</string>
@@ -369,7 +368,6 @@
 	<string name="poll_multiple_choice">اختر واحدا أو أكثر</string>
 	<string name="save_changes">حفظ التغييرات</string>
 	<string name="profile_featured">المميزة</string>
-	<string name="profile_timeline">الخيط</string>
 	<string name="view_all">عرض الكل</string>
 	<string name="profile_endorsed_accounts">الحسابات</string>
 	<string name="verified_link">رابط متحقق منه</string>
@@ -674,4 +672,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

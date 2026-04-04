@@ -42,7 +42,6 @@
 	<string name="done">Opravljeno</string>
 	<string name="loading">Nalaganje …</string>
 	<string name="field_label">Oznaka</string>
-	<string name="field_content">Vsebina</string>
 	<string name="saving">Shranjevanje …</string>
 	<string name="post_from_user">Objava %s</string>
 	<string name="poll_option_hint">Možnost %d</string>
@@ -222,8 +221,6 @@
 	<string name="followed_user">Zdaj sledite %s</string>
 	<string name="following_user_requested">Zaprošeni ste, da sledite %s</string>
 	<string name="open_in_browser">Odpri v brskalniku</string>
-	<string name="hide_boosts_from_user">Skrij izpostavitve</string>
-	<string name="show_boosts_from_user">Pokaži izpostavitve</string>
 	<string name="signup_reason">Zakaj se želite pridružiti?</string>
 	<string name="signup_reason_note">To nam bo pomagalo pregledati vašo prijavo.</string>
 	<string name="clear">Počisti</string>
@@ -356,7 +353,6 @@
 	<string name="poll_multiple_choice">Izberi eno ali več izbir</string>
 	<string name="save_changes">Shrani spremembe</string>
 	<string name="profile_featured">Izpostavljeni</string>
-	<string name="profile_timeline">Časovnica</string>
 	<string name="view_all">Prikaži vse</string>
 	<string name="profile_endorsed_accounts">Računi</string>
 	<string name="verified_link">Preverjena povezava</string>
@@ -628,7 +624,6 @@
 	<string name="remove">Odstrani</string>
 	<string name="add_list_member">Dodaj člana</string>
 	<string name="search_among_people_you_follow">Iščite med ljudmi, katerim sledite</string>
-	<string name="add_user_to_list">Dodaj ali odstrani s seznamov ...</string>
 	<string name="add_user_to_list_title">Dodaj na seznam</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Upravljaj sezname, na katerih je %s</string>
@@ -800,4 +795,5 @@ Več osebam kot sledite, bolj dejaven in zanimiv bo.</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

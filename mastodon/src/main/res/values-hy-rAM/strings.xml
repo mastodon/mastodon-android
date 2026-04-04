@@ -42,7 +42,6 @@
 	<string name="done">Ավարտել</string>
 	<string name="loading">Բեռնվում է…</string>
 	<string name="field_label">Պիտակ</string>
-	<string name="field_content">Բովանդակություն</string>
 	<string name="saving">Պահպանվում է․․․</string>
 	<string name="post_from_user">%s-ի գրառումը</string>
 	<string name="poll_option_hint">Տարբերակ %d</string>
@@ -204,8 +203,6 @@
 	<string name="followed_user">Դուք այժմ հետեւում եք %s-ին</string>
 	<string name="following_user_requested">%s-ին հետևելու հարցումն ուղարկվել է</string>
 	<string name="open_in_browser">Բացել բրաուզերում</string>
-	<string name="hide_boosts_from_user">Թաքցնել տարածածները</string>
-	<string name="show_boosts_from_user">Ցուցադրել տարածածները</string>
 	<string name="signup_reason">Ինչո՞ւ եք ցանկանում միանալ։</string>
 	<string name="signup_reason_note">Սա կօգնի մեզ ստուգել ձեր հայտը։</string>
 	<string name="clear">Մաքրել</string>
@@ -327,7 +324,6 @@
 	<string name="poll_multiple_choice">Ընտրեք առնվազն մեկը</string>
 	<string name="save_changes">Պահպանել</string>
 	<string name="profile_featured">Նշանավոր</string>
-	<string name="profile_timeline">Հոսք</string>
 	<string name="view_all">Դիտել բոլորը</string>
 	<string name="profile_endorsed_accounts">Հաշիվներ</string>
 	<string name="verified_link">Հաստատված հղում</string>
@@ -576,7 +572,6 @@
 	<string name="remove">Ջնջել</string>
 	<string name="add_list_member">Ավելացնել անդամ</string>
 	<string name="search_among_people_you_follow">Փնտրել ձեր հետեւումների մեջ</string>
-	<string name="add_user_to_list">Ավելացնել կամ հեռացնել ցանկերից…</string>
 	<string name="add_user_to_list_title">Ավելացնել ցանկ</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Խմբագրել այն ցանկերը, որտեղ կա %s-ը</string>
@@ -843,4 +838,5 @@
 	<string name="nested_quote">Մեջբերել է %s֊ի գրառումը</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<string name="quote_policy_for_unlisted_explanation">Եթե մեկը ձեզ ցիտի, իր գրառումը նույնպես կթաքցվի թրենդերի հոսքերից։</string>
+	<!-- %s is the current user's server domain -->
 </resources>

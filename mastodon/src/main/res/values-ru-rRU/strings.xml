@@ -42,7 +42,6 @@
 	<string name="done">Готово</string>
 	<string name="loading">Загрузка…</string>
 	<string name="field_label">Подпись</string>
-	<string name="field_content">Значение</string>
 	<string name="saving">Сохранение…</string>
 	<string name="post_from_user">Пост %s</string>
 	<string name="poll_option_hint">Вариант %d</string>
@@ -223,8 +222,6 @@
 	<string name="followed_user">Вы подписались на %s</string>
 	<string name="following_user_requested">Отправлен запрос на подписку %s</string>
 	<string name="open_in_browser">Открыть в браузере</string>
-	<string name="hide_boosts_from_user">Скрывать продвижения</string>
-	<string name="show_boosts_from_user">Показывать продвижения</string>
 	<string name="signup_reason">Почему вы хотите присоединиться?</string>
 	<string name="signup_reason_note">Это поможет нам рассмотреть вашу заявку.</string>
 	<string name="clear">Очистить</string>
@@ -358,7 +355,6 @@
 	<string name="poll_multiple_choice">Выберите один или более</string>
 	<string name="save_changes">Сохранить изменения</string>
 	<string name="profile_featured">Избранное</string>
-	<string name="profile_timeline">Лента</string>
 	<string name="view_all">Посмотреть все</string>
 	<string name="profile_endorsed_accounts">Аккаунты</string>
 	<string name="verified_link">Подтвержденная ссылка</string>
@@ -630,7 +626,6 @@
 	<string name="remove">Удалить</string>
 	<string name="add_list_member">Добавить участника</string>
 	<string name="search_among_people_you_follow">Искать среди подписок</string>
-	<string name="add_user_to_list">Добавить или убрать из списков…</string>
 	<string name="add_user_to_list_title">Добавить в список</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Управлять списками с %s</string>
@@ -863,4 +858,5 @@
 	<string name="remove_quote_confirm_title">Убрать пост?</string>
 	<string name="remove_quote_confirm">Это действие не может быть отменено.</string>
 	<string name="remove_quote_button">Убрать пост</string>
+	<!-- %s is the current user's server domain -->
 </resources>

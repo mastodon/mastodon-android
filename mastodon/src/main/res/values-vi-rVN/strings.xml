@@ -41,7 +41,6 @@
 	<string name="done">Xong</string>
 	<string name="loading">Đang tải…</string>
 	<string name="field_label">Nhãn</string>
-	<string name="field_content">Nội dung</string>
 	<string name="saving">Đang lưu…</string>
 	<string name="post_from_user">Tút của %s</string>
 	<string name="poll_option_hint">Lựa chọn %d</string>
@@ -193,8 +192,6 @@
 	<string name="followed_user">Bạn đã theo dõi %s</string>
 	<string name="following_user_requested">Yêu cầu theo dõi %s</string>
 	<string name="open_in_browser">Mở trong trình duyệt</string>
-	<string name="hide_boosts_from_user">Ẩn lượt đăng lại</string>
-	<string name="show_boosts_from_user">Hiện lượt đăng lại</string>
 	<string name="signup_reason">Vì sao bạn muốn tham gia?</string>
 	<string name="signup_reason_note">Điều này sẽ giúp chúng tôi phê duyệt đăng ký của bạn.</string>
 	<string name="clear">Xóa</string>
@@ -310,7 +307,6 @@
 	<string name="poll_multiple_choice">Chọn một hoặc nhiều</string>
 	<string name="save_changes">Lưu thay đổi</string>
 	<string name="profile_featured">Nổi bật</string>
-	<string name="profile_timeline">Tường</string>
 	<string name="view_all">Xem tất cả</string>
 	<string name="profile_endorsed_accounts">Tài khoản</string>
 	<string name="verified_link">Liên kết xác minh</string>
@@ -547,7 +543,6 @@
 	<string name="remove">Xóa</string>
 	<string name="add_list_member">Thêm người</string>
 	<string name="search_among_people_you_follow">Tìm những người mà bạn quan tâm</string>
-	<string name="add_user_to_list">Sửa danh sách</string>
 	<string name="add_user_to_list_title">Thêm vào danh sách</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">%s sẽ xếp trong danh sách</string>
@@ -846,4 +841,5 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="quote_followers_only_cancel">Quay lại chỉnh sửa</string>
 	<string name="quote_followers_only_dont_show_again">Không hiện thông báo này nữa</string>
 	<string name="more_replies_found">Có trả lời mới</string>
+	<!-- %s is the current user's server domain -->
 </resources>

@@ -41,7 +41,6 @@
 	<string name="done">Selesai</string>
 	<string name="loading">Memuat…</string>
 	<string name="field_label">Label</string>
-	<string name="field_content">Konten</string>
 	<string name="saving">Menyimpan…</string>
 	<string name="post_from_user">Kiriman dari %s</string>
 	<string name="poll_option_hint">Opsi %d</string>
@@ -191,8 +190,6 @@
 	<string name="followed_user">Anda sekarang mengikuti %s</string>
 	<string name="following_user_requested">Diminta untuk mengikuti %s</string>
 	<string name="open_in_browser">Buka di peramban</string>
-	<string name="hide_boosts_from_user">Sembunyikan pembagian ulang</string>
-	<string name="show_boosts_from_user">Tampilkan pembagian ulang</string>
 	<string name="signup_reason">Mengapa Anda ingin bergabung?</string>
 	<string name="signup_reason_note">Ini akan membantu kami meninjau aplikasi Anda.</string>
 	<string name="clear">Hapus</string>
@@ -307,7 +304,6 @@
 	<string name="poll_multiple_choice">Pilih satu atau lebih</string>
 	<string name="save_changes">Simpan perubahan</string>
 	<string name="profile_featured">Sorotan</string>
-	<string name="profile_timeline">Lini Masa</string>
 	<string name="view_all">Lihat semua</string>
 	<string name="profile_endorsed_accounts">Akun</string>
 	<string name="verified_link">Pranala terverifikasi</string>
@@ -543,7 +539,6 @@
 	<string name="remove">Hapus</string>
 	<string name="add_list_member">Tambahkan anggota</string>
 	<string name="search_among_people_you_follow">Cari di antara orang-orang yang Anda ikuti</string>
-	<string name="add_user_to_list">Tambah/hapus dari daftar…</string>
 	<string name="add_user_to_list_title">Tambah ke daftar</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Kelola daftar %s yang ditampilkan</string>
@@ -736,4 +731,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

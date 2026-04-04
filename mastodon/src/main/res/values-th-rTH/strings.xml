@@ -41,7 +41,6 @@
 	<string name="done">เสร็จสิ้น</string>
 	<string name="loading">กำลังโหลด…</string>
 	<string name="field_label">ป้ายชื่อ</string>
-	<string name="field_content">เนื้อหา</string>
 	<string name="saving">กำลังบันทึก…</string>
 	<string name="post_from_user">โพสต์จาก %s</string>
 	<string name="poll_option_hint">ตัวเลือก %d</string>
@@ -192,8 +191,6 @@
 	<string name="followed_user">ตอนนี้คุณกำลังติดตาม %s</string>
 	<string name="following_user_requested">ขอติดตาม %s แล้ว</string>
 	<string name="open_in_browser">เปิดในเบราว์เซอร์</string>
-	<string name="hide_boosts_from_user">ซ่อนการดัน</string>
-	<string name="show_boosts_from_user">แสดงการดัน</string>
 	<string name="signup_reason">ทำไมคุณจึงต้องการเข้าร่วม?</string>
 	<string name="signup_reason_note">นี่จะช่วยให้เราตรวจทานใบสมัครของคุณ</string>
 	<string name="clear">ล้าง</string>
@@ -309,7 +306,6 @@
 	<string name="poll_multiple_choice">เลือกจำนวนหนึ่งหรือมากกว่า</string>
 	<string name="save_changes">บันทึกการเปลี่ยนแปลง</string>
 	<string name="profile_featured">น่าสนใจ</string>
-	<string name="profile_timeline">เส้นเวลา</string>
 	<string name="view_all">ดูทั้งหมด</string>
 	<string name="profile_endorsed_accounts">บัญชี</string>
 	<string name="verified_link">ลิงก์ที่ยืนยันแล้ว</string>
@@ -545,7 +541,6 @@
 	<string name="remove">เอาออก</string>
 	<string name="add_list_member">เพิ่มสมาชิก</string>
 	<string name="search_among_people_you_follow">ค้นหาในหมู่ผู้คนที่คุณติดตาม</string>
-	<string name="add_user_to_list">เพิ่ม/เอาออกจากรายการ…</string>
 	<string name="add_user_to_list_title">เพิ่มไปยังรายการ</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">จัดการรายการที่ %s ปรากฏอยู่ใน</string>
@@ -790,4 +785,5 @@
 	</plurals>
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

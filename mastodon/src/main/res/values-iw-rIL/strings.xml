@@ -44,7 +44,6 @@
 	<string name="done">בוצע</string>
 	<string name="loading">טוען…</string>
 	<string name="field_label">תווית</string>
-	<string name="field_content">תוכן</string>
 	<string name="saving">בשמירה…</string>
 	<string name="post_from_user">הודעה מאת %s</string>
 	<string name="poll_option_hint">אפשרות %d</string>
@@ -226,8 +225,6 @@
 	<string name="followed_user">אתם עוקבים כעת אחרי %s</string>
 	<string name="following_user_requested">בקשה לעקוב אחרי %s</string>
 	<string name="open_in_browser">פתיחה בדפדפן</string>
-	<string name="hide_boosts_from_user">הסתרת הדהודים</string>
-	<string name="show_boosts_from_user">הצגת הדהודים</string>
 	<string name="signup_reason">מדוע תרצו להצטרף?</string>
 	<string name="signup_reason_note">זה יעזור לנו בסקירת הבקשה שלך.</string>
 	<string name="clear">ניקוי</string>
@@ -361,7 +358,6 @@
 	<string name="poll_multiple_choice">בחרו אחד או יותר</string>
 	<string name="save_changes">שמירת שינויים</string>
 	<string name="profile_featured">מומלץ</string>
-	<string name="profile_timeline">ציר זמן</string>
 	<string name="view_all">הצג הכל</string>
 	<string name="profile_endorsed_accounts">חשבונות</string>
 	<string name="verified_link">לינק אימות</string>
@@ -634,7 +630,6 @@
 	<string name="remove">הסרה</string>
 	<string name="add_list_member">הוספת חבר</string>
 	<string name="search_among_people_you_follow">חיפוש בין הנעקבים שלך</string>
-	<string name="add_user_to_list">הוספה/הסרה מהרשימות…</string>
 	<string name="add_user_to_list_title">הוספה לרשימה</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">בחירת הרשימות שבהן מופיעים %s</string>
@@ -910,4 +905,5 @@
 	<string name="remove_quote_confirm">פעולה זו אינה הפיכה.</string>
 	<string name="remove_quote_button">הסרת הודעה</string>
 	<string name="settings_posting_defaults_explanation">העדפות אלו ישמשו כברירות המחדל כשתצרו הודעה חדשה, ברם תוכלו לבחור אחרת בכל חיבור הודעה בעתיד.</string>
+	<!-- %s is the current user's server domain -->
 </resources>

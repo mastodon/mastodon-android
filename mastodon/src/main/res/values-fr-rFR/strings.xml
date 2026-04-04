@@ -42,7 +42,6 @@
 	<string name="done">Terminé</string>
 	<string name="loading">Chargement…</string>
 	<string name="field_label">Étiquette</string>
-	<string name="field_content">Contenu</string>
 	<string name="saving">Enregistrement en cours…</string>
 	<string name="post_from_user">Message de %s</string>
 	<string name="poll_option_hint">Option %d</string>
@@ -204,8 +203,6 @@
 	<string name="followed_user">Vous suivez désormais %s</string>
 	<string name="following_user_requested">Demande de suivi envoyée à %s</string>
 	<string name="open_in_browser">Ouvrir dans le navigateur</string>
-	<string name="hide_boosts_from_user">Masquer les partages</string>
-	<string name="show_boosts_from_user">Afficher les partages</string>
 	<string name="signup_reason">Pourquoi voulez-vous vous inscrire ?</string>
 	<string name="signup_reason_note">Cela nous aidera à examiner votre demande.</string>
 	<string name="clear">Effacer</string>
@@ -327,7 +324,6 @@
 	<string name="poll_multiple_choice">Choisir un ou plusieurs</string>
 	<string name="save_changes">Enregistrer les modifications</string>
 	<string name="profile_featured">En vedette</string>
-	<string name="profile_timeline">Fil</string>
 	<string name="view_all">Tout afficher</string>
 	<string name="profile_endorsed_accounts">Comptes</string>
 	<string name="verified_link">Lien vérifié</string>
@@ -576,7 +572,6 @@
 	<string name="remove">Supprimer</string>
 	<string name="add_list_member">Ajouter un membre</string>
 	<string name="search_among_people_you_follow">Rechercher parmi les gens que vous suivez</string>
-	<string name="add_user_to_list">Ajouter/supprimer des listes…</string>
 	<string name="add_user_to_list_title">Ajouter à la liste</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Gérer les listes où %s apparaît</string>
@@ -891,4 +886,5 @@
 	<string name="quote_followers_only_cancel">Retour à l\'édition</string>
 	<string name="quote_followers_only_dont_show_again">Ne plus afficher ce message</string>
 	<string name="more_replies_found">Plus de réponses trouvées</string>
+	<!-- %s is the current user's server domain -->
 </resources>

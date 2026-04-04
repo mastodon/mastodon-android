@@ -41,7 +41,6 @@
 	<string name="done">Facite</string>
 	<string name="loading">Cargante…</string>
 	<string name="field_label">Etiquetta</string>
-	<string name="field_content">Contento</string>
 	<string name="saving">Salvante…</string>
 	<string name="post_from_user">Message de %s</string>
 	<string name="poll_option_hint">Option %d</string>
@@ -201,8 +200,6 @@
 	<string name="followed_user">Tu ora seque %s</string>
 	<string name="following_user_requested">Requestate de sequer %s</string>
 	<string name="open_in_browser">Aperir in navigator</string>
-	<string name="hide_boosts_from_user">Celar impulsos</string>
-	<string name="show_boosts_from_user">Monstrar impulsos</string>
 	<string name="signup_reason">Perque vole tu inscriber te?</string>
 	<string name="signup_reason_note">Isto nos adjutara a examinar tu demanda.</string>
 	<string name="clear">Rader</string>
@@ -323,7 +320,6 @@
 	<string name="poll_multiple_choice">Selige un o plus</string>
 	<string name="save_changes">Salvar le cambiamentos</string>
 	<string name="profile_featured">Favorite</string>
-	<string name="profile_timeline">Chronologia</string>
 	<string name="view_all">Vider toto</string>
 	<string name="profile_endorsed_accounts">Contos</string>
 	<string name="verified_link">Ligamine verificate</string>
@@ -571,7 +567,6 @@
 	<string name="remove">Remover</string>
 	<string name="add_list_member">Adder membro</string>
 	<string name="search_among_people_you_follow">Cercar inter personas que tu seque</string>
-	<string name="add_user_to_list">Adder/remover ab lista…</string>
 	<string name="add_user_to_list_title">Adder al lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Gerer le lista sur que appare %s</string>
@@ -742,4 +737,5 @@ Quanto plus personas tu seque, tanto plus active e interessante illo essera.</st
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

@@ -41,7 +41,6 @@
 	<string name="done">完成</string>
 	<string name="loading">加载中...</string>
 	<string name="field_label">标签</string>
-	<string name="field_content">内容</string>
 	<string name="saving">正在保存…</string>
 	<string name="post_from_user">来自 %s 的嘟文</string>
 	<string name="poll_option_hint">选项 %d</string>
@@ -193,8 +192,6 @@
 	<string name="followed_user">你已开始关注 %s</string>
 	<string name="following_user_requested">请求关注 %s</string>
 	<string name="open_in_browser">在浏览器中打开</string>
-	<string name="hide_boosts_from_user">隐藏转嘟</string>
-	<string name="show_boosts_from_user">显示转嘟</string>
 	<string name="signup_reason">你想要加入的原因是什么？</string>
 	<string name="signup_reason_note">这会帮助我们评估你的申请。</string>
 	<string name="clear">清除</string>
@@ -310,7 +307,6 @@
 	<string name="poll_multiple_choice">选择一个或多个</string>
 	<string name="save_changes">保存更改</string>
 	<string name="profile_featured">精选</string>
-	<string name="profile_timeline">时间轴</string>
 	<string name="view_all">查看全部</string>
 	<string name="profile_endorsed_accounts">账户</string>
 	<string name="verified_link">已验证链接</string>
@@ -547,7 +543,6 @@
 	<string name="remove">移除</string>
 	<string name="add_list_member">添加成员</string>
 	<string name="search_among_people_you_follow">搜索你关注的人</string>
-	<string name="add_user_to_list">添加/移除列表…</string>
 	<string name="add_user_to_list_title">添加到列表</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">管理包含 %s 的列表</string>
@@ -846,4 +841,5 @@
 	<string name="quote_followers_only_cancel">返回编辑</string>
 	<string name="quote_followers_only_dont_show_again">不再显示此信息</string>
 	<string name="more_replies_found">已找到更多回复</string>
+	<!-- %s is the current user's server domain -->
 </resources>

@@ -42,7 +42,6 @@
 	<string name="done">Lokið</string>
 	<string name="loading">Hleð inn...</string>
 	<string name="field_label">Skýring</string>
-	<string name="field_content">Efni</string>
 	<string name="saving">Vista…</string>
 	<string name="post_from_user">Færsla frá %s</string>
 	<string name="poll_option_hint">Valkostur %d</string>
@@ -204,8 +203,6 @@
 	<string name="followed_user">Þú fylgist núna með %s</string>
 	<string name="following_user_requested">Bað um að fylgjast með %s</string>
 	<string name="open_in_browser">Opna í vafra</string>
-	<string name="hide_boosts_from_user">Fela endurbirtingar</string>
-	<string name="show_boosts_from_user">Sýna endurbirtingar</string>
 	<string name="signup_reason">Hvers vegna vilt þú taka þátt?</string>
 	<string name="signup_reason_note">Þetta mun hjálpa okkur við að yfirfara umsóknina þína.</string>
 	<string name="clear">Hreinsa</string>
@@ -327,7 +324,6 @@
 	<string name="poll_multiple_choice">Veldu eitt eiða fleiri</string>
 	<string name="save_changes">Vista breytingar</string>
 	<string name="profile_featured">Með aukið vægi</string>
-	<string name="profile_timeline">Tímalína</string>
 	<string name="view_all">Skoða allt</string>
 	<string name="profile_endorsed_accounts">Notandaaðgangar</string>
 	<string name="verified_link">Sannreyndur tengill</string>
@@ -576,7 +572,6 @@
 	<string name="remove">Fjarlægja</string>
 	<string name="add_list_member">Bæta við meðlimi</string>
 	<string name="search_among_people_you_follow">Leita meðal þeirra sem þú fylgist með</string>
-	<string name="add_user_to_list">Bæta við/fjarlægja úr listum…</string>
 	<string name="add_user_to_list_title">Bæta á lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Sýsla með lista sem %s birtist á</string>
@@ -892,4 +887,5 @@
 	<string name="quote_followers_only_cancel">Til baka í breytingar</string>
 	<string name="quote_followers_only_dont_show_again">Ekki birta þessi skilaboð aftur</string>
 	<string name="more_replies_found">Fleiri svör fundust</string>
+	<!-- %s is the current user's server domain -->
 </resources>

@@ -33,7 +33,6 @@
 	<string name="done">Učinjeno</string>
 	<string name="loading">Učitavanje…</string>
 	<string name="field_label">Oznaka</string>
-	<string name="field_content">Sadržaj</string>
 	<string name="saving">Snimam…</string>
 	<string name="post_from_user">Post od %s</string>
 	<string name="poll_option_hint">Opcija %d</string>
@@ -199,4 +198,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

@@ -41,7 +41,6 @@
 	<string name="done">완료</string>
 	<string name="loading">불러오는 중…</string>
 	<string name="field_label">라벨</string>
-	<string name="field_content">내용</string>
 	<string name="saving">저장 중...</string>
 	<string name="post_from_user">%s 님의 게시물</string>
 	<string name="poll_option_hint">옵션 %d</string>
@@ -193,8 +192,6 @@
 	<string name="followed_user">이제 %s 님을 팔로우 합니다</string>
 	<string name="following_user_requested">%s 님 팔로우를 요청합니다</string>
 	<string name="open_in_browser">브라우저에서 열기</string>
-	<string name="hide_boosts_from_user">부스트 숨기기</string>
-	<string name="show_boosts_from_user">부스트 표시</string>
 	<string name="signup_reason">가입하려는 이유가 무엇인가요?</string>
 	<string name="signup_reason_note">이 정보는 우리가 심사를 하는 데에 참고할 수 있습니다.</string>
 	<string name="clear">모두 지우기</string>
@@ -310,7 +307,6 @@
 	<string name="poll_multiple_choice">한 개 혹은 여러 개를 선택하세요</string>
 	<string name="save_changes">변경사항 저장</string>
 	<string name="profile_featured">추천</string>
-	<string name="profile_timeline">타임라인</string>
 	<string name="view_all">모두 보기</string>
 	<string name="profile_endorsed_accounts">계정</string>
 	<string name="verified_link">인증된 링크</string>
@@ -555,7 +551,6 @@
 	<string name="remove">제거</string>
 	<string name="add_list_member">구성원 추가</string>
 	<string name="search_among_people_you_follow">팔로우 중인 사람들 중에서 찾기</string>
-	<string name="add_user_to_list">목록에서 추가 또는 제거</string>
 	<string name="add_user_to_list_title">목록에 추가</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">%s 가 표시되는 목록 관리하기</string>
@@ -844,4 +839,5 @@
 	<string name="remove_quote_confirm">이 작업은 되돌릴 수 없습니다.</string>
 	<string name="remove_quote_button">게시물 삭제</string>
 	<string name="settings_posting_defaults_explanation">이러한 설정은 게시물을 올릴 때 기본값으로 사용될 것이지만, 작성기 내에서 게시물별로 편집할 수 있습니다.</string>
+	<!-- %s is the current user's server domain -->
 </resources>

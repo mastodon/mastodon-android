@@ -44,7 +44,6 @@
 	<string name="done">Hotovo</string>
 	<string name="loading">Načítání…</string>
 	<string name="field_label">Označení</string>
-	<string name="field_content">Obsah</string>
 	<string name="saving">Ukládání…</string>
 	<string name="post_from_user">Příspěvek od %s</string>
 	<string name="poll_option_hint">Volba %d</string>
@@ -226,8 +225,6 @@
 	<string name="followed_user">Nyní sledujete %s</string>
 	<string name="following_user_requested">Požádáno o sledování %s</string>
 	<string name="open_in_browser">Otevřít v prohlížeči</string>
-	<string name="hide_boosts_from_user">Skrýt boosty</string>
-	<string name="show_boosts_from_user">Zobrazit boosty</string>
 	<string name="signup_reason">Proč se chcete připojit?</string>
 	<string name="signup_reason_note">Toto nám pomůže posoudit vaši žádost.</string>
 	<string name="clear">Vyčistit</string>
@@ -361,7 +358,6 @@
 	<string name="poll_multiple_choice">Vyberte jeden nebo více</string>
 	<string name="save_changes">Uložit změny</string>
 	<string name="profile_featured">Doporučené</string>
-	<string name="profile_timeline">Časová osa</string>
 	<string name="view_all">Zobrazit všechny</string>
 	<string name="profile_endorsed_accounts">Účty</string>
 	<string name="verified_link">Ověřený odkaz</string>
@@ -634,7 +630,6 @@
 	<string name="remove">Odstranit</string>
 	<string name="add_list_member">Přidat člena</string>
 	<string name="search_among_people_you_follow">Hledejte mezi lidmi, které sledujete</string>
-	<string name="add_user_to_list">Přidat/odstranit ze seznamů…</string>
 	<string name="add_user_to_list_title">Přidat do seznamu</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Spravovat seznamy, v kterých je %s</string>
@@ -984,4 +979,5 @@
 	<string name="quote_followers_only_cancel">Zpět k úpravám</string>
 	<string name="quote_followers_only_dont_show_again">Tuto zprávu příště nezobrazovat</string>
 	<string name="more_replies_found">Nalezeny další odpovědi</string>
+	<!-- %s is the current user's server domain -->
 </resources>

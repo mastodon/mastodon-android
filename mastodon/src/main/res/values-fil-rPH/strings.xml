@@ -33,7 +33,6 @@
 	<string name="done">Tapos na</string>
 	<string name="loading">Naglo-load…</string>
 	<string name="field_label">Label</string>
-	<string name="field_content">Nilalaman</string>
 	<string name="saving">Pag-save…</string>
 	<string name="post_from_user">Post mula kay %s</string>
 	<string name="poll_option_hint">Pagpipilian %d</string>
@@ -249,4 +248,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

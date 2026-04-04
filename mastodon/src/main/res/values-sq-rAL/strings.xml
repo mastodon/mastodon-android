@@ -42,7 +42,6 @@
 	<string name="done">U bë</string>
 	<string name="loading">Po ngarkohet…</string>
 	<string name="field_label">Etiketë</string>
-	<string name="field_content">Lëndë</string>
 	<string name="saving">Po ruhet…</string>
 	<string name="post_from_user">Postim nga %s</string>
 	<string name="poll_option_hint">Mundësi %d</string>
@@ -204,8 +203,6 @@
 	<string name="followed_user">S’e ndiqni %s</string>
 	<string name="following_user_requested">U kërkua ndjekje për %s</string>
 	<string name="open_in_browser">Hape në shfletues</string>
-	<string name="hide_boosts_from_user">Fshihi përforcimet</string>
-	<string name="show_boosts_from_user">Shfaq përforcime</string>
 	<string name="signup_reason">Pse doni të bëheni pjesë?</string>
 	<string name="signup_reason_note">Kjo do të na ndihmojë të shqyrtojmë aplikacionin tuaj.</string>
 	<string name="clear">Spastroje</string>
@@ -327,7 +324,6 @@
 	<string name="poll_multiple_choice">Zgjidhni një, ose më tepër</string>
 	<string name="save_changes">Ruaji ndryshimet</string>
 	<string name="profile_featured">E zgjedhur</string>
-	<string name="profile_timeline">Rrjedhë kohore</string>
 	<string name="view_all">Shihini krejt</string>
 	<string name="profile_endorsed_accounts">Llogari</string>
 	<string name="verified_link">Lidhje e verifikuar</string>
@@ -576,7 +572,6 @@
 	<string name="remove">Hiqe</string>
 	<string name="add_list_member">Shtoni anëtar</string>
 	<string name="search_among_people_you_follow">Kërkoni mes personash që ndiqni</string>
-	<string name="add_user_to_list">Shtoni/hiqni prej listash…</string>
 	<string name="add_user_to_list_title">Shtoje te lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Administroni lista ku shfaqet %s</string>
@@ -891,4 +886,5 @@
 	<string name="quote_followers_only_cancel">Mbrapsht te përpunimi</string>
 	<string name="quote_followers_only_dont_show_again">Mos e shfaq më këtë mesazh</string>
 	<string name="more_replies_found">U gjetën më tepër përgjigje</string>
+	<!-- %s is the current user's server domain -->
 </resources>

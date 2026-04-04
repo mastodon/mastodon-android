@@ -42,7 +42,6 @@
 	<string name="done">Έγινε</string>
 	<string name="loading">Φόρτωση…</string>
 	<string name="field_label">Περιγραφή</string>
-	<string name="field_content">Περιεχόμενο</string>
 	<string name="saving">Αποθήκευση…</string>
 	<string name="post_from_user">Ανάρτηση από %s</string>
 	<string name="poll_option_hint">Επιλογή %d</string>
@@ -204,8 +203,6 @@
 	<string name="followed_user">Ακολουθείς πλέον τον χρήστη %s</string>
 	<string name="following_user_requested">Έγινε αίτημα ακολούθησης σε %s</string>
 	<string name="open_in_browser">Άνοιξε στον περιηγητή</string>
-	<string name="hide_boosts_from_user">Απόκρυψη ενισχύσεων</string>
-	<string name="show_boosts_from_user">Εμφάνιση ενισχύσεων</string>
 	<string name="signup_reason">Γιατί θέλεις να συμμετάσχεις;</string>
 	<string name="signup_reason_note">Αυτό θα μας βοηθήσει να εξετάσουμε την αίτησή σου.</string>
 	<string name="clear">Εκκαθάριση</string>
@@ -327,7 +324,6 @@
 	<string name="poll_multiple_choice">Επίλεξε ένα ή περισσότερα</string>
 	<string name="save_changes">Αποθήκευση αλλαγών</string>
 	<string name="profile_featured">Αναδεδειγμένα</string>
-	<string name="profile_timeline">Ροή</string>
 	<string name="view_all">Εμφάνιση όλων</string>
 	<string name="profile_endorsed_accounts">Λογαριασμοί</string>
 	<string name="verified_link">Επαληθευμένος σύνδεσμος</string>
@@ -576,7 +572,6 @@
 	<string name="remove">Αφαίρεση</string>
 	<string name="add_list_member">Προσθήκη μέλους</string>
 	<string name="search_among_people_you_follow">Αναζήτησε μεταξύ των ανθρώπων που ακουλουθείς</string>
-	<string name="add_user_to_list">Προσθήκη/αφαίρεση από λίστες…</string>
 	<string name="add_user_to_list_title">Προσθήκη στη λίστα</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Διαχείριση λιστών όπου εμφανίζεται ο/η %s</string>
@@ -891,4 +886,5 @@
 	<string name="quote_followers_only_cancel">Πίσω στην επεξεργασία</string>
 	<string name="quote_followers_only_dont_show_again">Να μην εμφανιστεί ξανά αυτό το μήνυμα</string>
 	<string name="more_replies_found">Βρέθηκαν περισσότερες απαντήσεις</string>
+	<!-- %s is the current user's server domain -->
 </resources>

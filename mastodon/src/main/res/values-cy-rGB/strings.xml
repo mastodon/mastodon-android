@@ -40,7 +40,6 @@
 	<string name="done">Iawn</string>
 	<string name="loading">Wrthi\'n llwytho…</string>
 	<string name="field_label">Label</string>
-	<string name="field_content">Cynnwys</string>
 	<string name="saving">Wrthi\'n cadw…</string>
 	<string name="post_from_user">Post gan %s</string>
 	<string name="poll_option_hint">Dewis %d</string>
@@ -220,8 +219,6 @@
 	<string name="followed_user">Rydych chi bellach yn dilyn %s</string>
 	<string name="following_user_requested">Wedi gwneud cais i ddilyn %s</string>
 	<string name="open_in_browser">Agor mewn porwr</string>
-	<string name="hide_boosts_from_user">Cuddio hybiau</string>
-	<string name="show_boosts_from_user">Dangos hybiau</string>
 	<string name="signup_reason">Pam ydych chi eisiau ymuno?</string>
 	<string name="signup_reason_note">Bydd hyn yn helpu ni adolygu eich cais.</string>
 	<string name="clear">Clirio</string>
@@ -341,7 +338,6 @@
 	<string name="poll_multiple_choice">Dewiswch un neu fwy</string>
 	<string name="save_changes">Cadw newidiadau</string>
 	<string name="profile_featured">Dethol</string>
-	<string name="profile_timeline">Llinell amser</string>
 	<string name="view_all">Gweld y cyfan</string>
 	<string name="profile_endorsed_accounts">Cyfrifon</string>
 	<string name="verified_link">Dolen ddilys</string>
@@ -541,7 +537,6 @@
 	<string name="confirm_remove_list_members">Dileu aelodau?</string>
 	<string name="remove">Dileu</string>
 	<string name="add_list_member">Ychwanegu aelod</string>
-	<string name="add_user_to_list">Ychwanegu / dileu o restrau…</string>
 	<string name="add_user_to_list_title">Ychwanegu at restr</string>
 	<!-- %s is a username -->
 	<string name="remove_from_list">Dileu o\'r rhestr</string>
@@ -635,4 +630,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

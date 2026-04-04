@@ -44,7 +44,6 @@
 	<string name="done">Готово</string>
 	<string name="loading">Завантаження…</string>
 	<string name="field_label">Мітка</string>
-	<string name="field_content">Вміст</string>
 	<string name="saving">Збереження…</string>
 	<string name="post_from_user">Публікація від %s</string>
 	<string name="poll_option_hint">Варіант %d</string>
@@ -226,8 +225,6 @@
 	<string name="followed_user">Тепер ви підписані на %s</string>
 	<string name="following_user_requested">Запитано на підписку %s</string>
 	<string name="open_in_browser">Відкрити у браузері</string>
-	<string name="hide_boosts_from_user">Сховати поширення</string>
-	<string name="show_boosts_from_user">Показувати поширення</string>
 	<string name="signup_reason">Чому ви бажаєте приєднатися?</string>
 	<string name="signup_reason_note">Це допоможе нам розглянути вашу заяву.</string>
 	<string name="clear">Очистити</string>
@@ -361,7 +358,6 @@
 	<string name="poll_multiple_choice">Оберіть один чи декілька</string>
 	<string name="save_changes">Зберегти зміни</string>
 	<string name="profile_featured">Рекомендації</string>
-	<string name="profile_timeline">Стрічка</string>
 	<string name="view_all">Переглянути все</string>
 	<string name="profile_endorsed_accounts">Акаунти</string>
 	<string name="verified_link">Підтверджене посилання</string>
@@ -634,7 +630,6 @@
 	<string name="remove">Видалити</string>
 	<string name="add_list_member">Додати учасника</string>
 	<string name="search_among_people_you_follow">Шукати серед людей, на яких ви підписані</string>
-	<string name="add_user_to_list">Додати/видалити зі списків…</string>
 	<string name="add_user_to_list_title">Додати до списку</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Редагувати списки, на яких показується %s</string>
@@ -984,4 +979,5 @@
 	<string name="quote_followers_only_cancel">Назад до редагування</string>
 	<string name="quote_followers_only_dont_show_again">Більше не показувати цього повідомлення</string>
 	<string name="more_replies_found">Знайдено більше відповідей</string>
+	<!-- %s is the current user's server domain -->
 </resources>

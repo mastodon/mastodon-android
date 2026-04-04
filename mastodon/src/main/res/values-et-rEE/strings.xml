@@ -42,7 +42,6 @@
 	<string name="done">Valmis</string>
 	<string name="loading">Laadib…</string>
 	<string name="field_label">Silt</string>
-	<string name="field_content">Sisu</string>
 	<string name="saving">Salvestan…</string>
 	<string name="post_from_user">Postitus kasutajalt %s</string>
 	<string name="poll_option_hint">Valik %d</string>
@@ -204,8 +203,6 @@
 	<string name="followed_user">Sa jälgid nüüd kasutajat %s</string>
 	<string name="following_user_requested">%s soovib sind jälgida</string>
 	<string name="open_in_browser">Ava veebibrauseris</string>
-	<string name="hide_boosts_from_user">Peida hooandmised</string>
-	<string name="show_boosts_from_user">Näita hooandmisi</string>
 	<string name="signup_reason">Miks sa soovid liituda?</string>
 	<string name="signup_reason_note">See aitab meil sinu taotlust üle vaadata.</string>
 	<string name="clear">Tühjenda</string>
@@ -327,7 +324,6 @@
 	<string name="poll_multiple_choice">Vali üks või enam</string>
 	<string name="save_changes">Salvesta muudatused</string>
 	<string name="profile_featured">Esiletõstetud</string>
-	<string name="profile_timeline">Ajajoon</string>
 	<string name="view_all">Vaata kõiki</string>
 	<string name="profile_endorsed_accounts">Kasutajakontod</string>
 	<string name="verified_link">Kontrollitud link</string>
@@ -576,7 +572,6 @@
 	<string name="remove">Eemalda</string>
 	<string name="add_list_member">Lisa liige</string>
 	<string name="search_among_people_you_follow">Otsi enda jälgitavate inimeste hulgast</string>
-	<string name="add_user_to_list">Lisa loendeisse või eemalda sealt…</string>
 	<string name="add_user_to_list_title">Lisa loendisse</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Halda loendeid, kus %s osaleb</string>
@@ -892,4 +887,5 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="quote_followers_only_cancel">Tagasi muutmise juurde</string>
 	<string name="quote_followers_only_dont_show_again">Ära enam näita seda sõnumit uuesti</string>
 	<string name="more_replies_found">Leidub veel vastuseid</string>
+	<!-- %s is the current user's server domain -->
 </resources>

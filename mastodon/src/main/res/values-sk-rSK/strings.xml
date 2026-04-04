@@ -34,7 +34,6 @@
 	<string name="unblock_domain">Odblokovať %s</string>
 	<string name="done">Hotovo</string>
 	<string name="loading">Načítavam…</string>
-	<string name="field_content">Obsah</string>
 	<string name="saving">Ukladám…</string>
 	<string name="post_from_user">Príspevky používateľa %s</string>
 	<string name="poll_option_hint">Možnosť %d</string>
@@ -151,4 +150,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

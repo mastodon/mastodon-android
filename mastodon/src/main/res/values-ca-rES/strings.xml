@@ -42,7 +42,6 @@
 	<string name="done">Fet</string>
 	<string name="loading">Carregant…</string>
 	<string name="field_label">Etiqueta</string>
-	<string name="field_content">Contingut</string>
 	<string name="saving">Desant…</string>
 	<string name="post_from_user">Publicació de %s</string>
 	<string name="poll_option_hint">Opció %d</string>
@@ -204,8 +203,6 @@
 	<string name="followed_user">Ara estàs seguint %s</string>
 	<string name="following_user_requested">%s ha sol·licitat seguir-te</string>
 	<string name="open_in_browser">Obre al navegador</string>
-	<string name="hide_boosts_from_user">Amaga els impulsos</string>
-	<string name="show_boosts_from_user">Mostra els impulsos</string>
 	<string name="signup_reason">Per què vols unir-te?</string>
 	<string name="signup_reason_note">Això ens ajudarà a revisar la teva petició.</string>
 	<string name="clear">Esborra</string>
@@ -304,7 +301,6 @@
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
 	<string name="profile_featured">Destacat</string>
-	<string name="profile_timeline">Línia de temps</string>
 	<string name="profile_endorsed_accounts">Comptes</string>
 	<string name="verified_link">Enllaç verificat</string>
 	<string name="show">Mostra</string>
@@ -424,7 +420,6 @@
 	<string name="remove">Elimina</string>
 	<string name="add_list_member">Afegeix un membre</string>
 	<string name="search_among_people_you_follow">Cerqueu entre les persones que seguiu</string>
-	<string name="add_user_to_list">Afegeix/elimina de les llistes…</string>
 	<string name="add_user_to_list_title">Afegeix a la llista</string>
 	<!-- %s is a username -->
 	<string name="list_no_members">Encara no hi ha membres</string>
@@ -461,4 +456,5 @@
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

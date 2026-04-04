@@ -42,7 +42,6 @@
 	<string name="done">Kész</string>
 	<string name="loading">Betöltés…</string>
 	<string name="field_label">Címke</string>
-	<string name="field_content">Tartalom</string>
 	<string name="saving">Mentés…</string>
 	<string name="post_from_user">Bejegyzés tőle: %s</string>
 	<string name="poll_option_hint">%d. lehetőség</string>
@@ -203,8 +202,6 @@
 	<string name="followed_user">Most már követed őt: %s</string>
 	<string name="following_user_requested">Követési kérés elküldve %s felhasználónak</string>
 	<string name="open_in_browser">Megnyitás böngészőben</string>
-	<string name="hide_boosts_from_user">Megtolások elrejtése</string>
-	<string name="show_boosts_from_user">Megtolások megjelenítése</string>
 	<string name="signup_reason">Miért szeretnél csatlakozni?</string>
 	<string name="signup_reason_note">Ez segít nekünk átnézni a jelentkezésedet.</string>
 	<string name="clear">Törlés</string>
@@ -326,7 +323,6 @@
 	<string name="poll_multiple_choice">Válassz egyet vagy többet</string>
 	<string name="save_changes">Módosítások mentése</string>
 	<string name="profile_featured">Kiemelt</string>
-	<string name="profile_timeline">Idővonal</string>
 	<string name="view_all">Összes megtekintése</string>
 	<string name="profile_endorsed_accounts">Fiókok</string>
 	<string name="verified_link">Ellenőrzött hivatkozás</string>
@@ -574,7 +570,6 @@
 	<string name="remove">Eltávolítás</string>
 	<string name="add_list_member">Tag hozzáadása</string>
 	<string name="search_among_people_you_follow">Keresés a követett személyek között</string>
-	<string name="add_user_to_list">Hozzáadás/eltávolítás listákról…</string>
 	<string name="add_user_to_list_title">Hozzáadás a listához</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listák kezelése, melyen %s szerepel</string>
@@ -834,4 +829,5 @@ Minél több embert követsz, annál aktívabb és érdekesebb lesz.</string>
 	</plurals>
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<!-- %s is the current user's server domain -->
 </resources>

@@ -44,7 +44,6 @@
 	<string name="done">Deiseil</string>
 	<string name="loading">’Ga luchdadh…</string>
 	<string name="field_label">Leubail</string>
-	<string name="field_content">Susbaint</string>
 	<string name="saving">’Ga shàbhaladh…</string>
 	<string name="post_from_user">Post le %s</string>
 	<string name="poll_option_hint">Roghainn %d</string>
@@ -226,8 +225,6 @@
 	<string name="followed_user">Tha thu a’ leantainn %s a-nis</string>
 	<string name="following_user_requested">Dh’iarr thu %s a leantainn</string>
 	<string name="open_in_browser">Fosgail sa bhrabhsair</string>
-	<string name="hide_boosts_from_user">Falaich na brosnachaidhean</string>
-	<string name="show_boosts_from_user">Seall na brosnachaidhean</string>
 	<string name="signup_reason">Carson a bu mhiann leat ballrachd fhaighinn?</string>
 	<string name="signup_reason_note">Bidh e nas fhasa dhuinn lèirmheas a dhèanamh air d’ iarrtas.</string>
 	<string name="clear">Falamhaich</string>
@@ -361,7 +358,6 @@
 	<string name="poll_multiple_choice">Tagh co-dhiù aonan</string>
 	<string name="save_changes">Sàbhail na h-atharraichean</string>
 	<string name="profile_featured">’Ga bhrosnachadh</string>
-	<string name="profile_timeline">Loidhne-ama</string>
 	<string name="view_all">Seall a h-uile</string>
 	<string name="profile_endorsed_accounts">Cunntasan</string>
 	<string name="verified_link">Ceangal dearbhte</string>
@@ -634,7 +630,6 @@
 	<string name="remove">Thoir air falbh</string>
 	<string name="add_list_member">Cuir ball ris</string>
 	<string name="search_among_people_you_follow">Lorg am measg nan daoine a leanas tu</string>
-	<string name="add_user_to_list">Cuir ris/Thoir air falbh o liostaichean…</string>
 	<string name="add_user_to_list_title">Cuir ris an liosta</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Stiùirich na liostaichean air an nochd %s</string>
@@ -983,4 +978,5 @@
 	<string name="quote_followers_only_cancel">Till dhan deasachadh</string>
 	<string name="quote_followers_only_dont_show_again">Na seall an teachdaireachd seo a-rithist</string>
 	<string name="more_replies_found">Fhuair sinn lorg air barrachd fhreagairtean</string>
+	<!-- %s is the current user's server domain -->
 </resources>

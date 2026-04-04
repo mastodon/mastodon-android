@@ -45,7 +45,6 @@
 	<string name="done">Déanta</string>
 	<string name="loading">Ag lódáil…</string>
 	<string name="field_label">Lipéad</string>
-	<string name="field_content">Ábhar</string>
 	<string name="saving">Ag sábháil…</string>
 	<string name="post_from_user">Postáil ó %s</string>
 	<string name="poll_option_hint">Rogha %d</string>
@@ -237,8 +236,6 @@
 	<string name="followed_user">Tá tú ag leanúint %s anois</string>
 	<string name="following_user_requested">Iarradh leanúint %s</string>
 	<string name="open_in_browser">Oscail sa bhrabhsálaí</string>
-	<string name="hide_boosts_from_user">Folaigh treisiúcháin</string>
-	<string name="show_boosts_from_user">Taispeáin treisiúcháin</string>
 	<string name="signup_reason">Cén fáth ar mhaith leat páirt a ghlacadh?</string>
 	<string name="signup_reason_note">Cabhróidh sé seo linn d’iarratas a athbhreithniú.</string>
 	<string name="clear">Glan</string>
@@ -378,7 +375,6 @@
 	<string name="poll_multiple_choice">Roghnaigh ceann amháin nó níos mó</string>
 	<string name="save_changes">Sábháil athruithe</string>
 	<string name="profile_featured">Réadmhaoin</string>
-	<string name="profile_timeline">Amlíne</string>
 	<string name="view_all">Féach ar gach rud</string>
 	<string name="profile_endorsed_accounts">Cuntais</string>
 	<string name="verified_link">Nasc fíoraithe</string>
@@ -663,7 +659,6 @@
 	<string name="remove">Bain</string>
 	<string name="add_list_member">Cuir ball leis</string>
 	<string name="search_among_people_you_follow">Cuardaigh i measc na ndaoine a leanann tú</string>
-	<string name="add_user_to_list">Cuir leis/bain de liostaí…</string>
 	<string name="add_user_to_list_title">Cuir leis an liosta</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Bainistigh na liostaí a fheictear %s ar</string>
@@ -1030,4 +1025,5 @@ Dá mhéad daoine a leanann tú, is ea is gníomhaí agus is suimiúla a bheidh 
 	<string name="quote_followers_only_cancel">Ar ais chuig an eagarthóireacht</string>
 	<string name="quote_followers_only_dont_show_again">Ná taispeáin an teachtaireacht seo arís</string>
 	<string name="more_replies_found">Tuilleadh freagraí aimsithe</string>
+	<!-- %s is the current user's server domain -->
 </resources>

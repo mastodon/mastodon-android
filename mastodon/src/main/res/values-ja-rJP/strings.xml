@@ -41,7 +41,6 @@
 	<string name="done">完了</string>
 	<string name="loading">読み込み中…</string>
 	<string name="field_label">ラベル</string>
-	<string name="field_content">コンテンツ</string>
 	<string name="saving">保存中…</string>
 	<string name="post_from_user">%s さんの投稿</string>
 	<string name="poll_option_hint">オプション %d</string>
@@ -193,8 +192,6 @@
 	<string name="followed_user">%s さんをフォローしました</string>
 	<string name="following_user_requested">%s さんにフォローリクエストを送信しました</string>
 	<string name="open_in_browser">ブラウザーで開く</string>
-	<string name="hide_boosts_from_user">ブーストを非表示</string>
-	<string name="show_boosts_from_user">ブーストを表示</string>
 	<string name="signup_reason">参加したい理由を入力してください</string>
 	<string name="signup_reason_note">申請の確認に役立つメッセージを添えてください。</string>
 	<string name="clear">クリア</string>
@@ -310,7 +307,6 @@
 	<string name="poll_multiple_choice">複数選択可</string>
 	<string name="save_changes">変更を保存</string>
 	<string name="profile_featured">おすすめ</string>
-	<string name="profile_timeline">タイムライン</string>
 	<string name="view_all">すべて表示</string>
 	<string name="profile_endorsed_accounts">アカウント</string>
 	<string name="verified_link">確認済みのリンク</string>
@@ -547,7 +543,6 @@
 	<string name="remove">削除</string>
 	<string name="add_list_member">メンバーを追加</string>
 	<string name="search_among_people_you_follow">フォローしている人の中から検索</string>
-	<string name="add_user_to_list">リストに追加/削除…</string>
 	<string name="add_user_to_list_title">リストに追加</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">%s さんが表示されるリストを管理</string>
@@ -838,4 +833,5 @@
 	<string name="remove_quote_confirm">この操作は元に戻せません。</string>
 	<string name="remove_quote_button">投稿を削除</string>
 	<string name="settings_posting_defaults_explanation">以下の設定は投稿を新規作成するときにデフォルトとして使用されますが、作成画面で投稿ごとに変更できます。</string>
+	<!-- %s is the current user's server domain -->
 </resources>

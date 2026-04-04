@@ -42,7 +42,6 @@
 	<string name="done">Egina</string>
 	<string name="loading">Kargatzen…</string>
 	<string name="field_label">Etiketa</string>
-	<string name="field_content">Edukia</string>
 	<string name="saving">Gordetzen…</string>
 	<string name="post_from_user">%s(r)en bidalketa</string>
 	<string name="poll_option_hint">%d aukera</string>
@@ -204,8 +203,6 @@
 	<string name="followed_user">%s jarraitzen ari zara</string>
 	<string name="following_user_requested">%s jarraitzea eskatuta</string>
 	<string name="open_in_browser">Ireki nabigatzailean</string>
-	<string name="hide_boosts_from_user">Ezkutatu bultzadak</string>
-	<string name="show_boosts_from_user">Erakutsi bultzadak</string>
 	<string name="signup_reason">Zergatik elkartu nahi duzu?</string>
 	<string name="signup_reason_note">Honek zure eskaera berrikustean lagunduko digu.</string>
 	<string name="clear">Garbitu</string>
@@ -327,7 +324,6 @@
 	<string name="poll_multiple_choice">Aukeratu bat edo gehiago</string>
 	<string name="save_changes">Gorde aldaketak</string>
 	<string name="profile_featured">Nabarmenak</string>
-	<string name="profile_timeline">Denbora-lerroa</string>
 	<string name="view_all">Ikusi guztia</string>
 	<string name="profile_endorsed_accounts">Kontuak</string>
 	<string name="verified_link">Lotura egiaztatua</string>
@@ -576,7 +572,6 @@
 	<string name="remove">Kendu</string>
 	<string name="add_list_member">Gehitu kidea</string>
 	<string name="search_among_people_you_follow">Bilatu jarraitzen dituzun pertsonen artean</string>
-	<string name="add_user_to_list">Gehitu edo kendu zerrendetatik…</string>
 	<string name="add_user_to_list_title">Gehitu zerrendara</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">%s agertzen den zerrendak kudeatu</string>
@@ -892,4 +887,5 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="quote_followers_only_cancel">Bueltatu ediziora</string>
 	<string name="quote_followers_only_dont_show_again">Ez erakutsi mezu hau berriro</string>
 	<string name="more_replies_found">Erantzun gehiago aurkitu dira</string>
+	<!-- %s is the current user's server domain -->
 </resources>

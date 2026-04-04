@@ -42,7 +42,6 @@
 	<string name="done">انجام شد</string>
 	<string name="loading">درحال بارگذاری…</string>
 	<string name="field_label">برچسب</string>
-	<string name="field_content">محتوا</string>
 	<string name="saving">درحال ذخیره‌سازی…</string>
 	<string name="post_from_user">فرسته از %s</string>
 	<string name="poll_option_hint">گزینه %d</string>
@@ -203,8 +202,6 @@
 	<string name="followed_user">شما اکنون %s را پی می‌گیرید</string>
 	<string name="following_user_requested">درخواست پی‌گیری %s شد</string>
 	<string name="open_in_browser">بازکردن در مرورگر</string>
-	<string name="hide_boosts_from_user">نهفتن تقویت‌ها</string>
-	<string name="show_boosts_from_user">نمایش تقویت‌ها</string>
 	<string name="signup_reason">چرا می‌خواهید عضو شوید؟</string>
 	<string name="signup_reason_note">این برای بررسی درخواست شما به ما کمک خواهد کرد.</string>
 	<string name="clear">پاک‌کردن</string>
@@ -326,7 +323,6 @@
 	<string name="poll_multiple_choice">یک یا چند مورد را انتخاب کنید</string>
 	<string name="save_changes">ذخیرهٔ تغییرات</string>
 	<string name="profile_featured"> پيشنهادي</string>
-	<string name="profile_timeline">خط زمانی</string>
 	<string name="view_all">مشاهده همه</string>
 	<string name="profile_endorsed_accounts">حساب‌ها</string>
 	<string name="verified_link">پیوند تأییدشده</string>
@@ -574,7 +570,6 @@
 	<string name="remove">برداشتن</string>
 	<string name="add_list_member">افزودن عضو</string>
 	<string name="search_among_people_you_follow">جست‌وجو بین کسانی که پی‌گرفته‌اید</string>
-	<string name="add_user_to_list">افزودن یا برداشتن از سیاهه‌ها…</string>
 	<string name="add_user_to_list_title">افزودن به سیاهه</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">مدیریت سیاهه‌هایی که %s در آن ظاهر می‌شود</string>
@@ -823,4 +818,5 @@
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<string name="more_replies_found">پاسخ‌های بیش‌تری پیدا شد</string>
+	<!-- %s is the current user's server domain -->
 </resources>
