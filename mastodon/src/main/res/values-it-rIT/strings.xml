@@ -916,7 +916,29 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="timeline_filter_all_activity">Tutte le attività</string>
 	<string name="timeline_filter_posts_and_replies">Post e risposte</string>
 	<string name="timeline_filter_posts">Post</string>
+	<string name="edit_profile_display_name">Nome mostrato</string>
 	<string name="edit_profile_x_custom_fields">Campi personalizzati (%d)</string>
 	<string name="edit_profile_custom_fields">Campi personalizzati</string>
+	<string name="edit_profile_custom_fields_description">Per esempio: pronomi, collegamenti esterni, ecc.</string>
+	<string name="edit_profile_featured_hashtags_description">Permetti agli utenti di filtrare la tua timeline per argomento</string>
+	<string name="edit_profile_tab_settings">Impostazioni della scheda del profilo</string>
+	<string name="edit_profile_add_bio">Aggiungi biografia</string>
+	<string name="edit_profile_featured_hashtags">Hashtag in evidenza</string>
+	<string name="edit_profile_x_featured_hashtags">Hashtag in evidenza (%d)</string>
+	<string name="edit_profile_replace_image">Sostituisci</string>
+	<string name="edit_profile_edit_display_name">Modifica il nome mostrato</string>
+	<string name="edit_profile_edit_bio">Modifica la biografia</string>
+	<string name="add_profile_field">Aggiungi un campo</string>
+	<string name="edit_profile_custom_fields_help">Suggerimento: aumenta la credibilità del tuo account Mastodon verificando i collegamenti ai siti web di tua proprietà. <i>Scopri di più</i></string>
+	<string name="edit_profile_link_verification_help_title">Aggiunta di un collegamento verificato</string>
+	<string name="edit_profile_link_verification_help">Aggiungi credibilità al tuo profilo Mastodon verificando i collegamenti ai siti web personali. Ecco come funziona:</string>
+	<string name="edit_profile_link_verification_title1">Copia il codice HTML qui sotto</string>
+	<string name="edit_profile_link_verification_title2">Incolla il codice nell\'intestazione HTML del tuo sito web</string>
+	<string name="edit_profile_link_verification_text2">Aggiungendo il codice all\'intestazione, &lt;a&gt; l\'elemento rimane invisibile. L\'attributo rel=\"me\" impedisce l\'impersonificazione sui siti web con contenuti generati dagli utenti, quindi è importante mantenerlo.</string>
+	<string name="edit_profile_link_verification_title3">Aggiungi il tuo sito web come campo personalizzato</string>
+	<string name="edit_profile_link_verification_text3">Se hai già aggiunto il tuo sito web come campo personalizzato, dovrai eliminarlo e aggiungerlo di nuovo per attivare la verifica.</string>
+	<string name="edit_profile_field">Modifica il campo</string>
+	<string name="edit_profile_field_label_example">Per esempio: \"Sito web personale\"</string>
+	<string name="edit_profile_field_value_example">Per esempio: \"example.me\"</string>
 	<!-- %s is the current user's server domain -->
 </resources>
