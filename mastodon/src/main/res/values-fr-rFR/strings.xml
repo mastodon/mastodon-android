@@ -6,18 +6,18 @@
 	<string name="error">Erreur</string>
 	<string name="not_a_mastodon_instance">%s ne semble pas être un serveur Mastodon.</string>
 	<string name="ok">OK</string>
-	<string name="preparing_auth">Préparation à l’authentification…</string>
+	<string name="preparing_auth">Préparation de l\'authentification…</string>
 	<string name="finishing_auth">Fin de l’authentification…</string>
-	<string name="user_boosted">%s a boosté</string>
+	<string name="user_boosted">%s a partagé</string>
 	<string name="in_reply_to">en réponse à %s</string>
 	<string name="notifications">Notifications</string>
 	<string name="user_followed_you">%s vous suit</string>
 	<string name="user_sent_follow_request">%s voudrait vous suivre</string>
 	<string name="user_favorited">%s a mis en favori :</string>
-	<string name="notification_boosted">%s a boosté :</string>
+	<string name="notification_boosted">%s a partagé :</string>
 	<string name="share_toot_title">Partager</string>
 	<string name="settings">Paramètres</string>
-	<string name="publish">Pouet !</string>
+	<string name="publish">Publier</string>
 	<string name="discard_draft">Supprimer le brouillon ?</string>
 	<string name="discard">Supprimer</string>
 	<string name="cancel">Annuler</string>
@@ -106,7 +106,7 @@
 	<string name="report_title">Signaler %s</string>
 	<string name="report_choose_reason">Quel est le problème avec ce post ?</string>
 	<string name="report_choose_reason_account">Quel est le problème avec %s ?</string>
-	<string name="report_choose_reason_subtitle">Sélectionnez la meilleure correspondance</string>
+	<string name="report_choose_reason_subtitle">Sélectionnez ce qui correspond le mieux</string>
 	<string name="report_reason_personal">Je n\'aime pas ça</string>
 	<string name="report_reason_personal_subtitle">C’est quelque chose que je ne souhaite pas voir</string>
 	<string name="report_reason_spam">C\'est du spam</string>
@@ -932,5 +932,43 @@
 	<string name="edit_profile_custom_fields_help">Astuce : ajoutez de la crédibilité à votre compte Mastodon en vérifiant les liens vers vos sites. <i>En savoir plus</i></string>
 	<string name="edit_profile_link_verification_help_title">Ajouter un lien vérifié</string>
 	<string name="edit_profile_link_verification_help">Ajoutez de la crédibilité à votre profil Mastodon en vérifiant les liens vers vos sites Web personnels. Voici comment cela fonctionne :</string>
+	<string name="edit_profile_link_verification_title1">Copiez le code HTML ci-dessous</string>
+	<string name="edit_profile_link_verification_title2">Collez le code dans l\'en-tête HTML de votre site Web</string>
+	<string name="edit_profile_link_verification_text2">Ajouter le code à votre en-tête permet à l\'élément &lt;a&gt; de rester invisible. L’attribut rel=\"me\" empêche l’usurpation d’identité sur les sites Web avec du contenu généré par l’utilisateur – il est donc important de le conserver.</string>
+	<string name="edit_profile_link_verification_title3">Ajoutez votre site Web en tant que champ personnalisé</string>
+	<string name="edit_profile_link_verification_text3">Si vous avez déjà ajouté votre site Web en tant que champ personnalisé, vous devrez le supprimer et le rajouter pour déclencher la vérification.</string>
+	<string name="edit_profile_field">Modifier le champ</string>
+	<string name="edit_profile_field_label_example">Par exemple « Site Web personnel »</string>
+	<string name="edit_profile_field_value_example">Par exemple « exemple.me »</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">%,d caractère maximum</item>
+		<item quantity="other">%,d caractères maximum</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">Utilisé dans %,d message</item>
+		<item quantity="other">Utilisé dans %,d messages</item>
+	</plurals>
+	<string name="add_featured_hashtag">Ajouter un hashtag</string>
+	<string name="hashtag">Hashtag</string>
+	<string name="confirm_remove_featured_hashtag">Supprimer le hashtag ?</string>
+	<string name="edit_profile_show_media_tab">Onglet « Médias »</string>
+	<string name="edit_profile_show_media_tab_description">Affiche vos messages contenant des médias</string>
+	<string name="edit_profile_show_media_replies">Inclure les réponses</string>
+	<string name="edit_profile_show_featured_tab">Onglet « En vedette »</string>
+	<string name="edit_profile_show_featured_tab_description">Un espace pour présenter d\'autres comptes</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Ces paramètres personnalisent ce que les personnes voient sur %s dans les applications officielles, mais ils peuvent ne pas s\'appliquer aux personnes sur d\'autres serveurs ou utilisant une application tierce.</string>
+	<string name="handle_explanation_title">Un identifiant est comme une adresse de courriel.</string>
+	<string name="handle_explanation_username">%s est le nom d\'utilisateur·ice de ce compte sur son serveur. Quelqu\'un sur un autre serveur peut avoir le même nom.</string>
+	<string name="handle_explanation_domain">%s est le serveur qui héberge le profil et les messages du compte.</string>
+	<string name="handle_explanation_summary">Tout comme vous pouvez envoyer des courriels à des personnes utilisant différents logiciels de messagerie, vous pouvez interagir avec des personnes sur d\'autres serveurs Mastodon — et avec n\'importe qui sur d\'autres applications sociales propulsées par le même ensemble de règles que Mastodon utilise (le protocole ActivityPub).</string>
+	<string name="pinned_post">Épinglé</string>
+	<string name="view_all_pinned">Voir tous les messages épinglés</string>
+	<string name="profile_show_all_fields">Afficher tous les champs</string>
+	<string name="unfeature_user">Ne pas mettre en avant sur mon profil</string>
+	<string name="confirm_delete_profile_field">Supprimer le champ ?</string>
+	<string name="confirm_delete_avatar">Supprimer la photo de profil ?</string>
+	<string name="confirm_delete_cover">Supprimer l\'image de couverture ?</string>
+	<string name="profile_followers">Abonné·e·s</string>
+	<string name="profile_following">Abonnements</string>
 </resources>
