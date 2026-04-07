@@ -456,12 +456,12 @@
 	</plurals>
 	<string name="alt_text_reminder_title">Texte alternatif manquant pour les médias</string>
 	<plurals name="alt_text_reminder_x_images">
-		<item quantity="one">%s de vos images n\'a pas de texte alternatif. Publier quand même ?</item>
+		<item quantity="one">Une de vos images n\'a pas de texte alternatif. Publier quand même ?</item>
 		<item quantity="other">%s de vos images n\'ont pas de texte alternatif. Publier quand même ?</item>
 	</plurals>
 	<plurals name="alt_text_reminder_x_attachments">
-		<item quantity="one">%s de vos média joint n\'a pas de texte alternatif. Envoyer quand même ?</item>
-		<item quantity="other">%s de vos médias joints n\'ont pas de texte alternatif. Envoyer quand même ?</item>
+		<item quantity="one">Un de vos média n\'a pas de texte alternatif. Publier quand même ?</item>
+		<item quantity="other">%s de vos médias n\'ont pas de texte alternatif. Publier quand même ?</item>
 	</plurals>
 	<string name="count_one">Un</string>
 	<string name="count_two">Deux</string>
@@ -513,8 +513,8 @@
 		<item quantity="other">Supprimer %d mots ?</item>
 	</plurals>
 	<plurals name="x_items_selected">
-		<item quantity="one">%d sélectionné(e)</item>
-		<item quantity="other">%d sélectionné(e)s</item>
+		<item quantity="one">%d sélectionné·e</item>
+		<item quantity="other">%d sélectionné·e·s</item>
 	</plurals>
 	<string name="required_form_field_blank">Ne peut pas être vide</string>
 	<string name="filter_word_already_in_list">Déjà dans la liste</string>
@@ -797,13 +797,13 @@
 		<item quantity="other">Suivi par %1$s, %2$s, et %3$,d autres</item>
 	</plurals>
 	<plurals name="x_followers_you_know">
-		<item quantity="one">%,d abonné·e que vous connaissez</item>
-		<item quantity="other">%,d abonné·e·s que vous connaissez</item>
+		<item quantity="one">%,d abonné·e que vous suivez</item>
+		<item quantity="other">%,d abonné·e·s que vous suivez</item>
 	</plurals>
 	<!-- appears when you're about to block a server -->
 	<plurals name="server_x_followers_will_be_removed">
-		<item quantity="one">%,d abonné de ce serveur sera supprimé.</item>
-		<item quantity="other">%,d abonnés de ce serveur seront supprimés.</item>
+		<item quantity="one">%,d abonné·e de ce serveur sera supprimé·e.</item>
+		<item quantity="other">%,d abonné·e·s de ce serveur seront supprimé·e·s.</item>
 	</plurals>
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<string name="server_x_followers_and_following_will_be_removed">Vous allez perdre %1$s et %2$s.</string>
@@ -828,7 +828,7 @@
 	<string name="report_reason_legal_subtitle">Vous pensez que cela enfreint la loi de votre pays ou celui du serveur</string>
 	<string name="date_of_birth">Date de naissance </string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
-	<string name="date_of_birth_explanation">Nous devons nous assurer que vous avez au moins %s ans pour utiliser Mastodon. Cela ne sera pas conservé après l\'inscription.</string>
+	<string name="date_of_birth_explanation">Nous devons nous assurer que vous avez au moins %s pour utiliser Mastodon. La date de naissance n\'est pas conservée.</string>
 	<string name="open_link">Ouvrir</string>
 	<string name="copy">Copier</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
