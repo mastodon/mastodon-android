@@ -41,6 +41,7 @@
 	<string name="done">完成</string>
 	<string name="loading">正在載入……</string>
 	<string name="field_label">標籤</string>
+	<string name="field_content">值</string>
 	<string name="saving">正在儲存……</string>
 	<string name="post_from_user">來自 %s 的嘟文</string>
 	<string name="poll_option_hint">選項 %d</string>
@@ -192,6 +193,8 @@
 	<string name="followed_user">您現在開始跟隨 %s</string>
 	<string name="following_user_requested">要求跟隨 %s</string>
 	<string name="open_in_browser">於瀏覽器中開啟</string>
+	<string name="hide_boosts_from_user">於時間軸中隱藏轉嘟</string>
+	<string name="show_boosts_from_user">於時間軸中顯示轉嘟</string>
 	<string name="signup_reason">為什麼想要加入呢？</string>
 	<string name="signup_reason_note">這將協助我們審核您的申請。</string>
 	<string name="clear">清除</string>
@@ -307,6 +310,7 @@
 	<string name="poll_multiple_choice">請選擇一個或多個</string>
 	<string name="save_changes">儲存變更</string>
 	<string name="profile_featured">推薦主題標籤</string>
+	<string name="profile_timeline">活動</string>
 	<string name="view_all">檢視全部</string>
 	<string name="profile_endorsed_accounts">帳號</string>
 	<string name="verified_link">已驗證連結</string>
@@ -543,6 +547,7 @@
 	<string name="remove">移除</string>
 	<string name="add_list_member">新增成員</string>
 	<string name="search_among_people_you_follow">搜尋您跟隨的使用者</string>
+	<string name="add_user_to_list">新增至列表...</string>
 	<string name="add_user_to_list_title">新增至列表</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">管理包含 %s 之列表</string>
@@ -841,5 +846,82 @@
 	<string name="quote_followers_only_cancel">返回至編輯</string>
 	<string name="quote_followers_only_dont_show_again">不再顯示此訊息</string>
 	<string name="more_replies_found">已有更多回嘟</string>
+	<string name="user_is_muted">已靜音</string>
+	<string name="user_is_bot">機器人帳號</string>
+	<string name="profile_view_qr_code">檢視 QR code</string>
+	<string name="feature_user">於個人檔案推薦</string>
+	<string name="add_user_personal_note">新增個人備註</string>
+	<string name="mute_account">靜音帳號</string>
+	<string name="block_account">封鎖帳號</string>
+	<string name="remove_follower">移除跟隨者</string>
+	<string name="report_account">檢舉帳號</string>
+	<string name="unblock_account">解除封鎖帳號</string>
+	<string name="unmute_account">取消靜音帳號</string>
+	<string name="unblock">解除封鎖</string>
+	<string name="request_to_follow">跟隨</string>
+	<string name="cancel_follow_request">取消跟隨請求</string>
+	<string name="confirm_remove_follower_title">是否移除該跟隨者？</string>
+	<string name="confirm_remove_follower">%s 將停止跟隨您。您確定要繼續嗎？</string>
+	<string name="edit_user_personal_note">編輯個人備註</string>
+	<string name="user_personal_note_explanation">僅有您能見到您的個人備註。</string>
+	<string name="user_personal_note">個人備註</string>
+	<string name="timeline_filter_posts_and_boosts">嘟文與轉嘟</string>
+	<string name="timeline_filter_show_replies">顯示回嘟</string>
+	<string name="timeline_filter_show_boosts">顯示轉嘟</string>
+	<string name="timeline_filter_all_activity">所有活動</string>
+	<string name="timeline_filter_posts_and_replies">嘟文與回嘟</string>
+	<string name="timeline_filter_posts">嘟文</string>
+	<string name="edit_profile_display_name">顯示名稱</string>
+	<string name="edit_profile_x_custom_fields">自訂欄位 (%d)</string>
+	<string name="edit_profile_custom_fields">自訂欄位</string>
+	<string name="edit_profile_custom_fields_description">例如：稱謂、外部連結等。</string>
+	<string name="edit_profile_featured_hashtags_description">允許使用者依照主題過濾您的時間軸</string>
+	<string name="edit_profile_tab_settings">個人檔案分頁設定</string>
+	<string name="edit_profile_add_bio">新增個人簡介</string>
+	<string name="edit_profile_featured_hashtags">推薦主題標籤</string>
+	<string name="edit_profile_x_featured_hashtags">推薦主題標籤 (%d)</string>
+	<string name="edit_profile_replace_image">替換</string>
+	<string name="edit_profile_edit_display_name">編輯顯示名稱</string>
+	<string name="edit_profile_edit_bio">編輯個人簡介</string>
+	<string name="add_profile_field">新增欄位</string>
+	<string name="edit_profile_custom_fields_help">小撇步：藉由驗證您所擁有之網站連結以增加您的 Mastodon 帳號可信度。<i>了解更多</i></string>
+	<string name="edit_profile_link_verification_help_title">新增驗證連結</string>
+	<string name="edit_profile_link_verification_help">藉由驗證連結至個人網站增加您 Mastodon 個人檔案之可信度。運作方式如下：</string>
+	<string name="edit_profile_link_verification_title1">請複製以下 HTML 程式碼</string>
+	<string name="edit_profile_link_verification_title2">請將程式碼貼至您網站之 HTML 標頭中</string>
+	<string name="edit_profile_link_verification_text2">將程式碼新增至您的標頭能使 &lt;a&gt; 元素保持隱形。rel=\"me\" 屬性能防止他人於使用者生成內容網站上假冒，因此，保持它是至關重要的。</string>
+	<string name="edit_profile_link_verification_title3">將您的網站加入為自訂欄位</string>
+	<string name="edit_profile_link_verification_text3">若您已將您的網站新增至自訂欄位，您需要刪除並重新加入以觸發驗證。</string>
+	<string name="edit_profile_field">編輯欄位</string>
+	<string name="edit_profile_field_label_example">例如：「個人網站」</string>
+	<string name="edit_profile_field_value_example">例如「example.me」</string>
+	<plurals name="x_chars_max">
+		<item quantity="other">最多 %,d 個字</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="other">使用於 %,d 則嘟文</item>
+	</plurals>
+	<string name="add_featured_hashtag">新增主題標籤</string>
+	<string name="hashtag">主題標籤</string>
+	<string name="confirm_remove_featured_hashtag">是否移除主題標籤？</string>
+	<string name="edit_profile_show_media_tab">「多媒體」分頁</string>
+	<string name="edit_profile_show_media_tab_description">顯示您包含多媒體之嘟文</string>
+	<string name="edit_profile_show_media_replies">包含回嘟</string>
+	<string name="edit_profile_show_featured_tab">「精選內容」分頁</string>
+	<string name="edit_profile_show_featured_tab_description">展示他人帳號之空間</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">這些設定能自訂使用者在官方應用程式中於 %s 所見之內容，但可能不適用於其他伺服器或第三方應用程式的使用者。</string>
+	<string name="handle_explanation_title">\@handle 就像是 email 地址一樣。</string>
+	<string name="handle_explanation_username">%s 為該使用者於他們伺服器上的帳號名稱。其他伺服器上的某個人可能擁有一樣的使用者名稱。</string>
+	<string name="handle_explanation_domain">%s 為託管此使用者個人檔案與嘟文之伺服器。</string>
+	<string name="handle_explanation_summary">就像是您的以不同 email 程式寄信給他人一樣，您能與其他 Mastodon 伺服器中的人們互動，並且能和使用與 Mastodon 一樣規則 (ActivityPub 協定) 的其他社群軟體上任何人互動。</string>
+	<string name="pinned_post">已釘選</string>
+	<string name="view_all_pinned">檢視所有釘選嘟文</string>
+	<string name="profile_show_all_fields">顯示所有欄位</string>
+	<string name="unfeature_user">取消於個人檔案推薦</string>
+	<string name="confirm_delete_profile_field">是否刪除欄位？</string>
+	<string name="confirm_delete_avatar">是否移除個人檔案大頭貼？</string>
+	<string name="confirm_delete_cover">是否移除封面圖片？</string>
+	<string name="profile_followers">跟隨者</string>
+	<string name="profile_following">正在跟隨</string>
 </resources>
