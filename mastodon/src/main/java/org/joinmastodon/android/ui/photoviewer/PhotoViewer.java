@@ -355,7 +355,7 @@ public class PhotoViewer implements ZoomPanView.Listener{
 				public void onBackStarted(@NonNull BackEvent backEvent){
 					onStartSwipeToDismiss();
 					RecyclerView rv=(RecyclerView) pager.getChildAt(0);
-					holder=Objects.requireNonNull((BaseHolder) rv.findViewHolderForAdapterPosition(index));
+					holder=Objects.requireNonNull((BaseHolder) rv.findViewHolderForAdapterPosition(currentIndex));
 					holder.zoomPanView.endAllAnimations();
 					holder.zoomPanView.getTransformMatrix(initialMatrix);
 					initialMatrix.getValues(matrixValues);
