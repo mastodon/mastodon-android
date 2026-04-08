@@ -941,6 +941,10 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="edit_profile_field">Editatu eremua</string>
 	<string name="edit_profile_field_label_example">Adibidez: \"Webgune pertsonala\"</string>
 	<string name="edit_profile_field_value_example">Adibidez: “adibidea.eus”</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">%,d karaktere gehienez</item>
+		<item quantity="other">%,d karaktere gehienez</item>
+	</plurals>
 	<plurals name="hashtag_used_in_x_posts">
 		<item quantity="one">Bidalketa %,dean erabilia</item>
 		<item quantity="other">%,d bidalketatan erabilia</item>
@@ -954,6 +958,7 @@ Zenbat eta jende gehiago jarraitu, orduan eta aktiboagoa eta interesgarriagoa iz
 	<string name="edit_profile_show_featured_tab">‘Nabarmenduak’ fitxa</string>
 	<string name="edit_profile_show_featured_tab_description">Beste kontu batzuk erakusteko lekua</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Ezarpen hauek erabiltzaileek %s-(e)n aplikazio ofizialetan ikusten dutena pertsonalizatzen dute, baina baliteke beste zerbitzari batzuetako erabiltzaileei eta hirugarrenen aplikazioei ez eragitea.</string>
 	<string name="handle_explanation_title">Erabiltzaile-izena posta elektroniko helbide bat bezalakoa da.</string>
 	<string name="handle_explanation_username">%s kontu honen erabiltzaile-izena da bere zerbitzarian. Baliteke beste zerbitzari bateko norbaitek erabiltzaile-izen bera izatea.</string>
 	<string name="handle_explanation_domain">%s erabiltzailearen profila eta bidalketak ostatatzen dituen zerbitzaria da.</string>
