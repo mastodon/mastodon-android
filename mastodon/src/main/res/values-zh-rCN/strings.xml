@@ -884,6 +884,7 @@
 	<string name="edit_profile_edit_display_name">编辑显示名称</string>
 	<string name="edit_profile_edit_bio">编辑个人简介</string>
 	<string name="add_profile_field">添加字段</string>
+	<string name="edit_profile_custom_fields_help">提示：验证您拥有的网站链接，提升您的 Mastodon 帐户信誉度。<i>了解更多</i></string>
 	<string name="edit_profile_link_verification_help_title">添加验证链接</string>
 	<string name="edit_profile_link_verification_help">要增加 Mastodon 个人资料的可信度，可以验证指向个人网站的链接。运作方式如下：</string>
 	<string name="edit_profile_link_verification_title1">复制下面的 HTML 代码</string>
@@ -893,5 +894,34 @@
 	<string name="edit_profile_link_verification_text3">如果已经将你的网站添加到自定义字段中，你需要删除并重新添加以触发验证。</string>
 	<string name="edit_profile_field">编辑字段</string>
 	<string name="edit_profile_field_label_example">例如：“个人网站’</string>
+	<string name="edit_profile_field_value_example">例如：“example.me”</string>
+	<plurals name="x_chars_max">
+		<item quantity="other">%,d 字符上限</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="other">用于 %,d 帖子</item>
+	</plurals>
+	<string name="add_featured_hashtag">添加话题标签</string>
+	<string name="hashtag">话题</string>
+	<string name="confirm_remove_featured_hashtag">移除话题标签？</string>
+	<string name="edit_profile_show_media_tab">“媒体”选项卡</string>
+	<string name="edit_profile_show_media_tab_description">显示包含媒体的帖子</string>
+	<string name="edit_profile_show_media_replies">包括回复</string>
+	<string name="edit_profile_show_featured_tab">“精选”选项卡</string>
+	<string name="edit_profile_show_featured_tab_description">显示其他帐户的空间</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">这些设置自定义用户在官方应用程序中在 %s 上看到的东西， 但它们可能不适用于其他服务器和第三方应用上的用户。</string>
+	<string name="handle_explanation_title">用户名类似电子邮件地址。</string>
+	<string name="handle_explanation_username">%s 是此账号在其服务器上的用户名。另一个服务器上的其他人可能拥有相同的用户名。</string>
+	<string name="handle_explanation_domain">%s 是托管该用户个人资料及嘟文的服务器。</string>
+	<string name="handle_explanation_summary">就像你可以用不同的电子邮件客户端向其他人发送同样的电子邮件一般，你也可以和其他 Mastodon 服务器上的用户互动，甚至还能和与 Mastodon 采用相同规则（即 ActivityPub 协议）的其他社交软件上的任何人互动。</string>
+	<string name="pinned_post">已置顶</string>
+	<string name="view_all_pinned">查看全部置顶嘟文</string>
+	<string name="profile_show_all_fields">显示所有字段</string>
+	<string name="unfeature_user">取消精选</string>
+	<string name="confirm_delete_profile_field">删除字段？</string>
+	<string name="confirm_delete_avatar">删除个人资料图片？</string>
+	<string name="confirm_delete_cover">删除页眉图像？</string>
+	<string name="profile_followers">仅关注者</string>
+	<string name="profile_following">已关注</string>
 </resources>
