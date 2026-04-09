@@ -934,5 +934,42 @@
 	<string name="edit_profile_link_verification_help">Maak je Mastodonprofiel geloofwaardig door links naar persoonlijke websites te verifiëren. Zo werkt het:</string>
 	<string name="edit_profile_link_verification_title1">Kopieer de onderstaande HTML-code</string>
 	<string name="edit_profile_link_verification_title2">Plak de code binnen de &lt;head&gt;-tag van je website</string>
+	<string name="edit_profile_link_verification_text2">Het toevoegen van de code binnen de &lt;head&gt;-tag zorgt ervoor dat de &lt;a&gt;-tag onzichtbaar blijft. Het rel=\"me\"-attribuut voorkomt dat websites met user-generated content geïmpersoneerd kunnen worden – dus het is belangrijk om het te behouden.</string>
+	<string name="edit_profile_link_verification_title3">Je website als een extra veld toevoegen</string>
+	<string name="edit_profile_link_verification_text3">Wanneer je je website al als een extra veld hebt toegevoegd, moet je deze verwijderen en opnieuw toevoegen om de verificatie te activeren.</string>
+	<string name="edit_profile_field">Veld bewerken</string>
+	<string name="edit_profile_field_label_example">Bv. ‘Persoonlijke website’</string>
+	<string name="edit_profile_field_value_example">Bv. “example.me”</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">Maximaal %,d karakter</item>
+		<item quantity="other">Maximaal %,d karakters</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">In %,d bericht gebruikt</item>
+		<item quantity="other">In %,d berichten gebruikt</item>
+	</plurals>
+	<string name="add_featured_hashtag">Hashtag toevoegen</string>
+	<string name="hashtag">Hashtag</string>
+	<string name="confirm_remove_featured_hashtag">Hashtag verwijderen?</string>
+	<string name="edit_profile_show_media_tab">Tabblad ‘Media’</string>
+	<string name="edit_profile_show_media_tab_description">Toont jouw berichten die media bevatten</string>
+	<string name="edit_profile_show_media_replies">Inclusief reacties</string>
+	<string name="edit_profile_show_featured_tab">Tabblad ‘Uitgelicht’</string>
+	<string name="edit_profile_show_featured_tab_description">Een ruimte waarin je andere accounts kunt aanbevelen</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Deze instellingen passen wat gebruikers op %s zien in de officiële apps aan, maar ze zijn mogelijk niet van toepassing op gebruikers op andere servers en in apps van derden.</string>
+	<string name="handle_explanation_title">Een fediverse-adres valt te vergelijken met een e-mailadres.</string>
+	<string name="handle_explanation_username">%s is de gebruikersnaam van het account op hun server. Het is mogelijk dat iemand anders dezelfde gebruikersnaam op een andere server heeft.</string>
+	<string name="handle_explanation_domain">%s is de server waar zich het profiel en de berichten van de gebruiker bevinden.</string>
+	<string name="handle_explanation_summary">Net zoals je e-mails kunt verzenden naar mensen met verschillende e-mailproviders, kun je interactie hebben met mensen op andere Mastodon-servers – en met iedereen op andere social apps, die met behulp van het ActivityPub-protocol met Mastodon kunnen communiceren.</string>
+	<string name="pinned_post">Vastgezet</string>
+	<string name="view_all_pinned">Alle vastgezette berichten bekijken</string>
+	<string name="profile_show_all_fields">Alle velden tonen</string>
+	<string name="unfeature_user">Niet op mijn profiel weergeven</string>
+	<string name="confirm_delete_profile_field">Veld verwijderen?</string>
+	<string name="confirm_delete_avatar">Profielfoto verwijderen?</string>
+	<string name="confirm_delete_cover">Omslagfoto verwijderen?</string>
+	<string name="profile_followers">Volgers</string>
+	<string name="profile_following">Volgend</string>
+	<string name="user_follows_you">Volgt jou</string>
 </resources>
