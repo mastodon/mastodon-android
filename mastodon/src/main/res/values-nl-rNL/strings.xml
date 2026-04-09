@@ -42,6 +42,7 @@
 	<string name="done">Klaar</string>
 	<string name="loading">Aan het laden…</string>
 	<string name="field_label">Label</string>
+	<string name="field_content">Waarde</string>
 	<string name="saving">Aan het opslaan…</string>
 	<string name="post_from_user">Bericht van %s</string>
 	<string name="poll_option_hint">Optie %d</string>
@@ -203,6 +204,8 @@
 	<string name="followed_user">Je volgt nu %s</string>
 	<string name="following_user_requested">Je volgverzoek is aan %s verstuurd</string>
 	<string name="open_in_browser">In browser openen</string>
+	<string name="hide_boosts_from_user">Boosts op tijdlijn verbergen</string>
+	<string name="show_boosts_from_user">Boosts op tijdlijn tonen</string>
 	<string name="signup_reason">Waarom wil je je hier registreren?</string>
 	<string name="signup_reason_note">Dit helpt ons om jouw aanvraag te beoordelen.</string>
 	<string name="clear">Leegmaken</string>
@@ -324,6 +327,7 @@
 	<string name="poll_multiple_choice">Maak een of meerdere keuzes</string>
 	<string name="save_changes">Wijzigingen opslaan</string>
 	<string name="profile_featured">Aanbevolen</string>
+	<string name="profile_timeline">Activiteit</string>
 	<string name="view_all">Alles bekijken</string>
 	<string name="profile_endorsed_accounts">Accounts</string>
 	<string name="verified_link">Geverifieerde link</string>
@@ -572,6 +576,7 @@
 	<string name="remove">Verwijderen</string>
 	<string name="add_list_member">Lid toevoegen</string>
 	<string name="search_among_people_you_follow">Zoek tussen de mensen die je volgt</string>
+	<string name="add_user_to_list">Aan lijst toevoegen…</string>
 	<string name="add_user_to_list_title">Aan lijst toevoegen</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Beheer de lijsten waar %s lid van is</string>
@@ -886,5 +891,48 @@
 	<string name="quote_followers_only_cancel">Terug naar bewerken</string>
 	<string name="quote_followers_only_dont_show_again">Dit bericht niet meer aan mij tonen</string>
 	<string name="more_replies_found">Meer reacties gevonden</string>
+	<string name="user_is_muted">Genegeerd</string>
+	<string name="user_is_bot">Geautomatiseerd account</string>
+	<string name="profile_view_qr_code">QR-code tonen</string>
+	<string name="feature_user">Op mijn profiel weergeven</string>
+	<string name="add_user_personal_note">Een persoonlijke opmerking toevoegen</string>
+	<string name="mute_account">Account negeren</string>
+	<string name="block_account">Account blokkeren</string>
+	<string name="remove_follower">Volger verwijderen</string>
+	<string name="report_account">Account rapporteren</string>
+	<string name="unblock_account">Account deblokkeren</string>
+	<string name="unmute_account">Account niet langer negeren</string>
+	<string name="unblock">Deblokkeren</string>
+	<string name="request_to_follow">Volgverzoek</string>
+	<string name="cancel_follow_request">Verzoek annuleren</string>
+	<string name="confirm_remove_follower_title">Volger verwijderen?</string>
+	<string name="confirm_remove_follower">%s zal je niet meer volgen. Weet je zeker dat je wilt doorgaan?</string>
+	<string name="edit_user_personal_note">Persoonlijke opmerking bewerken</string>
+	<string name="user_personal_note_explanation">Persoonlijke opmerkingen zijn alleen zichtbaar voor jou.</string>
+	<string name="user_personal_note">Persoonlijke opmerking</string>
+	<string name="timeline_filter_posts_and_boosts">Berichten en boosts</string>
+	<string name="timeline_filter_show_replies">Reacties tonen</string>
+	<string name="timeline_filter_show_boosts">Boosts tonen</string>
+	<string name="timeline_filter_all_activity">Alle activiteit</string>
+	<string name="timeline_filter_posts_and_replies">Berichten en reacties</string>
+	<string name="timeline_filter_posts">Berichten</string>
+	<string name="edit_profile_display_name">Weergavenaam</string>
+	<string name="edit_profile_x_custom_fields">Extra velden (%d)</string>
+	<string name="edit_profile_custom_fields">Extra velden</string>
+	<string name="edit_profile_custom_fields_description">Bv. voornaamwoorden, externe links, enz.</string>
+	<string name="edit_profile_featured_hashtags_description">Sta gebruikers toe om jouw tijdlijn op onderwerp te filteren</string>
+	<string name="edit_profile_tab_settings">Instellingen voor Profieltabblad</string>
+	<string name="edit_profile_add_bio">Bio toevoegen</string>
+	<string name="edit_profile_featured_hashtags">Uitgelichte hashtags</string>
+	<string name="edit_profile_x_featured_hashtags">Uitgelichte hashtags (%d)</string>
+	<string name="edit_profile_replace_image">Vervangen</string>
+	<string name="edit_profile_edit_display_name">Weergavenaam bewerken</string>
+	<string name="edit_profile_edit_bio">Bio bewerken</string>
+	<string name="add_profile_field">Veld toevoegen</string>
+	<string name="edit_profile_custom_fields_help">Tip: Maak je Mastodonaccount geloofwaardig door links naar jouw websites te verifiëren. <i>Meer informatie</i></string>
+	<string name="edit_profile_link_verification_help_title">Een geverifieerde link toevoegen</string>
+	<string name="edit_profile_link_verification_help">Maak je Mastodonprofiel geloofwaardig door links naar persoonlijke websites te verifiëren. Zo werkt het:</string>
+	<string name="edit_profile_link_verification_title1">Kopieer de onderstaande HTML-code</string>
+	<string name="edit_profile_link_verification_title2">Plak de code binnen de &lt;head&gt;-tag van je website</string>
 	<!-- %s is the current user's server domain -->
 </resources>
