@@ -41,6 +41,7 @@
 	<string name="done">完成</string>
 	<string name="loading">加载中...</string>
 	<string name="field_label">标签</string>
+	<string name="field_content">值</string>
 	<string name="saving">正在保存…</string>
 	<string name="post_from_user">来自 %s 的嘟文</string>
 	<string name="poll_option_hint">选项 %d</string>
@@ -192,6 +193,8 @@
 	<string name="followed_user">你已开始关注 %s</string>
 	<string name="following_user_requested">请求关注 %s</string>
 	<string name="open_in_browser">在浏览器中打开</string>
+	<string name="hide_boosts_from_user">在时间线中隐藏转嘟</string>
+	<string name="show_boosts_from_user">在时间线中显示转嘟</string>
 	<string name="signup_reason">你想要加入的原因是什么？</string>
 	<string name="signup_reason_note">这会帮助我们评估你的申请。</string>
 	<string name="clear">清除</string>
@@ -307,6 +310,7 @@
 	<string name="poll_multiple_choice">选择一个或多个</string>
 	<string name="save_changes">保存更改</string>
 	<string name="profile_featured">精选</string>
+	<string name="profile_timeline">活动</string>
 	<string name="view_all">查看全部</string>
 	<string name="profile_endorsed_accounts">账户</string>
 	<string name="verified_link">已验证链接</string>
@@ -543,6 +547,7 @@
 	<string name="remove">移除</string>
 	<string name="add_list_member">添加成员</string>
 	<string name="search_among_people_you_follow">搜索你关注的人</string>
+	<string name="add_user_to_list">添加到列表…</string>
 	<string name="add_user_to_list_title">添加到列表</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">管理包含 %s 的列表</string>
@@ -841,5 +846,52 @@
 	<string name="quote_followers_only_cancel">返回编辑</string>
 	<string name="quote_followers_only_dont_show_again">不再显示此信息</string>
 	<string name="more_replies_found">已找到更多回复</string>
+	<string name="user_is_muted">已停止提醒</string>
+	<string name="user_is_bot">机器人账号</string>
+	<string name="profile_view_qr_code">查看二维码</string>
+	<string name="feature_user">设为精选</string>
+	<string name="add_user_personal_note">添加个人备注</string>
+	<string name="mute_account">停止提醒账户</string>
+	<string name="block_account">屏蔽账户</string>
+	<string name="remove_follower">移除关注者</string>
+	<string name="report_account">举报账户</string>
+	<string name="unblock_account">取消屏蔽账户</string>
+	<string name="unmute_account">恢复提醒账户</string>
+	<string name="unblock">取消屏蔽</string>
+	<string name="request_to_follow">请求关注</string>
+	<string name="cancel_follow_request">取消请求</string>
+	<string name="confirm_remove_follower_title">移除关注者？</string>
+	<string name="confirm_remove_follower">%s 将停止关注你。你确定要继续吗？</string>
+	<string name="edit_user_personal_note">编辑个人备注</string>
+	<string name="user_personal_note_explanation">个人备注仅对你个人可见。</string>
+	<string name="user_personal_note">个人备注</string>
+	<string name="timeline_filter_posts_and_boosts">嘟文与转嘟</string>
+	<string name="timeline_filter_show_replies">显示回复</string>
+	<string name="timeline_filter_show_boosts">显示转嘟</string>
+	<string name="timeline_filter_all_activity">全部活动</string>
+	<string name="timeline_filter_posts_and_replies">嘟文与回复</string>
+	<string name="timeline_filter_posts">嘟文</string>
+	<string name="edit_profile_display_name">显示名称</string>
+	<string name="edit_profile_x_custom_fields">自定义字段 (%d)</string>
+	<string name="edit_profile_custom_fields">自定义字段</string>
+	<string name="edit_profile_custom_fields_description">例如：公告、外部链接等。</string>
+	<string name="edit_profile_featured_hashtags_description">允许用户按主题过滤您的时间线</string>
+	<string name="edit_profile_tab_settings">个人资料标签页设置</string>
+	<string name="edit_profile_add_bio">添加个人简介</string>
+	<string name="edit_profile_featured_hashtags">精选话题标签</string>
+	<string name="edit_profile_x_featured_hashtags">精选话题标签 (%d)</string>
+	<string name="edit_profile_replace_image">替换</string>
+	<string name="edit_profile_edit_display_name">编辑显示名称</string>
+	<string name="edit_profile_edit_bio">编辑个人简介</string>
+	<string name="add_profile_field">添加字段</string>
+	<string name="edit_profile_link_verification_help_title">添加验证链接</string>
+	<string name="edit_profile_link_verification_help">要增加 Mastodon 个人资料的可信度，可以验证指向个人网站的链接。运作方式如下：</string>
+	<string name="edit_profile_link_verification_title1">复制下面的 HTML 代码</string>
+	<string name="edit_profile_link_verification_title2">将代码粘贴到您网站的页眉HTML</string>
+	<string name="edit_profile_link_verification_text2">将代码添加到您的头部使得 &lt;a&gt; 元素仍然不可见。 rel=\"我\"属性可以防止用户生成的内容在网站上的冒名顶替-因此保持它是重要的。</string>
+	<string name="edit_profile_link_verification_title3">将您的网站添加为自定义字段</string>
+	<string name="edit_profile_link_verification_text3">如果已经将你的网站添加到自定义字段中，你需要删除并重新添加以触发验证。</string>
+	<string name="edit_profile_field">编辑字段</string>
+	<string name="edit_profile_field_label_example">例如：“个人网站’</string>
 	<!-- %s is the current user's server domain -->
 </resources>
