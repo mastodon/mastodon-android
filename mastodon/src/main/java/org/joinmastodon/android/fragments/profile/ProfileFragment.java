@@ -27,7 +27,6 @@ import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
-import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.transition.Fade;
 import android.transition.TransitionManager;
@@ -102,6 +101,7 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CoverImageView;
 import org.joinmastodon.android.ui.views.CustomDrawingOrderLinearLayout;
 import org.joinmastodon.android.ui.views.FloatingHintEditTextLayout;
+import org.joinmastodon.android.ui.views.InlineBadgeLayout;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.joinmastodon.android.ui.views.ProfileFieldsGridLayout;
 import org.joinmastodon.android.ui.views.ProgressBarButton;
@@ -112,7 +112,6 @@ import org.parceler.Parcels;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -172,6 +171,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	private WrappingLinearLayout badgesLayout;
 	private ProfileFieldsGridLayout fieldsLayout;
 	private Button expandFieldsButton;
+	private InlineBadgeLayout nameWrap;
+	private TextView followsYouBadge;
 
 	private Account account;
 	private String accountID;
@@ -278,6 +279,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		joinDate=content.findViewById(R.id.join_date);
 		fieldsLayout=content.findViewById(R.id.fields);
 		expandFieldsButton=content.findViewById(R.id.expand_fields_button);
+		nameWrap=content.findViewById(R.id.name_wrap);
 
 		avatar.setOutlineProvider(OutlineProviders.roundedRect(16));
 		avatar.setClipToOutline(true);
@@ -460,6 +462,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	public void onDestroyView(){
 		super.onDestroyView();
 		buttonMenu=null;
+		followsYouBadge=null;
 	}
 
 	@Override
@@ -1136,6 +1139,17 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			notificationsButton.setContentDescription(getString(relationship.notifying ? R.string.disable_new_post_notifications : R.string.enable_new_post_notifications, account.getDisplayUsername()));
 		}else{
 			notificationsButton.setVisibility(View.GONE);
+		}
+
+		if(relationship.followedBy){
+			if(followsYouBadge==null){
+				followsYouBadge=makeBadge(getString(R.string.user_follows_you), R.drawable.ic_badge_follows_you, R.drawable.bg_m3_surface1, false, R.attr.colorM3OnSurface, true);
+				nameWrap.addView(followsYouBadge);
+			}else{
+				followsYouBadge.setVisibility(View.VISIBLE);
+			}
+		}else if(followsYouBadge!=null){
+			followsYouBadge.setVisibility(View.GONE);
 		}
 	}
 
