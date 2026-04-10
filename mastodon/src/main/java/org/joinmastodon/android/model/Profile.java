@@ -48,7 +48,7 @@ public class Profile extends BaseModel{
 		bot=acc.bot;
 		hideCollections=acc.source.hideCollections;
 		discoverable=acc.discoverable;
-		indexable=acc.source.indexable;
+		indexable=acc.source.indexable!=null && acc.source.indexable;
 		showMedia=acc.showMedia;
 		showMediaReplies=acc.showMediaReplies;
 		showFeatured=acc.showFeatured;

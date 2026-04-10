@@ -1128,6 +1128,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 	}
 
 	private void updateRelationship(){
+		if(getActivity()==null)
+			return;
 		invalidateOptionsMenu();
 		actionButton.setVisibility(View.VISIBLE);
 		setRelationshipToActionButton(relationship, actionButton);
