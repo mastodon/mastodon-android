@@ -911,5 +911,66 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="edit_user_personal_note">Editar nota pessoal</string>
 	<string name="user_personal_note_explanation">Notas pessoais são visíveis apenas para si.</string>
 	<string name="user_personal_note">Nota pessoal</string>
+	<string name="timeline_filter_posts_and_boosts">Publicações e partilhas</string>
+	<string name="timeline_filter_show_replies">Mostrar respostas</string>
+	<string name="timeline_filter_show_boosts">Mostrar partilhas</string>
+	<string name="timeline_filter_all_activity">Toda a atividade</string>
+	<string name="timeline_filter_posts_and_replies">Publicações e respostas</string>
+	<string name="timeline_filter_posts">Publicações</string>
+	<string name="edit_profile_display_name">Nome a apresentar</string>
+	<string name="edit_profile_x_custom_fields">Campos personalizados (%d)</string>
+	<string name="edit_profile_custom_fields">Campos personalizados</string>
+	<string name="edit_profile_custom_fields_description">Ex.: pronomes, hiperligações externas, etc.</string>
+	<string name="edit_profile_featured_hashtags_description">Permita que os utilizadores filtrem a sua cronologia por tema</string>
+	<string name="edit_profile_tab_settings">Definições dos separadores de perfil</string>
+	<string name="edit_profile_add_bio">Adicionar bio</string>
+	<string name="edit_profile_featured_hashtags">Etiquetas destacadas</string>
+	<string name="edit_profile_x_featured_hashtags">Etiquetas destacadas (%d)</string>
+	<string name="edit_profile_replace_image">Substituir</string>
+	<string name="edit_profile_edit_display_name">Editar nome a apresentar</string>
+	<string name="edit_profile_edit_bio">Editar bio</string>
+	<string name="add_profile_field">Editar campo</string>
+	<string name="edit_profile_custom_fields_help">Dica: Aumente a credibilidade da sua conta no Mastodon verificando as hiperligações para os sites de que é proprietário. <i>Saiba mais</i></string>
+	<string name="edit_profile_link_verification_help_title">Adicionar uma hiperligação verificada</string>
+	<string name="edit_profile_link_verification_help">Dê mais credibilidade ao seu perfil no Mastodon verificando as hiperligações para sites pessoais. Veja como funciona:</string>
+	<string name="edit_profile_link_verification_title1">Copie o código HTML abaixo</string>
+	<string name="edit_profile_link_verification_title2">Cole o código no cabeçalho HTML do seu site</string>
+	<string name="edit_profile_link_verification_text2">Ao adicionar o código ao cabeçalho, o elemento &lt;a&gt; permanece invisível. O atributo rel=\"me\" impede a falsificação de identidade em sites com conteúdo gerado pelos utilizadores – por isso, é importante mantê-lo.</string>
+	<string name="edit_profile_link_verification_title3">Adicione o seu site como um campo personalizado</string>
+	<string name="edit_profile_link_verification_text3">Se já adicionou o seu site como campo personalizado, terá de eliminá-lo e reintroduzi-lo para desencadear a verificação.</string>
+	<string name="edit_profile_field">Editar campo</string>
+	<string name="edit_profile_field_label_example">Ex.: \'Site pessoal\'</string>
+	<string name="edit_profile_field_value_example">Ex. \"exemplo.me\"</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">%,d caracter no máximo</item>
+		<item quantity="other">%,d caracteres no máximo</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">Utilizado em %,d publicação</item>
+		<item quantity="other">Utilizado em %,d publicações</item>
+	</plurals>
+	<string name="add_featured_hashtag">Adicionar etiqueta</string>
+	<string name="hashtag">Etiqueta</string>
+	<string name="confirm_remove_featured_hashtag">Remover etiqueta?</string>
+	<string name="edit_profile_show_media_tab">Separador \'Media\'</string>
+	<string name="edit_profile_show_media_tab_description">Mostra as suas publicações que contêm media</string>
+	<string name="edit_profile_show_media_replies">Incluir respostas</string>
+	<string name="edit_profile_show_featured_tab">Separador \'Destaques\'</string>
+	<string name="edit_profile_show_featured_tab_description">Um espaço para destacar outras contas</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Estas definições personalizam o que os utilizadores vêem no %s nas aplicações oficiais, mas podem não se aplicar a utilizadores noutros servidores e em aplicações de terceiros.</string>
+	<string name="handle_explanation_title">Um identificador é como um endereço de e-mail.</string>
+	<string name="handle_explanation_username">%s é o nome de utilizador desta conta no servidor em questão. É possível que alguém noutro servidor tenha o mesmo nome de utilizador.</string>
+	<string name="handle_explanation_domain">%s é o servidor que hospeda o perfil e as publicações do utilizador.</string>
+	<string name="handle_explanation_summary">Tal como pode enviar e-mails a pessoas que utilizam diferentes clientes de e-mail, pode interagir com pessoas noutros servidores Mastodon – e com qualquer pessoa noutras aplicações sociais que funcionem com o mesmo conjunto de regras que o Mastodon utiliza (o protocolo ActivityPub).</string>
+	<string name="pinned_post">Fixado</string>
+	<string name="view_all_pinned">Ver todas as publicações fixadas</string>
+	<string name="profile_show_all_fields">Mostrar todos os campos</string>
+	<string name="unfeature_user">Não destacar no meu perfil</string>
+	<string name="confirm_delete_profile_field">Eliminar campo?</string>
+	<string name="confirm_delete_avatar">Remover foto de perfil?</string>
+	<string name="confirm_delete_cover">Remover foto de capa?</string>
+	<string name="profile_followers">Seguidores</string>
+	<string name="profile_following">A seguir</string>
+	<string name="user_follows_you">Segue-o</string>
 </resources>
