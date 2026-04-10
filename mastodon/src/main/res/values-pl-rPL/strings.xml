@@ -44,6 +44,7 @@
 	<string name="done">Gotowe</string>
 	<string name="loading">Pobieranie…</string>
 	<string name="field_label">Etykieta</string>
+	<string name="field_content">Wartość</string>
 	<string name="saving">Zapisywanie…</string>
 	<string name="post_from_user">Wpis od %s</string>
 	<string name="poll_option_hint">Opcja %d</string>
@@ -358,6 +359,7 @@
 	<string name="poll_multiple_choice">Wybierz jeden lub więcej</string>
 	<string name="save_changes">Zapisz zmiany</string>
 	<string name="profile_featured">Wyróżnione</string>
+	<string name="profile_timeline">Aktywność</string>
 	<string name="view_all">Wyświetl wszystko</string>
 	<string name="profile_endorsed_accounts">Konta</string>
 	<string name="verified_link">Zweryfikowany link</string>
@@ -630,6 +632,7 @@
 	<string name="remove">Usuń</string>
 	<string name="add_list_member">Dodaj członka</string>
 	<string name="search_among_people_you_follow">Szukaj wśród osób, które obserwujesz</string>
+	<string name="add_user_to_list">Dodaj do listy…</string>
 	<string name="add_user_to_list_title">Dodaj do listy</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Zarządzaj listami, na których pojawia się %s</string>
@@ -979,5 +982,35 @@ Im więcej ludzi obserwujesz, tym aktywniejsza i bardziej interesująca się sta
 	<string name="quote_followers_only_cancel">Wróć do edycji</string>
 	<string name="quote_followers_only_dont_show_again">Nie pokazuj tej wiadomości ponownie</string>
 	<string name="more_replies_found">Znaleziono więcej odpowiedzi</string>
+	<string name="user_is_muted">Wyciszony</string>
+	<string name="profile_view_qr_code">Wyświetl kod QR</string>
+	<string name="add_user_personal_note">Dodaj osobistą notatkę</string>
+	<string name="mute_account">Wycisz konto</string>
+	<string name="block_account">Zablokuj konto</string>
+	<string name="remove_follower">Usuń z obserwujących</string>
+	<string name="report_account">Zgłoś konto</string>
+	<string name="unblock_account">Odblokuj konto</string>
+	<string name="unmute_account">Odcisz konto</string>
+	<string name="unblock">Odblokuj</string>
+	<string name="request_to_follow">Poproś o zgodę na obserwowanie</string>
+	<string name="cancel_follow_request">Anuluj prośbę</string>
+	<string name="confirm_remove_follower_title">Usunąć z obserwujących?</string>
+	<string name="confirm_remove_follower">%s przestanie Cię obserwować. Na pewno chcesz kontynuować?</string>
+	<string name="user_personal_note_explanation">Osobiste notatki są widoczne tylko dla Ciebie.</string>
+	<string name="user_personal_note">Notatka osobista</string>
+	<string name="timeline_filter_posts_and_boosts">Posty i ulepszenia</string>
+	<string name="timeline_filter_show_replies">Pokaż odpowiedzi</string>
+	<string name="timeline_filter_all_activity">Wszystkie aktywności</string>
+	<string name="timeline_filter_posts_and_replies">Posty i odpowiedzi</string>
+	<string name="timeline_filter_posts">Posty</string>
+	<string name="edit_profile_display_name">Wyświetlana nazwa</string>
+	<string name="edit_profile_replace_image">Zamień</string>
+	<string name="edit_profile_edit_display_name">Edytuj nazwę wyświetlaną</string>
+	<string name="edit_profile_edit_bio">Edytuj bio</string>
+	<string name="add_profile_field">Dodaj pole</string>
+	<string name="edit_profile_link_verification_help_title">Dodaj zweryfikowany link</string>
+	<string name="edit_profile_link_verification_title1">Skopiuj poniższy kod HTML</string>
+	<string name="edit_profile_link_verification_title2">Wklej kod w nagłówku HTML twojej strony</string>
+	<string name="edit_profile_link_verification_title3">Dodaj swoją stronę jako pole niestandardowe</string>
 	<!-- %s is the current user's server domain -->
 </resources>
