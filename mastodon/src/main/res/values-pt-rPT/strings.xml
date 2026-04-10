@@ -42,6 +42,7 @@
 	<string name="done">Concluído</string>
 	<string name="loading">A carregar…</string>
 	<string name="field_label">Etiqueta</string>
+	<string name="field_content">Valor</string>
 	<string name="saving">A guardar…</string>
 	<string name="post_from_user">Publicação de %s</string>
 	<string name="poll_option_hint">Opção %d</string>
@@ -203,6 +204,8 @@
 	<string name="followed_user">Estás a seguir %s</string>
 	<string name="following_user_requested">%s pedido para te seguir</string>
 	<string name="open_in_browser">Abrir no navegador</string>
+	<string name="hide_boosts_from_user">Ocultar partilhas na cronologia</string>
+	<string name="show_boosts_from_user">Mostrar partilhas na cronologia</string>
 	<string name="signup_reason">Porque é que queres aderir?</string>
 	<string name="signup_reason_note">Isto ajudar-nos-á a analisar o teu pedido.</string>
 	<string name="clear">Limpar</string>
@@ -324,6 +327,7 @@
 	<string name="poll_multiple_choice">Escolha uma ou mais</string>
 	<string name="save_changes">Guardar alterações</string>
 	<string name="profile_featured">Em destaque</string>
+	<string name="profile_timeline">Atividade</string>
 	<string name="view_all">Ver tudo</string>
 	<string name="profile_endorsed_accounts">Contas</string>
 	<string name="verified_link">Hiperligação verificada</string>
@@ -572,6 +576,7 @@
 	<string name="remove">Remover</string>
 	<string name="add_list_member">Adicionar membro</string>
 	<string name="search_among_people_you_follow">Pesquisar entre as pessoas que segues</string>
+	<string name="add_user_to_list">Adicionar a lista…</string>
 	<string name="add_user_to_list_title">Adicionar à lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Gerir as listas em que %s aparece</string>
@@ -887,5 +892,24 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="quote_followers_only_cancel">Voltar à edição</string>
 	<string name="quote_followers_only_dont_show_again">Não mostrar novamente esta mensagem</string>
 	<string name="more_replies_found">Foram encontradas mais respostas</string>
+	<string name="user_is_muted">Silenciado</string>
+	<string name="user_is_bot">Conta automatizada</string>
+	<string name="profile_view_qr_code">Ver código QR</string>
+	<string name="feature_user">Destacar no meu perfil</string>
+	<string name="add_user_personal_note">Adicionar nota pessoal</string>
+	<string name="mute_account">Silenciar conta</string>
+	<string name="block_account">Bloquear conta</string>
+	<string name="remove_follower">Remover seguidor</string>
+	<string name="report_account">Denunciar conta</string>
+	<string name="unblock_account">Desbloquear conta</string>
+	<string name="unmute_account">Deixar de silenciar conta</string>
+	<string name="unblock">Desbloquear</string>
+	<string name="request_to_follow">Pedir para seguir</string>
+	<string name="cancel_follow_request">Cancelar pedido</string>
+	<string name="confirm_remove_follower_title">Remover seguidor?</string>
+	<string name="confirm_remove_follower">%s vai deixar de o seguir. Tem a certeza que pretende prosseguir?</string>
+	<string name="edit_user_personal_note">Editar nota pessoal</string>
+	<string name="user_personal_note_explanation">Notas pessoais são visíveis apenas para si.</string>
+	<string name="user_personal_note">Nota pessoal</string>
 	<!-- %s is the current user's server domain -->
 </resources>
