@@ -42,6 +42,7 @@
 	<string name="done">Έγινε</string>
 	<string name="loading">Φόρτωση…</string>
 	<string name="field_label">Περιγραφή</string>
+	<string name="field_content">Τιμή</string>
 	<string name="saving">Αποθήκευση…</string>
 	<string name="post_from_user">Ανάρτηση από %s</string>
 	<string name="poll_option_hint">Επιλογή %d</string>
@@ -203,6 +204,8 @@
 	<string name="followed_user">Ακολουθείς πλέον τον χρήστη %s</string>
 	<string name="following_user_requested">Έγινε αίτημα ακολούθησης σε %s</string>
 	<string name="open_in_browser">Άνοιξε στον περιηγητή</string>
+	<string name="hide_boosts_from_user">Απόκρυψη ενισχύσεων στο χρονολόγιο</string>
+	<string name="show_boosts_from_user">Εμφάνιση ενισχύσεων στο χρονολόγιο</string>
 	<string name="signup_reason">Γιατί θέλεις να συμμετάσχεις;</string>
 	<string name="signup_reason_note">Αυτό θα μας βοηθήσει να εξετάσουμε την αίτησή σου.</string>
 	<string name="clear">Εκκαθάριση</string>
@@ -324,6 +327,7 @@
 	<string name="poll_multiple_choice">Επίλεξε ένα ή περισσότερα</string>
 	<string name="save_changes">Αποθήκευση αλλαγών</string>
 	<string name="profile_featured">Αναδεδειγμένα</string>
+	<string name="profile_timeline">Δραστηριότητα</string>
 	<string name="view_all">Εμφάνιση όλων</string>
 	<string name="profile_endorsed_accounts">Λογαριασμοί</string>
 	<string name="verified_link">Επαληθευμένος σύνδεσμος</string>
@@ -572,6 +576,7 @@
 	<string name="remove">Αφαίρεση</string>
 	<string name="add_list_member">Προσθήκη μέλους</string>
 	<string name="search_among_people_you_follow">Αναζήτησε μεταξύ των ανθρώπων που ακουλουθείς</string>
+	<string name="add_user_to_list">Προσθήκη στη λίστα…</string>
 	<string name="add_user_to_list_title">Προσθήκη στη λίστα</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Διαχείριση λιστών όπου εμφανίζεται ο/η %s</string>
@@ -886,5 +891,35 @@
 	<string name="quote_followers_only_cancel">Πίσω στην επεξεργασία</string>
 	<string name="quote_followers_only_dont_show_again">Να μην εμφανιστεί ξανά αυτό το μήνυμα</string>
 	<string name="more_replies_found">Βρέθηκαν περισσότερες απαντήσεις</string>
+	<string name="user_is_muted">Σε σίγαση</string>
+	<string name="user_is_bot">Αυτοματοποιημένος λογαριασμός</string>
+	<string name="profile_view_qr_code">Προβολή κωδικού QR</string>
+	<string name="feature_user">Ανάδειξη στο προφίλ μου</string>
+	<string name="add_user_personal_note">Προσθήκη μιας προσωπικής σημείωσης</string>
+	<string name="mute_account">Σίγαση λογαριασμού</string>
+	<string name="block_account">Αποκλεισμός λογαριασμού</string>
+	<string name="remove_follower">Αφαίρεση ακολούθου</string>
+	<string name="report_account">Αναφορά λογαριασμού</string>
+	<string name="unblock_account">Άρση αποκλεισμού λογαριασμού</string>
+	<string name="unmute_account">Άρση σίγασης λογαριασμού</string>
+	<string name="unblock">Άρση αποκλ.</string>
+	<string name="request_to_follow">Αίτημα για ακολούθηση</string>
+	<string name="cancel_follow_request">Ακύρωση αιτήματος</string>
+	<string name="confirm_remove_follower_title">Αφαίρεση ακολούθου;</string>
+	<string name="confirm_remove_follower">Ο χρήστης %s θα σταματήσει να σε ακολουθεί. Σίγουρα θες να συνεχίσεις;</string>
+	<string name="edit_user_personal_note">Επεξεργασία προσωπικής σημείωσης</string>
+	<string name="user_personal_note_explanation">Οι προσωπικές σημειώσεις είναι ορατές μόνο σε σένα.</string>
+	<string name="user_personal_note">Προσωπική σημείωση</string>
+	<string name="timeline_filter_posts_and_boosts">Αναρτήσεις και ενισχύσεις</string>
+	<string name="timeline_filter_show_replies">Εμφάνιση απαντήσεων</string>
+	<string name="timeline_filter_show_boosts">Εμφάνιση ενισχύσεων</string>
+	<string name="timeline_filter_all_activity">Όλη η δραστηριότητα</string>
+	<string name="timeline_filter_posts_and_replies">Αναρτήσεις και απαντήσεις</string>
+	<string name="timeline_filter_posts">Αναρτήσεις</string>
+	<string name="edit_profile_display_name">Εμφανιζόμενο όνομα</string>
+	<string name="edit_profile_x_custom_fields">Προσαρμοσμένα πεδία (%d)</string>
+	<string name="edit_profile_custom_fields">Προσαρμοσμένα πεδία</string>
+	<string name="edit_profile_custom_fields_description">Πχ. αντωνυμίες, εξωτερικοί σύνδεσμοι, κλπ.</string>
+	<string name="edit_profile_featured_hashtags_description">Να επιτρέπεται στους χρήστες να φιλτράρουν το χρονολόγιο σου ανά θέμα</string>
 	<!-- %s is the current user's server domain -->
 </resources>
