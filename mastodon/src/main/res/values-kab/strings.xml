@@ -18,6 +18,7 @@
 	<string name="button_follow">Ḍfeṛ</string>
 	<string name="button_following">Aḍfar</string>
 	<string name="edit_profile">Ẓreg amaɣnu</string>
+	<string name="share_user">Bḍu amaɣnu s…</string>
 	<string name="mute_user">Sgugem %s</string>
 	<string name="unmute_user">Kkes asgugem i %s</string>
 	<string name="block_user">Sewḥel %s</string>
@@ -33,6 +34,7 @@
 	<string name="done">Immed</string>
 	<string name="loading">Asali…</string>
 	<string name="field_label">Tabzimt</string>
+	<string name="field_content">Azal</string>
 	<string name="saving">Asekles…</string>
 	<string name="post_from_user">Tasuffeɣt sɣur %s</string>
 	<string name="poll_option_hint">Taxtiṛt %d</string>
@@ -71,6 +73,7 @@
 	<string name="action_vote">Fren</string>
 	<string name="confirm">Sentem</string>
 	<string name="delete">Kkes</string>
+	<string name="confirm_delete_title">Kkes n tasuffeɣt</string>
 	<string name="confirm_delete">Tebɣiḍ s tidet ad tekkseḍ tasuffeɣt-agi?</string>
 	<string name="deleting">Tukksa…</string>
 	<string name="notification_channel_audio_player">Taɣuri n umeslaw</string>
@@ -88,7 +91,10 @@
 		<item quantity="other">%d yimdanen i yettmeslayen</item>
 	</plurals>
 	<string name="report_title">Cetki ɣef %s</string>
+	<string name="report_choose_reason">Acu n wugur yellan deg tsuffeɣt-a?</string>
+	<string name="report_choose_reason_account">Acu n wugur yellan akked %s?</string>
 	<string name="report_choose_reason_subtitle">Fren amṣada akk igerrzen</string>
+	<string name="report_reason_personal">Ur t-ḥemmleɣ ara</string>
 	<string name="report_reason_personal_subtitle">D ayen akk ur bɣiɣ ara ad waliɣ</string>
 	<string name="report_reason_spam">D aspam</string>
 	<string name="report_reason_spam_subtitle">Yir iseɣwan, yir agman d tririyin i d-yettuɣalen</string>
@@ -105,8 +111,11 @@
 	<string name="sending_report">Tuzna n uneqqis…</string>
 	<string name="unfollow_user">Y•Teḥbes aḍfar n %s</string>
 	<string name="unfollow">Ur ṭṭafaṛ ara</string>
+	<string name="report_personal_title">Ur tebɣiḍ ara ad twaliḍ aya?</string>
 	<string name="back">Tuɣalin</string>
+	<string name="search_communities">Isem n uqeddac naɣ URL</string>
 	<string name="instance_rules_title">Ilugan n uqeddac</string>
+	<string name="signup_title">Snulfu-d amiḍan</string>
 	<string name="display_name">Isem</string>
 	<string name="username">Isem n useqdac</string>
 	<string name="email">Imayl</string>
@@ -114,6 +123,7 @@
 	<string name="confirm_password">Sentem awal uffir</string>
 	<string name="category_general">Amatu</string>
 	<!-- %s is the email address -->
+	<string name="confirm_email_didnt_get">Ur k·em-id-yewwiḍ ara useɣwen?</string>
 	<string name="resend">Ales tuzna</string>
 	<string name="open_email_app">Ldi asnas n yimayl</string>
 	<string name="resent_email">Asentem n tuzna n yimayl</string>
@@ -121,8 +131,11 @@
 	<string name="save">Sekles</string>
 	<string name="add_alt_text">Rnu ɣer uḍris</string>
 	<string name="visibility_public">Azayaz</string>
+	<string name="visibility_followers_only">Imeḍfaren</string>
+	<string name="visibility_private">Abdar uslig</string>
 	<string name="notification_type_follow">Ineḍfanen imaynuten</string>
 	<string name="notification_type_favorite">Imenyafen</string>
+	<string name="notification_type_reblog">Izuzar</string>
 	<string name="notification_type_mention">Tibdarin</string>
 	<string name="notification_type_poll">Isenqaden</string>
 	<string name="choose_account">Fren amiḍan</string>
@@ -173,6 +186,7 @@
 	<string name="downloading">Asader…</string>
 	<!-- %s is the server domain -->
 	<string name="see_new_posts">Tisuffaɣ timaynutin</string>
+	<string name="follow_back">Ḍfer-it ula d kečč·mm</string>
 	<string name="button_follow_pending">Yettraǧu</string>
 	<!-- translators: %,d is a valid placeholder, it formats the number with locale-dependent grouping separators -->
 	<string name="time_now">tura</string>
@@ -180,25 +194,38 @@
 	<string name="edit">Ẓreg</string>
 	<string name="discard_changes">Sefsex ibeddilen?</string>
 	<string name="upload_failed">Asali yecceḍ</string>
+	<string name="file_size_kb">%.2f KAṬ</string>
+	<string name="file_size_mb">%.2f MAṬ</string>
+	<string name="file_size_gb">%.2f GAṬ</string>
 	<!-- %s is file size -->
 	<string name="download_update">Asider (%s)</string>
 	<string name="install_update">Sbedd</string>
+	<string name="privacy_policy_title">Tabaḍnit-nwen</string>
 	<string name="i_agree">Qebleɣ</string>
+	<string name="empty_list">Tabdart-a d tilemt</string>
 	<string name="add_bookmark">Creḍ</string>
 	<string name="bookmarks">Ticraḍ</string>
+	<string name="your_favorites">Imenyafen</string>
 	<string name="login_title">Ansuf yes-k·m tikkelt niḍen</string>
+	<string name="login_subtitle">Qqen s uqeddac anida i d-tesnulfaḍ amiḍan-ik·im.</string>
 	<string name="server_url">URL n uqeddac</string>
 	<string name="server_filter_any_language">Yal tutlayt</string>
 	<string name="server_filter_region_europe">Turuft</string>
 	<string name="server_filter_region_north_america">Tamrikt n ugafa</string>
+	<string name="server_filter_region_south_america">Tamrikt n Wenẓul</string>
 	<string name="server_filter_region_africa">Tafriqt</string>
 	<string name="server_filter_region_asia">Asya</string>
 	<string name="server_filter_region_oceania">Usyani</string>
 	<string name="follow_all">Ḍfeṛ-iten akk</string>
 	<!-- %s is server domain -->
+	<string name="profile_bio">Tameddurt</string>
 	<!-- Shown in a progress dialog when you tap "follow all" -->
 	<!-- %1$s is server domain, %2$s is email domain. You can reorder these placeholders to fit your language better. -->
+	<string name="spoiler_show">Sken-d akken ibɣu yili</string>
+	<string name="poll_multiple_choice">Fren yiwen naɣ nnig n yiwen</string>
 	<string name="save_changes">Sekles ibeddilen</string>
+	<string name="profile_timeline">Armud</string>
+	<string name="view_all">Wali-ten akk</string>
 	<string name="profile_endorsed_accounts">Imiḍanen</string>
 	<string name="show">Sken</string>
 	<string name="hide">Ffer</string>
@@ -207,24 +234,41 @@
 	<string name="signup_or_login">neɣ</string>
 	<string name="learn_more">Issin ugar</string>
 	<string name="welcome_to_mastodon">Ansuf ɣer Mastodon</string>
+	<string name="what_are_servers">D acu-ten yiqeddacen?</string>
+	<string name="opening_link">Tullya n useɣwen…</string>
+	<string name="retry">Ɛreḍ tikkelt nniḍen</string>
 	<!-- %s is formatted file size ("467 KB image") -->
+	<string name="attachment_description_image">%s n tugna</string>
+	<string name="attachment_description_video">%s n tvidyut</string>
+	<string name="attachment_description_audio">%s n imesli</string>
+	<string name="attachment_description_unknown">%s n ufaylu</string>
 	<string name="attachment_type_image">Tugna</string>
 	<string name="attachment_type_video">Tavidyutt</string>
 	<string name="attachment_type_audio">Ameslaw</string>
 	<string name="attachment_type_gif">GIF</string>
 	<string name="attachment_type_unknown">Afaylu</string>
+	<string name="poll_style">Aɣanib</string>
 	<string name="compose_poll_single_choice">Fren yiwen</string>
+	<string name="alt_text">Aḍris amlellay</string>
 	<string name="help">Tallelt</string>
+	<string name="what_is_alt_text">D acu id aḍris amlellay?</string>
 	<string name="language">Tutlayt</string>
 	<string name="language_default">Amezwaru</string>
 	<string name="language_system">Anagraw</string>
 	<string name="language_detecting">Tifinagh tawurmant n tutlayt</string>
 	<!-- %s is the server domain -->
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
+	<string name="settings_filters">Imsizdigen</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Ɣef %s</string>
+	<string name="default_post_language">Tutlayt n usuffeɣ</string>
+	<string name="pause_notifications_off">Yensa</string>
 	<string name="notifications_policy_anyone">Yal yiwen</string>
+	<string name="notifications_policy_followed">Imdanen ik-yeṭṭafaren</string>
+	<string name="notifications_policy_follower">Imdanen i teṭṭafareḍ</string>
+	<string name="notifications_policy_no_one">Ula yiwen</string>
 	<!-- %1$s is the date (may be relative, e.g. "today" or "yesterday"), %2$s is the time. You can reorder these placeholders if that works better for your language -->
+	<string name="date_at_time">%1$s ɣef %2$s</string>
 	<string name="today">ass-a</string>
 	<string name="yesterday">iḍelli</string>
 	<string name="tomorrow">azekka</string>
@@ -239,34 +283,59 @@
 	<string name="count_four">Ukkuẓ</string>
 	<string name="alt_text_reminder_post_anyway">Suffeɣ</string>
 	<!-- %s is the username -->
+	<string name="filter_active">D urmid</string>
+	<string name="filter_inactive">D arurmid</string>
+	<string name="settings_add_filter">Rnu imsizdeg</string>
+	<string name="settings_edit_filter">Ẓreg imsizdeg</string>
+	<string name="settings_filter_duration">Tanzagt</string>
 	<!-- %s is the timestamp ("tomorrow at 12:34") -->
+	<string name="selection_2_options">%1$s akked %2$s</string>
+	<string name="selection_3_options">%1$s, %2$s, akked %3$s</string>
+	<string name="selection_4_or_more">%1$s, %2$s, akked %3$d nniḍen</string>
+	<string name="filter_context_notifications">Ilɣa</string>
+	<string name="filter_context_profiles">Imeɣna</string>
 	<string name="settings_filter_title">Azwel</string>
 	<string name="add">Rnu</string>
 	<string name="enter_selection_mode">Fren</string>
 	<string name="select_all">Fren-iten akk</string>
+	<string name="filter_duration_custom">Udmawan</string>
 	<string name="app_update_version">Lqem %s</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
 	<string name="search_mastodon">Nadi deg Mastodon</string>
 	<!-- Shown in the post header. Please keep it short -->
+	<string name="time_seconds_ago_short">%dsn aya</string>
+	<string name="time_minutes_ago_short">%dsd aya</string>
+	<string name="time_hours_ago_short">%dsr aya</string>
+	<string name="time_days_ago_short">%dss aya</string>
 	<!-- %s is the name of the post language -->
+	<string name="translate_post">Suqel seg %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
+	<string name="post_translated">Tettwasuqel-d seg %1$s s %2$s</string>
 	<string name="timeline_following">Agejdan</string>
 	<string name="lists">Tibdarin</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="edit_list">Ẓreg tabdart</string>
 	<string name="delete_list">Kkes tabdart</string>
 	<!-- %s is the name of the list -->
+	<string name="list_name">Isem n tebdart</string>
 	<string name="list_replies_no_one">Ula yiwen</string>
 	<string name="remove">Kkes</string>
 	<string name="add_user_to_list_title">Rnu ɣer tebdart</string>
 	<!-- %s is a username -->
 	<string name="create_list">Snulfu-d tabdart</string>
 	<string name="create">Snulfu</string>
+	<string name="reply_to_user">Tiririt i %s</string>
+	<string name="got_it">Gziɣ-t</string>
 	<!-- %s is a time interval ("5 months") -->
 	<string name="article_by_author">S-ɣur %s</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Yettwasekles</string>
+	<string name="image_saved">Tettwasekles tugna.</string>
+	<string name="video_saved">Tettwasekles tvidyut.</string>
 	<string name="view_file">Wali</string>
+	<string name="share_sheet_preview_profile">%s deg Mastodon</string>
+	<string name="share_sheet_preview_post">%1$s deg Mastodon: “%2$s”</string>
+	<string name="system_browser">Iminig n unagraw</string>
 	<string name="add_muted_word_short">Rnu awal</string>
 	<string name="tab_home">Agejdan</string>
 	<string name="tab_search">Snirem</string>
@@ -290,12 +359,38 @@
 	<string name="settings_about_this_server">Ɣef uqeddac-a</string>
 	<string name="delete_account">Kkes amiḍan</string>
 	<string name="notification_type_status">Tisuffaɣ timaynutin</string>
+	<string name="search_people">Medden</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
+	<string name="open_link">Ldi</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_visibility">Abani</string>
+	<string name="quote_policy_public">Yal yiwen</string>
+	<string name="quote_policy_followers">Imeḍfaṛen kan</string>
+	<string name="quote_policy_nobody">Nekki kan</string>
+	<string name="notification_type_quote">Tinebdurin</string>
+	<string name="create_quote">Tanebdurt</string>
+	<string name="cancel_quote">Semmet tanebdurt</string>
+	<string name="user_personal_note">Tazmilt tudmawant</string>
+	<string name="timeline_filter_posts_and_boosts">Tisuffaɣ akked tizuzar</string>
+	<string name="timeline_filter_show_replies">Sken-d tiririyin</string>
+	<string name="timeline_filter_show_boosts">Sken-d izuzar</string>
+	<string name="timeline_filter_all_activity">Akk irmad</string>
+	<string name="timeline_filter_posts_and_replies">Tisuffaɣ d tririyin</string>
+	<string name="timeline_filter_posts">Tisuffaɣ</string>
+	<string name="edit_profile_display_name">Isem ara d-yettwaskanen</string>
+	<string name="edit_profile_x_custom_fields">Urtiyen udmawanen (%d)</string>
+	<string name="edit_profile_custom_fields">Urtiyen udmawanen</string>
+	<string name="edit_profile_add_bio">Rnu tameddurt</string>
+	<string name="edit_profile_replace_image">Semselsi</string>
+	<string name="edit_profile_edit_bio">Ẓreg tameddurt</string>
+	<string name="add_profile_field">Rnu urti</string>
+	<string name="edit_profile_field">Ẓreg urti</string>
+	<string name="add_featured_hashtag">Rnu ahacṭag</string>
+	<string name="hashtag">Ahacṭag</string>
 	<!-- %s is the current user's server domain -->
 </resources>
