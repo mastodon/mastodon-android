@@ -42,6 +42,7 @@
 	<string name="done">Valmis</string>
 	<string name="loading">Laadib…</string>
 	<string name="field_label">Silt</string>
+	<string name="field_content">Väärtus</string>
 	<string name="saving">Salvestan…</string>
 	<string name="post_from_user">Postitus kasutajalt %s</string>
 	<string name="poll_option_hint">Valik %d</string>
@@ -203,6 +204,8 @@
 	<string name="followed_user">Sa jälgid nüüd kasutajat %s</string>
 	<string name="following_user_requested">%s soovib sind jälgida</string>
 	<string name="open_in_browser">Ava veebibrauseris</string>
+	<string name="hide_boosts_from_user">Peida hooandmised ajajoonelt</string>
+	<string name="show_boosts_from_user">Näita ajajoonel hooandmisi</string>
 	<string name="signup_reason">Miks sa soovid liituda?</string>
 	<string name="signup_reason_note">See aitab meil sinu taotlust üle vaadata.</string>
 	<string name="clear">Tühjenda</string>
@@ -324,6 +327,7 @@
 	<string name="poll_multiple_choice">Vali üks või enam</string>
 	<string name="save_changes">Salvesta muudatused</string>
 	<string name="profile_featured">Esiletõstetud</string>
+	<string name="profile_timeline">Tegevus</string>
 	<string name="view_all">Vaata kõiki</string>
 	<string name="profile_endorsed_accounts">Kasutajakontod</string>
 	<string name="verified_link">Kontrollitud link</string>
@@ -572,6 +576,7 @@
 	<string name="remove">Eemalda</string>
 	<string name="add_list_member">Lisa liige</string>
 	<string name="search_among_people_you_follow">Otsi enda jälgitavate inimeste hulgast</string>
+	<string name="add_user_to_list">Lisa loendisse…</string>
 	<string name="add_user_to_list_title">Lisa loendisse</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Halda loendeid, kus %s osaleb</string>
@@ -887,5 +892,36 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="quote_followers_only_cancel">Tagasi muutmise juurde</string>
 	<string name="quote_followers_only_dont_show_again">Ära enam näita seda sõnumit uuesti</string>
 	<string name="more_replies_found">Leidub veel vastuseid</string>
+	<string name="user_is_muted">Summutatud</string>
+	<string name="user_is_bot">Automatiseeritud kasutajakonto</string>
+	<string name="profile_view_qr_code">Vaata QR-koodi</string>
+	<string name="feature_user">Too minu profiilis esile</string>
+	<string name="add_user_personal_note">Lisa isiklik märge</string>
+	<string name="mute_account">Summuta kasutajakonto</string>
+	<string name="block_account">Blokeeri kasutajakonto</string>
+	<string name="remove_follower">Eemalda jälgija</string>
+	<string name="report_account">Teata kasutajakontost</string>
+	<string name="unblock_account">Lõpeta konto blokeerimine</string>
+	<string name="unmute_account">Lõpeta kasutajakonto summutamine</string>
+	<string name="unblock">Lõpeta blokeerimine</string>
+	<string name="request_to_follow">Jälgimispäring</string>
+	<string name="cancel_follow_request">Tühista päring</string>
+	<string name="confirm_remove_follower_title">Kas eemaldame jälgija?</string>
+	<string name="confirm_remove_follower">%s lõpetab sellega sinu jälgimise. Kas oled kindel, et soovid jätkata?</string>
+	<string name="edit_user_personal_note">Muuda isiklikku märget</string>
+	<string name="user_personal_note_explanation">Isiklikud märked on nähtavad vaid sulle.</string>
+	<string name="user_personal_note">Isiklik märge</string>
+	<string name="timeline_filter_posts_and_boosts">Postitused ja hooandmised</string>
+	<string name="timeline_filter_show_replies">Näita vastuseid</string>
+	<string name="timeline_filter_show_boosts">Näita hooandmisi</string>
+	<string name="timeline_filter_all_activity">Kõik tegevused</string>
+	<string name="timeline_filter_posts_and_replies">Postitused ja vastused</string>
+	<string name="timeline_filter_posts">Postitused</string>
+	<string name="edit_profile_display_name">Kuvatav nimi</string>
+	<string name="edit_profile_x_custom_fields">Kohandatud väljad (%d)</string>
+	<string name="edit_profile_custom_fields">Kohandatud väljad</string>
+	<string name="edit_profile_custom_fields_description">Nt. asesõnad, välised lingid jne.</string>
+	<string name="edit_profile_featured_hashtags_description">Luba kasutajatel filtreerida sinu ajajoont teemade alusel</string>
+	<string name="add_featured_hashtag">Lisa teemaviide</string>
 	<!-- %s is the current user's server domain -->
 </resources>
