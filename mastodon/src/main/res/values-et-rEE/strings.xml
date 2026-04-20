@@ -184,7 +184,7 @@
 	<string name="settings_app_version">Mastodon Androidi jaoks: versioon %1$s (%2$d)</string>
 	<string name="media_cache_cleared">Puhverdatud meediafailid on kustutatud</string>
 	<string name="confirm_log_out">Kas soovid %s serverist välja logida?</string>
-	<string name="sensitive_content_explain">Autor on märkinud selle meedia delikaatseks.</string>
+	<string name="sensitive_content_explain">Autor on märkinud selle meediumi delikaatseks.</string>
 	<string name="avatar_description">Ava %s kasutaja profiil</string>
 	<string name="more_options">Lisavalikud</string>
 	<string name="new_post">Uus postitus</string>
@@ -368,7 +368,7 @@
 	<string name="alt_text">Selgitustekst</string>
 	<string name="help">Abiteave</string>
 	<string name="what_is_alt_text">Mis on selgitustekst?</string>
-	<string name="alt_text_help">Selgitustekst ehk alt-tekst pakub pildi kirjeldust nägemispuudega inimeste jaoks või neile, kel on aeglane internet või neile, kes otsivad lisaselgitust.\n\nSaad parandada hõlbustamist ja mõistmist kõigi jaoks, koostades selge, lühida ja objektiivse selgitusteksti.\n\n<ul> <li>Lisa tähtsad elemendid</li>\n<li>Tee pildil olevast tekstist kokkuvõte</li>\n<li>Kasuta tavapärast lauseehitust</li>\n<li>Väldi ebaolulist teavet</li>\n<li>Keskendu keerukate vaadete puhul (näiteks diagrammid ja kaardid) puhul trendidele ja põhiseostele</li> </ul></string>
+	<string name="alt_text_help">Selgitustekst ehk alt-tekst pakub pildi kirjeldust nägemispuudega inimeste jaoks või neile, kel on aeglane internetiühendus või neile, kes otsivad lisaselgitust.\n\nSaad parandada hõlbustamist ja mõistmist kõigi jaoks, koostades selge, lühida ja objektiivse selgitusteksti.\n\n<ul> <li>Lisa tähtsad elemendid</li>\n<li>Tee pildil olevast tekstist kokkuvõte</li>\n<li>Kasuta tavapärast lauseehitust</li>\n<li>Väldi ebaolulist teavet</li>\n<li>Keskendu keerukate vaadete puhul (näiteks diagrammid ja kaardid) puhul trendidele ja põhiseostele</li> </ul></string>
 	<string name="edit_post">Muuda postitust</string>
 	<string name="no_verified_link">Link pole kontrollitud</string>
 	<string name="compose_autocomplete_emoji_empty">Sirvi emojisid</string>
@@ -390,7 +390,7 @@
 	<string name="reported">Teavitatud</string>
 	<string name="report_unfollow_explanation">Kui sa ei soovi tema postitusi oma ajajoonel näha, siis lõpeta tema jälgimine.</string>
 	<string name="muted_user">%s kasutaja on summutatud</string>
-	<string name="report_sent_already_blocked">Sa oled selle kasutaja juba blokeerinud ning seni kuni me teavitusega tegeleme, ei saa sa enam midagi muud teha.</string>
+	<string name="report_sent_already_blocked">Sa oled selle kasutaja juba blokeerinud ning seni kuni me teavitus ülevaatamisega tegeleme, ei saa sa enam midagi muud teha.</string>
 	<string name="report_personal_already_blocked">Sa oled selle kasutaja juba blokeerinud ning midagi muud sa enam ei pea tegema.\n\nTänud, et koos hoiame Mastodoni turvalisena kõigi jaoks!</string>
 	<string name="blocked_user">%s kasutaja on blokeeritud</string>
 	<string name="mark_all_notifications_read">Märgi kõik loetuks</string>
@@ -400,7 +400,7 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Teave %s kohta</string>
 	<string name="default_post_language">Postituse keel</string>
-	<string name="settings_alt_text_reminders">Lisa selgitusteksti meeldetuletusi</string>
+	<string name="settings_alt_text_reminders">Näita selgitusteksti meeldetuletusi</string>
 	<string name="settings_confirm_unfollow">Küsi kinnitust enne jälgimise lõpetamist</string>
 	<string name="settings_confirm_boost">Küsi kinnitust enne hooandmist</string>
 	<string name="settings_confirm_delete_post">Küsi kinnitust enne postituse kustutamist</string>
@@ -922,6 +922,55 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="edit_profile_custom_fields">Kohandatud väljad</string>
 	<string name="edit_profile_custom_fields_description">Nt. asesõnad, välised lingid jne.</string>
 	<string name="edit_profile_featured_hashtags_description">Luba kasutajatel filtreerida sinu ajajoont teemade alusel</string>
+	<string name="edit_profile_tab_settings">Profiili vahekaartide seadistused</string>
+	<string name="edit_profile_add_bio">Lisa elulugu</string>
+	<string name="edit_profile_featured_hashtags">Esiletõstetud teemaviited</string>
+	<string name="edit_profile_x_featured_hashtags">Esiletõstetud teemaviited (%d)</string>
+	<string name="edit_profile_replace_image">Asenda</string>
+	<string name="edit_profile_edit_display_name">Muuda kuvatavat nime</string>
+	<string name="edit_profile_edit_bio">Muuda elulugu</string>
+	<string name="add_profile_field">Lisa väli</string>
+	<string name="edit_profile_custom_fields_help">Soovitus: Lisa oma Mastodoni kontole usutavust verifitseerides sulle kuuluvate veebisaitide lingid. <i>Lisateave</i></string>
+	<string name="edit_profile_link_verification_help_title">Verifitseeritud lingi lisamine</string>
+	<string name="edit_profile_link_verification_help">Tõsta oma Mastodoni profiili usaldusväärsust, vereifitseerides isiklike veebisaitide lingid. See toimib järgmiselt:</string>
+	<string name="edit_profile_link_verification_title1">Kopeeri järgnev HTML-kood</string>
+	<string name="edit_profile_link_verification_title2">Aseta see HTML-kood oma veebisaidi päisesse</string>
+	<string name="edit_profile_link_verification_text2">Lisades antud koodi oma veebisaidi päisesse võimaldab &lt;a&gt; elemendil jääda nähtamatuks. Lisaks võimaldab rel=\"me\" atribuudi säilitamine ära hoida identiteedivargust kasutajate loodud sisuga veebisaitides. Seega on oluline teda säilitada.</string>
+	<string name="edit_profile_link_verification_title3">Lisa oma veebisait kohandatud väljana</string>
+	<string name="edit_profile_link_verification_text3">Kui oled oma veebisaidi kohandatud väljana juba lisanud, pead verifitseerimise käivitamiseks selle kustutama ja uuesti lisama.</string>
+	<string name="edit_profile_field">Muuda välja</string>
+	<string name="edit_profile_field_label_example">Nt. „Isiklik veebileht“</string>
+	<string name="edit_profile_field_value_example">Nt. „toredomeen.ee“</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">Maksimaalselt %,d tähemärk</item>
+		<item quantity="other">Maksimaalselt %,d tähemärki</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">Kasutated %,d-s postituses</item>
+		<item quantity="other">Kasutated %,d-s postituses</item>
+	</plurals>
 	<string name="add_featured_hashtag">Lisa teemaviide</string>
+	<string name="hashtag">Teemaviide</string>
+	<string name="confirm_remove_featured_hashtag">Kas eemaldad teemaviite?</string>
+	<string name="edit_profile_show_media_tab">Vahekaart „Meedium“</string>
+	<string name="edit_profile_show_media_tab_description">Näitab sinu postitusi, kus leidub multimeediat</string>
+	<string name="edit_profile_show_media_replies">Kaasa vastused</string>
+	<string name="edit_profile_show_featured_tab">Vahekaart „Esiletõstetud“</string>
+	<string name="edit_profile_show_featured_tab_description">Koht teiste kasutajakontode tutvustamiseks</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Need seadistused määravad, mida kasutajad näevad %s ametlikes rakendustes, kuid ei pruugi kehtida teiste serverite kasutajate ja kolmandate osapoolte rakenduste puhul.</string>
+	<string name="handle_explanation_title">Kasutajatunnus on nagu e-posti aadress.</string>
+	<string name="handle_explanation_username">%s on selle konto kasutajanimi tema serveris. Kellelgi teisel mõnes muus serveris võib olla sama kasutajanimi.</string>
+	<string name="handle_explanation_domain">%s on server, kus antud konto koos profiiliga asub ning kust postitused saavad alguse.</string>
+	<string name="handle_explanation_summary">Nii nagu võid saata teiste e-posti serverite kasutajatele e-kirju, saad ka suhelda teiste Mastodoni serverite kasutajatega - ja tegelikult ka muude sotsiaalvõrkude kasutajatega, kus on kasutusel sama lahendus, nagu Mastodon pruugib (ActivityPubi protokoll).</string>
+	<string name="pinned_post">Esiletõstetud</string>
+	<string name="view_all_pinned">Vaata kõiki esiletõstetud postitusi</string>
+	<string name="profile_show_all_fields">Näita kõiki välju</string>
+	<string name="unfeature_user">Ära kuva minu profiilis</string>
+	<string name="confirm_delete_profile_field">Kas kustutad välja?</string>
+	<string name="confirm_delete_avatar">Kas eemaldad profiilipildi?</string>
+	<string name="confirm_delete_cover">Kas eemaldame päisepildi?</string>
+	<string name="profile_followers">Jälgijad</string>
+	<string name="profile_following">Sa jälgid</string>
+	<string name="user_follows_you">Jälgib sind</string>
 </resources>
