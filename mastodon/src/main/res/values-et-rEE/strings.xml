@@ -435,8 +435,8 @@
 	<string name="notifications_disabled_in_system">Lülita teavitused oma nutiseadme seadistustest sisse ja näed võimast teavet kõikidelt saatjatelt.</string>
 	<string name="settings_even_more">Veel rohkem seadistusi</string>
 	<string name="settings_show_cws">Näita sisuhoiatusi</string>
-	<string name="settings_hide_sensitive_media">Peida delikaatseks märgitud meedia</string>
-	<string name="settings_show_interaction_counts">Postita suhestumise statistika</string>
+	<string name="settings_hide_sensitive_media">Peida delikaatseks märgitud meedium</string>
+	<string name="settings_show_interaction_counts">Postitusega suhestumise statistika</string>
 	<string name="settings_show_emoji_in_names">Omavalitud emojid kuvatavates nimedes</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">%d sekundi pärast</item>
@@ -454,7 +454,7 @@
 		<item quantity="one">%d tund tagasi</item>
 		<item quantity="other">%d tundi tagasi</item>
 	</plurals>
-	<string name="alt_text_reminder_title">Meediafailil puudub selgitustekst</string>
+	<string name="alt_text_reminder_title">Multimeediafailil puudub selgitustekst</string>
 	<plurals name="alt_text_reminder_x_images">
 		<item quantity="one">%s-l sinu lisatud pildil puudub selgitustekst. Kas jätkad postitamisega?</item>
 		<item quantity="other">%s-l sinu lisatud pildil puuduvad selgitustekstid. Kas jätkad postitamisega?</item>
@@ -531,8 +531,8 @@
 	<string name="posts_matching_string">Postitused „%s“ märksõnaga</string>
 	<string name="accounts_matching_string">Kasutajad „%s“ märksõnaga</string>
 	<!-- Shown in the post header. Please keep it short -->
-	<string name="time_seconds_ago_short">%d sek eest</string>
-	<string name="time_minutes_ago_short">%d min eest</string>
+	<string name="time_seconds_ago_short">%d sek tagasi</string>
+	<string name="time_minutes_ago_short">%d min tagasi</string>
 	<string name="time_hours_ago_short">%d tunni eest</string>
 	<string name="time_days_ago_short">%d päeva eest</string>
 	<!-- %s is the name of the post language -->
@@ -560,7 +560,7 @@
 	<string name="manage_hashtags">Halda teemaviiteid</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">Rippmenüü</string>
-	<string name="edit_list">Muuda loendeid</string>
+	<string name="edit_list">Muuda loendit</string>
 	<string name="list_members">Loendi liikmed</string>
 	<string name="delete_list">Kustuta loend</string>
 	<!-- %s is the name of the list -->
@@ -973,4 +973,9 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="profile_followers">Jälgijad</string>
 	<string name="profile_following">Sa jälgid</string>
 	<string name="user_follows_you">Jälgib sind</string>
+	<string name="profile_featured_empty_self">Ole valmis, kogumikud on varsti kasutusel</string>
+	<string name="profile_featured_empty">Siin ei ole midagi vaadatavat</string>
+	<string name="profile_featured_empty_description">%s pole veel midagi esile tõstnud.</string>
+	<string name="profile_featured_empty_self_description">Kogumikud (lisanduvad Mastodoni versioonis 4.6) võimaldavad sul luua omakoostatud kasutajakontode nimekirju, mida teistele soovitada.</string>
+	<string name="handle_explanation_copy">Kopeeri kasutajatunnus</string>
 </resources>
