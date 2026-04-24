@@ -14,11 +14,11 @@
 	<string name="user_followed_you">%s 已跟隨您</string>
 	<string name="user_sent_follow_request">%s 已傳送跟隨請求給您</string>
 	<string name="user_favorited">%s 已加入最愛：</string>
-	<string name="notification_boosted">%s 個已轉嘟：</string>
+	<string name="notification_boosted">%s 已轉嘟：</string>
 	<string name="share_toot_title">分享</string>
 	<string name="settings">設定</string>
 	<string name="publish">發佈</string>
-	<string name="discard_draft">捨棄草稿？</string>
+	<string name="discard_draft">是否捨棄草稿？</string>
 	<string name="discard">捨棄</string>
 	<string name="cancel">取消</string>
 	<string name="posts">嘟文</string>
@@ -925,4 +925,9 @@
 	<string name="profile_followers">跟隨者</string>
 	<string name="profile_following">正在跟隨</string>
 	<string name="user_follows_you">已跟隨您</string>
+	<string name="profile_featured_empty_self">敬請期待收藏名單</string>
+	<string name="profile_featured_empty">此地一無所有</string>
+	<string name="profile_featured_empty_description">%s 尚未有任何精選內容。</string>
+	<string name="profile_featured_empty_self_description">收藏名單功能（將於 Mastodon 4.6 上線）允許您建立自己的精選帳號名單並推薦予其他人。</string>
+	<string name="handle_explanation_copy">複製帳號</string>
 </resources>
