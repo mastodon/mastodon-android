@@ -104,7 +104,7 @@
 		<item quantity="other">%d personnes en parlent</item>
 	</plurals>
 	<string name="report_title">Signaler %s</string>
-	<string name="report_choose_reason">Quel est le problème avec ce post ?</string>
+	<string name="report_choose_reason">Quel est le problème avec ce message ?</string>
 	<string name="report_choose_reason_account">Quel est le problème avec %s ?</string>
 	<string name="report_choose_reason_subtitle">Sélectionnez ce qui correspond le mieux</string>
 	<string name="report_reason_personal">Je n\'aime pas ça</string>
@@ -972,4 +972,9 @@
 	<string name="profile_followers">Abonné·e·s</string>
 	<string name="profile_following">Abonnements</string>
 	<string name="user_follows_you">Vous suit</string>
+	<string name="profile_featured_empty_self">Restez connecté pour les collections</string>
+	<string name="profile_featured_empty">Il n\'y a rien à voir</string>
+	<string name="profile_featured_empty_description">%s n\'a pas encore mis de contenu en avant.</string>
+	<string name="profile_featured_empty_self_description">Les collections (à venir dans Mastodon 4.6) vous permettent d\'organiser vos propres listes de comptes à recommander aux autres.</string>
+	<string name="handle_explanation_copy">Copier l’identifiant</string>
 </resources>
