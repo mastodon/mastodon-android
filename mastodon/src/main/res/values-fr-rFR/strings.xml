@@ -793,8 +793,8 @@
 	<string name="profile_saved_posts_explanation">Vos messages enregistrés ne sont visibles que pour vous.</string>
 	<string name="search_people">Personnes</string>
 	<plurals name="familiar_followers_many">
-		<item quantity="one">Suivi par %1$s, %2$s, et %3$,d autre</item>
-		<item quantity="other">Suivi par %1$s, %2$s, et %3$,d autres</item>
+		<item quantity="one">Suivi·e par %1$s, %2$s, et %3$,d autre</item>
+		<item quantity="other">Suivi·e par %1$s, %2$s, et %3$,d autres</item>
 	</plurals>
 	<plurals name="x_followers_you_know">
 		<item quantity="one">%,d abonné·e que vous suivez</item>
@@ -817,8 +817,8 @@
 	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="server_x_following_will_be_removed">Vous allez perdre %s.</string>
-	<string name="load_missing_posts_above">Charger les messages manquants du dessus</string>
-	<string name="load_missing_posts_below">Charger les messages manquants ci-dessous</string>
+	<string name="load_missing_posts_above">Charger les messages manquants au-dessus</string>
+	<string name="load_missing_posts_below">Charger les messages manquants au-dessous</string>
 	<string name="signup_password_too_short">Le mot de passe doit comporter au moins 8 caractères.</string>
 	<string name="private_reply">Réponse privée</string>
 	<string name="private_mention">Mention privée</string>
@@ -898,14 +898,14 @@
 	<string name="add_user_personal_note">Ajouter une note personnelle</string>
 	<string name="mute_account">Masquer le compte</string>
 	<string name="block_account">Bloquer le compte</string>
-	<string name="remove_follower">Supprimer des abonné·e·s</string>
+	<string name="remove_follower">Supprimer l\'abonné·e</string>
 	<string name="report_account">Signaler le compte</string>
 	<string name="unblock_account">Débloquer le compte</string>
 	<string name="unmute_account">Ne plus masquer le compte</string>
 	<string name="unblock">Débloquer</string>
 	<string name="request_to_follow">Demander à suivre</string>
 	<string name="cancel_follow_request">Annuler la demande</string>
-	<string name="confirm_remove_follower_title">Supprimer des abonné·e·s?</string>
+	<string name="confirm_remove_follower_title">Supprimer l\'abonné·e ?</string>
 	<string name="confirm_remove_follower">%s cessera de vous suivre. Voulez-vous vraiment continuer ?</string>
 	<string name="edit_user_personal_note">Modifier la note personnelle</string>
 	<string name="user_personal_note_explanation">Les notes personnelles sont ne sont visibles que pour vous.</string>
