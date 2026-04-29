@@ -9,7 +9,7 @@
 	<string name="preparing_auth">Authentisierung wird vorbereitet …</string>
 	<string name="finishing_auth">Authentisierung wird abgeschlossen …</string>
 	<string name="user_boosted">%s teilte</string>
-	<string name="in_reply_to">Antwortete %s</string>
+	<string name="in_reply_to">Antwort an %s</string>
 	<string name="notifications">Benachrichtigungen</string>
 	<string name="user_followed_you">%s folgt dir</string>
 	<string name="user_sent_follow_request">%s möchte dir folgen</string>
@@ -204,8 +204,8 @@
 	<string name="followed_user">Du folgst nun %s</string>
 	<string name="following_user_requested">Deine Follower-Anfrage an %s wurde gesendet</string>
 	<string name="open_in_browser">Im Browser öffnen</string>
-	<string name="hide_boosts_from_user">Geteilte Beiträge in der Timeline ausblenden</string>
-	<string name="show_boosts_from_user">Geteilte Beiträge in der Timeline anzeigen</string>
+	<string name="hide_boosts_from_user">Geteilte Beiträge ausblenden</string>
+	<string name="show_boosts_from_user">Geteilte Beiträge anzeigen</string>
 	<string name="signup_reason">Weshalb möchtest du beitreten?</string>
 	<string name="signup_reason_note">Das erleichtert uns die Prüfung deiner Anmeldung.</string>
 	<string name="clear">Leeren</string>
@@ -327,7 +327,7 @@
 	<string name="poll_multiple_choice">Wähle ein/e oder mehrere aus</string>
 	<string name="save_changes">Änderungen speichern</string>
 	<string name="profile_featured">Vorgestellt</string>
-	<string name="profile_timeline">Aktivitäten</string>
+	<string name="profile_timeline">Timeline</string>
 	<string name="view_all">Alle anzeigen</string>
 	<string name="profile_endorsed_accounts">Konten</string>
 	<string name="verified_link">Verifizierter Link</string>
@@ -576,7 +576,7 @@
 	<string name="remove">Entfernen</string>
 	<string name="add_list_member">Mitglied hinzufügen</string>
 	<string name="search_among_people_you_follow">Suche nach Leuten, denen du folgst</string>
-	<string name="add_user_to_list">Zur Liste hinzufügen …</string>
+	<string name="add_user_to_list">Zur Liste hzfg. / Aus Liste entf.</string>
 	<string name="add_user_to_list_title">Zur Liste hinzufügen</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Listen mit %s verwalten</string>
@@ -682,15 +682,15 @@
 	<string name="unmute_conversation">Stummschaltung der Unterhaltung aufheben</string>
 	<string name="visibility_unlisted">Öffentlich (still)</string>
 	<string name="filtered_notifications">Gefilterte Benachrichtigungen</string>
-	<string name="filter_notifications">Benachrichtigungen verwalten von …</string>
+	<string name="filter_notifications">Benachrichtigungen herausfiltern von …</string>
 	<string name="notification_filter_following">Profilen, denen ich nicht folge</string>
-	<string name="notification_filter_following_explanation">… bis ich sie manuell genehmige</string>
+	<string name="notification_filter_following_explanation">Bis du sie manuell genehmigst</string>
 	<string name="notification_filter_followers">Profilen, die mir nicht folgen</string>
-	<string name="notification_filter_followers_explanation">Einschließlich Profilen, die mir seit weniger als 3 Tagen folgen</string>
-	<string name="notification_filter_new_accounts">neuen Profilen</string>
-	<string name="notification_filter_new_accounts_explanation">Konto in den vergangenen 30 Tagen registriert</string>
+	<string name="notification_filter_followers_explanation">Einschließlich Profilen, die dir seit weniger als 3 Tagen folgen</string>
+	<string name="notification_filter_new_accounts">neuen Konten</string>
+	<string name="notification_filter_new_accounts_explanation">Innerhalb der letzten 30 Tagen erstellt</string>
 	<string name="notification_filter_mentions">unerwünschten privaten Erwähnungen</string>
-	<string name="notification_filter_mentions_explanation">… solange sie keine Antwort auf meine Erwähnungen sind – oder ich den Profilen nicht folge</string>
+	<string name="notification_filter_mentions_explanation">Solange sie keine Antwort auf deine Erwähnung ist oder du dem Profil nicht folgst</string>
 	<string name="allow_notifications">Benachrichtigungen erlauben</string>
 	<string name="mute_notifications">Benachrichtigungsanfrage verwerfen</string>
 	<plurals name="x_people_you_may_know">
@@ -761,7 +761,7 @@
 		<item quantity="other">%,d Konten, denen</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
-	<string name="relationship_severance_user_domain_block">Du hast %1$s blockiert – %2$,d deiner Follower und %3$s du folgst, wurden entfernt.</string>
+	<string name="relationship_severance_user_domain_block">Du hast %1$s blockiert – %2$,d deiner Follower und %3$s Konten, denen du folgst, wurden entfernt.</string>
 	<string name="relationship_severance_learn_more">Mehr erfahren</string>
 	<string name="moderation_warning_action_none">Dein Konto ist von den Moderator*innen verwarnt worden.</string>
 	<string name="moderation_warning_action_disable">Dein Konto wurde deaktiviert.</string>
@@ -851,7 +851,7 @@
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<string name="compose_visibility_explanation">Bestimme, wer mit diesem Beitrag interagieren darf. Allgemeingültige Einstellungen findest du unter Einstellungen &gt; %s &gt; Standardeinstellungen für Beiträge.</string>
 	<string name="compose_visibility">Sichtbarkeit</string>
-	<string name="compose_quote_policy">Wer darf mich zitieren?</string>
+	<string name="compose_quote_policy">Wer zitieren darf</string>
 	<string name="quote_policy_public">Alle</string>
 	<string name="quote_policy_followers">Nur Follower</string>
 	<string name="quote_policy_nobody">Nur von mir</string>
@@ -882,7 +882,7 @@
 	<string name="remove_quote_confirm_title">Beitrag entfernen?</string>
 	<string name="remove_quote_confirm">Diese Aktion kann nicht rückgängig gemacht werden.</string>
 	<string name="remove_quote_button">Beitrag entfernen</string>
-	<string name="settings_posting_defaults_explanation">Diese Einstellungen werden standardmäßig für neue Beiträge verwendet, aber du kannst sie für jeden Beitrag individuell anpassen.</string>
+	<string name="settings_posting_defaults_explanation">Diese Einstellungen werden standardmäßig für neue Beiträge verwendet. Du kannst sie auch beim Verfassen eines Beitrags individuell anpassen.</string>
 	<string name="cant_quote_in_private_title">Zitate können in privaten Erwähnungen nicht eingebettet werden</string>
 	<string name="cant_quote_in_private">Wenn diese Einstellungen gespeichert werden, wird das eingebettete Zitat in einen Link umgewandelt.</string>
 	<string name="quote_followers_only_confirm_title">Mit Followern und erwähnten Profilen teilen?</string>
