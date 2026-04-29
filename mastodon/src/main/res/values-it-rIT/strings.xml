@@ -42,7 +42,7 @@
 	<string name="done">Fatto</string>
 	<string name="loading">Caricamento…</string>
 	<string name="field_label">Etichetta</string>
-	<string name="field_content">Valore</string>
+	<string name="field_content">Contenuto</string>
 	<string name="saving">Salvataggio…</string>
 	<string name="post_from_user">Post di %s</string>
 	<string name="poll_option_hint">Opzione %d</string>
@@ -204,8 +204,8 @@
 	<string name="followed_user">Ora stai seguendo %s</string>
 	<string name="following_user_requested">Richiesto di seguire %s</string>
 	<string name="open_in_browser">Apri nel browser</string>
-	<string name="hide_boosts_from_user">Nascondi le condivisioni nella timeline</string>
-	<string name="show_boosts_from_user">Mostra le condivisioni nella timeline</string>
+	<string name="hide_boosts_from_user">Nascondi potenziamenti</string>
+	<string name="show_boosts_from_user">Mostra potenziamenti</string>
 	<string name="signup_reason">Perché vuoi unirti?</string>
 	<string name="signup_reason_note">Questo ci aiuterà ad esaminare la tua richiesta.</string>
 	<string name="clear">Cancella</string>
@@ -327,7 +327,7 @@
 	<string name="poll_multiple_choice">Scegli una o più risposte</string>
 	<string name="save_changes">Salva le modifiche</string>
 	<string name="profile_featured">In primo piano</string>
-	<string name="profile_timeline">Attività</string>
+	<string name="profile_timeline">Timeline</string>
 	<string name="view_all">Vedi tutto</string>
 	<string name="profile_endorsed_accounts">Account</string>
 	<string name="verified_link">Collegamento verificato</string>
@@ -368,7 +368,7 @@
 	<string name="alt_text">Testo alternativo</string>
 	<string name="help">Aiuto</string>
 	<string name="what_is_alt_text">Cos\'è il testo alternativo?</string>
-	<string name="alt_text_help">Il testo alternativo fornisce descrizioni delle immagini per le persone con problemi di vista, connessioni con larghezza di banda ridotta o coloro che cercano un contesto aggiuntivo.\n\nPuoi migliorare l\'accessibilità e la comprensione per tutti scrivendo un testo alternativo: chiaro, conciso e obiettivo.\n\n<ul ><li>Cattura gli elementi importanti</li>\n<li>Riassumi il testo nelle immagini</li>\n<li>Utilizza una struttura di frasi regolare</li>\n<li>Evita informazioni ridondanti</li>\n<li>Concentrati sulle tendenze e sui risultati chiave in immagini complesse (come diagrammi o mappe)</li></ul></string>
+	<string name="alt_text_help">Il testo alternativo fornisce descrizioni delle immagini per le persone con problemi di vista, connessioni con larghezza di banda ridotta o coloro che cercano un contesto aggiuntivo.\n\nPuoi migliorare l\'accessibilità e la comprensione per tutti scrivendo un testo alternativo: chiaro, conciso e obiettivo.\n\n<ul><li>Cattura gli elementi importanti</li>\n<li>Riassumi il testo nelle immagini</li>\n<li>Utilizza una struttura di frasi regolare</li>\n<li>Evita informazioni ridondanti</li>\n<li>Concentrati sulle tendenze e sui risultati chiave in immagini complesse (come diagrammi o mappe)</li></ul></string>
 	<string name="edit_post">Modifica il post</string>
 	<string name="no_verified_link">Nessun collegamento verificato</string>
 	<string name="compose_autocomplete_emoji_empty">Sfoglia le emoji</string>
@@ -576,7 +576,7 @@
 	<string name="remove">Rimuovi</string>
 	<string name="add_list_member">Aggiungi membro</string>
 	<string name="search_among_people_you_follow">Cerca tra le persone che segui</string>
-	<string name="add_user_to_list">Aggiungi alla lista…</string>
+	<string name="add_user_to_list">Aggiungi/rimuovi dalle liste…</string>
 	<string name="add_user_to_list_title">Aggiungi alla lista</string>
 	<!-- %s is a username -->
 	<string name="manage_user_lists">Gestisci gli elenchi in cui appare %s</string>
@@ -780,7 +780,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="settings_add_account">Aggiungi account...</string>
 	<string name="settings_app_settings">Impostazioni dell\'app</string>
 	<string name="account_settings">Impostazioni dell\'account</string>
-	<string name="settings_about_this_server">Informazioni su questo server</string>
+	<string name="settings_about_this_server">Riguardo questo server</string>
 	<string name="manage_account">Gestisci l\'account</string>
 	<string name="switch_to_this_account">Passa a questo account</string>
 	<string name="delete_account">Cancella l\'account</string>
@@ -978,4 +978,6 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="profile_featured_empty_description">%s non ha ancora messo nulla in evidenza.</string>
 	<string name="profile_featured_empty_self_description">Le collezioni (in arrivo su Mastodon 4.6) ti permettono di creare i tuoi elenchi curati di account da consigliare ad altri.</string>
 	<string name="handle_explanation_copy">Copia il nome univoco</string>
+	<string name="request_to_follow_short">Richiesta</string>
+	<string name="cancel_follow_request_short">Annulla</string>
 </resources>
