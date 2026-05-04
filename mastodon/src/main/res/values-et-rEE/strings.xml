@@ -42,7 +42,7 @@
 	<string name="done">Valmis</string>
 	<string name="loading">Laadib…</string>
 	<string name="field_label">Silt</string>
-	<string name="field_content">Sisu</string>
+	<string name="field_content">Väärtus</string>
 	<string name="saving">Salvestan…</string>
 	<string name="post_from_user">Postitus kasutajalt %s</string>
 	<string name="poll_option_hint">Valik %d</string>
@@ -184,7 +184,7 @@
 	<string name="settings_app_version">Mastodon Androidi jaoks: versioon %1$s (%2$d)</string>
 	<string name="media_cache_cleared">Puhverdatud meediafailid on kustutatud</string>
 	<string name="confirm_log_out">Kas soovid %s serverist välja logida?</string>
-	<string name="sensitive_content_explain">Autor on märkinud selle meedia delikaatseks.</string>
+	<string name="sensitive_content_explain">Autor on märkinud selle meediumi delikaatseks.</string>
 	<string name="avatar_description">Ava %s kasutaja profiil</string>
 	<string name="more_options">Lisavalikud</string>
 	<string name="new_post">Uus postitus</string>
@@ -204,8 +204,8 @@
 	<string name="followed_user">Sa jälgid nüüd kasutajat %s</string>
 	<string name="following_user_requested">%s soovib sind jälgida</string>
 	<string name="open_in_browser">Ava veebibrauseris</string>
-	<string name="hide_boosts_from_user">Peida hooandmised</string>
-	<string name="show_boosts_from_user">Näita hooandmisi</string>
+	<string name="hide_boosts_from_user">Peida hooandmised ajajoonelt</string>
+	<string name="show_boosts_from_user">Näita ajajoonel hooandmisi</string>
 	<string name="signup_reason">Miks sa soovid liituda?</string>
 	<string name="signup_reason_note">See aitab meil sinu taotlust üle vaadata.</string>
 	<string name="clear">Tühjenda</string>
@@ -327,7 +327,7 @@
 	<string name="poll_multiple_choice">Vali üks või enam</string>
 	<string name="save_changes">Salvesta muudatused</string>
 	<string name="profile_featured">Esiletõstetud</string>
-	<string name="profile_timeline">Ajajoon</string>
+	<string name="profile_timeline">Tegevus</string>
 	<string name="view_all">Vaata kõiki</string>
 	<string name="profile_endorsed_accounts">Kasutajakontod</string>
 	<string name="verified_link">Kontrollitud link</string>
@@ -368,7 +368,7 @@
 	<string name="alt_text">Selgitustekst</string>
 	<string name="help">Abiteave</string>
 	<string name="what_is_alt_text">Mis on selgitustekst?</string>
-	<string name="alt_text_help">Selgitustekst ehk alt-tekst pakub pildi kirjeldust nägemispuudega inimeste jaoks või neile, kel on aeglane internet või neile, kes otsivad lisaselgitust.\n\nSaad parandada hõlbustamist ja mõistmist kõigi jaoks, koostades selge, lühida ja objektiivse selgitusteksti.\n\n<ul> <li>Lisa tähtsad elemendid</li>\n<li>Tee pildil olevast tekstist kokkuvõte</li>\n<li>Kasuta tavapärast lauseehitust</li>\n<li>Väldi ebaolulist teavet</li>\n<li>Keskendu keerukate vaadete puhul (näiteks diagrammid ja kaardid) puhul trendidele ja põhiseostele</li> </ul></string>
+	<string name="alt_text_help">Selgitustekst ehk alt-tekst pakub pildi kirjeldust nägemispuudega inimeste jaoks või neile, kel on aeglane internetiühendus või neile, kes otsivad lisaselgitust.\n\nSaad parandada hõlbustamist ja mõistmist kõigi jaoks, koostades selge, lühida ja objektiivse selgitusteksti.\n\n<ul> <li>Lisa tähtsad elemendid</li>\n<li>Tee pildil olevast tekstist kokkuvõte</li>\n<li>Kasuta tavapärast lauseehitust</li>\n<li>Väldi ebaolulist teavet</li>\n<li>Keskendu keerukate vaadete puhul (näiteks diagrammid ja kaardid) puhul trendidele ja põhiseostele</li> </ul></string>
 	<string name="edit_post">Muuda postitust</string>
 	<string name="no_verified_link">Link pole kontrollitud</string>
 	<string name="compose_autocomplete_emoji_empty">Sirvi emojisid</string>
@@ -390,7 +390,7 @@
 	<string name="reported">Teavitatud</string>
 	<string name="report_unfollow_explanation">Kui sa ei soovi tema postitusi oma ajajoonel näha, siis lõpeta tema jälgimine.</string>
 	<string name="muted_user">%s kasutaja on summutatud</string>
-	<string name="report_sent_already_blocked">Sa oled selle kasutaja juba blokeerinud ning seni kuni me teavitusega tegeleme, ei saa sa enam midagi muud teha.</string>
+	<string name="report_sent_already_blocked">Sa oled selle kasutaja juba blokeerinud ning seni kuni me teavitus ülevaatamisega tegeleme, ei saa sa enam midagi muud teha.</string>
 	<string name="report_personal_already_blocked">Sa oled selle kasutaja juba blokeerinud ning midagi muud sa enam ei pea tegema.\n\nTänud, et koos hoiame Mastodoni turvalisena kõigi jaoks!</string>
 	<string name="blocked_user">%s kasutaja on blokeeritud</string>
 	<string name="mark_all_notifications_read">Märgi kõik loetuks</string>
@@ -400,7 +400,7 @@
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
 	<string name="about_app">Teave %s kohta</string>
 	<string name="default_post_language">Postituse keel</string>
-	<string name="settings_alt_text_reminders">Lisa selgitusteksti meeldetuletusi</string>
+	<string name="settings_alt_text_reminders">Näita selgitusteksti meeldetuletusi</string>
 	<string name="settings_confirm_unfollow">Küsi kinnitust enne jälgimise lõpetamist</string>
 	<string name="settings_confirm_boost">Küsi kinnitust enne hooandmist</string>
 	<string name="settings_confirm_delete_post">Küsi kinnitust enne postituse kustutamist</string>
@@ -435,8 +435,8 @@
 	<string name="notifications_disabled_in_system">Lülita teavitused oma nutiseadme seadistustest sisse ja näed võimast teavet kõikidelt saatjatelt.</string>
 	<string name="settings_even_more">Veel rohkem seadistusi</string>
 	<string name="settings_show_cws">Näita sisuhoiatusi</string>
-	<string name="settings_hide_sensitive_media">Peida delikaatseks märgitud meedia</string>
-	<string name="settings_show_interaction_counts">Postita suhestumise statistika</string>
+	<string name="settings_hide_sensitive_media">Peida delikaatseks märgitud meedium</string>
+	<string name="settings_show_interaction_counts">Postitusega suhestumise statistika</string>
 	<string name="settings_show_emoji_in_names">Omavalitud emojid kuvatavates nimedes</string>
 	<plurals name="in_x_seconds">
 		<item quantity="one">%d sekundi pärast</item>
@@ -454,7 +454,7 @@
 		<item quantity="one">%d tund tagasi</item>
 		<item quantity="other">%d tundi tagasi</item>
 	</plurals>
-	<string name="alt_text_reminder_title">Meediafailil puudub selgitustekst</string>
+	<string name="alt_text_reminder_title">Multimeediafailil puudub selgitustekst</string>
 	<plurals name="alt_text_reminder_x_images">
 		<item quantity="one">%s-l sinu lisatud pildil puudub selgitustekst. Kas jätkad postitamisega?</item>
 		<item quantity="other">%s-l sinu lisatud pildil puuduvad selgitustekstid. Kas jätkad postitamisega?</item>
@@ -497,12 +497,12 @@
 	<string name="filter_context_profiles">Profiilid</string>
 	<string name="settings_filter_title">Pealkiri</string>
 	<string name="settings_delete_filter_title">Kas kustutad „%s“ filtri?</string>
-	<string name="settings_delete_filter_confirmation">See filter kustutatke sinu kasutajakontolt sinu kõikidest seadmetest.</string>
+	<string name="settings_delete_filter_confirmation">See filter kustutatakse sinu kasutajakontolt sinu kõikidest seadmetest.</string>
 	<string name="add_muted_word">Lisa summutatud sõna</string>
 	<string name="edit_muted_word">Muuda summutatud sõna</string>
 	<string name="add">Lisa</string>
 	<string name="filter_word_or_phrase">Sõna või fraas</string>
-	<string name="filter_add_word_help">Sõnad on tõstutundlikud ning filter arvestab vaid täissõnu.\n\nKui lisad filtrisse „Supp“, siis see peidab postitused, kus leidub „supp“ või „sUpP“, aga mitte „kapsasupp“.</string>
+	<string name="filter_add_word_help">Sõnad on tõstutundetud ning filter arvestab vaid täissõnu.\n\nKui lisad filtrisse „Supp“, siis see peidab postitused, kus leidub „supp“ või „sUpP“, aga mitte „kapsasupp“.</string>
 	<string name="settings_delete_filter_word">Kas kustutad „%s“ märksõna?</string>
 	<string name="enter_selection_mode">Vali</string>
 	<string name="select_all">Vali kõik</string>
@@ -518,7 +518,7 @@
 	</plurals>
 	<string name="required_form_field_blank">Ei või olla täitmata</string>
 	<string name="filter_word_already_in_list">On juba loendis</string>
-	<string name="app_update_ready">Rakendus uuendus on valmis</string>
+	<string name="app_update_ready">Rakenduse uuendus on valmis</string>
 	<string name="app_update_version">Versioon %s</string>
 	<string name="downloading_update">Laadin alla (%d%%)</string>
 	<!-- Shown like a content warning, %s is the name of the filter -->
@@ -531,8 +531,8 @@
 	<string name="posts_matching_string">Postitused „%s“ märksõnaga</string>
 	<string name="accounts_matching_string">Kasutajad „%s“ märksõnaga</string>
 	<!-- Shown in the post header. Please keep it short -->
-	<string name="time_seconds_ago_short">%d sek eest</string>
-	<string name="time_minutes_ago_short">%d min eest</string>
+	<string name="time_seconds_ago_short">%d sek tagasi</string>
+	<string name="time_minutes_ago_short">%d min tagasi</string>
 	<string name="time_hours_ago_short">%d tunni eest</string>
 	<string name="time_days_ago_short">%d päeva eest</string>
 	<!-- %s is the name of the post language -->
@@ -560,7 +560,7 @@
 	<string name="manage_hashtags">Halda teemaviiteid</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">Rippmenüü</string>
-	<string name="edit_list">Muuda loendeid</string>
+	<string name="edit_list">Muuda loendit</string>
 	<string name="list_members">Loendi liikmed</string>
 	<string name="delete_list">Kustuta loend</string>
 	<!-- %s is the name of the list -->
@@ -612,16 +612,16 @@
 	<string name="more_than_two_years">enam kui 2 aastat</string>
 	<string name="non_mutual_title1">Jää lugupidavaks ja asjakohaseks</string>
 	<string name="non_mutual_text1">Vasta viisakalt ja teemakohaselt.</string>
-	<string name="non_mutual_title2">Tegtutse lahkelt</string>
+	<string name="non_mutual_title2">Tegutse lahkelt</string>
 	<string name="non_mutual_text2">Positiivne toon on alati hinnatud.</string>
 	<string name="non_mutual_title3">Jää avatuks</string>
 	<string name="non_mutual_text3">Igalühel on oma vestlusstiil. Ole valmis sellega kohanema.</string>
 	<string name="make_profile_discoverable">Muuda minu profiil leitavaks</string>
 	<string name="discoverability">Leitavus</string>
-	<string name="discoverability_help">Kui sa kasutad Mastodonis avastatavust, siis sinu postitused võivad tulla välja otsingutest ning olla populaarsust koguvate postituste seas.\n\nSinu profiili võidakse soovitada neile, kellel on sinuga samad huvid.\n\nKui sa sellest valikust loobud, siis see ei peida sinu profiili - nimekohase otsinguga on ta igal juhul leitav.</string>
+	<string name="discoverability_help">Kui sa kasutad Mastodonis avastatavust ja leitavust, siis sinu postitused võivad tulla välja otsingutest ning olla populaarsust koguvate postituste seas.\n\nSinu profiili võidakse soovitada neile, kellel on sinuga samad huvid.\n\nKui sa sellest valikust loobud, siis see ei peida sinu profiili - nimekohase otsinguga on ta igal juhul leitav.</string>
 	<string name="app_version_copied">Versiooninumber on kopeeritud lõikelauale</string>
 	<string name="onboarding_recommendations_intro">Sa ise saad hallata oma ajajoont.
-Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
+Mida rohkem inimesi sa tead ja jälgid, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="onboarding_recommendations_title">Muuda oma avalehe ajajoon isikupäraseks</string>
 	<string name="article_by_author">Autorilt %s</string>
 	<string name="button_reblogged">Andis hoogu</string>
@@ -638,21 +638,21 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="invite_link_pasted">Link on asetatud sinu lõikelaualt.</string>
 	<string name="need_invite_to_join_server">Liitumaks %s serveriga vajad sa kutset olemasolevalt kasutajalt.</string>
 	<string name="mute_user_confirm_title">Kas summutad kasutaja?</string>
-	<string name="user_wont_know_muted">Ta ei saa teadma, et ta on vaigistatud.</string>
+	<string name="user_wont_know_muted">Ta ei saa teadma, et ta on summutatud.</string>
 	<string name="user_can_still_see_your_posts">Ta näeb jätkuvalt sinu postitusi, kuid sa ei näe tema omi.</string>
 	<string name="you_wont_see_user_mentions">Sa ei näe postitusi, mis teda mainivad.</string>
 	<string name="user_can_mention_and_follow_you">Ta saab sind mainida ja sind jälgida, kuid sa ei näe teda.</string>
-	<string name="unmuted_user_x">%s summutamine on lõppenud</string>
+	<string name="unmuted_user_x">Kasutaja summutamine on lõppenud: %s</string>
 	<string name="block_user_confirm_title">Kas blokeerid kasutaja?</string>
 	<string name="user_can_see_blocked">Ta näeb, et ta on blokeeritud.</string>
 	<string name="user_cant_see_each_other_posts">Ta ei näe sinu postitusi ja sa ei näe tema omi.</string>
-	<string name="user_cant_mention_or_follow_you">Ta ei saa sin mainida ega jälgida.</string>
-	<string name="unblocked_user_x">%s blokeerimine on lõppenud</string>
+	<string name="user_cant_mention_or_follow_you">Ta ei saa sind mainida ega jälgida.</string>
+	<string name="unblocked_user_x">Kasutaja blokeerimine on lõppenud: %s</string>
 	<string name="block_domain_confirm_title">Kas blokeerid domeeni?</string>
 	<string name="do_block_server">Blokeeri server</string>
 	<string name="block_user_x_instead">Selle asemel blokeeri @%s</string>
 	<string name="users_cant_see_blocked">Sa ei näe selle serveri kasutajate postitusi ega teavitusi.</string>
-	<string name="you_wont_see_server_posts">Sa ei näe ühtegi selle serveri kasutajate postitust.</string>
+	<string name="you_wont_see_server_posts">Sa ei näe ühtegi selle serveri kasutaja postitust.</string>
 	<string name="server_cant_mention_or_follow_you">Sellest serverist ei saa keegi sind jälgida.</string>
 	<string name="server_can_interact_with_older">Selle serveri kasutajad saavad suhestuda sinu vanade postitustega.</string>
 	<string name="unblocked_domain_x">%s domeeni blokeering on eemaldatud</string>
@@ -892,4 +892,91 @@ Mida rohkem inimesi sa tead, seda aktiivsem ja huvitavam ta saab olema.</string>
 	<string name="quote_followers_only_cancel">Tagasi muutmise juurde</string>
 	<string name="quote_followers_only_dont_show_again">Ära enam näita seda sõnumit uuesti</string>
 	<string name="more_replies_found">Leidub veel vastuseid</string>
+	<string name="user_is_muted">Summutatud</string>
+	<string name="user_is_bot">Automatiseeritud kasutajakonto</string>
+	<string name="profile_view_qr_code">Vaata QR-koodi</string>
+	<string name="feature_user">Too minu profiilis esile</string>
+	<string name="add_user_personal_note">Lisa isiklik märge</string>
+	<string name="mute_account">Summuta kasutajakonto</string>
+	<string name="block_account">Blokeeri kasutajakonto</string>
+	<string name="remove_follower">Eemalda jälgija</string>
+	<string name="report_account">Teata kasutajakontost</string>
+	<string name="unblock_account">Lõpeta konto blokeerimine</string>
+	<string name="unmute_account">Lõpeta kasutajakonto summutamine</string>
+	<string name="unblock">Lõpeta blokeerimine</string>
+	<string name="request_to_follow">Jälgimispäring</string>
+	<string name="cancel_follow_request">Tühista päring</string>
+	<string name="confirm_remove_follower_title">Kas eemaldame jälgija?</string>
+	<string name="confirm_remove_follower">%s lõpetab sellega sinu jälgimise. Kas oled kindel, et soovid jätkata?</string>
+	<string name="edit_user_personal_note">Muuda isiklikku märget</string>
+	<string name="user_personal_note_explanation">Isiklikud märked on nähtavad vaid sulle.</string>
+	<string name="user_personal_note">Isiklik märge</string>
+	<string name="timeline_filter_posts_and_boosts">Postitused ja hooandmised</string>
+	<string name="timeline_filter_show_replies">Näita vastuseid</string>
+	<string name="timeline_filter_show_boosts">Näita hooandmisi</string>
+	<string name="timeline_filter_all_activity">Kõik tegevused</string>
+	<string name="timeline_filter_posts_and_replies">Postitused ja vastused</string>
+	<string name="timeline_filter_posts">Postitused</string>
+	<string name="edit_profile_display_name">Kuvatav nimi</string>
+	<string name="edit_profile_x_custom_fields">Kohandatud väljad (%d)</string>
+	<string name="edit_profile_custom_fields">Kohandatud väljad</string>
+	<string name="edit_profile_custom_fields_description">Nt. asesõnad, välised lingid jne.</string>
+	<string name="edit_profile_featured_hashtags_description">Luba kasutajatel filtreerida sinu ajajoont teemade alusel</string>
+	<string name="edit_profile_tab_settings">Profiili vahekaartide seadistused</string>
+	<string name="edit_profile_add_bio">Lisa elulugu</string>
+	<string name="edit_profile_featured_hashtags">Esiletõstetud teemaviited</string>
+	<string name="edit_profile_x_featured_hashtags">Esiletõstetud teemaviited (%d)</string>
+	<string name="edit_profile_replace_image">Asenda</string>
+	<string name="edit_profile_edit_display_name">Muuda kuvatavat nime</string>
+	<string name="edit_profile_edit_bio">Muuda elulugu</string>
+	<string name="add_profile_field">Lisa väli</string>
+	<string name="edit_profile_custom_fields_help">Soovitus: Lisa oma Mastodoni kontole usutavust verifitseerides sulle kuuluvate veebisaitide lingid. <i>Lisateave</i></string>
+	<string name="edit_profile_link_verification_help_title">Verifitseeritud lingi lisamine</string>
+	<string name="edit_profile_link_verification_help">Tõsta oma Mastodoni profiili usaldusväärsust, vereifitseerides isiklike veebisaitide lingid. See toimib järgmiselt:</string>
+	<string name="edit_profile_link_verification_title1">Kopeeri järgnev HTML-kood</string>
+	<string name="edit_profile_link_verification_title2">Aseta see HTML-kood oma veebisaidi päisesse</string>
+	<string name="edit_profile_link_verification_text2">Lisades antud koodi oma veebisaidi päisesse võimaldab &lt;a&gt; elemendil jääda nähtamatuks. Lisaks võimaldab rel=\"me\" atribuudi säilitamine ära hoida identiteedivargust kasutajate loodud sisuga veebisaitides. Seega on oluline teda säilitada.</string>
+	<string name="edit_profile_link_verification_title3">Lisa oma veebisait kohandatud väljana</string>
+	<string name="edit_profile_link_verification_text3">Kui oled oma veebisaidi kohandatud väljana juba lisanud, pead verifitseerimise käivitamiseks selle kustutama ja uuesti lisama.</string>
+	<string name="edit_profile_field">Muuda välja</string>
+	<string name="edit_profile_field_label_example">Nt. „Isiklik veebileht“</string>
+	<string name="edit_profile_field_value_example">Nt. „toredomeen.ee“</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">Maksimaalselt %,d tähemärk</item>
+		<item quantity="other">Maksimaalselt %,d tähemärki</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">Kasutated %,d-s postituses</item>
+		<item quantity="other">Kasutated %,d-s postituses</item>
+	</plurals>
+	<string name="add_featured_hashtag">Lisa teemaviide</string>
+	<string name="hashtag">Teemaviide</string>
+	<string name="confirm_remove_featured_hashtag">Kas eemaldad teemaviite?</string>
+	<string name="edit_profile_show_media_tab">Vahekaart „Meedium“</string>
+	<string name="edit_profile_show_media_tab_description">Näitab sinu postitusi, kus leidub multimeediat</string>
+	<string name="edit_profile_show_media_replies">Kaasa vastused</string>
+	<string name="edit_profile_show_featured_tab">Vahekaart „Esiletõstetud“</string>
+	<string name="edit_profile_show_featured_tab_description">Koht teiste kasutajakontode tutvustamiseks</string>
+	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Need seadistused määravad, mida kasutajad näevad %s ametlikes rakendustes, kuid ei pruugi kehtida teiste serverite kasutajate ja kolmandate osapoolte rakenduste puhul.</string>
+	<string name="handle_explanation_title">Kasutajatunnus on nagu e-posti aadress.</string>
+	<string name="handle_explanation_username">%s on selle konto kasutajanimi tema serveris. Kellelgi teisel mõnes muus serveris võib olla sama kasutajanimi.</string>
+	<string name="handle_explanation_domain">%s on server, kus antud konto koos profiiliga asub ning kust postitused saavad alguse.</string>
+	<string name="handle_explanation_summary">Nii nagu võid saata teiste e-posti serverite kasutajatele e-kirju, saad ka suhelda teiste Mastodoni serverite kasutajatega - ja tegelikult ka muude sotsiaalvõrkude kasutajatega, kus on kasutusel sama lahendus, nagu Mastodon pruugib (ActivityPubi protokoll).</string>
+	<string name="pinned_post">Esiletõstetud</string>
+	<string name="view_all_pinned">Vaata kõiki esiletõstetud postitusi</string>
+	<string name="profile_show_all_fields">Näita kõiki välju</string>
+	<string name="unfeature_user">Ära kuva minu profiilis</string>
+	<string name="confirm_delete_profile_field">Kas kustutad välja?</string>
+	<string name="confirm_delete_avatar">Kas eemaldad profiilipildi?</string>
+	<string name="confirm_delete_cover">Kas eemaldame päisepildi?</string>
+	<string name="profile_followers">Jälgijad</string>
+	<string name="profile_following">Sa jälgid</string>
+	<string name="user_follows_you">Jälgib sind</string>
+	<string name="profile_featured_empty_self">Ole valmis, kogumikud on varsti kasutusel</string>
+	<string name="profile_featured_empty">Siin ei ole midagi vaadatavat</string>
+	<string name="profile_featured_empty_description">%s pole veel midagi esile tõstnud.</string>
+	<string name="profile_featured_empty_self_description">Kogumikud (lisanduvad Mastodoni versioonis 4.6) võimaldavad sul luua omakoostatud kasutajakontode nimekirju, mida teistele soovitada.</string>
+	<string name="handle_explanation_copy">Kopeeri kasutajatunnus</string>
+	<!-- Placeholders are user display names -->
 </resources>

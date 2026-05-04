@@ -11,7 +11,7 @@
 	<string name="user_boosted">%s teilte</string>
 	<string name="in_reply_to">Antwort an %s</string>
 	<string name="notifications">Benachrichtigungen</string>
-	<string name="user_followed_you">%s folgt dir jetzt</string>
+	<string name="user_followed_you">%s folgt dir</string>
 	<string name="user_sent_follow_request">%s möchte dir folgen</string>
 	<string name="user_favorited">%s favorisierte:</string>
 	<string name="notification_boosted">%s teilte deinen Beitrag:</string>
@@ -29,11 +29,11 @@
 	<string name="share_user">Profil teilen …</string>
 	<string name="mute_user">%s stummschalten</string>
 	<string name="unmute_user">%s nicht mehr stummschalten</string>
-	<string name="block_user">%s sperren</string>
-	<string name="unblock_user">%s entsperren</string>
+	<string name="block_user">%s blockieren</string>
+	<string name="unblock_user">Blockierung von %s aufheben</string>
 	<string name="report_user">%s melden</string>
 	<string name="block_domain">%s blockieren</string>
-	<string name="unblock_domain">%s nicht mehr blockieren</string>
+	<string name="unblock_domain">Blockierung von %s aufheben</string>
 	<plurals name="x_posts">
 		<item quantity="one">%,d Beitrag</item>
 		<item quantity="other">%,d Beiträge</item>
@@ -408,7 +408,7 @@
 	<string name="pause_notifications_off">Aus</string>
 	<string name="notifications_policy_anyone">Allen</string>
 	<string name="notifications_policy_followed">Profilen, die mir folgen</string>
-	<string name="notifications_policy_follower">Leute, denen ich folge</string>
+	<string name="notifications_policy_follower">Profilen, denen ich folge</string>
 	<string name="notifications_policy_no_one">Niemandem</string>
 	<string name="settings_notifications_policy">Benachrichtigungen erhalten von</string>
 	<string name="notification_type_mentions_and_replies">Erwähnungen und Antworten</string>
@@ -647,14 +647,14 @@
 	<string name="user_cant_see_each_other_posts">Deine Beiträge können nicht mehr angesehen werden und du wirst deren Beiträge nicht mehr sehen.</string>
 	<string name="user_cant_mention_or_follow_you">Das Profil wird dich nicht erwähnen oder dir folgen können.</string>
 	<string name="unblocked_user_x">Blockierung von %s aufgehoben</string>
-	<string name="block_domain_confirm_title">Domain sperren?</string>
+	<string name="block_domain_confirm_title">Domain blockieren?</string>
 	<string name="do_block_server">Server sperren</string>
 	<string name="block_user_x_instead">Stattdessen %s blockieren</string>
 	<string name="users_cant_see_blocked">Du wirst keine Beiträge oder Benachrichtigungen von Profilen auf diesem Server sehen.</string>
 	<string name="you_wont_see_server_posts">Du wirst keine Beiträge von Profilen auf jenem Server mehr sehen.</string>
 	<string name="server_cant_mention_or_follow_you">Niemand von diesem Server wird dir folgen können.</string>
 	<string name="server_can_interact_with_older">Profile von diesem Server werden mit deinen älteren Beiträgen interagieren können.</string>
-	<string name="unblocked_domain_x">Domain %s entblockt</string>
+	<string name="unblocked_domain_x">Blockierung von %s aufgehoben</string>
 	<string name="scan_qr_code">QR-Code scannen</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<string name="saved">Gespeichert</string>
@@ -679,7 +679,7 @@
 	<string name="new_post_notifications_enabled">Du erhältst Benachrichtigungen über neue Beiträge.</string>
 	<string name="new_post_notifications_disabled">Du erhältst keine Benachrichtigungen über neue Beiträge mehr.</string>
 	<string name="mute_conversation">Unterhaltung stummschalten</string>
-	<string name="unmute_conversation">Stummschaltung für Unterhaltung aufheben</string>
+	<string name="unmute_conversation">Stummschaltung der Unterhaltung aufheben</string>
 	<string name="visibility_unlisted">Öffentlich (still)</string>
 	<string name="filtered_notifications">Gefilterte Benachrichtigungen</string>
 	<string name="filter_notifications">Benachrichtigungen herausfiltern von …</string>
@@ -689,7 +689,7 @@
 	<string name="notification_filter_followers_explanation">Einschließlich Profilen, die dir seit weniger als 3 Tagen folgen</string>
 	<string name="notification_filter_new_accounts">neuen Konten</string>
 	<string name="notification_filter_new_accounts_explanation">Innerhalb der letzten 30 Tagen erstellt</string>
-	<string name="notification_filter_mentions">Ungebetene Direktnachrichten</string>
+	<string name="notification_filter_mentions">unerwünschten privaten Erwähnungen</string>
 	<string name="notification_filter_mentions_explanation">Solange sie keine Antwort auf deine Erwähnung ist oder du dem Profil nicht folgst</string>
 	<string name="allow_notifications">Benachrichtigungen erlauben</string>
 	<string name="mute_notifications">Benachrichtigungsanfrage verwerfen</string>
@@ -702,7 +702,7 @@
 	<string name="notifications_allowed">%s wird nun in deiner Benachrichtigungsliste erscheinen.</string>
 	<string name="visibility_subtitle_public">Alle in und außerhalb von Mastodon</string>
 	<string name="visibility_subtitle_unlisted">Wird nicht in den Suchergebnissen, Trends oder öffentlichen Timelines von Mastodon angezeigt</string>
-	<string name="visibility_subtitle_followers">Nur für deine Follower</string>
+	<string name="visibility_subtitle_followers">Nur deine eigenen Follower</string>
 	<string name="visibility_subtitle_private">Alle in diesem Beitrag erwähnten Profile</string>
 	<string name="view_boosts">Geteilte Beiträge anzeigen</string>
 	<string name="view_favorites">Favoriten anzeigen</string>
@@ -755,10 +755,10 @@
 	<string name="user_edited_post">%s hat einen Beitrag bearbeitet, mit dem du interagiert hast</string>
 	<string name="relationship_severance_account_suspension">Ein Admin von %1$s hat %2$s gesperrt. Du wirst von diesem Profil keine Updates mehr erhalten und auch nicht mit ihm interagieren können.</string>
 	<!-- %1$s is your server domain, %2$s is the domain that was blocked, %3$,d is the follower count, %4$s is the `x_accounts` plural string -->
-	<string name="relationship_severance_domain_block">Ein Admin von %1$s hat %2$s blockiert – darunter %3$,d deiner Follower und %4$s Konten, denen du folgst.</string>
+	<string name="relationship_severance_domain_block">Ein Admin von %1$s hat %2$s gesperrt – darunter %3$,d deiner Follower und %4$s du folgst.</string>
 	<plurals name="x_accounts">
-		<item quantity="one">%,d Konto</item>
-		<item quantity="other">%,d Konten</item>
+		<item quantity="one">%,d Konto, dem</item>
+		<item quantity="other">%,d Konten, denen</item>
 	</plurals>
 	<!-- %1$s is the domain that was blocked, %2$,d is the follower count, %3$s is the `x_accounts` plural string -->
 	<string name="relationship_severance_user_domain_block">Du hast %1$s blockiert – %2$,d deiner Follower und %3$s Konten, denen du folgst, wurden entfernt.</string>
@@ -891,4 +891,93 @@
 	<string name="quote_followers_only_cancel">Zurück zum Bearbeiten</string>
 	<string name="quote_followers_only_dont_show_again">Diesen Hinweis nicht mehr anzeigen</string>
 	<string name="more_replies_found">Weitere Antworten verfügbar</string>
+	<string name="user_is_muted">Stummgeschaltet</string>
+	<string name="user_is_bot">Bot</string>
+	<string name="profile_view_qr_code">QR-Code anzeigen</string>
+	<string name="feature_user">Im Profil vorstellen</string>
+	<string name="add_user_personal_note">Persönliche Notiz hinzufügen</string>
+	<string name="mute_account">Konto stummschalten</string>
+	<string name="block_account">Konto blockieren</string>
+	<string name="remove_follower">Follower entfernen</string>
+	<string name="report_account">Konto melden</string>
+	<string name="unblock_account">Blockierung aufheben</string>
+	<string name="unmute_account">Stummschaltung aufheben</string>
+	<string name="unblock">Entblocken</string>
+	<string name="request_to_follow">Folgeanfrage stellen</string>
+	<string name="cancel_follow_request">Folgeanfrage zurückziehen</string>
+	<string name="confirm_remove_follower_title">Follower entfernen?</string>
+	<string name="confirm_remove_follower">%s wird dir nicht länger folgen. Bist du dir sicher?</string>
+	<string name="edit_user_personal_note">Persönliche Notiz bearbeiten</string>
+	<string name="user_personal_note_explanation">Persönliche Notizen sind nur für dich sichtbar.</string>
+	<string name="user_personal_note">Persönliche Notiz</string>
+	<string name="timeline_filter_posts_and_boosts">Beiträge &amp; geteilte Beiträge</string>
+	<string name="timeline_filter_show_replies">Antworten anzeigen</string>
+	<string name="timeline_filter_show_boosts">Geteilte Beiträge anzeigen</string>
+	<string name="timeline_filter_all_activity">Alle Aktivitäten</string>
+	<string name="timeline_filter_posts_and_replies">Beiträge &amp; Antworten</string>
+	<string name="timeline_filter_posts">Beiträge</string>
+	<string name="edit_profile_display_name">Anzeigename</string>
+	<string name="edit_profile_x_custom_fields">Zusatzfelder (%d)</string>
+	<string name="edit_profile_custom_fields">Zusatzfelder</string>
+	<string name="edit_profile_custom_fields_description">Deine Website, Pronomen, dein Alter – alles, was du möchtest.</string>
+	<string name="edit_profile_featured_hashtags_description">Ermöglicht anderen deine Timeline nach Themen zu filtern</string>
+	<string name="edit_profile_tab_settings">Profil-Tab-Einstellungen</string>
+	<string name="edit_profile_add_bio">Biografie hinzufügen</string>
+	<string name="edit_profile_featured_hashtags">Vorgestellte Hashtags</string>
+	<string name="edit_profile_x_featured_hashtags">Vorgestellte Hashtags (%d)</string>
+	<string name="edit_profile_replace_image">Ersetzen</string>
+	<string name="edit_profile_edit_display_name">Anzeigenamen bearbeiten</string>
+	<string name="edit_profile_edit_bio">Biografie bearbeiten</string>
+	<string name="add_profile_field">Zusatzfeld hinzufügen</string>
+	<string name="edit_profile_custom_fields_help">Tipp: Beweise die Echtheit deines Mastodon-Profils, indem du verifizierte Links zu deinen persönlichen Websites ergänzt. <i>Mehr erfahren</i></string>
+	<string name="edit_profile_link_verification_help_title">Ergänze verifizierte Links</string>
+	<string name="edit_profile_link_verification_help">Beweise die Echtheit deines Mastodon-Profils, indem du verifizierte Links zu deinen persönlichen Websites ergänzt. So funktioniert’s:</string>
+	<string name="edit_profile_link_verification_title1">Kopiere den unten stehenden HTML-Code</string>
+	<string name="edit_profile_link_verification_title2">Füge den Code in den Header deiner Website ein</string>
+	<string name="edit_profile_link_verification_text2">Durch das Hinzufügen des Codes in den Header kann das &lt;a&gt; -Element unsichtbar bleiben. Der wichtige Teil ist rel=\"me\", um Nachahmungen zu unterbinden – daher sollte das Attribut nicht entfernt werden.</string>
+	<string name="edit_profile_link_verification_title3">Ergänze deine Website in ein Zusatzfeld</string>
+	<string name="edit_profile_link_verification_text3">Wenn du deine Website bereits in ein Zusatzfeld eingetragen hast, musst du es noch einmal löschen und sie neu hinzufügen, damit die Verifizierung startet.</string>
+	<string name="edit_profile_field">Zusatzfeld bearbeiten</string>
+	<string name="edit_profile_field_label_example">z. B. „Meine Website“</string>
+	<string name="edit_profile_field_value_example">z. B. „example.me“</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">Maximal %,d Zeichen</item>
+		<item quantity="other">Maximal %,d Zeichen</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">In %,d Beitrag verwendet</item>
+		<item quantity="other">In %,d Beiträgen verwendet</item>
+	</plurals>
+	<string name="add_featured_hashtag">Hashtag hinzufügen</string>
+	<string name="hashtag">Hashtag</string>
+	<string name="confirm_remove_featured_hashtag">Hashtag entfernen?</string>
+	<string name="edit_profile_show_media_tab">„Medien“-Tab</string>
+	<string name="edit_profile_show_media_tab_description">Zeigt deine Beiträge mit Audio, Bildern oder Videos</string>
+	<string name="edit_profile_show_media_replies">Antworten anzeigen</string>
+	<string name="edit_profile_show_featured_tab">„Vorgestellt“-Tab</string>
+	<string name="edit_profile_show_featured_tab_description">Ein Bereich, um andere Konten vorzustellen</string>
+	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Diese Einstellungen legen fest, was andere in den offiziellen Apps auf %s sehen können. Möglicherweise werden sie nicht von anderen Servern oder Apps von Dritten berücksichtigt.</string>
+	<string name="handle_explanation_title">Deine Adresse im Fediverse ist wie eine E-Mail-Adresse.</string>
+	<string name="handle_explanation_username">%s ist der Profilname auf deren Server. Es ist möglich, dass jemand auf einem anderen Server den gleichen Profilnamen hat.</string>
+	<string name="handle_explanation_domain">%s ist der Server, auf dem das Profil registriert ist und die Beiträge verwaltet werden.</string>
+	<string name="handle_explanation_summary">So wie du E-Mails an andere trotz unterschiedlicher E-Mail-Provider senden kannst, so kannst du auch mit anderen Profilen auf unterschiedlichen Mastodon-Servern interagieren. Wenn andere soziale Apps die gleichen Kommunikationsregeln (das ActivityPub-Protokoll) wie Mastodon verwenden, dann funktioniert die Kommunikation auch dort.</string>
+	<string name="pinned_post">Angeheftet</string>
+	<string name="view_all_pinned">Alle angehefteten Beiträge anzeigen</string>
+	<string name="profile_show_all_fields">Alle Felder anzeigen</string>
+	<string name="unfeature_user">Im Profil nicht mehr vorstellen</string>
+	<string name="confirm_delete_profile_field">Zusatzfeld löschen?</string>
+	<string name="confirm_delete_avatar">Profilbild entfernen?</string>
+	<string name="confirm_delete_cover">Profilbanner entfernen?</string>
+	<string name="profile_followers">Follower</string>
+	<string name="profile_following">Folge ich</string>
+	<string name="user_follows_you">Folgt dir</string>
+	<string name="profile_featured_empty_self">Sammlungen sind bald verfügbar</string>
+	<string name="profile_featured_empty">Hier gibt es nichts zu sehen</string>
+	<string name="profile_featured_empty_description">%s hat noch nichts vorgestellt.</string>
+	<string name="profile_featured_empty_self_description">Mit Sammlungen (ab Mastodon v4.6) kannst du eigene Listen kuratieren, um auf empfehlenswerte Profile hinzuweisen.</string>
+	<string name="handle_explanation_copy">Adresse kopieren</string>
+	<string name="request_to_follow_short">Folgeanfrage</string>
+	<string name="cancel_follow_request_short">Zurückziehen</string>
+	<!-- Placeholders are user display names -->
 </resources>
