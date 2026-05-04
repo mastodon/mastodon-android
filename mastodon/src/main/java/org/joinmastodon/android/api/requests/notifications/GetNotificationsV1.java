@@ -24,10 +24,10 @@ public class GetNotificationsV1 extends MastodonAPIRequest<List<Notification>>{
 		if(limit>0)
 			addQueryParameter("limit", ""+limit);
 		if(includeTypes!=null){
-			for(String type:ApiUtils.enumSetToStrings(includeTypes, NotificationType.class)){
+			for(String type:ApiUtils.enumSetToStrings(includeTypes)){
 				addQueryParameter("types[]", type);
 			}
-			for(String type:ApiUtils.enumSetToStrings(EnumSet.complementOf(includeTypes), NotificationType.class)){
+			for(String type:ApiUtils.enumSetToStrings(EnumSet.complementOf(includeTypes))){
 				addQueryParameter("exclude_types[]", type);
 			}
 		}

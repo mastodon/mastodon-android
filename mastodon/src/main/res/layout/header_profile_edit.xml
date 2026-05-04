@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="184dp"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<org.joinmastodon.android.ui.views.CoverImageView
+		android:id="@+id/cover"
+		android:layout_width="match_parent"
+		android:layout_height="160dp"
+		android:background="@drawable/image_placeholder"
+		android:contentDescription="@string/profile_header"
+		android:scaleType="centerCrop" />
+
+	<FrameLayout
+		android:id="@+id/avatar_border"
+		android:layout_width="84dp"
+		android:layout_height="84dp"
+		android:layout_alignBottom="@id/cover"
+		android:layout_alignParentStart="true"
+		android:layout_marginStart="14dp"
+		android:layout_marginBottom="-18dp"
+		android:background="@drawable/profile_ava_bg">
+
+		<ImageView
+			android:id="@+id/avatar"
+			android:layout_width="80dp"
+			android:layout_height="80dp"
+			android:layout_gravity="center"
+			android:contentDescription="@string/profile_picture"
+			android:scaleType="centerCrop"
+			tools:src="#0f0" />
+
+	</FrameLayout>
+
+	<View
+		android:id="@+id/cover_badge"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:layout_alignEnd="@id/cover"
+		android:layout_alignTop="@id/cover"
+		android:layout_margin="8dp"
+		android:foreground="@drawable/ic_photo_camera_20px"
+		android:foregroundGravity="center"
+		android:foregroundTint="?colorM3OnSurface"
+		android:background="@drawable/bg_m3_surface1"/>
+
+	<View
+		android:id="@+id/avatar_badge"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:layout_alignEnd="@id/avatar_border"
+		android:layout_alignBottom="@id/avatar_border"
+		android:layout_marginEnd="-6dp"
+		android:layout_marginBottom="-6dp"
+		android:foreground="@drawable/ic_photo_camera_20px"
+		android:foregroundGravity="center"
+		android:foregroundTint="?colorM3OnSurface"
+		android:background="@drawable/bg_m3_surface1"/>
+
+</RelativeLayout>

@@ -14,33 +14,39 @@ import org.joinmastodon.android.model.Status;
 
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 
 public class GetNotificationsV2 extends MastodonAPIRequest<GetNotificationsV2.GroupedNotificationsResults>{
-	public GetNotificationsV2(String maxID, int limit, EnumSet<NotificationType> includeTypes, EnumSet<NotificationType> groupedTypes){
-		this(maxID, limit, includeTypes, groupedTypes, null);
+	public GetNotificationsV2(String maxID, int limit, EnumSet<NotificationType> includeTypes, EnumSet<NotificationType> groupedTypes, Set<String> excludeTypes){
+		this(maxID, limit, includeTypes, groupedTypes, null, excludeTypes);
 	}
 
-	public GetNotificationsV2(String maxID, int limit, EnumSet<NotificationType> includeTypes, EnumSet<NotificationType> groupedTypes, String onlyAccountID){
+	public GetNotificationsV2(String maxID, int limit, EnumSet<NotificationType> includeTypes, EnumSet<NotificationType> groupedTypes, String onlyAccountID, Set<String> excludeTypes){
 		super(HttpMethod.GET, "/notifications", GroupedNotificationsResults.class);
 		if(maxID!=null)
 			addQueryParameter("max_id", maxID);
 		if(limit>0)
 			addQueryParameter("limit", ""+limit);
 		if(includeTypes!=null){
-			for(String type:ApiUtils.enumSetToStrings(includeTypes, NotificationType.class)){
+			for(String type:ApiUtils.enumSetToStrings(includeTypes)){
 				addQueryParameter("types[]", type);
-			}
-			for(String type:ApiUtils.enumSetToStrings(EnumSet.complementOf(includeTypes), NotificationType.class)){
-				addQueryParameter("exclude_types[]", type);
 			}
 		}
 		if(groupedTypes!=null){
-			for(String type:ApiUtils.enumSetToStrings(groupedTypes, NotificationType.class)){
+			for(String type:ApiUtils.enumSetToStrings(groupedTypes)){
 				addQueryParameter("grouped_types[]", type);
 			}
 		}
 		if(!TextUtils.isEmpty(onlyAccountID))
 			addQueryParameter("account_id", onlyAccountID);
+		for(String type:ApiUtils.enumSetToStrings(NotificationType.getAllTypes())){
+			addQueryParameter("supported_types[]", type);
+		}
+		if(excludeTypes!=null){
+			for(String type:excludeTypes){
+				addQueryParameter("exclude_types[]", type);
+			}
+		}
 		removeUnsupportedItems=true;
 	}
 

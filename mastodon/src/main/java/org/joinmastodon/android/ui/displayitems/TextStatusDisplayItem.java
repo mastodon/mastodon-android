@@ -21,6 +21,7 @@ import org.joinmastodon.android.ui.views.LinkedTextView;
 
 import java.util.Locale;
 
+import androidx.annotation.Nullable;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.MovieDrawable;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
@@ -33,10 +34,11 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 	private CustomEmojiHelper translationEmojiHelper=new CustomEmojiHelper();
 	public boolean textSelectable;
 	public boolean largerFont;
+	@Nullable
 	public final Status status;
 	private final String accountID;
 
-	public TextStatusDisplayItem(String parentID, CharSequence text, Callbacks callbacks, Context context, Status status, String accountID){
+	public TextStatusDisplayItem(String parentID, CharSequence text, Callbacks callbacks, Context context, @Nullable Status status, String accountID){
 		super(parentID, callbacks, context);
 		this.text=text;
 		this.status=status;
@@ -60,13 +62,15 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public void setTranslatedText(String text){
+		if(status==null)
+			throw new IllegalStateException();
 		Status statusForContent=status.getContentStatus();
 		translatedText=HtmlParser.parse(text, statusForContent.emojis, statusForContent.mentions, statusForContent.tags, accountID, statusForContent, context);
 		translationEmojiHelper.setText(translatedText);
 	}
 
 	private CustomEmojiHelper getCurrentEmojiHelper(){
-		return status.translationState==Status.TranslationState.SHOWN ? translationEmojiHelper : emojiHelper;
+		return status!=null && status.translationState==Status.TranslationState.SHOWN ? translationEmojiHelper : emojiHelper;
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<TextStatusDisplayItem> implements ImageLoaderViewHolder{
@@ -85,7 +89,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 
 		@Override
 		public void onBind(TextStatusDisplayItem item){
-			if(item.status.translationState==Status.TranslationState.SHOWN){
+			if(item.status!=null && item.status.translationState==Status.TranslationState.SHOWN){
 				if(item.translatedText==null){
 					item.setTranslatedText(item.status.translation.content);
 				}

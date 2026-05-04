@@ -1,50 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
+	android:layout_width="wrap_content"
+	android:layout_height="47dp"
+	android:orientation="horizontal"
+	android:padding="8dp"
 	android:clipToPadding="false"
-	android:paddingStart="16dp"
-	android:paddingTop="6dp"
-	android:paddingEnd="24dp"
-	android:paddingBottom="6dp">
+	android:foreground="@drawable/bg_profile_field">
+
+	<FrameLayout
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1">
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="15dp"
+			android:layout_gravity="top|start"
+			android:textSize="13dp"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:singleLine="true"
+			android:ellipsize="none"
+			android:requiresFadingEdge="horizontal"
+			android:gravity="center_vertical"
+			android:includeFontPadding="false"
+			tools:text="Field title"/>
+
+		<org.joinmastodon.android.ui.views.LinkedTextView
+			android:id="@+id/value"
+			android:layout_width="wrap_content"
+			android:layout_height="16dp"
+			android:layout_gravity="bottom|start"
+			android:textColor="?colorM3OnSurface"
+			android:textSize="13dp"
+			android:singleLine="true"
+			android:ellipsize="none"
+			android:requiresFadingEdge="horizontal"
+			android:textColorLink="?colorM3OnSurface"
+			android:fontFamily="sans-serif-medium"
+			android:gravity="center_vertical"
+			android:includeFontPadding="false"
+			tools:text="Field value"/>
+		
+		<ImageButton
+			android:id="@+id/title_ellipsis"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_gravity="end|top"
+			android:layout_marginEnd="-2dp"
+			android:layout_marginTop="-4dp"
+			android:src="@drawable/ic_ellipsis"
+			android:tint="?colorM3OnSurfaceVariant"
+			android:contentDescription="@string/text_show_more"
+			android:background="?android:selectableItemBackgroundBorderless"/>
+
+		<ImageButton
+			android:id="@+id/value_ellipsis"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_gravity="end|bottom"
+			android:layout_marginEnd="-2dp"
+			android:layout_marginBottom="-2dp"
+			android:src="@drawable/ic_ellipsis"
+			android:tint="?colorM3OnSurfaceVariant"
+			android:contentDescription="@string/text_show_more"
+			android:background="?android:selectableItemBackgroundBorderless"/>
+
+	</FrameLayout>
 
 	<ImageView
 		android:id="@+id/verified_icon"
-		android:layout_width="24dp"
-		android:layout_height="24dp"
-		android:layout_alignParentEnd="true"
-		android:layout_centerVertical="true"
-		android:layout_marginStart="16dp"
-		android:tint="?colorM3Primary"
+		android:layout_width="16dp"
+		android:layout_height="16dp"
+		android:layout_marginStart="4dp"
 		android:contentDescription="@string/verified_link"
-		android:src="@drawable/ic_verified_24px"/>
+		android:src="@drawable/ic_verified_link"/>
 
-	<TextView
-		android:id="@+id/title"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_toStartOf="@id/verified_icon"
-		android:textAppearance="@style/m3_label_medium"
-		android:minHeight="20dp"
-		android:textSize="14sp"
-		android:gravity="center_vertical"
-		android:textColor="?colorM3OnSurfaceVariant"
-		android:singleLine="true"
-		android:ellipsize="end"
-		tools:text="Field title"/>
-
-	<org.joinmastodon.android.ui.views.LinkedTextView
-		android:id="@+id/value"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_below="@id/title"
-		android:layout_toStartOf="@id/verified_icon"
-		android:textAppearance="@style/m3_body_large"
-		android:textColor="?colorM3OnSurface"
-		android:textSize="16sp"
-		android:minHeight="24dp"
-		android:gravity="center_vertical"
-		tools:text="Field value"/>
-
-</RelativeLayout>
+</LinearLayout>

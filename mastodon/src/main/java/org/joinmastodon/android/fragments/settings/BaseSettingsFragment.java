@@ -13,7 +13,6 @@ import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.DividerItemDecoration;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
 import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
-import org.joinmastodon.android.ui.viewholders.SimpleListItemViewHolder;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,7 +48,7 @@ public abstract class BaseSettingsFragment<T> extends MastodonRecyclerFragment<L
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
-		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorM3OutlineVariant, 1, 0, 0, vh->vh instanceof SimpleListItemViewHolder ivh && ivh.getItem().dividerAfter));
+		list.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorM3OutlineVariant, 1, 0, 0, vh->vh instanceof ListItemViewHolder<?> ivh && ivh.getItem().dividerAfter));
 		list.setItemAnimator(new BetterItemAnimator());
 	}
 

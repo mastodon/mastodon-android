@@ -7,7 +7,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Insets;
@@ -37,6 +36,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.view.WindowInsetsAnimation;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.inputmethod.InputConnection;
@@ -73,7 +73,6 @@ import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.model.StatusQuotePolicy;
-import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.CustomEmojiPopupKeyboard;
 import org.joinmastodon.android.ui.ExtendedPopupMenu;
@@ -84,7 +83,6 @@ import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
 import org.joinmastodon.android.ui.sheets.ComposerVisibilitySheet;
-import org.joinmastodon.android.ui.sheets.ListItemsSheet;
 import org.joinmastodon.android.ui.text.ComposeAutocompleteSpan;
 import org.joinmastodon.android.ui.text.ComposeHashtagOrMentionSpan;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -113,6 +111,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
@@ -121,6 +120,7 @@ import me.grishka.appkit.imageloader.ViewImageLoader;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
 import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
+import me.grishka.appkit.views.FragmentRootLinearLayout;
 
 public class ComposeFragment extends MastodonToolbarFragment implements ComposeEditText.SelectionListener, CustomTransitionsFragment{
 
@@ -195,6 +195,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	private Runnable discardConfirmationCallback=this::confirmDiscardDraftBackCallback;
 	private boolean prevHadDraft;
 	private boolean keyboardVisible;
+	private FragmentRootLinearLayout rootView;
+	private boolean ignoreNextKeyboardAnimation;
 
 	public ComposeFragment(){
 		super(R.layout.toolbar_fragment_with_progressbar);
@@ -318,7 +320,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 			});
 		}
 		pollBtn.setOnClickListener(v->togglePoll());
-		emojiBtn.setOnClickListener(v->emojiKeyboard.toggleKeyboardPopup(mainEditText));
+		emojiBtn.setOnClickListener(v->{
+			ignoreNextKeyboardAnimation=true;
+			emojiKeyboard.toggleKeyboardPopup(mainEditText);
+		});
 		spoilerBtn.setOnClickListener(v->toggleSpoiler());
 		languageBtn.setOnClickListener(v->showLanguageAlert());
 		visibilityBtn.setOnClickListener(this::onVisibilityClick);
@@ -470,6 +475,8 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
+		rootView=(FragmentRootLinearLayout) view;
+		rootView.setClipToPadding(false);
 		if(editingStatus==null)
 			loadDefaultStatusVisibility(savedInstanceState);
 		contentView.setSizeListener(emojiKeyboard::onContentViewSizeChanged);
@@ -649,6 +656,10 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 			visibilityBtn.setAlpha(0.5f);
 		}
 		updateMediaPollStates();
+
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.R){
+			view.setWindowInsetsAnimationCallback(new InsetsAnimationCallback());
+		}
 	}
 
 	@Override
@@ -1363,18 +1374,13 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 
 	@Override
 	public Animator onCreateEnterTransition(View prev, View container){
+		if(!getArguments().getBoolean("fromThreadFragment"))
+			return null;
 		AnimatorSet anim=new AnimatorSet();
-		if(getArguments().getBoolean("fromThreadFragment")){
-			anim.playTogether(
-					ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
-					ObjectAnimator.ofFloat(container, View.TRANSLATION_Y, V.dp(200), 0)
-			);
-		}else{
-			anim.playTogether(
-					ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
-					ObjectAnimator.ofFloat(container, View.TRANSLATION_X, V.dp(100), 0)
-			);
-		}
+		anim.playTogether(
+				ObjectAnimator.ofFloat(container, View.ALPHA, 0f, 1f),
+				ObjectAnimator.ofFloat(container, View.TRANSLATION_Y, V.dp(200), 0)
+		);
 		anim.setDuration(300);
 		anim.setInterpolator(CubicBezierInterpolator.DEFAULT);
 		return anim;
@@ -1382,13 +1388,84 @@ public class ComposeFragment extends MastodonToolbarFragment implements ComposeE
 
 	@Override
 	public Animator onCreateExitTransition(View prev, View container){
-		AnimatorSet anim=new AnimatorSet();
-		anim.playTogether(
-				ObjectAnimator.ofFloat(container, View.TRANSLATION_X, V.dp(100)),
-				ObjectAnimator.ofFloat(container, View.ALPHA, 0)
-		);
-		anim.setDuration(200);
-		anim.setInterpolator(CubicBezierInterpolator.DEFAULT);
-		return anim;
+		return null;
+	}
+
+	@Override
+	public boolean wantsPredictiveBackExitTransition(){
+		return true;
+	}
+
+	@RequiresApi(Build.VERSION_CODES.R)
+	private class InsetsAnimationCallback extends WindowInsetsAnimation.Callback{
+		private int bottomBarStartY, bottomBarEndY;
+		private ViewGroup contentWrap;
+
+		public InsetsAnimationCallback(){
+			super(WindowInsetsAnimation.Callback.DISPATCH_MODE_STOP);
+		}
+
+		@Override
+		public void onPrepare(@NonNull WindowInsetsAnimation animation){
+			if(ignoreNextKeyboardAnimation)
+				return;
+			if((animation.getTypeMask() & WindowInsets.Type.ime())!=0){
+				int[] location={0, 0};
+				bottomBar.getLocationInWindow(location);
+				bottomBarStartY=location[1];
+				contentWrap=rootView.findViewById(R.id.appkit_content);
+			}
+		}
+
+		@NonNull
+		@Override
+		public WindowInsetsAnimation.Bounds onStart(@NonNull WindowInsetsAnimation animation, @NonNull WindowInsetsAnimation.Bounds bounds){
+			if(ignoreNextKeyboardAnimation)
+				return bounds;
+			if((animation.getTypeMask() & WindowInsets.Type.ime())!=0){
+				int[] location={0, 0};
+				bottomBar.getLocationInWindow(location);
+				bottomBarEndY=location[1];
+				bottomBar.setTranslationY(bottomBarStartY-bottomBarEndY);
+				contentWrap.setBottom(rootView.getHeight());
+				contentView.setBottom(rootView.getHeight());
+			}
+			return bounds;
+		}
+
+		@NonNull
+		@Override
+		public WindowInsets onProgress(@NonNull WindowInsets insets, @NonNull List<WindowInsetsAnimation> runningAnimations){
+			if(ignoreNextKeyboardAnimation)
+				return insets;
+			WindowInsetsAnimation anim=null;
+			for(WindowInsetsAnimation a:runningAnimations){
+				if((a.getTypeMask() & WindowInsets.Type.ime())!=0){
+					anim=a;
+					break;
+				}
+			}
+			if(anim!=null){
+				int imeBottomInset=insets.getInsets(WindowInsets.Type.ime()).bottom;
+				int navBarBottomInset=insets.getInsets(WindowInsets.Type.systemBars()).bottom;
+				int offset=imeBottomInset>navBarBottomInset ? imeBottomInset-navBarBottomInset : 0;
+				bottomBar.setTranslationY(Math.max(0, bottomBarStartY-bottomBarEndY)-offset);
+				contentWrap.setBottom(rootView.getHeight());
+				contentView.setBottom(rootView.getHeight());
+			}
+			return insets;
+		}
+
+		@Override
+		public void onEnd(@NonNull WindowInsetsAnimation animation){
+			if(ignoreNextKeyboardAnimation){
+				ignoreNextKeyboardAnimation=false;
+				return;
+			}
+			if((animation.getTypeMask() & WindowInsets.Type.ime())!=0){
+				bottomBar.setTranslationY(0);
+				rootView.requestLayout();
+			}
+		}
 	}
 }

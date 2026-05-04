@@ -7,6 +7,10 @@ public class NonColoredLinkSpan extends LinkSpan{
 		super(link, listener, type, accountID, linkObject, parentObject);
 	}
 
+	public NonColoredLinkSpan(LinkSpan ls){
+		super(ls);
+	}
+
 	@Override
 	public void updateDrawState(TextPaint tp){
 		color=tp.getColor();

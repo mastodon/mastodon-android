@@ -85,6 +85,14 @@ public abstract class Instance extends BaseModel{
 		return getApiVersion()>=7;
 	}
 
+	public boolean supportsGettingFeaturedAccounts(){
+		return getApiVersion()>=6;
+	}
+
+	public boolean supportsNewProfileEditingEndpoints(){
+		return getApiVersion()>=8;
+	}
+
 	@Parcel
 	public static class Rule{
 		public String id;

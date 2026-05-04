@@ -31,11 +31,14 @@ import android.os.Vibrator;
 import android.os.ext.SdkExtensions;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.style.BulletSpan;
+import android.text.style.ForegroundColorSpan;
 import android.transition.ChangeBounds;
 import android.transition.ChangeScroll;
 import android.transition.Fade;
@@ -72,7 +75,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
-import org.joinmastodon.android.fragments.ProfileFragment;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Emoji;
@@ -336,6 +339,10 @@ public class UiUtils{
 	/** Linear interpolation between {@code startValue} and {@code endValue} by {@code fraction}. */
 	public static int lerp(int startValue, int endValue, float fraction) {
 		return startValue + Math.round(fraction * (endValue - startValue));
+	}
+
+	public static float lerp(float startValue, float endValue, float fraction) {
+		return startValue+fraction*(endValue-startValue);
 	}
 
 	public static String getFileName(Uri uri){
@@ -620,23 +627,26 @@ public class UiUtils{
 			delete.run();
 	}
 
-	public static void setRelationshipToActionButtonM3(Relationship relationship, Account account, Button button){
+	public static void setRelationshipToActionButton(Relationship relationship, Account account, Button button, boolean compact){
 		int styleRes;
 		if(relationship.blocking){
-			button.setText(R.string.button_blocked);
-			styleRes=R.style.Widget_Mastodon_M3_Button_Tonal_Error;
-		}else if(relationship.blockedBy){
+			button.setText(R.string.unblock);
+			styleRes=R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
+		}else if(!relationship.following && !relationship.followedBy && !relationship.requested){
 			button.setText(R.string.button_follow);
 			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
-		}else if(relationship.requested){
-			button.setText(R.string.button_follow_pending);
-			styleRes=R.style.Widget_Mastodon_M3_Button_Tonal;
-		}else if(!relationship.following){
-			button.setText(relationship.followedBy ? R.string.follow_back : R.string.button_follow);
+		}else if(!relationship.following && !relationship.requested && account.locked){
+			button.setText(compact ? R.string.request_to_follow_short : R.string.request_to_follow);
+			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
+		}else if(!relationship.following && relationship.requested){
+			button.setText(compact ? R.string.cancel_follow_request_short : R.string.cancel_follow_request);
+			styleRes=R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
+		}else if(!relationship.following && relationship.followedBy){
+			button.setText(R.string.follow_back);
 			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
 		}else{
-			button.setText(R.string.button_following);
-			styleRes=R.style.Widget_Mastodon_M3_Button_Tonal;
+			button.setText(R.string.unfollow);
+			styleRes=R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
 		}
 
 		button.setEnabled(relationship.blocking || (!relationship.blockedBy && !account.suspended));
@@ -1185,5 +1195,24 @@ public class UiUtils{
 		holder.itemView.setBackground(UiUtils.getThemeDrawable(parentView.getContext(), android.R.attr.selectableItemBackground));
 		holder.itemView.setOnClickListener(v->holder.onClick());
 		return holder.itemView;
+	}
+
+	public static CharSequence makeColoredString(CharSequence str, int color){
+		Spannable spannable=str instanceof Spannable s ? s : new SpannableString(str);
+		spannable.setSpan(new ForegroundColorSpan(color), 0, spannable.length(), 0);
+		return spannable;
+	}
+
+	public static CharSequence substituteStringWithSpan(Context ctx, @StringRes int res, String arg, Object span){
+		String str=ctx.getString(res, "{str}");
+		int index=str.indexOf("{str}");
+		if(index==-1)
+			return str;
+		SpannableStringBuilder ssb=new SpannableStringBuilder(index>0 ? str.substring(0, index) : "");
+		ssb.append(arg, span, 0);
+		int end=index+5;
+		if(end<str.length())
+			ssb.append(str.substring(end));
+		return ssb;
 	}
 }

@@ -1,6 +1,10 @@
 package org.joinmastodon.android.fragments;
 
+import android.app.AlertDialog;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -10,23 +14,34 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusUpdatedEvent;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.displayitems.FollowRequestActionsDisplayItem;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationWithButtonStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
+import org.joinmastodon.android.ui.text.HtmlParser;
+import org.joinmastodon.android.ui.text.LinkSpan;
+import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.views.LinkedTextView;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.utils.V;
 
 public abstract class BaseNotificationsListFragment extends BaseStatusListFragment<NotificationViewModel>{
 	protected String maxID;
@@ -88,8 +103,15 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 				return items;
 			}
 		}else if(titleItem!=null){
-			if(n.notification.type==NotificationType.FOLLOW_REQUEST)
+			if(n.notification.type==NotificationType.FOLLOW_REQUEST){
 				return List.of(titleItem, new FollowRequestActionsDisplayItem(n.getID(), this, getActivity(), n));
+			}else if(n.notification.type==NotificationType.FALLBACK && !TextUtils.isEmpty(n.notification.fallback.summary)){
+				SpannableStringBuilder parsedSummary=HtmlParser.parse(n.notification.fallback.summary, List.of(), List.of(), List.of(), accountID, n, getActivity());
+				TextStatusDisplayItem textItem=new TextStatusDisplayItem(n.getID(), parsedSummary, this, getActivity(), null, accountID);
+				return List.of(titleItem, textItem);
+			}else if(n.notification.type==NotificationType.ADMIN_REPORT && !TextUtils.isEmpty(n.notification.report.comment)){
+				return List.of(titleItem, new TextStatusDisplayItem(n.getID(), '"'+n.notification.report.comment+'"', this, getActivity(), null, accountID));
+			}
 			return List.of(titleItem);
 		}else{
 			return List.of();
@@ -112,7 +134,22 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 		if(n.status!=null){
 			Status status=n.status;
 			navigateToStatus(status);
-		}else{
+		}else if(n.notification.type==NotificationType.FALLBACK && !TextUtils.isEmpty(n.notification.fallback.description)){
+			SpannableStringBuilder description=HtmlParser.parse(n.notification.fallback.description, List.of(), List.of(), List.of(), accountID, n, getActivity());
+			LinkedTextView textView=new LinkedTextView(getActivity());
+			textView.setTextAppearance(R.style.m3_body_large);
+			textView.setPadding(V.dp(24), V.dp(24), V.dp(24), 0);
+			textView.setText(description);
+			AlertDialog alert=new M3AlertDialogBuilder(getActivity())
+					.setView(textView)
+					.setPositiveButton(R.string.ok, null)
+					.show();
+			for(LinkSpan link:description.getSpans(0, description.length(), LinkSpan.class)){
+				link.preClickListener=alert::dismiss;
+			}
+		}else if(n.notification.type==NotificationType.ADMIN_REPORT){
+			UiUtils.launchWebBrowser(getActivity(), "https://"+AccountSessionManager.get(accountID).domain+"/admin/reports/"+n.notification.report.id);
+		}else if(!n.accounts.isEmpty()){
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
 			args.putParcelable("profileAccount", Parcels.wrap(n.accounts.get(0)));
@@ -171,6 +208,28 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 		endMark=v.findViewById(R.id.end_mark);
 		endMark.setVisibility(View.GONE);
 		return v;
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState){
+		super.onViewCreated(view, savedInstanceState);
+		list.addItemDecoration(new RecyclerView.ItemDecoration(){
+			@Override
+			public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state){
+				if(list.getChildViewHolder(view) instanceof TextStatusDisplayItem.Holder textHolder && textHolder.getItem().status==null){
+					// Add extra padding after the summary that's part of some fallback notifications
+					outRect.bottom+=V.dp(8);
+				}
+			}
+		});
+	}
+
+	@Override
+	public boolean isItemEnabled(StatusDisplayItem item){
+		NotificationViewModel n=getNotificationByID(item.parentID);
+		if(n.notification.type==NotificationType.FALLBACK && TextUtils.isEmpty(n.notification.fallback.description))
+			return false;
+		return super.isItemEnabled(item);
 	}
 
 	public class EventListener{

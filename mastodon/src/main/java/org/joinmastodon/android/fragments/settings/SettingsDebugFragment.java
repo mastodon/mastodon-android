@@ -32,6 +32,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.palette.graphics.Palette;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
@@ -161,7 +162,7 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 		}
 
 		RecyclerView rv=new RecyclerView(getActivity());
-		rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+		rv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 		rv.setAdapter(new ColorsAdapter());
 		new M3AlertDialogBuilder(getActivity())
 				.setTitle("Dynamic colors")

@@ -41,9 +41,11 @@ public class SearchResult extends BaseModel implements DisplayItemsParent{
 
 	@Override
 	public String getAccountID(){
-		if(type==Type.STATUS)
-			return status.getAccountID();
-		return null;
+		return switch(type){
+			case STATUS -> status.getAccountID();
+			case ACCOUNT -> account.id;
+			case HASHTAG -> null;
+		};
 	}
 
 	@Override

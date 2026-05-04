@@ -39,9 +39,17 @@ platform :android do
       build_type: "release",
     )
     upload_to_play_store(
-      track: "beta",
+      track: "internal",
       skip_upload_images: true,
       skip_upload_screenshots: true
+    )
+    upload_to_play_store(
+	  track: "internal",
+	  track_promote_to: "beta",
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      skip_upload_aab: true,
+      skip_upload_changelogs: true
     )
   end
 end

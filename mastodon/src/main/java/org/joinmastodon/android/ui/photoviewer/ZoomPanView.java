@@ -674,6 +674,24 @@ public class ZoomPanView extends FrameLayout implements ScaleGestureDetector.OnS
 		}
 	}
 
+	public void getTransformMatrix(Matrix dst){
+		dst.set(matrix);
+	}
+
+	public void setTransformMatrix(Matrix matrix){
+		this.matrix.set(matrix);
+		updateViewTransform(false);
+	}
+
+	public float getMinScale(){
+		return minScale;
+	}
+
+	public void setBackgroundAlpha(float alpha){
+		backgroundAlphaForTransition=alpha;
+		listener.onSetBackgroundAlpha(alpha);
+	}
+
 	public interface Listener{
 		void onTransitionAnimationUpdate(float translateX, float translateY, float scale);
 		void onTransitionAnimationFinished();

@@ -391,4 +391,8 @@ public class AccountSession{
 		return instance==null || instance.configuration==null || instance.configuration.timelinesAccess==null
 				|| instance.configuration.timelinesAccess.liveFeeds==null || instance.configuration.timelinesAccess.liveFeeds.local!=Instance.TimelineAccessValue.DISABLED;
 	}
+
+	public boolean canSeeAdminNotifications(){
+		return self.role!=null && ((self.role.permissions & Role.PERMISSION_ADMINISTRATOR)!=0 || (self.role.permissions & Role.PERMISSION_MANAGE_USERS)!=0 || (self.role.permissions & Role.PERMISSION_MANAGE_REPORTS)!=0);
+	}
 }

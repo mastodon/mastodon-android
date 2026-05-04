@@ -11,6 +11,15 @@ public class Mention extends BaseModel{
 	public String acct;
 	public String url;
 
+	public Mention(){}
+
+	public Mention(Account acc){
+		id=acc.id;
+		username=acc.username;
+		acct=acc.acct;
+		url=acc.url;
+	}
+
 	@Override
 	public String toString(){
 		return "Mention{"+

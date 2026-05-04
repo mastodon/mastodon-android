@@ -29,7 +29,6 @@ import me.grishka.appkit.api.ErrorResponse;
 import okhttp3.Call;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import okhttp3.internal.http.HttpMethod;
 
 public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 	protected static final String TAG="MastodonAPIRequest";

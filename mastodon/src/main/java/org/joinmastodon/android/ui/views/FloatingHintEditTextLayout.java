@@ -170,7 +170,7 @@ public class FloatingHintEditTextLayout extends FrameLayout implements CustomVie
 					transY=edit.getHeight()/2f-edit.getLineHeight()/2f+(edit.getTop()-label.getTop())-(label.getHeight()/2f-label.getLineHeight()/2f);
 				}
 				int labelX=label.getLeft();
-				int editX=edit.getLeft()+edit.getPaddingLeft();
+				int editX=edit.getLeft()+edit.getCompoundPaddingLeft();
 				float xOffset=editX-labelX;
 
 				AnimatorSet anim=new AnimatorSet();

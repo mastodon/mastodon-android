@@ -10,15 +10,15 @@ public class GetUnreadNotificationsCount extends MastodonAPIRequest<GetUnreadNot
 	public GetUnreadNotificationsCount(EnumSet<NotificationType> includeTypes, EnumSet<NotificationType> groupedTypes){
 		super(HttpMethod.GET, "/notifications/unread_count", Response.class);
 		if(includeTypes!=null){
-			for(String type: ApiUtils.enumSetToStrings(includeTypes, NotificationType.class)){
+			for(String type: ApiUtils.enumSetToStrings(includeTypes)){
 				addQueryParameter("types[]", type);
 			}
-			for(String type:ApiUtils.enumSetToStrings(EnumSet.complementOf(includeTypes), NotificationType.class)){
+			for(String type:ApiUtils.enumSetToStrings(EnumSet.complementOf(includeTypes))){
 				addQueryParameter("exclude_types[]", type);
 			}
 		}
 		if(groupedTypes!=null){
-			for(String type:ApiUtils.enumSetToStrings(groupedTypes, NotificationType.class)){
+			for(String type:ApiUtils.enumSetToStrings(groupedTypes)){
 				addQueryParameter("grouped_types[]", type);
 			}
 		}

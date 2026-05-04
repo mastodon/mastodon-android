@@ -48,6 +48,8 @@
 	<attr name="colorRichTextDecorations" format="color"/>
 
 	<attr name="composePollStyleInactiveAlpha" format="float"/>
+	<attr name="emptyStateElephantArt" format="reference"/>
+	<attr name="colorBrand" format="color"/>
 
 	<declare-styleable name="MaxWidthFrameLayout">
 		<attr name="android:maxWidth" format="dimension"/>

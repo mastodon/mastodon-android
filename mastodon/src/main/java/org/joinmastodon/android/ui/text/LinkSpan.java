@@ -19,6 +19,7 @@ public class LinkSpan extends CharacterStyle {
 	private String accountID;
 	private Object linkObject;
 	private Object parentObject;
+	public Runnable preClickListener;
 
 	public LinkSpan(String link, OnLinkClickListener listener, Type type, String accountID, Object linkObject, Object parentObject){
 		this.listener=listener;
@@ -27,6 +28,10 @@ public class LinkSpan extends CharacterStyle {
 		this.accountID=accountID;
 		this.linkObject=linkObject;
 		this.parentObject=parentObject;
+	}
+
+	public LinkSpan(LinkSpan ls){
+		this(ls.link, ls.listener, ls.type, ls.accountID, ls.linkObject, ls.parentObject);
 	}
 
 	public int getColor(){
@@ -40,6 +45,8 @@ public class LinkSpan extends CharacterStyle {
 	}
 	
 	public void onClick(Context context){
+		if(preClickListener!=null)
+			preClickListener.run();
 		switch(getType()){
 			case URL -> UiUtils.openURL(context, accountID, link, parentObject);
 			case MENTION -> {

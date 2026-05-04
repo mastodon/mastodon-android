@@ -46,5 +46,10 @@ public class GapStatusDisplayItem extends StatusDisplayItem{
 		public void onClick(){
 			item.callbacks.onGapClick(this);
 		}
+
+		@Override
+		public boolean shouldHighlight(){
+			return false;
+		}
 	}
 }

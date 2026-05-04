@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:gravity="center_horizontal|top"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingTop="48dp"
+	android:paddingHorizontal="24dp">
+	
+	<ImageView
+		android:layout_width="200dp"
+		android:layout_height="200dp"
+		android:layout_marginBottom="16dp"
+		android:src="?emptyStateElephantArt"
+		android:importantForAccessibility="no"/>
+
+	<TextView
+		android:id="@+id/empty_text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:textAppearance="@style/m3_title_medium"
+		android:textColor="?colorM3OnSurface"
+		tools:text="@string/empty_list"/>
+
+	<TextView
+		android:id="@+id/empty_text_secondary"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:textAppearance="@style/m3_body_medium"
+		android:gravity="center_horizontal"
+		android:textColor="?colorM3OnSurface"
+		tools:text="Because there's nothing in it"/>
+
+</LinearLayout>

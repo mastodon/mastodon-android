@@ -164,11 +164,12 @@ public class OnboardingProfileSetupFragment extends ToolbarFragment{
 				getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 			}
 			int radius=V.dp(25);
-			new AvatarCropper(getActivity(), data.getData(), new SingleImagePhotoViewerListener(avaImage, avaBorder, new int[]{radius, radius, radius, radius}, this, ()->{}, null, null, null), (thumbnail, newUri)->{
+			new AvatarCropper(getActivity(), data.getData(), new SingleImagePhotoViewerListener(avaImage, avaBorder, new int[]{radius, radius, radius, radius}, this, ()->{}, null, null, null), (thumbnail, newUri, dismiss)->{
 				getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 				avaImage.setImageDrawable(thumbnail);
 				avaImage.setForeground(null);
 				avatarUri=newUri;
+				dismiss.run();
 			}, ()->getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)).show();
 		}else{
 			coverUri=uri;

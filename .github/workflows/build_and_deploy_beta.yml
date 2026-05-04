@@ -22,7 +22,7 @@ jobs:
           bundler-cache: true
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
 
       - name: Decode keystore
         uses: timheuer/base64-to-file@v1
@@ -36,6 +36,12 @@ jobs:
           echo "apply from: 'ci_signing.gradle'" >> mastodon/build.gradle
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
+      - name: Remove translations from fastlane metadata
+        run: |
+          mv fastlane/metadata/android fastlane/metadata/android_orig
+          mkdir fastlane/metadata/android
+          mv fastlane/metadata/android_orig/en-US fastlane/metadata/android/
+
       - name: Build and deploy beta to Google Play
         run: bundle exec fastlane beta
         env:
@@ -43,4 +49,3 @@ jobs:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           SUPPLY_JSON_KEY_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
           SUPPLY_SKIP_UPLOAD_METADATA: true
-          SUPPLY_SKIP_UPLOAD_CHANGELOGS: true

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:gravity="center_vertical">
+
+	<ImageView
+		android:id="@+id/dragger_thingy"
+		android:layout_width="56dp"
+		android:layout_height="56dp"
+		android:tint="?colorM3OnSurfaceVariant"
+		android:scaleType="center"
+		android:contentDescription="@string/reorder"
+		android:src="@drawable/ic_drag_handle_24px"/>
+
+	<LinearLayout
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_label_medium"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:singleLine="true"
+			android:ellipsize="end"
+			tools:text="Field title"/>
+
+		<TextView
+			android:id="@+id/value"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_body_large"
+			android:textColor="?colorM3OnSurface"
+			android:singleLine="true"
+			android:ellipsize="end"
+			tools:text="Field value"/>
+
+	</LinearLayout>
+
+	<ImageButton
+		android:id="@+id/edit"
+		android:layout_width="56dp"
+		android:layout_height="56dp"
+		android:tint="?colorM3OnSurfaceVariant"
+		android:scaleType="center"
+		android:contentDescription="@string/reorder"
+		android:background="?android:selectableItemBackground"
+		android:src="@drawable/ic_edit_24px"/>
+
+</LinearLayout>

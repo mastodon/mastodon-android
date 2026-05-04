@@ -11,14 +11,25 @@ public class ApiUtils{
 		//no instance
 	}
 
-	public static <E extends Enum<E>> List<String> enumSetToStrings(EnumSet<E> e, Class<E> cls){
+	public static <E extends Enum<E>> List<String> enumSetToStrings(EnumSet<E> e){
 		return e.stream().map(ev->{
 			try{
-				SerializedName annotation=cls.getField(ev.name()).getAnnotation(SerializedName.class);
+				SerializedName annotation=ev.getDeclaringClass().getField(ev.name()).getAnnotation(SerializedName.class);
 				return annotation!=null ? annotation.value() : ev.name().toLowerCase();
 			}catch(NoSuchFieldException x){
 				throw new RuntimeException(x);
 			}
 		}).collect(Collectors.toList());
+	}
+
+	public static <E extends Enum<E>> String enumSetToCommaSeparatedString(EnumSet<E> e){
+		return e.stream().map(ev->{
+			try{
+				SerializedName annotation=ev.getDeclaringClass().getField(ev.name()).getAnnotation(SerializedName.class);
+				return annotation!=null ? annotation.value() : ev.name().toLowerCase();
+			}catch(NoSuchFieldException x){
+				throw new RuntimeException(x);
+			}
+		}).collect(Collectors.joining(","));
 	}
 }

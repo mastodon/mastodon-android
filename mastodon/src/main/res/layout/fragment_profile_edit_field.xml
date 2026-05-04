@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingTop="8dp">
+
+		<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
+			android:id="@+id/label_wrap"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingBottom="8dp"
+			app:labelTextColor="@color/m3_outlined_text_field_label"
+			android:foreground="@drawable/bg_m3_outlined_text_field">
+
+			<EditText
+				android:id="@+id/label"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="16dp"
+				android:layout_marginEnd="16dp"
+				android:layout_marginTop="8dp"
+				android:padding="16dp"
+				android:background="@null"
+				android:elevation="0dp"
+				android:singleLine="true"
+				android:textColorHint="?colorM3OnSurfaceVariant"
+				android:hint="@string/field_label"
+				android:inputType="textCapSentences"/>
+
+		</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
+
+		<org.joinmastodon.android.ui.views.FloatingHintEditTextLayout
+			android:id="@+id/value_wrap"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:labelTextColor="@color/m3_outlined_text_field_label"
+			android:foreground="@drawable/bg_m3_outlined_text_field">
+
+			<EditText
+				android:id="@+id/value"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="16dp"
+				android:layout_marginEnd="16dp"
+				android:layout_marginTop="8dp"
+				android:padding="16dp"
+				android:background="@null"
+				android:elevation="0dp"
+				android:singleLine="true"
+				android:textColorHint="?colorM3OnSurfaceVariant"
+				android:hint="@string/field_content"
+				android:inputType="textCapSentences"/>
+
+		</org.joinmastodon.android.ui.views.FloatingHintEditTextLayout>
+
+		<Button
+			android:id="@+id/delete"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginHorizontal="16dp"
+			android:layout_marginVertical="20dp"
+			android:text="@string/delete"
+			android:drawableStart="@drawable/ic_delete_20px"
+			android:drawablePadding="8dp"
+			android:drawableTint="@color/button_text_m3_tonal_error"
+			android:paddingHorizontal="16dp"
+			style="@style/Widget.Mastodon.M3.Button.Tonal.Error"/>
+
+	</LinearLayout>
+
+</ScrollView>
