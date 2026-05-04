@@ -230,12 +230,12 @@ public class CacheController{
 				if(!onlyMentions)
 					loadingNotifications=true;
 				if(AccountSessionManager.get(accountID).getInstanceInfo().getApiVersion()>=2){
-					HashSet<String> excludeTypes=new HashSet<>();
+					EnumSet<NotificationType> excludeTypes=EnumSet.noneOf(NotificationType.class);
 					AccountLocalPreferences lp=AccountSessionManager.get(accountID).getLocalPreferences();
 					if(!lp.adminReportsNotifications)
-						excludeTypes.add("admin.report");
+						excludeTypes.add(NotificationType.ADMIN_REPORT);
 					if(!lp.adminSignupsNotifications)
-						excludeTypes.add("admin.sign_up");
+						excludeTypes.add(NotificationType.ADMIN_SIGNUP);
 					new GetNotificationsV2(maxID, count, onlyMentions ? EnumSet.of(NotificationType.MENTION) : null, NotificationType.getGroupableTypes(), excludeTypes)
 							.setCallback(new Callback<>(){
 								@Override

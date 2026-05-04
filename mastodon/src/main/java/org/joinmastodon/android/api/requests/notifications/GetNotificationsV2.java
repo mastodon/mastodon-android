@@ -14,14 +14,13 @@ import org.joinmastodon.android.model.Status;
 
 import java.util.EnumSet;
 import java.util.List;
-import java.util.Set;
 
 public class GetNotificationsV2 extends MastodonAPIRequest<GetNotificationsV2.GroupedNotificationsResults>{
-	public GetNotificationsV2(String maxID, int limit, EnumSet<NotificationType> includeTypes, EnumSet<NotificationType> groupedTypes, Set<String> excludeTypes){
+	public GetNotificationsV2(String maxID, int limit, EnumSet<NotificationType> includeTypes, EnumSet<NotificationType> groupedTypes, EnumSet<NotificationType> excludeTypes){
 		this(maxID, limit, includeTypes, groupedTypes, null, excludeTypes);
 	}
 
-	public GetNotificationsV2(String maxID, int limit, EnumSet<NotificationType> includeTypes, EnumSet<NotificationType> groupedTypes, String onlyAccountID, Set<String> excludeTypes){
+	public GetNotificationsV2(String maxID, int limit, EnumSet<NotificationType> includeTypes, EnumSet<NotificationType> groupedTypes, String onlyAccountID, EnumSet<NotificationType> excludeTypes){
 		super(HttpMethod.GET, "/notifications", GroupedNotificationsResults.class);
 		if(maxID!=null)
 			addQueryParameter("max_id", maxID);
@@ -43,7 +42,7 @@ public class GetNotificationsV2 extends MastodonAPIRequest<GetNotificationsV2.Gr
 			addQueryParameter("supported_types[]", type);
 		}
 		if(excludeTypes!=null){
-			for(String type:excludeTypes){
+			for(String type:ApiUtils.enumSetToStrings(excludeTypes)){
 				addQueryParameter("exclude_types[]", type);
 			}
 		}
