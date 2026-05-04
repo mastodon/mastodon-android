@@ -17,6 +17,7 @@ import org.joinmastodon.android.api.requests.lists.GetLists;
 import org.joinmastodon.android.api.requests.notifications.GetNotificationsV1;
 import org.joinmastodon.android.api.requests.notifications.GetNotificationsV2;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
+import org.joinmastodon.android.api.session.AccountLocalPreferences;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
@@ -41,6 +42,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -228,7 +230,13 @@ public class CacheController{
 				if(!onlyMentions)
 					loadingNotifications=true;
 				if(AccountSessionManager.get(accountID).getInstanceInfo().getApiVersion()>=2){
-					new GetNotificationsV2(maxID, count, onlyMentions ? EnumSet.of(NotificationType.MENTION) : null, NotificationType.getGroupableTypes())
+					HashSet<String> excludeTypes=new HashSet<>();
+					AccountLocalPreferences lp=AccountSessionManager.get(accountID).getLocalPreferences();
+					if(!lp.adminReportsNotifications)
+						excludeTypes.add("admin.report");
+					if(!lp.adminSignupsNotifications)
+						excludeTypes.add("admin.sign_up");
+					new GetNotificationsV2(maxID, count, onlyMentions ? EnumSet.of(NotificationType.MENTION) : null, NotificationType.getGroupableTypes(), excludeTypes)
 							.setCallback(new Callback<>(){
 								@Override
 								public void onSuccess(GetNotificationsV2.GroupedNotificationsResults result){

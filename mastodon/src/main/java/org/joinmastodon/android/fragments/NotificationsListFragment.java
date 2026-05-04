@@ -23,6 +23,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.markers.SaveMarkers;
 import org.joinmastodon.android.api.requests.notifications.GetNotificationsPolicy;
 import org.joinmastodon.android.api.requests.notifications.SetNotificationsPolicy;
+import org.joinmastodon.android.api.session.AccountLocalPreferences;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.PollUpdatedEvent;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
@@ -32,6 +33,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
+import org.joinmastodon.android.model.viewmodel.SectionHeaderListItem;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
@@ -378,12 +380,25 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 			controller.rebindItem(item);
 		};
 		CheckableListItem<Void> followingItem, followersItem, newAccountsItem, mentionsItem;
-		List<ListItem<Void>> items=List.of(
-				followingItem=new CheckableListItem<>(R.string.notification_filter_following, R.string.notification_filter_following_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterNotFollowing, toggler, true),
-				followersItem=new CheckableListItem<>(R.string.notification_filter_followers, R.string.notification_filter_followers_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterNotFollowers, toggler, true),
-				newAccountsItem=new CheckableListItem<>(R.string.notification_filter_new_accounts, R.string.notification_filter_new_accounts_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterNewAccounts, toggler, true),
-				mentionsItem=new CheckableListItem<>(R.string.notification_filter_mentions, R.string.notification_filter_mentions_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterPrivateMentions, toggler, true)
-		);
+		List<ListItem<Void>> items=new ArrayList<>();
+		items.add(followingItem=new CheckableListItem<>(R.string.notification_filter_following, R.string.notification_filter_following_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterNotFollowing, toggler, true));
+		items.add(followersItem=new CheckableListItem<>(R.string.notification_filter_followers, R.string.notification_filter_followers_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterNotFollowers, toggler, true));
+		items.add(newAccountsItem=new CheckableListItem<>(R.string.notification_filter_new_accounts, R.string.notification_filter_new_accounts_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterNewAccounts, toggler, true));
+		items.add(mentionsItem=new CheckableListItem<>(R.string.notification_filter_mentions, R.string.notification_filter_mentions_explanation, CheckableListItem.Style.CHECKBOX, lastPolicy.filterPrivateMentions, toggler, true));
+
+		CheckableListItem<Void> adminSignupsItem, adminReportsItem;
+		boolean canSeeAdminNotifications=AccountSessionManager.get(accountID).canSeeAdminNotifications();
+		if(canSeeAdminNotifications){
+			items.add(new SectionHeaderListItem(R.string.notification_filter_admin));
+			AccountLocalPreferences lp=AccountSessionManager.get(accountID).getLocalPreferences();
+			items.add(adminReportsItem=new CheckableListItem<>(R.string.notification_filter_admin_reports, R.string.notification_filter_admin_reports_explanation,
+					CheckableListItem.Style.SWITCH, lp.adminReportsNotifications, toggler, true));
+			items.add(adminSignupsItem=new CheckableListItem<>(R.string.notification_filter_admin_signups, R.string.notification_filter_admin_signups_explanation,
+					CheckableListItem.Style.SWITCH, lp.adminSignupsNotifications, toggler, true));
+		}else{
+			adminSignupsItem=adminReportsItem=null;
+		}
+
 		controller.setItems(items);
 		AlertDialog dlg=new M3AlertDialogBuilder(getActivity())
 				.setTitle(R.string.filter_notifications)
@@ -398,6 +413,15 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 			newPolicy.filterNotFollowers=followersItem.checked;
 			newPolicy.filterNewAccounts=newAccountsItem.checked;
 			newPolicy.filterPrivateMentions=mentionsItem.checked;
+			if(canSeeAdminNotifications){
+				AccountLocalPreferences lp=AccountSessionManager.get(accountID).getLocalPreferences();
+				if(adminReportsItem.checked!=lp.adminReportsNotifications || adminSignupsItem.checked!=lp.adminSignupsNotifications){
+					lp.adminReportsNotifications=adminReportsItem.checked;
+					lp.adminSignupsNotifications=adminSignupsItem.checked;
+					lp.save();
+					refresh();
+				}
+			}
 			new SetNotificationsPolicy(newPolicy)
 					.setCallback(new Callback<>(){
 						@Override

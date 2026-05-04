@@ -30,11 +30,13 @@ import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.text.LinkSpan;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.LinkedTextView;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -101,12 +103,14 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 				return items;
 			}
 		}else if(titleItem!=null){
-			if(n.notification.type==NotificationType.FOLLOW_REQUEST)
+			if(n.notification.type==NotificationType.FOLLOW_REQUEST){
 				return List.of(titleItem, new FollowRequestActionsDisplayItem(n.getID(), this, getActivity(), n));
-			if(n.notification.type==NotificationType.FALLBACK && !TextUtils.isEmpty(n.notification.fallback.summary)){
+			}else if(n.notification.type==NotificationType.FALLBACK && !TextUtils.isEmpty(n.notification.fallback.summary)){
 				SpannableStringBuilder parsedSummary=HtmlParser.parse(n.notification.fallback.summary, List.of(), List.of(), List.of(), accountID, n, getActivity());
 				TextStatusDisplayItem textItem=new TextStatusDisplayItem(n.getID(), parsedSummary, this, getActivity(), null, accountID);
 				return List.of(titleItem, textItem);
+			}else if(n.notification.type==NotificationType.ADMIN_REPORT && !TextUtils.isEmpty(n.notification.report.comment)){
+				return List.of(titleItem, new TextStatusDisplayItem(n.getID(), '"'+n.notification.report.comment+'"', this, getActivity(), null, accountID));
 			}
 			return List.of(titleItem);
 		}else{
@@ -143,6 +147,8 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 			for(LinkSpan link:description.getSpans(0, description.length(), LinkSpan.class)){
 				link.preClickListener=alert::dismiss;
 			}
+		}else if(n.notification.type==NotificationType.ADMIN_REPORT){
+			UiUtils.launchWebBrowser(getActivity(), "https://"+AccountSessionManager.get(accountID).domain+"/admin/reports/"+n.notification.report.id);
 		}else if(!n.accounts.isEmpty()){
 			Bundle args=new Bundle();
 			args.putString("account", accountID);

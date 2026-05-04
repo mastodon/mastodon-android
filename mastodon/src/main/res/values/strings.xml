@@ -989,4 +989,12 @@
 	<string name="handle_explanation_copy">Copy handle</string>
 	<string name="request_to_follow_short">Request</string>
 	<string name="cancel_follow_request_short">Cancel</string>
+	<string name="notification_filter_admin">Admin notifications</string>
+	<string name="notification_filter_admin_reports">Admin reports</string>
+	<string name="notification_filter_admin_signups">Account signups</string>
+	<string name="notification_filter_admin_reports_explanation">Show reports of spam, rule violations, and other complaints on this instance</string>
+	<string name="notification_filter_admin_signups_explanation">Show notifications of new accounts created on this instance</string>
+	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s reported %2$s</string>
+	<string name="notification_admin_signup">%s signed up</string>
 </resources>

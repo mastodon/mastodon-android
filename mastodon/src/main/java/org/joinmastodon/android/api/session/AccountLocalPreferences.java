@@ -6,10 +6,13 @@ public class AccountLocalPreferences{
 	private final SharedPreferences prefs;
 
 	public boolean serverSideFiltersSupported;
+	public boolean adminReportsNotifications, adminSignupsNotifications;
 
 	public AccountLocalPreferences(SharedPreferences prefs){
 		this.prefs=prefs;
 		serverSideFiltersSupported=prefs.getBoolean("serverSideFilters", false);
+		adminReportsNotifications=prefs.getBoolean("adminReports", true);
+		adminSignupsNotifications=prefs.getBoolean("adminSignups", true);
 	}
 
 	public long getNotificationsPauseEndTime(){
@@ -23,6 +26,8 @@ public class AccountLocalPreferences{
 	public void save(){
 		prefs.edit()
 				.putBoolean("serverSideFilters", serverSideFiltersSupported)
+				.putBoolean("adminReports", adminReportsNotifications)
+				.putBoolean("adminSignups", adminSignupsNotifications)
 				.apply();
 	}
 }

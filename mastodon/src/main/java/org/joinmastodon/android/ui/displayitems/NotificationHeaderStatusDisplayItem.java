@@ -98,6 +98,24 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 					parsedText.setSpan(new TypefaceSpan("sans-serif-medium"), start, end, 0);
 				}
 				this.text=parsedText;
+			}else if(notification.notification.type==NotificationType.ADMIN_REPORT){
+				text=null;
+				String t=context.getString(R.string.notification_admin_report, "{{name}}", "{{target}}");
+				SpannableStringBuilder ssb=new SpannableStringBuilder(t);
+				int nameOffset=t.indexOf("{{name}}");
+				if(nameOffset!=-1){
+					ssb.replace(nameOffset, nameOffset+"{{name}}".length(), parsedName);
+					ssb.setSpan(new TypefaceSpan("sans-serif-medium"), nameOffset, nameOffset+parsedName.length(), 0);
+				}
+				int targetOffset=ssb.toString().indexOf("{{target}}");
+				if(targetOffset!=-1){
+					CharSequence name=GlobalUserPreferences.customEmojiInNames ? HtmlParser.parseCustomEmoji(notification.notification.report.targetAccount.displayName,
+							notification.notification.report.targetAccount.emojis) : notification.notification.report.targetAccount.displayName;
+					ssb.replace(targetOffset, targetOffset+"{{target}}".length(), name);
+					ssb.setSpan(new TypefaceSpan("sans-serif-medium"), targetOffset, targetOffset+name.length(), 0);
+				}
+				this.text=ssb;
+				emojiHelper.setText(ssb);
 			}else{
 				text=context.getString(switch(notification.notification.type){
 					case FOLLOW -> R.string.user_followed_you;
@@ -106,10 +124,11 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 					case FAVORITE -> R.string.user_favorited;
 					case UPDATE -> R.string.user_edited_post;
 					case QUOTED_UPDATE -> R.string.user_edited_quoted_post;
+					case ADMIN_SIGNUP -> R.string.notification_admin_signup;
 					default -> throw new IllegalStateException("Unexpected value: "+notification.notification.type);
 				}, "{{name}}");
 			}
-			if(notification.notification.type!=NotificationType.FALLBACK){
+			if(notification.notification.type!=NotificationType.FALLBACK && notification.notification.type!=NotificationType.ADMIN_REPORT){
 				String[] parts=text.split(Pattern.quote("{{name}}"), 2);
 				SpannableStringBuilder formattedText=new SpannableStringBuilder();
 				if(parts.length>1 && !TextUtils.isEmpty(parts[0]))
@@ -151,7 +170,8 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	private boolean shouldHaveBottomPadding(){
-		return notification.status==null && !(notification.notification.type==NotificationType.FALLBACK && !TextUtils.isEmpty(notification.notification.fallback.summary));
+		return notification.status==null && !(notification.notification.type==NotificationType.FALLBACK && !TextUtils.isEmpty(notification.notification.fallback.summary))
+				&& !(notification.notification.type==NotificationType.ADMIN_REPORT && !TextUtils.isEmpty(notification.notification.report.comment));
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<NotificationHeaderStatusDisplayItem> implements ImageLoaderViewHolder{
@@ -222,10 +242,11 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 			icon.setImageResource(switch(item.notification.notification.type){
 				case FAVORITE -> R.drawable.ic_star_fill1_24px;
 				case REBLOG -> R.drawable.ic_repeat_fill1_24px;
-				case FOLLOW, FOLLOW_REQUEST -> R.drawable.ic_person_add_fill1_24px;
+				case FOLLOW, FOLLOW_REQUEST, ADMIN_SIGNUP -> R.drawable.ic_person_add_fill1_24px;
 				case POLL -> R.drawable.ic_insert_chart_fill1_24px;
 				case UPDATE, QUOTED_UPDATE -> R.drawable.ic_edit_24px;
 				case FALLBACK -> R.drawable.ic_notification_fallback;
+				case ADMIN_REPORT -> R.drawable.ic_flag_fill1_24px;
 				default -> throw new IllegalStateException("Unexpected value: "+item.notification.notification.type);
 			});
 			icon.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(item.context, switch(item.notification.notification.type){
