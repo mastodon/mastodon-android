@@ -392,9 +392,9 @@ public class NotificationsListFragment extends BaseNotificationsListFragment{
 			items.add(new SectionHeaderListItem(R.string.notification_filter_admin));
 			AccountLocalPreferences lp=AccountSessionManager.get(accountID).getLocalPreferences();
 			items.add(adminReportsItem=new CheckableListItem<>(R.string.notification_filter_admin_reports, R.string.notification_filter_admin_reports_explanation,
-					CheckableListItem.Style.SWITCH, lp.adminReportsNotifications, toggler, true));
+					CheckableListItem.Style.CHECKBOX, lp.adminReportsNotifications, toggler, true));
 			items.add(adminSignupsItem=new CheckableListItem<>(R.string.notification_filter_admin_signups, R.string.notification_filter_admin_signups_explanation,
-					CheckableListItem.Style.SWITCH, lp.adminSignupsNotifications, toggler, true));
+					CheckableListItem.Style.CHECKBOX, lp.adminSignupsNotifications, toggler, true));
 		}else{
 			adminSignupsItem=adminReportsItem=null;
 		}
