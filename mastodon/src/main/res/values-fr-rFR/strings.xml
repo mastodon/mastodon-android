@@ -979,5 +979,11 @@
 	<string name="handle_explanation_copy">Copier l’identifiant</string>
 	<string name="request_to_follow_short">Demander</string>
 	<string name="cancel_follow_request_short">Annuler</string>
+	<string name="notification_filter_admin">Notifications d\'administration</string>
+	<string name="notification_filter_admin_signups">Inscriptions</string>
+	<string name="notification_filter_admin_reports_explanation">Afficher les signalements de spam, de violations de règles et autres plaintes sur cette instance</string>
+	<string name="notification_filter_admin_signups_explanation">Afficher les notifications des nouveaux comptes créés sur cette instance</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s a signalé %2$s</string>
+	<string name="notification_admin_signup">%s s\'est inscrit·e</string>
 </resources>
