@@ -349,6 +349,8 @@
 	<string name="pin_post">Senteḍ-itt ɣef umaɣnu</string>
 	<!-- %s is the username -->
 	<string name="donation_once">Tikkelt kan</string>
+	<string name="donation_monthly">Yal ayyur</string>
+	<string name="donation_yearly">S useggas</string>
 	<string name="settings_donate">Mudd tawsa i Mastodon</string>
 	<string name="poll_see_results">Wali igmaḍ</string>
 	<string name="poll_hide_results">Ffer igmaḍ</string>
@@ -363,15 +365,19 @@
 	<string name="settings_app_settings">Iɣewwaṛen n wesnas</string>
 	<string name="account_settings">Iɣewwaṛen n umiḍan</string>
 	<string name="settings_about_this_server">Ɣef uqeddac-a</string>
+	<string name="manage_account">Sefrek amiḍan</string>
 	<string name="delete_account">Kkes amiḍan</string>
 	<string name="notification_type_status">Tisuffaɣ timaynutin</string>
 	<string name="search_people">Medden</string>
 	<!-- appears when you're about to block a server -->
 	<!-- The complete string will look like "You will lose X followers and Y people you follow". See will_lose_x_followers and will_lose_x_following -->
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
+	<string name="post_header_mention">Bder-d</string>
 	<!-- %s is `at_least_x_years_old`. Some languages, unlike English, may require the word "years" here. -->
 	<string name="open_link">Ldi</string>
+	<string name="copy">Nɣel</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<string name="quote_post_unavailable">Izen-nni ulac-it</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<string name="compose_visibility">Abani</string>
@@ -381,6 +387,8 @@
 	<string name="notification_type_quote">Tinebdurin</string>
 	<string name="create_quote">Tanebdurt</string>
 	<string name="cancel_quote">Semmet tanebdurt</string>
+	<string name="add_user_personal_note">Rnu tazmilt tudmawant</string>
+	<string name="edit_user_personal_note">Ẓreg tazmilt tudmawant</string>
 	<string name="user_personal_note">Tazmilt tudmawant</string>
 	<string name="timeline_filter_posts_and_boosts">Tisuffaɣ akked tizuzar</string>
 	<string name="timeline_filter_show_replies">Sken-d tiririyin</string>
@@ -399,5 +407,10 @@
 	<string name="add_featured_hashtag">Rnu ahacṭag</string>
 	<string name="hashtag">Ahacṭag</string>
 	<!-- %s is the current user's server domain -->
+	<string name="profile_followers">Imeḍfaren</string>
+	<string name="profile_following">Yeṭṭafaṛ</string>
+	<string name="user_follows_you">Yeṭṭafaṛ-ik·em-id</string>
+	<string name="request_to_follow_short">Tuttra</string>
+	<string name="cancel_follow_request_short">Semmet</string>
 	<!-- Placeholders are user display names -->
 </resources>
