@@ -24,6 +24,7 @@ import org.joinmastodon.android.PushNotificationReceiver;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.notifications.GetNotificationsV1;
 import org.joinmastodon.android.api.requests.notifications.GetUnreadNotificationsCount;
+import org.joinmastodon.android.api.session.AccountLocalPreferences;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.NotificationsMarkerUpdatedEvent;
@@ -299,7 +300,13 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 		if(instance==null)
 			return;
 		if(instance.getApiVersion()>=2){
-			new GetUnreadNotificationsCount(EnumSet.allOf(NotificationType.class), NotificationType.getGroupableTypes())
+			EnumSet<NotificationType> excludeTypes=EnumSet.noneOf(NotificationType.class);
+			AccountLocalPreferences lp=AccountSessionManager.get(accountID).getLocalPreferences();
+			if(!lp.adminReportsNotifications)
+				excludeTypes.add(NotificationType.ADMIN_REPORT);
+			if(!lp.adminSignupsNotifications)
+				excludeTypes.add(NotificationType.ADMIN_SIGNUP);
+			new GetUnreadNotificationsCount(null, NotificationType.getGroupableTypes(), excludeTypes)
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(GetUnreadNotificationsCount.Response result){

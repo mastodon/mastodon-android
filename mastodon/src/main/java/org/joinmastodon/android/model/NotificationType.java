@@ -29,7 +29,7 @@ public enum NotificationType{
 	QUOTE,
 	@SerializedName("quoted_update")
 	QUOTED_UPDATE,
-	@SerializedName("admin.signup")
+	@SerializedName("admin.sign_up")
 	ADMIN_SIGNUP,
 	@SerializedName("admin.report")
 	ADMIN_REPORT,
