@@ -962,7 +962,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="handle_explanation_title">Un nome univoco è come un indirizzo email.</string>
 	<string name="handle_explanation_username">%s è il nome utente di questo account sul suo server. Qualcuno su un altro server potrebbe avere lo stesso nome utente.</string>
 	<string name="handle_explanation_domain">%s è il server che ospita il profilo e i post dell\'utente.</string>
-	<string name="handle_explanation_summary">Proprio come puoi inviare email a persone che usano client di posta elettronica diversi, tu puoi interagire con le persone su altri server Mastodon — e con chiunque utilizzi altre app social basate sulle stesse regole che Mastodon usa (il protocollo ActivityPub).</string>
+	<string name="handle_explanation_summary">Così come è possibile inviare email a persone che utilizzano diversi provider di posta elettronica, è altrettanto possibile interagire con persone su altri server Mastodon e con chiunque su altre app del fediverso.</string>
 	<string name="pinned_post">Fissato</string>
 	<string name="view_all_pinned">Visualizza tutti i post fissati</string>
 	<string name="profile_show_all_fields">Mostra tutti i campi</string>
@@ -980,5 +980,12 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="handle_explanation_copy">Copia il nome univoco</string>
 	<string name="request_to_follow_short">Richiesta</string>
 	<string name="cancel_follow_request_short">Annulla</string>
+	<string name="notification_filter_admin">Notifiche di amministrazione</string>
+	<string name="notification_filter_admin_reports">Segnalazioni</string>
+	<string name="notification_filter_admin_signups">Iscrizioni</string>
+	<string name="notification_filter_admin_reports_explanation">Mostra segnalazioni di spam, violazioni delle regole e altri reclami su questa istanza</string>
+	<string name="notification_filter_admin_signups_explanation">Mostra le notifiche di nuovi account creati su questa istanza</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s ha segnalato %2$s</string>
+	<string name="notification_admin_signup">%s si è iscritto/a</string>
 </resources>

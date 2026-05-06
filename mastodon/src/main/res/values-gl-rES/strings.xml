@@ -398,7 +398,7 @@
 	<string name="settings_filters">Filtros</string>
 	<string name="settings_server_explanation">Vista xeral, regras, moderación</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
-	<string name="about_app">Acerca de %s</string>
+	<string name="about_app">Sobre %s</string>
 	<string name="default_post_language">Idioma de publicación</string>
 	<string name="settings_alt_text_reminders">Lembrar engadir Texto Alt</string>
 	<string name="settings_confirm_unfollow">Preguntar antes de deixar de seguir</string>
@@ -428,7 +428,7 @@
 	<string name="pause_notifications_banner">As notificacións volven %s.</string>
 	<string name="resume_notifications_now">Reactivar agora</string>
 	<string name="open_system_notification_settings">Ir aos axustes das notificacións</string>
-	<string name="about_server">Acerca de</string>
+	<string name="about_server">Sobre</string>
 	<string name="server_rules">Regras</string>
 	<string name="server_administrator">Administración</string>
 	<string name="send_email_to_server_admin">Mensaxe a Admin</string>
@@ -962,7 +962,6 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 	<string name="handle_explanation_title">Un alcume é o como o enderezo de correo.</string>
 	<string name="handle_explanation_username">%s é o nome de usuaria da conta no seu servidor. Alguén noutro servidor podería ter o mesmo nome de usuaria.</string>
 	<string name="handle_explanation_domain">%s é o servidor que aloxa o perfil e as publicacións da usuaria.</string>
-	<string name="handle_explanation_summary">Ao igual que envías correos electrónicos a persoas que usan diferentes provedores, podes interactuar con persoas en outros servidores Mastodon ― e con calquera outra que use aplicacións que sigan o mesmo sistema que usa Mastodon (o protocolo ActivityPub).</string>
 	<string name="pinned_post">Fixadas</string>
 	<string name="view_all_pinned">Ver todas as publicacións fixadas</string>
 	<string name="profile_show_all_fields">Mostrar todos os campos</string>
@@ -973,5 +972,19 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 	<string name="profile_followers">Seguidoras</string>
 	<string name="profile_following">Seguindo</string>
 	<string name="user_follows_you">Séguete</string>
+	<string name="profile_featured_empty_self">Axiña van chegar as Coleccións</string>
+	<string name="profile_featured_empty">Nada que ver por aquí</string>
+	<string name="profile_featured_empty_description">%s aínda non destacou nada.</string>
+	<string name="profile_featured_empty_self_description">As Coleccións (a partir de Mastodon 4.6) permiten crear as túas propias listas de recomendación para outras persoas usuarias.</string>
+	<string name="handle_explanation_copy">Copiar identificador</string>
+	<string name="request_to_follow_short">Solicitar</string>
+	<string name="cancel_follow_request_short">Desbotar</string>
+	<string name="notification_filter_admin">Notificacións de administración</string>
+	<string name="notification_filter_admin_reports">Denuncias para xestionar</string>
+	<string name="notification_filter_admin_signups">Novas contas</string>
+	<string name="notification_filter_admin_reports_explanation">Mostra denuncias de spam, violación das normas, ou outras queixas nesta instancia</string>
+	<string name="notification_filter_admin_signups_explanation">Mostra notificacións cando se crean novas contas nesta instancia</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s denunciou a %2$s</string>
+	<string name="notification_admin_signup">%s creou a conta</string>
 </resources>

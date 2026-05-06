@@ -682,15 +682,15 @@
 	<string name="unmute_conversation">Ne plus masquer la conversation</string>
 	<string name="visibility_unlisted">Public discret</string>
 	<string name="filtered_notifications">Notifications filtrées</string>
-	<string name="filter_notifications">Filtrer les notifications provenant de …</string>
+	<string name="filter_notifications">Filtrer les notifications provenant des…</string>
 	<string name="notification_filter_following">Personnes non suivies</string>
 	<string name="notification_filter_following_explanation">Jusqu\'à ce que vous les approuviez manuellement</string>
 	<string name="notification_filter_followers">Personnes non abonnées</string>
 	<string name="notification_filter_followers_explanation">Incluant les personnes qui vous suivent depuis moins de 3 jours</string>
 	<string name="notification_filter_new_accounts">Nouveaux comptes</string>
-	<string name="notification_filter_new_accounts_explanation">Créé au cours des 30 derniers jours</string>
+	<string name="notification_filter_new_accounts_explanation">Créés au cours des 30 derniers jours</string>
 	<string name="notification_filter_mentions">Mentions privées non sollicitées</string>
-	<string name="notification_filter_mentions_explanation">Filtrées sauf si c\'est en réponse à l\'une de vos mentions ou si vous suivez l\'expéditeur·ice</string>
+	<string name="notification_filter_mentions_explanation">Filtrées sauf si c\'est en réponse à l\'une de vos mentions ou si vous suivez la personne</string>
 	<string name="allow_notifications">Autoriser les notifications</string>
 	<string name="mute_notifications">Rejeter la requête de notification</string>
 	<plurals name="x_people_you_may_know">
@@ -961,7 +961,7 @@
 	<string name="handle_explanation_title">Un identifiant est comme une adresse de courriel.</string>
 	<string name="handle_explanation_username">%s est le nom d\'utilisateur·ice de ce compte sur son serveur. Quelqu\'un sur un autre serveur peut avoir le même nom.</string>
 	<string name="handle_explanation_domain">%s est le serveur qui héberge le profil et les messages du compte.</string>
-	<string name="handle_explanation_summary">Tout comme vous pouvez envoyer des courriels à des personnes utilisant différents logiciels de messagerie, vous pouvez interagir avec des personnes sur d\'autres serveurs Mastodon — et avec n\'importe qui sur d\'autres applications sociales propulsées par le même ensemble de règles que Mastodon utilise (le protocole ActivityPub).</string>
+	<string name="handle_explanation_summary">Tout comme vous pouvez envoyer des courriels à des personnes utilisant différents fournisseurs de messagerie, vous pouvez interagir avec des personnes sur d\'autres serveurs Mastodon, ainsi qu\'avec n\'importe qui utilisant une application du Fédivers.</string>
 	<string name="pinned_post">Épinglé</string>
 	<string name="view_all_pinned">Voir tous les messages épinglés</string>
 	<string name="profile_show_all_fields">Afficher tous les champs</string>
@@ -979,5 +979,12 @@
 	<string name="handle_explanation_copy">Copier l’identifiant</string>
 	<string name="request_to_follow_short">Demander</string>
 	<string name="cancel_follow_request_short">Annuler</string>
+	<string name="notification_filter_admin">Notifications d\'administration</string>
+	<string name="notification_filter_admin_reports">Signalements</string>
+	<string name="notification_filter_admin_signups">Inscriptions</string>
+	<string name="notification_filter_admin_reports_explanation">Afficher les signalements de spam, de violations de règles et autres plaintes sur cette instance</string>
+	<string name="notification_filter_admin_signups_explanation">Afficher les notifications des nouveaux comptes créés sur cette instance</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s a signalé %2$s</string>
+	<string name="notification_admin_signup">%s s\'est inscrit·e</string>
 </resources>

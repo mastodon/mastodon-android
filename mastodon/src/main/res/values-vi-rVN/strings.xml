@@ -846,6 +846,58 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="quote_followers_only_cancel">Quay lại chỉnh sửa</string>
 	<string name="quote_followers_only_dont_show_again">Không hiện thông báo này nữa</string>
 	<string name="more_replies_found">Có trả lời mới</string>
+	<string name="user_is_muted">Đã phớt lờ</string>
+	<string name="user_is_bot">Tài khoản tự động</string>
+	<string name="profile_view_qr_code">Xem mã QR</string>
+	<string name="feature_user">Nêu bật trên hồ sơ</string>
+	<string name="add_user_personal_note">Thêm ghi chú</string>
+	<string name="mute_account">Phớt lờ tài khoản</string>
+	<string name="block_account">Chặn tài khoản</string>
+	<string name="remove_follower">Xóa người theo dõi</string>
+	<string name="report_account">Báo cáo tài khoản</string>
+	<string name="unblock_account">Bỏ chặn tài khoản</string>
+	<string name="unmute_account">Bỏ phớt lờ tài khoản</string>
+	<string name="unblock">Bỏ chặn</string>
+	<string name="request_to_follow">Yêu cầu theo dõi</string>
+	<string name="cancel_follow_request">Hủy yêu cầu</string>
+	<string name="confirm_remove_follower_title">Xóa người theo dõi?</string>
+	<string name="confirm_remove_follower">%s sẽ không còn theo dõi bạn. Bạn có chắc tiếp tục?</string>
+	<string name="edit_user_personal_note">Sửa ghi chú</string>
+	<string name="user_personal_note_explanation">Ghi chú chỉ hiển thị với bạn.</string>
+	<string name="user_personal_note">Ghi chú</string>
+	<string name="timeline_filter_posts_and_boosts">Tút và lượt đăng lại</string>
+	<string name="timeline_filter_show_replies">Hiện những lượt trả lời</string>
+	<string name="timeline_filter_show_boosts">Hiện những lượt đăng lại</string>
+	<string name="timeline_filter_all_activity">Tất cả hoạt động</string>
+	<string name="timeline_filter_posts_and_replies">Tút và lượt trả lời</string>
+	<string name="timeline_filter_posts">Tút</string>
+	<string name="edit_profile_display_name">Tên gọi</string>
+	<string name="edit_profile_x_custom_fields">Trường tùy chỉnh (%d)</string>
+	<string name="edit_profile_custom_fields">Trường tùy chỉnh</string>
+	<string name="edit_profile_custom_fields_description">Vd: sở thích, liên kết ngoài</string>
+	<string name="edit_profile_featured_hashtags_description">Cho phép mọi người lọc dòng thời gian của bạn theo chủ đề</string>
+	<string name="edit_profile_tab_settings">Thiết lập tab hồ sơ</string>
+	<string name="edit_profile_add_bio">Thêm giới thiệu</string>
+	<string name="edit_profile_featured_hashtags">Hashtag thường dùng</string>
+	<string name="edit_profile_x_featured_hashtags">Hashtag thường dùng (%d)</string>
+	<string name="edit_profile_replace_image">Thay thế</string>
+	<string name="edit_profile_edit_display_name">Sửa tên gọi</string>
+	<string name="edit_profile_edit_bio">Sửa giới thiệu</string>
+	<string name="add_profile_field">Thêm trường</string>
+	<string name="edit_profile_custom_fields_help">Mẹo: Xác minh liên kết đến bất kỳ trang web nào bạn sở hữu. <i>Tìm hiểu thêm</i></string>
+	<string name="edit_profile_link_verification_help_title">Thêm liên kết xác minh</string>
+	<string name="edit_profile_link_verification_help">Tăng độ tin cậy cho hồ sơ Mastodon của bạn bằng cách xác minh liên kết đến trang web cá nhân. Cách thức thực hiện như sau:</string>
+	<string name="edit_profile_link_verification_title1">Sao chép mã HTML bên dưới</string>
+	<string name="edit_profile_link_verification_title2">Dán đoạn mã này vào phần tiêu đề HTML của trang web của bạn</string>
+	<string name="edit_profile_link_verification_text2">Thêm đoạn mã vào phần tiêu đề cho phép phần tử &lt;a&gt; vẫn ẩn. Thuộc tính rel=\"me\" ngăn chặn việc mạo danh trên các trang web có nội dung do người dùng tạo ra – vì vậy điều quan trọng là phải giữ lại thuộc tính này.</string>
+	<string name="edit_profile_link_verification_title3">Thêm trang web của bạn dưới dạng trường tùy chỉnh</string>
+	<string name="edit_profile_link_verification_text3">Nếu bạn từng đặt trang web của mình dưới dạng trường tùy chỉnh, bạn cần xóa và thêm lại trang web đó để kích hoạt quá trình xác minh.</string>
+	<string name="edit_profile_field">Sửa trường</string>
+	<string name="edit_profile_field_label_example">Vd: ‘Website cá nhân’</string>
+	<string name="edit_profile_field_value_example">Vd: ‘example.me‘</string>
+	<plurals name="x_chars_max">
+		<item quantity="other">%,d ký tự tối đa</item>
+	</plurals>
 	<!-- %s is the current user's server domain -->
 	<!-- Placeholders are user display names -->
 </resources>
