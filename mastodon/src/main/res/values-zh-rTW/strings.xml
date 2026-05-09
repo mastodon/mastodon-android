@@ -914,6 +914,7 @@
 	<string name="handle_explanation_title">\@handle 就像是 email 地址一樣。</string>
 	<string name="handle_explanation_username">%s 為該使用者於他們伺服器上的帳號名稱。其他伺服器上的某個人可能擁有一樣的使用者名稱。</string>
 	<string name="handle_explanation_domain">%s 為託管此使用者個人檔案與嘟文之伺服器。</string>
+	<string name="handle_explanation_summary">就像是您能與使用不同電子郵件提供商的其他人互動一般，您能與其他 Mastodon 伺服器上的人們互動，也能與其他 Fediverse 上的任何人互動。</string>
 	<string name="pinned_post">已釘選</string>
 	<string name="view_all_pinned">檢視所有釘選嘟文</string>
 	<string name="profile_show_all_fields">顯示所有欄位</string>
@@ -927,6 +928,16 @@
 	<string name="profile_featured_empty_self">敬請期待收藏名單</string>
 	<string name="profile_featured_empty">此地一無所有</string>
 	<string name="profile_featured_empty_description">%s 尚未有任何精選內容。</string>
+	<string name="profile_featured_empty_self_description">收藏名單功能（將於 Mastodon 4.6 上線）允許您建立自己的精選帳號名單並推薦予其他人。</string>
 	<string name="handle_explanation_copy">複製帳號</string>
+	<string name="request_to_follow_short">跟隨請求</string>
+	<string name="cancel_follow_request_short">取消</string>
+	<string name="notification_filter_admin">管理員通知</string>
+	<string name="notification_filter_admin_reports">管理員報告</string>
+	<string name="notification_filter_admin_signups">帳號註冊</string>
+	<string name="notification_filter_admin_reports_explanation">顯示此伺服器之垃圾訊息、違反伺服器規則、及其他檢舉報告</string>
+	<string name="notification_filter_admin_signups_explanation">顯示於此伺服器建立新帳號之通知</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s 已檢舉 %2$s</string>
+	<string name="notification_admin_signup">%s 已經註冊</string>
 </resources>
