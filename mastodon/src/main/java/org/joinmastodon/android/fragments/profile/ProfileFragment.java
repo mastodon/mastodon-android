@@ -23,11 +23,9 @@ import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.TypefaceSpan;
 import android.transition.Fade;
@@ -774,9 +772,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 				UiUtils.loadCustomEmojiInTextView(valueView);
 
 				if(field.verifiedAt!=null){
-					fv.setBackgroundColor(UiUtils.isDarkTheme() ? 0xff032E15 : 0xffF0FDF4);
-					fv.setOutlineProvider(OutlineProviders.roundedRect(8));
-					fv.setClipToOutline(true);
+					fv.setBackgroundResource(R.drawable.bg_verified_link);
 				}else{
 					verifiedIcon.setVisibility(View.GONE);
 				}
@@ -831,13 +827,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		getToolbar().setTranslationZ(tabBarIsAtTop ? 0 : V.dp(3));
 	}
 
-	private CharSequence makeRedString(CharSequence s){
-		int color=UiUtils.getThemeColor(getActivity(), R.attr.colorM3Error);
-		SpannableString ss=new SpannableString(s);
-		ss.setSpan(new ForegroundColorSpan(color), 0, ss.length(), 0);
-		return ss;
-	}
-
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		if(relationship==null && !isOwnProfile)
@@ -855,12 +844,12 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		if(isOwnProfile || relationship==null)
 			return;
 		if(relationship.followedBy)
-			menu.findItem(R.id.remove_follower).setTitle(makeRedString(getString(R.string.remove_follower)));
+			menu.findItem(R.id.remove_follower).setTitle(UiUtils.makeRedString(getActivity(), getString(R.string.remove_follower)));
 		else
 			menu.findItem(R.id.remove_follower).setVisible(false);
 		menu.findItem(R.id.mute).setTitle(getString(relationship.muting ? R.string.unmute_account : R.string.mute_account, account.getDisplayUsername()));
-		menu.findItem(R.id.block).setTitle(makeRedString(getString(relationship.blocking ? R.string.unblock_account : R.string.block_account)));
-		menu.findItem(R.id.report).setTitle(makeRedString(getString(R.string.report_account)));
+		menu.findItem(R.id.block).setTitle(UiUtils.makeRedString(getActivity(), relationship.blocking ? R.string.unblock_account : R.string.block_account));
+		menu.findItem(R.id.report).setTitle(UiUtils.makeRedString(getActivity(), R.string.report_account));
 		if(relationship.following){
 			MenuItem hideBoosts=menu.findItem(R.id.hide_boosts);
 			hideBoosts.setVisible(true);
@@ -873,7 +862,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			menu.findItem(R.id.feature).setVisible(false);
 		}
 		if(!account.isLocal())
-			menu.findItem(R.id.block_domain).setTitle(makeRedString(getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain())));
+			menu.findItem(R.id.block_domain).setTitle(UiUtils.makeRedString(getActivity(), relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain()));
 		else
 			menu.findItem(R.id.block_domain).setVisible(false);
 		menu.findItem(R.id.add_to_list).setVisible(relationship.following);

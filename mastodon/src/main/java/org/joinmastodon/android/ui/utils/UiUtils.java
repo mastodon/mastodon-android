@@ -254,6 +254,21 @@ public class UiUtils{
 		dateFormatterShort=DateTimeFormatter.ofPattern(localizedPattern, locale);
 	}
 
+	public static String formatDateDay(Context context, ZonedDateTime dt){
+		ZonedDateTime now=ZonedDateTime.now();
+		LocalDate today=now.toLocalDate();
+		LocalDate date=dt.toLocalDate();
+		if(date.equals(today)){
+			return context.getString(R.string.today);
+		}else if(date.equals(today.minusDays(1))){
+			return context.getString(R.string.yesterday);
+		}else if(date.equals(today.plusDays(1))){
+			return context.getString(R.string.tomorrow);
+		}else{
+			return formatDateShort(dt);
+		}
+	}
+
 	private static String formatDateShort(ZonedDateTime dt){
 		if(dt.getYear()==ZonedDateTime.now().getYear()){
 			return dateFormatterShort.format(dt);
@@ -1214,5 +1229,16 @@ public class UiUtils{
 		if(end<str.length())
 			ssb.append(str.substring(end));
 		return ssb;
+	}
+
+	public static CharSequence makeRedString(Context context, CharSequence s){
+		int color=getThemeColor(context, R.attr.colorM3Error);
+		SpannableString ss=new SpannableString(s);
+		ss.setSpan(new ForegroundColorSpan(color), 0, ss.length(), 0);
+		return ss;
+	}
+
+	public static CharSequence makeRedString(Context context, @StringRes int res, Object... args){
+		return makeRedString(context, context.getString(res, args));
 	}
 }
