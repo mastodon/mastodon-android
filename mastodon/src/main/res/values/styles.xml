@@ -87,6 +87,9 @@
 		<item name="android:textColor">?colorM3OnSurface</item>
 		<item name="emptyStateElephantArt">@drawable/empty_state_elephant_light</item>
 		<item name="colorBrand">#5638CC</item>
+		<item name="colorWarningSoft">#FEF3C6</item>
+		<item name="colorWarningSoftest">#FFFBEB</item>
+		<item name="colorSuccessSoftest">#F0FDF4</item>
 	</style>
 
 	<style name="Theme.Mastodon.Dark" parent="Theme.AppKit">
@@ -176,6 +179,9 @@
 		<item name="android:textColor">?colorM3OnSurface</item>
 		<item name="emptyStateElephantArt">@drawable/empty_state_elephant_dark</item>
 		<item name="colorBrand">#5638CC</item>
+		<item name="colorWarningSoft">#7B3306</item>
+		<item name="colorWarningSoftest">#461901</item>
+		<item name="colorSuccessSoftest">#032E15</item>
 	</style>
 
 	<style name="Theme.Mastodon.Light.MediumContrast">
@@ -571,6 +577,11 @@
 	<style name="Widget.Mastodon.M3.Button.Tonal.Error">
 		<item name="android:background">@drawable/bg_button_m3_tonal_error</item>
 		<item name="android:textColor">@color/button_text_m3_tonal_error</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.Button.Tonal.Warning">
+		<item name="android:background">@drawable/bg_button_m3_tonal_warning</item>
+		<item name="android:textColor">@color/button_text_m3_tonal</item>
 	</style>
 
 	<style name="Widget.Mastodon.M3.Button.Elevated">

@@ -10,7 +10,7 @@ import org.joinmastodon.android.R;
 
 public class SectionHeaderStatusDisplayItem extends StatusDisplayItem{
 	public final String title, buttonText;
-	public final Runnable onButtonClick;
+	public Runnable onButtonClick;
 
 	public SectionHeaderStatusDisplayItem(Callbacks callbacks, Context context, String title, String buttonText, Runnable onButtonClick){
 		super("", callbacks, context);

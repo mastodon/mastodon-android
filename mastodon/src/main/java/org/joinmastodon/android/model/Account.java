@@ -2,6 +2,7 @@ package org.joinmastodon.android.model;
 
 import android.text.TextUtils;
 
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.parceler.Parcel;
@@ -14,7 +15,7 @@ import java.util.List;
  * Represents a user of Mastodon and their associated profile.
  */
 @Parcel
-public class Account extends BaseModel{
+public non-sealed class Account extends BaseModel implements AccountOrPartial{
 	// Base attributes
 
 	/**
@@ -225,6 +226,26 @@ public class Account extends BaseModel{
 		showMedia=profile.showMedia;
 		showMediaReplies=profile.showMediaReplies;
 		showFeatured=profile.showFeatured;
+	}
+
+	@Override
+	public String getID(){
+		return id;
+	}
+
+	@Override
+	public String getAvatar(){
+		return GlobalUserPreferences.playGifs ? avatar : avatarStatic;
+	}
+
+	@Override
+	public String getURL(){
+		return url;
+	}
+
+	@Override
+	public String getUsername(){
+		return acct;
 	}
 
 	@Parcel

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/share" android:title="@string/button_share" android:icon="@drawable/ic_share_24px" android:showAsAction="always"/>
+	<group android:id="@+id/menu_group1">
+		<item android:id="@+id/open_in_browser" android:title="@string/open_in_browser"/>
+	</group>
+	<group android:id="@+id/menu_group2">
+		<item android:id="@+id/report" android:title="@string/report_collection"/>
+		<item android:id="@+id/block" android:title="@string/block_account"/>
+	</group>
+</menu>

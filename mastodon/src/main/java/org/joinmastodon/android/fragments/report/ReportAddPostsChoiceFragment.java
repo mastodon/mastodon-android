@@ -175,6 +175,9 @@ public class ReportAddPostsChoiceFragment extends StatusListFragment{
 		args.putStringArrayList("ruleIDs", getArguments().getStringArrayList("ruleIDs"));
 		args.putString("reason", getArguments().getString("reason"));
 		args.putParcelable("relationship", getArguments().getParcelable("relationship"));
+		String collectionID=getArguments().getString("collectionID");
+		if(collectionID!=null)
+			args.putString("collectionID", collectionID);
 		Nav.go(getActivity(), ReportCommentFragment.class, args);
 	}
 

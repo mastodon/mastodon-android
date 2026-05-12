@@ -39,6 +39,8 @@ import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public abstract class StatusDisplayItem{
+	public static final NoOpCallbacks NO_OP_CALLBACKS=new NoOpCallbacks(null);
+
 	public final String parentID;
 	public final Callbacks callbacks;
 	public Context context;

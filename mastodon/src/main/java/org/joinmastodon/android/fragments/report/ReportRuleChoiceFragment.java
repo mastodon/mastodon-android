@@ -39,6 +39,9 @@ public class ReportRuleChoiceFragment extends BaseReportChoiceFragment{
 		args.putString("reason", getArguments().getString("reason"));
 		args.putStringArrayList("ruleIDs", selectedIDs);
 		args.putParcelable("relationship", getArguments().getParcelable("relationship"));
+		String collectionID=getArguments().getString("collectionID");
+		if(collectionID!=null)
+			args.putString("collectionID", collectionID);
 		Nav.go(getActivity(), ReportAddPostsChoiceFragment.class, args);
 	}
 

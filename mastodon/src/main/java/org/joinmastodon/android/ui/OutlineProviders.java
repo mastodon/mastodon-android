@@ -73,6 +73,16 @@ public class OutlineProviders{
 		return provider;
 	}
 
+	public static void clipToRoundRect(View view, int dp){
+		view.setOutlineProvider(roundedRect(dp));
+		view.setClipToOutline(true);
+	}
+
+	public static void clipToOval(View view){
+		view.setOutlineProvider(OVAL);
+		view.setClipToOutline(true);
+	}
+
 	private static class RoundRectOutlineProvider extends ViewOutlineProvider{
 		private final int radius;
 

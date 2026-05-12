@@ -93,6 +93,10 @@ public abstract class Instance extends BaseModel{
 		return getApiVersion()>=8;
 	}
 
+	public boolean supportsCollections(){
+		return getApiVersion()>=9; // TODO
+	}
+
 	@Parcel
 	public static class Rule{
 		public String id;

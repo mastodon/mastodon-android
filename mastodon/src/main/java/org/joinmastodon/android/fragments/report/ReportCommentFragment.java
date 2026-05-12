@@ -27,6 +27,7 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
@@ -110,7 +111,8 @@ public class ReportCommentFragment extends MastodonToolbarFragment{
 		ReportReason reason=ReportReason.valueOf(getArguments().getString("reason"));
 		ArrayList<String> statusIDs=getArguments().getStringArrayList("statusIDs");
 		ArrayList<String> ruleIDs=getArguments().getStringArrayList("ruleIDs");
-		new SendReport(reportAccount.id, reason, statusIDs, ruleIDs, v.getId()==R.id.btn_back ? null : commentEdit.getText().toString(), forwardSwitch.isChecked())
+		String collectionID=getArguments().getString("collectionID");
+		new SendReport(reportAccount.id, reason, statusIDs, collectionID==null ? null : List.of(collectionID), ruleIDs, v.getId()==R.id.btn_back ? null : commentEdit.getText().toString(), forwardSwitch.isChecked())
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Object result){
