@@ -86,10 +86,12 @@ public class ProfileEditCustomFieldsFragment extends MastodonRecyclerFragment<Ac
 	@Subscribe
 	public void onAccountUpdated(SelfAccountUpdatedEvent ev){
 		if(ev.accountID().equals(accountID) && !ignoreUpdatedEvent){
-			data.clear();
-			data.addAll(ev.account().fields);
-			adapter.notifyDataSetChanged();
-			updateAddButtonVisibility();
+			if(ev.account().source!=null && ev.account().source.fields!=null){
+				data.clear();
+				data.addAll(ev.account().source.fields);
+				adapter.notifyDataSetChanged();
+				updateAddButtonVisibility();
+			}
 		}
 	}
 

@@ -335,7 +335,7 @@ public class HtmlParser{
 			@Override
 			public void head(Node node, int depth){
 				if(node instanceof Element el){
-					if("p".equalsIgnoreCase(el.tagName()) && !sb.isEmpty())
+					if("p".equalsIgnoreCase(el.tagName()) && sb.length()>0)
 						sb.append(keepLineBreaks ? "\n\n" : " ");
 					else if("br".equalsIgnoreCase(el.tagName()))
 						sb.append(keepLineBreaks ? '\n' : ' ');

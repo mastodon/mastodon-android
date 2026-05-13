@@ -13,8 +13,8 @@ android {
 		applicationId "org.joinmastodon.android"
 		minSdk 23
 		targetSdk 35
-		versionCode 179
-		versionName "2.12.1"
+		versionCode 181
+		versionName "2.12.2"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 		testBuildType "screenshotsUiTest"
 	}
