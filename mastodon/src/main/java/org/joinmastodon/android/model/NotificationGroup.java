@@ -5,6 +5,7 @@ import android.util.Log;
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.model.admin.AdminReport;
+import org.joinmastodon.android.model.collections.AccountCollection;
 
 import java.time.Instant;
 import java.util.List;
@@ -26,6 +27,7 @@ public class NotificationGroup extends BaseModel{
 	public AccountWarning moderationWarning;
 	public Fallback fallback;
 	public AdminReport report;
+	public AccountCollection collection;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -48,6 +50,8 @@ public class NotificationGroup extends BaseModel{
 		}
 		if(report!=null)
 			report.postprocess();
+		if(collection!=null)
+			collection.postprocess();
 	}
 
 	public static class Fallback{

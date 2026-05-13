@@ -36,7 +36,7 @@ import me.grishka.appkit.views.UsableRecyclerView;
 
 public class CollectionViewHolder extends BindableViewHolder<CollectionViewModel> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable{
 	private final TextView title, author, accountCount;
-	private final ImageButton menuButton;
+	public final ImageButton menuButton;
 	private final ImageView[] avatars;
 	private final ImageView sensitiveOverlay;
 	private final BlurView blurContainer;

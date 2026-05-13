@@ -24,7 +24,7 @@ public class CollectionViewModel implements DisplayItemsParent{
 
 	public CollectionViewModel(){}
 
-	public CollectionViewModel(AccountCollection collection, Map<String, AccountOrPartial> accounts){
+	public CollectionViewModel(AccountCollection collection, Map<String, ? extends AccountOrPartial> accounts){
 		this.collection=collection;
 		this.accounts=new ArrayList<>();
 		avatarRequests=new ArrayList<>();

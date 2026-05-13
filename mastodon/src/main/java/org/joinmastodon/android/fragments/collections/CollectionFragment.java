@@ -294,7 +294,7 @@ public class CollectionFragment extends BaseAccountListFragment{
 		public void onBind(AccountViewModel item){
 			super.onBind(item);
 			postCount.setText(UiUtils.abbreviateNumber(item.account.statusesCount));
-			lastActivity.setText(item.account.lastStatusAt==null ? "" : UiUtils.formatDateDay(getActivity(), item.account.lastStatusAt.atStartOfDay(ZoneId.systemDefault())));
+			lastActivity.setText(item.account.lastStatusAt==null ? "-" : UiUtils.formatDateDay(getActivity(), item.account.lastStatusAt.atStartOfDay(ZoneId.systemDefault())));
 		}
 
 		@Override

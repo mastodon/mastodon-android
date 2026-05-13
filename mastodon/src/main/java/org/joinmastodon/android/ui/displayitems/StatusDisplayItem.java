@@ -99,6 +99,7 @@ public abstract class StatusDisplayItem{
 			case QUOTE_ERROR -> new QuoteErrorStatusDisplayItem.Holder(activity, parent);
 			case NESTED_QUOTE -> new NestedQuoteStatusDisplayItem.Holder(activity, parent);
 			case BUTTON -> new ButtonStatusDisplayItem.Holder(activity, parent);
+			case COLLECTION -> new CollectionStatusDisplayItem.Holder(activity, parent, parentFragment.getArguments().getString("account"));
 		};
 	}
 
@@ -300,7 +301,8 @@ public abstract class StatusDisplayItem{
 		HEADER_COMPACT,
 		QUOTE_ERROR,
 		NESTED_QUOTE,
-		BUTTON
+		BUTTON,
+		COLLECTION,
 	}
 
 	public static abstract class Holder<T> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{

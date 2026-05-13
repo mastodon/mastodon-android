@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="77dp"
+	android:paddingStart="12dp"
+	android:paddingEnd="16dp"
 	xmlns:tools="http://schemas.android.com/tools"
 	xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -10,7 +12,6 @@
 		android:layout_width="64dp"
 		android:layout_height="64dp"
 		android:layout_centerVertical="true"
-		android:layout_marginStart="12dp"
 		android:layout_marginEnd="8dp"
 		android:padding="8.5dp"
 		android:radius="4dp"
@@ -71,7 +72,6 @@
 		android:layout_height="28dp"
 		android:layout_alignParentEnd="true"
 		android:layout_marginTop="12dp"
-		android:layout_marginEnd="16dp"
 		android:layout_marginStart="12dp"
 		android:contentDescription="@string/more_options"
 		android:background="?android:selectableItemBackgroundBorderless"

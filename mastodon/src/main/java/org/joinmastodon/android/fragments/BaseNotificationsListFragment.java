@@ -1,5 +1,6 @@
 package org.joinmastodon.android.fragments;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusUpdatedEvent;
+import org.joinmastodon.android.fragments.collections.CollectionFragment;
 import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
@@ -21,6 +23,7 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.displayitems.CollectionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FollowRequestActionsDisplayItem;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
@@ -111,6 +114,9 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 				return List.of(titleItem, textItem);
 			}else if(n.notification.type==NotificationType.ADMIN_REPORT && !TextUtils.isEmpty(n.notification.report.comment)){
 				return List.of(titleItem, new TextStatusDisplayItem(n.getID(), '"'+n.notification.report.comment+'"', this, getActivity(), null, accountID));
+			}else if((n.notification.type==NotificationType.ADDED_TO_COLLECTION || n.notification.type==NotificationType.COLLECTION_UPDATE) && n.notification.collection!=null){
+				CollectionStatusDisplayItem collectionItem=new CollectionStatusDisplayItem(n.getID(), this, getActivity(), n.notification.collection, knownAccounts);
+				return List.of(titleItem, collectionItem);
 			}
 			return List.of(titleItem);
 		}else{
@@ -149,6 +155,13 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 			}
 		}else if(n.notification.type==NotificationType.ADMIN_REPORT){
 			UiUtils.launchWebBrowser(getActivity(), "https://"+AccountSessionManager.get(accountID).domain+"/admin/reports/"+n.notification.report.id);
+		}else if((n.notification.type==NotificationType.ADDED_TO_COLLECTION || n.notification.type==NotificationType.COLLECTION_UPDATE) && n.notification.collection!=null){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putString("collection", n.notification.collection.id);
+			args.putString("collectionTitle", n.notification.collection.name);
+			args.putString("authorUsername", n.accounts.get(0).getUsername());
+			Nav.go(getActivity(), CollectionFragment.class, args);
 		}else if(!n.accounts.isEmpty()){
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
