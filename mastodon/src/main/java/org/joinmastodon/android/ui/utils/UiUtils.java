@@ -3,6 +3,7 @@ package org.joinmastodon.android.ui.utils;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.UiModeManager;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
@@ -53,6 +54,7 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -64,9 +66,11 @@ import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.accounts.RemoveAccountFromFollowers;
 import org.joinmastodon.android.api.requests.accounts.SetAccountBlocked;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountMuted;
+import org.joinmastodon.android.api.requests.accounts.SetAccountPersonalNote;
 import org.joinmastodon.android.api.requests.accounts.SetDomainBlocked;
 import org.joinmastodon.android.api.requests.search.GetSearchResults;
 import org.joinmastodon.android.api.requests.statuses.DeleteStatus;
@@ -96,6 +100,7 @@ import org.joinmastodon.android.ui.sheets.MuteAccountConfirmationSheet;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.SpacerSpan;
 import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
+import org.joinmastodon.android.ui.views.FloatingHintEditTextLayout;
 import org.parceler.Parcels;
 
 import java.io.File;
@@ -648,7 +653,7 @@ public class UiUtils{
 		int styleRes;
 		if(relationship.blocking){
 			button.setText(R.string.unblock);
-			styleRes=R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
+			styleRes=compact ? R.style.Widget_Mastodon_M3_Button_Tonal : R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
 		}else if(!relationship.following && !relationship.followedBy && !relationship.requested){
 			button.setText(R.string.button_follow);
 			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
@@ -657,13 +662,13 @@ public class UiUtils{
 			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
 		}else if(!relationship.following && relationship.requested){
 			button.setText(compact ? R.string.cancel_follow_request_short : R.string.cancel_follow_request);
-			styleRes=R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
+			styleRes=compact ? R.style.Widget_Mastodon_M3_Button_Tonal : R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
 		}else if(!relationship.following && relationship.followedBy){
 			button.setText(R.string.follow_back);
 			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
 		}else{
 			button.setText(R.string.unfollow);
-			styleRes=R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
+			styleRes=compact ? R.style.Widget_Mastodon_M3_Button_Tonal : R.style.Widget_Mastodon_M3_Button_Outlined_Neutral;
 		}
 
 		button.setEnabled(relationship.blocking || (!relationship.blockedBy && !account.suspended));
@@ -1244,6 +1249,77 @@ public class UiUtils{
 
 	public static CharSequence makeRedString(Context context, @StringRes int res, Object... args){
 		return makeRedString(context, context.getString(res, args));
+	}
+
+	public static void editAccountPersonalNote(Context context, String accountID, Account account, Relationship relationship, Consumer<Relationship> onDone){
+		AlertDialog.Builder bldr=new M3AlertDialogBuilder(context)
+				.setHelpText(R.string.user_personal_note_explanation)
+				.setTitle(TextUtils.isEmpty(relationship.note) ? R.string.add_user_personal_note : R.string.edit_user_personal_note)
+				.setNegativeButton(R.string.cancel, null)
+				.setPositiveButton(R.string.save, null);
+
+		FloatingHintEditTextLayout editWrap=(FloatingHintEditTextLayout) bldr.getContext().getSystemService(LayoutInflater.class).inflate(R.layout.floating_hint_edit_text, null);
+		EditText edit=editWrap.findViewById(R.id.edit);
+		edit.setHint(R.string.user_personal_note);
+		edit.setSingleLine(false);
+		edit.setMaxLines(5);
+		edit.setMinLines(2);
+		edit.setGravity(Gravity.TOP | Gravity.START);
+		if(!TextUtils.isEmpty(relationship.note))
+			edit.setText(relationship.note);
+		editWrap.updateHint();
+		bldr.setView(editWrap);
+		AlertDialog alert=bldr.show();
+		Button saveButton=alert.getButton(AlertDialog.BUTTON_POSITIVE);
+		saveButton.setOnClickListener(v->{
+			UiUtils.showProgressForAlertButton(saveButton, true);
+			new SetAccountPersonalNote(account.id, edit.getText().toString())
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Relationship result){
+							onDone.accept(result);
+							UiUtils.showProgressForAlertButton(saveButton, false);
+							alert.dismiss();
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(context);
+							UiUtils.showProgressForAlertButton(saveButton, false);
+						}
+					})
+					.exec(accountID);
+		});
+	}
+
+	public static void confirmAndRemoveFollower(Activity context, String accountID, Account account, Consumer<Relationship> onDone){
+		AlertDialog alert=new M3AlertDialogBuilder(context)
+				.setTitle(R.string.confirm_remove_follower_title)
+				.setMessage(context.getString(R.string.confirm_remove_follower, account.getDisplayUsername()))
+				.setPositiveButton(R.string.remove_follower, null)
+				.setNegativeButton(R.string.cancel, null)
+				.show();
+		Button okButton=alert.getButton(AlertDialog.BUTTON_POSITIVE);
+		okButton.setOnClickListener(v->{
+			UiUtils.showProgressForAlertButton(okButton, true);
+			new RemoveAccountFromFollowers(account.id)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Relationship result){
+							onDone.accept(result);
+							UiUtils.showProgressForAlertButton(okButton, false);
+							alert.dismiss();
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(context);
+							UiUtils.showProgressForAlertButton(okButton, false);
+						}
+					})
+					.wrapProgress(context, R.string.loading, true)
+					.exec(accountID);
+		});
 	}
 
 	public static void makeMenuItemRed(Context context, MenuItem item){

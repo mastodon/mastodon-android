@@ -3,9 +3,12 @@ package org.joinmastodon.android.ui.viewholders;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -23,11 +26,16 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.accounts.SetAccountEndorsed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.AddAccountToListsFragment;
+import org.joinmastodon.android.fragments.ManageFollowedHashtagsFragment;
+import org.joinmastodon.android.fragments.SavedPostsTimelineFragment;
 import org.joinmastodon.android.fragments.profile.ProfileFragment;
+import org.joinmastodon.android.fragments.profile.ProfileQrCodeFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
+import org.joinmastodon.android.fragments.settings.SettingsAccountFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
@@ -264,20 +272,20 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		}else if(id==R.id.block_domain){
 			UiUtils.confirmToggleBlockDomain(fragment.getActivity(), accountID, account, relationship.domainBlocking, ()->{
 				relationship.domainBlocking=!relationship.domainBlocking;
-				bindRelationship();
+				updateRelationship(relationship);
 			}, this::updateRelationship);
 		}else if(id==R.id.hide_boosts){
 			new SetAccountFollowed(account.id, true, !relationship.showingReblogs, relationship.notifying)
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(Relationship result){
-							relationships.put(AccountViewHolder.this.item.account.id, result);
-							bindRelationship();
+							updateRelationship(result);
 						}
 
 						@Override
 						public void onError(ErrorResponse error){
-							error.showToast(fragment.getActivity());
+							if(fragment.getActivity()!=null)
+								error.showToast(fragment.getActivity());
 						}
 					})
 					.wrapProgress(fragment.getActivity(), R.string.loading, false)
@@ -287,8 +295,54 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 			args.putString("account", accountID);
 			args.putParcelable("targetAccount", Parcels.wrap(account));
 			Nav.go(fragment.getActivity(), AddAccountToListsFragment.class, args);
-		}else if(onCustomMenuItemSelected!=null){
-			onCustomMenuItemSelected.accept(item);
+		}else if(id==R.id.copy_link){
+			fragment.getActivity().getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText(null, account.url));
+			UiUtils.maybeShowTextCopiedToast(fragment.getActivity());
+		}else if(id==R.id.qr_code){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putParcelable("targetAccount", Parcels.wrap(account));
+			ProfileQrCodeFragment qf=new ProfileQrCodeFragment();
+			qf.setArguments(args);
+			qf.show(fragment.getChildFragmentManager(), "qrDialog");
+		}else if(id==R.id.favorites){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putBoolean("isFavorites", true);
+			Nav.go(fragment.getActivity(), SavedPostsTimelineFragment.class, args);
+		}else if(id==R.id.bookmarks){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putBoolean("isFavorites", false);
+			Nav.go(fragment.getActivity(), SavedPostsTimelineFragment.class, args);
+		}else if(id==R.id.followed_hashtags){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			Nav.go(fragment.getActivity(), ManageFollowedHashtagsFragment.class, args);
+		}else if(id==R.id.account_settings){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			Nav.go(fragment.getActivity(), SettingsAccountFragment.class, args);
+		}else if(id==R.id.remove_follower){
+			UiUtils.confirmAndRemoveFollower(fragment.getActivity(), accountID, account, this::updateRelationship);
+		}else if(id==R.id.personal_note){
+			UiUtils.editAccountPersonalNote(fragment.getActivity(), accountID, account, relationship, this::updateRelationship);
+		}else if(id==R.id.feature){
+			new SetAccountEndorsed(account.id, !relationship.endorsed)
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Relationship result){
+							updateRelationship(result);
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							if(fragment.getActivity()!=null)
+								error.showToast(fragment.getActivity());
+						}
+					})
+					.wrapProgress(fragment.getActivity(), R.string.loading, true)
+					.exec(accountID);
 		}
 		return true;
 	}
@@ -360,33 +414,41 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	}
 
 	private boolean prepareMenu(){
-		if(relationships==null)
+		if(relationships==null || AccountSessionManager.getInstance().isSelf(accountID, item.account))
 			return false;
 		Relationship relationship=relationships.get(item.account.id);
 		if(relationship==null)
 			return false;
 		Menu menu=contextMenu.getMenu();
 		Account account=item.account;
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P && !UiUtils.isEMUI() && !UiUtils.isMagic()){
+			menu.setGroupDividerEnabled(true);
+		}
 
-		menu.findItem(R.id.share).setTitle(R.string.share_user);
-		menu.findItem(R.id.mute).setTitle(fragment.getString(relationship.muting ? R.string.unmute_user : R.string.mute_user, account.getDisplayUsername()));
-		menu.findItem(R.id.block).setTitle(fragment.getString(relationship.blocking ? R.string.unblock_user : R.string.block_user, account.getDisplayUsername()));
-		menu.findItem(R.id.report).setTitle(fragment.getString(R.string.report_user, account.getDisplayUsername()));
-		MenuItem hideBoosts=menu.findItem(R.id.hide_boosts);
+		if(relationship.followedBy)
+			menu.findItem(R.id.remove_follower).setTitle(UiUtils.makeRedString(itemView.getContext(), itemView.getContext().getString(R.string.remove_follower)));
+		else
+			menu.findItem(R.id.remove_follower).setVisible(false);
+		menu.findItem(R.id.mute).setTitle(itemView.getContext().getString(relationship.muting ? R.string.unmute_account : R.string.mute_account, account.getDisplayUsername()));
+		menu.findItem(R.id.block).setTitle(UiUtils.makeRedString(itemView.getContext(), relationship.blocking ? R.string.unblock_account : R.string.block_account));
+		menu.findItem(R.id.report).setTitle(UiUtils.makeRedString(itemView.getContext(), R.string.report_account));
 		if(relationship.following){
-			hideBoosts.setTitle(fragment.getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user, account.getDisplayUsername()));
+			MenuItem hideBoosts=menu.findItem(R.id.hide_boosts);
 			hideBoosts.setVisible(true);
+			hideBoosts.setTitle(itemView.getContext().getString(relationship.showingReblogs ? R.string.hide_boosts_from_user : R.string.show_boosts_from_user));
+			MenuItem feature=menu.findItem(R.id.feature);
+			feature.setVisible(true);
+			feature.setTitle(itemView.getContext().getString(relationship.endorsed ? R.string.unfeature_user : R.string.feature_user));
 		}else{
-			hideBoosts.setVisible(false);
+			menu.findItem(R.id.hide_boosts).setVisible(false);
+			menu.findItem(R.id.feature).setVisible(false);
 		}
-		MenuItem blockDomain=menu.findItem(R.id.block_domain);
-		if(!account.isLocal()){
-			blockDomain.setTitle(fragment.getString(relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain()));
-			blockDomain.setVisible(true);
-		}else{
-			blockDomain.setVisible(false);
-		}
+		if(!account.isLocal())
+			menu.findItem(R.id.block_domain).setTitle(UiUtils.makeRedString(itemView.getContext(), relationship.domainBlocking ? R.string.unblock_domain : R.string.block_domain, account.getDomain()));
+		else
+			menu.findItem(R.id.block_domain).setVisible(false);
 		menu.findItem(R.id.add_to_list).setVisible(relationship.following);
+		menu.findItem(R.id.personal_note).setTitle(TextUtils.isEmpty(relationship.note) ? R.string.add_user_personal_note : R.string.edit_user_personal_note);
 		return true;
 	}
 
