@@ -1,6 +1,7 @@
 package org.joinmastodon.android.fragments.collections;
 
 import android.app.Fragment;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -127,6 +128,11 @@ public class CollectionFragment extends BaseAccountListFragment{
 	protected void onConfigureViewHolder(AccountViewHolder holder){
 		super.onConfigureViewHolder(holder);
 		holder.setStyle(AccountViewHolder.AccessoryType.BUTTON, true);
+	}
+
+	@Override
+	protected void onBindViewHolder(AccountViewHolder holder){
+		super.onBindViewHolder(holder);
 	}
 
 	@Override
@@ -303,6 +309,31 @@ public class CollectionFragment extends BaseAccountListFragment{
 				verifiedLink.setText(item.verifiedLink);
 			}else{
 				verifiedLink.setVisibility(View.GONE);
+			}
+		}
+
+		@Override
+		public void bindRelationship(){
+			if(AccountSessionManager.getInstance().isSelf(accountID, item.account)){
+				button.setVisibility(View.VISIBLE);
+				button.setText(R.string.remove_self_from_collection);
+				TypedArray ta=button.getContext().obtainStyledAttributes(R.style.Widget_Mastodon_M3_Button_Tonal, new int[]{android.R.attr.background});
+				button.setBackground(ta.getDrawable(0));
+				ta.recycle();
+				ta=button.getContext().obtainStyledAttributes(R.style.Widget_Mastodon_M3_Button_Tonal, new int[]{android.R.attr.textColor});
+				button.setTextColor(ta.getColorStateList(0));
+				ta.recycle();
+			}else{
+				super.bindRelationship();
+			}
+		}
+
+		@Override
+		protected void onButtonClick(View v){
+			if(AccountSessionManager.getInstance().isSelf(accountID, item.account)){
+				confirmAndRemoveSelf();
+			}else{
+				super.onButtonClick(v);
 			}
 		}
 	}

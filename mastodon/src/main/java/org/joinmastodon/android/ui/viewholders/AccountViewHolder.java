@@ -45,7 +45,6 @@ import org.joinmastodon.android.ui.views.CheckableRelativeLayout;
 import org.joinmastodon.android.ui.views.ProgressBarButton;
 import org.parceler.Parcels;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -229,7 +228,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		return true;
 	}
 
-	private void onButtonClick(View v){
+	protected void onButtonClick(View v){
 		if(relationships==null)
 			return;
 		itemView.setHasTransientState(true);
