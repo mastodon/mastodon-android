@@ -772,7 +772,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 				UiUtils.loadCustomEmojiInTextView(valueView);
 
 				if(field.verifiedAt!=null){
-					fv.setBackgroundResource(R.drawable.bg_verified_link);
+					fv.setBackgroundColor(UiUtils.isDarkTheme() ? 0xff032E15 : 0xffF0FDF4);
+					fv.setOutlineProvider(OutlineProviders.roundedRect(8));
+					fv.setClipToOutline(true);
 				}else{
 					verifiedIcon.setVisibility(View.GONE);
 				}
@@ -940,76 +942,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			args.putString("account", accountID);
 			Nav.go(getActivity(), SettingsAccountFragment.class, args);
 		}else if(id==R.id.remove_follower){
-			AlertDialog alert=new M3AlertDialogBuilder(getActivity())
-					.setTitle(R.string.confirm_remove_follower_title)
-					.setMessage(getString(R.string.confirm_remove_follower, account.getDisplayUsername()))
-					.setPositiveButton(R.string.remove_follower, null)
-					.setNegativeButton(R.string.cancel, null)
-					.show();
-			Button okButton=alert.getButton(AlertDialog.BUTTON_POSITIVE);
-			okButton.setOnClickListener(v->{
-				UiUtils.showProgressForAlertButton(okButton, true);
-				new RemoveAccountFromFollowers(account.id)
-						.setCallback(new Callback<>(){
-							@Override
-							public void onSuccess(Relationship result){
-								updateRelationship(result);
-								UiUtils.showProgressForAlertButton(okButton, false);
-								alert.dismiss();
-							}
-
-							@Override
-							public void onError(ErrorResponse error){
-								if(getActivity()==null)
-									return;
-								error.showToast(getActivity());
-								UiUtils.showProgressForAlertButton(okButton, false);
-							}
-						})
-						.wrapProgress(getActivity(), R.string.loading, true)
-						.exec(accountID);
-			});
+			UiUtils.confirmAndRemoveFollower(getActivity(), accountID, account, this::updateRelationship);
 		}else if(id==R.id.personal_note){
-			AlertDialog.Builder bldr=new M3AlertDialogBuilder(getActivity())
-					.setHelpText(R.string.user_personal_note_explanation)
-					.setTitle(TextUtils.isEmpty(relationship.note) ? R.string.add_user_personal_note : R.string.edit_user_personal_note)
-					.setNegativeButton(R.string.cancel, null)
-					.setPositiveButton(R.string.save, null);
-
-			FloatingHintEditTextLayout editWrap=(FloatingHintEditTextLayout) bldr.getContext().getSystemService(LayoutInflater.class).inflate(R.layout.floating_hint_edit_text, null);
-			EditText edit=editWrap.findViewById(R.id.edit);
-			edit.setHint(R.string.user_personal_note);
-			edit.setSingleLine(false);
-			edit.setMaxLines(5);
-			edit.setMinLines(2);
-			edit.setGravity(Gravity.TOP | Gravity.START);
-			if(!TextUtils.isEmpty(relationship.note))
-				edit.setText(relationship.note);
-			editWrap.updateHint();
-			bldr.setView(editWrap);
-			AlertDialog alert=bldr.show();
-			Button saveButton=alert.getButton(AlertDialog.BUTTON_POSITIVE);
-			saveButton.setOnClickListener(v->{
-				UiUtils.showProgressForAlertButton(saveButton, true);
-				new SetAccountPersonalNote(account.id, edit.getText().toString())
-						.setCallback(new Callback<>(){
-							@Override
-							public void onSuccess(Relationship result){
-								updateRelationship(result);
-								UiUtils.showProgressForAlertButton(saveButton, false);
-								alert.dismiss();
-							}
-
-							@Override
-							public void onError(ErrorResponse error){
-								if(getActivity()==null)
-									return;
-								error.showToast(getActivity());
-								UiUtils.showProgressForAlertButton(saveButton, false);
-							}
-						})
-						.exec(accountID);
-			});
+			UiUtils.editAccountPersonalNote(getActivity(), accountID, account, relationship, this::updateRelationship);
 		}else if(id==R.id.feature){
 			new SetAccountEndorsed(account.id, !relationship.endorsed)
 					.setCallback(new Callback<>(){
