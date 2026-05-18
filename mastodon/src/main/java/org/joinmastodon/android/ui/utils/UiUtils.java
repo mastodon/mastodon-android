@@ -197,7 +197,7 @@ public class UiUtils{
 			return context.getString(R.string.time_hours_ago_short, diff/3600_000L);
 		}else{
 			int days=(int)(diff/(3600_000L*24L));
-			if(days>30){
+			if(days>7){
 				ZonedDateTime dt=instant.atZone(ZoneId.systemDefault());
 				return formatDateShort(dt);
 			}
