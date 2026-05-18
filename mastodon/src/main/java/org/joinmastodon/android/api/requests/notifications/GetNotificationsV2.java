@@ -36,8 +36,10 @@ public class GetNotificationsV2 extends MastodonAPIRequest<GetNotificationsV2.Gr
 				addQueryParameter("grouped_types[]", type);
 			}
 		}
-		if(!TextUtils.isEmpty(onlyAccountID))
+		if(!TextUtils.isEmpty(onlyAccountID)){
 			addQueryParameter("account_id", onlyAccountID);
+			addQueryParameter("include_filtered", "true");
+		}
 		for(String type:ApiUtils.enumSetToStrings(NotificationType.getAllTypes())){
 			addQueryParameter("supported_types[]", type);
 		}
