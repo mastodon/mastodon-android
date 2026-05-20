@@ -483,6 +483,12 @@ public class AccountSessionManager{
 	}
 
 	public void updateAccountInfo(String id, Account account){
+		if(account.source==null){
+			if(BuildConfig.DEBUG)
+				throw new IllegalArgumentException("Own account must have `source`");
+			Log.w(TAG, "updateAccountInfo called with an account without a source");
+			return;
+		}
 		AccountSession session=getAccount(id);
 		session.self=account;
 		session.infoLastUpdated=System.currentTimeMillis();

@@ -902,7 +902,7 @@ public class UiUtils{
 								launchWebBrowser(context, url);
 							}
 						})
-						.wrapProgress((Activity)context, R.string.loading, true)
+						.wrapProgress(context, R.string.loading, true)
 						.exec(accountID);
 				return;
 			}

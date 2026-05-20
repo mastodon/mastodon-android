@@ -1,7 +1,7 @@
 package org.joinmastodon.android.api;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 import android.util.Pair;
@@ -102,9 +102,9 @@ public abstract class MastodonAPIRequest<T> extends APIRequest<T>{
 		return this;
 	}
 
-	public MastodonAPIRequest<T> wrapProgress(Activity activity, @StringRes int message, boolean cancelable){
-		progressDialog=new ProgressDialog(activity);
-		progressDialog.setMessage(activity.getString(message));
+	public MastodonAPIRequest<T> wrapProgress(Context context, @StringRes int message, boolean cancelable){
+		progressDialog=new ProgressDialog(context);
+		progressDialog.setMessage(context.getString(message));
 		progressDialog.setCancelable(cancelable);
 		if(cancelable){
 			progressDialog.setOnCancelListener(dialog->cancel());
