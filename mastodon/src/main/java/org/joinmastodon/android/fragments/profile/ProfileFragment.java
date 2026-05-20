@@ -6,7 +6,6 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.assist.AssistContent;
 import android.content.ClipData;
@@ -43,7 +42,6 @@ import android.view.ViewOutlineProvider;
 import android.view.ViewTreeObserver;
 import android.view.WindowInsets;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -61,10 +59,9 @@ import org.joinmastodon.android.api.requests.accounts.GetAccountByID;
 import org.joinmastodon.android.api.requests.accounts.GetAccountFamiliarFollowers;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
 import org.joinmastodon.android.api.requests.accounts.GetAccountStatuses;
-import org.joinmastodon.android.api.requests.accounts.RemoveAccountFromFollowers;
+import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.accounts.SetAccountEndorsed;
 import org.joinmastodon.android.api.requests.accounts.SetAccountFollowed;
-import org.joinmastodon.android.api.requests.accounts.SetAccountPersonalNote;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.SelfAccountUpdatedEvent;
 import org.joinmastodon.android.fragments.AccountSimpleTimelineFragment;
@@ -84,7 +81,6 @@ import org.joinmastodon.android.model.Attachment;
 import org.joinmastodon.android.model.FamiliarFollowers;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
-import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.SimpleViewHolder;
 import org.joinmastodon.android.ui.SingleImagePhotoViewerListener;
@@ -99,7 +95,6 @@ import org.joinmastodon.android.ui.text.ImageSpanThatDoesNotBreakShitForNoGoodRe
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.CoverImageView;
 import org.joinmastodon.android.ui.views.CustomDrawingOrderLinearLayout;
-import org.joinmastodon.android.ui.views.FloatingHintEditTextLayout;
 import org.joinmastodon.android.ui.views.InlineBadgeLayout;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.joinmastodon.android.ui.views.ProfileFieldsGridLayout;
@@ -457,7 +452,12 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 
 	@Override
 	protected void doLoadData(){
-		currentRequest=new GetAccountByID(profileAccountID)
+		MastodonAPIRequest<Account> req;
+		if(AccountSessionManager.get(accountID).self.id.equals(profileAccountID))
+			req=new GetOwnAccount();
+		else
+			req=new GetAccountByID(profileAccountID);
+		currentRequest=req
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(Account result){
@@ -492,9 +492,6 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			return;
 		refreshing=true;
 		doLoadData();
-		if(isOwnProfile){
-			AccountSessionManager.get(accountID).updateAccountInfo();
-		}
 	}
 
 	@Override
@@ -795,6 +792,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 				fieldsLayout.addView(fv);
 			}
 		}
+		syncScrollState();
 	}
 
 	private void updateHeaderBadges(){

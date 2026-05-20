@@ -374,7 +374,8 @@ public class PhotoViewer implements ZoomPanView.Listener{
 				@Override
 				public void onBackCancelled(){
 					onSwipeToDismissCanceled();
-					holder.zoomPanView.setTransformMatrix(initialMatrix);
+					if(holder!=null)
+						holder.zoomPanView.setTransformMatrix(initialMatrix);
 					holder=null;
 				}
 

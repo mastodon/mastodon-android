@@ -251,12 +251,12 @@
 	<string name="last_edit_at_x">Última edición %s</string>
 	<string name="time_just_now">xusto agora</string>
 	<plurals name="x_seconds_ago">
-		<item quantity="one">fai %d segundo</item>
-		<item quantity="other">fai %d segundos</item>
+		<item quantity="one">hai %d segundo</item>
+		<item quantity="other">hai %d segundos</item>
 	</plurals>
 	<plurals name="x_minutes_ago">
-		<item quantity="one">fai %d minuto</item>
-		<item quantity="other">fai %d minutos</item>
+		<item quantity="one">hai %d minuto</item>
+		<item quantity="other">hai %d minutos</item>
 	</plurals>
 	<string name="edited_timestamp">editado %s</string>
 	<string name="edit_original_post">Publicación orixinal</string>
@@ -451,8 +451,8 @@
 		<item quantity="other">en %d horas</item>
 	</plurals>
 	<plurals name="x_hours_ago">
-		<item quantity="one">fai %d hora</item>
-		<item quantity="other">fai %d horas</item>
+		<item quantity="one">hai %d hora</item>
+		<item quantity="other">hai %d horas</item>
 	</plurals>
 	<string name="alt_text_reminder_title">O multimedia non ten Texto Alt</string>
 	<plurals name="alt_text_reminder_x_images">
@@ -531,16 +531,16 @@
 	<string name="posts_matching_string">Publicacións con “%s”</string>
 	<string name="accounts_matching_string">Persoas con “%s”</string>
 	<!-- Shown in the post header. Please keep it short -->
-	<string name="time_seconds_ago_short">fai %d seg.</string>
-	<string name="time_minutes_ago_short">fai %d min</string>
-	<string name="time_hours_ago_short">fai %d horas</string>
+	<string name="time_seconds_ago_short">hai %ds</string>
+	<string name="time_minutes_ago_short">hai %dm</string>
+	<string name="time_hours_ago_short">hai %dh</string>
 	<string name="time_days_ago_short">hai %d días</string>
 	<!-- %s is the name of the post language -->
 	<string name="translate_post">Traducir do %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Traducido do %1$s usando %2$s</string>
 	<string name="translation_show_original">Mostrar o orixinal</string>
-	<string name="translation_failed">Fallou a tradución. É posible que a administración non activase a tradución neste servidor ou que o servidor teña unha versión antiga de Mastodon que non ten soporte para a tradución.</string>
+	<string name="translation_failed">Fallou a tradución. É posible que a administración non activase a tradución para o servidor ou que o servidor estea executando unha versión antiga de Mastodon que non ten o software para a tradución.</string>
 	<string name="settings_privacy">Privacidade e alcance</string>
 	<string name="settings_discoverable">Perfil destacado e publicacións nos algoritmos de descubrimento</string>
 	<string name="settings_indexable">Incluír publicacións públicas nos resultados das buscas</string>
@@ -962,6 +962,7 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 	<string name="handle_explanation_title">Un alcume é o como o enderezo de correo.</string>
 	<string name="handle_explanation_username">%s é o nome de usuaria da conta no seu servidor. Alguén noutro servidor podería ter o mesmo nome de usuaria.</string>
 	<string name="handle_explanation_domain">%s é o servidor que aloxa o perfil e as publicacións da usuaria.</string>
+	<string name="handle_explanation_summary">Do mesmo xeito que podes enviar un correo electrónico a unha persoa que utiliza outro provedor, podes relacionarte con persoas doutros servidores Mastodon, e con calquera que use as outras apps do Fediverso.</string>
 	<string name="pinned_post">Fixadas</string>
 	<string name="view_all_pinned">Ver todas as publicacións fixadas</string>
 	<string name="profile_show_all_fields">Mostrar todos os campos</string>

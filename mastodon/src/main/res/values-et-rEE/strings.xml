@@ -398,7 +398,7 @@
 	<string name="settings_filters">Filtrid</string>
 	<string name="settings_server_explanation">Ülevaade, reeglid, moderaatorid</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
-	<string name="about_app">Teave %s kohta</string>
+	<string name="about_app">Rakenduse teave: %s</string>
 	<string name="default_post_language">Postituse keel</string>
 	<string name="settings_alt_text_reminders">Näita selgitusteksti meeldetuletusi</string>
 	<string name="settings_confirm_unfollow">Küsi kinnitust enne jälgimise lõpetamist</string>
@@ -946,8 +946,8 @@ Mida rohkem inimesi sa tead ja jälgid, seda aktiivsem ja huvitavam ta saab olem
 		<item quantity="other">Maksimaalselt %,d tähemärki</item>
 	</plurals>
 	<plurals name="hashtag_used_in_x_posts">
-		<item quantity="one">Kasutated %,d-s postituses</item>
-		<item quantity="other">Kasutated %,d-s postituses</item>
+		<item quantity="one">Kasutatud %,d-s postituses</item>
+		<item quantity="other">Kasutatud %,d-s postituses</item>
 	</plurals>
 	<string name="add_featured_hashtag">Lisa teemaviide</string>
 	<string name="hashtag">Teemaviide</string>
@@ -962,6 +962,7 @@ Mida rohkem inimesi sa tead ja jälgid, seda aktiivsem ja huvitavam ta saab olem
 	<string name="handle_explanation_title">Kasutajatunnus on nagu e-posti aadress.</string>
 	<string name="handle_explanation_username">%s on selle konto kasutajanimi tema serveris. Kellelgi teisel mõnes muus serveris võib olla sama kasutajanimi.</string>
 	<string name="handle_explanation_domain">%s on server, kus antud konto koos profiiliga asub ning kust postitused saavad alguse.</string>
+	<string name="handle_explanation_summary">Nii nagu saad saata e-kirju inimestele, kes kasutavad erinevaid e-posti teenusepakkujaid, saad suhelda ka teiste Mastodoni serverite kasutajatega ning kõigi teistega muudest Födiversumi rakendustest.</string>
 	<string name="pinned_post">Esiletõstetud</string>
 	<string name="view_all_pinned">Vaata kõiki esiletõstetud postitusi</string>
 	<string name="profile_show_all_fields">Näita kõiki välju</string>
@@ -977,5 +978,14 @@ Mida rohkem inimesi sa tead ja jälgid, seda aktiivsem ja huvitavam ta saab olem
 	<string name="profile_featured_empty_description">%s pole veel midagi esile tõstnud.</string>
 	<string name="profile_featured_empty_self_description">Kogumikud (lisanduvad Mastodoni versioonis 4.6) võimaldavad sul luua omakoostatud kasutajakontode nimekirju, mida teistele soovitada.</string>
 	<string name="handle_explanation_copy">Kopeeri kasutajatunnus</string>
+	<string name="request_to_follow_short">Päring</string>
+	<string name="cancel_follow_request_short">Katkesta</string>
+	<string name="notification_filter_admin">Peakasutaja teavitused</string>
+	<string name="notification_filter_admin_reports">Aruanded peakasutajale</string>
+	<string name="notification_filter_admin_signups">Kasutajakontode loomised</string>
+	<string name="notification_filter_admin_reports_explanation">Näita selle serveri teatisi spämmi, reeglite rikkumiste ja muude teemade kohta</string>
+	<string name="notification_filter_admin_signups_explanation">Näita teavitusi, kui sellesse serverisse lisatakse kasutajakontosid</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s teatas kasutajast %2$s</string>
+	<string name="notification_admin_signup">%s liitus</string>
 </resources>

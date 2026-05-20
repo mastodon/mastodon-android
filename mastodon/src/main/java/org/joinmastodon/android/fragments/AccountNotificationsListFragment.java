@@ -13,22 +13,33 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.requests.notifications.GetNotificationsV1;
+import org.joinmastodon.android.api.requests.notifications.GetNotificationsV2;
 import org.joinmastodon.android.api.requests.notifications.RespondToNotificationRequest;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.NotificationRequestRespondedEvent;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.Notification;
+import org.joinmastodon.android.model.NotificationGroup;
 import org.joinmastodon.android.model.NotificationType;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
+import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 
@@ -53,16 +64,53 @@ public class AccountNotificationsListFragment extends BaseNotificationsListFragm
 	protected void doLoadData(int offset, int count){
 		if(!refreshing && endMark!=null)
 			endMark.setVisibility(View.GONE);
-//		currentRequest=new GetNotificationsV2(offset==0 ? null : maxID, count, EnumSet.allOf(NotificationType.class), account.id)
-//				.setCallback(new SimpleCallback<>(this){
-//					@Override
-//					public void onSuccess(List<NotificationViewModel> result){
-//						onDataLoaded(result, !result.isEmpty());
-//						maxID=result.isEmpty() ? null : result.get(result.size()-1).id;
-//						endMark.setVisibility(result.isEmpty() ? View.VISIBLE : View.GONE);
-//					}
-//				})
-//				.exec(accountID);
+		// TODO the v2 API doesn't support account_id despite it being documented
+//		if(AccountSessionManager.get(accountID).getInstanceInfo().getApiVersion()>=2){
+//			currentRequest=new GetNotificationsV2(offset==0 ? null : maxID, count, null, NotificationType.getGroupableTypes(), account.id, null)
+//					.setCallback(new SimpleCallback<>(this){
+//						@Override
+//						public void onSuccess(GetNotificationsV2.GroupedNotificationsResults result){
+//							Map<String, Account> accounts=result.accounts.stream().collect(Collectors.toMap(a->a.id, Function.identity(), (a1, a2)->a2));
+//							Map<String, Status> statuses=result.statuses.stream().collect(Collectors.toMap(s->s.id, Function.identity(), (s1, s2)->s2));
+//							List<NotificationViewModel> notifications=NotificationViewModel.makeNotificationViewModels(result.notificationGroups, accounts, statuses);
+//							onDataLoaded(notifications, !notifications.isEmpty());
+//							maxID=notifications.isEmpty() ? null : notifications.get(notifications.size()-1).notification.pageMinId;
+//							endMark.setVisibility(notifications.isEmpty() ? View.VISIBLE : View.GONE);
+//						}
+//					})
+//					.exec(accountID);
+//		}else{
+			currentRequest=new GetNotificationsV1(offset==0 ? null : maxID, count, EnumSet.allOf(NotificationType.class), account.id)
+					.setCallback(new SimpleCallback<>(this){
+						@Override
+						public void onSuccess(List<Notification> result){
+							List<NotificationViewModel> converted=result.stream()
+									.map(n->{
+										NotificationGroup group=new NotificationGroup();
+										group.groupKey="converted-"+n.id;
+										group.notificationsCount=1;
+										group.type=n.type;
+										group.mostRecentNotificationId=group.pageMaxId=group.pageMinId=n.id;
+										group.latestPageNotificationAt=n.createdAt;
+										group.sampleAccountIds=List.of(n.account.id);
+										group.event=n.event;
+										group.moderationWarning=n.moderationWarning;
+										if(n.status!=null)
+											group.statusId=n.status.id;
+										NotificationViewModel nvm=new NotificationViewModel();
+										nvm.notification=group;
+										nvm.status=n.status;
+										nvm.accounts=List.of(n.account);
+										return nvm;
+									})
+									.collect(Collectors.toList());
+							onDataLoaded(converted, !result.isEmpty());
+							maxID=result.isEmpty() ? null : result.get(result.size()-1).id;
+							endMark.setVisibility(result.isEmpty() ? View.VISIBLE : View.GONE);
+						}
+					})
+					.exec(accountID);
+//		}
 	}
 
 	@Override

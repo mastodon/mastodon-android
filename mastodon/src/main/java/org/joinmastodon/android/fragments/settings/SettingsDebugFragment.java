@@ -2,11 +2,10 @@ package org.joinmastodon.android.fragments.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +17,7 @@ import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.HomeFragment;
 import org.joinmastodon.android.fragments.onboarding.AccountActivationFragment;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -33,7 +33,6 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.palette.graphics.Palette;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.utils.V;
@@ -56,7 +55,8 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 				new ListItem<>("Clear dismissed donation campaigns", null, this::onClearDismissedCampaignsClick),
 				donationsStagingItem=new CheckableListItem<>("Use staging environment for donations", "Restart app to apply", CheckableListItem.Style.SWITCH, getPrefs().getBoolean("donationsStaging", false), this::toggleCheckableItem),
 				new ListItem<>("Delete cached instance info", null, this::onDeleteInstanceInfoClick),
-				new ListItem<>("View dynamic color values", null, this::onViewColorsClick)
+				new ListItem<>("View dynamic color values", null, this::onViewColorsClick),
+				new ListItem<>("Open profile by ID", null, this::onOpenProfileByIdClick)
 		));
 		if(!GithubSelfUpdater.needSelfUpdating()){
 			resetUpdateItem.isEnabled=selfUpdateItem.isEnabled=false;
@@ -179,5 +179,27 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 
 	private SharedPreferences getPrefs(){
 		return getActivity().getSharedPreferences("debug", Context.MODE_PRIVATE);
+	}
+
+	private void onOpenProfileByIdClick(ListItem<?> item){
+		EditText edit=new EditText(getActivity());
+		edit.setText("1");
+		new M3AlertDialogBuilder(getActivity())
+				.setTitle("Account ID:")
+				.setView(edit)
+				.setPositiveButton("Open", (dlg, which)->{
+					Bundle args=new Bundle();
+					args.putString("account", accountID);
+					args.putString("profileAccountID", edit.getText().toString());
+					Nav.go(getActivity(), ProfileFragment.class, args);
+				})
+				.setNegativeButton(R.string.cancel, null)
+				.setNeutralButton("Self", (dlg, which)->{
+					Bundle args=new Bundle();
+					args.putString("account", accountID);
+					args.putString("profileAccountID", AccountSessionManager.get(accountID).self.id);
+					Nav.go(getActivity(), ProfileFragment.class, args);
+				})
+				.show();
 	}
 }

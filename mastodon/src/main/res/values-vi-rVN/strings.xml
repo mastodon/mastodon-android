@@ -898,6 +898,46 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<plurals name="x_chars_max">
 		<item quantity="other">%,d ký tự tối đa</item>
 	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="other">Đã dùng trong %,d tút</item>
+	</plurals>
+	<string name="add_featured_hashtag">Thêm hashtag</string>
+	<string name="hashtag">Hashtag</string>
+	<string name="confirm_remove_featured_hashtag">Xóa hashtag?</string>
+	<string name="edit_profile_show_media_tab">Tab \'Phương tiện\'</string>
+	<string name="edit_profile_show_media_tab_description">Hiện những tút chứa phương tiện</string>
+	<string name="edit_profile_show_media_replies">Bao gồm lượt trả lời</string>
+	<string name="edit_profile_show_featured_tab">Tab \'Nêu bật\'</string>
+	<string name="edit_profile_show_featured_tab_description">Không gian để hiển thị những tài khoản khác</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Những thiết lập này tùy chỉnh những gì người dùng thấy trên %s trong ứng dụng chính thức, nhưng có thể sẽ không thấy trên các máy chủ khác hoặc các ứng dụng thứ ba.</string>
+	<string name="handle_explanation_title">Một địa chỉ giống như địa chỉ email.</string>
+	<string name="handle_explanation_username">%s là tên người dùng duy nhất trên máy chủ này. Các máy chủ khác có thể cũng có tên người dùng giống vậy.</string>
+	<string name="handle_explanation_domain">%s là máy chủ lưu trữ hồ sơ và tút của tài khoản.</string>
+	<string name="handle_explanation_summary">Giống như việc bạn có thể gửi email cho những người sử dụng các nhà cung cấp email khác nhau, bạn cũng có thể tương tác với những người trên các máy chủ Mastodon khác và với bất kỳ ai trên các ứng dụng Fediverse khác.</string>
+	<string name="pinned_post">Đã ghim</string>
+	<string name="view_all_pinned">Xem toàn bộ tút đã ghim</string>
+	<string name="profile_show_all_fields">Hiện tất cả các trường</string>
+	<string name="unfeature_user">Bỏ nêu bật tài khoản này</string>
+	<string name="confirm_delete_profile_field">Xóa trường?</string>
+	<string name="confirm_delete_avatar">Xóa ảnh đại diện?</string>
+	<string name="confirm_delete_cover">Xóa ảnh bìa?</string>
+	<string name="profile_followers">Người theo dõi</string>
+	<string name="profile_following">Đang theo dõi</string>
+	<string name="user_follows_you">Theo dõi bạn</string>
+	<string name="profile_featured_empty_self">Hãy đón chờ Gói khởi đầu</string>
+	<string name="profile_featured_empty">Không có gì để xem ở đây</string>
+	<string name="profile_featured_empty_description">%s chưa nêu bật gì.</string>
+	<string name="profile_featured_empty_self_description">Gói khởi đầu (sẽ có trong Mastodon 4.6) cho phép bạn tạo danh sách các tài khoản được tuyển chọn để giới thiệu cho người khác.</string>
+	<string name="handle_explanation_copy">Sao chép địa chỉ</string>
+	<string name="request_to_follow_short">Yêu cầu</string>
+	<string name="cancel_follow_request_short">Hủy bỏ</string>
+	<string name="notification_filter_admin">Thông báo quản trị viên</string>
+	<string name="notification_filter_admin_reports">Báo cáo quản trị</string>
+	<string name="notification_filter_admin_signups">Đăng ký tài khoản</string>
+	<string name="notification_filter_admin_reports_explanation">Hiện báo cáo spam, vi phạm nội quy máy chủ và khác nữa</string>
+	<string name="notification_filter_admin_signups_explanation">Hiện thông báo về người mới tham gia máy chủ</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s báo cáo %2$s</string>
+	<string name="notification_admin_signup">%s đã đăng ký</string>
 </resources>

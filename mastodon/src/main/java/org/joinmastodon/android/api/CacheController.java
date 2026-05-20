@@ -42,7 +42,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -145,26 +144,6 @@ public class CacheController{
 		});
 	}
 
-	private List<NotificationViewModel> makeNotificationViewModels(List<NotificationGroup> notifications, Map<String, Account> accounts, Map<String, Status> statuses){
-		return notifications.stream()
-				.filter(ng->ng.type!=null)
-				.map(ng->{
-					NotificationViewModel nvm=new NotificationViewModel();
-					nvm.notification=ng;
-					nvm.accounts=ng.sampleAccountIds.stream().map(accounts::get).filter(Objects::nonNull).collect(Collectors.toList());
-					if(nvm.accounts.size()!=ng.sampleAccountIds.size())
-						return null;
-					if(ng.statusId!=null){
-						nvm.status=statuses.get(ng.statusId);
-						if(nvm.status==null)
-							return null;
-					}
-					return nvm;
-				})
-				.filter(Objects::nonNull)
-				.collect(Collectors.toList());
-	}
-
 	public void getNotifications(String maxID, int count, boolean onlyMentions, boolean forceReload, Callback<PaginatedResponse<List<NotificationViewModel>>> callback){
 		cancelDelayedClose();
 		databaseThread.postRunnable(()->{
@@ -213,7 +192,7 @@ public class CacheController{
 									}
 								}
 							}
-							uiHandler.post(()->callback.onSuccess(new PaginatedResponse<>(makeNotificationViewModels(result, accounts, statuses), _newMaxID)));
+							uiHandler.post(()->callback.onSuccess(new PaginatedResponse<>(NotificationViewModel.makeNotificationViewModels(result, accounts, statuses), _newMaxID)));
 							return;
 						}
 					}catch(IOException x){
@@ -242,7 +221,7 @@ public class CacheController{
 								public void onSuccess(GetNotificationsV2.GroupedNotificationsResults result){
 									Map<String, Account> accounts=result.accounts.stream().collect(Collectors.toMap(a->a.id, Function.identity(), (a1, a2)->a2));
 									Map<String, Status> statuses=result.statuses.stream().collect(Collectors.toMap(s->s.id, Function.identity(), (s1, s2)->s2));
-									List<NotificationViewModel> notifications=makeNotificationViewModels(result.notificationGroups, accounts, statuses);
+									List<NotificationViewModel> notifications=NotificationViewModel.makeNotificationViewModels(result.notificationGroups, accounts, statuses);
 									databaseThread.postRunnable(()->putNotifications(result.notificationGroups, result.accounts, result.statuses, onlyMentions, maxID==null), 0);
 									PaginatedResponse<List<NotificationViewModel>> res=new PaginatedResponse<>(notifications,
 											result.notificationGroups.isEmpty() ? null : result.notificationGroups.get(result.notificationGroups.size()-1).pageMinId);
