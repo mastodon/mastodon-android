@@ -38,7 +38,7 @@
 		<item quantity="one">%,d post</item>
 		<item quantity="other">%,d post</item>
 	</plurals>
-	<string name="profile_joined">Iscritto</string>
+	<string name="profile_joined">Account iscritto</string>
 	<string name="done">Fatto</string>
 	<string name="loading">Caricamento…</string>
 	<string name="field_label">Etichetta</string>
@@ -179,7 +179,7 @@
 	<string name="settings_notifications">Notifiche</string>
 	<string name="settings_contribute">Contribuisci a Mastodon</string>
 	<string name="settings_tos">Termini di servizio</string>
-	<string name="settings_privacy_policy">Politica della privacy</string>
+	<string name="settings_privacy_policy">Informativa sulla privacy</string>
 	<string name="settings_clear_cache">Cancella cache multimediale</string>
 	<string name="settings_app_version">Mastodon per Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Cache multimediale cancellata</string>
@@ -285,7 +285,7 @@
 	<string name="download_update">Scarica (%s)</string>
 	<string name="install_update">Installa</string>
 	<string name="privacy_policy_title">La tua privacy</string>
-	<string name="privacy_policy_subtitle">Sebbene l\'app Mastodon non raccolga alcun dato, il server attraverso il quale ti registri potrebbe avere una politica diversa.\n\nSe non sei d\'accordo con la politica per %s, puoi tornare indietro e scegliere un server diverso.</string>
+	<string name="privacy_policy_subtitle">Sebbene l\'app Mastodon non raccolga alcun dato, il server tramite il quale ti registri potrebbe avere una politica diversa.\n\nSe non sei d\'accordo con la politica di %s, puoi tornare indietro e scegliere un server diverso.</string>
 	<string name="i_agree">Sono d\'accordo</string>
 	<string name="empty_list">Questo elenco è vuoto</string>
 	<string name="instance_signup_closed">Questo server non accetta nuove registrazioni.</string>
@@ -541,7 +541,7 @@
 	<string name="post_translated">Tradotto da %1$s utilizzando %2$s</string>
 	<string name="translation_show_original">Mostra originale</string>
 	<string name="translation_failed">Traduzione fallita. Forse l\'amministratore non ha abilitato le traduzioni su questo server, o su questo server è in esecuzione una versione precedente di Mastodon in cui le traduzioni non sono ancora supportate.</string>
-	<string name="settings_privacy">Privacy e copertura</string>
+	<string name="settings_privacy">Privacy e visibilità</string>
 	<string name="settings_discoverable">Include il profilo e i post negli algoritmi di scoperta</string>
 	<string name="settings_indexable">Includi i post pubblici nei risultati di ricerca</string>
 	<plurals name="x_participants">

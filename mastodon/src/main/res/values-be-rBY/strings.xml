@@ -40,7 +40,7 @@
 		<item quantity="many">%,d допісаў</item>
 		<item quantity="other">%,d допісаў</item>
 	</plurals>
-	<string name="profile_joined">Далучыў(-ла)ся</string>
+	<string name="profile_joined">Рэгістрацыя</string>
 	<string name="done">Гатова</string>
 	<string name="loading">Загрузка…</string>
 	<string name="field_label">Метка</string>
@@ -1058,6 +1058,7 @@
 	<string name="handle_explanation_title">Ідэнтыфікатар карыстальніка падобны да адраса электроннай пошты.</string>
 	<string name="handle_explanation_username">%s — імя карыстальніка гэтага ўліковага запісу на іх серверы. У некага на іншым серверы яно можа быць такім жа.</string>
 	<string name="handle_explanation_domain">%s — сервер, які ўтрымлівае профіль і допісы гэтага карыстальніка.</string>
+	<string name="handle_explanation_summary">Гэтак жа, як Вы можаце дасылаць электронныя лісты людзям, у якіх паштовыя скрыні ад іншых правайдараў, Вы можаце ўзаемадзейнічаць з людзьмі з іншых сервераў Mastodon і з усімі, хто карыстаецца іншымі праграмамі Федэральнага сусвету.</string>
 	<string name="pinned_post">Замацавана</string>
 	<string name="view_all_pinned">Паказаць усе замацаваныя допісы</string>
 	<string name="profile_show_all_fields">Паказаць усе палі</string>
@@ -1075,5 +1076,12 @@
 	<string name="handle_explanation_copy">Скапір. ідэнтыфікатар</string>
 	<string name="request_to_follow_short">Запыт</string>
 	<string name="cancel_follow_request_short">Скасаваць</string>
+	<string name="notification_filter_admin">Апавяшчэнні адміністратара</string>
+	<string name="notification_filter_admin_reports">Скаргі адміністратару</string>
+	<string name="notification_filter_admin_signups">Рэгістрацыі ўліковых запісаў</string>
+	<string name="notification_filter_admin_reports_explanation">Паказваць скаргі на спам, парушэнні правіл і іншае на гэтым серверы</string>
+	<string name="notification_filter_admin_signups_explanation">Паказваць апавяшчэнні аб новых уліковых запісах на гэтым серверы</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s паскардзіўся(-лася) на %2$s</string>
+	<string name="notification_admin_signup">%s зарэгістраваўся(-лася)</string>
 </resources>
