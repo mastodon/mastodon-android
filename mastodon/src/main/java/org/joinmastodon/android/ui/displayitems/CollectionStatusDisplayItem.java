@@ -14,14 +14,13 @@ import org.joinmastodon.android.model.viewmodel.CollectionViewModel;
 import org.joinmastodon.android.ui.viewholders.CollectionViewHolder;
 
 import java.util.Map;
-import java.util.function.Supplier;
 
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
 public class CollectionStatusDisplayItem extends StatusDisplayItem{
-	public final CollectionViewModel collection;
+	private CollectionViewModel collection;
 
 	public CollectionStatusDisplayItem(String parentID, Callbacks callbacks, Context context, AccountCollection collection, Map<String, Account> accounts){
 		super(parentID, callbacks, context);
@@ -41,6 +40,14 @@ public class CollectionStatusDisplayItem extends StatusDisplayItem{
 	@Override
 	public ImageLoaderRequest getImageRequest(int index){
 		return collection.avatarRequests.get(index);
+	}
+
+	public boolean updateAccounts(Map<String, Account> accounts){
+		if(collection.accounts.size()<4 && collection.accounts.size()<collection.collection.items.size()){
+			collection=new CollectionViewModel(collection.collection, accounts);
+			return true;
+		}
+		return false;
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<CollectionStatusDisplayItem> implements ImageLoaderViewHolder{

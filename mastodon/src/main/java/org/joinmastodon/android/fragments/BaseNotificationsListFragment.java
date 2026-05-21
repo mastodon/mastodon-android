@@ -1,6 +1,5 @@
 package org.joinmastodon.android.fragments;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -21,6 +20,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
+import org.joinmastodon.android.model.collections.CollectionItem;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.displayitems.CollectionStatusDisplayItem;
@@ -38,8 +38,9 @@ import org.joinmastodon.android.ui.views.LinkedTextView;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
+import java.util.Set;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -184,6 +185,38 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 	@Override
 	protected Status asStatus(NotificationViewModel s){
 		return s.status;
+	}
+
+	@Override
+	protected Set<String> extractExtraAccountIDs(List<NotificationViewModel> items){
+		HashSet<String> ids=new HashSet<>();
+		for(NotificationViewModel n:items){
+			if(n.notification.collection!=null){
+				int i=0;
+				for(CollectionItem item:n.notification.collection.items){
+					if(!knownAccounts.containsKey(item.accountId))
+						ids.add(item.accountId);
+					if(++i==4)
+						break;
+				}
+			}
+		}
+		return ids;
+	}
+
+	@Override
+	protected void updateItemsThatNeededExtraAccounts(){
+		for(StatusDisplayItem item:displayItems){
+			if(item instanceof CollectionStatusDisplayItem csdi){
+				if(csdi.updateAccounts(knownAccounts)){
+					StatusDisplayItem.Holder<CollectionStatusDisplayItem> holder=findHolderForItem(csdi);
+					if(holder!=null){
+						holder.rebind();
+					}
+				}
+			}
+		}
+		imgLoader.updateImages();
 	}
 
 	protected NotificationViewModel getNotificationByID(String id){
