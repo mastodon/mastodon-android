@@ -54,6 +54,22 @@ public class NotificationGroup extends BaseModel{
 			collection.postprocess();
 	}
 
+	public static NotificationGroup fromLegacyNotification(Notification n){
+		NotificationGroup group=new NotificationGroup();
+		group.groupKey="converted-"+n.id;
+		group.notificationsCount=1;
+		group.type=n.type;
+		group.mostRecentNotificationId=group.pageMaxId=group.pageMinId=n.id;
+		group.latestPageNotificationAt=n.createdAt;
+		group.sampleAccountIds=List.of(n.account.id);
+		group.event=n.event;
+		group.moderationWarning=n.moderationWarning;
+		if(n.status!=null)
+			group.statusId=n.status.id;
+		group.collection=n.collection;
+		return group;
+	}
+
 	public static class Fallback{
 		public String title;
 		public String summary;

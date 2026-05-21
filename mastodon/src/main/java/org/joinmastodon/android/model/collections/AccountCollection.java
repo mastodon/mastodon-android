@@ -4,11 +4,13 @@ import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.model.BaseModel;
 import org.joinmastodon.android.model.Hashtag;
+import org.parceler.Parcel;
 
 import java.time.Instant;
 import java.util.List;
 
 // Called such to avoid conflict with java.util.Collection
+@Parcel
 public class AccountCollection extends BaseModel{
 	@RequiredField
 	public String id;

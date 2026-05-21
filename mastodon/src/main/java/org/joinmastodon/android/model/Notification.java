@@ -4,6 +4,7 @@ import android.util.Log;
 
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
+import org.joinmastodon.android.model.collections.AccountCollection;
 import org.parceler.Parcel;
 
 import java.time.Instant;
@@ -20,6 +21,7 @@ public class Notification extends BaseModel implements DisplayItemsParent{
 	public Status status;
 	public RelationshipSeveranceEvent event;
 	public AccountWarning moderationWarning;
+	public AccountCollection collection;
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -40,6 +42,8 @@ public class Notification extends BaseModel implements DisplayItemsParent{
 		if(type!=NotificationType.SEVERED_RELATIONSHIPS && type!=NotificationType.MODERATION_WARNING && account==null){
 			throw new ObjectValidationException("account must be present for type "+type);
 		}
+		if(collection!=null)
+			collection.postprocess();
 	}
 
 	@Override
