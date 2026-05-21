@@ -79,6 +79,7 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
+import org.joinmastodon.android.fragments.collections.CollectionFragment;
 import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
@@ -88,6 +89,7 @@ import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.collections.AccountCollection;
 import org.joinmastodon.android.model.viewmodel.CollectionViewModel;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.ColorContrastMode;
@@ -894,6 +896,11 @@ public class UiUtils{
 									}
 									args.putParcelable("profileAccount", Parcels.wrap(a));
 									Nav.go((Activity)context, ProfileFragment.class, args);
+								}else if(result.collections!=null && !result.collections.isEmpty()){
+									AccountCollection c=result.collections.get(0);
+									args.putString("collection", c.id);
+									args.putString("collectionTitle", c.name);
+									Nav.go((Activity)context, CollectionFragment.class, args);
 								}else{
 									launchWebBrowser(context, url);
 								}

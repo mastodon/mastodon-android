@@ -74,7 +74,8 @@ public class CollectionFragment extends BaseAccountListFragment{
 		super.onCreate(savedInstanceState);
 		collectionID=getArguments().getString("collection");
 		setTitle(getArguments().getString("collectionTitle"));
-		setSubtitle(getString(R.string.collection_by_author, "@"+getArguments().getString("authorUsername")));
+		if(getArguments().containsKey("authorUsername"))
+			setSubtitle(getString(R.string.collection_by_author, "@"+getArguments().getString("authorUsername")));
 		setHasOptionsMenu(true);
 		loadData();
 	}
