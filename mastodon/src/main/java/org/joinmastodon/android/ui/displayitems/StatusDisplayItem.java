@@ -20,6 +20,7 @@ import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Quote;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.collections.AccountCollection;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -197,7 +198,18 @@ public abstract class StatusDisplayItem{
 		if(statusForContent.poll!=null){
 			buildPollItems(parentID, callbacks, context, statusForContent.poll, status, contentItems);
 		}
-		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty() && TextUtils.isEmpty(statusForContent.spoilerText)){
+		boolean skipCard=false;
+		if(statusForContent.taggedCollections!=null && !statusForContent.taggedCollections.isEmpty() && statusForContent.quote==null
+				&& statusForContent.mediaAttachments.isEmpty() && statusForContent.poll==null
+				&& (statusForContent.account.isLocal() || (statusForContent.card!=null && statusForContent.card.url.equals(statusForContent.taggedCollections.get(0).url)))){
+			AccountCollection collection=statusForContent.taggedCollections.get(0);
+			CollectionStatusDisplayItem collectionItem=new CollectionStatusDisplayItem(parentID, callbacks, context, collection, knownAccounts);
+			collectionItem.clickable=true;
+			contentItems.add(collectionItem);
+			if(statusForContent.card!=null)
+				skipCard=statusForContent.card.url.equals(statusForContent.taggedCollections.get(0).url);
+		}
+		if(statusForContent.card!=null && statusForContent.mediaAttachments.isEmpty() && TextUtils.isEmpty(statusForContent.spoilerText) && !skipCard){
 			contentItems.add(new LinkCardStatusDisplayItem(parentID, callbacks, context, statusForContent, accountID));
 		}
 		if(statusForContent.quote!=null){

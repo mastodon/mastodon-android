@@ -11,6 +11,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.collections.AccountCollection;
 import org.joinmastodon.android.model.viewmodel.CollectionViewModel;
+import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.viewholders.CollectionViewHolder;
 
 import java.util.Map;
@@ -21,6 +22,7 @@ import me.grishka.appkit.utils.V;
 
 public class CollectionStatusDisplayItem extends StatusDisplayItem{
 	private CollectionViewModel collection;
+	public boolean clickable;
 
 	public CollectionStatusDisplayItem(String parentID, Callbacks callbacks, Context context, AccountCollection collection, Map<String, Account> accounts){
 		super(parentID, callbacks, context);
@@ -67,16 +69,20 @@ public class CollectionStatusDisplayItem extends StatusDisplayItem{
 					return null;
 				}
 			});
-			wrapper.addView(realHolder.itemView/*, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, V.dp(69))*/);
-			realHolder.itemView.setBackgroundResource(R.drawable.bg_inline_status);
+			wrapper.addView(realHolder.itemView);
 			realHolder.itemView.setPaddingRelative(V.dp(4), 0, V.dp(12), 0);
 			realHolder.menuButton.setVisibility(View.GONE);
-			wrapper.setPaddingRelative(V.dp(64), 0, V.dp(16), V.dp(12));
+			realHolder.itemView.setOnClickListener(v->realHolder.onClick());
+			realHolder.itemView.setForeground(context.getDrawable(R.drawable.fg_link_card));
+			OutlineProviders.clipToRoundRect(realHolder.itemView, 8);
 		}
 
 		@Override
 		public void onBind(CollectionStatusDisplayItem item){
 			realHolder.bind(item.collection);
+			FrameLayout wrapper=(FrameLayout) itemView;
+			wrapper.setPaddingRelative(V.dp(item.fullWidth ? 12 : 64), 0, V.dp(16), V.dp(12));
+			realHolder.itemView.setClickable(item.clickable);
 		}
 
 		@Override
