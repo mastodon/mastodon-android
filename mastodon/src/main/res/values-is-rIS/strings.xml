@@ -962,6 +962,7 @@
 	<string name="handle_explanation_title">Kennislóð (handle) líkist tölvupóstfangi.</string>
 	<string name="handle_explanation_username">%s er notandanafn þessa aðgangs á netþjóni viðkomandi. Einhver annar á öðrum netþjóni getur verið með sama notandanafnið.</string>
 	<string name="handle_explanation_domain">%s er netþjónninn sem hýsir notandasnið og færslur viðkomandi.</string>
+	<string name="handle_explanation_summary">Rétt eins og að þú getur sent tölvupóst á fólk í gegnum mismunandi þjónustur og forrit, þá getur þú átt í samskiptum við fólk á öðrum Mastodon-netþjónum, og reyndar við hverja þá sem eru á öðrum þeim forritum sem nota sömu samskiptareglur Fediverse-samfélagsins.</string>
 	<string name="pinned_post">Fest</string>
 	<string name="view_all_pinned">Skoða allar festar færslur</string>
 	<string name="profile_show_all_fields">Birta alla reiti</string>
@@ -979,5 +980,12 @@
 	<string name="handle_explanation_copy">Afrita kennislóð</string>
 	<string name="request_to_follow_short">Beiðni</string>
 	<string name="cancel_follow_request_short">Hætta við</string>
+	<string name="notification_filter_admin">Tilkynningar stjórnenda</string>
+	<string name="notification_filter_admin_reports">Skýrslur stjórnenda</string>
+	<string name="notification_filter_admin_signups">Nýskráðir aðgangar</string>
+	<string name="notification_filter_admin_reports_explanation">Birta skýrslur um ruslsendingar, brot á reglum og aðrar kvartanir á þessum netþjóni</string>
+	<string name="notification_filter_admin_signups_explanation">Birta tilkynningar um nýja notendaaðganga sem útbúnir hafa verið á þessum netþjóni</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s kærði %2$s</string>
+	<string name="notification_admin_signup">%s skráði sig</string>
 </resources>
