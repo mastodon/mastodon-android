@@ -920,6 +920,24 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="edit_profile_display_name">Nome de exibição</string>
 	<string name="edit_profile_x_custom_fields">Campos personalizados (%d)</string>
 	<string name="edit_profile_custom_fields">Campos personalizados</string>
+	<string name="edit_profile_custom_fields_description">Ex.: pronomes, links externos, etc.</string>
+	<string name="edit_profile_featured_hashtags_description">Permitir que os usuários filtrem sua linha do tempo por tópico</string>
+	<string name="edit_profile_tab_settings">Configurações da aba de perfil</string>
+	<string name="edit_profile_add_bio">Adicionar biografia</string>
+	<string name="edit_profile_featured_hashtags">Hashtags em destaque</string>
+	<string name="edit_profile_x_featured_hashtags">Hashtags em destaque (%d)</string>
+	<string name="edit_profile_replace_image">Substituir</string>
+	<string name="edit_profile_edit_display_name">Editar nome de exibição</string>
+	<string name="edit_profile_edit_bio">Editar biografia</string>
+	<string name="add_profile_field">Adicionar campo</string>
+	<string name="edit_profile_custom_fields_help">Dica: Adicione credibilidade à sua conta Mastodon verificando links para os seus próprios sites. <i>Saiba mais</i></string>
+	<string name="edit_profile_link_verification_help_title">Adicionando um link de verificação</string>
+	<string name="edit_profile_link_verification_help">Dê credibilidade ao seu perfil do Mastodon, verificando links para sites pessoais. Veja como funciona:</string>
+	<string name="edit_profile_link_verification_title1">Copie o código HTML abaixo</string>
+	<string name="edit_profile_link_verification_title2">Cole o código no cabeçalho HTML do seu site</string>
+	<string name="edit_profile_link_verification_text2">Adicionar o código ao seu cabeçalho permite que o elemento &lt;a&gt; permaneça invisível. O atributo rel=\"eu\" impede a personificação em sites com conteúdo gerado pelo usuário – então é importante mantê-lo.</string>
+	<string name="edit_profile_link_verification_title3">Adicione seu site como um campo personalizado</string>
+	<string name="edit_profile_link_verification_text3">Se já adicionou seu site como um campo personalizado, deverá excluí-lo e adicioná-lo novamente para acionar a verificação.</string>
 	<!-- %s is the current user's server domain -->
 	<!-- Placeholders are user display names -->
 </resources>
