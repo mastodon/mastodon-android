@@ -892,7 +892,10 @@
 	<string name="unblock_account">Kumoa tilin esto</string>
 	<string name="unmute_account">Kumoa tilin mykistys</string>
 	<string name="unblock">Kumoa esto</string>
+	<string name="request_to_follow">Pyydä lupaa seurata</string>
+	<string name="cancel_follow_request">Peruuta pyyntö</string>
 	<string name="confirm_remove_follower_title">Poistetaanko seuraaja?</string>
+	<string name="confirm_remove_follower">%s lakkaa seuraamasta sinua. Haluatko varmasti jatkaa?</string>
 	<string name="edit_user_personal_note">Muokkaa henkilökohtaista muistiinpanoa</string>
 	<string name="user_personal_note_explanation">Henkilökohtaiset muistiinpanot näkyvät vain sinulle.</string>
 	<string name="user_personal_note">Henkilökohtainen muistiinpano</string>
@@ -905,6 +908,7 @@
 	<string name="edit_profile_display_name">Näyttönimi</string>
 	<string name="edit_profile_x_custom_fields">Mukautetut kentät (%d)</string>
 	<string name="edit_profile_custom_fields">Mukautetut kentät</string>
+	<string name="edit_profile_custom_fields_description">Esim. pronominit, ulkoiset linkit jne.</string>
 	<string name="edit_profile_replace_image">Korvaa</string>
 	<string name="add_profile_field">Lisää kenttä</string>
 	<string name="edit_profile_custom_fields_help">Vihje: Lisää uskottavuutta Mastodon-tiliisi vahvistamalla linkit omistamiisi sivustoihin. <i>Lue lisää</i></string>
@@ -930,5 +934,6 @@
 	<string name="notification_filter_admin_reports">Ylläpitäjän raportit</string>
 	<string name="notification_filter_admin_signups">Tilien rekisteröinnit</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s raportoi käyttäjän %2$s</string>
 	<string name="notification_admin_signup">%s rekisteröityi</string>
 </resources>
