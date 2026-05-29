@@ -817,6 +817,8 @@
 	</plurals>
 	<!-- The complete string will look like "You will lose X people you follow". See will_lose_x_following -->
 	<string name="server_x_following_will_be_removed">Tulet menettämään %s.</string>
+	<string name="load_missing_posts_above">Lataa puuttuvat viestit yllä</string>
+	<string name="load_missing_posts_below">Lataa puuttuvat viestit alla</string>
 	<string name="signup_password_too_short">Salasanassa pitää olla vähintään 8 merkkiä.</string>
 	<string name="private_reply">Yksityinen vastaus</string>
 	<string name="private_mention">Yksityismaininta</string>
@@ -830,6 +832,10 @@
 	<string name="open_link">Avaa</string>
 	<string name="copy">Kopioi</string>
 	<!-- Substituted into `date_of_birth_explanation` -->
+	<plurals name="at_least_x_years_old">
+		<item quantity="one">%d</item>
+		<item quantity="other">%d</item>
+	</plurals>
 	<string name="quote_post_unavailable">Julkaisu ei saatavilla</string>
 	<string name="quote_post_pending">Julkaisu odottaa</string>
 	<string name="quote_post_pending_explanation">Mastodonissa voit hallita, voiko joku lainata sinua. Tämä julkaisu on vireillä siihen asti, että saamme alkuperäisen tekijän hyväksynnän.</string>
@@ -909,7 +915,14 @@
 	<string name="edit_profile_x_custom_fields">Mukautetut kentät (%d)</string>
 	<string name="edit_profile_custom_fields">Mukautetut kentät</string>
 	<string name="edit_profile_custom_fields_description">Esim. pronominit, ulkoiset linkit jne.</string>
+	<string name="edit_profile_featured_hashtags_description">Salli käyttäjien suodattaa aikajanaa aiheen mukaan</string>
+	<string name="edit_profile_tab_settings">Profiilin välilehtien asetukset</string>
+	<string name="edit_profile_add_bio">Lisää elämäkerta</string>
+	<string name="edit_profile_featured_hashtags">Esiteltävät aihetunnisteet</string>
+	<string name="edit_profile_x_featured_hashtags">Esiteltävät aihetunnisteet (%d)</string>
 	<string name="edit_profile_replace_image">Korvaa</string>
+	<string name="edit_profile_edit_display_name">Muokkaa näyttönimeä</string>
+	<string name="edit_profile_edit_bio">Muokkaa elämäkertaa</string>
 	<string name="add_profile_field">Lisää kenttä</string>
 	<string name="edit_profile_custom_fields_help">Vihje: Lisää uskottavuutta Mastodon-tiliisi vahvistamalla linkit omistamiisi sivustoihin. <i>Lue lisää</i></string>
 	<string name="edit_profile_link_verification_help_title">Vahvistetun linkin lisääminen</string>
@@ -917,9 +930,18 @@
 	<string name="edit_profile_link_verification_title1">Kopioi HTML-koodi alapuolelta</string>
 	<string name="edit_profile_field">Muokkaa kenttää</string>
 	<string name="edit_profile_field_value_example">Esim. “example.me”</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">%,d merkki enintään</item>
+		<item quantity="other">%,d merkkiä enintään</item>
+	</plurals>
 	<string name="add_featured_hashtag">Lisää aihetunniste</string>
 	<string name="hashtag">Aihetunniste</string>
+	<string name="confirm_remove_featured_hashtag">Poistetaanko aihetunniste?</string>
+	<string name="edit_profile_show_media_replies">Sisällytä vastaukset</string>
 	<!-- %s is the current user's server domain -->
+	<string name="handle_explanation_title">Käyttäjätunnus on kuin sähköpostiosoite.</string>
+	<string name="handle_explanation_domain">%s on palvelin, jolla käyttäjän profiili ja julkaisut sijaitsevat.</string>
+	<string name="handle_explanation_summary">Aivan kuten voit lähettää sähköpostia eri sähköpostipalveluntarjoajien avulla, voit olla yhteydessä muihin Mastodon-palvelimiin ja kehen tahansa, joka käyttää fediversumin sovelluksia.</string>
 	<string name="pinned_post">Kiinnitetty</string>
 	<string name="view_all_pinned">Näytä kaikki kiinnitetyt julkaisut</string>
 	<string name="profile_show_all_fields">Näytä kaikki kentät</string>
@@ -929,6 +951,8 @@
 	<string name="user_follows_you">Seuraa sinua</string>
 	<string name="profile_featured_empty_self">Ole valmiina kokoelmiin</string>
 	<string name="profile_featured_empty">Täällä ei ole mitään nähtävää</string>
+	<string name="profile_featured_empty_self_description">Kokoelmien (tulossa Mastodon 4.6:ssa) avulla voit luoda valikoidun listan muille suosittelemistasi tileistä.</string>
+	<string name="handle_explanation_copy">Kopioi käyttäjätunnus</string>
 	<string name="cancel_follow_request_short">Peruuta</string>
 	<string name="notification_filter_admin">Ylläpitäjän ilmoitukset</string>
 	<string name="notification_filter_admin_reports">Ylläpitäjän raportit</string>
