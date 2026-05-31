@@ -928,6 +928,8 @@
 	<string name="edit_profile_link_verification_help_title">Vahvistetun linkin lisääminen</string>
 	<string name="edit_profile_link_verification_help">Lisää Mastodon-profiiliisi uskottavuutta vahvistamalla linkit henkilökohtaisiin verkkosivustoihin. Näin se toimii:</string>
 	<string name="edit_profile_link_verification_title1">Kopioi HTML-koodi alapuolelta</string>
+	<string name="edit_profile_link_verification_title3">Lisää verkkosivustosi mukautettuna kenttänä</string>
+	<string name="edit_profile_link_verification_text3">Jos olet jo lisännyt verkkosivustosi mukautettuna kenttänä, sinun tulee poistaa ja lisätä se uudelleen, jotta voit käynnistää vahvistuksen.</string>
 	<string name="edit_profile_field">Muokkaa kenttää</string>
 	<string name="edit_profile_field_value_example">Esim. “example.me”</string>
 	<plurals name="x_chars_max">
@@ -938,8 +940,10 @@
 	<string name="hashtag">Aihetunniste</string>
 	<string name="confirm_remove_featured_hashtag">Poistetaanko aihetunniste?</string>
 	<string name="edit_profile_show_media_tab">Media-välilehti</string>
+	<string name="edit_profile_show_media_tab_description">Näyttää julkaisusi, jotka sisältävät mediaa</string>
 	<string name="edit_profile_show_media_replies">Sisällytä vastaukset</string>
 	<string name="edit_profile_show_featured_tab">Esittelyssä-välilehti</string>
+	<string name="edit_profile_show_featured_tab_description">Tila muiden tilien esittelemiseksi</string>
 	<!-- %s is the current user's server domain -->
 	<string name="edit_profile_tabs_explanation">Nämä asetukset mukauttavat sitä, mitä käyttäjät näkevät palvelimella %s virallisissa sovelluksissa, mutta ne eivät välttämättä vaikuta muiden palvelinten tai kolmannen osapuolen sovellusten käyttäjiin.</string>
 	<string name="handle_explanation_title">Käyttäjätunnus on kuin sähköpostiosoite.</string>
