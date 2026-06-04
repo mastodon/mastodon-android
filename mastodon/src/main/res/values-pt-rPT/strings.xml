@@ -962,6 +962,7 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="handle_explanation_title">Um identificador é como um endereço de e-mail.</string>
 	<string name="handle_explanation_username">%s é o nome de utilizador desta conta no servidor em questão. É possível que alguém noutro servidor tenha o mesmo nome de utilizador.</string>
 	<string name="handle_explanation_domain">%s é o servidor que hospeda o perfil e as publicações do utilizador.</string>
+	<string name="handle_explanation_summary">Assim como podes enviar e-mails a pessoas que utilizam diferentes serviços de e-mail, podes interagir com pessoas noutros servidores Mastodon e com qualquer pessoa noutras aplicações sociais compatíveis com o Fediverso.</string>
 	<string name="pinned_post">Fixado</string>
 	<string name="view_all_pinned">Ver todas as publicações fixadas</string>
 	<string name="profile_show_all_fields">Mostrar todos os campos</string>
@@ -972,5 +973,19 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="profile_followers">Seguidores</string>
 	<string name="profile_following">A seguir</string>
 	<string name="user_follows_you">Segue-o</string>
+	<string name="profile_featured_empty_self">Fica atento às Coleções</string>
+	<string name="profile_featured_empty">Não há nada para ver aqui</string>
+	<string name="profile_featured_empty_description">%s ainda não tem destaques.</string>
+	<string name="profile_featured_empty_self_description">As coleções (chegarão no Mastodon 4.6) permitem-te criar as listas curadas de contas que recomendas.</string>
+	<string name="handle_explanation_copy">Copiar identificador</string>
+	<string name="request_to_follow_short">Pedido</string>
+	<string name="cancel_follow_request_short">Cancelar</string>
+	<string name="notification_filter_admin">Notificações de administrador</string>
+	<string name="notification_filter_admin_reports">Relatórios de administração</string>
+	<string name="notification_filter_admin_signups">Criação de contas</string>
+	<string name="notification_filter_admin_reports_explanation">Mostrar denúncias de ‘spam’, violação de regras e outras reclamações desta instância</string>
+	<string name="notification_filter_admin_signups_explanation">Mostrar notificações de criação de novas contas desta instância</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s denunciou %2$s</string>
+	<string name="notification_admin_signup">%s criou conta</string>
 </resources>
