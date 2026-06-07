@@ -57,20 +57,6 @@ public class PushSubscriptionManager{
 	private static final byte[] P256_HEAD=new byte[]{(byte)0x30,(byte)0x59,(byte)0x30,(byte)0x13,(byte)0x06,(byte)0x07,(byte)0x2a,
 			(byte)0x86,(byte)0x48,(byte)0xce,(byte)0x3d,(byte)0x02,(byte)0x01,(byte)0x06,(byte)0x08,(byte)0x2a,(byte)0x86,
 			(byte)0x48,(byte)0xce,(byte)0x3d,(byte)0x03,(byte)0x01,(byte)0x07,(byte)0x03,(byte)0x42,(byte)0x00};
-	private static final int[] BASE85_DECODE_TABLE={
-			0xff, 0x44, 0xff, 0x54, 0x53, 0x52, 0x48, 0xff,
-			0x4b, 0x4c, 0x46, 0x41, 0xff, 0x3f, 0x3e, 0x45,
-			0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-			0x08, 0x09, 0x40, 0xff, 0x49, 0x42, 0x4a, 0x47,
-			0x51, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a,
-			0x2b, 0x2c, 0x2d, 0x2e, 0x2f, 0x30, 0x31, 0x32,
-			0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3a,
-			0x3b, 0x3c, 0x3d, 0x4d, 0xff, 0x4e, 0x43, 0xff,
-			0xff, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f, 0x10,
-			0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18,
-			0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f, 0x20,
-			0x21, 0x22, 0x23, 0x4f, 0xff, 0x50, 0xff, 0xff
-	};
 
 	private static final String TAG="PushSubscriptionManager";
 	public static final String EXTRA_APPLICATION_PENDING_INTENT = "app";
@@ -173,12 +159,13 @@ public class PushSubscriptionManager{
 			encodedPublicKey=Base64.encodeToString(serializeRawPublicKey(publicKey), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 			session.needReRegisterForPush=true;
 			AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
+			boolean isRFC=session.getInstanceInfo().getApiVersion()>=4;
 			new RegisterForPushNotifications(deviceToken,
 					encodedPublicKey,
 					encodedAuthKey,
 					subscription==null ? PushSubscription.Alerts.ofAll() : subscription.alerts,
 					subscription==null ? PushSubscription.Policy.ALL : subscription.policy,
-					pushAccountID)
+					pushAccountID, isRFC)
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(PushSubscription result){
@@ -188,6 +175,7 @@ public class PushSubscriptionManager{
 									return;
 								session.pushSubscription=result;
 								session.needReRegisterForPush=false;
+								session.pushEncryptionFinalRFC=isRFC;
 								AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 								Log.d(TAG, "Successfully registered "+accountID+" for push notifications");
 							});
@@ -246,7 +234,7 @@ public class PushSubscriptionManager{
 		}
 	}
 
-	private PublicKey deserializeRawPublicKey(byte[] rawBytes){
+	static PublicKey deserializeRawPublicKey(byte[] rawBytes){
 		if(rawBytes.length!=65 && rawBytes.length!=64)
 			return null;
 		try{
@@ -263,7 +251,7 @@ public class PushSubscriptionManager{
 		return null;
 	}
 
-	private byte[] serializeRawPublicKey(PublicKey key){
+	private static byte[] serializeRawPublicKey(PublicKey key){
 		ECPoint point=((ECPublicKey)key).getW();
 		byte[] x=point.getAffineX().toByteArray();
 		byte[] y=point.getAffineY().toByteArray();
@@ -278,61 +266,49 @@ public class PushSubscriptionManager{
 		return result;
 	}
 
-	private static byte[] decode85(String in){
-		ByteArrayOutputStream data=new ByteArrayOutputStream();
-		int block=0;
-		int n=0;
-		for(char c:in.toCharArray()){
-			if(c>=32 && c<128 && BASE85_DECODE_TABLE[c-32]!=0xff){
-				int value=BASE85_DECODE_TABLE[c-32];
-				block=block*85+value;
-				n++;
-				if(n==5){
-					data.write(block >> 24);
-					data.write(block >> 16);
-					data.write(block >> 8);
-					data.write(block);
-					block=0;
-					n=0;
-				}
-			}
-		}
-		if(n>=4)
-			data.write(block >> 16);
-		if(n>=3)
-			data.write(block >> 8);
-		if(n>=2)
-			data.write(block);
-		return data.toByteArray();
-	}
-
-	public PushNotification decryptNotification(String k, String p, String s){
-		byte[] serverKeyBytes=decode85(k);
-		byte[] payload=decode85(p);
-		byte[] salt=decode85(s);
-		PublicKey serverKey=deserializeRawPublicKey(serverKeyBytes);
+	public PushNotification decryptNotification(byte[] serverKeyBytes, byte[] payload, byte[] salt){
 		if(privateKey==null){
 			if(!loadKeys(AccountSessionManager.getInstance().getAccount(accountID)))
 				return null;
 		}
-		byte[] sharedSecret;
+		String decryptedStr=decryptNotification(serverKeyBytes, payload, salt, authKey, publicKey, privateKey, AccountSessionManager.get(accountID).pushEncryptionFinalRFC);
+		if(decryptedStr==null)
+			return null;
+		PushNotification notification=MastodonAPIController.gson.fromJson(decryptedStr, PushNotification.class);
+		try{
+			notification.postprocess();
+		}catch(IOException x){
+			Log.e(TAG, "decryptNotification: error verifying notification object", x);
+			return null;
+		}
+		return notification;
+	}
+
+	static String decryptNotification(byte[] serverKeyBytes, byte[] payload, byte[] salt, byte[] authKey, PublicKey publicKey, PrivateKey privateKey, boolean useFinalRFC){
+		PublicKey serverKey=deserializeRawPublicKey(serverKeyBytes);
+		byte[] ecdhSecret;
 		try{
 			KeyAgreement keyAgreement=KeyAgreement.getInstance("ECDH");
 			keyAgreement.init(privateKey);
 			keyAgreement.doPhase(serverKey, true);
-			sharedSecret=keyAgreement.generateSecret();
+			ecdhSecret=keyAgreement.generateSecret();
 		}catch(NoSuchAlgorithmException|InvalidKeyException x){
 			Log.e(TAG, "decryptNotification: error doing key exchange", x);
 			return null;
 		}
-		byte[] secondSaltInfo="Content-Encoding: auth\0".getBytes(StandardCharsets.UTF_8);
 		byte[] key, nonce;
 		try{
-			byte[] secondSalt=deriveKey(authKey, sharedSecret, secondSaltInfo, 32);
-			byte[] keyInfo=info("aesgcm", publicKey, serverKey);
-			key=deriveKey(salt, secondSalt, keyInfo, 16);
-			byte[] nonceInfo=info("nonce", publicKey, serverKey);
-			nonce=deriveKey(salt, secondSalt, nonceInfo, 12);
+			if(useFinalRFC){
+				byte[] ikm=hkdf(authKey, ecdhSecret, info("WebPush: info", publicKey, serverKey, false), 32);
+				key=hkdf(salt, ikm, "Content-Encoding: aes128gcm\0".getBytes(StandardCharsets.UTF_8), 16);
+				nonce=hkdf(salt, ikm, "Content-Encoding: nonce\0".getBytes(StandardCharsets.UTF_8), 12);
+			}else{
+				byte[] secondSalt=hkdf(authKey, ecdhSecret, "Content-Encoding: auth\0".getBytes(StandardCharsets.UTF_8), 32);
+				byte[] keyInfo=info("Content-Encoding: aesgcm", publicKey, serverKey, true);
+				key=hkdf(salt, secondSalt, keyInfo, 16);
+				byte[] nonceInfo=info("Content-Encoding: nonce", publicKey, serverKey, true);
+				nonce=hkdf(salt, secondSalt, nonceInfo, 12);
+			}
 		}catch(NoSuchAlgorithmException|InvalidKeyException x){
 			Log.e(TAG, "decryptNotification: error deriving key", x);
 			return null;
@@ -344,24 +320,25 @@ public class PushSubscriptionManager{
 			GCMParameterSpec iv=new GCMParameterSpec(128, nonce);
 			cipher.init(Cipher.DECRYPT_MODE, aesKey, iv);
 			byte[] decrypted=cipher.doFinal(payload);
-			decryptedStr=new String(decrypted, 2, decrypted.length-2, StandardCharsets.UTF_8);
+			if(useFinalRFC){
+				if(decrypted[decrypted.length-1]!=2){
+					Log.i(TAG, "decryptNotification: invalid padding byte");
+					return null;
+				}
+				decryptedStr=new String(decrypted, 0, decrypted.length-1, StandardCharsets.UTF_8);
+			}else{
+				decryptedStr=new String(decrypted, 2, decrypted.length-2, StandardCharsets.UTF_8);
+			}
 			if(BuildConfig.DEBUG)
 				Log.i(TAG, "decryptNotification: notification json "+decryptedStr);
+			return decryptedStr;
 		}catch(NoSuchAlgorithmException|NoSuchPaddingException|InvalidAlgorithmParameterException|InvalidKeyException|BadPaddingException|IllegalBlockSizeException x){
 			Log.e(TAG, "decryptNotification: error decrypting payload", x);
 			return null;
 		}
-		PushNotification notification=MastodonAPIController.gson.fromJson(decryptedStr, PushNotification.class);
-		try{
-			notification.postprocess();
-		}catch(IOException x){
-			Log.e(TAG, "decryptNotification: error verifying notification object", x);
-			return null;
-		}
-		return notification;
 	}
 
-	private byte[] deriveKey(byte[] firstSalt, byte[] secondSalt, byte[] info, int length) throws NoSuchAlgorithmException, InvalidKeyException{
+	private static byte[] hkdf(byte[] firstSalt, byte[] secondSalt, byte[] info, int length) throws NoSuchAlgorithmException, InvalidKeyException{
 		Mac hmacContext=Mac.getInstance("HmacSHA256");
 		hmacContext.init(new SecretKeySpec(firstSalt, "HmacSHA256"));
 		byte[] hmac=hmacContext.doFinal(secondSalt);
@@ -371,19 +348,22 @@ public class PushSubscriptionManager{
 		return result.length<=length ? result : Arrays.copyOfRange(result, 0, length);
 	}
 
-	private byte[] info(String type, PublicKey clientPublicKey, PublicKey serverPublicKey){
+	private static byte[] info(String header, PublicKey clientPublicKey, PublicKey serverPublicKey, boolean includeLength){
 		ByteArrayOutputStream info=new ByteArrayOutputStream();
 		try{
-			info.write("Content-Encoding: ".getBytes(StandardCharsets.UTF_8));
-			info.write(type.getBytes(StandardCharsets.UTF_8));
+			info.write(header.getBytes(StandardCharsets.UTF_8));
 			info.write(0);
-			info.write("P-256".getBytes(StandardCharsets.UTF_8));
-			info.write(0);
-			info.write(0);
-			info.write(65);
+			if(includeLength){
+				info.write("P-256".getBytes(StandardCharsets.UTF_8));
+				info.write(0);
+				info.write(0);
+				info.write(65);
+			}
 			info.write(serializeRawPublicKey(clientPublicKey));
-			info.write(0);
-			info.write(65);
+			if(includeLength){
+				info.write(0);
+				info.write(65);
+			}
 			info.write(serializeRawPublicKey(serverPublicKey));
 		}catch(IOException ignore){}
 		return info.toByteArray();
