@@ -997,4 +997,19 @@
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s reported %2$s</string>
 	<string name="notification_admin_signup">%s signed up</string>
+	<string name="profile_collections">Collections</string>
+	<string name="collection_by_author">by %s</string>
+	<string name="account_last_active">Last active</string>
+	<string name="you_are_in_collection">You’re featured in this collection</string>
+	<string name="remove_self_from_collection">Remove me</string>
+	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s added you on %2$s</string>
+	<string name="sensitive_content">Sensitive content</string>
+	<string name="collection_sensitive_description">The description and accounts may not be suitable for all viewers.</string>
+	<string name="view_collection">View collection</string>
+	<string name="report_collection">Report collection</string>
+	<string name="confirm_remove_self_from_collection_title">Remove yourself from “%s”?</string>
+	<string name="confirm_remove_self_from_collection">This action can’t be undone.\nThis user will still be able to add you to other collections, unless you block them.</string>
+	<string name="notification_added_you_to_collection">%s added you to a collection</string>
+	<string name="notification_collection_edited">%s edited a collection you’re in</string>
 </resources>

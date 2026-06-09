@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingTop="8dp">
+
+	<TextView
+		android:id="@+id/description"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:layout_marginBottom="8dp"
+		android:textAppearance="@style/m3_body_large"
+		android:textColor="?colorM3OnSurface"
+		tools:text="Collection description"/>
+
+	<RelativeLayout
+		android:id="@+id/self_banner"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:layout_marginBottom="8dp"
+		android:background="@drawable/bg_m3_surface1"
+		android:padding="12dp">
+
+		<ImageView
+			android:id="@+id/self_banner_icon"
+			android:layout_width="28dp"
+			android:layout_height="28dp"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentTop="true"
+			android:layout_marginEnd="8dp"
+			android:background="@drawable/bg_m3_surface3"
+			android:src="@drawable/ic_star_20px"
+			android:padding="6dp"
+			android:tint="?colorM3OnSurface"
+			android:importantForAccessibility="no"/>
+
+		<TextView
+			android:id="@+id/self_banner_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_toEndOf="@id/self_banner_icon"
+			android:layout_alignParentTop="true"
+			android:minHeight="22dp"
+			android:gravity="start|center_vertical"
+			android:textAppearance="@style/m3_title_medium"
+			android:textColor="?colorM3OnSurface"
+			android:text="@string/you_are_in_collection"/>
+
+		<TextView
+			android:id="@+id/self_banner_description"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/self_banner_title"
+			android:layout_toEndOf="@id/self_banner_icon"
+			android:textAppearance="@style/m3_body_medium"
+			android:textColor="?colorM3OnSurface"
+			tools:text="Gregory added you on 7 Sep 2007"/>
+
+		<Button
+			android:id="@+id/self_banner_remove"
+			android:layout_width="wrap_content"
+			android:layout_height="32dp"
+			android:layout_below="@id/self_banner_description"
+			android:layout_toEndOf="@id/self_banner_icon"
+			android:layout_marginTop="8dp"
+			style="@style/Widget.Mastodon.M3.Button.Tonal"
+			android:text="@string/remove_self_from_collection"/>
+
+	</RelativeLayout>
+
+	<TextView
+		android:id="@+id/account_count"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="16dp"
+		android:layout_marginVertical="8dp"
+		android:textAppearance="@style/m3_title_medium"
+		android:textColor="?colorM3OnSurface"
+		tools:text="8 accounts"/>
+
+</LinearLayout>

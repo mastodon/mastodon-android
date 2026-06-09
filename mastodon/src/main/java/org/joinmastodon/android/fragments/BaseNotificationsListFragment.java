@@ -14,13 +14,16 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusUpdatedEvent;
+import org.joinmastodon.android.fragments.collections.CollectionFragment;
 import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.NotificationType;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
+import org.joinmastodon.android.model.collections.CollectionItem;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
+import org.joinmastodon.android.ui.displayitems.CollectionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FollowRequestActionsDisplayItem;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
@@ -35,8 +38,9 @@ import org.joinmastodon.android.ui.views.LinkedTextView;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
+import java.util.Set;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -111,6 +115,9 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 				return List.of(titleItem, textItem);
 			}else if(n.notification.type==NotificationType.ADMIN_REPORT && !TextUtils.isEmpty(n.notification.report.comment)){
 				return List.of(titleItem, new TextStatusDisplayItem(n.getID(), '"'+n.notification.report.comment+'"', this, getActivity(), null, accountID));
+			}else if((n.notification.type==NotificationType.ADDED_TO_COLLECTION || n.notification.type==NotificationType.COLLECTION_UPDATE) && n.notification.collection!=null){
+				CollectionStatusDisplayItem collectionItem=new CollectionStatusDisplayItem(n.getID(), this, getActivity(), n.notification.collection, knownAccounts);
+				return List.of(titleItem, collectionItem);
 			}
 			return List.of(titleItem);
 		}else{
@@ -149,6 +156,13 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 			}
 		}else if(n.notification.type==NotificationType.ADMIN_REPORT){
 			UiUtils.launchWebBrowser(getActivity(), "https://"+AccountSessionManager.get(accountID).domain+"/admin/reports/"+n.notification.report.id);
+		}else if((n.notification.type==NotificationType.ADDED_TO_COLLECTION || n.notification.type==NotificationType.COLLECTION_UPDATE) && n.notification.collection!=null){
+			Bundle args=new Bundle();
+			args.putString("account", accountID);
+			args.putString("collection", n.notification.collection.id);
+			args.putString("collectionTitle", n.notification.collection.name);
+			args.putString("authorUsername", n.accounts.get(0).getUsername());
+			Nav.go(getActivity(), CollectionFragment.class, args);
 		}else if(!n.accounts.isEmpty()){
 			Bundle args=new Bundle();
 			args.putString("account", accountID);
@@ -171,6 +185,38 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 	@Override
 	protected Status asStatus(NotificationViewModel s){
 		return s.status;
+	}
+
+	@Override
+	protected Set<String> extractExtraAccountIDs(List<NotificationViewModel> items){
+		HashSet<String> ids=new HashSet<>();
+		for(NotificationViewModel n:items){
+			if(n.notification.collection!=null){
+				int i=0;
+				for(CollectionItem item:n.notification.collection.items){
+					if(!knownAccounts.containsKey(item.accountId))
+						ids.add(item.accountId);
+					if(++i==4)
+						break;
+				}
+			}
+		}
+		return ids;
+	}
+
+	@Override
+	protected void updateItemsThatNeededExtraAccounts(){
+		for(StatusDisplayItem item:displayItems){
+			if(item instanceof CollectionStatusDisplayItem csdi){
+				if(csdi.updateAccounts(knownAccounts)){
+					StatusDisplayItem.Holder<CollectionStatusDisplayItem> holder=findHolderForItem(csdi);
+					if(holder!=null){
+						holder.rebind();
+					}
+				}
+			}
+		}
+		imgLoader.updateImages();
 	}
 
 	protected NotificationViewModel getNotificationByID(String id){

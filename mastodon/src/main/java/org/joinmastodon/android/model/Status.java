@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
+import org.joinmastodon.android.model.collections.AccountCollection;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.parceler.Parcel;
 
@@ -59,6 +60,7 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public List<FilterResult> filtered;
 	public Quote quote;
 	public QuoteApproval quoteApproval;
+	public List<AccountCollection> taggedCollections;
 
 	public boolean favourited;
 	public boolean reblogged;
@@ -102,6 +104,10 @@ public class Status extends BaseModel implements DisplayItemsParent{
 			quote.postprocess();
 		if(quoteApproval!=null)
 			quoteApproval.postprocess();
+		if(taggedCollections!=null){
+			for(AccountCollection c:taggedCollections)
+				c.postprocess();
+		}
 
 		if(!sensitive && (reblog==null || !reblog.sensitive) && TextUtils.isEmpty(spoilerText)){
 			revealedSpoilers.add(SpoilerType.CONTENT_WARNING);

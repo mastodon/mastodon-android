@@ -20,12 +20,14 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.AssistContentProviderFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.HomeFragment;
+import org.joinmastodon.android.fragments.collections.CollectionFragment;
 import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.fragments.SplashFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.fragments.onboarding.AccountActivationFragment;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.SearchResults;
+import org.joinmastodon.android.model.collections.AccountCollection;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.parceler.Parcels;
@@ -123,6 +125,11 @@ public class MainActivity extends FragmentStackActivity{
 						}else if(result.accounts!=null && !result.accounts.isEmpty()){
 							args.putParcelable("profileAccount", Parcels.wrap(result.accounts.get(0)));
 							Nav.go(MainActivity.this, ProfileFragment.class, args);
+						}else if(result.collections!=null && !result.collections.isEmpty()){
+							AccountCollection c=result.collections.get(0);
+							args.putString("collection", c.id);
+							args.putString("collectionTitle", c.name);
+							Nav.go(MainActivity.this, CollectionFragment.class, args);
 						}else{
 							Toast.makeText(MainActivity.this, fromSearch ? R.string.no_search_results : R.string.link_not_supported, Toast.LENGTH_SHORT).show();
 						}

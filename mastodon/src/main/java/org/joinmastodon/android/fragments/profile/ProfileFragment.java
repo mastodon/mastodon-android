@@ -506,6 +506,8 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		if(featuredFragment==null){
 			featuredFragment=new ProfileFeaturedFragment();
 			featuredFragment.setArguments(args);
+			if(relationship!=null)
+				featuredFragment.setRelationship(relationship);
 		}
 		if(timelineFragment==null){
 			timelineFragment=AccountTimelineFragment.newInstance(accountID, account, true);
@@ -1036,6 +1038,9 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		}else if(followsYouBadge!=null){
 			followsYouBadge.setVisibility(View.GONE);
 		}
+
+		if(featuredFragment!=null)
+			featuredFragment.setRelationship(relationship);
 	}
 
 	private void updateFamiliarFollowers(){
@@ -1203,7 +1208,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		UiUtils.confirmToggleBlockUser(getActivity(), accountID, account, relationship.blocking, this::updateRelationship);
 	}
 
-	private void updateRelationship(Relationship r){
+	public void updateRelationship(Relationship r){
 		relationship=r;
 		updateRelationship();
 	}

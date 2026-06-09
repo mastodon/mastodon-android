@@ -12,12 +12,17 @@ import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.events.StatusUpdatedEvent;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.collections.AccountCollection;
+import org.joinmastodon.android.model.collections.CollectionItem;
+import org.joinmastodon.android.ui.displayitems.CollectionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -67,6 +72,39 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	@Override
 	protected Status asStatus(Status s){
 		return s;
+	}
+
+	@Override
+	protected Set<String> extractExtraAccountIDs(List<Status> items){
+		HashSet<String> ids=new HashSet<>();
+		for(Status s:items){
+			if(s.taggedCollections!=null && !s.taggedCollections.isEmpty()){
+				int i=0;
+				AccountCollection collection=s.taggedCollections.get(0);
+				for(CollectionItem item:collection.items){
+					if(!knownAccounts.containsKey(item.accountId))
+						ids.add(item.accountId);
+					if(++i==4)
+						break;
+				}
+			}
+		}
+		return ids;
+	}
+
+	@Override
+	protected void updateItemsThatNeededExtraAccounts(){
+		for(StatusDisplayItem item:displayItems){
+			if(item instanceof CollectionStatusDisplayItem csdi){
+				if(csdi.updateAccounts(knownAccounts)){
+					StatusDisplayItem.Holder<CollectionStatusDisplayItem> holder=findHolderForItem(csdi);
+					if(holder!=null){
+						holder.rebind();
+					}
+				}
+			}
+		}
+		imgLoader.updateImages();
 	}
 
 	protected void onStatusCreated(Status status){}

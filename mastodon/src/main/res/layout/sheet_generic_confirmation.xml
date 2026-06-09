@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.joinmastodon.android.ui.views.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@drawable/bg_bottom_sheet"
+	android:outlineProvider="background"
+	android:elevation="1dp">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingHorizontal="16dp">
+
+		<View
+			android:id="@+id/handle"
+			android:layout_width="match_parent"
+			android:layout_height="36dp"
+			android:background="@drawable/bg_bottom_sheet_handle"/>
+
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_title_large"
+			android:fontFamily="sans-serif"
+			android:textColor="?colorM3OnSurface"
+			tools:text="@string/mute_user_confirm_title"/>
+
+		<LinearLayout
+			android:id="@+id/content_wrap"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="12dp"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/content"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/m3_body_large"
+				android:textColor="?colorM3OnSurface"
+				tools:text="Sheet content"/>
+
+		</LinearLayout>
+
+		<FrameLayout
+			android:id="@+id/btn_confirm_wrap"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="16dp">
+			<org.joinmastodon.android.ui.views.ProgressBarButton
+				android:id="@+id/btn_confirm"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				style="@style/Widget.Mastodon.M3.Button.Filled"
+				app:progressBar="@id/confirm_progress"
+				tools:text="@string/got_it"/>
+			<ProgressBar
+				android:id="@+id/confirm_progress"
+				style="?android:progressBarStyleSmall"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:elevation="10dp"
+				android:indeterminate="true"
+				android:outlineProvider="none"
+				android:visibility="gone"
+				tools:visibility="visible"/>
+		</FrameLayout>
+
+		<FrameLayout
+			android:id="@+id/btn_secondary_wrap"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="15dp">
+			<org.joinmastodon.android.ui.views.ProgressBarButton
+				android:id="@+id/btn_secondary"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				style="@style/Widget.Mastodon.M3.Button.Tonal"
+				app:progressBar="@id/secondary_progress"
+				tools:text="@string/got_it"/>
+			<ProgressBar
+				android:id="@+id/secondary_progress"
+				style="?android:progressBarStyleSmall"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:elevation="10dp"
+				android:indeterminate="true"
+				android:outlineProvider="none"
+				android:visibility="gone"
+				tools:visibility="visible"/>
+		</FrameLayout>
+
+		<Button
+			android:id="@+id/btn_cancel"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:layout_marginBottom="8dp"
+			style="@style/Widget.Mastodon.M3.Button.Text"
+			android:text="@string/cancel"/>
+
+	</LinearLayout>
+</org.joinmastodon.android.ui.views.CustomScrollView>

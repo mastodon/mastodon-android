@@ -2,6 +2,7 @@ package org.joinmastodon.android.model.viewmodel;
 
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.DisplayItemsParent;
+import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.NotificationGroup;
 import org.joinmastodon.android.model.Status;
 
@@ -33,6 +34,15 @@ public class NotificationViewModel implements DisplayItemsParent{
 				})
 				.filter(Objects::nonNull)
 				.collect(Collectors.toList());
+	}
+
+	public static NotificationViewModel fromLegacyNotification(Notification n){
+		NotificationGroup group=NotificationGroup.fromLegacyNotification(n);
+		NotificationViewModel nvm=new NotificationViewModel();
+		nvm.notification=group;
+		nvm.status=n.status;
+		nvm.accounts=List.of(n.account);
+		return nvm;
 	}
 
 	@Override

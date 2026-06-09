@@ -51,6 +51,7 @@ import org.joinmastodon.android.events.AccountLoggedOutEvent;
 import org.joinmastodon.android.events.EmojiUpdatedEvent;
 import org.joinmastodon.android.events.SelfAccountUpdatedEvent;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.AccountOrPartial;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.EmojiCategory;
@@ -274,8 +275,8 @@ public class AccountSessionManager{
 		}
 	}
 
-	public boolean isSelf(String id, Account other){
-		return getAccount(id).self.id.equals(other.id);
+	public boolean isSelf(String id, AccountOrPartial other){
+		return getAccount(id).self.id.equals(other.getID());
 	}
 
 	public Instance getAuthenticatingInstance(){

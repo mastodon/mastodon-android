@@ -20,6 +20,7 @@ import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -39,6 +40,7 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 	protected String accountID;
 	protected ArrayList<APIRequest<?>> relationshipsRequests=new ArrayList<>();
 	protected int itemLayoutRes=R.layout.item_account_list;
+	protected boolean addTopPadding=true, addBottomPadding=true;
 
 	public BaseAccountListFragment(){
 		super(40);
@@ -131,18 +133,22 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
 		if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0){
-			list.setPadding(0, V.dp(16), 0, V.dp(16)+insets.getSystemWindowInsetBottom());
+			list.setPadding(0, addTopPadding ? V.dp(16) : 0, 0, (addBottomPadding ? V.dp(16) : 0)+insets.getSystemWindowInsetBottom());
 			emptyView.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
 			progress.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
 			insets=insets.inset(0, 0, 0, insets.getSystemWindowInsetBottom());
 		}else{
-			list.setPadding(0, V.dp(16), 0, V.dp(16));
+			list.setPadding(0, addTopPadding ? V.dp(16) : 0, 0, addBottomPadding ? V.dp(16) : 0);
 		}
 		super.onApplyWindowInsets(insets);
 	}
 
 	protected void onConfigureViewHolder(AccountViewHolder holder){}
 	protected void onBindViewHolder(AccountViewHolder holder){}
+
+	protected AccountViewHolder createViewHolder(){
+		return new AccountViewHolder(this, list, relationships, itemLayoutRes);
+	}
 
 	protected class AccountsAdapter extends UsableRecyclerView.Adapter<AccountViewHolder> implements ImageLoaderRecyclerAdapter{
 		public AccountsAdapter(){
@@ -152,7 +158,7 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 		@NonNull
 		@Override
 		public AccountViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-			AccountViewHolder holder=new AccountViewHolder(BaseAccountListFragment.this, parent, relationships, itemLayoutRes);
+			AccountViewHolder holder=BaseAccountListFragment.this.createViewHolder();
 			onConfigureViewHolder(holder);
 			return holder;
 		}

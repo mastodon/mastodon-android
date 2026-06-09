@@ -45,7 +45,6 @@ import org.joinmastodon.android.ui.views.CheckableRelativeLayout;
 import org.joinmastodon.android.ui.views.ProgressBarButton;
 import org.parceler.Parcels;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -60,16 +59,16 @@ import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.views.UsableRecyclerView;
 
 public class AccountViewHolder extends BindableViewHolder<AccountViewModel> implements ImageLoaderViewHolder, UsableRecyclerView.Clickable, UsableRecyclerView.LongClickable{
-	private final TextView name, username, followers, verifiedLink, bio;
+	protected final TextView name, username, followers, verifiedLink, bio;
 	public final ImageView avatar;
-	private final ProgressBarButton button;
-	private final PopupMenu contextMenu;
-	private final View menuAnchor;
-	private final TypefaceSpan mediumSpan=new TypefaceSpan("sans-serif-medium");
-	private final CheckableRelativeLayout view;
-	private final View checkbox;
-	private final ProgressBar actionProgress;
-	private final ImageButton menuButton;
+	protected final ProgressBarButton button;
+	protected final PopupMenu contextMenu;
+	protected final View menuAnchor;
+	protected final TypefaceSpan mediumSpan=new TypefaceSpan("sans-serif-medium");
+	protected final CheckableRelativeLayout view;
+	protected final View checkbox;
+	protected final ProgressBar actionProgress;
+	protected final ImageButton menuButton;
 
 	private final String accountID;
 	private final Fragment fragment;
@@ -113,7 +112,8 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		contextMenu=new PopupMenu(fragment.getActivity(), menuAnchor);
 		contextMenu.inflate(R.menu.profile);
 		contextMenu.setOnMenuItemClickListener(this::onContextMenuItemSelected);
-		menuButton.setOnClickListener(v->showMenuFromButton());
+		if(menuButton!=null)
+			menuButton.setOnClickListener(v->showMenuFromButton());
 
 		setStyle(AccessoryType.BUTTON, false);
 	}
@@ -123,6 +123,20 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 	public void onBind(AccountViewModel item){
 		name.setText(item.parsedName);
 		username.setText("@"+item.account.acct);
+		bindFollowerCount();
+		bindVerifiedLink();
+		bindRelationship();
+		if(showBio){
+			if(TextUtils.isEmpty(item.parsedBio)){
+				bio.setVisibility(View.GONE);
+			}else{
+				bio.setVisibility(View.VISIBLE);
+				bio.setText(item.parsedBio);
+			}
+		}
+	}
+
+	protected void bindFollowerCount(){
 		if(followers!=null){
 			String followersStr=fragment.getResources().getQuantityString(R.plurals.x_followers, item.account.followersCount>1000 ? 999 : (int)item.account.followersCount);
 			String followersNum=UiUtils.abbreviateNumber(item.account.followersCount);
@@ -134,6 +148,9 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 			}
 			followers.setText(followersFormatted);
 		}
+	}
+
+	protected void bindVerifiedLink(){
 		if(verifiedLink!=null){
 			boolean hasVerifiedLink=item.verifiedLink!=null;
 			if(!hasVerifiedLink)
@@ -144,10 +161,6 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 			int tintColor=UiUtils.getThemeColor(fragment.getActivity(), hasVerifiedLink ? R.attr.colorM3Primary : R.attr.colorM3Secondary);
 			verifiedLink.setTextColor(tintColor);
 			verifiedLink.setCompoundDrawableTintList(ColorStateList.valueOf(tintColor));
-		}
-		bindRelationship();
-		if(showBio){
-			bio.setText(item.parsedBio);
 		}
 	}
 
@@ -215,7 +228,7 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		return true;
 	}
 
-	private void onButtonClick(View v){
+	protected void onButtonClick(View v){
 		if(relationships==null)
 			return;
 		itemView.setHasTransientState(true);
@@ -356,16 +369,22 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 			switch(accessoryType){
 				case NONE -> {
 					button.setVisibility(View.GONE);
-					checkbox.setVisibility(View.GONE);
-					menuButton.setVisibility(View.GONE);
+					if(checkbox!=null)
+						checkbox.setVisibility(View.GONE);
+					if(menuButton!=null)
+						menuButton.setVisibility(View.GONE);
 				}
 				case CHECKBOX -> {
+					if(checkbox==null)
+						throw new UnsupportedOperationException();
 					button.setVisibility(View.GONE);
 					checkbox.setVisibility(View.VISIBLE);
 					menuButton.setVisibility(View.GONE);
 					checkbox.setBackground(new CheckBox(checkbox.getContext()).getButtonDrawable());
 				}
 				case RADIOBUTTON -> {
+					if(checkbox==null)
+						throw new UnsupportedOperationException();
 					button.setVisibility(View.GONE);
 					checkbox.setVisibility(View.VISIBLE);
 					menuButton.setVisibility(View.GONE);
@@ -373,12 +392,17 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 				}
 				case BUTTON, CUSTOM_BUTTON -> {
 					button.setVisibility(View.VISIBLE);
-					checkbox.setVisibility(View.GONE);
-					menuButton.setVisibility(View.GONE);
+					if(checkbox!=null)
+						checkbox.setVisibility(View.GONE);
+					if(menuButton!=null)
+						menuButton.setVisibility(View.GONE);
 				}
 				case MENU -> {
+					if(menuButton==null)
+						throw new UnsupportedOperationException();
 					button.setVisibility(View.GONE);
-					checkbox.setVisibility(View.GONE);
+					if(checkbox!=null)
+						checkbox.setVisibility(View.GONE);
 					menuButton.setVisibility(View.VISIBLE);
 				}
 			}

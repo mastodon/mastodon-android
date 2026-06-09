@@ -262,24 +262,7 @@ public class CacheController{
 									List<Status> statuses=filtered.stream().map(n->n.status).filter(Objects::nonNull).collect(Collectors.toList());
 									List<Account> accounts=filtered.stream().map(n->n.account).collect(Collectors.toList());
 									List<NotificationViewModel> converted=filtered.stream()
-											.map(n->{
-												NotificationGroup group=new NotificationGroup();
-												group.groupKey="converted-"+n.id;
-												group.notificationsCount=1;
-												group.type=n.type;
-												group.mostRecentNotificationId=group.pageMaxId=group.pageMinId=n.id;
-												group.latestPageNotificationAt=n.createdAt;
-												group.sampleAccountIds=List.of(n.account.id);
-												group.event=n.event;
-												group.moderationWarning=n.moderationWarning;
-												if(n.status!=null)
-													group.statusId=n.status.id;
-												NotificationViewModel nvm=new NotificationViewModel();
-												nvm.notification=group;
-												nvm.status=n.status;
-												nvm.accounts=List.of(n.account);
-												return nvm;
-											})
+											.map(NotificationViewModel::fromLegacyNotification)
 											.collect(Collectors.toList());
 									PaginatedResponse<List<NotificationViewModel>> res=new PaginatedResponse<>(converted, result.isEmpty() ? null : result.get(result.size()-1).id);
 									callback.onSuccess(res);

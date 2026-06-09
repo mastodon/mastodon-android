@@ -111,6 +111,9 @@ public class ReportReasonChoiceFragment extends StatusListFragment{
 		args.putString("reason", reason.name());
 		args.putBoolean("fromPost", reportStatus!=null);
 		args.putParcelable("relationship", Parcels.wrap(relationship));
+		String collectionID=getArguments().getString("collectionID");
+		if(collectionID!=null)
+			args.putString("collectionID", collectionID);
 		switch(reason){
 			case PERSONAL -> {
 				Nav.go(getActivity(), ReportDoneFragment.class, args);

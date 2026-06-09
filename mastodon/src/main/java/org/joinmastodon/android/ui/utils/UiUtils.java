@@ -79,14 +79,18 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
+import org.joinmastodon.android.fragments.collections.CollectionFragment;
 import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.AccountOrPartial;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.collections.AccountCollection;
+import org.joinmastodon.android.model.viewmodel.CollectionViewModel;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.ColorContrastMode;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -892,6 +896,11 @@ public class UiUtils{
 									}
 									args.putParcelable("profileAccount", Parcels.wrap(a));
 									Nav.go((Activity)context, ProfileFragment.class, args);
+								}else if(result.collections!=null && !result.collections.isEmpty()){
+									AccountCollection c=result.collections.get(0);
+									args.putString("collection", c.id);
+									args.putString("collectionTitle", c.name);
+									Nav.go((Activity)context, CollectionFragment.class, args);
 								}else{
 									launchWebBrowser(context, url);
 								}
@@ -1070,25 +1079,29 @@ public class UiUtils{
 	public static void openSystemShareSheet(Context context, Object obj){
 		Intent intent=new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
-		Account account;
+		AccountOrPartial account;
 		String url;
 		String previewTitle;
 
 		if(obj instanceof Account acc){
 			account=acc;
 			url=acc.url;
-			previewTitle=context.getString(R.string.share_sheet_preview_profile, account.displayName);
+			previewTitle=context.getString(R.string.share_sheet_preview_profile, acc.displayName);
 		}else if(obj instanceof Status st){
 			account=st.account;
 			url=st.url;
 			String postText=st.getStrippedText();
 			if(TextUtils.isEmpty(postText)){
-				previewTitle=context.getString(R.string.share_sheet_preview_profile, account.displayName);
+				previewTitle=context.getString(R.string.share_sheet_preview_profile, st.account.displayName);
 			}else{
 				if(postText.length()>100)
 					postText=postText.substring(0, 100)+"...";
-				previewTitle=context.getString(R.string.share_sheet_preview_post, account.displayName, postText);
+				previewTitle=context.getString(R.string.share_sheet_preview_post, st.account.displayName, postText);
 			}
+		}else if(obj instanceof CollectionViewModel cvm){
+			url=cvm.collection.url;
+			previewTitle=cvm.collection.name;
+			account=cvm.author;
 		}else{
 			throw new IllegalArgumentException("Unsupported share object type");
 		}
@@ -1097,9 +1110,7 @@ public class UiUtils{
 		intent.putExtra(Intent.EXTRA_TITLE, previewTitle);
 		ImageCache cache=ImageCache.getInstance(context);
 		try{
-			File ava=cache.getFile(new UrlImageLoaderRequest(account.avatarStatic));
-			if(ava==null || !ava.exists())
-				ava=cache.getFile(new UrlImageLoaderRequest(account.avatar));
+			File ava=cache.getFile(new UrlImageLoaderRequest(account.getAvatar()));
 			if(ava!=null && ava.exists()){
 				intent.setClipData(ClipData.newRawUri(null, getFileProviderUri(context, ava)));
 				intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -1316,5 +1327,9 @@ public class UiUtils{
 					.wrapProgress(context, R.string.loading, true)
 					.exec(accountID);
 		});
+	}
+
+	public static void makeMenuItemRed(Context context, MenuItem item){
+		item.setTitle(makeRedString(context, item.getTitle()));
 	}
 }

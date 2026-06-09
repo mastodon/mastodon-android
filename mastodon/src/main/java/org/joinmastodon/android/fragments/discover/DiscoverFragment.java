@@ -339,6 +339,7 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 			case STATUS -> 0;
 			case HASHTAG -> 1;
 			case ACCOUNT -> 2;
+			default -> throw new IllegalStateException("Unexpected value: " + searchFilter);
 		};
 		if(searchTabLayout.getSelectedTabPosition()==tab)
 			return;

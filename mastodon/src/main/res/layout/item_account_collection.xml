@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="77dp"
+	android:paddingStart="12dp"
+	android:paddingEnd="16dp"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<org.joinmastodon.android.ui.views.BlurView
+		android:id="@+id/blur"
+		android:layout_width="64dp"
+		android:layout_height="64dp"
+		android:layout_centerVertical="true"
+		android:layout_marginEnd="8dp"
+		android:padding="8.5dp"
+		android:radius="4dp"
+		tools:ignore="RtlHardcoded">
+		
+		<org.joinmastodon.android.ui.wrapstodon.RoundedImageView
+			android:id="@+id/avatar1"
+			android:layout_width="23dp"
+			android:layout_height="23dp"
+			android:layout_gravity="left|top"
+			app:cornerRadius="8dp"
+			android:importantForAccessibility="no"/>
+
+		<org.joinmastodon.android.ui.wrapstodon.RoundedImageView
+			android:id="@+id/avatar2"
+			android:layout_width="23dp"
+			android:layout_height="23dp"
+			android:layout_gravity="right|top"
+			app:cornerRadius="8dp"
+			android:importantForAccessibility="no"/>
+
+		<org.joinmastodon.android.ui.wrapstodon.RoundedImageView
+			android:id="@+id/avatar3"
+			android:layout_width="23dp"
+			android:layout_height="23dp"
+			android:layout_gravity="left|bottom"
+			app:cornerRadius="8dp"
+			android:importantForAccessibility="no"/>
+
+		<org.joinmastodon.android.ui.wrapstodon.RoundedImageView
+			android:id="@+id/avatar4"
+			android:layout_width="23dp"
+			android:layout_height="23dp"
+			android:layout_gravity="right|bottom"
+			app:cornerRadius="8dp"
+			android:importantForAccessibility="no"/>
+
+	</org.joinmastodon.android.ui.views.BlurView>
+	
+	<ImageView
+		android:id="@+id/sensitive_overlay"
+		android:layout_width="24dp"
+		android:layout_height="24dp"
+		android:layout_alignTop="@id/blur"
+		android:layout_alignLeft="@id/blur"
+		android:layout_marginTop="20dp"
+		android:layout_marginLeft="20dp"
+		android:contentDescription="@string/edit_marked_sensitive"
+		android:background="?colorWarningSoftest"
+		android:src="@drawable/ic_visibility_off_24px"
+		android:padding="4dp"
+		android:tint="?colorM3OnSurface"
+		tools:ignore="RtlHardcoded" />
+	
+	<ImageButton
+		android:id="@+id/options_btn"
+		android:layout_width="28dp"
+		android:layout_height="28dp"
+		android:layout_alignParentEnd="true"
+		android:layout_marginTop="12dp"
+		android:layout_marginStart="12dp"
+		android:contentDescription="@string/more_options"
+		android:background="?android:selectableItemBackgroundBorderless"
+		android:tint="?colorM3OnSurface"
+		android:padding="6dp"
+		android:src="@drawable/ic_more_vert_20px" />
+	
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="match_parent"
+		android:layout_height="24dp"
+		android:layout_toEndOf="@id/blur"
+		android:layout_toStartOf="@id/options_btn"
+		android:layout_marginTop="10.5dp"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="start|center_vertical"
+		android:textAppearance="@style/m3_title_medium"
+		android:textColor="?colorM3OnSurface"
+		tools:text="My awesomest collection yet"/>
+
+	<TextView
+		android:id="@+id/author"
+		android:layout_width="match_parent"
+		android:layout_height="16dp"
+		android:layout_toEndOf="@id/blur"
+		android:layout_toStartOf="@id/options_btn"
+		android:layout_below="@id/title"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="start|center_vertical"
+		android:textAppearance="@style/m3_body_small"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="by @user@example.com"/>
+
+	<TextView
+		android:id="@+id/account_count"
+		android:layout_width="match_parent"
+		android:layout_height="16dp"
+		android:layout_toEndOf="@id/blur"
+		android:layout_toStartOf="@id/options_btn"
+		android:layout_below="@id/author"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="start|center_vertical"
+		android:textAppearance="@style/m3_body_small"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="20 accounts"/>
+
+</RelativeLayout>

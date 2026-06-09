@@ -101,6 +101,10 @@ public abstract class Instance extends BaseModel{
 		return null;
 	}
 
+	public boolean supportsCollections(){
+		return getApiVersion()>=9; // TODO
+	}
+
 	@Parcel
 	public static class Rule{
 		public String id;

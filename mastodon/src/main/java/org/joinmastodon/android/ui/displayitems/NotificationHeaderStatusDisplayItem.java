@@ -125,6 +125,8 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 					case UPDATE -> R.string.user_edited_post;
 					case QUOTED_UPDATE -> R.string.user_edited_quoted_post;
 					case ADMIN_SIGNUP -> R.string.notification_admin_signup;
+					case ADDED_TO_COLLECTION -> R.string.notification_added_you_to_collection;
+					case COLLECTION_UPDATE -> R.string.notification_collection_edited;
 					default -> throw new IllegalStateException("Unexpected value: "+notification.notification.type);
 				}, "{{name}}");
 			}
@@ -171,7 +173,8 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 
 	private boolean shouldHaveBottomPadding(){
 		return notification.status==null && !(notification.notification.type==NotificationType.FALLBACK && !TextUtils.isEmpty(notification.notification.fallback.summary))
-				&& !(notification.notification.type==NotificationType.ADMIN_REPORT && !TextUtils.isEmpty(notification.notification.report.comment));
+				&& !(notification.notification.type==NotificationType.ADMIN_REPORT && !TextUtils.isEmpty(notification.notification.report.comment))
+				&& !(notification.notification.type==NotificationType.ADDED_TO_COLLECTION || notification.notification.type==NotificationType.COLLECTION_UPDATE);
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<NotificationHeaderStatusDisplayItem> implements ImageLoaderViewHolder{
@@ -247,6 +250,7 @@ public class NotificationHeaderStatusDisplayItem extends StatusDisplayItem{
 				case UPDATE, QUOTED_UPDATE -> R.drawable.ic_edit_24px;
 				case FALLBACK -> R.drawable.ic_notification_fallback;
 				case ADMIN_REPORT -> R.drawable.ic_flag_fill1_24px;
+				case ADDED_TO_COLLECTION, COLLECTION_UPDATE -> R.drawable.ic_category_fill1_24px;
 				default -> throw new IllegalStateException("Unexpected value: "+item.notification.notification.type);
 			});
 			icon.setImageTintList(ColorStateList.valueOf(UiUtils.getThemeColor(item.context, switch(item.notification.notification.type){

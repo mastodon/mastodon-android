@@ -46,6 +46,9 @@
 	<attr name="colorRichTextText" format="color"/>
 	<attr name="colorRichTextContainer" format="color"/>
 	<attr name="colorRichTextDecorations" format="color"/>
+	<attr name="colorWarningSoft" format="color"/>
+	<attr name="colorWarningSoftest" format="color"/>
+	<attr name="colorSuccessSoftest" format="color"/>
 
 	<attr name="composePollStyleInactiveAlpha" format="float"/>
 	<attr name="emptyStateElephantArt" format="reference"/>
@@ -87,5 +90,10 @@
 
 	<declare-styleable name="TopBarsScrollAwayLinearLayout">
 		<attr name="topBarsCount" format="integer"/>
+	</declare-styleable>
+
+	<declare-styleable name="BlurView">
+		<attr name="android:radius" format="dimension"/>
+		<attr name="blurEnabled" format="boolean"/>
 	</declare-styleable>
 </resources>

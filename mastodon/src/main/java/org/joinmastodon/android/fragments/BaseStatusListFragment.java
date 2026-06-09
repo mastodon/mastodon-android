@@ -18,6 +18,7 @@ import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.accounts.GetAccountRelationships;
+import org.joinmastodon.android.api.requests.accounts.GetAccountsByIDs;
 import org.joinmastodon.android.api.requests.polls.SubmitPollVote;
 import org.joinmastodon.android.api.requests.statuses.GetStatusesByIDs;
 import org.joinmastodon.android.api.requests.statuses.TranslateStatus;
@@ -133,6 +134,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			displayItems.addAll(newItems);
 		}
 		loadRelationships(items.stream().map(DisplayItemsParent::getAccountID).filter(Objects::nonNull).collect(Collectors.toSet()));
+		loadExtraAccounts(extractExtraAccountIDs(items));
 	}
 
 	@Override
@@ -140,6 +142,8 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		super.onClearItems();
 		displayItems.clear();
 		knownStatuses.clear();
+		knownAccounts.clear();
+		relationships.clear();
 		for(APIRequest<?> req:requestsToCancelWhenListClears){
 			req.cancel();
 		}
@@ -180,6 +184,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		if(notify)
 			adapter.notifyItemRangeInserted(offsetIntoItems, newItemCount);
 		loadRelationships(items.stream().map(DisplayItemsParent::getAccountID).filter(Objects::nonNull).collect(Collectors.toSet()));
+		loadExtraAccounts(extractExtraAccountIDs(items));
 	}
 
 	protected void postprocessNewlyLoadedStatuses(List<T> items){
@@ -713,11 +718,11 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		ids=ids.stream().filter(id->!relationships.containsKey(id)).collect(Collectors.toSet());
 		if(ids.isEmpty())
 			return;
-		// TODO somehow manage these and cancel outstanding requests on refresh
-		new GetAccountRelationships(ids)
-				.setCallback(new Callback<>(){
+		GetAccountRelationships req=new GetAccountRelationships(ids);
+		req.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(List<Relationship> result){
+						requestsToCancelWhenListClears.remove(req);
 						for(Relationship r:result)
 							relationships.put(r.id, r);
 						onRelationshipsLoaded();
@@ -725,11 +730,44 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 					@Override
 					public void onError(ErrorResponse error){
-
+						requestsToCancelWhenListClears.remove(req);
 					}
 				})
 				.exec(accountID);
+		requestsToCancelWhenListClears.add(req);
 	}
+
+	protected Set<String> extractExtraAccountIDs(List<T> items){
+		return Set.of();
+	}
+
+	protected void loadExtraAccounts(Set<String> ids){
+		if(ids.isEmpty())
+			return;
+		Set<String> filteredIDs=ids.stream().filter(id->!knownAccounts.containsKey(id)).collect(Collectors.toSet());
+		if(filteredIDs.isEmpty())
+			return;
+		GetAccountsByIDs req=new GetAccountsByIDs(filteredIDs);
+		req.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(List<Account> result){
+						requestsToCancelWhenListClears.remove(req);
+						for(Account acc:result){
+							knownAccounts.put(acc.id, acc);
+						}
+						updateItemsThatNeededExtraAccounts();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						requestsToCancelWhenListClears.remove(req);
+					}
+				})
+				.exec(accountID);
+		requestsToCancelWhenListClears.add(req);
+	}
+
+	protected void updateItemsThatNeededExtraAccounts(){}
 
 	protected void loadExtraStatuses(Set<String> ids){
 
