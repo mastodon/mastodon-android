@@ -38,6 +38,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Arrays;
+import java.util.UUID;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -52,24 +53,14 @@ import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 
 public class PushSubscriptionManager{
-	private static final String FCM_SENDER_ID="449535203550";
 	private static final String EC_CURVE_NAME="prime256v1";
 	private static final byte[] P256_HEAD=new byte[]{(byte)0x30,(byte)0x59,(byte)0x30,(byte)0x13,(byte)0x06,(byte)0x07,(byte)0x2a,
 			(byte)0x86,(byte)0x48,(byte)0xce,(byte)0x3d,(byte)0x02,(byte)0x01,(byte)0x06,(byte)0x08,(byte)0x2a,(byte)0x86,
 			(byte)0x48,(byte)0xce,(byte)0x3d,(byte)0x03,(byte)0x01,(byte)0x07,(byte)0x03,(byte)0x42,(byte)0x00};
 
 	private static final String TAG="PushSubscriptionManager";
-	public static final String EXTRA_APPLICATION_PENDING_INTENT = "app";
-	public static final String GSF_PACKAGE = "com.google.android.gms";
-	/** Internal parameter used to indicate a 'subtype'. Will not be stored in DB for Nacho. */
-	private static final String EXTRA_SUBTYPE = "subtype";
-	/** Extra used to indicate which senders (Google API project IDs) can send messages to the app */
-	private static final String EXTRA_SENDER = "sender";
-	private static final String EXTRA_SCOPE = "scope";
-	private static final String KID_VALUE="|ID|1|"; // request ID?
 	private static final long TOKEN_REFRESH_INTERVAL=30*24*60*60*1000L;
 
-	private static String deviceToken;
 	private String accountID;
 	private PrivateKey privateKey;
 	private PublicKey publicKey;
@@ -80,59 +71,86 @@ public class PushSubscriptionManager{
 	}
 
 	public static void resetLocalPreferences(){
+		boolean forceNonRFC=isForceNonRFC();
 		getPrefs().edit().clear().apply();
+		setForceNonRFC(forceNonRFC);
+		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
+			session.pushToken=null;
+			session.pushTokenVersion=0;
+			AccountSessionManager.getInstance().writeAccountPushSettings(session.getID());
+		}
 	}
 
 	public static void tryRegisterFCM(){
-		deviceToken=getPrefs().getString("deviceToken", null);
-		int tokenVersion=getPrefs().getInt("version", 0);
-		long tokenLastRefreshed=getPrefs().getLong("lastRefresh", 0);
-		if(!TextUtils.isEmpty(deviceToken) && tokenVersion==BuildConfig.VERSION_CODE && System.currentTimeMillis()-tokenLastRefreshed<TOKEN_REFRESH_INTERVAL){
-			registerAllAccountsForPush(false);
+		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
+			session.getPushSubscriptionManager().registerFCM();
+		}
+	}
+
+	public void registerFCM(){
+		AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
+		int tokenVersion=Math.max(getPrefs().getInt("version", 0), session.pushTokenVersion);
+		long tokenLastRefreshed=session.pushTokenLastRefresh;
+		if(!TextUtils.isEmpty(session.pushToken) && tokenVersion==BuildConfig.VERSION_CODE && System.currentTimeMillis()-tokenLastRefreshed<TOKEN_REFRESH_INTERVAL){
+			registerAccountForPush(session.pushSubscription);
 			return;
 		}
 		if(tokenVersion<145){ // Quote notifications added
-			for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
-				if(session.pushSubscription!=null){
-					session.pushSubscription.alerts.quote=session.pushSubscription.alerts.mention;
-					AccountSessionManager.getInstance().writeAccountPushSettings(session.getID());
-				}
+			if(session.pushSubscription!=null){
+				session.pushSubscription.alerts.quote=session.pushSubscription.alerts.mention;
+				AccountSessionManager.getInstance().writeAccountPushSettings(session.getID());
 			}
 		}
-		Log.i(TAG, "tryRegisterFCM: no token found, token due for refresh, or app was updated. Trying to get push token...");
-		Intent intent = new Intent("com.google.iid.TOKEN_REQUEST");
-		intent.setPackage(GSF_PACKAGE);
-		intent.putExtra(EXTRA_APPLICATION_PENDING_INTENT,
-				PendingIntent.getBroadcast(MastodonApp.context, 0, new Intent(), PendingIntent.FLAG_IMMUTABLE));
-		intent.putExtra(EXTRA_SENDER, FCM_SENDER_ID);
-		intent.putExtra(EXTRA_SUBTYPE, FCM_SENDER_ID);
-		intent.putExtra(EXTRA_SCOPE, "*");
-		intent.putExtra("kid", KID_VALUE);
-		MastodonApp.context.sendBroadcast(intent);
+		Log.i(TAG, "["+accountID+"] registerFCM: no token found, token due for refresh, or app was updated. Trying to get push token...");
+		if(session.pushAccountID==null || tokenVersion<184){
+			session.pushAccountID=UUID.randomUUID().toString();
+			AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
+		}
+
+		Intent intent=new Intent("com.google.android.c2dm.intent.REGISTER");
+		intent.setPackage("com.google.android.gms");
+		intent.putExtra("app", PendingIntent.getBroadcast(MastodonApp.context, 0, new Intent(), PendingIntent.FLAG_IMMUTABLE));
+		String sender=session.getInstanceInfo().getVapidPublicKey();
+		if(sender==null){
+			Log.w(TAG, "Can't register account "+accountID+" for push because the server does not provide a public key");
+			return;
+		}
+		String subtype="wp:https://"+session.domain+"/#"+session.pushAccountID;
+		intent.putExtra("sender", sender);
+		intent.putExtra("subscription", sender);
+		intent.putExtra("X-subscription", sender);
+		intent.putExtra("subtype", subtype);
+		intent.putExtra("X-subtype", subtype);
+		intent.putExtra("scope", "GCM");
+		intent.putExtra("kid", "|ID|"+accountID+"|");
+		MastodonApp.context.startService(intent);
+	}
+
+	public static void setForceNonRFC(boolean force){
+		getPrefs().edit().putBoolean("forceNonRFC", force).apply();
+	}
+
+	public static boolean isForceNonRFC(){
+		return getPrefs().getBoolean("forceNonRFC", false);
 	}
 
 	private static SharedPreferences getPrefs(){
 		return MastodonApp.context.getSharedPreferences("push", Context.MODE_PRIVATE);
 	}
 
-	public static boolean arePushNotificationsAvailable(){
-		return !TextUtils.isEmpty(deviceToken);
-	}
-
 	public void registerAccountForPush(PushSubscription subscription){
-		if(TextUtils.isEmpty(deviceToken))
+		AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
+		if(session==null)
+			return;
+		if(TextUtils.isEmpty(session.pushToken))
 			throw new IllegalStateException("No device push token available");
 		MastodonAPIController.runInBackground(()->{
 			Log.d(TAG, "registerAccountForPush: started for "+accountID);
-			String encodedPublicKey, encodedAuthKey, pushAccountID;
-			AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
-			if(session==null)
-				return;
+			String encodedPublicKey, encodedAuthKey, pushAccountID=session.pushAccountID;
 			if(session.hasPushCredentials()){
 				if(!loadKeys(session))
 					return;
 				encodedAuthKey=session.pushAuthKey;
-				pushAccountID=session.pushAccountID;
 			}else{
 				try{
 					KeyPairGenerator generator=KeyPairGenerator.getInstance("EC");
@@ -149,7 +167,6 @@ public class PushSubscriptionManager{
 					session.pushPrivateKey=Base64.encodeToString(privateKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 					session.pushPublicKey=Base64.encodeToString(publicKey.getEncoded(), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 					session.pushAuthKey=encodedAuthKey=Base64.encodeToString(authKey, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
-					session.pushAccountID=pushAccountID=Base64.encodeToString(randomAccountID, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 					AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 				}catch(NoSuchAlgorithmException|InvalidAlgorithmParameterException e){
 					Log.e(TAG, "registerAccountForPush: error generating encryption key", e);
@@ -159,8 +176,8 @@ public class PushSubscriptionManager{
 			encodedPublicKey=Base64.encodeToString(serializeRawPublicKey(publicKey), Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
 			session.needReRegisterForPush=true;
 			AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
-			boolean isRFC=session.getInstanceInfo().getApiVersion()>=4;
-			new RegisterForPushNotifications(deviceToken,
+			boolean isRFC=(!BuildConfig.DEBUG || !isForceNonRFC()) && session.getInstanceInfo().getApiVersion()>=4;
+			new RegisterForPushNotifications("https://fcm.googleapis.com/fcm/send/"+session.pushToken,
 					encodedPublicKey,
 					encodedAuthKey,
 					subscription==null ? PushSubscription.Alerts.ofAll() : subscription.alerts,
@@ -369,32 +386,38 @@ public class PushSubscriptionManager{
 		return info.toByteArray();
 	}
 
-	private static void registerAllAccountsForPush(boolean forceReRegister){
-		if(!arePushNotificationsAvailable())
-			return;
-		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
-			if(session.pushSubscription==null || forceReRegister || session.needReRegisterForPush)
-				session.getPushSubscriptionManager().registerAccountForPush(session.pushSubscription);
-			else if(session.needUpdatePushSettings)
-				session.getPushSubscriptionManager().updatePushSettings(session.pushSubscription);
-		}
-	}
-
 	public static class RegistrationReceiver extends BroadcastReceiver{
 		@Override
 		public void onReceive(Context context, Intent intent){
 			if("com.google.android.c2dm.intent.REGISTRATION".equals(intent.getAction())){
 				if(intent.hasExtra("registration_id")){
-					deviceToken=intent.getStringExtra("registration_id");
-					if(deviceToken.startsWith(KID_VALUE))
-						deviceToken=deviceToken.substring(KID_VALUE.length()+1);
-					getPrefs().edit()
-							.putString("deviceToken", deviceToken)
-							.putInt("version", BuildConfig.VERSION_CODE)
-							.putLong("lastRefresh", System.currentTimeMillis())
-							.apply();
+					if(BuildConfig.DEBUG){
+						Bundle extras=intent.getExtras();
+						for(String key:extras.keySet()){
+							Log.i(TAG, key+" -> "+extras.get(key));
+						}
+					}
+					String token=intent.getStringExtra("registration_id");
+					if(token==null || !token.startsWith("|ID|")){
+						Log.w(TAG, "FCM token does not start with |ID|");
+						return;
+					}
+					String[] parts=token.substring(4).split("\\|");
+					String accountID=parts[0];
+					token=parts[1].substring(1);
+					AccountSession session;
+					try{
+						session=AccountSessionManager.get(accountID);
+					}catch(IllegalStateException x){
+						Log.w(TAG, x);
+						return;
+					}
+					session.pushToken=token;
+					session.pushTokenVersion=BuildConfig.VERSION_CODE;
+					session.pushTokenLastRefresh=System.currentTimeMillis();
+					AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 					Log.i(TAG, "Successfully registered for FCM");
-					registerAllAccountsForPush(true);
+					session.getPushSubscriptionManager().registerAccountForPush(session.pushSubscription);
 				}else{
 					Log.e(TAG, "FCM registration intent did not contain registration_id: "+intent);
 					Bundle extras=intent.getExtras();

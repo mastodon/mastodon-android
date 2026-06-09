@@ -142,9 +142,7 @@ public class AccountSessionManager{
 			db.insertWithOnConflict("accounts", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 		});
 		updateInstanceEmojis(instance, instance.getDomain());
-		if(PushSubscriptionManager.arePushNotificationsAvailable()){
-			session.getPushSubscriptionManager().registerAccountForPush(null);
-		}
+		session.getPushSubscriptionManager().registerAccountForPush(null);
 		maybeUpdateShortcuts();
 	}
 
@@ -302,6 +300,16 @@ public class AccountSessionManager{
 		}
 		if(loadedInstances){
 			maybeUpdateInstanceInfo(domains);
+		}
+	}
+
+	public void reloadAllInstanceInfo(){
+		HashSet<String> domains=new HashSet<>();
+		for(AccountSession session:sessions.values()){
+			domains.add(session.domain.toLowerCase());
+		}
+		for(String domain:domains){
+			updateInstanceInfo(domain);
 		}
 	}
 

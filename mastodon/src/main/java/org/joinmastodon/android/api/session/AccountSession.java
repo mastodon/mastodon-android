@@ -94,6 +94,9 @@ public class AccountSession{
 	public Preferences preferences;
 	public boolean needReRegisterForPush;
 	public boolean pushEncryptionFinalRFC;
+	public String pushToken;
+	public int pushTokenVersion;
+	public long pushTokenLastRefresh;
 	private transient MastodonAPIController apiController;
 	private transient StatusInteractionController statusInteractionController;
 	private transient CacheController cacheController;
@@ -130,6 +133,11 @@ public class AccountSession{
 			pushAuthKey=pushKeys.get("auth").getAsString();
 			pushPrivateKey=pushKeys.get("private").getAsString();
 			pushPublicKey=pushKeys.get("public").getAsString();
+			if(pushKeys.has("push_token")){
+				pushToken=pushKeys.get("fcm_token").getAsString();
+				pushTokenVersion=pushKeys.get("fcm_version").getAsInt();
+				pushTokenLastRefresh=pushKeys.get("fcm_last_refresh").getAsLong();
+			}
 		}
 		pushSubscription=MastodonAPIController.gson.fromJson(values.getAsString("push_subscription"), PushSubscription.class);
 		JsonObject legacyFilters=JsonParser.parseString(values.getAsString("legacy_filters")).getAsJsonObject();
@@ -152,6 +160,9 @@ public class AccountSession{
 				.add("auth", pushAuthKey)
 				.add("private", pushPrivateKey)
 				.add("public", pushPublicKey)
+				.add("fcm_token", pushToken)
+				.add("fcm_version", pushTokenVersion)
+				.add("fcm_last_refresh", pushTokenLastRefresh)
 				.build()
 				.toString());
 		values.put("push_subscription", MastodonAPIController.gson.toJson(pushSubscription));

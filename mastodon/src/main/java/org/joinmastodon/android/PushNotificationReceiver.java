@@ -11,10 +11,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 
 import org.joinmastodon.android.api.MastodonAPIController;
@@ -30,11 +32,12 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import me.grishka.appkit.api.Callback;
@@ -47,20 +50,6 @@ import me.grishka.appkit.utils.V;
 
 public class PushNotificationReceiver extends BroadcastReceiver{
 	private static final String TAG="PushNotificationReceive";
-	private static final int[] BASE85_DECODE_TABLE={
-			0xff, 0x44, 0xff, 0x54, 0x53, 0x52, 0x48, 0xff,
-			0x4b, 0x4c, 0x46, 0x41, 0xff, 0x3f, 0x3e, 0x45,
-			0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-			0x08, 0x09, 0x40, 0xff, 0x49, 0x42, 0x4a, 0x47,
-			0x51, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a,
-			0x2b, 0x2c, 0x2d, 0x2e, 0x2f, 0x30, 0x31, 0x32,
-			0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3a,
-			0x3b, 0x3c, 0x3d, 0x4d, 0xff, 0x4e, 0x43, 0xff,
-			0xff, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f, 0x10,
-			0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18,
-			0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f, 0x20,
-			0x21, 0x22, 0x23, 0x4f, 0xff, 0x50, 0xff, 0xff
-	};
 
 	public static final int NOTIFICATION_ID=178;
 
@@ -74,12 +63,17 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 			}
 		}
 		if("com.google.android.c2dm.intent.RECEIVE".equals(intent.getAction())){
-			String serverKey=intent.getStringExtra("k");
-			String payload=intent.getStringExtra("p");
-			String salt=intent.getStringExtra("s");
-			String pushAccountID=intent.getStringExtra("x");
-			boolean isRFC="1".equals(intent.getStringExtra("rfc"));
-			if(!TextUtils.isEmpty(pushAccountID) && (isRFC || !TextUtils.isEmpty(serverKey)) && !TextUtils.isEmpty(payload) && (isRFC || !TextUtils.isEmpty(salt))){
+			String subtype=intent.getStringExtra("subtype");
+			if(subtype==null || !subtype.startsWith("wp:")){
+				Log.w(TAG, "Subtype doesn't start with 'wp:'");
+				return;
+			}
+			String pushAccountID=Uri.parse(subtype.substring(3)).getFragment();
+			byte[] rawData=intent.getByteArrayExtra("rawData");
+			boolean isRFC=!intent.hasExtra("crypto-key") && !intent.hasExtra("encryption");
+			String encryptionParam=intent.getStringExtra("encryption");
+			String cryptoKeyParam=intent.getStringExtra("crypto-key");
+			if(!TextUtils.isEmpty(pushAccountID) && rawData!=null && (isRFC || !TextUtils.isEmpty(encryptionParam)) && (isRFC || !TextUtils.isEmpty(cryptoKeyParam))){
 				MastodonAPIController.runInBackground(()->{
 					try{
 						List<AccountSession> accounts=AccountSessionManager.getInstance().getLoggedInAccounts();
@@ -105,12 +99,11 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 						}
 						byte[] decodedServerKey, decodedPayload, decodedSalt;
 						if(isRFC){
-							byte[] rawPayload=decode85(payload);
-							if(rawPayload.length<22){
+							if(rawData.length<22){
 								Log.i("TAG", "onReceive: payload is too short");
 								return;
 							}
-							DataInputStream in=new DataInputStream(new ByteArrayInputStream(rawPayload));
+							DataInputStream in=new DataInputStream(new ByteArrayInputStream(rawData));
 							decodedSalt=new byte[16];
 							in.readFully(decodedSalt);
 							int rs=in.readInt();
@@ -120,9 +113,17 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 							decodedPayload=new byte[in.available()];
 							in.readFully(decodedPayload);
 						}else{
-							decodedServerKey=decode85(serverKey);
-							decodedPayload=decode85(payload);
-							decodedSalt=decode85(salt);
+							Map<String, String> encryptionParams=parseKeyValueThing(encryptionParam);
+							Map<String, String> cryptoKeyParams=parseKeyValueThing(cryptoKeyParam);
+							String serverKey=cryptoKeyParams.get("dh");
+							String salt=encryptionParams.get("salt");
+							if(TextUtils.isEmpty(serverKey) || TextUtils.isEmpty(salt)){
+								Log.i(TAG, "onReceive: server key or salt is invalid");
+								return;
+							}
+							decodedServerKey=Base64.decode(serverKey, Base64.URL_SAFE);
+							decodedPayload=rawData;
+							decodedSalt=Base64.decode(salt, Base64.URL_SAFE);
 						}
 						PushNotification pn=AccountSessionManager.getInstance().getAccount(accountID).getPushSubscriptionManager().decryptNotification(decodedServerKey, decodedPayload, decodedSalt);
 						if(pn==null){
@@ -152,32 +153,16 @@ public class PushNotificationReceiver extends BroadcastReceiver{
 		}
 	}
 
-	private static byte[] decode85(String in){
-		ByteArrayOutputStream data=new ByteArrayOutputStream();
-		int block=0;
-		int n=0;
-		for(char c:in.toCharArray()){
-			if(c>=32 && c<128 && BASE85_DECODE_TABLE[c-32]!=0xff){
-				int value=BASE85_DECODE_TABLE[c-32];
-				block=block*85+value;
-				n++;
-				if(n==5){
-					data.write(block >> 24);
-					data.write(block >> 16);
-					data.write(block >> 8);
-					data.write(block);
-					block=0;
-					n=0;
-				}
-			}
+	private Map<String, String> parseKeyValueThing(String thing){
+		HashMap<String, String> res=new HashMap<>();
+		for(String part:thing.split(";")){
+			part=part.trim();
+			if(!part.contains("="))
+				continue;
+			String[] kv=part.split("=", 2);
+			res.put(kv[0], kv[1]);
 		}
-		if(n>=4)
-			data.write(block >> 16);
-		if(n>=3)
-			data.write(block >> 8);
-		if(n>=2)
-			data.write(block);
-		return data.toByteArray();
+		return res;
 	}
 
 	private void notify(Context context, PushNotification pn, String accountID, org.joinmastodon.android.model.Notification notification){

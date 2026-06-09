@@ -87,7 +87,7 @@ public class SettingsNotificationsFragment extends BaseSettingsFragment<Void>{
 				|| pollsItem.checked!=ps.alerts.poll
 				|| statusesItem.checked!=ps.alerts.status
 				|| quotesItem.checked!=ps.alerts.quote;
-		if(needUpdateNotificationSettings && PushSubscriptionManager.arePushNotificationsAvailable()){
+		if(needUpdateNotificationSettings){
 			ps.alerts.mention=mentionsItem.checked;
 			ps.alerts.reblog=boostsItem.checked;
 			ps.alerts.favourite=favoritesItem.checked;

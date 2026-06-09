@@ -38,7 +38,7 @@ import me.grishka.appkit.Nav;
 import me.grishka.appkit.utils.V;
 
 public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
-	private CheckableListItem<Void> donationsStagingItem;
+	private CheckableListItem<Void> donationsStagingItem, nonRfcPushItem;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -47,6 +47,7 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 		ListItem<Void> selfUpdateItem, resetUpdateItem;
 		onDataLoaded(List.of(
 				new ListItem<>("Re-register for FCM", null, this::onUpdatePushRegistrationClick),
+				nonRfcPushItem=new CheckableListItem<>("Use draft web push standard", null, CheckableListItem.Style.SWITCH, PushSubscriptionManager.isForceNonRFC(), this::onNonRfcPushClick),
 				new ListItem<>("Test email confirmation flow", null, this::onTestEmailConfirmClick),
 				selfUpdateItem=new ListItem<>("Force self-update", null, this::onForceSelfUpdateClick),
 				resetUpdateItem=new ListItem<>("Reset self-updater", null, this::onResetUpdaterClick),
@@ -55,6 +56,7 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 				new ListItem<>("Clear dismissed donation campaigns", null, this::onClearDismissedCampaignsClick),
 				donationsStagingItem=new CheckableListItem<>("Use staging environment for donations", "Restart app to apply", CheckableListItem.Style.SWITCH, getPrefs().getBoolean("donationsStaging", false), this::toggleCheckableItem),
 				new ListItem<>("Delete cached instance info", null, this::onDeleteInstanceInfoClick),
+				new ListItem<>("Force reload instance info", null, this::onReloadInstanceInfoClick),
 				new ListItem<>("View dynamic color values", null, this::onViewColorsClick),
 				new ListItem<>("Open profile by ID", null, this::onOpenProfileByIdClick)
 		));
@@ -76,6 +78,11 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 	private void onUpdatePushRegistrationClick(ListItem<?> item){
 		PushSubscriptionManager.resetLocalPreferences();
 		PushSubscriptionManager.tryRegisterFCM();
+	}
+
+	private void onNonRfcPushClick(CheckableListItem<?> item){
+		toggleCheckableItem(item);
+		PushSubscriptionManager.setForceNonRFC(nonRfcPushItem.checked);
 	}
 
 	private void onTestEmailConfirmClick(ListItem<?> item){
@@ -117,6 +124,10 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 	private void onDeleteInstanceInfoClick(ListItem<?> item){
 		AccountSessionManager.getInstance().clearInstanceInfo();
 		Toast.makeText(getActivity(), "Instances removed from database", Toast.LENGTH_LONG).show();
+	}
+
+	private void onReloadInstanceInfoClick(ListItem<?> item){
+		AccountSessionManager.getInstance().reloadAllInstanceInfo();
 	}
 
 	private void onViewColorsClick(ListItem<?> item){
