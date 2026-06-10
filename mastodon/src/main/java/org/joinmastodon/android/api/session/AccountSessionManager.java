@@ -143,7 +143,7 @@ public class AccountSessionManager{
 			db.insertWithOnConflict("accounts", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 		});
 		updateInstanceEmojis(instance, instance.getDomain());
-		session.getPushSubscriptionManager().registerAccountForPush(null);
+		session.getPushSubscriptionManager().registerFCM();
 		maybeUpdateShortcuts();
 	}
 
@@ -194,6 +194,8 @@ public class AccountSessionManager{
 
 	public void removeAccount(String id){
 		AccountSession session=getAccount(id);
+		if(!TextUtils.isEmpty(session.pushToken))
+			session.getPushSubscriptionManager().unregisterFCM();
 		session.getCacheController().closeDatabase();
 		MastodonApp.context.deleteDatabase(id+".db");
 		MastodonApp.context.getSharedPreferences(id, 0).edit().clear().commit();

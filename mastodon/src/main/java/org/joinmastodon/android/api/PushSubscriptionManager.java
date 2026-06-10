@@ -126,6 +126,28 @@ public class PushSubscriptionManager{
 		MastodonApp.context.startService(intent);
 	}
 
+	public void unregisterFCM(){
+		AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
+		Intent intent=new Intent("com.google.android.c2dm.intent.REGISTER");
+		intent.setPackage("com.google.android.gms");
+		intent.putExtra("app", PendingIntent.getBroadcast(MastodonApp.context, 0, new Intent(), PendingIntent.FLAG_IMMUTABLE));
+		String sender=session.getInstanceInfo().getVapidPublicKey();
+		if(sender==null){
+			Log.w(TAG, "Can't unregister account "+accountID+" for push because the server does not provide a public key");
+			return;
+		}
+		String subtype="wp:https://"+session.domain+"/#"+session.pushAccountID;
+		intent.putExtra("sender", sender);
+		intent.putExtra("subscription", sender);
+		intent.putExtra("X-subscription", sender);
+		intent.putExtra("subtype", subtype);
+		intent.putExtra("X-subtype", subtype);
+		intent.putExtra("scope", "GCM");
+		intent.putExtra("kid", "|ID|"+accountID+"|");
+		intent.putExtra("delete", "1");
+		MastodonApp.context.startService(intent);
+	}
+
 	public static void setForceNonRFC(boolean force){
 		getPrefs().edit().putBoolean("forceNonRFC", force).apply();
 	}
@@ -138,7 +160,7 @@ public class PushSubscriptionManager{
 		return MastodonApp.context.getSharedPreferences("push", Context.MODE_PRIVATE);
 	}
 
-	public void registerAccountForPush(PushSubscription subscription){
+	private void registerAccountForPush(PushSubscription subscription){
 		AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
 		if(session==null)
 			return;
@@ -405,6 +427,10 @@ public class PushSubscriptionManager{
 					String[] parts=token.substring(4).split("\\|");
 					String accountID=parts[0];
 					token=parts[1].substring(1);
+					if(token.equals(context.getPackageName())){
+						Log.i(TAG, "Successfully revoked FCM token for account "+accountID);
+						return;
+					}
 					AccountSession session;
 					try{
 						session=AccountSessionManager.get(accountID);
