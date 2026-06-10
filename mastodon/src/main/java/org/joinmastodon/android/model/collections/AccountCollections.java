@@ -10,7 +10,7 @@ import java.util.List;
 public class AccountCollections extends BaseModel{
 	@RequiredField
 	public List<AccountCollection> collections;
-	public List<PartialAccount> partialAccounts=List.of();
+	//public List<PartialAccount> partialAccounts=List.of();
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -18,8 +18,8 @@ public class AccountCollections extends BaseModel{
 		for(AccountCollection collection:collections){
 			collection.postprocess();
 		}
-		for(PartialAccount acc:partialAccounts){
-			acc.postprocess();
-		}
+//		for(PartialAccount acc:partialAccounts){
+//			acc.postprocess();
+//		}
 	}
 }

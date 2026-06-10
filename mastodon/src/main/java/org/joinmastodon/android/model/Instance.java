@@ -102,7 +102,7 @@ public abstract class Instance extends BaseModel{
 	}
 
 	public boolean supportsCollections(){
-		return getApiVersion()>=9; // TODO
+		return getApiVersion()>=10;
 	}
 
 	@Parcel

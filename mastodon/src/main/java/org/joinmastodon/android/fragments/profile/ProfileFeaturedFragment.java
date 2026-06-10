@@ -12,14 +12,18 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.requests.BatchRequest;
 import org.joinmastodon.android.api.requests.accounts.GetAccountEndorsements;
+import org.joinmastodon.android.api.requests.accounts.GetAccountsByIDs;
 import org.joinmastodon.android.api.requests.collections.GetAccountCollections;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.account_list.BaseAccountListFragment;
 import org.joinmastodon.android.fragments.account_list.FeaturedAccountListFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.AccountOrPartial;
 import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Relationship;
+import org.joinmastodon.android.model.collections.AccountCollection;
 import org.joinmastodon.android.model.collections.AccountCollections;
+import org.joinmastodon.android.model.collections.CollectionItem;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 import org.joinmastodon.android.model.viewmodel.CollectionViewModel;
 import org.joinmastodon.android.ui.displayitems.SectionHeaderStatusDisplayItem;
@@ -30,14 +34,19 @@ import org.joinmastodon.android.ui.viewholders.CollectionViewHolder;
 import org.parceler.Parcels;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.api.APIRequest;
+import me.grishka.appkit.api.Callback;
+import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
 import me.grishka.appkit.imageloader.ImageLoaderRecyclerAdapter;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
@@ -49,8 +58,11 @@ public class ProfileFeaturedFragment extends BaseAccountListFragment{
 	private SectionHeaderStatusDisplayItem accountsHeader, collectionsHeader;
 	private MergeRecyclerAdapter mergeAdapter;
 	private SectionHeaderAdapter accountsHeaderAdapter, collectionsHeaderAdapter;
+	private CollectionsAdapter collectionsAdapter;
 	private List<CollectionViewModel> collections=List.of();
 	private Relationship relationship;
+	private Map<String, Account> extraAccountsForCollections=new HashMap<>();
+	private APIRequest<?> collectionAccountsRequest;
 
 	public ProfileFeaturedFragment(){
 		setRefreshEnabled(false);
@@ -65,6 +77,7 @@ public class ProfileFeaturedFragment extends BaseAccountListFragment{
 
 		accountsHeader=new SectionHeaderStatusDisplayItem(StatusDisplayItem.NO_OP_CALLBACKS, getActivity(), getString(R.string.profile_endorsed_accounts), getString(R.string.view_all), null);
 		collectionsHeader=new SectionHeaderStatusDisplayItem(StatusDisplayItem.NO_OP_CALLBACKS, getActivity(), getString(R.string.profile_collections), getString(R.string.view_all), null);
+		extraAccountsForCollections.put(profileAccount.id, profileAccount);
 	}
 
 	@Override
@@ -89,8 +102,26 @@ public class ProfileFeaturedFragment extends BaseAccountListFragment{
 
 						if(supportsCollections){
 							AccountCollections rawCollections=Objects.requireNonNull((AccountCollections) result.get("collections"));
-							collections=CollectionViewModel.wrap(rawCollections);
+							if(refreshing){
+								extraAccountsForCollections.clear();
+								extraAccountsForCollections.put(profileAccount.id, profileAccount);
+							}
+							collections=CollectionViewModel.wrap(rawCollections, (Map<String, AccountOrPartial>)(Object) extraAccountsForCollections);
 							collectionsHeaderAdapter.setVisible(!rawCollections.collections.isEmpty());
+							HashSet<String> needAccounts=new HashSet<>();
+							for(AccountCollection c:rawCollections.collections){
+								needAccounts.add(c.accountId);
+								int i=0;
+								for(CollectionItem item:c.items){
+									needAccounts.add(item.accountId);
+									i++;
+									if(i==4)
+										break;
+								}
+							}
+							needAccounts.removeAll(extraAccountsForCollections.keySet());
+							if(!needAccounts.isEmpty())
+								loadAccountsForCollections(needAccounts);
 						}else{
 							collectionsHeaderAdapter.setVisible(false);
 						}
@@ -110,7 +141,8 @@ public class ProfileFeaturedFragment extends BaseAccountListFragment{
 		mergeAdapter.addAdapter(accountsHeaderAdapter);
 		mergeAdapter.addAdapter(super.getAdapter());
 		mergeAdapter.addAdapter(collectionsHeaderAdapter);
-		mergeAdapter.addAdapter(new CollectionsAdapter());
+		collectionsAdapter=new CollectionsAdapter();
+		mergeAdapter.addAdapter(collectionsAdapter);
 		return mergeAdapter;
 	}
 
@@ -145,6 +177,21 @@ public class ProfileFeaturedFragment extends BaseAccountListFragment{
 		// no-op
 	}
 
+	@Override
+	protected void refresh(){
+		if(collectionAccountsRequest!=null){
+			collectionAccountsRequest.cancel();
+			collectionAccountsRequest=null;
+		}
+		super.refresh();
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState){
+		super.onViewCreated(view, savedInstanceState);
+		list.getItemAnimator().setChangeDuration(0);
+	}
+
 	private void showAllEndorsedAccounts(){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
@@ -162,6 +209,29 @@ public class ProfileFeaturedFragment extends BaseAccountListFragment{
 
 	public void setRelationship(Relationship relationship){
 		this.relationship=relationship;
+	}
+
+	private void loadAccountsForCollections(Set<String> ids){
+		collectionAccountsRequest=new GetAccountsByIDs(ids)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(List<Account> result){
+						collectionAccountsRequest=null;
+						for(Account acc:result)
+							extraAccountsForCollections.put(acc.id, acc);
+						for(CollectionViewModel cvm:collections){
+							cvm.updateAccounts((Map<String, AccountOrPartial>)(Object) extraAccountsForCollections);
+						}
+						collectionsAdapter.notifyItemRangeChanged(0, collections.size());
+						imgLoader.forceUpdateImages();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						collectionAccountsRequest=null;
+					}
+				})
+				.exec(accountID);
 	}
 
 	private static class SectionHeaderAdapter extends RecyclerView.Adapter<SectionHeaderStatusDisplayItem.Holder>{

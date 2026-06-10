@@ -9,9 +9,4 @@ public class GetAccountCollections extends MastodonAPIRequest<AccountCollections
 		addQueryParameter("offset", offset+"");
 		addQueryParameter("limit", limit+"");
 	}
-
-	@Override
-	protected String getPathPrefix(){
-		return "/api/v1_alpha";
-	}
 }

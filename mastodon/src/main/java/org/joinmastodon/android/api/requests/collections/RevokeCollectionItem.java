@@ -7,9 +7,4 @@ public class RevokeCollectionItem extends ResultlessMastodonAPIRequest{
 		super(HttpMethod.POST, "/collections/"+collectionID+"/items/"+itemID+"/revoke");
 		setRequestBody(new Object());
 	}
-
-	@Override
-	protected String getPathPrefix(){
-		return "/api/v1_alpha";
-	}
 }

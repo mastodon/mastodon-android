@@ -7,9 +7,4 @@ public class GetCollection extends MastodonAPIRequest<CollectionWithAccounts>{
 	public GetCollection(String id){
 		super(HttpMethod.GET, "/collections/"+id, CollectionWithAccounts.class);
 	}
-
-	@Override
-	protected String getPathPrefix(){
-		return "/api/v1_alpha";
-	}
 }

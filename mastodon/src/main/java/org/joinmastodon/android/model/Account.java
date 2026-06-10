@@ -191,6 +191,20 @@ public non-sealed class Account extends BaseModel implements AccountOrPartial{
 		return '@'+acct;
 	}
 
+	public static Account makeFallback(String id){
+		Account a=new Account();
+		a.id=id;
+		a.username="_"+id;
+		a.acct=a.username;
+		a.url="https://example.com";
+		a.displayName="UNKNOWN";
+		a.note="";
+		a.avatar="";
+		a.header="";
+		a.createdAt=Instant.now();
+		return a;
+	}
+
 	@Override
 	public String toString(){
 		return "Account{"+
