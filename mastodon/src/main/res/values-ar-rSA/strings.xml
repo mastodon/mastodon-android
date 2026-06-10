@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-	<string name="log_in">تسجيلُ الدخول</string>
+	<string name="log_in">تسجيل الدخول</string>
 	<string name="next">التالي</string>
-	<string name="loading_instance">جارٍ جلب معلومات الخادم…</string>
+	<string name="loading_instance">جارٍ جلب معلومات الخادوم…</string>
 	<string name="error">خطأ</string>
-	<string name="not_a_mastodon_instance">لا يبدو أنّ %s كخادم ماستدون.</string>
+	<string name="not_a_mastodon_instance">لا يبدو أنّ %s خادوم ماستودون.</string>
 	<string name="ok">حسنًا</string>
-	<string name="preparing_auth">جَارٍ الإعدَادُ لِلمُصادَقَة…</string>
-	<string name="finishing_auth">يُنهي المصادقة…</string>
-	<string name="user_boosted">قام %s بإعادة نشر</string>
+	<string name="preparing_auth">جارٍ الإعداد للمصادقة…</string>
+	<string name="finishing_auth">يتم إنهاء المصادقة…</string>
+	<string name="user_boosted">%s أعاد نشر</string>
 	<string name="in_reply_to">ردًّا على %s</string>
 	<string name="notifications">الإشعارات</string>
-	<string name="user_followed_you">%s بَدَأ بِمُتابَعَتِك</string>
-	<string name="user_sent_follow_request">%s أرسَلَ طَلَبًا لِمُتابَعَتِك</string>
-	<string name="user_favorited">%s مفضّل:</string>
-	<string name="notification_boosted">%s معزّز:</string>
-	<string name="share_toot_title">شارك</string>
+	<string name="user_followed_you">%s تابعك</string>
+	<string name="user_sent_follow_request">%s أرسل لك طلب متابعة</string>
+	<string name="user_favorited">%s فضَّل:</string>
+	<string name="notification_boosted">%s أعاد نشر:</string>
+	<string name="share_toot_title">مشاركة</string>
 	<string name="settings">الإعدادات</string>
-	<string name="publish">نَشر</string>
-	<string name="discard_draft">أتريد إلغاء المسودة؟</string>
-	<string name="discard">إلغاء</string>
+	<string name="publish">نشر</string>
+	<string name="discard_draft">هل تريد تجاهل المسوّدة؟</string>
+	<string name="discard">تجاهُل</string>
 	<string name="cancel">إلغاء</string>
 	<string name="posts">منشورات</string>
 	<string name="media">وسائط</string>
-	<string name="button_follow">تابِع</string>
-	<string name="button_following">مُتابَع</string>
-	<string name="edit_profile">تعديل الملفّ الشخصي</string>
-	<string name="share_user">مشاركة الملفّ الشخصي عبر…</string>
-	<string name="mute_user">كَتمُ %s</string>
-	<string name="unmute_user">إلغاء الكَتم عن @%s</string>
-	<string name="block_user">حَظرُ %s</string>
-	<string name="unblock_user">رفع الحَظر عن %s</string>
-	<string name="report_user">الإبلاغُ عَن %s</string>
-	<string name="block_domain">حَظرُ %s</string>
-	<string name="unblock_domain">رفع الحَظر عن %s</string>
+	<string name="button_follow">متابعة</string>
+	<string name="button_following">متابَع</string>
+	<string name="edit_profile">تعديل الملف الشخصي</string>
+	<string name="share_user">مشاركة الملف الشخصي عبر…</string>
+	<string name="mute_user">كتم %s</string>
+	<string name="unmute_user">إلغاء الكتم عن %s</string>
+	<string name="block_user">حظر %s</string>
+	<string name="unblock_user">رفع الحظر عن %s</string>
+	<string name="report_user">الإبلاغ عن %s</string>
+	<string name="block_domain">حظر %s</string>
+	<string name="unblock_domain">رفع الحظر عن %s</string>
 	<plurals name="x_posts">
-		<item quantity="zero">لا مَنشورات</item>
+		<item quantity="zero">لا منشورات</item>
 		<item quantity="one">منشورٌ واحِد</item>
 		<item quantity="two">منشورانِ اثنان</item>
 		<item quantity="few">%,d منشورات</item>
 		<item quantity="many">%,d منشورًا</item>
 		<item quantity="other">%,d منشور</item>
 	</plurals>
-	<string name="profile_joined">انضم في</string>
-	<string name="done">تمّ</string>
-	<string name="loading">يحمل…</string>
+	<string name="profile_joined">انضمّ إلى</string>
+	<string name="done">تم</string>
+	<string name="loading">جارٍ التحميل…</string>
 	<string name="field_label">التسمية</string>
 	<string name="field_content">المحتوى</string>
-	<string name="saving">يحفظ…</string>
-	<string name="post_from_user">مَنشور مِن %s</string>
+	<string name="saving">جارٍ الحفظ…</string>
+	<string name="post_from_user">منشور من %s</string>
 	<string name="poll_option_hint">الخيار %d</string>
 	<plurals name="x_minutes">
 		<item quantity="zero">أقل من دقيقة</item>
@@ -68,72 +68,72 @@
 	</plurals>
 	<plurals name="x_days">
 		<item quantity="zero">أقل من يوم</item>
-		<item quantity="one">يومٌ واحِد</item>
-		<item quantity="two">يَومان</item>
+		<item quantity="one">يوم واحد</item>
+		<item quantity="two">يومان</item>
 		<item quantity="few">%d أيام</item>
 		<item quantity="many">%d يومًا</item>
 		<item quantity="other">%d يوم</item>
 	</plurals>
 	<plurals name="x_seconds_left">
-		<item quantity="zero">تتبقى لَحظة</item>
-		<item quantity="one">تتبقى ثانية واحِدة</item>
-		<item quantity="two">تتبقى ثانيتان</item>
-		<item quantity="few">تتبقى %d ثوان</item>
-		<item quantity="many">تتبقى %d ثانية</item>
-		<item quantity="other">تتبقى %d ثانية</item>
+		<item quantity="zero">تبقّى أقل من ثانية</item>
+		<item quantity="one">تبقّت ثانية واحدة</item>
+		<item quantity="two">تبقّت ثانيتان</item>
+		<item quantity="few">تبقّت %d ثوانٍ</item>
+		<item quantity="many">تبقّت %d ثانية</item>
+		<item quantity="other">تبقّت %d ثانية</item>
 	</plurals>
 	<plurals name="x_minutes_left">
-		<item quantity="zero">تبقت أقل من دقيقة</item>
-		<item quantity="one">تبقت دقيقة</item>
-		<item quantity="two">تبقت دقيقتان</item>
-		<item quantity="few">تبقت %d دقائق</item>
-		<item quantity="many">تبقت %d دقيقة</item>
-		<item quantity="other">تبقت %d دقيقة</item>
+		<item quantity="zero">تبقّى أقل من دقيقة</item>
+		<item quantity="one">تبقّت دقيقة واحدة</item>
+		<item quantity="two">تبقّت دقيقتان</item>
+		<item quantity="few">تبقّت %d دقائق</item>
+		<item quantity="many">تبقّت %d دقيقة</item>
+		<item quantity="other">تبقّت %d دقيقة</item>
 	</plurals>
 	<plurals name="x_hours_left">
-		<item quantity="zero">تبقت أقل من ساعة</item>
-		<item quantity="one">تبقت ساعة واحدة</item>
+		<item quantity="zero">تبقّى أقل من ساعة</item>
+		<item quantity="one">تبقّت ساعة واحدة</item>
 		<item quantity="two">تبقت ساعتان</item>
 		<item quantity="few">تبقت %d ساعات</item>
 		<item quantity="many">تبقت %d ساعة</item>
 		<item quantity="other">تبقت %d ساعة</item>
 	</plurals>
 	<plurals name="x_days_left">
-		<item quantity="zero">تبقى أقل من يوم</item>
-		<item quantity="one">تبقى يوم واحد</item>
-		<item quantity="two">تبقى يومان</item>
-		<item quantity="few">تبقى %d أيام</item>
-		<item quantity="many">تبقى %d يومًا</item>
-		<item quantity="other">تبقى %d يوم</item>
+		<item quantity="zero">تبقّى أقل من يوم</item>
+		<item quantity="one">تبقّى يوم واحد</item>
+		<item quantity="two">تبقّى يومان</item>
+		<item quantity="few">تبقّى %d أيام</item>
+		<item quantity="many">تبقّى %d يومًا</item>
+		<item quantity="other">تبقّى %d يوم</item>
 	</plurals>
 	<plurals name="x_votes">
-		<item quantity="zero">%,d صوت</item>
-		<item quantity="one">%,d صوت واحد</item>
-		<item quantity="two">صوتين</item>
+		<item quantity="zero">لا أصوات</item>
+		<item quantity="one">صوت واحد</item>
+		<item quantity="two">صوتان</item>
 		<item quantity="few">%,d أصوات</item>
-		<item quantity="many">%,d صوتا</item>
-		<item quantity="other">%,d صوتا</item>
+		<item quantity="many">%,d صوتًا</item>
+		<item quantity="other">%,d صوت</item>
 	</plurals>
 	<string name="poll_closed">مغلق</string>
-	<string name="do_mute">اكتم</string>
-	<string name="do_block">احجب</string>
-	<string name="button_blocked">محجوب</string>
-	<string name="action_vote">صَوّت</string>
+	<string name="do_mute">كتم</string>
+	<string name="do_block">حظر</string>
+	<string name="button_blocked">محظور</string>
+	<string name="action_vote">تصويت</string>
 	<string name="confirm">تأكيد</string>
-	<string name="delete">احذف</string>
-	<string name="confirm_delete_title">احذف المنشور</string>
-	<string name="confirm_delete">أمتأكد من حذف هذا المنشور؟</string>
-	<string name="deleting">يحذف…</string>
+	<string name="delete">حذف</string>
+	<string name="confirm_delete_title">حذف المنشور</string>
+	<string name="confirm_delete">هل أنت متأكد من رغبتك في حذف هذا المنشور؟</string>
+	<string name="deleting">جارٍ الحذف…</string>
 	<string name="notification_channel_audio_player">تشغيل الصوت</string>
-	<string name="play">شغّل</string>
-	<string name="pause">ألبث</string>
-	<string name="log_out">الخروج</string>
-	<string name="add_account">أضف حساباً</string>
-	<string name="search_hint">ابحث</string>
-	<string name="hashtags">وُسُوم</string>
+	<string name="play">تشغيل</string>
+	<string name="pause">إيقاف</string>
+	<string name="log_out">تسجيل الخروج</string>
+	<string name="add_account">إضافة حساب</string>
+	<string name="search_hint">بحث</string>
+	<string name="hashtags">الوسوم</string>
 	<string name="news">الأخبار</string>
 	<string name="for_you">لأجلك</string>
-	<string name="all_notifications">كلها</string>
+	<string name="all_notifications">الكل</string>
 	<string name="mentions">الإشارات</string>
 	<plurals name="x_people_talking">
 		<item quantity="zero">لا أحد يتحدث</item>
@@ -143,9 +143,9 @@
 		<item quantity="many">%d شخصًا يتحدثون</item>
 		<item quantity="other">%d شخص يتحدثون</item>
 	</plurals>
-	<string name="report_title">بلّغ عن %s</string>
-	<string name="report_choose_reason">ما المُشكِلَةُ فِي هَذَا المَنشُور؟</string>
-	<string name="report_choose_reason_account">ما المُشكِلَة مَعَ %s؟</string>
+	<string name="report_title">الإبلاغ عن %s</string>
+	<string name="report_choose_reason">ما المشكلة في هذا المنشور؟</string>
+	<string name="report_choose_reason_account">ما المشكلة في %s؟</string>
 	<string name="report_choose_reason_subtitle">اختر أفضل تطابق</string>
 	<string name="report_reason_personal">لا يعجبني</string>
 	<string name="report_reason_personal_subtitle">ألا ترغب برؤيته</string>
@@ -736,6 +736,13 @@
 	<string name="more_than_two_years">أكثر من سنتَين</string>
 	<string name="non_mutual_title1">حافظ على الاحترام والملاءمة</string>
 	<string name="non_mutual_text1">تأكّد من أن ردّك مهذّب وذو صلة بالموضوع.</string>
+	<string name="non_mutual_title2">احتضن اللطف</string>
+	<string name="non_mutual_text2">النبرة الإيجابية موضع تقدير دائمًا.</string>
+	<string name="non_mutual_title3">كُن منفتحًا</string>
+	<string name="non_mutual_text3">لكل شخص أسلوبه الخاص في المحادثة. كُن مستعدًّا للتكيف.</string>
+	<string name="make_profile_discoverable">اجعل ملفي الشخصي قابلًا للاكتشاف</string>
+	<string name="discoverability">إمكانية الاكتشاف</string>
+	<string name="discoverability_help">عند تفعيل خاصية إمكانية الاكتشاف على منصة ماستودون، قد تظهر منشوراتك في نتائج البحث وفي قسم المواضيع الرائجة. \n\nكما قد يُقترح ملفك الشخصي على الأشخاص ذوي الاهتمامات المشابهة. \n\nإلغاء تفعيل هذه الخاصية لا يُخفي ملفك الشخصي إذا بحث أحدهم عنك بالاسم.</string>
 	<string name="do_block_server">حظر الخادوم</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<!-- %s is the username -->
@@ -750,4 +757,5 @@
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
 	<!-- %s is the current user's server domain -->
 	<!-- Placeholders are user display names -->
+	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
 </resources>

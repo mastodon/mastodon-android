@@ -8,7 +8,7 @@
 	<string name="ok">OK</string>
 	<string name="preparing_auth">A preparar a autenticação…</string>
 	<string name="finishing_auth">A finalizar a autenticação…</string>
-	<string name="user_boosted">%s reforçou</string>
+	<string name="user_boosted">%s impulsionou</string>
 	<string name="in_reply_to">responder a %s</string>
 	<string name="notifications">Notificações</string>
 	<string name="user_followed_you">%s começou a seguir-te</string>
@@ -190,7 +190,7 @@
 	<string name="new_post">Nova publicação</string>
 	<string name="button_reply">Responder</string>
 	<string name="button_reblog">Impulsionar</string>
-	<string name="button_favorite">Favoritar</string>
+	<string name="button_favorite">Adicionar aos favoritos</string>
 	<string name="button_share">Partilhar</string>
 	<string name="media_no_description">Multimédia sem descrição</string>
 	<string name="add_media">Adicionar multimédia</string>
@@ -911,9 +911,9 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="edit_user_personal_note">Editar nota pessoal</string>
 	<string name="user_personal_note_explanation">Notas pessoais são visíveis apenas para si.</string>
 	<string name="user_personal_note">Nota pessoal</string>
-	<string name="timeline_filter_posts_and_boosts">Publicações e partilhas</string>
+	<string name="timeline_filter_posts_and_boosts">Publicações e impulsos</string>
 	<string name="timeline_filter_show_replies">Mostrar respostas</string>
-	<string name="timeline_filter_show_boosts">Mostrar partilhas</string>
+	<string name="timeline_filter_show_boosts">Mostrar impulsos</string>
 	<string name="timeline_filter_all_activity">Toda a atividade</string>
 	<string name="timeline_filter_posts_and_replies">Publicações e respostas</string>
 	<string name="timeline_filter_posts">Publicações</string>
@@ -962,6 +962,7 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="handle_explanation_title">Um identificador é como um endereço de e-mail.</string>
 	<string name="handle_explanation_username">%s é o nome de utilizador desta conta no servidor em questão. É possível que alguém noutro servidor tenha o mesmo nome de utilizador.</string>
 	<string name="handle_explanation_domain">%s é o servidor que hospeda o perfil e as publicações do utilizador.</string>
+	<string name="handle_explanation_summary">Assim como podes enviar e-mails a pessoas que utilizam diferentes serviços de e-mail, podes interagir com pessoas noutros servidores Mastodon e com qualquer pessoa noutras aplicações sociais compatíveis com o Fediverso.</string>
 	<string name="pinned_post">Fixado</string>
 	<string name="view_all_pinned">Ver todas as publicações fixadas</string>
 	<string name="profile_show_all_fields">Mostrar todos os campos</string>
@@ -972,5 +973,20 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="profile_followers">Seguidores</string>
 	<string name="profile_following">A seguir</string>
 	<string name="user_follows_you">Segue-o</string>
+	<string name="profile_featured_empty_self">Fica atento às Coleções</string>
+	<string name="profile_featured_empty">Não há nada para ver aqui</string>
+	<string name="profile_featured_empty_description">%s ainda não tem destaques.</string>
+	<string name="profile_featured_empty_self_description">As coleções (chegarão no Mastodon 4.6) permitem-te criar as listas curadas de contas que recomendas.</string>
+	<string name="handle_explanation_copy">Copiar identificador</string>
+	<string name="request_to_follow_short">Pedido</string>
+	<string name="cancel_follow_request_short">Cancelar</string>
+	<string name="notification_filter_admin">Notificações de administrador</string>
+	<string name="notification_filter_admin_reports">Relatórios de administração</string>
+	<string name="notification_filter_admin_signups">Criação de contas</string>
+	<string name="notification_filter_admin_reports_explanation">Mostrar denúncias de ‘spam’, violação de regras e outras reclamações desta instância</string>
+	<string name="notification_filter_admin_signups_explanation">Mostrar notificações de criação de novas contas desta instância</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s denunciou %2$s</string>
+	<string name="notification_admin_signup">%s criou conta</string>
+	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
 </resources>

@@ -1084,4 +1084,19 @@
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s паскардзіўся(-лася) на %2$s</string>
 	<string name="notification_admin_signup">%s зарэгістраваўся(-лася)</string>
+	<string name="profile_collections">Калекцыі</string>
+	<string name="collection_by_author">ад %s</string>
+	<string name="account_last_active">Апошняя актыўнасць</string>
+	<string name="you_are_in_collection">Вас уключылі ў гэту калекцыю</string>
+	<string name="remove_self_from_collection">Выдаліць мяне</string>
+	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s дадаў(-ла) Вас %2$s</string>
+	<string name="sensitive_content">Адчувальнае змесціва</string>
+	<string name="collection_sensitive_description">Апісанне і ўліковыя запісы могуць не пасаваць усім гледачам.</string>
+	<string name="view_collection">Праглядзець калекцыю</string>
+	<string name="report_collection">Паскардзіцца на калекцыю</string>
+	<string name="confirm_remove_self_from_collection_title">Прыбраць Вас з \"%s\"?</string>
+	<string name="confirm_remove_self_from_collection">Гэтае дзеянне немагчыма скасаваць. \nГэты карыстальнік усё яшчэ зможа дадаваць Вас у іншыя калекцыі, калі Вы не заблакіруеце яго.</string>
+	<string name="notification_added_you_to_collection">%s дадаў(-ла) Вас у калекцыю</string>
+	<string name="notification_collection_edited">%s рэдагаваў(-ла) калекцыю, у якой ёсць Вы</string>
 </resources>
