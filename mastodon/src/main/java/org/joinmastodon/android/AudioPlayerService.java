@@ -260,7 +260,11 @@ public class AudioPlayerService extends Service{
 					case PAUSED -> PlaybackState.STATE_PAUSED;
 					case BUFFERING -> PlaybackState.STATE_BUFFERING;
 				}, player.getCurrentPosition(), 1f)
-				.setActions(PlaybackState.ACTION_STOP | PlaybackState.ACTION_PLAY_PAUSE | PlaybackState.ACTION_SEEK_TO)
+				.setActions(PlaybackState.ACTION_STOP | PlaybackState.ACTION_PLAY_PAUSE | PlaybackState.ACTION_SEEK_TO | switch(getPlayState()){
+					case PLAYING -> PlaybackState.ACTION_PAUSE;
+					case PAUSED -> PlaybackState.ACTION_PLAY;
+					case BUFFERING -> 0;
+				})
 				.build());
 		updateNotification(!player.isPlaying(), removeNotification);
 		for(Callback cb:callbacks)
