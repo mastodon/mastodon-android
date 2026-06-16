@@ -398,8 +398,8 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 			if(item.status!=null){
 				bookmark.setVisible(true);
 				bookmark.setTitle(item.status.bookmarked ? R.string.remove_bookmark : R.string.add_bookmark);
-				pin.setVisible(item.status.pinned!=null);
-				if(item.status.pinned!=null){
+				pin.setVisible(item.status.pinned!=null && isOwnPost);
+				if(item.status.pinned!=null && isOwnPost){
 					pin.setTitle(item.status.pinned ? R.string.unpin_post : R.string.pin_post);
 				}
 			}else{
