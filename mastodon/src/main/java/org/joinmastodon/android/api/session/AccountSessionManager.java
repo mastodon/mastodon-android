@@ -89,7 +89,7 @@ public class AccountSessionManager{
 	private static final String TAG="AccountSessionManager";
 	public static final String SCOPE="read write follow push";
 	public static final String REDIRECT_URI="mastodon-android-auth://callback";
-	private static final int DB_VERSION=3;
+	private static final int DB_VERSION=4;
 
 	private static final AccountSessionManager instance=new AccountSessionManager();
 
@@ -382,6 +382,10 @@ public class AccountSessionManager{
 						instances.put(domain, instance);
 						runOnDbThread(db->insertInstanceIntoDatabase(db, domain, instance, null, 0));
 						updateInstanceEmojis(instance, domain);
+						for(AccountSession s:sessions.values()){
+							if(s.domain.equals(domain))
+								s.getPushSubscriptionManager().registerFCM();
+						}
 					}
 
 					@Override
@@ -418,7 +422,7 @@ public class AccountSessionManager{
 	private void readInstanceInfo(SQLiteDatabase db, Set<String> domains){
 		for(String domain : domains){
 			final int maxEmojiLength=500000;
-			try(Cursor cursor=db.rawQuery("SELECT domain, instance_obj, substr(emojis,1,?) AS emojis, length(emojis) AS emoji_length, last_updated, version FROM instances WHERE `domain` = ?",
+			try(Cursor cursor=db.rawQuery("SELECT domain, instance_obj, substr(emojis,1,?) AS emojis, length(emojis) AS emoji_length, last_updated, version, app_version FROM instances WHERE `domain` = ?",
 					new String[]{String.valueOf(maxEmojiLength) , domain})) {
 				ContentValues values=new ContentValues();
 				while(cursor.moveToNext()){
@@ -450,7 +454,11 @@ public class AccountSessionManager{
 					}
 					List<Emoji> emojis=MastodonAPIController.gson.fromJson(emojiSB.toString(), new TypeToken<List<Emoji>>(){}.getType());
 					customEmojis.put(domain, groupCustomEmojis(emojis));
-					instancesLastUpdated.put(domain, values.getAsLong("last_updated"));
+					Long lastUpdated=values.getAsLong("last_updated");
+					int appVersion=values.getAsInteger("app_version");
+					if(appVersion!=BuildConfig.VERSION_CODE)
+						lastUpdated=null; // Force the instance to be reloaded after app update
+					instancesLastUpdated.put(domain, lastUpdated);
 				}
 			}catch(Exception ex){
 				Log.d(TAG, "readInstanceInfo failed", ex);
@@ -544,6 +552,9 @@ public class AccountSessionManager{
 					.add("auth", session.pushAuthKey)
 					.add("private", session.pushPrivateKey)
 					.add("public", session.pushPublicKey)
+					.add("fcm_token", session.pushToken)
+					.add("fcm_version", session.pushTokenVersion)
+					.add("fcm_last_refresh", session.pushTokenLastRefresh)
 					.build()
 					.toString());
 			values.put("push_subscription", MastodonAPIController.gson.toJson(session.pushSubscription));
@@ -686,6 +697,7 @@ public class AccountSessionManager{
 			values.put("emojis", MastodonAPIController.gson.toJson(emojis));
 		values.put("last_updated", lastUpdated);
 		values.put("version", instance.getVersion());
+		values.put("app_version", BuildConfig.VERSION_CODE);
 		db.insertWithOnConflict("instances", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 	}
 
@@ -764,7 +776,8 @@ public class AccountSessionManager{
 							`instance_obj` text,
 							`emojis` text,
 							`last_updated` bigint,
-							`version` integer NOT NULL DEFAULT 1
+							`version` integer NOT NULL DEFAULT 1,
+							`app_version` integer NOT NULL DEFAULT 0
 						)""");
 			maybeMigrateAccounts(db);
 		}
@@ -784,6 +797,9 @@ public class AccountSessionManager{
 			}
 			if(oldVersion<3){
 				db.execSQL("ALTER TABLE `instances` ADD `version` integer NOT NULL DEFAULT 1");
+			}
+			if(oldVersion<4){
+				db.execSQL("ALTER TABLE `instances` ADD `app_version` integer NOT NULL DEFAULT 0");
 			}
 		}
 

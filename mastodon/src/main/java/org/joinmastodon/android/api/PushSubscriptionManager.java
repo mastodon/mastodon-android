@@ -65,6 +65,7 @@ public class PushSubscriptionManager{
 	private PrivateKey privateKey;
 	private PublicKey publicKey;
 	private byte[] authKey;
+	private boolean registering;
 
 	public PushSubscriptionManager(String accountID){
 		this.accountID=accountID;
@@ -88,11 +89,16 @@ public class PushSubscriptionManager{
 	}
 
 	public void registerFCM(){
+		if(registering){
+			Log.d(TAG, "Account "+accountID+" is already being registered for push");
+			return;
+		}
+		registering=true;
 		AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
 		int tokenVersion=Math.max(getPrefs().getInt("version", 0), session.pushTokenVersion);
 		long tokenLastRefreshed=session.pushTokenLastRefresh;
 		if(!TextUtils.isEmpty(session.pushToken) && tokenVersion==BuildConfig.VERSION_CODE && System.currentTimeMillis()-tokenLastRefreshed<TOKEN_REFRESH_INTERVAL){
-			registerAccountForPush(session.pushSubscription);
+			Log.d(TAG, "Account "+accountID+" is already registered for push, no re-registration necessary");
 			return;
 		}
 		if(tokenVersion<145){ // Quote notifications added
@@ -102,6 +108,8 @@ public class PushSubscriptionManager{
 			}
 		}
 		Log.i(TAG, "["+accountID+"] registerFCM: no token found, token due for refresh, or app was updated. Trying to get push token...");
+		if(BuildConfig.DEBUG)
+			Log.i(TAG, "["+accountID+"] token: '"+session.pushToken+"', version: "+tokenVersion+", time since refresh: "+(System.currentTimeMillis()-tokenLastRefreshed));
 		if(session.pushAccountID==null || tokenVersion<184){
 			session.pushAccountID=UUID.randomUUID().toString();
 			AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
@@ -113,6 +121,7 @@ public class PushSubscriptionManager{
 		String sender=session.getInstanceInfo().getVapidPublicKey();
 		if(sender==null){
 			Log.w(TAG, "Can't register account "+accountID+" for push because the server does not provide a public key");
+			registering=false;
 			return;
 		}
 		String subtype="wp:https://"+session.domain+"/#"+session.pushAccountID;
@@ -170,8 +179,10 @@ public class PushSubscriptionManager{
 			Log.d(TAG, "registerAccountForPush: started for "+accountID);
 			String encodedPublicKey, encodedAuthKey, pushAccountID=session.pushAccountID;
 			if(session.hasPushCredentials()){
-				if(!loadKeys(session))
+				if(!loadKeys(session)){
+					registering=false;
 					return;
+				}
 				encodedAuthKey=session.pushAuthKey;
 			}else{
 				try{
@@ -192,6 +203,7 @@ public class PushSubscriptionManager{
 					AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 				}catch(NoSuchAlgorithmException|InvalidAlgorithmParameterException e){
 					Log.e(TAG, "registerAccountForPush: error generating encryption key", e);
+					registering=false;
 					return;
 				}
 			}
@@ -208,6 +220,7 @@ public class PushSubscriptionManager{
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(PushSubscription result){
+							registering=false;
 							MastodonAPIController.runInBackground(()->{
 								AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
 								if(session==null)
@@ -222,6 +235,7 @@ public class PushSubscriptionManager{
 
 						@Override
 						public void onError(ErrorResponse error){
+							registering=false;
 						}
 					})
 					.exec(accountID);
@@ -441,7 +455,6 @@ public class PushSubscriptionManager{
 					session.pushToken=token;
 					session.pushTokenVersion=BuildConfig.VERSION_CODE;
 					session.pushTokenLastRefresh=System.currentTimeMillis();
-					AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 					Log.i(TAG, "Successfully registered for FCM");
 					session.getPushSubscriptionManager().registerAccountForPush(session.pushSubscription);
 				}else{

@@ -133,7 +133,7 @@ public class AccountSession{
 			pushAuthKey=pushKeys.get("auth").getAsString();
 			pushPrivateKey=pushKeys.get("private").getAsString();
 			pushPublicKey=pushKeys.get("public").getAsString();
-			if(pushKeys.has("push_token")){
+			if(pushKeys.has("fcm_token")){
 				pushToken=pushKeys.get("fcm_token").getAsString();
 				pushTokenVersion=pushKeys.get("fcm_version").getAsInt();
 				pushTokenLastRefresh=pushKeys.get("fcm_last_refresh").getAsLong();
