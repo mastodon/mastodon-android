@@ -131,8 +131,14 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 			if(!knownAccounts.containsKey(a.id))
 				knownAccounts.put(a.id, a);
 		}
-		if(s.status!=null && !knownAccounts.containsKey(s.status.account.id))
-			knownAccounts.put(s.status.account.id, s.status.account);
+		if(s.status!=null){
+			if(!knownAccounts.containsKey(s.status.account.id))
+				knownAccounts.put(s.status.account.id, s.status.account);
+			if(s.status.reblog!=null && !knownAccounts.containsKey(s.status.reblog.account.id))
+				knownAccounts.put(s.status.reblog.account.id, s.status.reblog.account);
+			if(s.status.quote!=null && s.status.quote.quotedStatus!=null && !knownAccounts.containsKey(s.status.quote.quotedStatus.account.id))
+				knownAccounts.put(s.status.quote.quotedStatus.account.id, s.status.quote.quotedStatus.account);
+		}
 	}
 
 	@Override
@@ -199,6 +205,8 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 					if(++i==4)
 						break;
 				}
+			}else if(n.status!=null){
+				extractCollectionAccountsFromStatus(ids, n.status.getContentStatus());
 			}
 		}
 		return ids;

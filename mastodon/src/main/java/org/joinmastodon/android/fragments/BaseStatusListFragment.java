@@ -30,6 +30,8 @@ import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.Translation;
+import org.joinmastodon.android.model.collections.AccountCollection;
+import org.joinmastodon.android.model.collections.CollectionItem;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.displayitems.AccountStatusDisplayItem;
@@ -739,6 +741,23 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	protected Set<String> extractExtraAccountIDs(List<T> items){
 		return Set.of();
+	}
+
+	protected void extractCollectionAccountsFromStatus(Set<String> ids, Status status){
+		if(status.taggedCollections!=null && !status.taggedCollections.isEmpty()){
+			int i=0;
+			AccountCollection collection=status.taggedCollections.get(0);
+			if(!knownAccounts.containsKey(collection.accountId))
+				ids.add(collection.accountId);
+			for(CollectionItem item:collection.items){
+				if(!knownAccounts.containsKey(item.accountId))
+					ids.add(item.accountId);
+				if(++i==4)
+					break;
+			}
+		}
+		if(status.quote!=null && status.quote.quotedStatus!=null)
+			extractCollectionAccountsFromStatus(ids, status.quote.quotedStatus);
 	}
 
 	protected void loadExtraAccounts(Set<String> ids){

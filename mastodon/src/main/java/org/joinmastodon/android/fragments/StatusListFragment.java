@@ -39,6 +39,10 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	protected void addAccountToKnown(Status s){
 		if(!knownAccounts.containsKey(s.account.id))
 			knownAccounts.put(s.account.id, s.account);
+		if(s.reblog!=null && !knownAccounts.containsKey(s.reblog.account.id))
+			knownAccounts.put(s.reblog.account.id, s.reblog.account);
+		if(s.quote!=null && s.quote.quotedStatus!=null && !knownAccounts.containsKey(s.quote.quotedStatus.account.id))
+			knownAccounts.put(s.quote.quotedStatus.account.id, s.quote.quotedStatus.account);
 	}
 
 	@Override
@@ -78,16 +82,7 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	protected Set<String> extractExtraAccountIDs(List<Status> items){
 		HashSet<String> ids=new HashSet<>();
 		for(Status s:items){
-			if(s.taggedCollections!=null && !s.taggedCollections.isEmpty()){
-				int i=0;
-				AccountCollection collection=s.taggedCollections.get(0);
-				for(CollectionItem item:collection.items){
-					if(!knownAccounts.containsKey(item.accountId))
-						ids.add(item.accountId);
-					if(++i==4)
-						break;
-				}
-			}
+			extractCollectionAccountsFromStatus(ids, s.getContentStatus());
 		}
 		return ids;
 	}
