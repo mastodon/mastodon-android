@@ -932,6 +932,10 @@
 	<string name="edit_profile_custom_fields_help">Συμβουλή: Προσθέστε αξιοπιστία στο λογαριασμό σας Mastodon επαληθεύοντας τους συνδέσμους προς τις ιστοσελίδες που κατέχετε. <i>Μάθετε περισσότερα</i></string>
 	<string name="edit_profile_link_verification_help_title">Προσθήκη επαληθευμένου συνδέσμου</string>
 	<string name="edit_profile_link_verification_help">Πρόσθεσε αξιοπιστία στο Mastodon προφίλ σου επαληθεύοντας συνδέσμους σε προσωπικές ιστοσελίδες. Ορίστε πως δουλεύει:</string>
+	<string name="edit_profile_link_verification_title1">Αντέγραψε τον παρακάτω κώδικα HTML</string>
+	<string name="edit_profile_link_verification_title2">Επικόλλησε τον κώδικα στην κεφαλίδα HTML του ιστότοπού σου</string>
+	<string name="edit_profile_link_verification_title3">Πρόσθεσε την ιστοσελίδα σου ως προσαρμοσμένο πεδίο</string>
+	<string name="edit_profile_link_verification_text3">Αν έχεις ήδη προσθέσει τον ιστότοπό σου ως προσαρμοσμένο πεδίο, θα χρειαστεί να τον διαγράψεις και να τον προσθέσεις ξανά για να ενεργοποιηθεί η επαλήθευση.</string>
 	<string name="edit_profile_field">Επεξεργασία πεδίου</string>
 	<string name="edit_profile_field_label_example">Π.χ. «Προσωπικός ιστότοπος»</string>
 	<string name="edit_profile_field_value_example">Π.χ. “example.me”</string>
@@ -939,14 +943,23 @@
 		<item quantity="one">%,d μέγιστος χαρακτήρας</item>
 		<item quantity="other">%,d μέγιστοι χαρακτήρες</item>
 	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">Χρησιμοποιείται σε %,d ανάρτηση</item>
+		<item quantity="other">Χρησιμοποιείται σε %,d αναρτήσεις</item>
+	</plurals>
 	<string name="add_featured_hashtag">Προσθήκη ετικέτας</string>
 	<string name="hashtag">Ετικέτα</string>
 	<string name="confirm_remove_featured_hashtag">Αφαίρεση ετικέτας;</string>
 	<string name="edit_profile_show_media_tab">Καρτέλα «Πολυμέσα»</string>
+	<string name="edit_profile_show_media_tab_description">Εμφανίζει τις αναρτήσεις σου που περιέχουν πολυμέσα</string>
 	<string name="edit_profile_show_media_replies">Συμπερίληψη απαντήσεων</string>
 	<string name="edit_profile_show_featured_tab">Καρτέλα «Αναδεδειγμένα»</string>
+	<string name="edit_profile_show_featured_tab_description">Ένας χώρος για την ανάδειξη άλλων λογαριασμών</string>
 	<!-- %s is the current user's server domain -->
 	<string name="handle_explanation_title">Ένα πλήρες όνομα χρήστη είναι σαν μια διεύθυνση email.</string>
+	<string name="handle_explanation_username">Το %s είναι το όνομα χρήστη αυτού του λογαριασμού στο διακομιστή του. Κάποιος σε άλλο διακομιστή μπορεί να έχει το ίδιο όνομα χρήστη.</string>
+	<string name="handle_explanation_domain">Το %s είναι ο διακομιστής που φιλοξενεί το προφίλ και τις αναρτήσεις του χρήστη.</string>
+	<string name="handle_explanation_summary">Ακριβώς όπως μπορείς να στείλεις email σε κόσμο χρησιμοποιώντας διαφορετικούς παρόχους ηλεκτρονικού ταχυδρομείου, μπορείς να αλληλεπιδράσεις με άτομα σε άλλους διακομιστές Mastodon, και με οποιονδήποτε σε άλλες εφαρμογές του Fediverse.</string>
 	<string name="pinned_post">Καρφιτσωμένο</string>
 	<string name="view_all_pinned">Προβολή όλων των καρφιτσωμένων αναρτήσεων</string>
 	<string name="profile_show_all_fields">Εμφάνιση όλων των πεδίων</string>
@@ -960,8 +973,13 @@
 	<string name="profile_featured_empty">Τίποτα να δεις εδώ</string>
 	<string name="profile_featured_empty_self_description">Οι Συλλογές (που έρχονται στο Mastodon 4.6) επιτρέπουν να δημιουργήσεις τις δικές σου επιμελημένες λίστες λογαριασμών για να συστήσεις σε άλλους.</string>
 	<string name="handle_explanation_copy">Αντιγραφή πλήρους ονόματος χρήστη</string>
+	<string name="request_to_follow_short">Αίτημα</string>
+	<string name="cancel_follow_request_short">Ακύρωση</string>
 	<string name="notification_filter_admin">Ειδοποιήσεις διαχειριστή</string>
 	<string name="notification_filter_admin_reports">Αναφορές διαχειριστή</string>
 	<string name="notification_filter_admin_signups">Εγγραφές λογαριασμών</string>
+	<string name="notification_filter_admin_reports_explanation">Εμφάνιση αναφορών σπαμ, παραβιάσεων κανόνων και άλλων καταγγελιών σε αυτόν τον διακομιστή</string>
+	<string name="notification_filter_admin_signups_explanation">Εμφάνιση ειδοποιήσεων για νέους λογαριασμούς που δημιουργήθηκαν σε αυτόν τον διακομιστή</string>
 	<!-- Placeholders are user display names -->
+	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
 </resources>
