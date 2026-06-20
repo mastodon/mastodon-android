@@ -12,8 +12,6 @@ import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.events.StatusUpdatedEvent;
 import org.joinmastodon.android.model.Status;
-import org.joinmastodon.android.model.collections.AccountCollection;
-import org.joinmastodon.android.model.collections.CollectionItem;
 import org.joinmastodon.android.ui.displayitems.CollectionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
@@ -99,7 +97,8 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 				}
 			}
 		}
-		imgLoader.updateImages();
+		if(imgLoader!=null)
+			imgLoader.updateImages();
 	}
 
 	protected void onStatusCreated(Status status){}
