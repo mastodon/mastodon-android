@@ -1,5 +1,6 @@
 api_token_env: CROWDIN_PERSONAL_TOKEN
 project_id: '511116'
+preserve_hierarchy: true
 files:
   - source: /mastodon/src/main/res/values/strings.xml
     translation: /mastodon/src/main/res/values-%android_code%/strings.xml
