@@ -83,6 +83,8 @@ public abstract class Instance extends BaseModel{
 		return getApiVersion("mastodon");
 	}
 
+	// region API compatibility helpers
+
 	public boolean supportsQuotePostAuthoring(){
 		return getApiVersion()>=7;
 	}
@@ -94,6 +96,12 @@ public abstract class Instance extends BaseModel{
 	public boolean supportsNewProfileEditingEndpoints(){
 		return getApiVersion()>=8;
 	}
+
+	public boolean supportsOAuthPKCE(){
+		return getApiVersion()>=3;
+	}
+
+	// endregion
 
 	public String getVapidPublicKey(){
 		if(configuration!=null && configuration.vapid!=null && !TextUtils.isEmpty(configuration.vapid.publicKey))

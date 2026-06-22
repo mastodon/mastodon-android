@@ -451,7 +451,7 @@ public class SignupFragment extends ToolbarFragment{
 	}
 
 	private void getToken(){
-		currentBackgroundRequest=new GetOauthToken(apiApplication.clientId, apiApplication.clientSecret, null, GetOauthToken.GrantType.CLIENT_CREDENTIALS)
+		currentBackgroundRequest=new GetOauthToken(apiApplication.clientId, apiApplication.clientSecret, null, null, GetOauthToken.GrantType.CLIENT_CREDENTIALS)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Token result){

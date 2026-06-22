@@ -19,6 +19,7 @@ import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -38,7 +39,6 @@ import org.joinmastodon.android.api.DatabaseRunnable;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.MastodonErrorResponse;
-import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.WrapperRequest;
 import org.joinmastodon.android.api.gson.JsonObjectBuilder;
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
@@ -63,6 +63,7 @@ import org.joinmastodon.android.model.Preferences;
 import org.joinmastodon.android.model.Profile;
 import org.joinmastodon.android.model.Token;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.utils.CryptoUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -88,7 +89,7 @@ import me.grishka.appkit.api.ErrorResponse;
 public class AccountSessionManager{
 	private static final String TAG="AccountSessionManager";
 	public static final String SCOPE="read write follow push";
-	public static final String REDIRECT_URI="mastodon-android-auth://callback";
+	public static final String REDIRECT_URI=BuildConfig.APPLICATION_ID+"-auth://callback";
 	private static final int DB_VERSION=4;
 
 	private static final AccountSessionManager instance=new AccountSessionManager();
@@ -100,6 +101,7 @@ public class AccountSessionManager{
 	private MastodonAPIController unauthenticatedApiController=new MastodonAPIController(null);
 	private Instance authenticatingInstance;
 	private Application authenticatingApp;
+	private String authenticatingCodeVerifier;
 	private String lastActiveAccountID;
 	private SharedPreferences prefs;
 	private boolean loadedInstances;
@@ -256,14 +258,21 @@ public class AccountSessionManager{
 	public void authenticate(Activity activity, Instance instance, Application clientApp){
 		authenticatingInstance=instance;
 		authenticatingApp=clientApp;
-		Uri uri=new Uri.Builder()
+		Uri.Builder uriBuilder=new Uri.Builder()
 				.scheme("https")
 				.authority(instance.getDomain())
 				.path("/oauth/authorize")
 				.appendQueryParameter("response_type", "code")
 				.appendQueryParameter("client_id", clientApp.clientId)
 				.appendQueryParameter("redirect_uri", REDIRECT_URI)
-				.appendQueryParameter("scope", SCOPE)
+				.appendQueryParameter("scope", SCOPE);
+		if(instance.supportsOAuthPKCE()){
+			authenticatingCodeVerifier=Base64.encodeToString(CryptoUtils.randomBytes(32), Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);
+			uriBuilder.appendQueryParameter("code_challenge", Base64.encodeToString(CryptoUtils.sha256(authenticatingCodeVerifier.getBytes(StandardCharsets.UTF_8)),
+					Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP))
+					.appendQueryParameter("code_challenge_method", "S256");
+		}
+		Uri uri=uriBuilder
 				.build();
 
 		try{
@@ -287,6 +296,10 @@ public class AccountSessionManager{
 
 	public Application getAuthenticatingApp(){
 		return authenticatingApp;
+	}
+
+	public String getAuthenticatingCodeVerifier(){
+		return authenticatingCodeVerifier;
 	}
 
 	public void maybeUpdateLocalInfo(){

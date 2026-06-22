@@ -55,7 +55,7 @@ public class OAuthActivity extends Activity{
 		progress.setMessage(getString(R.string.finishing_auth));
 		progress.setCancelable(false);
 		progress.show();
-		new GetOauthToken(app.clientId, app.clientSecret, code, GetOauthToken.GrantType.AUTHORIZATION_CODE)
+		new GetOauthToken(app.clientId, app.clientSecret, code, AccountSessionManager.getInstance().getAuthenticatingCodeVerifier(), GetOauthToken.GrantType.AUTHORIZATION_CODE)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Token token){

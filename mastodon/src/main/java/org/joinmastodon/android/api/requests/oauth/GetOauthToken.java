@@ -7,11 +7,11 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Token;
 
 public class GetOauthToken extends MastodonAPIRequest<Token>{
-	public GetOauthToken(String clientID, String clientSecret, String code, GrantType grantType){
+	public GetOauthToken(String clientID, String clientSecret, String code, String codeVerifier, GrantType grantType){
 		super(HttpMethod.POST, "/oauth/token", Token.class);
 		setRequestBody(new Request(clientID, clientSecret, code, grantType,
 				grantType==GrantType.CLIENT_CREDENTIALS ? AccountSessionManager.SCOPE : null,
-				grantType==GrantType.CLIENT_CREDENTIALS ? null : AccountSessionManager.REDIRECT_URI));
+				grantType==GrantType.CLIENT_CREDENTIALS ? null : AccountSessionManager.REDIRECT_URI, codeVerifier));
 	}
 
 	@Override
@@ -26,14 +26,16 @@ public class GetOauthToken extends MastodonAPIRequest<Token>{
 		public String redirectUri;
 		public String scope;
 		public String code;
+		public String codeVerifier;
 
-		public Request(String clientId, String clientSecret, String code, GrantType grantType, String scope, String redirectUri){
+		public Request(String clientId, String clientSecret, String code, GrantType grantType, String scope, String redirectUri, String codeVerifier){
 			this.clientId=clientId;
 			this.clientSecret=clientSecret;
 			this.code=code;
 			this.grantType=grantType;
 			this.scope=scope;
 			this.redirectUri=redirectUri;
+			this.codeVerifier=codeVerifier;
 		}
 	}
 
