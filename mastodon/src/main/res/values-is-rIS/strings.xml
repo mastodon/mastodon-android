@@ -973,10 +973,10 @@
 	<string name="profile_followers">Fylgjendur</string>
 	<string name="profile_following">Fylgjast með</string>
 	<string name="user_follows_you">Fylgist með þér</string>
-	<string name="profile_featured_empty_self">Kynntu þér hvað séu söfn</string>
+	<string name="profile_featured_empty_self">Kynntu eftirlætisaðgangana þína</string>
 	<string name="profile_featured_empty">Ekkert að sjá hér</string>
 	<string name="profile_featured_empty_description">%s hefur enn ekki gefið neinu aukið vægi.</string>
-	<string name="profile_featured_empty_self_description">Söfn (sem koma fram í Mastodon 4.6) gera þér kleift að búa til þina eigin ritstýrðu lista yfir þá aðganga sem þú vilt mæla með við aðra.</string>
+	<string name="profile_featured_empty_self_description">Söfn eru ritstýrðir listar yfir aðganga til að hjálpa öðrum að uppgötva fleira á samfélagsnetinu. Þú getur útbúið söfn í vefviðmóti Mastodon.</string>
 	<string name="handle_explanation_copy">Afrita kennislóð</string>
 	<string name="request_to_follow_short">Beiðni</string>
 	<string name="cancel_follow_request_short">Hætta við</string>
@@ -988,5 +988,19 @@
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s kærði %2$s</string>
 	<string name="notification_admin_signup">%s skráði sig</string>
+	<string name="profile_collections">Söfn</string>
+	<string name="collection_by_author">frá %s</string>
+	<string name="account_last_active">Síðasta virkni</string>
+	<string name="you_are_in_collection">Þú kemur fyrir í þessu safni</string>
+	<string name="remove_self_from_collection">Fjarlægja mig</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s bætti þér við þann %2$s</string>
+	<string name="sensitive_content">Viðkvæmt efni</string>
+	<string name="collection_sensitive_description">Lýsing og aðgangar gætu ekki hentað hverjum sem er.</string>
+	<string name="view_collection">Skoða safn</string>
+	<string name="report_collection">Kæra safn</string>
+	<string name="confirm_remove_self_from_collection_title">Fjarlægja þig úr “%s”?</string>
+	<string name="confirm_remove_self_from_collection">Þessa aðgerð er ekki hægt að afturkalla.\nÞessi notandi mun áfram geta bætt þér í önnur söfn, nema ef þú lokar á viðkomandi.</string>
+	<string name="notification_added_you_to_collection">%s bætti þér í safn</string>
+	<string name="notification_collection_edited">%s breytti safni sem þú ert í</string>
 </resources>

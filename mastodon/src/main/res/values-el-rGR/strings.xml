@@ -934,6 +934,7 @@
 	<string name="edit_profile_link_verification_help">Πρόσθεσε αξιοπιστία στο Mastodon προφίλ σου επαληθεύοντας συνδέσμους σε προσωπικές ιστοσελίδες. Ορίστε πως δουλεύει:</string>
 	<string name="edit_profile_link_verification_title1">Αντέγραψε τον παρακάτω κώδικα HTML</string>
 	<string name="edit_profile_link_verification_title2">Επικόλλησε τον κώδικα στην κεφαλίδα HTML του ιστότοπού σου</string>
+	<string name="edit_profile_link_verification_text2">Προσθέτοντας τον κώδικα στην κεφαλίδα σου επιτρέπει το στοιχείο &lt;a&gt; να παραμείνει αόρατο. Το χαρακτηριστικό rel=\"me\" αποτρέπει την προσωποποίηση σε ιστότοπους με περιεχόμενο παραγόμενο από το χρήστη - οπότε είναι σημαντικό να το διατηρήσεις.</string>
 	<string name="edit_profile_link_verification_title3">Πρόσθεσε την ιστοσελίδα σου ως προσαρμοσμένο πεδίο</string>
 	<string name="edit_profile_link_verification_text3">Αν έχεις ήδη προσθέσει τον ιστότοπό σου ως προσαρμοσμένο πεδίο, θα χρειαστεί να τον διαγράψεις και να τον προσθέσεις ξανά για να ενεργοποιηθεί η επαλήθευση.</string>
 	<string name="edit_profile_field">Επεξεργασία πεδίου</string>
@@ -956,6 +957,7 @@
 	<string name="edit_profile_show_featured_tab">Καρτέλα «Αναδεδειγμένα»</string>
 	<string name="edit_profile_show_featured_tab_description">Ένας χώρος για την ανάδειξη άλλων λογαριασμών</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Αυτές οι ρυθμίσεις προσαρμόζουν τι βλέπουν οι χρήστες στο %s στις επίσημες εφαρμογές, αλλά δεν μπορούν να εφαρμοστούν για χρήστες σε άλλους διακομιστές και εφαρμογές 3ων.</string>
 	<string name="handle_explanation_title">Ένα πλήρες όνομα χρήστη είναι σαν μια διεύθυνση email.</string>
 	<string name="handle_explanation_username">Το %s είναι το όνομα χρήστη αυτού του λογαριασμού στο διακομιστή του. Κάποιος σε άλλο διακομιστή μπορεί να έχει το ίδιο όνομα χρήστη.</string>
 	<string name="handle_explanation_domain">Το %s είναι ο διακομιστής που φιλοξενεί το προφίλ και τις αναρτήσεις του χρήστη.</string>
@@ -963,15 +965,15 @@
 	<string name="pinned_post">Καρφιτσωμένο</string>
 	<string name="view_all_pinned">Προβολή όλων των καρφιτσωμένων αναρτήσεων</string>
 	<string name="profile_show_all_fields">Εμφάνιση όλων των πεδίων</string>
+	<string name="unfeature_user">Να μην αναδεικνύεται στο προφίλ μου</string>
 	<string name="confirm_delete_profile_field">Διαγραφή πεδίου;</string>
 	<string name="confirm_delete_avatar">Αφαίρεση εικόνας προφίλ;</string>
 	<string name="confirm_delete_cover">Αφαίρεση εικόνας κεφαλίδας;</string>
 	<string name="profile_followers">Ακόλουθοι</string>
 	<string name="profile_following">Ακολουθεί</string>
 	<string name="user_follows_you">Σε ακολουθεί</string>
-	<string name="profile_featured_empty_self">Μείνετε συντονισμένοι για τις Συλλογές</string>
 	<string name="profile_featured_empty">Τίποτα να δεις εδώ</string>
-	<string name="profile_featured_empty_self_description">Οι Συλλογές (που έρχονται στο Mastodon 4.6) επιτρέπουν να δημιουργήσεις τις δικές σου επιμελημένες λίστες λογαριασμών για να συστήσεις σε άλλους.</string>
+	<string name="profile_featured_empty_description">%s δεν έχει αναδείξει τίποτα ακόμη.</string>
 	<string name="handle_explanation_copy">Αντιγραφή πλήρους ονόματος χρήστη</string>
 	<string name="request_to_follow_short">Αίτημα</string>
 	<string name="cancel_follow_request_short">Ακύρωση</string>
@@ -981,5 +983,21 @@
 	<string name="notification_filter_admin_reports_explanation">Εμφάνιση αναφορών σπαμ, παραβιάσεων κανόνων και άλλων καταγγελιών σε αυτόν τον διακομιστή</string>
 	<string name="notification_filter_admin_signups_explanation">Εμφάνιση ειδοποιήσεων για νέους λογαριασμούς που δημιουργήθηκαν σε αυτόν τον διακομιστή</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s ανέφερε %2$s</string>
+	<string name="notification_admin_signup">%s εγγράφηκε</string>
+	<string name="profile_collections">Συλλογές</string>
+	<string name="collection_by_author">από %s</string>
+	<string name="account_last_active">Τελευταία ενεργός</string>
+	<string name="you_are_in_collection">Αναδεικνύεσαι σ\' αυτή την συλλογή</string>
+	<string name="remove_self_from_collection">Αφαίρεσέ με</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">Ο χρήστης %1$s σέ πρόσθεσε σε %2$s</string>
+	<string name="sensitive_content">Ευαίσθητο περιεχόμενο</string>
+	<string name="collection_sensitive_description">Η περιγραφή και οι λογαριασμοί μπορεί να μην είναι κατάλληλα για όλους τους θεατές.</string>
+	<string name="view_collection">Προβολή συλλογής</string>
+	<string name="report_collection">Αναφορά συλλογής</string>
+	<string name="confirm_remove_self_from_collection_title">Αφαίρεσε τον εαυτό σου από “%s”;</string>
+	<string name="confirm_remove_self_from_collection">Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.\nΑυτός ο χρήστης θα είναι σε θέση να σε προσθέσει σε άλλες συλλογές, εκτός αν τις μπλοκάρεις.</string>
+	<string name="notification_added_you_to_collection">%s σε πρόσθεσε σε μια συλλογή</string>
+	<string name="notification_collection_edited">%s επεξεργάστηκε μια συλλογή στην οποία περιλαμβάνεσαι</string>
 </resources>

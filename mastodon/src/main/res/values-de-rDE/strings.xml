@@ -972,10 +972,10 @@
 	<string name="profile_followers">Follower</string>
 	<string name="profile_following">Folge ich</string>
 	<string name="user_follows_you">Folgt dir</string>
-	<string name="profile_featured_empty_self">Sammlungen sind bald verfügbar</string>
+	<string name="profile_featured_empty_self">Präsentiere deine liebsten Konten</string>
 	<string name="profile_featured_empty">Hier gibt es nichts zu sehen</string>
 	<string name="profile_featured_empty_description">%s hat noch nichts vorgestellt.</string>
-	<string name="profile_featured_empty_self_description">Mit Sammlungen (ab Mastodon v4.6) kannst du eigene Listen kuratieren, um auf empfehlenswerte Profile hinzuweisen.</string>
+	<string name="profile_featured_empty_self_description">Sammlungen sind kuratierte Listen, die anderen helfen, mehr Konten im Fediverse zu entdecken. Sammlungen können in der Webversion von Mastodon erstellt werden.</string>
 	<string name="handle_explanation_copy">Adresse kopieren</string>
 	<string name="request_to_follow_short">Folgeanfrage</string>
 	<string name="cancel_follow_request_short">Zurückziehen</string>
@@ -987,5 +987,19 @@
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s meldete %2$s</string>
 	<string name="notification_admin_signup">%s registrierte sich</string>
+	<string name="profile_collections">Sammlungen</string>
+	<string name="collection_by_author">von %s</string>
+	<string name="account_last_active">Neueste Aktivität</string>
+	<string name="you_are_in_collection">Du bist ein Teil dieser Sammlung</string>
+	<string name="remove_self_from_collection">Mich entfernen</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s fügte dich am %2$s hinzu</string>
+	<string name="sensitive_content">Inhaltswarnung</string>
+	<string name="collection_sensitive_description">Die Beschreibung und Konten sind möglicherweise nicht für alle geeignet.</string>
+	<string name="view_collection">Sammlung anzeigen</string>
+	<string name="report_collection">Sammlung melden</string>
+	<string name="confirm_remove_self_from_collection_title">Möchtest du wirklich aus „%s“ entfernt werden?</string>
+	<string name="confirm_remove_self_from_collection">Diese Aktion kann nicht rückgängig gemacht werden.\nDas Profil wird dich trotzdem zu anderen Sammlungen hinzufügen können, solange es nicht blockiert wird.</string>
+	<string name="notification_added_you_to_collection">%s fügte dich zu einer Sammlung hinzu</string>
+	<string name="notification_collection_edited">%s hat eine Sammlung bearbeitet, in der du vorgestellt wirst</string>
 </resources>
