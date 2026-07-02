@@ -973,10 +973,10 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="profile_followers">Follower</string>
 	<string name="profile_following">Seguiti</string>
 	<string name="user_follows_you">Ti segue</string>
-	<string name="profile_featured_empty_self">Resta sintonizzato/a per le collezioni</string>
+	<string name="profile_featured_empty_self">Mostra i tuoi account preferiti</string>
 	<string name="profile_featured_empty">Niente da vedere qui</string>
 	<string name="profile_featured_empty_description">%s non ha ancora messo nulla in evidenza.</string>
-	<string name="profile_featured_empty_self_description">Le collezioni (in arrivo su Mastodon 4.6) ti permettono di creare i tuoi elenchi curati di account da consigliare ad altri.</string>
+	<string name="profile_featured_empty_self_description">Le collezioni sono elenchi curati di account che aiutano gli altri utenti a scoprire di più sul fediverso. Puoi creare collezioni sull\'applicazione web di Mastodon.</string>
 	<string name="handle_explanation_copy">Copia il nome univoco</string>
 	<string name="request_to_follow_short">Richiesta</string>
 	<string name="cancel_follow_request_short">Annulla</string>
@@ -988,5 +988,19 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s ha segnalato %2$s</string>
 	<string name="notification_admin_signup">%s si è iscritto/a</string>
+	<string name="profile_collections">Collezioni</string>
+	<string name="collection_by_author">di %s</string>
+	<string name="account_last_active">Ultima attività</string>
+	<string name="you_are_in_collection">Sei presente in questa collezione</string>
+	<string name="remove_self_from_collection">Rimuovimi</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s ti ha aggiunto/a in data: %2$s</string>
+	<string name="sensitive_content">Contenuto sensibile</string>
+	<string name="collection_sensitive_description">La descrizione e gli account potrebbero non essere adatti a tutti i tipi di pubblico.</string>
+	<string name="view_collection">Visualizza la collezione</string>
+	<string name="report_collection">Segnala la collezione</string>
+	<string name="confirm_remove_self_from_collection_title">Rimuovere te stesso/a da \"%s”?</string>
+	<string name="confirm_remove_self_from_collection">Questa azione non può essere annullata.\nQuesto utente potrà comunque aggiungerti ad altre collezioni, a meno che tu non lo blocchi.</string>
+	<string name="notification_added_you_to_collection">%s ti ha aggiunto/a a una collezione</string>
+	<string name="notification_collection_edited">%s ha modificato una collezione in cui sei presente</string>
 </resources>

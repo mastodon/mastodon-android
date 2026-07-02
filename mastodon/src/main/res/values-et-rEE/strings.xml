@@ -973,10 +973,10 @@ Mida rohkem inimesi sa tead ja jälgid, seda aktiivsem ja huvitavam ta saab olem
 	<string name="profile_followers">Jälgijad</string>
 	<string name="profile_following">Sa jälgid</string>
 	<string name="user_follows_you">Jälgib sind</string>
-	<string name="profile_featured_empty_self">Ole valmis, kogumikud on varsti kasutusel</string>
+	<string name="profile_featured_empty_self">Näita oma lemmikkontosid</string>
 	<string name="profile_featured_empty">Siin ei ole midagi vaadatavat</string>
 	<string name="profile_featured_empty_description">%s pole veel midagi esile tõstnud.</string>
-	<string name="profile_featured_empty_self_description">Kogumikud (lisanduvad Mastodoni versioonis 4.6) võimaldavad sul luua omakoostatud kasutajakontode nimekirju, mida teistele soovitada.</string>
+	<string name="profile_featured_empty_self_description">Kogumikud on hoolega hallatud kasutajakontode loendid, mis aitavad huvilisel Födiversumist avastada enamat. Kogumikke saad koostada Mastodoni veebirakenduses.</string>
 	<string name="handle_explanation_copy">Kopeeri kasutajatunnus</string>
 	<string name="request_to_follow_short">Päring</string>
 	<string name="cancel_follow_request_short">Katkesta</string>
@@ -988,5 +988,19 @@ Mida rohkem inimesi sa tead ja jälgid, seda aktiivsem ja huvitavam ta saab olem
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s teatas kasutajast %2$s</string>
 	<string name="notification_admin_signup">%s liitus</string>
+	<string name="profile_collections">Kogumikud</string>
+	<string name="collection_by_author">autorilt %s</string>
+	<string name="account_last_active">Viimati aktiivne</string>
+	<string name="you_are_in_collection">Sa oled selles kogumikus esile tõstetud</string>
+	<string name="remove_self_from_collection">Eemalda mind</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s lisas sind %2$s</string>
+	<string name="sensitive_content">Delikaatne sisu</string>
+	<string name="collection_sensitive_description">Kirjeldus ja kontod ei pruugi kõigi vaatajate jaoks sobivad olla.</string>
+	<string name="view_collection">Vaata kogumikku</string>
+	<string name="report_collection">Teata sellest kogumikust</string>
+	<string name="confirm_remove_self_from_collection_title">Kas eemaldad ennast „%s“ kogumikust?</string>
+	<string name="confirm_remove_self_from_collection">Seda tegevust ei saa tagasi pöörata.\nKui sa just pole teda blokeeringud, siis see kasutaja saab sind jätkuvalt lisada muudesse kogumikesse.</string>
+	<string name="notification_added_you_to_collection">%s lisas sind kogumikku</string>
+	<string name="notification_collection_edited">%s muutis kogumikku, kuhu sa kuulud</string>
 </resources>

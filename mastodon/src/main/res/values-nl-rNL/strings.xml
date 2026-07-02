@@ -961,6 +961,7 @@
 	<string name="handle_explanation_title">Een fediverse-adres valt te vergelijken met een e-mailadres.</string>
 	<string name="handle_explanation_username">%s is de gebruikersnaam van het account op hun server. Het is mogelijk dat iemand anders dezelfde gebruikersnaam op een andere server heeft.</string>
 	<string name="handle_explanation_domain">%s is de server waar zich het profiel en de berichten van de gebruiker bevinden.</string>
+	<string name="handle_explanation_summary">Net zoals je e-mails kunt verzenden naar mensen met verschillende e-mailproviders, kun je interactie hebben met mensen op andere Mastodon-servers en met iedereen op andere Fediverse-apps.</string>
 	<string name="pinned_post">Vastgezet</string>
 	<string name="view_all_pinned">Alle vastgezette berichten bekijken</string>
 	<string name="profile_show_all_fields">Alle velden tonen</string>
@@ -971,10 +972,32 @@
 	<string name="profile_followers">Volgers</string>
 	<string name="profile_following">Volgend</string>
 	<string name="user_follows_you">Volgt jou</string>
-	<string name="profile_featured_empty_self">Blijf op de hoogte van Verzamelingen</string>
 	<string name="profile_featured_empty">Hier is niets te zien</string>
 	<string name="profile_featured_empty_description">%s heeft nog niks uitgelicht.</string>
 	<string name="handle_explanation_copy">Fediverse-adres kopiëren</string>
+	<string name="request_to_follow_short">Volgverzoek</string>
+	<string name="cancel_follow_request_short">Annuleren</string>
+	<string name="notification_filter_admin">Beheerdersmeldingen</string>
+	<string name="notification_filter_admin_reports">Rapportages</string>
+	<string name="notification_filter_admin_signups">Accountregistraties</string>
+	<string name="notification_filter_admin_reports_explanation">Toon meldingen van spam, regelovertredingen en andere klachten over deze server</string>
+	<string name="notification_filter_admin_signups_explanation">Toon meldingen van nieuwe accounts op deze server</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s rapporteerde %2$s</string>
+	<string name="notification_admin_signup">%s heeft zich geregistreerd</string>
+	<string name="profile_collections">Verzamelingen</string>
+	<string name="collection_by_author">door %s</string>
+	<string name="account_last_active">Laatst actief</string>
+	<string name="you_are_in_collection">Je wordt in deze verzameling uitgelicht</string>
+	<string name="remove_self_from_collection">Verwijder mij</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s heeft je op %2$s toegevoegd</string>
+	<string name="sensitive_content">Gevoelige inhoud</string>
+	<string name="collection_sensitive_description">De omschrijving en accounts zijn mogelijk niet voor iedereen geschikt.</string>
+	<string name="view_collection">Verzameling bekijken</string>
+	<string name="report_collection">Verzameling rapporteren</string>
+	<string name="confirm_remove_self_from_collection_title">Jezelf uit “%s” verwijderen?</string>
+	<string name="confirm_remove_self_from_collection">Deze actie kan niet ongedaan worden gemaakt.\nDeze gebruiker kan je nog steeds aan andere verzamelingen toevoegen, tenzij je de gebruiker blokkeert.</string>
+	<string name="notification_added_you_to_collection">%s heeft jou aan een verzameling toegevoegd</string>
+	<string name="notification_collection_edited">%s bewerkte een verzameling waar jij in zit</string>
 </resources>

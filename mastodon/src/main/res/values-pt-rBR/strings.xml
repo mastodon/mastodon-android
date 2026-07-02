@@ -4,7 +4,7 @@
 	<string name="next">Próximo</string>
 	<string name="loading_instance">Recuperando informações do servidor…</string>
 	<string name="error">Erro</string>
-	<string name="not_a_mastodon_instance">%s não parece ser um servidor Mastodon.</string>
+	<string name="not_a_mastodon_instance">%s não parece ser um servidor do Mastodon.</string>
 	<string name="ok">OK</string>
 	<string name="preparing_auth">Preparando para autenticação…</string>
 	<string name="finishing_auth">Finalizando autenticação…</string>
@@ -938,7 +938,69 @@ Quanto mais pessoas que você seguir, mas interessantes e ativas serão.</string
 	<string name="edit_profile_link_verification_text2">Adicionar o código ao seu cabeçalho permite que o elemento &lt;a&gt; permaneça invisível. O atributo rel=\"eu\" impede a personificação em sites com conteúdo gerado pelo usuário – então é importante mantê-lo.</string>
 	<string name="edit_profile_link_verification_title3">Adicione seu site como um campo personalizado</string>
 	<string name="edit_profile_link_verification_text3">Se já adicionou seu site como um campo personalizado, deverá excluí-lo e adicioná-lo novamente para acionar a verificação.</string>
+	<string name="edit_profile_field">Editar campo</string>
+	<string name="edit_profile_field_label_example">Ex: \"Site Pessoal\"</string>
+	<string name="edit_profile_field_value_example">Ex.: \"exemplo.me\"</string>
+	<plurals name="x_chars_max">
+		<item quantity="one">Máximo de %,d caractere</item>
+		<item quantity="other">Máximo de %,d caracteres</item>
+	</plurals>
+	<plurals name="hashtag_used_in_x_posts">
+		<item quantity="one">Usado em %,d publicação</item>
+		<item quantity="other">Usado em %,d publicações</item>
+	</plurals>
+	<string name="add_featured_hashtag">Adicionar hashtag</string>
+	<string name="hashtag">Hashtag</string>
+	<string name="confirm_remove_featured_hashtag">Remover hashtag?</string>
+	<string name="edit_profile_show_media_tab">Aba \"Mídia\"</string>
+	<string name="edit_profile_show_media_tab_description">Exibe suas publicações com mídia</string>
+	<string name="edit_profile_show_media_replies">Incluir respostas</string>
+	<string name="edit_profile_show_featured_tab">Aba \"Destaques\"</string>
+	<string name="edit_profile_show_featured_tab_description">Um espaço para exibir outras contas</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Estas opções personalizam como usuários veem no %s em aplicativos oficiais, mas talvez não se apliquem a usuários em servidores e aplicativos de terceiros.</string>
+	<string name="handle_explanation_title">Um nome de usuário é como um endereço de e-mail.</string>
+	<string name="handle_explanation_username">%s é o nome de usuário desta conta no servidor dele. Alguém em outro servidor talvez possua o mesmo nome de usuário.</string>
+	<string name="handle_explanation_domain">%s é o servidor que hospeda o perfil e publicações do usuário.</string>
+	<string name="handle_explanation_summary">Assim como pode enviar e-mails para pessoas usando diferentes provedores de e-mail, você pode interagir com pessoas em outros servidor do Mastodon, e com qualquer um em outros apps da Fediverse.</string>
+	<string name="pinned_post">Fixado</string>
+	<string name="view_all_pinned">Ver todas as publicações fixadas</string>
+	<string name="profile_show_all_fields">Exibir todos os campos</string>
+	<string name="unfeature_user">Não destacar no meu perfil</string>
+	<string name="confirm_delete_profile_field">Remover campo?</string>
+	<string name="confirm_delete_avatar">Remover foto de perfil?</string>
+	<string name="confirm_delete_cover">Remover foto de capa?</string>
+	<string name="profile_followers">Seguidores</string>
+	<string name="profile_following">Seguindo</string>
+	<string name="user_follows_you">Segue você</string>
+	<string name="profile_featured_empty_self">Exibir contas favoritas</string>
+	<string name="profile_featured_empty">Nada para ver aqui</string>
+	<string name="profile_featured_empty_description">%s ainda não destacou nada.</string>
+	<string name="profile_featured_empty_self_description">As coleções são listas curadas de contas para ajudar os outros a descobrirem mais do Fediverso. Você pode criar coleções no site do Mastodon.</string>
+	<string name="handle_explanation_copy">Copiar nome de usuário</string>
+	<string name="request_to_follow_short">Solicitar</string>
+	<string name="cancel_follow_request_short">Cancelar</string>
+	<string name="notification_filter_admin">Notificações de administrador</string>
+	<string name="notification_filter_admin_reports">Relatórios de administrador</string>
+	<string name="notification_filter_admin_signups">Registro de contas</string>
+	<string name="notification_filter_admin_reports_explanation">Exibe relatórios de spam, violações de regra e outras reclamações nesta instância</string>
+	<string name="notification_filter_admin_signups_explanation">Exibe notificações de novas contas criadas nesta instância</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s denunciou %2$s</string>
+	<string name="notification_admin_signup">%s registrou-se</string>
+	<string name="profile_collections">Coleções</string>
+	<string name="collection_by_author">por %s</string>
+	<string name="account_last_active">Última atividade</string>
+	<string name="you_are_in_collection">Você foi destacado nesta coleção</string>
+	<string name="remove_self_from_collection">Remover-me</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s adicionou você em %2$s</string>
+	<string name="sensitive_content">Conteúdo sensível</string>
+	<string name="collection_sensitive_description">A descrição e a conta talvez não sejam adequados para todos.</string>
+	<string name="view_collection">Ver coleção</string>
+	<string name="report_collection">Denunciar coleção</string>
+	<string name="confirm_remove_self_from_collection_title">Remover si mesmo de \"%s\"?</string>
+	<string name="confirm_remove_self_from_collection">Esta ação não pode ser desfeita.\nEste usuário ainda poderá adicioná-lo às outras coleções, a menos que você o bloqueie.</string>
+	<string name="notification_added_you_to_collection">%s adicionou você a uma coleção</string>
+	<string name="notification_collection_edited">%s editou uma coleção em que você está</string>
 </resources>
