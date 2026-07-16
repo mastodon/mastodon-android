@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.joinmastodon.android.BuildConfig;
+import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.session.AccountSession;
@@ -70,6 +71,14 @@ public class SettingsAboutAppFragment extends BaseSettingsFragment<Void>{
 						.show();
 			}
 		});
+		if("beta".equals(BuildConfig.BUILD_TYPE)){
+			versionInfo.setOnLongClickListener(v->{
+				GlobalUserPreferences.showDebugSettings=true;
+				GlobalUserPreferences.save();
+				Toast.makeText(getActivity(), "Debug settings unlocked", Toast.LENGTH_SHORT).show();
+				return true;
+			});
+		}
 		adapter.addAdapter(new SingleViewRecyclerAdapter(versionInfo));
 
 		return adapter;

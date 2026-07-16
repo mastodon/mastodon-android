@@ -1,7 +1,6 @@
 package org.joinmastodon.android;
 
 import android.Manifest;
-import android.app.Application;
 import android.app.Fragment;
 import android.app.assist.AssistContent;
 import android.content.Intent;
@@ -20,19 +19,17 @@ import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.AssistContentProviderFragment;
 import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.HomeFragment;
-import org.joinmastodon.android.fragments.collections.CollectionFragment;
-import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.fragments.SplashFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
+import org.joinmastodon.android.fragments.collections.CollectionFragment;
 import org.joinmastodon.android.fragments.onboarding.AccountActivationFragment;
+import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.collections.AccountCollection;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.parceler.Parcels;
-
-import java.lang.reflect.InvocationTargetException;
 
 import androidx.annotation.Nullable;
 import me.grishka.appkit.FragmentStackActivity;
@@ -52,12 +49,7 @@ public class MainActivity extends FragmentStackActivity{
 			restartHomeFragment();
 		}
 
-		if(BuildConfig.BUILD_TYPE.startsWith("appcenter")){
-			// Call the appcenter SDK wrapper through reflection because it is only present in beta builds
-			try{
-				Class.forName("org.joinmastodon.android.AppCenterWrapper").getMethod("init", Application.class).invoke(null, getApplication());
-			}catch(ClassNotFoundException|NoSuchMethodException|IllegalAccessException|InvocationTargetException ignore){}
-		}else if(GithubSelfUpdater.needSelfUpdating()){
+		if(GithubSelfUpdater.needSelfUpdating()){
 			GithubSelfUpdater.getInstance().maybeCheckForUpdates();
 		}
 	}

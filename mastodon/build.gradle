@@ -28,13 +28,7 @@ android {
 		debug{
 			debuggable true
 		}
-		appcenterPrivateBeta{
-			initWith release
-			minifyEnabled false
-			shrinkResources false
-			versionNameSuffix "-priv-beta"
-		}
-		appcenterPublicBeta{
+		beta{
 			initWith release
 			versionNameSuffix "-beta"
 		}
@@ -57,12 +51,6 @@ android {
 		coreLibraryDesugaringEnabled true
 	}
 	sourceSets{
-		appcenterPrivateBeta{
-			setRoot "src/appcenter"
-		}
-		appcenterPublicBeta{
-			setRoot "src/appcenter"
-		}
 		githubRelease{
 			setRoot "src/github"
 		}
@@ -110,12 +98,6 @@ dependencies {
 	implementation 'org.parceler:parceler-api:1.1.12'
 	annotationProcessor 'org.parceler:parceler:1.1.12'
 	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
-
-	def appCenterSdkVersion = "5.0.4"
-	appcenterPrivateBetaImplementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
-	appcenterPrivateBetaImplementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
-	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
-	appcenterPublicBetaImplementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
 
 	androidTestImplementation 'androidx.test:core:1.5.0'
 	androidTestImplementation 'androidx.test.ext:junit:1.1.5'

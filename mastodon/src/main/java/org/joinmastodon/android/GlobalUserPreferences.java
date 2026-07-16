@@ -17,6 +17,7 @@ public class GlobalUserPreferences{
 	public static boolean customEmojiInNames;
 	public static boolean showCWs;
 	public static boolean hideSensitiveMedia;
+	public static boolean showDebugSettings;
 
 	private static SharedPreferences getPrefs(){
 		return MastodonApp.context.getSharedPreferences("global", Context.MODE_PRIVATE);
@@ -40,6 +41,7 @@ public class GlobalUserPreferences{
 		customEmojiInNames=prefs.getBoolean("emojiInNames", true);
 		showCWs=prefs.getBoolean("showCWs", true);
 		hideSensitiveMedia=prefs.getBoolean("hideSensitive", true);
+		showDebugSettings=prefs.getBoolean("showDebugSettings", false);
 		if(!prefs.getBoolean("perAccountMigrationDone", false)){
 			AccountSession account=AccountSessionManager.getInstance().getLastActiveAccount();
 			if(account!=null){
@@ -69,6 +71,7 @@ public class GlobalUserPreferences{
 				.putBoolean("emojiInNames", customEmojiInNames)
 				.putBoolean("showCWs", showCWs)
 				.putBoolean("hideSensitive", hideSensitiveMedia)
+				.putBoolean("showDebugSettings", showDebugSettings)
 				.apply();
 	}
 

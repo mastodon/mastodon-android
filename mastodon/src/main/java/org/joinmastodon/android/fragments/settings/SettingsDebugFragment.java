@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Pair;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +26,7 @@ import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.SimpleViewHolder;
 import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
+import org.joinmastodon.android.ui.utils.HideableSingleViewRecyclerAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
 
@@ -35,6 +39,7 @@ import androidx.palette.graphics.Palette;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
+import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 
 public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
@@ -212,5 +217,26 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 					Nav.go(getActivity(), ProfileFragment.class, args);
 				})
 				.show();
+	}
+
+	@Override
+	protected RecyclerView.Adapter<?> getAdapter(){
+		HideableSingleViewRecyclerAdapter bannerAdapter;
+		ImageView bannerIcon;
+		TextView bannerText;
+		View banner=getActivity().getLayoutInflater().inflate(R.layout.item_settings_banner, list, false);
+		bannerText=banner.findViewById(R.id.text);
+		bannerIcon=banner.findViewById(R.id.icon);
+		bannerAdapter=new HideableSingleViewRecyclerAdapter(banner);
+		banner.findViewById(R.id.button).setVisibility(View.GONE);
+		banner.findViewById(R.id.button2).setVisibility(View.GONE);
+		banner.findViewById(R.id.title).setVisibility(View.GONE);
+		bannerIcon.setImageResource(R.drawable.ic_warning_24px);
+		bannerText.setText("Please only touch these settings if you know what you're doing.\n\nIf you do break the app, clear its data from system settings or reinstall it.");
+
+		MergeRecyclerAdapter mergeAdapter=new MergeRecyclerAdapter();
+		mergeAdapter.addAdapter(bannerAdapter);
+		mergeAdapter.addAdapter(super.getAdapter());
+		return mergeAdapter;
 	}
 }
