@@ -13,6 +13,9 @@ android{
 		release{
 			signingConfig signingConfigs.release
 		}
+		beta{
+			signingConfig signingConfigs.release
+		}
 		githubRelease{
 			signingConfig signingConfigs.release
 		}
