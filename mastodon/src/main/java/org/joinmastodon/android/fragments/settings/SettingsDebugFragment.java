@@ -2,7 +2,10 @@ package org.joinmastodon.android.fragments.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,7 @@ import android.widget.Toast;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.MastodonAPIController;
 import org.joinmastodon.android.api.PushSubscriptionManager;
 import org.joinmastodon.android.api.session.AccountActivationInfo;
 import org.joinmastodon.android.api.session.AccountSession;
@@ -31,6 +35,11 @@ import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
 
 import java.lang.reflect.Field;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +60,7 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 		setTitle("Debug settings");
 		ListItem<Void> selfUpdateItem, resetUpdateItem;
 		onDataLoaded(List.of(
+				new ListItem<>("View FCM status", null, this::onViewPushRegistrationClick),
 				new ListItem<>("Re-register for FCM", null, this::onUpdatePushRegistrationClick),
 				nonRfcPushItem=new CheckableListItem<>("Use draft web push standard", null, CheckableListItem.Style.SWITCH, PushSubscriptionManager.isForceNonRFC(), this::onNonRfcPushClick),
 				new ListItem<>("Test email confirmation flow", null, this::onTestEmailConfirmClick),
@@ -78,6 +88,26 @@ public class SettingsDebugFragment extends BaseSettingsFragment<Void>{
 	public void onStop(){
 		super.onStop();
 		getPrefs().edit().putBoolean("donationsStaging", donationsStagingItem.checked).apply();
+	}
+
+	private void onViewPushRegistrationClick(ListItem<?> item){
+		SpannableStringBuilder text=new SpannableStringBuilder();
+		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
+			text.append("Account "+session.getFullUsername()+" ("+session.getID()+"):", new StyleSpan(Typeface.BOLD), 0);
+			text.append('\n');
+			text.append("Push token: "+session.pushToken+"\n");
+			text.append("Registration updated: "+DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG).format(ZonedDateTime.ofInstant(Instant.ofEpochMilli(session.pushTokenLastRefresh), ZoneId.systemDefault()))+"\n");
+			text.append("Uses final RFC: "+session.pushEncryptionFinalRFC+"\n");
+			text.append("Settings update pending: "+session.needUpdatePushSettings+"\n");
+			text.append("Need re-register: "+session.needReRegisterForPush+"\n");
+			text.append("Subscription: \n"+MastodonAPIController.gson.toJson(session.pushSubscription)+"\n");
+			text.append("\n\n");
+		}
+		new M3AlertDialogBuilder(getActivity())
+				.setTitle("FCM registrations")
+				.setMessage(text)
+				.setPositiveButton(R.string.ok, null)
+				.show();
 	}
 
 	private void onUpdatePushRegistrationClick(ListItem<?> item){
