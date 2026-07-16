@@ -35,7 +35,7 @@ platform :android do
   lane :beta do
      gradle(
       task: "bundle",
-      build_type: "release",
+      build_type: "beta",
     )
     upload_to_play_store(
       track: "internal",
