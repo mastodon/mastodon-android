@@ -8,11 +8,11 @@ android {
 		generateLocaleConfig = true
 	}
 
-	compileSdk 36
+	compileSdk 37
 	defaultConfig {
 		applicationId "org.joinmastodon.android"
 		minSdk 23
-		targetSdk 35
+		targetSdk 37
 		versionCode 187
 		versionName "2.13.1"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
