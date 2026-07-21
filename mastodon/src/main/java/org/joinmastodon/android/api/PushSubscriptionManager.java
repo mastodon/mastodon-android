@@ -132,7 +132,11 @@ public class PushSubscriptionManager{
 		intent.putExtra("X-subtype", subtype);
 		intent.putExtra("scope", "GCM");
 		intent.putExtra("kid", "|ID|"+accountID+"|");
-		MastodonApp.context.startService(intent);
+		try{
+			MastodonApp.context.startService(intent);
+		}catch(Exception x){
+			Log.w(TAG, "Failed to request push token for account "+accountID, x);
+		}
 	}
 
 	public void unregisterFCM(){
@@ -154,7 +158,11 @@ public class PushSubscriptionManager{
 		intent.putExtra("scope", "GCM");
 		intent.putExtra("kid", "|ID|"+accountID+"|");
 		intent.putExtra("delete", "1");
-		MastodonApp.context.startService(intent);
+		try{
+			MastodonApp.context.startService(intent);
+		}catch(Exception x){
+			Log.w(TAG, "Failed to revoke push token for account "+accountID, x);
+		}
 	}
 
 	public static void setForceNonRFC(boolean force){
