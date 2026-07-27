@@ -984,7 +984,64 @@
 	<string name="quote_followers_only_cancel">Zpět k úpravám</string>
 	<string name="quote_followers_only_dont_show_again">Tuto zprávu příště nezobrazovat</string>
 	<string name="more_replies_found">Nalezeny další odpovědi</string>
+	<string name="user_is_muted">Skrytý</string>
+	<string name="user_is_bot">Automatizovaný účet</string>
+	<string name="profile_view_qr_code">Zobrazit QR kód</string>
+	<string name="feature_user">Zvýraznit na mém profilu</string>
+	<string name="add_user_personal_note">Přidat osobní poznámku</string>
+	<string name="mute_account">Skrýt účet</string>
+	<string name="block_account">Blokovat účet</string>
+	<string name="remove_follower">Odstranit sledujícího</string>
+	<string name="report_account">Nahlásit účet</string>
+	<string name="unblock_account">Odblokovat účet</string>
+	<string name="unmute_account">Zrušit skrytí účtu</string>
+	<string name="unblock">Odblokovat</string>
+	<string name="request_to_follow">Požádat o sledování</string>
+	<string name="cancel_follow_request">Zrušit žádost</string>
+	<string name="confirm_remove_follower_title">Odstranit sledujícího?</string>
+	<string name="confirm_remove_follower">%s vás přestane sledovat. Jste si jisti, že chcete pokračovat?</string>
+	<string name="edit_user_personal_note">Upravit osobní poznámku</string>
+	<string name="user_personal_note_explanation">Osobní poznámky jsou viditelné pouze pro vás.</string>
+	<string name="user_personal_note">Osobní poznámka</string>
+	<string name="timeline_filter_posts_and_boosts">Příspěvky a boosty</string>
+	<string name="timeline_filter_show_replies">Zobrazit odpovědi</string>
+	<string name="timeline_filter_show_boosts">Zobrazit boosty</string>
+	<string name="timeline_filter_all_activity">Veškerá aktivita</string>
+	<string name="timeline_filter_posts_and_replies">Příspěvky a odpovědi</string>
+	<string name="timeline_filter_posts">Příspěvky</string>
+	<string name="edit_profile_display_name">Zobrazované jméno</string>
+	<string name="edit_profile_x_custom_fields">Vlastní pole (%d)</string>
+	<string name="edit_profile_custom_fields">Vlastní pole</string>
+	<string name="edit_profile_custom_fields_description">Např. zájmena, externí odkazy, atd.</string>
+	<string name="edit_profile_featured_hashtags_description">Povolit uživatelům filtrovat vaši časovou osu dle témat</string>
+	<string name="edit_profile_tab_settings">Nastavení záložek profilu</string>
+	<string name="edit_profile_add_bio">Přidat popisek o sobě</string>
+	<string name="edit_profile_featured_hashtags">Zvýrazněné hashtagy</string>
+	<string name="edit_profile_x_featured_hashtags">Zvýrazněné hashtagy (%d)</string>
+	<string name="edit_profile_replace_image">Změnit</string>
+	<string name="edit_profile_edit_display_name">Upravit zobrazované jméno</string>
+	<string name="edit_profile_edit_bio">Editovat popisek o sobě</string>
+	<string name="add_profile_field">Přidat pole</string>
+	<string name="edit_profile_custom_fields_help">Tip: Zvyšte důvěryhodnost svého účtu na Mastodonu ověřením odkazů na webové stránky, které vlastníte. <i>Zjistit více</i></string>
+	<string name="edit_profile_link_verification_help_title">Přidání ověřeného odkazu</string>
+	<string name="edit_profile_link_verification_help">Zvyšte důvěryhodnost svého Mastodon profilu ověřením odkazů na osobní webové stránky. Funguje to následovně:</string>
+	<string name="edit_profile_link_verification_title1">Zkopírujte HTML kód níže</string>
+	<string name="edit_profile_link_verification_title2">Vložte kód do HTML záhlaví vašeho webu</string>
+	<string name="edit_profile_link_verification_text2">Přidáním kódu do hlavičky zajistíte, že prvek &lt;a&gt; zůstane neviditelný. Atribut rel=\"me\" zabraňuje vydávání se za někoho jiného na webech s obsahem generovaným uživateli – tudíž je důležité ho zachovat.</string>
+	<string name="edit_profile_link_verification_title3">Přidejte svou webovou stránku jako vlastní pole</string>
+	<string name="edit_profile_link_verification_text3">Pokud jste již ve vlastním poli měli svůj web přidaný, budete jej muset smazat a přidat znova, aby se spustila verifikace.</string>
+	<string name="edit_profile_field">Upravit pole</string>
+	<string name="edit_profile_field_label_example">Např. „Osobní webová stránka“</string>
+	<string name="edit_profile_field_value_example">Např. „příklad.me“</string>
+	<string name="add_featured_hashtag">Přidat hashtag</string>
+	<string name="hashtag">Hashtag</string>
+	<string name="confirm_remove_featured_hashtag">Odstranit hashtag?</string>
+	<string name="edit_profile_show_media_replies">Zahrnout odpovědi</string>
 	<!-- %s is the current user's server domain -->
+	<string name="pinned_post">Připnuto</string>
+	<string name="view_all_pinned">Zobrazit všechny připnuté příspěvky</string>
+	<string name="profile_show_all_fields">Zobrazit všechna pole</string>
+	<string name="unfeature_user">Nezvýrazňovat na mém profilu</string>
 	<!-- Placeholders are user display names -->
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
 </resources>

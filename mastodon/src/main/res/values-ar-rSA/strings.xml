@@ -13,7 +13,7 @@
 	<string name="notifications">الإشعارات</string>
 	<string name="user_followed_you">%s تابعك</string>
 	<string name="user_sent_follow_request">%s أرسل لك طلب متابعة</string>
-	<string name="user_favorited">%s فضَّل:</string>
+	<string name="user_favorited">أضاف %s إلى المفضلة:</string>
 	<string name="notification_boosted">%s أعاد نشر:</string>
 	<string name="share_toot_title">مشاركة</string>
 	<string name="settings">الإعدادات</string>
@@ -743,6 +743,17 @@
 	<string name="make_profile_discoverable">اجعل ملفي الشخصي قابلًا للاكتشاف</string>
 	<string name="discoverability">إمكانية الاكتشاف</string>
 	<string name="discoverability_help">عند تفعيل خاصية إمكانية الاكتشاف على منصة ماستودون، قد تظهر منشوراتك في نتائج البحث وفي قسم المواضيع الرائجة. \n\nكما قد يُقترح ملفك الشخصي على الأشخاص ذوي الاهتمامات المشابهة. \n\nإلغاء تفعيل هذه الخاصية لا يُخفي ملفك الشخصي إذا بحث أحدهم عنك بالاسم.</string>
+	<string name="app_version_copied">تم نسخ رقم الإصدار إلى الحافظة</string>
+	<string name="onboarding_recommendations_intro">أنت من تُدير صفحتك الرئيسة. كلما زاد عدد الأشخاص الذين تتابعهم، كلما أصبحت أكثر نشاطًا وإثارة للاهتمام.</string>
+	<string name="onboarding_recommendations_title">خصّص صفحتك الرئيسة</string>
+	<string name="article_by_author">بواسطة %s</string>
+	<string name="button_reblogged">مُعاد نشره</string>
+	<string name="button_favorited">مُضاف إلى المفضلة</string>
+	<string name="join_server_x_with_invite">الانضمام إلى %s عبر دعوة</string>
+	<string name="expired_invite_link">رابط دعوة منتهي الصلاحية</string>
+	<string name="expired_clipboard_invite_link_alert">لقد انتهت صلاحية رابط الدعوة الخاص بـ%1$s الموجود في حافظتك، ولا يمكن استخدامه للتسجيل.\n\nيمكنك طلب رابط جديد من مستخدم حالي، أو التسجيل عبر %2$s، أو اختيار خادوم آخر للتسجيل من خلاله.</string>
+	<string name="invalid_invite_link">رابط دعوة غير صالح</string>
+	<string name="invalid_clipboard_invite_link_alert">رابط الدعوة الخاص بـ%1$s الموجود في حافظتك غير صالح ولا يمكن استخدامه للتسجيل.\n\nيمكنك طلب رابط جديد من مستخدم حالي، أو التسجيل عبر %2$s، أو اختيار خادوم آخر للتسجيل من خلاله.</string>
 	<string name="do_block_server">حظر الخادوم</string>
 	<!-- Shown on a button that saves a file, after it was successfully saved -->
 	<!-- %s is the username -->

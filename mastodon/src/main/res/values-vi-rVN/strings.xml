@@ -925,10 +925,10 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<string name="profile_followers">Người theo dõi</string>
 	<string name="profile_following">Đang theo dõi</string>
 	<string name="user_follows_you">Theo dõi bạn</string>
-	<string name="profile_featured_empty_self">Hãy đón chờ Gói khởi đầu</string>
+	<string name="profile_featured_empty_self">Hiện những tài khoản yêu thích của bạn</string>
 	<string name="profile_featured_empty">Không có gì để xem ở đây</string>
 	<string name="profile_featured_empty_description">%s chưa nêu bật gì.</string>
-	<string name="profile_featured_empty_self_description">Gói khởi đầu (sẽ có trong Mastodon 4.6) cho phép bạn tạo danh sách các tài khoản được tuyển chọn để giới thiệu cho người khác.</string>
+	<string name="profile_featured_empty_self_description">Gói khởi đầu là các danh sách tài khoản được tuyển chọn nhằm giúp người khác khám phá thêm về Fediverse. Bạn có thể tạo các bộ sưu tập trên ứng dụng web của Mastodon.</string>
 	<string name="handle_explanation_copy">Sao chép địa chỉ</string>
 	<string name="request_to_follow_short">Yêu cầu</string>
 	<string name="cancel_follow_request_short">Hủy bỏ</string>
@@ -940,5 +940,19 @@ Bạn càng theo dõi nhiều người thì nó sẽ càng sôi động và thú
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s báo cáo %2$s</string>
 	<string name="notification_admin_signup">%s đã đăng ký</string>
+	<string name="profile_collections">Gói khởi đầu</string>
+	<string name="collection_by_author">bởi %s</string>
+	<string name="account_last_active">Hoạt động lần cuối</string>
+	<string name="you_are_in_collection">Bạn đã được thêm vào gói khởi đầu này</string>
+	<string name="remove_self_from_collection">Xóa tôi</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s đã thêm bạn vào %2$s</string>
+	<string name="sensitive_content">Nội dung nhạy cảm</string>
+	<string name="collection_sensitive_description">Phần mô tả và nội dung có thể không phù hợp với tất cả người xem.</string>
+	<string name="view_collection">Xem gói khởi đầu</string>
+	<string name="report_collection">Báo cáo gói khởi đầu</string>
+	<string name="confirm_remove_self_from_collection_title">Xóa bạn khỏi “%s”?</string>
+	<string name="confirm_remove_self_from_collection">Thao tác này không thể hoàn tác.\nHọ vẫn có thể thêm bạn vào các gói khởi đầu khác, trừ khi bạn chặn họ.</string>
+	<string name="notification_added_you_to_collection">%s đã thêm bạn vào một gói khởi đầu</string>
+	<string name="notification_collection_edited">%s đã chỉnh sửa một gói khởi đầu có bạn</string>
 </resources>
