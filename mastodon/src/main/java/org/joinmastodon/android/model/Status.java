@@ -108,10 +108,6 @@ public class Status extends BaseModel implements DisplayItemsParent{
 			for(AccountCollection c:taggedCollections)
 				c.postprocess();
 		}
-
-		if(!sensitive && (reblog==null || !reblog.sensitive) && TextUtils.isEmpty(spoilerText)){
-			revealedSpoilers.add(SpoilerType.CONTENT_WARNING);
-		}
 	}
 
 	@Override
