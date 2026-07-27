@@ -44,11 +44,15 @@ public abstract class Instance extends BaseModel{
 	// non-standard field in some Mastodon forks
 	public int maxTootChars;
 
+	public String usernameDomain;
+
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();
 		if(rules==null)
 			rules=Collections.emptyList();
+		if(usernameDomain==null) // will be non-null for deserialization from local database
+			usernameDomain=getDomain();
 	}
 
 	public CatalogInstance toCatalogInstance(){

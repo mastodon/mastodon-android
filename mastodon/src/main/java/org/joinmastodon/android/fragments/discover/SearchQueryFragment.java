@@ -285,7 +285,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 				String username="@"+usernameMatcher.group(1);
 				String atDomain=usernameMatcher.group(2);
 				if(atDomain==null){
-					username+="@"+AccountSessionManager.get(accountID).domain;
+					username+="@"+AccountSessionManager.get(accountID).getUsernameDomain();
 				}
 				goToAccountItem.title=getString(R.string.search_go_to_account, username);
 				topOptions.add(goToAccountItem);
@@ -465,7 +465,7 @@ public class SearchQueryFragment extends MastodonRecyclerFragment<SearchResultVi
 			q="@"+q;
 		}
 		if(q.lastIndexOf('@')==0){
-			q+="@"+AccountSessionManager.get(accountID).domain;
+			q+="@"+AccountSessionManager.get(accountID).getUsernameDomain();
 		}
 		((MainActivity)getActivity()).openSearchQuery(q, accountID, R.string.loading, true, GetSearchResults.Type.ACCOUNTS);
 	}

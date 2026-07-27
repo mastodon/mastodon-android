@@ -218,7 +218,7 @@ public class AccountSession{
 	}
 
 	public String getFullUsername(){
-		return '@'+self.username+'@'+domain;
+		return '@'+self.username+'@'+getUsernameDomain();
 	}
 
 	public void reloadPreferences(Consumer<Preferences> callback){
@@ -410,5 +410,10 @@ public class AccountSession{
 
 	public boolean canSeeAdminNotifications(){
 		return self.role!=null && ((self.role.permissions & Role.PERMISSION_ADMINISTRATOR)!=0 || (self.role.permissions & Role.PERMISSION_MANAGE_USERS)!=0 || (self.role.permissions & Role.PERMISSION_MANAGE_REPORTS)!=0);
+	}
+
+	public String getUsernameDomain(){ // For instances that use different domain for usernames vs the API, e.g. Mastodon is on "social." subdomain
+		String domain=getInstanceInfo().usernameDomain;
+		return TextUtils.isEmpty(domain) ? this.domain : domain;
 	}
 }

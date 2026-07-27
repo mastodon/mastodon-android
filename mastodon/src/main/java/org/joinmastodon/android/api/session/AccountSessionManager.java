@@ -446,6 +446,11 @@ public class AccountSessionManager{
 						case 2 -> InstanceV2.class;
 						default -> throw new IllegalStateException("Unexpected value: "+version);
 					});
+					if(instance instanceof InstanceV1 v1){ // Needed for instances that use a different domain for usernames vs the API
+						v1.uri=domain;
+					}else if(instance instanceof InstanceV2 v2){
+						v2.domain=domain;
+					}
 					instances.put(domain, instance);
 					StringBuilder emojiSB=new StringBuilder();
 					String emojiPart=values.getAsString("emojis");

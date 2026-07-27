@@ -356,7 +356,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 				return true;
 			String username=account.acct;
 			if(!username.contains("@")){
-				username+="@"+AccountSessionManager.getInstance().getAccount(accountID).domain;
+				username+="@"+AccountSessionManager.getInstance().getAccount(accountID).getUsernameDomain();
 			}
 			getActivity().getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText(null, "@"+username));
 			UiUtils.maybeShowTextCopiedToast(getActivity());
@@ -694,7 +694,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		boolean isSelf=AccountSessionManager.getInstance().isSelf(accountID, account);
 		String domain=account.getDomain();
 		if(TextUtils.isEmpty(domain))
-			domain=AccountSessionManager.get(accountID).domain;
+			domain=AccountSessionManager.get(accountID).getUsernameDomain();
 
 		if(account.locked){
 			ssb=new SpannableStringBuilder("@");

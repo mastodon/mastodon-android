@@ -133,7 +133,7 @@ public class SignupFragment extends ToolbarFragment{
 
 		bdateIcon=view.findViewById(R.id.bdate_calendar_icon);
 
-		domain.setText('@'+instance.getDomain());
+		domain.setText('@'+instance.usernameDomain);
 
 		username.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
 			@Override

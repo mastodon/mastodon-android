@@ -211,7 +211,7 @@ public class ProfileQrCodeFragment extends AppKitFragment{
 		}
 		username.setText(account.username);
 		String accDomain=account.getDomain();
-		domain.setText(accountDomain=TextUtils.isEmpty(accDomain) ? AccountSessionManager.get(accountID).domain : accDomain);
+		domain.setText(accountDomain=TextUtils.isEmpty(accDomain) ? AccountSessionManager.get(accountID).getUsernameDomain() : accDomain);
 		Drawable logo=getResources().getDrawable(R.drawable.ic_ntf_logo, themeWrapper.getTheme()).mutate();
 		logo.setTint(UiUtils.getThemeColor(themeWrapper, R.attr.colorM3OnPrimary));
 		codeView.setBackground(new FancyQrCodeDrawable(code, UiUtils.getThemeColor(themeWrapper, R.attr.colorM3OnPrimary), logo));
