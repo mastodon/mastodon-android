@@ -914,6 +914,7 @@
 	<string name="handle_explanation_title">用户名类似电子邮件地址。</string>
 	<string name="handle_explanation_username">%s 是此账号在其服务器上的用户名。另一个服务器上的其他人可能拥有相同的用户名。</string>
 	<string name="handle_explanation_domain">%s 是托管该用户个人资料及嘟文的服务器。</string>
+	<string name="handle_explanation_summary">就像你可以用不同的电子邮箱向其他人发送同样的电子邮件一般，你也可以和其他 Mastodon 服务器上的用户互动，甚至还能和与其他联邦宇宙软件上的任何人互动。</string>
 	<string name="pinned_post">已置顶</string>
 	<string name="view_all_pinned">查看全部置顶嘟文</string>
 	<string name="profile_show_all_fields">显示所有字段</string>
@@ -923,6 +924,35 @@
 	<string name="confirm_delete_cover">删除页眉图像？</string>
 	<string name="profile_followers">仅关注者</string>
 	<string name="profile_following">已关注</string>
+	<string name="user_follows_you">关注了你</string>
+	<string name="profile_featured_empty_self">展示你最喜欢的账号</string>
+	<string name="profile_featured_empty">这里还没有内容</string>
+	<string name="profile_featured_empty_description">%s 尚未设置任何精选。</string>
+	<string name="profile_featured_empty_self_description">收藏是管理的帐户列表，以帮助他人发现更多的 Fediverse。您可以在 Mastodon 的 web 应用程序上创建收藏。</string>
+	<string name="handle_explanation_copy">复制用户名</string>
+	<string name="request_to_follow_short">关注请求</string>
+	<string name="cancel_follow_request_short">取消</string>
+	<string name="notification_filter_admin">管理员通知</string>
+	<string name="notification_filter_admin_reports">管理员报告</string>
+	<string name="notification_filter_admin_signups">账号注册</string>
+	<string name="notification_filter_admin_reports_explanation">显示此实例的垃圾信息、违反服务器规则及其他举报的报告</string>
+	<string name="notification_filter_admin_signups_explanation">显示在此实例上创建的新账号的通知</string>
 	<!-- Placeholders are user display names -->
+	<string name="notification_admin_report">%1$s 报告了 %2$s</string>
+	<string name="notification_admin_signup">%s 注册了</string>
+	<string name="profile_collections">收藏列表</string>
+	<string name="collection_by_author">由 %s</string>
+	<string name="account_last_active">按最后活跃顺序</string>
+	<string name="you_are_in_collection">您被添加到了此收藏列表</string>
+	<string name="remove_self_from_collection">移除我</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s 于 %2$s 将你加入</string>
+	<string name="sensitive_content">敏感内容</string>
+	<string name="collection_sensitive_description">列表说明及其中的账号可能不适合所有人查看。</string>
+	<string name="view_collection">查看收藏列表</string>
+	<string name="report_collection">举报合集</string>
+	<string name="confirm_remove_self_from_collection_title">将自己从“%s”中移除吗？</string>
+	<string name="confirm_remove_self_from_collection">此操作无法撤消。\n此用户仍然能够将您添加到其他收藏中，除非您屏蔽它们。</string>
+	<string name="notification_added_you_to_collection">%s 将你添加到了收藏列表</string>
+	<string name="notification_collection_edited">%s 编辑了你所在的收藏列表</string>
 </resources>

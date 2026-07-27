@@ -973,10 +973,10 @@ Jo flere du følger, jo mere aktiv og interessant bliver det.</string>
 	<string name="profile_followers">Følgere</string>
 	<string name="profile_following">Fulgte</string>
 	<string name="user_follows_you">Følger dig</string>
-	<string name="profile_featured_empty_self">Hold udkig efter samlinger</string>
+	<string name="profile_featured_empty_self">Vis dine foretrukne konti</string>
 	<string name="profile_featured_empty">Intet at se her</string>
 	<string name="profile_featured_empty_description">%s har ikke fremhævet noget endnu.</string>
-	<string name="profile_featured_empty_self_description">Med samlinger (kommer i Mastodon 4.6) kan du oprette dine egne kuraterede lister over konti, som du kan anbefale til andre.</string>
+	<string name="profile_featured_empty_self_description">Samlinger er kuraterede lister over konti, der skal hjælpe andre med at opdage mere af Fediverset. Du kan oprette samlinger i Mastodons web-app.</string>
 	<string name="handle_explanation_copy">Kopiér handle</string>
 	<string name="request_to_follow_short">Anmod</string>
 	<string name="cancel_follow_request_short">Annuller</string>
@@ -988,5 +988,19 @@ Jo flere du følger, jo mere aktiv og interessant bliver det.</string>
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s anmeldte %2$s</string>
 	<string name="notification_admin_signup">%s tilmeldte sig</string>
+	<string name="profile_collections">Samlinger</string>
+	<string name="collection_by_author">af %s</string>
+	<string name="account_last_active">Senest aktiv</string>
+	<string name="you_are_in_collection">Du er med i denne samling</string>
+	<string name="remove_self_from_collection">Fjern mig</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s tilføjede dig %2$s</string>
+	<string name="sensitive_content">Følsomt indhold</string>
+	<string name="collection_sensitive_description">Beskrivelsen og kontiene er muligvis ikke egnet for alle.</string>
+	<string name="view_collection">Vis samling</string>
+	<string name="report_collection">Anmeld samling</string>
+	<string name="confirm_remove_self_from_collection_title">Fjern dig selv fra “%s”?</string>
+	<string name="confirm_remove_self_from_collection">Denne handling kan ikke fortrydes.\nDenne bruger vil stadig kunne tilføje dig til andre samlinger, medmindre du blokerer dem.</string>
+	<string name="notification_added_you_to_collection">%s tilføjede dig til en samling</string>
+	<string name="notification_collection_edited">%s redigerede en samling, du er med i</string>
 </resources>

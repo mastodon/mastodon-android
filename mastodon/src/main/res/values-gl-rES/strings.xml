@@ -179,7 +179,7 @@
 	<string name="settings_notifications">Notificacións</string>
 	<string name="settings_contribute">Colaborar con Mastodon</string>
 	<string name="settings_tos">Termos do servizo</string>
-	<string name="settings_privacy_policy">Política de privacidade</string>
+	<string name="settings_privacy_policy">Directiva de privacidade</string>
 	<string name="settings_clear_cache">Limpar caché multimedia</string>
 	<string name="settings_app_version">Mastodon para Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Baleiramos a memoria caché</string>
@@ -220,7 +220,7 @@
 	<string name="downloading">Descargando…</string>
 	<string name="no_app_to_handle_action">Non hai apps para esta acción</string>
 	<string name="local_timeline">O que acontece</string>
-	<string name="trending_posts_info_banner">Estas son as publicacións en voga en Mastodon.</string>
+	<string name="trending_posts_info_banner">Estas son as publicacións populares en Mastodon.</string>
 	<string name="trending_links_info_banner">Estas son as novas historias das que se está a falar en Mastodon.</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">Estas son as publicacións das usuarias do teu servidor (%s).</string>
@@ -285,7 +285,7 @@
 	<string name="download_update">Descargar (%s)</string>
 	<string name="install_update">Instalar</string>
 	<string name="privacy_policy_title">A túa privacidade</string>
-	<string name="privacy_policy_subtitle">Aínda que a aplicación de Mastodon non recolle ningún dato, o servidor no que te rexistres pode ter unha política diferente.\n\nSe non estás de acordo coa política de %s, podes volver atrás e elixir outro servidor.</string>
+	<string name="privacy_policy_subtitle">Aínda que a aplicación de Mastodon non recolle ningún dato, o servidor no que te rexistres pode ter unha directiva diferente.\n\nSe non estás de acordo coa directiva de %s, podes volver atrás e elixir outro servidor.</string>
 	<string name="i_agree">Acepto</string>
 	<string name="empty_list">A lista está baleira</string>
 	<string name="instance_signup_closed">O servidor non acepta novos rexistros.</string>
@@ -375,7 +375,7 @@
 	<string name="compose_autocomplete_users_empty">Atopa as persoas que buscas</string>
 	<string name="no_search_results">Non atopamos nada con estos termos</string>
 	<string name="language">Idioma</string>
-	<string name="language_default">Por defecto</string>
+	<string name="language_default">Predefinido</string>
 	<string name="language_system">Sistema</string>
 	<string name="language_detecting">Detección do idioma</string>
 	<string name="language_cant_detect">Non se identificou o idioma</string>
@@ -394,7 +394,7 @@
 	<string name="report_personal_already_blocked">Xa bloqueaches a esta usuaria, non tes que facer nada máis.\n\nGrazas por axudarnos a facer de Mastodon un lugar seguro!</string>
 	<string name="blocked_user">Bloqueaches a %s</string>
 	<string name="mark_all_notifications_read">Marcar todo como lido</string>
-	<string name="settings_display">Mostar</string>
+	<string name="settings_display">Ver</string>
 	<string name="settings_filters">Filtros</string>
 	<string name="settings_server_explanation">Vista xeral, regras, moderación</string>
 	<!-- %s is the app name (Mastodon, key app_name). I made it a placeholder so everything Just Works™ with forks -->
@@ -850,7 +850,7 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 	<string name="compose_visibility_unlisted_disabled">Pública limitada, citas desactivadas</string>
 	<string name="compose_visibility_title">Visibilidade e interaccións</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
-	<string name="compose_visibility_explanation">Xestiona quen pode interactuar con esta publicación. Os axustes xerais están en Axustes &gt; %s &gt; Por defecto ao publicar.</string>
+	<string name="compose_visibility_explanation">Xestiona quen pode interactuar con esta publicación. Os axustes xerais están en Axustes &gt; %s &gt; Predefinido ao publicar.</string>
 	<string name="compose_visibility">Visibilidade</string>
 	<string name="compose_quote_policy">Quen pode citar</string>
 	<string name="quote_policy_public">Calquera</string>
@@ -871,7 +871,7 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 	<string name="cancel_quote">Cancelar a cita</string>
 	<string name="unlisted_quote_alert_title">Citar publicacións públicas limitadas</string>
 	<string name="unlisted_quote_alert">Ao citar unha publicación pública limitada a túa publicación non aparecerá nas cronoloxías de tendencias.</string>
-	<string name="settings_posting_defaults">Por defecto ao publicar</string>
+	<string name="settings_posting_defaults">Predefinido ao publicar</string>
 	<string name="default_post_visibility">Visibilidade da publicación</string>
 	<string name="create_quote_manual_approval">Solicitar a citación</string>
 	<string name="create_quote_manual_approval_subtitle">A autora revisará manualmente</string>
@@ -883,7 +883,7 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 	<string name="remove_quote_confirm_title">Retirar a publicación?</string>
 	<string name="remove_quote_confirm">Esta acción non se pode desfacer.</string>
 	<string name="remove_quote_button">Retirar a publicación</string>
-	<string name="settings_posting_defaults_explanation">Estes axustes vanse usar como valores por defecto para as novas publicacións, pero podes axustalas de xeito individual na caixa de edición.</string>
+	<string name="settings_posting_defaults_explanation">Estes axustes vanse usar como valores predefinidos para as novas publicacións, pero podes axustalas de xeito individual na caixa de edición.</string>
 	<string name="cant_quote_in_private_title">As citas non se poden incluír nas mencións privadas</string>
 	<string name="cant_quote_in_private">Se gardas os axustes actuais a cita incluída vaise converter nunha ligazón.</string>
 	<string name="quote_followers_only_confirm_title">Compartir coas seguidoras e coas usuarias mencionadas?</string>
@@ -973,10 +973,10 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 	<string name="profile_followers">Seguidoras</string>
 	<string name="profile_following">Seguindo</string>
 	<string name="user_follows_you">Séguete</string>
-	<string name="profile_featured_empty_self">Axiña van chegar as Coleccións</string>
+	<string name="profile_featured_empty_self">Salienta as túas contas favoritas</string>
 	<string name="profile_featured_empty">Nada que ver por aquí</string>
 	<string name="profile_featured_empty_description">%s aínda non destacou nada.</string>
-	<string name="profile_featured_empty_self_description">As Coleccións (a partir de Mastodon 4.6) permiten crear as túas propias listas de recomendación para outras persoas usuarias.</string>
+	<string name="profile_featured_empty_self_description">As coleccións son listas de contas seleccionadas para axudar a outras persoas a coñecer mellor o Fediverso. Podes crear coleccións na aplicación web de Mastodon.</string>
 	<string name="handle_explanation_copy">Copiar identificador</string>
 	<string name="request_to_follow_short">Solicitar</string>
 	<string name="cancel_follow_request_short">Desbotar</string>
@@ -988,5 +988,19 @@ Canta máis xente sigas, máis activo e interesante será.</string>
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s denunciou a %2$s</string>
 	<string name="notification_admin_signup">%s creou a conta</string>
+	<string name="profile_collections">Coleccións</string>
+	<string name="collection_by_author">por %s</string>
+	<string name="account_last_active">Última actividade</string>
+	<string name="you_are_in_collection">Engadíronte a esta colección</string>
+	<string name="remove_self_from_collection">Quítame de aí</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s engadiute o %2$s</string>
+	<string name="sensitive_content">Contido sensible</string>
+	<string name="collection_sensitive_description">A descrición e contas poderían non ser axeitadas para todas as persoas.</string>
+	<string name="view_collection">Ver colección</string>
+	<string name="report_collection">Denunciar a colección</string>
+	<string name="confirm_remove_self_from_collection_title">Queres borrarte de «%s»?</string>
+	<string name="confirm_remove_self_from_collection">Esta acción non é reversible.\nEsta usuaria poderá seguir engadíndote a outras coleccións, a non ser que a bloquees.</string>
+	<string name="notification_added_you_to_collection">%s engadíute a unha colección</string>
+	<string name="notification_collection_edited">%s editou unha colección na que apareces</string>
 </resources>
