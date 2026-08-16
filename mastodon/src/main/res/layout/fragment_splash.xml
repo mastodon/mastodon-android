@@ -91,9 +91,11 @@
 		android:clipToPadding="false"
 		android:orientation="vertical">
 		
+		<!-- masto.nyc fork: 300x129dp matches the 5BFP lockup's 2.32:1, so fitCenter doesn't
+		     letterbox it. Upstream's Mastodon wordmark was 3.86:1 at 300x78dp. -->
 		<ImageView
 			android:layout_width="300dp"
-			android:layout_height="78dp"
+			android:layout_height="129dp"
 			android:layout_gravity="center_horizontal"
 			android:layout_marginTop="32dp"
 			android:importantForAccessibility="no"
@@ -104,111 +106,27 @@
 			android:layout_height="0px"
 			android:layout_weight="1"/>
 
-		<FrameLayout
+		<org.joinmastodon.android.ui.views.ProgressBarButton
+			android:id="@+id/btn_join_default_server"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-
-			<org.joinmastodon.android.ui.views.ProgressBarButton
-				android:id="@+id/btn_join_default_server"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="16dp"
-				android:layout_marginRight="16dp"
-				style="@style/Widget.Mastodon.M3.Button.Filled"
-				tools:text="@string/join_default_server"/>
-
-			<ProgressBar
-				android:id="@+id/action_progress"
-				style="?android:progressBarStyleSmall"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center"
-				android:elevation="10dp"
-				android:indeterminate="true"
-				android:outlineProvider="none"
-				android:indeterminateTint="#FFF"
-				android:visibility="gone" />
-
-		</FrameLayout>
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			style="@style/Widget.Mastodon.M3.Button.Filled"
+			tools:text="@string/join_default_server"/>
 
 		<Button
-			android:id="@+id/btn_get_started"
+			android:id="@+id/btn_log_in"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="16dp"
 			android:layout_marginRight="16dp"
 			android:layout_marginTop="8dp"
+			android:layout_marginBottom="8dp"
 			android:textColor="#FFF"
 			style="@style/Widget.Mastodon.M3.Button.Outlined"
 			android:background="@drawable/bg_button_m3_outlined_white"
-			android:text="@string/pick_server"/>
-
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="16dp"
-			android:layout_marginRight="16dp"
-			android:layout_marginTop="8dp"
-			android:orientation="horizontal">
-
-			<View
-				android:layout_width="0dp"
-				android:layout_height="1dp"
-				android:layout_weight="1"
-				android:layout_gravity="center_vertical"
-				android:background="#B2FFFFFF"/>
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="20dp"
-				android:layout_marginLeft="8dp"
-				android:layout_marginRight="8dp"
-				android:textAllCaps="true"
-				android:textAppearance="@style/m3_label_large"
-				android:textColor="#B2FFFFFF"
-				android:layout_gravity="center_vertical"
-				android:text="@string/signup_or_login"/>
-
-			<View
-				android:layout_width="0dp"
-				android:layout_height="1dp"
-				android:layout_weight="1"
-				android:layout_gravity="center_vertical"
-				android:background="#B2FFFFFF"/>
-
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:layout_marginLeft="8dp"
-			android:layout_marginRight="8dp">
-
-			<Button
-				android:id="@+id/btn_learn_more"
-				android:layout_width="0dp"
-				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
-				android:layout_weight="1"
-				android:textColor="#FFF"
-				style="@style/Widget.Mastodon.M3.Button.Text"
-				android:background="@drawable/bg_button_m3_text_white"
-				android:text="@string/learn_more"/>
-
-			<Button
-				android:id="@+id/btn_log_in"
-				android:layout_width="0dp"
-				android:layout_height="wrap_content"
-				android:layout_margin="8dp"
-				android:layout_weight="1"
-				android:textColor="#FFF"
-				style="@style/Widget.Mastodon.M3.Button.Text"
-				android:background="@drawable/bg_button_m3_text_white"
-				android:text="@string/log_in"/>
-
-		</LinearLayout>
+			android:text="@string/log_in"/>
 
 	</LinearLayout>
 

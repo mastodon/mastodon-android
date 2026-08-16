@@ -9,8 +9,9 @@ android {
 	}
 
 	compileSdk 37
+	compileSdkMinor 0
 	defaultConfig {
-		applicationId "org.joinmastodon.android"
+		applicationId "nyc.masto.android"
 		minSdk 23
 		targetSdk 37
 		versionCode 189
