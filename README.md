@@ -1,40 +1,45 @@
-# Mastodon for Android
+# Masto NYC for Android
 
-[![Crowdin](https://badges.crowdin.net/mastodon-for-android/localized.svg)](https://crowdin.com/project/mastodon-for-android)
+A fork of the [official Mastodon Android app](https://github.com/mastodon/mastodon-android), rebranded and locked to the [masto.nyc](https://masto.nyc) server.
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/org.joinmastodon.android/)
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
-     alt="Get it on Google Play"
-     height="80">](https://play.google.com/store/apps/details?id=org.joinmastodon.android)
+This app is not affiliated with or endorsed by the Mastodon non-profit organisation.
 
-You can also get the APK from the [the Releases section](https://github.com/mastodon/mastodon-android/releases/latest).
+## Why
 
-## Introduction
+Mastodon's federated onboarding — "pick a server" before you can even sign up — is a well-known point of confusion for new users. This fork removes that step entirely: the app talks to one server, masto.nyc, and nothing else. You still get the whole fediverse once you're in; you just don't have to understand it to get started.
 
-This is the repository for the official Android app for Mastodon.
+## Differences from upstream
 
-Please note that this app is intended to be used with Mastodon servers. Our team does not have bandwidth to ensure compatibility with other server software, which means that unsolicited pull requests focused on that goal will most likely be closed.
+- Signup and login are locked to `masto.nyc`. There is no server picker and no server catalog.
+- Branding is "Masto NYC", with Five Borough Fedi Project artwork for the launcher icon, splash logo and notification icon.
+- Application ID is `nyc.masto.android`, so it installs alongside the official app.
 
-## Contributing
-
-First, please read the Mastodon project [Contributing guide](https://github.com/mastodon/.github/blob/main/CONTRIBUTING.md).
-
-Note that user interface changes for our official apps are carried out through a design process that involves core team review - most changes of this kind will not be accepted as community contributions; if they are accepted, they will take time to go through this review.
-
-If you would like to help translate the app into your language, please go to [Crowdin](https://crowdin.com/project/mastodon-for-android). If your language is not listed in the Crowdin project, please create an issue and we will add it. Please do not create pull requests that modify `strings.xml` files for languages other than English.
+See [FORK.md](./FORK.md) for the full inventory of changed files and the conventions that keep upstream merges cheap.
 
 ## Building
 
-As this app is using Java 17 features, you need JDK 17 or newer to build it. Other than that, everything is pretty standard. You can either import the project into Android Studio and build it from there, or run the following command in the project directory:
+Requires **JDK 21** and **Android SDK Platform 37.0**.
+
+Two things that will otherwise cost you an afternoon. Do not use a newer JDK — the Gradle wrapper pulls Gradle 8.13, which predates JDK 24/25 support; 21 is also what CI pins. And note the `.0` on the platform: Google no longer publishes a bare `android-37`, so `sdkmanager "platforms;android-37"` fails and takes the rest of its arguments down with it.
 
 ```shell
-./gradlew assembleRelease
+echo "sdk.dir=$HOME/Android/Sdk" > local.properties
 ```
+
+```shell
+./gradlew assembleDebug
+```
+
+Build-Tools are downloaded by AGP itself once the SDK licences are accepted, so there's no version to pin. See [FORK.md](./FORK.md#toolchain) for the full toolchain notes.
+
+## Contributing
+
+Bug reports and pull requests specific to this fork are welcome here. Anything that isn't masto.nyc-specific should go upstream to [mastodon/mastodon-android](https://github.com/mastodon/mastodon-android) instead, so that it benefits everyone and flows back into this fork on the next merge.
+
+Translations are inherited from upstream via Crowdin. Please do not create pull requests that modify `strings.xml` files for languages other than English.
 
 ## License
 
 This project is released under the [GPL-3 License](./LICENSE).
 
-The Mastodon name and logo are trademarks. If you intend to redistribute a modified version of this app, use a unique name and icon for your app that does not mistakenly imply any official connection with or endorsement by the Mastodon non-profit organisation.
+The Mastodon name and logo are trademarks of the Mastodon non-profit organisation. This fork uses a distinct name, and the launcher icon, splash logo, notification icon and store images are all Five Borough Fedi Project artwork. The splash background illustration and the empty-state art are still upstream's; see [FORK.md](./FORK.md#artwork) for what remains.
