@@ -20,6 +20,7 @@ import org.joinmastodon.android.api.gson.IsoInstantTypeAdapter;
 import org.joinmastodon.android.api.gson.IsoLocalDateTypeAdapter;
 import org.joinmastodon.android.api.requests.async_refreshes.GetAsyncRefresh;
 import org.joinmastodon.android.api.session.AccountSession;
+import org.joinmastodon.android.fork.ForkConfig;
 import org.joinmastodon.android.model.AsyncRefresh;
 
 import java.io.File;
@@ -88,7 +89,7 @@ public class MastodonAPIController{
 				Request.Builder builder=new Request.Builder()
 						.url(req.getURL().toString())
 						.method(req.getMethod(), req.getRequestBody())
-						.header("User-Agent", "MastodonAndroid/"+BuildConfig.VERSION_NAME);
+						.header("User-Agent", ForkConfig.USER_AGENT_PRODUCT+"/"+BuildConfig.VERSION_NAME);
 
 				String token=null;
 				if(session!=null)

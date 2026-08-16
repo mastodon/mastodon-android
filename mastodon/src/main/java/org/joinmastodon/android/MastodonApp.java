@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.webkit.WebView;
 
 import org.joinmastodon.android.api.PushSubscriptionManager;
+import org.joinmastodon.android.fork.ForkConfig;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import me.grishka.appkit.imageloader.ImageCache;
@@ -27,7 +28,7 @@ public class MastodonApp extends Application{
 		params.diskCacheSize=100*1024*1024;
 		params.maxMemoryCacheSize=Integer.MAX_VALUE;
 		ImageCache.setParams(params);
-		NetworkUtils.setUserAgent("MastodonAndroid/"+BuildConfig.VERSION_NAME);
+		NetworkUtils.setUserAgent(ForkConfig.USER_AGENT_PRODUCT+"/"+BuildConfig.VERSION_NAME);
 		UiUtils.updateLocalizedDateFormatters(context);
 
 		PushSubscriptionManager.tryRegisterFCM();
