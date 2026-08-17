@@ -185,7 +185,7 @@ public class StoreScreenshotsGenerator{
 			ComposeFragment fragment=new ComposeFragment();
 			fragment.setArguments(composeArgs);
 			activity.showFragment(fragment);
-			fragment.addFakeMediaAttachment(Uri.fromFile(photo), "Pantheon");
+			fragment.addFakeMediaAttachment(Uri.fromFile(photo), "Parthenon");
 		});
 		Thread.sleep(500);
 		onView(withId(R.id.toot_text)).perform(typeText("This is a picture I took the last time I visited #Athens, Greece. What a beautiful place!"));
