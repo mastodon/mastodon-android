@@ -11,6 +11,8 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 
 public abstract class BaseModel implements Cloneable{
+	protected static final String TAG="BaseModel";
+
 	@CallSuper
 	public void postprocess() throws ObjectValidationException{
 		try{

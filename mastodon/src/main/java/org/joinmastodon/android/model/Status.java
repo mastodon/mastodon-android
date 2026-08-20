@@ -1,6 +1,7 @@
 package org.joinmastodon.android.model;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.RequiredField;
@@ -87,8 +88,15 @@ public class Status extends BaseModel implements DisplayItemsParent{
 			t.postprocess();
 		for(Emoji e:emojis)
 			e.postprocess();
-		for(Attachment a:mediaAttachments)
-			a.postprocess();
+		mediaAttachments.removeIf(a->{
+			try{
+				a.postprocess();
+				return false;
+			}catch(ObjectValidationException x){
+				Log.d(TAG, "Removed invalid media attachment from status "+id, x);
+				return true;
+			}
+		});
 		account.postprocess();
 		if(poll!=null)
 			poll.postprocess();

@@ -93,6 +93,10 @@ public class Attachment extends BaseModel{
 			if(placeholder!=null)
 				blurhashPlaceholder=new BlurHashDrawable(placeholder, getWidth(), getHeight());
 		}
+		if((type==Type.IMAGE || type==Type.VIDEO || type==Type.GIFV) && url==null)
+			throw new ObjectValidationException("url is required for image, video, and gifv attachments");
+		if((type==Type.VIDEO || type==Type.GIFV) && previewUrl==null)
+			throw new ObjectValidationException("preview_url is required for video and gifv attachments");
 	}
 
 	@Override
