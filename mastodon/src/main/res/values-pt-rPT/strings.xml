@@ -973,8 +973,10 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<string name="profile_followers">Seguidores</string>
 	<string name="profile_following">A seguir</string>
 	<string name="user_follows_you">Segue-o</string>
+	<string name="profile_featured_empty_self">Destaque as suas contas favoritas</string>
 	<string name="profile_featured_empty">Não há nada para ver aqui</string>
 	<string name="profile_featured_empty_description">%s ainda não tem destaques.</string>
+	<string name="profile_featured_empty_self_description">As coleções são listas selecionadas de contas para ajudar outros a descobrir mais sobre o Fediverso. Pode criar coleções na aplicação web do Mastodon.</string>
 	<string name="handle_explanation_copy">Copiar identificador</string>
 	<string name="request_to_follow_short">Pedido</string>
 	<string name="cancel_follow_request_short">Cancelar</string>
@@ -986,5 +988,19 @@ Quanto mais pessoas seguires, mais ativa e interessante será a cronologia.</str
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s denunciou %2$s</string>
 	<string name="notification_admin_signup">%s criou conta</string>
+	<string name="profile_collections">Coleções</string>
+	<string name="collection_by_author">por %s</string>
+	<string name="account_last_active">Última atividade</string>
+	<string name="you_are_in_collection">Está em destaque nesta coleção</string>
+	<string name="remove_self_from_collection">Remover-me</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s adicionou-o a %2$s</string>
+	<string name="sensitive_content">Conteúdo sensível</string>
+	<string name="collection_sensitive_description">A descrição e as contas podem não ser adequadas para todos os públicos.</string>
+	<string name="view_collection">Ver coleção</string>
+	<string name="report_collection">Denunciar coleção</string>
+	<string name="confirm_remove_self_from_collection_title">Remover-se de \"%s\"?</string>
+	<string name="confirm_remove_self_from_collection">Esta ação é irreversível.\nEste utilizador continuará a poder adicioná-lo a outras coleções, a menos que o bloqueie.</string>
+	<string name="notification_added_you_to_collection">%s adicionou-o a uma coleção</string>
+	<string name="notification_collection_edited">%s editou uma coleção que o incluí</string>
 </resources>
