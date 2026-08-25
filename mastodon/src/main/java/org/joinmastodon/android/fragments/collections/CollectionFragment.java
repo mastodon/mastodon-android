@@ -129,6 +129,7 @@ public class CollectionFragment extends BaseAccountListFragment{
 	protected void onConfigureViewHolder(AccountViewHolder holder){
 		super.onConfigureViewHolder(holder);
 		holder.setStyle(AccountViewHolder.AccessoryType.BUTTON, true);
+		holder.followReferrer="collection";
 	}
 
 	@Override

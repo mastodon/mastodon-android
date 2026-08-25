@@ -682,7 +682,7 @@ public class UiUtils{
 		ta.recycle();
 	}
 
-	public static void performAccountAction(Activity activity, Account account, String accountID, Relationship relationship, Button button, Consumer<Boolean> progressCallback, Consumer<Relationship> resultCallback){
+	public static void performAccountAction(Activity activity, Account account, String accountID, Relationship relationship, Button button, Consumer<Boolean> progressCallback, Consumer<Relationship> resultCallback, String ref){
 		if(relationship.blocking){
 			confirmToggleBlockUser(activity, accountID, account, true, resultCallback);
 		}else if(relationship.muting){
@@ -690,7 +690,7 @@ public class UiUtils{
 		}else{
 			Runnable action=()->{
 				progressCallback.accept(true);
-				new SetAccountFollowed(account.id, !relationship.following && !relationship.requested, true, false)
+				new SetAccountFollowed(account.id, !relationship.following && !relationship.requested, true, false, ref)
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(Relationship result){

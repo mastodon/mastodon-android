@@ -133,7 +133,7 @@ public class OnboardingFollowSuggestionsFragment extends BaseAccountListFragment
 		}
 		numRunningFollowRequests++;
 		String id=accountIdsToFollow.remove(0);
-		new SetAccountFollowed(id, true, true, false)
+		new SetAccountFollowed(id, true, true, false, "onboarding")
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Relationship result){

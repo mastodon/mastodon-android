@@ -8,6 +8,7 @@ import org.joinmastodon.android.fragments.account_list.BaseAccountListFragment;
 import org.joinmastodon.android.model.FollowSuggestion;
 import org.joinmastodon.android.model.viewmodel.AccountViewModel;
 import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
+import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,5 +51,11 @@ public class DiscoverAccountsFragment extends BaseAccountListFragment implements
 	@Override
 	public void scrollToTop(){
 		smoothScrollRecyclerViewToTop(list);
+	}
+
+	@Override
+	protected void onConfigureViewHolder(AccountViewHolder holder){
+		super.onConfigureViewHolder(holder);
+		holder.followReferrer="suggestions";
 	}
 }

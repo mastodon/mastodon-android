@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
 
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.SimpleCallback;
+import me.grishka.appkit.utils.BindableViewHolder;
 
 public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 	private String currentQuery;
@@ -225,6 +226,14 @@ public class SearchFragment extends BaseStatusListFragment<SearchResult>{
 			if(list.getChildViewHolder(list.getChildAt(i)) instanceof AccountStatusDisplayItem.Holder ah){
 				ah.realHolder.bindRelationship();
 			}
+		}
+	}
+
+	@Override
+	protected void onModifyItemViewHolder(BindableViewHolder<StatusDisplayItem> holder){
+		super.onModifyItemViewHolder(holder);
+		if((Object)holder instanceof AccountStatusDisplayItem.Holder avh){
+			avh.realHolder.followReferrer="search";
 		}
 	}
 }

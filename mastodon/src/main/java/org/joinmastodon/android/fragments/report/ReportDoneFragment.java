@@ -176,7 +176,7 @@ public class ReportDoneFragment extends MastodonToolbarFragment{
 	}
 
 	private void onUnfollowClick(){
-		new SetAccountFollowed(reportAccount.id, false, false, false)
+		new SetAccountFollowed(reportAccount.id, false, false, false, null)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Relationship result){
