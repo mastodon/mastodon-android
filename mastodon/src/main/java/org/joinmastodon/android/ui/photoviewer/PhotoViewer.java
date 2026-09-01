@@ -709,7 +709,9 @@ public class PhotoViewer implements ZoomPanView.Listener{
 		int id=view.getId();
 		if(id==R.id.boost_btn){
 			if(status!=null){
-				AccountSessionManager.get(accountID).getStatusInteractionController().setReblogged(status, !status.reblogged);
+				UiUtils.handleStatusBoostClick(activity, view, accountID, status, ()->{
+					AccountSessionManager.get(accountID).getStatusInteractionController().setReblogged(status, !status.reblogged);
+				}, this::onDismissed);
 			}
 		}else if(id==R.id.favorite_btn){
 			if(status!=null){

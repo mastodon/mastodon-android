@@ -167,42 +167,7 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 		}
 
 		private void onBoostClick(View v){
-			Instance instance=AccountSessionManager.get(item.accountID).getInstanceInfo();
-			if(instance.supportsQuotePostAuthoring()){
-				ListItemsSheet sheet=new ListItemsSheet(itemView.getContext());
-				sheet.add(new ListItem<>(item.status.reblogged ? R.string.undo_reblog : R.string.button_reblog, 0, R.drawable.ic_repeat_24px, o->{
-					doBoost();
-					sheet.dismiss();
-				}));
-				if(item.status.quoteApproval==null || item.status.quoteApproval.currentUser==QuoteApproval.CurrentUserPolicy.UNKNOWN || item.status.quoteApproval.currentUser==QuoteApproval.CurrentUserPolicy.DENIED){
-					sheet.add(new ListItem<>(R.string.create_quote,
-							item.status.quoteApproval!=null && item.status.quoteApproval.automatic.contains(QuoteApproval.Policy.FOLLOWERS) ? R.string.cannot_quote_post_followers_only : R.string.cannot_quote_post,
-							R.drawable.ic_format_quote_off_fill1_24px, null));
-				}else{
-					sheet.add(new ListItem<>(item.status.quoteApproval.currentUser==QuoteApproval.CurrentUserPolicy.MANUAL ? R.string.create_quote_manual_approval : R.string.create_quote,
-							item.status.quoteApproval.currentUser==QuoteApproval.CurrentUserPolicy.MANUAL ? R.string.create_quote_manual_approval_subtitle : 0,
-							R.drawable.ic_format_quote_fill1_24px, o->{
-						sheet.dismiss();
-						Bundle args=new Bundle();
-						args.putString("account", item.accountID);
-						args.putParcelable("quote", Parcels.wrap(item.status));
-						Nav.go((Activity) item.context, ComposeFragment.class, args);
-					}));
-				}
-				sheet.show();
-			}else{
-				if(GlobalUserPreferences.confirmBoost){
-					PopupMenu menu=new PopupMenu(itemView.getContext(), boost);
-					menu.getMenu().add(R.string.button_reblog);
-					menu.setOnMenuItemClickListener(item->{
-						doBoost();
-						return true;
-					});
-					menu.show();
-				}else{
-					doBoost();
-				}
-			}
+			UiUtils.handleStatusBoostClick((Activity) itemView.getContext(), boost, item.accountID, item.status, this::doBoost, null);
 		}
 
 		private void doBoost(){

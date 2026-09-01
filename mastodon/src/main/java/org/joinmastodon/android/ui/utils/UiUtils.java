@@ -78,6 +78,7 @@ import org.joinmastodon.android.api.requests.statuses.GetStatusByID;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
+import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
 import org.joinmastodon.android.fragments.collections.CollectionFragment;
 import org.joinmastodon.android.fragments.profile.ProfileFragment;
@@ -86,6 +87,8 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountOrPartial;
 import org.joinmastodon.android.model.Emoji;
 import org.joinmastodon.android.model.Hashtag;
+import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.model.QuoteApproval;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.SearchResults;
 import org.joinmastodon.android.model.Status;
@@ -98,6 +101,7 @@ import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
 import org.joinmastodon.android.ui.sheets.BlockAccountConfirmationSheet;
 import org.joinmastodon.android.ui.sheets.BlockDomainConfirmationSheet;
+import org.joinmastodon.android.ui.sheets.ListItemsSheet;
 import org.joinmastodon.android.ui.sheets.MuteAccountConfirmationSheet;
 import org.joinmastodon.android.ui.text.CustomEmojiSpan;
 import org.joinmastodon.android.ui.text.SpacerSpan;
@@ -1331,5 +1335,46 @@ public class UiUtils{
 
 	public static void makeMenuItemRed(Context context, MenuItem item){
 		item.setTitle(makeRedString(context, item.getTitle()));
+	}
+
+	public static void handleStatusBoostClick(Activity activity, View button, String accountID, Status status, Runnable doBoost, Runnable onDismissOverlays){
+		Instance instance=AccountSessionManager.get(accountID).getInstanceInfo();
+		if(instance.supportsQuotePostAuthoring()){
+			ListItemsSheet sheet=new ListItemsSheet(activity);
+			sheet.add(new ListItem<>(status.reblogged ? R.string.undo_reblog : R.string.button_reblog, 0, R.drawable.ic_repeat_24px, o->{
+				doBoost.run();
+				sheet.dismiss();
+			}));
+			if(status.quoteApproval==null || status.quoteApproval.currentUser==QuoteApproval.CurrentUserPolicy.UNKNOWN || status.quoteApproval.currentUser==QuoteApproval.CurrentUserPolicy.DENIED){
+				sheet.add(new ListItem<>(R.string.create_quote,
+						status.quoteApproval!=null && status.quoteApproval.automatic.contains(QuoteApproval.Policy.FOLLOWERS) ? R.string.cannot_quote_post_followers_only : R.string.cannot_quote_post,
+						R.drawable.ic_format_quote_off_fill1_24px, null));
+			}else{
+				sheet.add(new ListItem<>(status.quoteApproval.currentUser==QuoteApproval.CurrentUserPolicy.MANUAL ? R.string.create_quote_manual_approval : R.string.create_quote,
+						status.quoteApproval.currentUser==QuoteApproval.CurrentUserPolicy.MANUAL ? R.string.create_quote_manual_approval_subtitle : 0,
+						R.drawable.ic_format_quote_fill1_24px, o->{
+					sheet.dismiss();
+					if(onDismissOverlays!=null)
+						onDismissOverlays.run();
+					Bundle args=new Bundle();
+					args.putString("account", accountID);
+					args.putParcelable("quote", Parcels.wrap(status));
+					Nav.go(activity, ComposeFragment.class, args);
+				}));
+			}
+			sheet.show();
+		}else{
+			if(GlobalUserPreferences.confirmBoost){
+				PopupMenu menu=new PopupMenu(activity, button);
+				menu.getMenu().add(R.string.button_reblog);
+				menu.setOnMenuItemClickListener(item->{
+					doBoost.run();
+					return true;
+				});
+				menu.show();
+			}else{
+				doBoost.run();
+			}
+		}
 	}
 }
