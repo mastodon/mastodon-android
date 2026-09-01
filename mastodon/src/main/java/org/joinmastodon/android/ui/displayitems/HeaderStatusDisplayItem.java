@@ -206,7 +206,7 @@ public class HeaderStatusDisplayItem extends StatusDisplayItem{
 					}, rel->{
 						item.callbacks.putRelationship(account.id, rel);
 						Toast.makeText(activity, activity.getString(rel.following ? R.string.followed_user : rel.requested ? R.string.following_user_requested : R.string.unfollowed_user, account.getDisplayUsername()), Toast.LENGTH_SHORT).show();
-					}, null);
+					}, "status");
 				}else if(id==R.id.bookmark){
 					AccountSessionManager.getInstance().getAccount(item.accountID).getStatusInteractionController().setBookmarked(item.status, !item.status.bookmarked);
 				}else if(id==R.id.share){

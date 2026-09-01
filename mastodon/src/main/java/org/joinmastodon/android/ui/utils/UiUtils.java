@@ -444,6 +444,10 @@ public class UiUtils{
 	}
 
 	public static void openProfileByID(Context context, String selfID, String id, String username, String domain){
+		openProfileByID(context, selfID, id, username, domain, null);
+	}
+
+	public static void openProfileByID(Context context, String selfID, String id, String username, String domain, String followReferrer){
 		Bundle args=new Bundle();
 		args.putString("account", selfID);
 		args.putString("profileAccountID", id);
@@ -451,6 +455,8 @@ public class UiUtils{
 			args.putString("accountUsername", username);
 			args.putString("accountDomain", domain);
 		}
+		if(followReferrer!=null)
+			args.putString("followReferrer", followReferrer);
 		Nav.go((Activity)context, ProfileFragment.class, args);
 	}
 

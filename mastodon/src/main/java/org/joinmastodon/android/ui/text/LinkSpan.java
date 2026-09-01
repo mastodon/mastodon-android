@@ -8,6 +8,7 @@ import android.text.style.CharacterStyle;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.Mention;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 public class LinkSpan extends CharacterStyle {
@@ -50,7 +51,7 @@ public class LinkSpan extends CharacterStyle {
 		switch(getType()){
 			case URL -> UiUtils.openURL(context, accountID, link, parentObject);
 			case MENTION -> {
-				String username, domain;
+				String username, domain, followReferrer=null;
 				if(linkObject instanceof Mention m && !TextUtils.isEmpty(m.acct)){
 					String[] parts=m.acct.split("@", 2);
 					username=parts[0];
@@ -62,7 +63,9 @@ public class LinkSpan extends CharacterStyle {
 				}else{
 					username=domain=null;
 				}
-				UiUtils.openProfileByID(context, accountID, link, username, domain);
+				if(parentObject instanceof Status)
+					followReferrer="status";
+				UiUtils.openProfileByID(context, accountID, link, username, domain, followReferrer);
 			}
 			case HASHTAG -> {
 				if(linkObject instanceof Hashtag ht)
