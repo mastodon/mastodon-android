@@ -189,6 +189,7 @@ public class LinkCardHolder<T extends LinkCardHolder.LinkCardProvider> extends S
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putParcelable("profileAccount", Parcels.wrap(item.getCard().getAuthorAccount()));
+		args.putString("followReferrer", "author_attribution");
 		Nav.go(activity, ProfileFragment.class, args);
 	}
 

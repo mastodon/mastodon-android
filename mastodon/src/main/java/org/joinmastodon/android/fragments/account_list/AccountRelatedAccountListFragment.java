@@ -3,6 +3,7 @@ package org.joinmastodon.android.fragments.account_list;
 import android.os.Bundle;
 
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 import org.parceler.Parcels;
 
 public abstract class AccountRelatedAccountListFragment extends PaginatedAccountListFragment{
@@ -13,5 +14,11 @@ public abstract class AccountRelatedAccountListFragment extends PaginatedAccount
 		super.onCreate(savedInstanceState);
 		account=Parcels.unwrap(getArguments().getParcelable("targetAccount"));
 		setTitle("@"+account.acct);
+	}
+
+	@Override
+	protected void onConfigureViewHolder(AccountViewHolder holder){
+		super.onConfigureViewHolder(holder);
+		holder.followReferrer="account";
 	}
 }

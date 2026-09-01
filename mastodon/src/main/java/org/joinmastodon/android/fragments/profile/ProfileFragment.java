@@ -391,7 +391,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			buttonMenu.show();
 		});
 		notificationsButton.setOnClickListener(v->{
-			new SetAccountFollowed(account.id, true, relationship.showingReblogs, !relationship.notifying, "profile")
+			new SetAccountFollowed(account.id, true, relationship.showingReblogs, !relationship.notifying, getFollowReferrer())
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(Relationship result){
@@ -894,7 +894,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 				updateRelationship();
 			}, this::updateRelationship);
 		}else if(id==R.id.hide_boosts){
-			new SetAccountFollowed(account.id, true, !relationship.showingReblogs, relationship.notifying, "profile")
+			new SetAccountFollowed(account.id, true, !relationship.showingReblogs, relationship.notifying, getFollowReferrer())
 					.setCallback(new Callback<>(){
 						@Override
 						public void onSuccess(Relationship result){
@@ -1188,7 +1188,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			extras.putInt("featuredTagCount", timelineFragment.getFeaturedHashtagCount());
 			Nav.go(getActivity(), ProfileEditFragment.class, extras);
 		}else{
-			UiUtils.performAccountAction(getActivity(), account, accountID, relationship, actionButton, this::setActionProgressVisible, this::updateRelationship, "profile");
+			UiUtils.performAccountAction(getActivity(), account, accountID, relationship, actionButton, this::setActionProgressVisible, this::updateRelationship, getFollowReferrer());
 		}
 	}
 
@@ -1281,6 +1281,10 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 		if(account!=null){
 			content.setWebUri(Uri.parse(account.url));
 		}
+	}
+
+	private String getFollowReferrer(){
+		return getArguments().getString("followReferrer", "profile");
 	}
 
 	private class ProfilePagerAdapter extends RecyclerView.Adapter<SimpleViewHolder>{

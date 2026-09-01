@@ -52,6 +52,7 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 				Bundle args=new Bundle();
 				args.putString("account", accountID);
 				args.putParcelable("profileAccount", Parcels.wrap(account));
+				args.putString("followReferrer", "status");
 				Nav.go((Activity) context, ProfileFragment.class, args);
 			}, LinkSpan.Type.CUSTOM, null, null, null), 0);
 

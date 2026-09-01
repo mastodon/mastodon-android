@@ -30,6 +30,7 @@ import org.joinmastodon.android.ui.displayitems.SectionHeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 import org.joinmastodon.android.ui.viewholders.CollectionViewHolder;
 import org.parceler.Parcels;
 
@@ -190,6 +191,12 @@ public class ProfileFeaturedFragment extends BaseAccountListFragment{
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		list.getItemAnimator().setChangeDuration(0);
+	}
+
+	@Override
+	protected void onConfigureViewHolder(AccountViewHolder holder){
+		super.onConfigureViewHolder(holder);
+		holder.followReferrer="featured_account";
 	}
 
 	private void showAllEndorsedAccounts(){

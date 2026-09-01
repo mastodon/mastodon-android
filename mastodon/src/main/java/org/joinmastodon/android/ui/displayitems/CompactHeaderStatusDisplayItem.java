@@ -131,6 +131,7 @@ public class CompactHeaderStatusDisplayItem extends StatusDisplayItem{
 			Bundle args=new Bundle();
 			args.putString("account", item.accountID);
 			args.putParcelable("profileAccount", Parcels.wrap(item.user));
+			args.putString("followReferrer", "status");
 			Nav.go((Activity) item.context, ProfileFragment.class, args);
 		}
 	}

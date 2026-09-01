@@ -3,6 +3,7 @@ package org.joinmastodon.android.fragments.account_list;
 import android.os.Bundle;
 
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 import org.parceler.Parcels;
 
 public abstract class StatusRelatedAccountListFragment extends PaginatedAccountListFragment{
@@ -14,4 +15,9 @@ public abstract class StatusRelatedAccountListFragment extends PaginatedAccountL
 		status=Parcels.unwrap(getArguments().getParcelable("status"));
 	}
 
+	@Override
+	protected void onConfigureViewHolder(AccountViewHolder holder){
+		super.onConfigureViewHolder(holder);
+		holder.followReferrer="status";
+	}
 }

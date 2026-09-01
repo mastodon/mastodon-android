@@ -6,6 +6,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.HeaderPaginationRequest;
 import org.joinmastodon.android.api.requests.accounts.GetAccountEndorsements;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 
 public class FeaturedAccountListFragment extends AccountRelatedAccountListFragment{
 
@@ -18,5 +19,11 @@ public class FeaturedAccountListFragment extends AccountRelatedAccountListFragme
 	@Override
 	public HeaderPaginationRequest<Account> onCreateRequest(String maxID, int count){
 		return new GetAccountEndorsements(account.id, count, maxID);
+	}
+
+	@Override
+	protected void onConfigureViewHolder(AccountViewHolder holder){
+		super.onConfigureViewHolder(holder);
+		holder.followReferrer="featured_account";
 	}
 }

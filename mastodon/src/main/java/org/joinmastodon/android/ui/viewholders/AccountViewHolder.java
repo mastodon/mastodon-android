@@ -210,6 +210,8 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putParcelable("profileAccount", Parcels.wrap(item.account));
+		if(followReferrer!=null)
+			args.putString("followReferrer", followReferrer);
 		Nav.go(fragment.getActivity(), ProfileFragment.class, args);
 	}
 
