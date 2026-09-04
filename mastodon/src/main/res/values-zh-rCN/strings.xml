@@ -70,7 +70,7 @@
 		<item quantity="other">%,d 票</item>
 	</plurals>
 	<string name="poll_closed">已关闭</string>
-	<string name="do_mute">隐藏</string>
+	<string name="do_mute">静音</string>
 	<string name="do_block">屏蔽</string>
 	<string name="button_blocked">已屏蔽</string>
 	<string name="action_vote">投票</string>
@@ -209,8 +209,8 @@
 	<string name="downloading">正在下载…</string>
 	<string name="no_app_to_handle_action">没有可用于处理该操作的应用</string>
 	<string name="local_timeline">实时动态</string>
-	<string name="trending_posts_info_banner">这些嘟文正在 Mastodon 上获得关注。</string>
-	<string name="trending_links_info_banner">以下是 Mastodon 中正在热议的新鲜事。</string>
+	<string name="trending_posts_info_banner">这些是 Mastodon 上正广受关注的嘟文。</string>
+	<string name="trending_links_info_banner">这些是 Mastodon 中热议的新闻报道。</string>
 	<!-- %s is the server domain -->
 	<string name="local_timeline_info_banner">以下是来自你所在实例（%s）的所有嘟文。</string>
 	<string name="recommended_accounts_info_banner">基于你的关注，你或许也会喜欢这些账号。</string>
@@ -581,7 +581,7 @@
 	<string name="more_than_two_years">2年多</string>
 	<string name="non_mutual_title1">保持尊重 &amp; 切题</string>
 	<string name="non_mutual_text1">确保您的回复礼貌且切题。</string>
-	<string name="non_mutual_title2">拥抱善良</string>
+	<string name="non_mutual_title2">保持友善</string>
 	<string name="non_mutual_text2">积极的语气总是受欢迎的</string>
 	<string name="non_mutual_title3">保持开放</string>
 	<string name="non_mutual_text3">每个人的对话风格都是独一无二的。做好适应的准备。</string>
@@ -589,9 +589,9 @@
 	<string name="discoverability">可发现性</string>
 	<string name="discoverability_help">当你在Mastodon上将你的账户设为可发现时，你的嘟文可能会出现在搜索结果和热门中。\n\n你的资料卡可能会被推荐给与你有类似兴趣的人。\n\n取消可发现设定并不会在有人通过名字搜索你时隐藏你的资料卡。</string>
 	<string name="app_version_copied">版本号已复制到剪贴板</string>
-	<string name="onboarding_recommendations_intro">你来打造你自己的首页动态。
+	<string name="onboarding_recommendations_intro">你打造自己的首页推送。
 你关注的人越多，它就会越活跃和有趣。</string>
-	<string name="onboarding_recommendations_title">个性化你的首页动态</string>
+	<string name="onboarding_recommendations_title">个性化你的首页推送</string>
 	<string name="article_by_author">来自 %s</string>
 	<string name="button_reblogged">已转嘟</string>
 	<string name="button_favorited">已喜欢</string>
@@ -606,12 +606,12 @@
 	<string name="this_invite_has_expired">此邀请链接已过期。</string>
 	<string name="invite_link_pasted">已从剪贴板中粘贴链接。</string>
 	<string name="need_invite_to_join_server">要加入%s，你需要从现有用户那里获取一个邀请链接。</string>
-	<string name="mute_user_confirm_title">隐藏用户？</string>
-	<string name="user_wont_know_muted">他们不会知道自己已被隐藏。</string>
-	<string name="user_can_still_see_your_posts">他们仍然可以看到你的嘟文，但是你不会他们的嘟文。</string>
+	<string name="mute_user_confirm_title">静音用户？</string>
+	<string name="user_wont_know_muted">他们不会知道自己已被静音。</string>
+	<string name="user_can_still_see_your_posts">他们仍然可以看到你的嘟文，但是你不会看到他们的嘟文。</string>
 	<string name="you_wont_see_user_mentions">你将不会看到提及他们的嘟文。</string>
 	<string name="user_can_mention_and_follow_you">他们可以提及和关注你，但是你不会看到他们。</string>
-	<string name="unmuted_user_x">已取消隐藏 %s</string>
+	<string name="unmuted_user_x">已取消静音 %s</string>
 	<string name="block_user_confirm_title">屏蔽用户？</string>
 	<string name="user_can_see_blocked">他们可以看到他们已被屏蔽。</string>
 	<string name="user_cant_see_each_other_posts">他们将无法看到你的嘟文，你也不会看到他们的嘟文。</string>
@@ -636,7 +636,7 @@
 	<string name="in_app_browser">应用内置浏览器</string>
 	<string name="system_browser">系统浏览器</string>
 	<string name="add_muted_word_short">添加关键词</string>
-	<string name="tab_home">主页</string>
+	<string name="tab_home">首页</string>
 	<string name="tab_search">探索</string>
 	<string name="tab_profile">个人资料</string>
 	<string name="pin_post">在个人资料页置顶</string>
@@ -731,7 +731,7 @@
 	<string name="moderation_warning_action_mark_statuses_as_sensitive">你的一些嘟文已被标记为敏感内容。</string>
 	<string name="moderation_warning_action_delete_statuses">你的一些嘟文已被移除。</string>
 	<string name="moderation_warning_action_sensitive">今后你的嘟文都会被标记为敏感内容。</string>
-	<string name="moderation_warning_action_silence">你的账号已被隐藏。</string>
+	<string name="moderation_warning_action_silence">你的账号已被限制。</string>
 	<string name="moderation_warning_action_suspend">你的账号已被封禁。</string>
 	<string name="moderation_warning_learn_more">了解更多</string>
 	<string name="text_show_more">更多</string>
@@ -793,8 +793,8 @@
 		<item quantity="other">%d</item>
 	</plurals>
 	<string name="quote_post_unavailable">嘟文不可用</string>
-	<string name="quote_post_pending">待发布嘟文</string>
-	<string name="quote_post_pending_explanation">在 Mastodon，谁能引用你的嘟文由你掌控。在原作者同意前，该嘟文将处于待发布状态。</string>
+	<string name="quote_post_pending">嘟文待同意</string>
+	<string name="quote_post_pending_explanation">在 Mastodon，谁能引用你的嘟文由你掌控。在原作者同意前，该嘟文将处于待同意状态。</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">引用了一则 %s 的嘟文</string>
 	<string name="compose_visibility_public_anyone">公开，任何人都可以引用</string>
@@ -805,7 +805,7 @@
 	<string name="compose_visibility_unlisted_disabled">悄悄公开，禁止引用</string>
 	<string name="compose_visibility_title">可见性和互动</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
-	<string name="compose_visibility_explanation">控制那些人可以与该嘟文互动。在设置 &gt;%s&gt; 默认发嘟设置中还可以找到全局设置。</string>
+	<string name="compose_visibility_explanation">控制哪些人可以与该嘟文互动。在设置 &gt;%s&gt; 默认发嘟设置中可以找到全局设置。</string>
 	<string name="compose_visibility">可见性</string>
 	<string name="compose_quote_policy">谁能引用</string>
 	<string name="quote_policy_public">任何人</string>
@@ -851,12 +851,12 @@
 	<string name="profile_view_qr_code">查看二维码</string>
 	<string name="feature_user">设为精选</string>
 	<string name="add_user_personal_note">添加个人备注</string>
-	<string name="mute_account">停止提醒账户</string>
+	<string name="mute_account">静音账户</string>
 	<string name="block_account">屏蔽账户</string>
 	<string name="remove_follower">移除关注者</string>
 	<string name="report_account">举报账户</string>
 	<string name="unblock_account">取消屏蔽账户</string>
-	<string name="unmute_account">恢复提醒账户</string>
+	<string name="unmute_account">取消静音用户</string>
 	<string name="unblock">取消屏蔽</string>
 	<string name="request_to_follow">请求关注</string>
 	<string name="cancel_follow_request">取消请求</string>
@@ -874,7 +874,7 @@
 	<string name="edit_profile_display_name">显示名称</string>
 	<string name="edit_profile_x_custom_fields">自定义字段 (%d)</string>
 	<string name="edit_profile_custom_fields">自定义字段</string>
-	<string name="edit_profile_custom_fields_description">例如：公告、外部链接等。</string>
+	<string name="edit_profile_custom_fields_description">例如：代词、外部链接等。</string>
 	<string name="edit_profile_featured_hashtags_description">允许用户按主题过滤您的时间线</string>
 	<string name="edit_profile_tab_settings">个人资料标签页设置</string>
 	<string name="edit_profile_add_bio">添加个人简介</string>
@@ -902,7 +902,7 @@
 		<item quantity="other">用于 %,d 帖子</item>
 	</plurals>
 	<string name="add_featured_hashtag">添加话题标签</string>
-	<string name="hashtag">话题</string>
+	<string name="hashtag">话题标签</string>
 	<string name="confirm_remove_featured_hashtag">移除话题标签？</string>
 	<string name="edit_profile_show_media_tab">“媒体”选项卡</string>
 	<string name="edit_profile_show_media_tab_description">显示包含媒体的帖子</string>
@@ -911,7 +911,7 @@
 	<string name="edit_profile_show_featured_tab_description">显示其他帐户的空间</string>
 	<!-- %s is the current user's server domain -->
 	<string name="edit_profile_tabs_explanation">这些设置自定义用户在官方应用程序中在 %s 上看到的东西， 但它们可能不适用于其他服务器和第三方应用上的用户。</string>
-	<string name="handle_explanation_title">用户名类似电子邮件地址。</string>
+	<string name="handle_explanation_title">用户地址类似电子邮件地址。</string>
 	<string name="handle_explanation_username">%s 是此账号在其服务器上的用户名。另一个服务器上的其他人可能拥有相同的用户名。</string>
 	<string name="handle_explanation_domain">%s 是托管该用户个人资料及嘟文的服务器。</string>
 	<string name="handle_explanation_summary">就像你可以用不同的电子邮箱向其他人发送同样的电子邮件一般，你也可以和其他 Mastodon 服务器上的用户互动，甚至还能和与其他联邦宇宙软件上的任何人互动。</string>
@@ -922,13 +922,13 @@
 	<string name="confirm_delete_profile_field">删除字段？</string>
 	<string name="confirm_delete_avatar">删除个人资料图片？</string>
 	<string name="confirm_delete_cover">删除页眉图像？</string>
-	<string name="profile_followers">仅关注者</string>
-	<string name="profile_following">已关注</string>
+	<string name="profile_followers">关注者</string>
+	<string name="profile_following">正在关注</string>
 	<string name="user_follows_you">关注了你</string>
 	<string name="profile_featured_empty_self">展示你最喜欢的账号</string>
 	<string name="profile_featured_empty">这里还没有内容</string>
 	<string name="profile_featured_empty_description">%s 尚未设置任何精选。</string>
-	<string name="profile_featured_empty_self_description">收藏是管理的帐户列表，以帮助他人发现更多的 Fediverse。您可以在 Mastodon 的 web 应用程序上创建收藏。</string>
+	<string name="profile_featured_empty_self_description">合集是管理的帐户列表，以帮助他人发现更多的 Fediverse。您可以在 Mastodon 的 web 应用程序上创建收藏。</string>
 	<string name="handle_explanation_copy">复制用户名</string>
 	<string name="request_to_follow_short">关注请求</string>
 	<string name="cancel_follow_request_short">取消</string>
@@ -940,19 +940,19 @@
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s 报告了 %2$s</string>
 	<string name="notification_admin_signup">%s 注册了</string>
-	<string name="profile_collections">收藏列表</string>
+	<string name="profile_collections">合集</string>
 	<string name="collection_by_author">由 %s</string>
 	<string name="account_last_active">按最后活跃顺序</string>
-	<string name="you_are_in_collection">您被添加到了此收藏列表</string>
+	<string name="you_are_in_collection">您被添加到了此合集</string>
 	<string name="remove_self_from_collection">移除我</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
 	<string name="collection_author_added_you">%1$s 于 %2$s 将你加入</string>
 	<string name="sensitive_content">敏感内容</string>
-	<string name="collection_sensitive_description">列表说明及其中的账号可能不适合所有人查看。</string>
-	<string name="view_collection">查看收藏列表</string>
+	<string name="collection_sensitive_description">合集说明及其中的账号可能不适合所有人查看。</string>
+	<string name="view_collection">查看合集</string>
 	<string name="report_collection">举报合集</string>
 	<string name="confirm_remove_self_from_collection_title">将自己从“%s”中移除吗？</string>
-	<string name="confirm_remove_self_from_collection">此操作无法撤消。\n此用户仍然能够将您添加到其他收藏中，除非您屏蔽它们。</string>
-	<string name="notification_added_you_to_collection">%s 将你添加到了收藏列表</string>
-	<string name="notification_collection_edited">%s 编辑了你所在的收藏列表</string>
+	<string name="confirm_remove_self_from_collection">此操作无法撤消。\n此用户仍然能够将您添加到其他合集中，除非您屏蔽它们。</string>
+	<string name="notification_added_you_to_collection">%s 将你添加到了合集</string>
+	<string name="notification_collection_edited">%s 编辑了你所在的合集</string>
 </resources>

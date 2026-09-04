@@ -1117,8 +1117,10 @@ Dá mhéad daoine a leanann tú, is ea is gníomhaí agus is suimiúla a bheidh 
 	<string name="profile_followers">Leantóirí</string>
 	<string name="profile_following">Ag leanúint</string>
 	<string name="user_follows_you">Leanann tú</string>
+	<string name="profile_featured_empty_self">Taispeáin na cuntais is fearr leat</string>
 	<string name="profile_featured_empty">Níl aon rud le feiceáil anseo</string>
 	<string name="profile_featured_empty_description">Níl aon rud le feiceáil ag %s go fóill.</string>
+	<string name="profile_featured_empty_self_description">Is liostaí cuntas coimeádta iad bailiúcháin chun cabhrú le daoine eile teacht ar níos mó den Chónaidhm. Is féidir leat bailiúcháin a chruthú ar aip gréasáin Mastodon.</string>
 	<string name="handle_explanation_copy">Láimhseáil chóipeála</string>
 	<string name="request_to_follow_short">Iarratas</string>
 	<string name="cancel_follow_request_short">Cealaigh</string>
@@ -1130,5 +1132,19 @@ Dá mhéad daoine a leanann tú, is ea is gníomhaí agus is suimiúla a bheidh 
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">Tuairiscíodh %1$s %2$s</string>
 	<string name="notification_admin_signup">%s cláraithe</string>
+	<string name="profile_collections">Bailiúcháin</string>
+	<string name="collection_by_author">ag %s</string>
+	<string name="account_last_active">Gníomhach seo caite</string>
+	<string name="you_are_in_collection">Tá tú le feiceáil sa bhailiúchán seo</string>
+	<string name="remove_self_from_collection">Bain díom</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">Chuir %1$s thú leis ar %2$s</string>
+	<string name="sensitive_content">Ábhar íogair</string>
+	<string name="collection_sensitive_description">Seans nach mbeidh an cur síos agus na cuntais oiriúnach do gach breathnóir.</string>
+	<string name="view_collection">Féach ar an mbailiúchán</string>
+	<string name="report_collection">Bailiúchán tuarascálacha</string>
+	<string name="confirm_remove_self_from_collection_title">An bhfuil fonn ort tú féin a bhaint de “%s”?</string>
+	<string name="confirm_remove_self_from_collection">Ní féidir an gníomh seo a chealú.\nBeidh an t-úsáideoir seo fós in ann tú a chur le bailiúcháin eile, mura gcuireann tú bac orthu.</string>
+	<string name="notification_added_you_to_collection">Chuir %s le bailiúchán thú</string>
+	<string name="notification_collection_edited">Chuir %s bailiúchán ina bhfuil tú in eagar</string>
 </resources>

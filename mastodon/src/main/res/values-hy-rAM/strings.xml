@@ -841,8 +841,22 @@
 	<string name="quote_post_pending_explanation">Մաստոդոնում դուք կարող եք կառավարել, թե ով կարող է ձեզ մեջբերել։ Այս գրառումը կհրապարակվի, երբ մենք սկզբնական հեղինակից թույլտվություն կստանանք։</string>
 	<!-- %s is a username, i.e. @Gargron -->
 	<string name="nested_quote">Մեջբերել է %s֊ի գրառումը</string>
+	<string name="compose_visibility_public_anyone">Հանրային, բոլորը կարող են ցիտել</string>
+	<string name="compose_visibility_public_limited">Հանրային, սահմանափակ ցիտում</string>
+	<string name="compose_visibility_public_disabled">Հանրային, անջատ ցիտում</string>
 	<!-- %s is current user's full username, e.g. @example@mastodon.social -->
+	<string name="compose_quote_policy">Ով կարող է ցիտել</string>
+	<string name="quote_policy_public">Բոլորը</string>
+	<string name="quote_policy_followers">Միայն հետեւողները</string>
+	<string name="quote_policy_nobody">Միայն ես</string>
 	<string name="quote_policy_for_unlisted_explanation">Եթե մեկը ձեզ ցիտի, իր գրառումը նույնպես կթաքցվի թրենդերի հոսքերից։</string>
+	<string name="quote_policy_for_private_explanation">Միայն հետևորդների համար Մաստոդոնում գրված գրառումները չեն կարող ցիտվել ուրիշների կողմից։</string>
+	<string name="notification_type_quote">Մեջբերումներ</string>
+	<string name="create_quote">Մեջբերել</string>
+	<string name="cannot_quote_post">Դուք չեք կարող մեջբերել այս գրառումը</string>
+	<string name="cannot_quote_post_followers_only">Միայն հետևորդներն են կարող մեջբերել այս գրառումը</string>
+	<string name="compose_hint_quote">Ավելացնել քննարկմանն ինչ-որ բան</string>
+	<string name="cancel_quote">Չեղարկել</string>
 	<!-- %s is the current user's server domain -->
 	<!-- Placeholders are user display names -->
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->

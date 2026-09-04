@@ -931,6 +931,7 @@
 	<string name="edit_profile_link_verification_title3">Lisää verkkosivustosi mukautettuna kenttänä</string>
 	<string name="edit_profile_link_verification_text3">Jos olet jo lisännyt verkkosivustosi mukautettuna kenttänä, sinun tulee poistaa ja lisätä se uudelleen, jotta voit käynnistää vahvistuksen.</string>
 	<string name="edit_profile_field">Muokkaa kenttää</string>
+	<string name="edit_profile_field_label_example">Esim. ‘Henkilökohtainen verkkosivusto’</string>
 	<string name="edit_profile_field_value_example">Esim. “example.me”</string>
 	<plurals name="x_chars_max">
 		<item quantity="one">%,d merkki enintään</item>
@@ -947,6 +948,7 @@
 	<!-- %s is the current user's server domain -->
 	<string name="edit_profile_tabs_explanation">Nämä asetukset mukauttavat sitä, mitä käyttäjät näkevät palvelimella %s virallisissa sovelluksissa, mutta ne eivät välttämättä vaikuta muiden palvelinten tai kolmannen osapuolen sovellusten käyttäjiin.</string>
 	<string name="handle_explanation_title">Käyttäjätunnus on kuin sähköpostiosoite.</string>
+	<string name="handle_explanation_username">%s on tämän tilin käyttäjänimi omalla palvelimellaan. Jollakin toisen palvelimen tilillä voi olla sama käyttäjänimi.</string>
 	<string name="handle_explanation_domain">%s on palvelin, jolla käyttäjän profiili ja julkaisut sijaitsevat.</string>
 	<string name="handle_explanation_summary">Aivan kuten voit lähettää sähköpostia eri sähköpostipalveluntarjoajien avulla, voit olla yhteydessä muihin Mastodon-palvelimiin ja kehen tahansa, joka käyttää fediversumin sovelluksia.</string>
 	<string name="pinned_post">Kiinnitetty</string>
@@ -960,12 +962,25 @@
 	<string name="user_follows_you">Seuraa sinua</string>
 	<string name="profile_featured_empty">Täällä ei ole mitään nähtävää</string>
 	<string name="handle_explanation_copy">Kopioi käyttäjätunnus</string>
+	<string name="request_to_follow_short">Pyyntö</string>
 	<string name="cancel_follow_request_short">Peruuta</string>
 	<string name="notification_filter_admin">Ylläpitäjän ilmoitukset</string>
 	<string name="notification_filter_admin_reports">Ylläpitäjän raportit</string>
 	<string name="notification_filter_admin_signups">Tilien rekisteröinnit</string>
+	<string name="notification_filter_admin_signups_explanation">Näytä ilmoitukset uusista tileistä, jotka on luotu tässä instanssissa</string>
 	<!-- Placeholders are user display names -->
 	<string name="notification_admin_report">%1$s raportoi käyttäjän %2$s</string>
 	<string name="notification_admin_signup">%s rekisteröityi</string>
+	<string name="profile_collections">Kokoelmat</string>
+	<string name="collection_by_author">tehnyt %s</string>
+	<string name="account_last_active">Aktiivinen viimeksi</string>
+	<string name="you_are_in_collection">Esiinnyt tässä kokoelmassa</string>
+	<string name="remove_self_from_collection">Poista minut</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="sensitive_content">Arkaluonteista sisältöä</string>
+	<string name="collection_sensitive_description">Kuvaus ja tilit eivät välttämättä sovellu kaikille.</string>
+	<string name="view_collection">Näytä kokoelma</string>
+	<string name="report_collection">Raportoi kokoelma</string>
+	<string name="notification_added_you_to_collection">%s lisäsi sinut kokoelmaan</string>
+	<string name="notification_collection_edited">%s muokkasi kokoelmaa, jossa olet</string>
 </resources>

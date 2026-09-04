@@ -984,7 +984,64 @@
 	<string name="quote_followers_only_cancel">Назад до редагування</string>
 	<string name="quote_followers_only_dont_show_again">Більше не показувати цього повідомлення</string>
 	<string name="more_replies_found">Знайдено більше відповідей</string>
+	<string name="user_is_bot">Автоматизований обліковий запис</string>
+	<string name="profile_view_qr_code">Подивитися QR-код</string>
+	<string name="add_user_personal_note">Додати особисту нотатку</string>
+	<string name="mute_account">Заглушити обліковий запис</string>
+	<string name="block_account">Блокувати обліковий запис</string>
+	<string name="remove_follower">Вилучити підписника</string>
+	<string name="report_account">Поскаржитися на обліковий запис</string>
+	<string name="unblock_account">Розблокувати обліковий запис</string>
+	<string name="unmute_account">Не ігнорувати обліковий запис</string>
+	<string name="unblock">Розблокувати</string>
+	<string name="request_to_follow">Запит на стеження</string>
+	<string name="cancel_follow_request">Скасувати запит</string>
+	<string name="confirm_remove_follower_title">Вилучити підписника?</string>
+	<string name="confirm_remove_follower">%s перестане стежити за вами. Ви впевнені, що хочете продовжити?</string>
+	<string name="edit_user_personal_note">Редагувати особисту нотатку</string>
+	<string name="user_personal_note_explanation">Особисті нотатки видно лише вам.</string>
+	<string name="user_personal_note">Особиста нотатка</string>
+	<string name="timeline_filter_posts_and_boosts">Дописи й поширення</string>
+	<string name="timeline_filter_show_replies">Показати відповіді</string>
+	<string name="timeline_filter_show_boosts">Показати просування</string>
+	<string name="timeline_filter_all_activity">Усі дії</string>
+	<string name="timeline_filter_posts_and_replies">Дописи та відповіді</string>
+	<string name="timeline_filter_posts">Дописи</string>
+	<string name="edit_profile_display_name">Видиме ім\'я</string>
+	<string name="edit_profile_x_custom_fields">Налаштовувані поля (%d)</string>
+	<string name="edit_profile_custom_fields">Налаштовувані поля</string>
+	<string name="edit_profile_custom_fields_description">Наприклад, займенники, зовнішні посилання тощо.</string>
+	<string name="edit_profile_featured_hashtags_description">Дозволити користувачам фільтрувати вашу шкалу часу за темою</string>
+	<string name="edit_profile_tab_settings">Параметри вкладки профілю</string>
+	<string name="edit_profile_add_bio">Додати біографію</string>
+	<string name="edit_profile_featured_hashtags">Рекомендовані хештеги</string>
+	<string name="edit_profile_x_featured_hashtags">Рекомендовані хештеги (%d)</string>
+	<string name="edit_profile_replace_image">Замінити</string>
+	<string name="edit_profile_edit_display_name">Редагувати видиме ім\'я</string>
+	<string name="edit_profile_edit_bio">Редагувати біографію</string>
+	<string name="add_profile_field">Додати поле</string>
+	<string name="edit_profile_custom_fields_help">Порада: Підвищіть довіру до свого облікового запису в Mastodon, підтвердивши посилання на вебсайти, які вам належать. <i>Дізнатися більше</i></string>
+	<string name="edit_profile_link_verification_help_title">Додавання перевіреного посилання</string>
+	<string name="edit_profile_link_verification_help">Підвищіть довіру до свого профілю в Mastodon, підтвердивши посилання на особисті вебсайти. Ось як це працює:</string>
+	<string name="edit_profile_link_verification_title1">Скопіюйте HTML-код нижче</string>
+	<string name="edit_profile_link_verification_title2">Вставте код у HTML-заголовок вашого вебсайту</string>
+	<string name="edit_profile_link_verification_text2">Додавання цього коду до заголовка дозволяє елементу &lt;a&gt; залишатися невидимим. Атрибут rel=\"me\" запобігає підробці особи на вебсайтах із користувацьким контентом, тому важливо його зберегти.</string>
+	<string name="edit_profile_link_verification_title3">Додати ваш вебсайт як налаштовуване поле</string>
+	<string name="edit_profile_link_verification_text3">Якщо ви вже додали свій вебсайт як налаштовуване поле, вам потрібно буде видалити його та додати заново, щоб запустити процес перевірки.</string>
+	<string name="edit_profile_field">Редагувати поле</string>
+	<string name="edit_profile_field_label_example">Наприклад, ‘Персональний сайт‘</string>
+	<string name="edit_profile_field_value_example">Наприклад, “example.me”</string>
+	<string name="add_featured_hashtag">Додати хештег</string>
+	<string name="hashtag">Гештег</string>
+	<string name="confirm_remove_featured_hashtag">Вилучити хештег?</string>
+	<string name="edit_profile_show_media_tab">Вкладка ‘Медіа’</string>
+	<string name="edit_profile_show_media_tab_description">Показує ваші публікації, що містять мультимедійні матеріали</string>
+	<string name="edit_profile_show_media_replies">Включати відповіді</string>
+	<string name="edit_profile_show_featured_tab_description">Простір для показу інших облікових записів</string>
 	<!-- %s is the current user's server domain -->
+	<string name="edit_profile_tabs_explanation">Ці налаштування визначають, що саме бачать користувачі на %s в офіційних застосунках, але вони можуть не поширюватися на користувачів інших серверів та сторонніх застосунків.</string>
+	<string name="handle_explanation_title">Ідентифікатор — це як адреса електронної пошти.</string>
+	<string name="handle_explanation_username">%s — це ім’я користувача цього облікового запису на їхньому сервері. На іншому сервері може бути користувач із таким самим ім’ям.</string>
 	<!-- Placeholders are user display names -->
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
 </resources>
