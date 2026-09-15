@@ -1042,6 +1042,13 @@
 	<string name="edit_profile_tabs_explanation">Ці налаштування визначають, що саме бачать користувачі на %s в офіційних застосунках, але вони можуть не поширюватися на користувачів інших серверів та сторонніх застосунків.</string>
 	<string name="handle_explanation_title">Ідентифікатор — це як адреса електронної пошти.</string>
 	<string name="handle_explanation_username">%s — це ім’я користувача цього облікового запису на їхньому сервері. На іншому сервері може бути користувач із таким самим ім’ям.</string>
+	<string name="handle_explanation_domain">%s — це сервер, на якому розміщено профіль користувача та його публікації.</string>
+	<string name="handle_explanation_summary">Так само як ви можете надсилати електронні листи людям, які користуються різними поштовими сервісами, ви можете спілкуватися з користувачами інших серверів Mastodon, а також з будь-ким в інших додатках Fediverse.</string>
+	<string name="profile_featured_empty_self_description">Колекції — це підібрані списки облікових записів, які допомагають іншим користувачам краще пізнати Fediverse. Створювати колекції можна у веб застосунку Mastodon.</string>
+	<string name="notification_filter_admin_reports_explanation">Показати повідомлення про спам, порушення правил та інші скарги щодо цього екземпляра</string>
+	<string name="notification_filter_admin_signups_explanation">Показувати сповіщення про нові облікові записи, створені на цьому екземплярі</string>
 	<!-- Placeholders are user display names -->
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_sensitive_description">Опис і розповіді можуть не підходити для всіх глядачів.</string>
+	<string name="confirm_remove_self_from_collection">Цю дію неможливо скасувати.\nЦей користувач і надалі зможе додавати вас до інших колекцій, якщо ви його не заблокуєте.</string>
 </resources>
