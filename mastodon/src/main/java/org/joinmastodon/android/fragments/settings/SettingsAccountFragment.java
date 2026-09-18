@@ -14,6 +14,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.catalog.GetDonationCampaigns;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.fragments.EphemeralWebViewFragment;
 import org.joinmastodon.android.model.donations.DonationCampaign;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.model.viewmodel.SectionHeaderListItem;
@@ -184,7 +185,9 @@ public class SettingsAccountFragment extends BaseSettingsFragment<Void>{
 
 	private void onDeleteAccountClick(ListItem<?> item){
 		AccountSession session=AccountSessionManager.getInstance().getAccount(accountID);
-		UiUtils.launchWebBrowser(getActivity(), "https://"+session.domain+"/settings/delete");
+		Bundle args=new Bundle();
+		args.putString("url", "https://"+session.domain+"/settings/delete");
+		Nav.go(getActivity(), EphemeralWebViewFragment.class, args);
 	}
 
 	private void onLogOutClick(ListItem<?> item_){
