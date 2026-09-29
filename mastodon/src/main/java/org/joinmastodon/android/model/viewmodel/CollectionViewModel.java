@@ -1,5 +1,9 @@
 package org.joinmastodon.android.model.viewmodel;
 
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
+
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountOrPartial;
 import org.joinmastodon.android.model.DisplayItemsParent;
@@ -8,11 +12,8 @@ import org.joinmastodon.android.model.collections.AccountCollections;
 import org.joinmastodon.android.model.collections.CollectionItem;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
@@ -30,11 +31,12 @@ public class CollectionViewModel implements DisplayItemsParent{
 		this.collection=collection;
 		this.accounts=new ArrayList<>();
 		avatarRequests=new ArrayList<>();
+		Bitmap.Config avatarConfig=Build.VERSION.SDK_INT<Build.VERSION_CODES.S && collection.sensitive ? Bitmap.Config.ARGB_8888 : Bitmap.Config.HARDWARE;
 		for(CollectionItem item:collection.items){
 			AccountOrPartial acc=accounts.get(item.accountId);
 			if(acc!=null){
 				this.accounts.add(acc);
-				avatarRequests.add(new UrlImageLoaderRequest(acc.getAvatar(), V.dp(50), V.dp(50)));
+				avatarRequests.add(new UrlImageLoaderRequest(avatarConfig, V.dp(50), V.dp(50), List.of(), Uri.parse(acc.getAvatar())));
 				if(this.accounts.size()==4)
 					break;
 			}
@@ -46,12 +48,9 @@ public class CollectionViewModel implements DisplayItemsParent{
 	}
 
 	public static List<CollectionViewModel> wrap(AccountCollections collections, Map<String, AccountOrPartial> extraAccounts){
-//		Map<String, AccountOrPartial> accounts=collections.partialAccounts.stream().collect(Collectors.toMap(pa->pa.id, Function.identity(), (a, b)->b, HashMap::new));
-		Map<String, AccountOrPartial> accounts=new HashMap<>();
-		accounts.putAll(extraAccounts);
 		ArrayList<CollectionViewModel> models=new ArrayList<>();
 		for(AccountCollection c:collections.collections){
-			models.add(new CollectionViewModel(c, accounts));
+			models.add(new CollectionViewModel(c, extraAccounts));
 		}
 		return models;
 	}
