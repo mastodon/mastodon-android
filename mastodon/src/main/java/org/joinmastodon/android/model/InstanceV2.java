@@ -85,6 +85,7 @@ public class InstanceV2 extends Instance{
 		public String url;
 		public int minAge;
 		public boolean reasonRequired=true;
+		public boolean oauth;
 	}
 
 	@Parcel

@@ -2,6 +2,7 @@ package org.joinmastodon.android;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,11 +11,13 @@ import android.widget.Toast;
 
 import org.joinmastodon.android.api.requests.accounts.GetOwnAccount;
 import org.joinmastodon.android.api.requests.oauth.GetOauthToken;
+import org.joinmastodon.android.api.session.AccountActivationInfo;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.model.Token;
+import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
 import androidx.annotation.Nullable;
@@ -59,11 +62,26 @@ public class OAuthActivity extends Activity{
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Token token){
-						new GetOwnAccount()
+						new GetOwnAccount(true)
 								.setCallback(new Callback<>(){
 									@Override
 									public void onSuccess(Account account){
-										AccountSessionManager.getInstance().addAccount(instance, token, account, app, null);
+										AccountActivationInfo activationInfo=null;
+										if(account.state!=null && !account.state.functional){
+											if("pending_confirmation".equals(account.state.errorCode)){
+												activationInfo=new AccountActivationInfo("TODO unknown email", 0);
+											}else if(!TextUtils.isEmpty(account.state.error)){
+												progress.dismiss();
+												new M3AlertDialogBuilder(OAuthActivity.this)
+														.setTitle(R.string.error)
+														.setMessage(account.state.error)
+														.setPositiveButton(R.string.ok, (dlg, which)->finish())
+														.setOnDismissListener(dlg->finish())
+														.show();
+												return;
+											}
+										}
+										AccountSessionManager.getInstance().addAccount(instance, token, account, app, activationInfo);
 										progress.dismiss();
 										finish();
 										// not calling restartMainActivity() here on purpose to have it recreated (notice different flags)
