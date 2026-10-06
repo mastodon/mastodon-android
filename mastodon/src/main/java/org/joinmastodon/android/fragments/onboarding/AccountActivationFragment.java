@@ -22,6 +22,7 @@ import org.joinmastodon.android.api.requests.accounts.UpdateAccountCredentials;
 import org.joinmastodon.android.api.session.AccountActivationInfo;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.fragments.MastodonToolbarFragment;
 import org.joinmastodon.android.fragments.settings.SettingsMainFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Instance;
@@ -36,9 +37,8 @@ import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
-import me.grishka.appkit.fragments.ToolbarFragment;
 
-public class AccountActivationFragment extends ToolbarFragment{
+public class AccountActivationFragment extends MastodonToolbarFragment{
 	private String accountID;
 
 	private Button openEmailBtn, resendBtn;

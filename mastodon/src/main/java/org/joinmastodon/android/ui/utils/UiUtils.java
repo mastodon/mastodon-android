@@ -1383,4 +1383,10 @@ public class UiUtils{
 			}
 		}
 	}
+
+	public static void centerTextViewInToolbar(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom){
+		int width=right-left;
+		View parent=(View) v.getParent();
+		v.setTranslationX(Math.max(0, parent.getWidth()/2f-width/2f-left));
+	}
 }

@@ -1,7 +1,10 @@
 package org.joinmastodon.android.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toolbar;
 
 import org.joinmastodon.android.R;
@@ -64,6 +67,10 @@ public abstract class MastodonRecyclerFragment<T> extends BaseRecyclerFragment<T
 		super.onUpdateToolbar();
 		if(elevationOnScrollListener!=null){
 			elevationOnScrollListener.setViews(getViewsForElevationEffect());
+		}
+		toolbarTitleView.addOnLayoutChangeListener(UiUtils::centerTextViewInToolbar);
+		if(toolbarSubtitleView!=null){
+			toolbarSubtitleView.addOnLayoutChangeListener(UiUtils::centerTextViewInToolbar);
 		}
 	}
 

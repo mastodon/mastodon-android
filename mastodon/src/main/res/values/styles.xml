@@ -445,7 +445,8 @@
 	</style>
 
 	<style name="action_bar_title" parent="android:TextAppearance.Material.Widget.ActionBar.Title">
-		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:fontFamily">@font/cal_noto_sans</item>
+		<item name="android:textSize">20dp</item>
 		<item name="android:textColor">?colorM3OnSurface</item>
 	</style>
 
@@ -667,12 +668,13 @@
 	</style>
 
 	<style name="alert_title">
-		<item name="android:textSize">24dp</item>
-		<item name="android:minHeight">38dp</item>
+		<item name="android:textSize">20dp</item>
+		<item name="android:minHeight">24dp</item>
 		<item name="android:gravity">bottom</item>
 		<item name="android:maxLines">2</item>
 		<item name="android:singleLine">false</item>
 		<item name="android:textColor">?colorM3OnSurface</item>
+		<item name="android:fontFamily">@font/cal_noto_sans</item>
 	</style>
 
 	<style name="m3_body_large">

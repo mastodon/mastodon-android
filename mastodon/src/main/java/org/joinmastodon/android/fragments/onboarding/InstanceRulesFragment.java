@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.fragments.MastodonToolbarFragment;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.ui.adapters.InstanceRulesAdapter;
 import org.joinmastodon.android.ui.utils.UiUtils;
@@ -19,13 +20,12 @@ import org.parceler.Parcels;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.fragments.ToolbarFragment;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 import me.grishka.appkit.views.UsableRecyclerView;
 
-public class InstanceRulesFragment extends ToolbarFragment{
+public class InstanceRulesFragment extends MastodonToolbarFragment{
 	private UsableRecyclerView list;
 	private MergeRecyclerAdapter adapter;
 	private Button btn;

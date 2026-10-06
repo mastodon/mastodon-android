@@ -827,6 +827,7 @@ public class ProfileFragment extends LoaderFragment implements ScrollableToTop, 
 			onScrollListener.setViews(getToolbar());
 		}
 		getToolbar().setTranslationZ(tabBarIsAtTop ? 0 : V.dp(3));
+		toolbarTitleView.addOnLayoutChangeListener(UiUtils::centerTextViewInToolbar);
 	}
 
 	@Override

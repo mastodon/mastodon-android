@@ -28,6 +28,7 @@ import org.joinmastodon.android.api.requests.oauth.CreateOAuthApp;
 import org.joinmastodon.android.api.requests.oauth.GetOauthToken;
 import org.joinmastodon.android.api.session.AccountActivationInfo;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.fragments.MastodonToolbarFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Application;
 import org.joinmastodon.android.model.Instance;
@@ -66,10 +67,9 @@ import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
-import me.grishka.appkit.fragments.ToolbarFragment;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class SignupFragment extends ToolbarFragment{
+public class SignupFragment extends MastodonToolbarFragment{
 	private static final String TAG="SignupFragment";
 	private final Pattern emailRegex=Pattern.compile("^[^@]+@[^@]+\\.[^@]{2,}$");
 

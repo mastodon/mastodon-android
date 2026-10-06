@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonAPIController;
+import org.joinmastodon.android.fragments.MastodonToolbarFragment;
 import org.joinmastodon.android.model.Instance;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.utils.ElevationOnScrollListener;
@@ -30,7 +31,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.grishka.appkit.Nav;
-import me.grishka.appkit.fragments.ToolbarFragment;
 import me.grishka.appkit.utils.BindableViewHolder;
 import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.SingleViewRecyclerAdapter;
@@ -42,7 +42,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class GoogleMadeMeAddThisFragment extends ToolbarFragment{
+public class GoogleMadeMeAddThisFragment extends MastodonToolbarFragment{
 	private UsableRecyclerView list;
 	private MergeRecyclerAdapter adapter;
 	private Button btn;
