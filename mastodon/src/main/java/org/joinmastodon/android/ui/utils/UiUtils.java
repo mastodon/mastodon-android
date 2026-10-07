@@ -1389,4 +1389,10 @@ public class UiUtils{
 		View parent=(View) v.getParent();
 		v.setTranslationX(Math.max(0, parent.getWidth()/2f-width/2f-left));
 	}
+
+	public static Bundle makeAccountArgs(String accountID){
+		Bundle args=new Bundle();
+		args.putString("account", accountID);
+		return args;
+	}
 }
