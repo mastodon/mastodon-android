@@ -65,6 +65,7 @@ import me.grishka.appkit.views.FragmentRootLinearLayout;
 public class HomeFragment extends AppKitFragment implements AssistContentProviderFragment{
 	private FragmentRootLinearLayout content;
 	private HomeTimelineFragment homeTimelineFragment;
+	private MessagesFragment messagesFragment;
 	private NotificationsListFragment notificationsFragment;
 	private DiscoverFragment searchFragment;
 	private ProfileMenuFragment profileMenuFragment;
@@ -83,8 +84,7 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 		accountID=getArguments().getString("account");
 		setTitle(R.string.app_name);
 
-		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N)
-			setRetainInstance(true);
+		setRetainInstance(true);
 
 		if(savedInstanceState==null){
 			Bundle args=new Bundle();
@@ -95,6 +95,8 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 			args.putBoolean("noAutoLoad", true);
 			searchFragment=new DiscoverFragment();
 			searchFragment.setArguments(args);
+			messagesFragment=new MessagesFragment();
+			messagesFragment.setArguments(args);
 			notificationsFragment=new NotificationsListFragment();
 			notificationsFragment.setArguments(args);
 			args=new Bundle(args);
@@ -139,6 +141,7 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 			getChildFragmentManager().beginTransaction()
 					.add(me.grishka.appkit.R.id.fragment_wrap, homeTimelineFragment)
 					.add(me.grishka.appkit.R.id.fragment_wrap, searchFragment).hide(searchFragment)
+					.add(me.grishka.appkit.R.id.fragment_wrap, messagesFragment).hide(messagesFragment)
 					.add(me.grishka.appkit.R.id.fragment_wrap, notificationsFragment).hide(notificationsFragment)
 					.add(me.grishka.appkit.R.id.fragment_wrap, profileMenuFragment).hide(profileMenuFragment)
 					.commit();
@@ -168,6 +171,7 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 			return;
 		homeTimelineFragment=(HomeTimelineFragment) getChildFragmentManager().getFragment(savedInstanceState, "homeTimelineFragment");
 		searchFragment=(DiscoverFragment) getChildFragmentManager().getFragment(savedInstanceState, "searchFragment");
+		messagesFragment=(MessagesFragment) getChildFragmentManager().getFragment(savedInstanceState, "messagesFragment");
 		notificationsFragment=(NotificationsListFragment) getChildFragmentManager().getFragment(savedInstanceState, "notificationsFragment");
 		profileMenuFragment=(ProfileMenuFragment) getChildFragmentManager().getFragment(savedInstanceState, "profileFragment");
 		currentTab=savedInstanceState.getInt("selectedTab");
@@ -211,6 +215,7 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 		WindowInsets topOnlyInsets=insets.replaceSystemWindowInsets(0, insets.getSystemWindowInsetTop(), 0, 0);
 		homeTimelineFragment.onApplyWindowInsets(topOnlyInsets);
 		searchFragment.onApplyWindowInsets(topOnlyInsets);
+		messagesFragment.onApplyWindowInsets(topOnlyInsets);
 		notificationsFragment.onApplyWindowInsets(topOnlyInsets);
 		profileMenuFragment.onApplyWindowInsets(topOnlyInsets);
 	}
@@ -220,6 +225,8 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 			return homeTimelineFragment;
 		}else if(tab==R.id.tab_search){
 			return searchFragment;
+		}else if(tab==R.id.tab_messages){
+			return messagesFragment;
 		}else if(tab==R.id.tab_notifications){
 			return notificationsFragment;
 		}else if(tab==R.id.tab_profile){
@@ -284,6 +291,7 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 		outState.putInt("selectedTab", currentTab);
 		getChildFragmentManager().putFragment(outState, "homeTimelineFragment", homeTimelineFragment);
 		getChildFragmentManager().putFragment(outState, "searchFragment", searchFragment);
+		getChildFragmentManager().putFragment(outState, "messagesFragment", messagesFragment);
 		getChildFragmentManager().putFragment(outState, "notificationsFragment", notificationsFragment);
 		getChildFragmentManager().putFragment(outState, "profileFragment", profileMenuFragment);
 	}
