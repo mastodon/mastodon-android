@@ -195,8 +195,9 @@ public class SettingsServerAboutFragment extends LoaderFragment{
 							}
 
 							final String html=template;
+							final String baseUrl="https://"+AccountSessionManager.get(accountID).domain+"/";
 							activity.runOnUiThread(()->{
-								webView.loadDataWithBaseURL(null, html, "text/html; charset=utf-8", null, null);
+								webView.loadDataWithBaseURL(baseUrl, html, "text/html; charset=utf-8", null, null);
 							});
 						});
 					}
