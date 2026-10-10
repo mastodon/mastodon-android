@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.joinmastodon.android.api.LocalNetworkPermissionEventListener;
 import org.joinmastodon.android.api.ObjectValidationException;
 import org.joinmastodon.android.api.requests.search.GetSearchResults;
 import org.joinmastodon.android.api.session.AccountSession;
@@ -32,6 +33,7 @@ import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.parceler.Parcels;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import me.grishka.appkit.FragmentStackActivity;
 import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
@@ -39,6 +41,7 @@ import me.grishka.appkit.api.ErrorResponse;
 
 public class MainActivity extends FragmentStackActivity{
 	private static final String TAG="MainActivity";
+	private static final int LOCAL_NETWORK_PERMISSION_RESULT=583;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState){
@@ -236,5 +239,26 @@ public class MainActivity extends FragmentStackActivity{
 		if(getTopmostFragment() instanceof AssistContentProviderFragment provider){
 			provider.onProvideAssistContent(outContent);
 		}
+	}
+
+	@Override
+	protected void onPause(){
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.CINNAMON_BUN && LocalNetworkPermissionEventListener.instance!=null){
+			LocalNetworkPermissionEventListener.instance.currentMainActivity=null;
+		}
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume(){
+		super.onResume();
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.CINNAMON_BUN && LocalNetworkPermissionEventListener.instance!=null){
+			LocalNetworkPermissionEventListener.instance.currentMainActivity=this;
+		}
+	}
+
+	@RequiresApi(api = Build.VERSION_CODES.CINNAMON_BUN)
+	public void requestLocalNetworkPermission(){
+		runOnUiThread(()->requestPermissions(new String[]{Manifest.permission.ACCESS_LOCAL_NETWORK}, LOCAL_NETWORK_PERMISSION_RESULT));
 	}
 }
