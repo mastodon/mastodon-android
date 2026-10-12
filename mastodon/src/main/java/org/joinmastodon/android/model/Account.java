@@ -140,6 +140,8 @@ public non-sealed class Account extends BaseModel implements AccountOrPartial{
 	public boolean showMediaReplies=false;
 	public boolean showFeatured=true;
 
+	public State state;
+
 
 	@Override
 	public void postprocess() throws ObjectValidationException{
@@ -269,5 +271,14 @@ public non-sealed class Account extends BaseModel implements AccountOrPartial{
 		@RequiredField
 		public String name;
 		public String color;
+	}
+
+	@Parcel
+	public static class State{
+		public boolean functional;
+		public boolean confirmed;
+		public boolean approved;
+		public String error;
+		public String errorCode;
 	}
 }
