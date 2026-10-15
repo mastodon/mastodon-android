@@ -984,6 +984,7 @@
 	<string name="quote_followers_only_cancel">Назад до редагування</string>
 	<string name="quote_followers_only_dont_show_again">Більше не показувати цього повідомлення</string>
 	<string name="more_replies_found">Знайдено більше відповідей</string>
+	<string name="user_is_muted">Заглушено</string>
 	<string name="user_is_bot">Автоматизований обліковий запис</string>
 	<string name="profile_view_qr_code">Подивитися QR-код</string>
 	<string name="add_user_personal_note">Додати особисту нотатку</string>
@@ -1042,6 +1043,42 @@
 	<string name="edit_profile_tabs_explanation">Ці налаштування визначають, що саме бачать користувачі на %s в офіційних застосунках, але вони можуть не поширюватися на користувачів інших серверів та сторонніх застосунків.</string>
 	<string name="handle_explanation_title">Ідентифікатор — це як адреса електронної пошти.</string>
 	<string name="handle_explanation_username">%s — це ім’я користувача цього облікового запису на їхньому сервері. На іншому сервері може бути користувач із таким самим ім’ям.</string>
+	<string name="handle_explanation_domain">%s — це сервер, на якому розміщено профіль користувача та його публікації.</string>
+	<string name="handle_explanation_summary">Так само як ви можете надсилати електронні листи людям, які користуються різними поштовими сервісами, ви можете спілкуватися з користувачами інших серверів Mastodon, а також з будь-ким в інших додатках Fediverse.</string>
+	<string name="pinned_post">Закріплені</string>
+	<string name="view_all_pinned">Переглянути всі закріплені публікації</string>
+	<string name="profile_show_all_fields">Показати всі поля</string>
+	<string name="unfeature_user">Не показувати в моєму профілі</string>
+	<string name="confirm_delete_profile_field">Видалити поле?</string>
+	<string name="confirm_delete_avatar">Вилучити зображення профілю?</string>
+	<string name="confirm_delete_cover">Вилучити зображення заголовка?</string>
+	<string name="profile_followers">Підписники</string>
+	<string name="profile_following">Підписки</string>
+	<string name="user_follows_you">Стежить за вами</string>
+	<string name="profile_featured_empty_self">Показати ваші улюблені облікові записи</string>
+	<string name="profile_featured_empty">Тут немає на що дивитися</string>
+	<string name="profile_featured_empty_description">%s ще нічого не публікував.</string>
+	<string name="profile_featured_empty_self_description">Колекції — це підібрані списки облікових записів, які допомагають іншим користувачам краще пізнати Fediverse. Створювати колекції можна у веб застосунку Mastodon.</string>
+	<string name="handle_explanation_copy">Копіювати ідентифікатор</string>
+	<string name="request_to_follow_short">Запит</string>
+	<string name="cancel_follow_request_short">Скасувати</string>
+	<string name="notification_filter_admin">Сповіщення адміністратора</string>
+	<string name="notification_filter_admin_signups">Входи в обліковий запис</string>
+	<string name="notification_filter_admin_reports_explanation">Показати повідомлення про спам, порушення правил та інші скарги щодо цього екземпляра</string>
+	<string name="notification_filter_admin_signups_explanation">Показувати сповіщення про нові облікові записи, створені на цьому екземплярі</string>
 	<!-- Placeholders are user display names -->
+	<string name="profile_collections">Колекції</string>
+	<string name="account_last_active">Востаннє в мережі</string>
+	<string name="you_are_in_collection">Ви представлені в цій колекції</string>
+	<string name="remove_self_from_collection">Вилучити мене</string>
 	<!-- %1$s is the collection author's display name, %2$s is the date when the current user was added to the collection -->
+	<string name="collection_author_added_you">%1$s додає вас до %2$s</string>
+	<string name="sensitive_content">Контент чутливого характеру</string>
+	<string name="collection_sensitive_description">Опис і розповіді можуть не підходити для всіх глядачів.</string>
+	<string name="view_collection">Переглянути колекцію</string>
+	<string name="report_collection">Поскаржитись на колекцію</string>
+	<string name="confirm_remove_self_from_collection_title">Вилучити себе з «%s»?</string>
+	<string name="confirm_remove_self_from_collection">Цю дію неможливо скасувати.\nЦей користувач і надалі зможе додавати вас до інших колекцій, якщо ви його не заблокуєте.</string>
+	<string name="notification_added_you_to_collection">%s додав вас до колекції</string>
+	<string name="notification_collection_edited">%s відредагував колекцію, до якої ви входите</string>
 </resources>

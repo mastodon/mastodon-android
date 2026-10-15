@@ -32,7 +32,9 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.MastodonErrorResponse;
 import org.joinmastodon.android.api.requests.accounts.CheckInviteLink;
 import org.joinmastodon.android.api.requests.catalog.GetCatalogInstances;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.model.Instance;
+import org.joinmastodon.android.model.InstanceV2;
 import org.joinmastodon.android.model.catalog.CatalogInstance;
 import org.joinmastodon.android.ui.BetterItemAnimator;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
@@ -378,6 +380,13 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment{
 						.setPositiveButton(R.string.ok, null)
 						.show();
 			}
+			return;
+		}
+		if(instance instanceof InstanceV2 v2 && v2.registrations.oauth){
+			String finalInviteCode=null;
+			if(!TextUtils.isEmpty(inviteCode) && Objects.equals(instance.getDomain(), inviteCodeHost))
+				finalInviteCode=inviteCode;
+			AccountSessionManager.getInstance().doOAuthSignup(getActivity(), instance, finalInviteCode);
 			return;
 		}
 		Bundle args=new Bundle();

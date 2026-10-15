@@ -76,6 +76,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -238,12 +239,24 @@ public class AccountSessionManager{
 	}
 
 	public void authenticate(Activity activity, Instance instance){
+		doAuthenticate(activity, instance, Map.of());
+	}
+
+	public void doOAuthSignup(Activity activity, Instance instance, String inviteCode){
+		HashMap<String, String> params=new HashMap<>();
+		params.put("prompt", "create");
+		if(inviteCode!=null)
+			params.put("invite_code", inviteCode);
+		doAuthenticate(activity, instance, params);
+	}
+
+	private void doAuthenticate(Activity activity, Instance instance, Map<String, String> extraParams){
 		authenticatingInstance=instance;
 		new CreateOAuthApp()
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Application result){
-						authenticate(activity, instance, result);
+						authenticate(activity, instance, result, extraParams);
 					}
 
 					@Override
@@ -256,6 +269,10 @@ public class AccountSessionManager{
 	}
 
 	public void authenticate(Activity activity, Instance instance, Application clientApp){
+		authenticate(activity, instance, clientApp, Map.of());
+	}
+
+	private void authenticate(Activity activity, Instance instance, Application clientApp, Map<String, String> extraParams){
 		authenticatingInstance=instance;
 		authenticatingApp=clientApp;
 		Uri.Builder uriBuilder=new Uri.Builder()
@@ -272,6 +289,7 @@ public class AccountSessionManager{
 					Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP))
 					.appendQueryParameter("code_challenge_method", "S256");
 		}
+		extraParams.forEach(uriBuilder::appendQueryParameter);
 		Uri uri=uriBuilder
 				.build();
 

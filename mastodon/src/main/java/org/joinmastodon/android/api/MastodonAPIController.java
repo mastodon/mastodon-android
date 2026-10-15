@@ -1,5 +1,8 @@
 package org.joinmastodon.android.api;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -59,22 +62,30 @@ public class MastodonAPIController{
 			.registerTypeAdapter(LocalDate.class, new IsoLocalDateTypeAdapter())
 			.create();
 	private static WorkerThread thread=new WorkerThread("MastodonAPIController");
-	private static OkHttpClient httpClient=new OkHttpClient.Builder()
-			.connectTimeout(60, TimeUnit.SECONDS)
-			.writeTimeout(60, TimeUnit.SECONDS)
-			.readTimeout(60, TimeUnit.SECONDS)
-			.cache(new Cache(new File(MastodonApp.context.getCacheDir(), "http"), 10*1024*1024))
-			.build();
+	private static OkHttpClient httpClient;
+
+	static{
+		OkHttpClient.Builder builder=new OkHttpClient.Builder()
+				.connectTimeout(60, TimeUnit.SECONDS)
+				.writeTimeout(60, TimeUnit.SECONDS)
+				.readTimeout(60, TimeUnit.SECONDS)
+				.cache(new Cache(new File(MastodonApp.context.getCacheDir(), "http"), 10*1024*1024));
+		if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.CINNAMON_BUN
+				&& MastodonApp.context.checkSelfPermission(Manifest.permission.ACCESS_LOCAL_NETWORK)!=PackageManager.PERMISSION_GRANTED){
+			// Added statically like this because the app process will be force restarted anyway when the permission is revoked
+			builder.eventListener(LocalNetworkPermissionEventListener.getInstance());
+		}
+		httpClient=builder.build();
+
+		thread.start();
+	}
+
 	private static Handler uiThreadHandler=new Handler(Looper.getMainLooper());
 
 	private static final CacheControl NO_CACHE_WHATSOEVER=new CacheControl.Builder().noCache().noStore().build();
 
 	private AccountSession session;
 	private HashMap<String, AsyncRefreshPollRecord> asyncRefreshPolls=new HashMap<>();
-
-	static{
-		thread.start();
-	}
 
 	public MastodonAPIController(@Nullable AccountSession session){
 		this.session=session;
