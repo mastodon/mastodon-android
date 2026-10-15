@@ -44,7 +44,9 @@ public class ProfileMenuFragment extends BaseSettingsFragment<AccountSession>{
 		else
 			req=null;
 		List<ListItem<AccountSession>> items=new java.util.ArrayList<>();
-		items.add(new SettingsAccountListItem<>(self.displayName, self.getDisplayUsername(), req, this::onAccountClick, null, false));
+		SettingsAccountListItem<AccountSession> profileItem=new SettingsAccountListItem<>(self.displayName, self.getDisplayUsername(), req, this::onAccountClick, null, false);
+		profileItem.emphasized=true;
+		items.add(profileItem);
 		items.add(new ListItem<>(R.string.edit_profile, 0, R.drawable.ic_phosphor_user_light, this::onEditProfileClick));
 		items.add(new ListItem<>(R.string.settings, 0, R.drawable.ic_phosphor_gear_light, this::onSettingsClick, 0, true));
 

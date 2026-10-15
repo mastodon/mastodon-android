@@ -9,6 +9,7 @@ import org.joinmastodon.android.model.viewmodel.SettingsAccountListItem;
 import org.joinmastodon.android.ui.OutlineProviders;
 
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
+import me.grishka.appkit.utils.V;
 
 public class SettingsAccountListItemViewHolder extends ListItemViewHolder<SettingsAccountListItem<?>> implements ImageLoaderViewHolder{
 
@@ -30,5 +31,18 @@ public class SettingsAccountListItemViewHolder extends ListItemViewHolder<Settin
 	@Override
 	public void clearImage(int index){
 		icon.setImageResource(R.drawable.image_placeholder);
+	}
+
+	@Override
+	public void onBind(SettingsAccountListItem<?> item){
+		super.onBind(item);
+		if(item.emphasized){
+			itemView.setPadding(itemView.getPaddingLeft(), 0, itemView.getPaddingRight(), 0);
+			itemView.setBackgroundResource(R.drawable.bg_emphasized_list_item);
+			view.setMinimumHeight(V.dp(56));
+		}else{
+			itemView.setPadding(itemView.getPaddingLeft(), V.dp(12), itemView.getPaddingRight(), V.dp(12));
+			itemView.setBackground(null);
+		}
 	}
 }

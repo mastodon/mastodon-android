@@ -8,6 +8,7 @@ import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 
 public class SettingsAccountListItem<T> extends ListItem<T>{
 	public ImageLoaderRequest avatar;
+	public boolean emphasized;
 
 	public SettingsAccountListItem(String title, String subtitle, ImageLoaderRequest avatar, Consumer<SettingsAccountListItem<T>> onClick, T parentObject, boolean dividerAfter){
 		super(title, subtitle, 0, (Consumer<ListItem<T>>)(Object)onClick, parentObject, 0, dividerAfter);

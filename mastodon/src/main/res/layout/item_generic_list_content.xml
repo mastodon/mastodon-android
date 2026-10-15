@@ -6,9 +6,9 @@
 		android:id="@+id/icon"
 		android:layout_width="24dp"
 		android:layout_height="24dp"
-		android:layout_marginEnd="16dp"
+		android:layout_marginEnd="12dp"
 		android:importantForAccessibility="no"
-		android:tint="?colorM3OnSurfaceVariant"
+		android:tint="?colorM3OnSurface"
 		tools:src="@drawable/ic_settings_24px"/>
 
 	<LinearLayout
@@ -23,9 +23,9 @@
 			android:layout_height="wrap_content"
 			android:minHeight="24dp"
 			android:gravity="center_vertical|start"
-			android:textAppearance="@style/m3_body_large"
+			android:textAppearance="@style/m3_label_large"
 			android:textSize="16sp"
-			android:textColor="?colorM3OnSurface"
+			android:textColor="?colorM3OnSurfaceVariant"
 			android:textAlignment="viewStart"
 			android:ellipsize="end"
 			tools:text="Title"/>
@@ -36,7 +36,7 @@
 			android:layout_height="wrap_content"
 			android:minHeight="20dp"
 			android:gravity="center_vertical|start"
-			android:textAppearance="@style/m3_body_medium"
+			android:textAppearance="@style/m3_body_small"
 			android:textSize="14sp"
 			android:textColor="?colorM3OnSurfaceVariant"
 			android:textAlignment="viewStart"
