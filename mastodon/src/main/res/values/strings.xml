@@ -16,7 +16,7 @@
 
 	<string name="user_followed_you">%s followed you</string>
 	<string name="user_sent_follow_request">%s sent you a follow request</string>
-	<string name="user_favorited">%s favorited:</string>
+	<string name="user_favorited">%s liked:</string>
 	<string name="notification_boosted">%s boosted:</string>
 
 	<string name="share_toot_title">Share</string>
@@ -162,7 +162,7 @@
 	<string name="visibility_private">Private mention</string>
 	<string name="recent_searches">Recents</string>
 	<string name="notification_type_follow">New followers</string>
-	<string name="notification_type_favorite">Favorites</string>
+	<string name="notification_type_favorite">Likes</string>
 	<string name="notification_type_reblog">Boosts</string>
 	<string name="notification_type_mention">Mentions</string>
 	<string name="notification_type_poll">Polls</string>
@@ -195,7 +195,7 @@
 	<string name="new_post">New post</string>
 	<string name="button_reply">Reply</string>
 	<string name="button_reblog">Boost</string>
-	<string name="button_favorite">Favorite</string>
+	<string name="button_favorite">Like</string>
 	<string name="button_share">Share</string>
 	<string name="media_no_description">Media without description</string>
 	<string name="add_media">Add media</string>
@@ -245,8 +245,8 @@
 		<item quantity="other">%,d following</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d favorite</item>
-		<item quantity="other">%,d favorites</item>
+		<item quantity="one">%,d like</item>
+		<item quantity="other">%,d likes</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d boost</item>
@@ -299,7 +299,7 @@
 	<string name="add_bookmark">Bookmark</string>
 	<string name="remove_bookmark">Remove bookmark</string>
 	<string name="bookmarks">Bookmarks</string>
-	<string name="your_favorites">Favorites</string>
+	<string name="your_favorites">Likes</string>
 	<string name="login_title">Welcome back</string>
 	<string name="login_subtitle">Log in with the server where you created your account.</string>
 	<string name="server_url">Server URL</string>
@@ -496,7 +496,7 @@
 	<string name="selection_2_options">%1$s and %2$s</string>
 	<string name="selection_3_options">%1$s, %2$s, and %3$s</string>
 	<string name="selection_4_or_more">%1$s, %2$s, and %3$d more</string>
-	<string name="filter_context_home_lists">Home &amp; lists</string>
+	<string name="filter_context_home_lists">Home &amp; custom feeds</string>
 	<string name="filter_context_notifications">Notifications</string>
 	<string name="filter_context_public_timelines">Public timelines</string>
 	<string name="filter_context_threads_replies">Threads &amp; replies</string>
@@ -523,7 +523,7 @@
 		<item quantity="other">%d selected</item>
 	</plurals>
 	<string name="required_form_field_blank">Cannot be blank</string>
-	<string name="filter_word_already_in_list">Already in the list</string>
+	<string name="filter_word_already_in_list">Already in the custom feed</string>
 	<string name="app_update_ready">App update ready</string>
 	<string name="app_update_version">Version %s</string>
 	<string name="downloading_update">Downloading (%d%%)</string>
@@ -566,44 +566,44 @@
 	<string name="timeline_following">Home</string>
 	<string name="lists">Custom feeds</string>
 	<string name="followed_hashtags">Followed hashtags</string>
-	<string name="manage_lists">Manage lists</string>
+	<string name="manage_lists">Manage custom feeds</string>
 	<string name="manage_hashtags">Manage hashtags</string>
 	<!-- Screen reader description for the menu on the home timeline screen -->
 	<string name="dropdown_menu">Dropdown menu</string>
-	<string name="edit_list">Edit list</string>
-	<string name="list_members">List members</string>
-	<string name="delete_list">Delete list</string>
+	<string name="edit_list">Edit custom feed</string>
+	<string name="list_members">Custom Feed members</string>
+	<string name="delete_list">Delete custom feed</string>
 	<!-- %s is the name of the list -->
 	<string name="delete_list_confirm">Delete “%s”?</string>
 	<string name="list_exclusive">Hide members in Following</string>
-	<string name="list_exclusive_subtitle">If someone is on this list, hide them in your Following timeline to avoid seeing their posts twice.</string>
-	<string name="list_name">List name</string>
+	<string name="list_exclusive_subtitle">If someone is on this custom feed, hide them in your Following timeline to avoid seeing their posts twice.</string>
+	<string name="list_name">Custom Feed name</string>
 	<string name="list_show_replies_to">Show replies to</string>
 	<string name="list_replies_no_one">No one</string>
-	<string name="list_replies_members">Members of the list</string>
+	<string name="list_replies_members">Members of the custom feed</string>
 	<string name="list_replies_anyone">Anyone I follow</string>
 	<string name="confirm_remove_list_members">Remove members?</string>
 	<string name="remove">Remove</string>
 	<string name="add_list_member">Add member</string>
 	<string name="search_among_people_you_follow">Search among people you follow</string>
-	<string name="add_user_to_list">Add to list…</string>
-	<string name="add_user_to_list_title">Add to list</string>
+	<string name="add_user_to_list">Add to custom feed…</string>
+	<string name="add_user_to_list_title">Add to custom feed</string>
 	<!-- %s is a username -->
-	<string name="manage_user_lists">Manage the lists %s appears on</string>
-	<string name="remove_from_list">Remove from list</string>
+	<string name="manage_user_lists">Manage the custom feeds %s appears on</string>
+	<string name="remove_from_list">Remove from custom feed</string>
 	<string name="confirm_remove_list_member">Remove member?</string>
 	<string name="no_followed_hashtags_title">Keep up with interests by following hashtags</string>
 	<string name="no_followed_hashtags_subtitle">Follows will appear here</string>
-	<string name="no_lists_title">Organize your home feed with Lists</string>
+	<string name="no_lists_title">Organize your home feed with Custom Feeds</string>
 	<string name="no_lists_subtitle">Yours will appear here</string>
 	<plurals name="x_posts_recently">
 		<item quantity="one">%,d post recently</item>
 		<item quantity="other">%,d posts recently</item>
 	</plurals>
-	<string name="create_list">Create list</string>
+	<string name="create_list">Create custom feed</string>
 	<string name="step_x_of_y">Step %1$d of %2$d</string>
 	<string name="create">Create</string>
-	<string name="manage_list_members">Manage list members</string>
+	<string name="manage_list_members">Manage custom feed members</string>
 	<string name="list_no_members">No members yet</string>
 	<string name="list_find_users">Find users to add</string>
 	<string name="reply_to_user">Reply to %s</string>
@@ -634,7 +634,7 @@
 	<string name="onboarding_recommendations_title">Personalize your home feed</string>
 	<string name="article_by_author">By %s</string>
 	<string name="button_reblogged">Boosted</string>
-	<string name="button_favorited">Favorited</string>
+	<string name="button_favorited">Liked</string>
 	<string name="join_server_x_with_invite">Join %s with invite</string>
 	<string name="expired_invite_link">Expired invite link</string>
 	<string name="expired_clipboard_invite_link_alert">The invite link for %1$s in your clipboard has expired and cannot be used to sign up.\n\nYou can request a new link from an existing user, sign up through %2$s, or pick another server to sign up through.</string>
@@ -715,9 +715,9 @@
 	<string name="visibility_subtitle_followers">Only your followers</string>
 	<string name="visibility_subtitle_private">Everyone mentioned in the post</string>
 	<string name="view_boosts">View boosts</string>
-	<string name="view_favorites">View favorites</string>
+	<string name="view_favorites">View likes</string>
 	<string name="undo_reblog">Undo boost</string>
-	<string name="undo_favorite">Undo favorite</string>
+	<string name="undo_favorite">Undo like</string>
 	<string name="could_not_reach_server">Couldn’t reach the server. Check your connection and try again?</string>
 	<string name="connection_timed_out">The request timed out. Check your connection and try again?</string>
 	<string name="server_error">Something went wrong talking with your server. It’s probably not your fault. Try again?</string>
@@ -749,8 +749,8 @@
 		<item quantity="other">%d attachments</item>
 	</plurals>
 	<plurals name="user_and_x_more_favorited">
-		<item quantity="one">%1$s and %2$,d other favorited:</item>
-		<item quantity="other">%1$s and %2$,d others favorited:</item>
+		<item quantity="one">%1$s and %2$,d other liked:</item>
+		<item quantity="other">%1$s and %2$,d others liked:</item>
 	</plurals>
 	<plurals name="user_and_x_more_boosted">
 		<item quantity="one">%1$s and %2$,d other boosted:</item>
