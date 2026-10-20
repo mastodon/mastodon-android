@@ -41,7 +41,6 @@ import com.squareup.otto.Subscribe;
 import org.joinmastodon.android.BuildConfig;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.requests.HeaderPaginationRequest;
 import org.joinmastodon.android.api.requests.catalog.GetDonationCampaigns;
 import org.joinmastodon.android.api.requests.markers.SaveMarkers;
@@ -206,7 +205,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 
 			@Override
 			public void onError(ErrorResponse error){}
-		});
+		}, false);
 	}
 
 	@Override
@@ -708,6 +707,22 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		toolbar.setContentInsetsRelative(V.dp(16), 0);
 	}
 
+	@Override
+	public boolean wantsCustomNavigationIcon(){
+		return true;
+	}
+
+	@Override
+	protected int getNavigationIconDrawableResource(){
+		return R.drawable.ic_phosphor_list_light;
+	}
+
+	@Override
+	public void onToolbarNavigationClick(){
+		if(getParentFragment() instanceof HomeFragment hf)
+			hf.openDrawer();
+	}
+
 	private void showNewPostsButton(){
 		if(newPostsBtnShown)
 			return;
@@ -782,6 +797,18 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			@Override
 			public void onError(ErrorResponse error){}
 		});
+	}
+
+	public void setListMode(ListMode mode, FollowList list){
+		if(listMode==mode && (currentList==null || list==null || currentList.id.equals(list.id)))
+			return;
+		listMode=mode;
+		currentList=list;
+		reload();
+	}
+
+	public FollowList getCurrentList(){
+		return currentList;
 	}
 
 	@Override
@@ -1015,7 +1042,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		donationSheet.show();
 	}
 
-	private enum ListMode{
+	public enum ListMode{
 		FOLLOWING,
 		LOCAL,
 		LIST

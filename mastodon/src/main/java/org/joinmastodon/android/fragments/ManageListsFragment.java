@@ -71,7 +71,7 @@ public class ManageListsFragment extends BaseSettingsFragment<FollowList> implem
 		}else{
 			AccountSessionManager.get(accountID)
 					.getCacheController()
-					.getLists(callback);
+					.getLists(callback, false);
 		}
 	}
 

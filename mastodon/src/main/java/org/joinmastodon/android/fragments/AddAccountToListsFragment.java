@@ -51,7 +51,7 @@ public class AddAccountToListsFragment extends BaseSettingsFragment<FollowList>{
 					return;
 				loadAccountLists(allLists);
 			}
-		});
+		}, false);
 	}
 
 	private void loadAccountLists(final List<FollowList> allLists){

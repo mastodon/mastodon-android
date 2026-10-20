@@ -105,6 +105,10 @@ public abstract class Instance extends BaseModel{
 		return getApiVersion()>=3;
 	}
 
+	public boolean supportsCollections(){
+		return getApiVersion()>=10;
+	}
+
 	// endregion
 
 	public String getVapidPublicKey(){
@@ -113,8 +117,16 @@ public abstract class Instance extends BaseModel{
 		return null;
 	}
 
-	public boolean supportsCollections(){
-		return getApiVersion()>=10;
+	public String getPrivacyPolicyURL(){
+		if(configuration!=null && configuration.urls!=null && !TextUtils.isEmpty(configuration.urls.privacyPolicy))
+			return configuration.urls.privacyPolicy;
+		return "https://"+getDomain()+"/privacy-policy";
+	}
+
+	public String getTermsOfServiceURL(){
+		if(configuration!=null && configuration.urls!=null && !TextUtils.isEmpty(configuration.urls.privacyPolicy))
+			return configuration.urls.termsOfService;
+		return "https://"+getDomain()+"/terms-of-service";
 	}
 
 	@Parcel

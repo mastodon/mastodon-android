@@ -728,11 +728,13 @@ public class UiUtils{
 	}
 
 	public static <T> void updateList(List<T> oldList, List<T> newList, RecyclerView list, RecyclerView.Adapter<?> adapter, BiPredicate<T, T> areItemsSame){
+		updateList(oldList, newList, list, adapter, areItemsSame, true);
+	}
+
+	public static <T> void updateList(List<T> oldList, List<T> newList, RecyclerView list, RecyclerView.Adapter<?> adapter, BiPredicate<T, T> areItemsSame, boolean tryKeepScrollPosition){
 		// Save topmost item position and offset because for some reason RecyclerView would scroll the list to weird places when you insert items at the top
-		int topItem, topItemTop, topItemLeft;
-		if(list.getChildCount()==0){
-			topItem=topItemTop=topItemLeft=0;
-		}else{
+		int topItem=0, topItemTop=0, topItemLeft=0;
+		if(tryKeepScrollPosition && list.getChildCount()>0){
 			View child=list.getChildAt(0);
 			topItem=list.getChildAdapterPosition(child);
 			topItemTop=child.getTop()-list.getPaddingTop();
@@ -759,8 +761,10 @@ public class UiUtils{
 				return true;
 			}
 		}).dispatchUpdatesTo(adapter);
-		list.scrollToPosition(topItem);
-		list.scrollBy(topItemLeft, topItemTop);
+		if(tryKeepScrollPosition){
+			list.scrollToPosition(topItem);
+			list.scrollBy(topItemLeft, topItemTop);
+		}
 	}
 
 	public static Bitmap getBitmapFromDrawable(Drawable d){

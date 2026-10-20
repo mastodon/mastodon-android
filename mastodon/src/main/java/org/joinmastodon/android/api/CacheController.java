@@ -16,6 +16,7 @@ import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.requests.lists.GetLists;
 import org.joinmastodon.android.api.requests.notifications.GetNotificationsV1;
 import org.joinmastodon.android.api.requests.notifications.GetNotificationsV2;
+import org.joinmastodon.android.api.requests.tags.GetFollowedTags;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.session.AccountLocalPreferences;
 import org.joinmastodon.android.api.session.AccountSessionManager;
@@ -23,6 +24,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.CacheablePaginatedResponse;
 import org.joinmastodon.android.model.FilterContext;
 import org.joinmastodon.android.model.FollowList;
+import org.joinmastodon.android.model.Hashtag;
 import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Notification;
 import org.joinmastodon.android.model.NotificationGroup;
@@ -62,6 +64,7 @@ public class CacheController{
 	private boolean loadingNotifications;
 	private final ArrayList<Callback<PaginatedResponse<List<NotificationViewModel>>>> pendingNotificationsCallbacks=new ArrayList<>();
 	private List<FollowList> lists;
+	private List<Hashtag> followedHashtags;
 
 	private static final int POST_FLAG_GAP_AFTER=1;
 
@@ -430,6 +433,8 @@ public class CacheController{
 		}, 0);
 	}
 
+	// region Lists
+
 	public void reloadLists(Callback<List<FollowList>> callback){
 		new GetLists()
 				.setCallback(new Callback<>(){
@@ -469,10 +474,12 @@ public class CacheController{
 		});
 	}
 
-	public void getLists(Callback<List<FollowList>> callback){
+	public void getLists(Callback<List<FollowList>> callback, boolean alsoReload){
 		if(lists!=null){
 			if(callback!=null)
 				callback.onSuccess(lists);
+			if(alsoReload)
+				reloadLists(callback);
 			return;
 		}
 		databaseThread.postRunnable(()->{
@@ -481,7 +488,8 @@ public class CacheController{
 				this.lists=lists;
 				if(callback!=null)
 					uiHandler.post(()->callback.onSuccess(lists));
-				return;
+				if(!alsoReload)
+					return;
 			}
 			reloadLists(callback);
 		}, 0);
@@ -514,6 +522,96 @@ public class CacheController{
 			}
 		}
 	}
+
+	// endregion
+	// region Hashtags
+
+	public void reloadFollowedHashtags(Callback<List<Hashtag>> callback){
+		new GetFollowedTags(null, 0)
+				.setCallback(new Callback<>(){
+					@Override
+					public void onSuccess(HeaderPaginationList<Hashtag> result){
+						followedHashtags=result;
+						if(callback!=null)
+							callback.onSuccess(result);
+						writeLists();
+					}
+
+					@Override
+					public void onError(ErrorResponse error){
+						if(callback!=null)
+							callback.onError(error);
+					}
+				})
+				.exec(accountID);
+	}
+
+	private List<Hashtag> loadFollowedHashtags(){
+		SQLiteDatabase db=getOrOpenDatabase();
+		try(Cursor cursor=db.query("misc", new String[]{"value"}, "`key`=?", new String[]{"followed_tags"}, null, null, null)){
+			if(!cursor.moveToFirst())
+				return null;
+			return MastodonAPIController.gson.fromJson(cursor.getString(0), new TypeToken<List<Hashtag>>(){}.getType());
+		}
+	}
+
+	private void writeFollowedHashtags(){
+		runOnDbThread(db->{
+			ContentValues values=new ContentValues();
+			values.put("key", "followed_tags");
+			values.put("value", MastodonAPIController.gson.toJson(followedHashtags));
+			db.insertWithOnConflict("misc", null, values, SQLiteDatabase.CONFLICT_REPLACE);
+		});
+	}
+
+	public void getFollowedHashtags(Callback<List<Hashtag>> callback, boolean alsoReload){
+		if(followedHashtags!=null){
+			if(callback!=null)
+				callback.onSuccess(followedHashtags);
+			if(alsoReload)
+				reloadFollowedHashtags(callback);
+			return;
+		}
+		databaseThread.postRunnable(()->{
+			List<Hashtag> tags=loadFollowedHashtags();
+			if(tags!=null){
+				this.followedHashtags=tags;
+				if(callback!=null)
+					uiHandler.post(()->callback.onSuccess(tags));
+				if(!alsoReload)
+					return;
+			}
+			reloadFollowedHashtags(callback);
+		}, 0);
+	}
+
+	public void addFollowedHashtag(Hashtag tag){
+		if(followedHashtags==null)
+			return;
+		followedHashtags.add(tag);
+		writeFollowedHashtags();
+	}
+
+	public void deleteFollowedHashtag(String id){
+		if(followedHashtags==null)
+			return;
+		followedHashtags.removeIf(l->l.id.equals(id));
+		writeFollowedHashtags();
+	}
+
+	public void updateFollowedHashtag(Hashtag tag){
+		if(followedHashtags==null)
+			return;
+		for(int i=0;i<followedHashtags.size();i++){
+			if(followedHashtags.get(i).id.equals(tag.id)){
+				followedHashtags.set(i, tag);
+				writeFollowedHashtags();
+				break;
+			}
+		}
+	}
+
+	// endregion
 
 	private class DatabaseHelper extends SQLiteOpenHelper{
 
