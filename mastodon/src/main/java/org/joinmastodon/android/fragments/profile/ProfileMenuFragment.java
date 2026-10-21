@@ -10,8 +10,10 @@ import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.SavedPostsTimelineFragment;
 import org.joinmastodon.android.fragments.SplashFragment;
+import org.joinmastodon.android.fragments.account_list.BlockedAccountsListFragment;
 import org.joinmastodon.android.fragments.account_list.FollowerListFragment;
 import org.joinmastodon.android.fragments.account_list.FollowingListFragment;
+import org.joinmastodon.android.fragments.account_list.MutedAccountsListFragment;
 import org.joinmastodon.android.fragments.settings.BaseSettingsFragment;
 import org.joinmastodon.android.fragments.settings.SettingsMainFragment;
 import org.joinmastodon.android.model.Account;
@@ -54,8 +56,9 @@ public class ProfileMenuFragment extends BaseSettingsFragment<AccountSession>{
 		items.add(new ListItem<>(R.string.your_favorites, 0, R.drawable.ic_phosphor_heart_light, this::onLikesClick));
 		items.add(new ListItem<>(R.string.bookmarks, 0, R.drawable.ic_phosphor_bookmark_simple_light, this::onBookmarksClick, 0, true));
 
-		items.add(new ListItem<>(R.string.profile_followers, 0, R.drawable.ic_phosphor_users_three_light, this::onFollowersClick));
-		items.add(new ListItem<>(R.string.profile_following, 0, R.drawable.ic_phosphor_users_four_light, this::onFollowersClick));
+		items.add(new ListItem<>(R.string.profile_followers, 0, R.drawable.ic_phosphor_hand_waving_light, this::onFollowersClick));
+		items.add(new ListItem<>(R.string.profile_following, 0, R.drawable.ic_phosphor_users_three_light, this::onFollowingClick));
+		items.add(new ListItem<>(R.string.muted_accounts, 0, R.drawable.ic_phosphor_bell_slash_light, this::onMutedAccountsClick));
 		items.add(new ListItem<>(R.string.blocked_accounts, 0, R.drawable.ic_phosphor_prohibit_light, this::onBlockedAccountsClick, 0, true));
 
 		for(AccountSession session:AccountSessionManager.getInstance().getLoggedInAccounts()){
@@ -122,7 +125,11 @@ public class ProfileMenuFragment extends BaseSettingsFragment<AccountSession>{
 	}
 
 	private void onBlockedAccountsClick(ListItem<?> item){
-		Toast.makeText(getActivity(), "Not implemented yet", Toast.LENGTH_SHORT).show();
+		Nav.go(getActivity(), BlockedAccountsListFragment.class, UiUtils.makeAccountArgs(accountID));
+	}
+
+	private void onMutedAccountsClick(ListItem<?> item){
+		Nav.go(getActivity(), MutedAccountsListFragment.class, UiUtils.makeAccountArgs(accountID));
 	}
 
 	private void onAnotherAccountClick(ListItem<AccountSession> item){
