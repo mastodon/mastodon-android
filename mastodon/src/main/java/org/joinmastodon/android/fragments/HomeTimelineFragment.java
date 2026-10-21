@@ -8,30 +8,22 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.UnderlineSpan;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.ViewTreeObserver;
-import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -64,9 +56,6 @@ import org.joinmastodon.android.ui.sheets.DonationSheet;
 import org.joinmastodon.android.ui.sheets.DonationSuccessfulSheet;
 import org.joinmastodon.android.ui.utils.DiscoverInfoBannerHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
-import org.joinmastodon.android.ui.viewcontrollers.HomeTimelineMenuController;
-import org.joinmastodon.android.ui.viewcontrollers.ToolbarDropdownMenuController;
-import org.joinmastodon.android.ui.views.FixedAspectRatioImageView;
 import org.joinmastodon.android.ui.views.NestedRecyclerScrollView;
 import org.joinmastodon.android.ui.views.NewPostsButtonContainer;
 import org.joinmastodon.android.updater.GithubSelfUpdater;
@@ -92,20 +81,14 @@ import me.grishka.appkit.utils.MergeRecyclerAdapter;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.BottomSheet;
 
-public class HomeTimelineFragment extends StatusListFragment implements ToolbarDropdownMenuController.HostFragment{
+public class HomeTimelineFragment extends StatusListFragment{
 	private static final int DONATION_RESULT=211;
 
 	private ImageButton fab;
-	private LinearLayout listsDropdown;
-	private FixedAspectRatioImageView listsDropdownArrow;
-	private TextView listsDropdownText;
 	private Button newPostsBtn;
 	private NewPostsButtonContainer newPostsBtnWrap;
 	private boolean newPostsBtnShown;
 	private AnimatorSet currentNewPostsAnim;
-	private ToolbarDropdownMenuController dropdownController;
-	private HomeTimelineMenuController dropdownMainMenuController;
-	private List<FollowList> lists=List.of();
 	private ListMode listMode=ListMode.FOLLOWING;
 	private FollowList currentList;
 	private MergeRecyclerAdapter mergeAdapter;
@@ -163,49 +146,8 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		dropdownController=new ToolbarDropdownMenuController(this);
-		dropdownMainMenuController=new HomeTimelineMenuController(dropdownController, new HomeTimelineMenuController.Callback(){
-			@Override
-			public void onFollowingSelected(){
-				if(listMode==ListMode.FOLLOWING)
-					return;
-				listMode=ListMode.FOLLOWING;
-				reload();
-			}
-
-			@Override
-			public void onLocalSelected(){
-				if(listMode==ListMode.LOCAL)
-					return;
-				listMode=ListMode.LOCAL;
-				reload();
-			}
-
-			@Override
-			public List<FollowList> getLists(){
-				return lists;
-			}
-
-			@Override
-			public void onListSelected(FollowList list){
-				if(listMode==ListMode.LIST && currentList==list)
-					return;
-				listMode=ListMode.LIST;
-				currentList=list;
-				reload();
-			}
-		}, AccountSessionManager.get(accountID).canAccessLocalTimeline());
 		setHasOptionsMenu(true);
 		loadData();
-		AccountSessionManager.get(accountID).getCacheController().getLists(new Callback<>(){
-			@Override
-			public void onSuccess(List<FollowList> result){
-				lists=result;
-			}
-
-			@Override
-			public void onError(ErrorResponse error){}
-		}, false);
 	}
 
 	@Override
@@ -286,7 +228,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			newPostsBtnWrap.setTranslationY(V.dp(-56));
 		}
 		newPostsBtnWrap.setOnHideButtonListener(this::hideNewPostsButton);
-		updateToolbarLogo();
+		setTitle(getCurrentListTitle());
 		list.addOnScrollListener(new RecyclerView.OnScrollListener(){
 			private HashSet<GapStatusDisplayItem> gaps=new HashSet<>();
 
@@ -383,12 +325,6 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 			}
 		}
 		return true;
-	}
-
-	@Override
-	public void onConfigurationChanged(Configuration newConfig){
-		super.onConfigurationChanged(newConfig);
-		updateToolbarLogo();
 	}
 
 	@Override
@@ -669,44 +605,6 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		super.onRefresh();
 	}
 
-	private void updateToolbarLogo(){
-		listsDropdown=new LinearLayout(getActivity());
-		listsDropdown.setOnClickListener(this::onListsDropdownClick);
-		listsDropdown.setBackgroundResource(R.drawable.bg_button_m3_text);
-		listsDropdown.setAccessibilityDelegate(new View.AccessibilityDelegate(){
-			@Override
-			public void onInitializeAccessibilityNodeInfo(@NonNull View host, @NonNull AccessibilityNodeInfo info){
-				super.onInitializeAccessibilityNodeInfo(host, info);
-				info.setClassName("android.widget.Spinner");
-			}
-		});
-		listsDropdownArrow=new FixedAspectRatioImageView(getActivity());
-		listsDropdownArrow.setUseHeight(true);
-		listsDropdownArrow.setImageResource(R.drawable.ic_arrow_drop_down_24px);
-		listsDropdownArrow.setScaleType(ImageView.ScaleType.CENTER);
-		listsDropdownArrow.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-		listsDropdown.addView(listsDropdownArrow, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
-		listsDropdownText=new TextView(getActivity());
-		listsDropdownText.setTextAppearance(R.style.action_bar_title);
-		listsDropdownText.setSingleLine();
-		listsDropdownText.setEllipsize(TextUtils.TruncateAt.END);
-		listsDropdownText.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
-		listsDropdownText.setPaddingRelative(V.dp(4), 0, V.dp(16), 0);
-		listsDropdownText.setText(getCurrentListTitle());
-		listsDropdownArrow.setImageTintList(listsDropdownText.getTextColors());
-		listsDropdown.setBackgroundTintList(listsDropdownText.getTextColors());
-		listsDropdown.addView(listsDropdownText, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT));
-
-		FrameLayout logoWrap=new FrameLayout(getActivity());
-		FrameLayout.LayoutParams ddlp=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT, Gravity.START);
-		ddlp.topMargin=ddlp.bottomMargin=V.dp(8);
-		logoWrap.addView(listsDropdown, ddlp);
-
-		Toolbar toolbar=getToolbar();
-		toolbar.addView(logoWrap, new Toolbar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-		toolbar.setContentInsetsRelative(V.dp(16), 0);
-	}
-
 	@Override
 	public boolean wantsCustomNavigationIcon(){
 		return true;
@@ -785,20 +683,6 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		}
 	}
 
-	private void onListsDropdownClick(View v){
-		listsDropdownArrow.animate().rotation(-180f).setDuration(150).setInterpolator(CubicBezierInterpolator.DEFAULT).start();
-		dropdownController.show(dropdownMainMenuController);
-		AccountSessionManager.get(accountID).getCacheController().reloadLists(new Callback<>(){
-			@Override
-			public void onSuccess(java.util.List<FollowList> result){
-				lists=result;
-			}
-
-			@Override
-			public void onError(ErrorResponse error){}
-		});
-	}
-
 	public void setListMode(ListMode mode, FollowList list){
 		if(listMode==mode && (currentList==null || list==null || currentList.id.equals(list.id)))
 			return;
@@ -846,17 +730,6 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	}
 
 	@Override
-	public void onDropdownWillDismiss(){
-		listsDropdownArrow.animate().rotation(0f).setDuration(150).setInterpolator(CubicBezierInterpolator.DEFAULT).start();
-
-	}
-
-	@Override
-	public void onDropdownDismissed(){
-
-	}
-
-	@Override
 	public void reload(){
 		if(currentRequest!=null){
 			currentRequest.cancel();
@@ -865,12 +738,12 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		refreshing=true;
 		showProgress();
 		loadData();
-		listsDropdownText.setText(getCurrentListTitle());
+		setTitle(getCurrentListTitle());
 		invalidateOptionsMenu();
 	}
 
 	@Override
-	protected RecyclerView.Adapter getAdapter(){
+	protected RecyclerView.Adapter<?> getAdapter(){
 		mergeAdapter=new MergeRecyclerAdapter();
 		mergeAdapter.addAdapter(super.getAdapter());
 		return mergeAdapter;
