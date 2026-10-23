@@ -110,6 +110,7 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 	private SectionHeaderListItem followedHashtagsTitleMenuItem;
 	private ListItem<Void> homeTimelineMenuItem, localTimelineMenuItem;
 	private ListItem<?> selectedMenuItem;
+	private MergeRecyclerAdapter menuAdapter;
 
 	private String accountID;
 	private DrawerLayout drawerLayout;
@@ -141,6 +142,36 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 			profileMenuFragment=new ProfileMenuFragment();
 			profileMenuFragment.setArguments(args);
 		}
+
+		menuAdapter=new SelectableMergeRecyclerAdapter();
+		AccountSession session=AccountSessionManager.get(accountID);
+		List<ListItem<Void>> topItems=new ArrayList<>();
+		homeTimelineMenuItem=new ListItem<>(R.string.tab_home, 0, R.drawable.ic_phosphor_house_fill, item->{
+			drawerLayout.close();
+			homeTimelineFragment.setListMode(HomeTimelineFragment.ListMode.FOLLOWING, null);
+			selectMenuItem(item);
+		});
+		selectedMenuItem=homeTimelineMenuItem;
+		topItems.add(homeTimelineMenuItem);
+		if(session.canAccessLocalTimeline()){
+			localTimelineMenuItem=new ListItem<>(R.string.local_timeline, 0, R.drawable.ic_phosphor_fediverse, item->{
+				drawerLayout.close();
+				homeTimelineFragment.setListMode(HomeTimelineFragment.ListMode.LOCAL, null);
+				selectMenuItem(item);
+			});
+			topItems.add(localTimelineMenuItem);
+		}
+		topItems.get(topItems.size()-1).dividerAfter=true;
+		topItems.add(new SectionHeaderListItem(R.string.lists));
+		topItems.add(new ListItem<>(R.string.create_list, 0, R.drawable.ic_phosphor_plus_light, item->closeDrawerAndNavigate(CreateListFragment.class)));
+		topItems.add(new ListItem<>(R.string.manage_lists, 0, R.drawable.ic_phosphor_plus_light, item->{ // TODO where do we put this item?
+			closeDrawerAndNavigate(ManageListsFragment.class);
+		}));
+		menuAdapter.addAdapter(new GenericListItemsAdapter<>(topItems));
+		menuAdapter.addAdapter(listsMenuAdapter);
+		menuAdapter.addAdapter(followedHashtagsMenuTitleAdapter);
+		menuAdapter.addAdapter(followedTagsMenuAdapter);
+		followedHashtagsTitleMenuItem=new SectionHeaderListItem(R.string.followed_hashtags);
 
 		E.register(this);
 		updateListsAndHashtags(false);
@@ -211,37 +242,8 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 		menuView.addView(menuList, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
 		menuList.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-		MergeRecyclerAdapter mergeAdapter=new SelectableMergeRecyclerAdapter();
 		AccountSession session=AccountSessionManager.get(accountID);
-		List<ListItem<Void>> topItems=new ArrayList<>();
-		homeTimelineMenuItem=new ListItem<>(R.string.tab_home, 0, R.drawable.ic_phosphor_house_fill, item->{
-			drawerLayout.close();
-			homeTimelineFragment.setListMode(HomeTimelineFragment.ListMode.FOLLOWING, null);
-			selectMenuItem(item);
-		});
-		selectedMenuItem=homeTimelineMenuItem;
-		topItems.add(homeTimelineMenuItem);
-		if(session.canAccessLocalTimeline()){
-			localTimelineMenuItem=new ListItem<>(R.string.local_timeline, 0, R.drawable.ic_phosphor_fediverse, item->{
-				drawerLayout.close();
-				homeTimelineFragment.setListMode(HomeTimelineFragment.ListMode.LOCAL, null);
-				selectMenuItem(item);
-			});
-			topItems.add(localTimelineMenuItem);
-		}
-		topItems.get(topItems.size()-1).dividerAfter=true;
-		topItems.add(new SectionHeaderListItem(R.string.lists));
-		topItems.add(new ListItem<>(R.string.create_list, 0, R.drawable.ic_phosphor_plus_light, item->closeDrawerAndNavigate(CreateListFragment.class)));
-		topItems.add(new ListItem<>(R.string.manage_lists, 0, R.drawable.ic_phosphor_plus_light, item->{ // TODO where do we put this item?
-			closeDrawerAndNavigate(ManageListsFragment.class);
-		}));
-		mergeAdapter.addAdapter(new GenericListItemsAdapter<>(topItems));
-		mergeAdapter.addAdapter(listsMenuAdapter);
-		mergeAdapter.addAdapter(followedHashtagsMenuTitleAdapter);
-		mergeAdapter.addAdapter(followedTagsMenuAdapter);
-		followedHashtagsTitleMenuItem=new SectionHeaderListItem(R.string.followed_hashtags);
-
-		menuList.setAdapter(mergeAdapter);
+		menuList.setAdapter(menuAdapter);
 		menuList.setPadding(0, V.dp(12), 0, V.dp(12));
 		menuList.setClipToPadding(false);
 		menuList.addItemDecoration(new DividerItemDecoration(getActivity(), R.attr.colorM3OutlineVariant, 1, 28, 28, vh->vh instanceof ListItemViewHolder<?> ivh && ivh.getItem().dividerAfter));
@@ -564,15 +566,13 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 				listsMenuItems.sort(Comparator.comparing(i->i.title, Collator.getInstance()));
 				if(!listsMenuItems.isEmpty())
 					listsMenuItems.get(listsMenuItems.size()-1).dividerAfter=true;
-				if(oldItems.contains(selectedMenuItem)){
-					FollowList currentList=homeTimelineFragment.getCurrentList();
-					if(currentList!=null){
-						String currentListID=currentList.id;
-						for(ListItem<FollowList> item:listsMenuItems){
-							if(item.parentObject.id.equals(currentListID)){
-								selectedMenuItem=item;
-								break;
-							}
+				FollowList currentList=homeTimelineFragment.getCurrentList();
+				if(currentList!=null){
+					String currentListID=currentList.id;
+					for(ListItem<FollowList> item:listsMenuItems){
+						if(item.parentObject.id.equals(currentListID)){
+							selectedMenuItem=item;
+							break;
 						}
 					}
 				}

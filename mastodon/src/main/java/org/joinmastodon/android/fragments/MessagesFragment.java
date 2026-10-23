@@ -16,6 +16,7 @@ public class MessagesFragment extends MastodonRecyclerFragment<Void>{
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
 		setEmptyText("Not implemented yet");
 		onDataLoaded(List.of());
 	}
