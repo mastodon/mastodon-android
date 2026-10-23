@@ -119,7 +119,6 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	private int scrollBackItemOffset, scrollBackItemIndex;
 	private long scrollBackTime;
 
-	private String maxID;
 	private String lastSavedMarkerID;
 	private DonationCampaign currentDonationCampaign;
 	private BottomSheet donationSheet;
@@ -211,6 +210,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 
 	@Override
 	protected void doLoadData(int offset, int count){
+		String maxID=data.isEmpty() ? null : data.get(data.size()-1).paginationMaxId;
 		switch(listMode){
 			case FOLLOWING -> {
 				AccountSessionManager.getInstance()
@@ -223,7 +223,6 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 								if(refreshing)
 									list.scrollToPosition(0);
 								onDataLoaded(result.items, !result.items.isEmpty());
-								maxID=result.maxID;
 								if(result.isFromCache())
 									loadNewPosts();
 							}
@@ -243,8 +242,13 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							public void onSuccess(HeaderPaginationList<Status> result){
 								if(refreshing)
 									list.scrollToPosition(0);
-								maxID=result.getNextPageMaxID();
 								AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.PUBLIC);
+								String maxID=result.getNextPageMaxID();
+								String minID=result.getPrevPageMinID();
+								for(Status s:result){
+									s.paginationMaxId=maxID;
+									s.paginationMinId=minID;
+								}
 								onDataLoaded(result, result.nextPageUri!=null);
 							}
 						})
@@ -257,8 +261,13 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 							public void onSuccess(HeaderPaginationList<Status> result){
 								if(refreshing)
 									list.scrollToPosition(0);
-								maxID=result.getNextPageMaxID();
 								AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.HOME);
+								String maxID=result.getNextPageMaxID();
+								String minID=result.getPrevPageMinID();
+								for(Status s:result){
+									s.paginationMaxId=maxID;
+									s.paginationMinId=minID;
+								}
 								onDataLoaded(result, result.nextPageUri!=null);
 							}
 						})
@@ -427,10 +436,6 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 		}
 	}
 
-	public void onStatusCreated(Status status){
-		prependItems(Collections.singletonList(status), true);
-	}
-
 	private void onFabClick(View v){
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
@@ -439,10 +444,9 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 
 	private void loadNewPosts(){
 		dataLoading=true;
-		// The idea here is that we request the timeline such that if there are fewer than `limit` posts,
-		// we'll get the currently topmost post as last in the response. This way we know there's no gap
-		// between the existing and newly loaded parts of the timeline.
-		String sinceID=data.size()>1 ? data.get(1).id : "1";
+		// If we get fewer posts than `limit`, we know for certain there isn't a gap in the timeline.
+		// Otherwise, there are either exactly `limit` new posts, or there's a gap.
+		String sinceID=!data.isEmpty() ? data.get(0).paginationMinId : "1";
 		boolean needCache=listMode==ListMode.FOLLOWING;
 		loadAdditionalPosts(null, null, 20, sinceID, new Callback<>(){
 					@Override
@@ -452,15 +456,10 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 						if(result.isEmpty() || getActivity()==null)
 							return;
 						Status last=result.get(result.size()-1);
-						List<Status> toAdd;
-						if(!data.isEmpty() && last.id.equals(data.get(0).id)){ // This part intersects with the existing one
-							toAdd=result.subList(0, result.size()-1); // Remove the already known last post
-						}else{
-							result.get(result.size()-1).hasGapAfter=true;
-							toAdd=result;
+						if(result.size()==20){
+							last.hasGapAfter=true;
 						}
-						if(!(toAdd instanceof ArrayList<?>))
-							toAdd=new ArrayList<>(toAdd);
+						ArrayList<Status> toAdd=new ArrayList<>(result);
 						Set<String> existingPostIDs=data.stream().map(s->s.id).collect(Collectors.toSet());
 						toAdd.removeIf(s->existingPostIDs.contains(s.id));
 						if(needCache)
@@ -503,10 +502,10 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 				}
 				return;
 			}else{
-				minID=displayItems.get(gapPos+1).parentID;
+				minID=getStatusByID(displayItems.get(gapPos+1).parentID).paginationMinId;
 			}
 		}else{
-			maxID=item.getItemID();
+			maxID=getStatusByID(item.getItemID()).paginationMaxId;
 			minID=null;
 		}
 		loadAdditionalPosts(maxID, minID, 20, null, new Callback<>(){

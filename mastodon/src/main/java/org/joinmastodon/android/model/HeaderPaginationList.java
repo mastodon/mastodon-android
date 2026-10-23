@@ -27,4 +27,10 @@ public class HeaderPaginationList<T> extends ArrayList<T>{
 			return null;
 		return nextPageUri.getQueryParameter("max_id");
 	}
+
+	public String getPrevPageMinID(){
+		if(prevPageUri==null)
+			return null;
+		return prevPageUri.getQueryParameter("min_id");
+	}
 }
