@@ -69,6 +69,8 @@ public class Status extends BaseModel implements DisplayItemsParent{
 	public boolean bookmarked;
 	public Boolean pinned;
 
+	public String paginationMaxId, paginationMinId;
+
 	public transient EnumSet<SpoilerType> revealedSpoilers=EnumSet.noneOf(SpoilerType.class);
 	public transient boolean hasGapAfter;
 	private transient String strippedText;

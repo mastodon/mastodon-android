@@ -86,18 +86,15 @@ public class CacheController{
 						if(cursor.getCount()==count){
 							ArrayList<Status> result=new ArrayList<>();
 							cursor.moveToFirst();
-							String newMaxID;
 							do{
 								Status status=MastodonAPIController.gson.fromJson(cursor.getString(0), Status.class);
 								status.postprocess();
 								int flags=cursor.getInt(1);
 								status.hasGapAfter=((flags & POST_FLAG_GAP_AFTER)!=0);
-								newMaxID=status.id;
 								result.add(status);
 							}while(cursor.moveToNext());
-							String _newMaxID=newMaxID;
 							AccountSessionManager.get(accountID).filterStatuses(result, FilterContext.HOME);
-							uiHandler.post(()->callback.onSuccess(new CacheablePaginatedResponse<>(result, _newMaxID, true)));
+							uiHandler.post(()->callback.onSuccess(new CacheablePaginatedResponse<>(result, null, true)));
 							return;
 						}
 					}catch(IOException x){
@@ -110,7 +107,13 @@ public class CacheController{
 							public void onSuccess(HeaderPaginationList<Status> result){
 								ArrayList<Status> filtered=new ArrayList<>(result);
 								AccountSessionManager.get(accountID).filterStatuses(filtered, FilterContext.HOME);
-								callback.onSuccess(new CacheablePaginatedResponse<>(filtered, result.getNextPageMaxID(), false));
+								String pageMaxID=result.getNextPageMaxID();
+								String pageMinID=result.getPrevPageMinID();
+								for(Status s:filtered){
+									s.paginationMaxId=pageMaxID;
+									s.paginationMinId=pageMinID;
+								}
+								callback.onSuccess(new CacheablePaginatedResponse<>(filtered, null, false));
 								putHomeTimeline(result, maxID==null);
 							}
 

@@ -6,5 +6,6 @@ import org.joinmastodon.android.model.Relationship;
 public class RemoveAccountFromFollowers extends MastodonAPIRequest<Relationship>{
 	public RemoveAccountFromFollowers(String id){
 		super(HttpMethod.POST, "/accounts/"+id+"/remove_from_followers", Relationship.class);
+		setRequestBody(new Object());
 	}
 }
