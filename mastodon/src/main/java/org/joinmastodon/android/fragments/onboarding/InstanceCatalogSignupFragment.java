@@ -297,6 +297,12 @@ public class InstanceCatalogSignupFragment extends InstanceCatalogFragment{
 
 		view.findViewById(R.id.btn_use_invite).setOnClickListener(this::onUseInviteClick);
 		nextButton.setEnabled(chosenInstance!=null);
+
+		if(searchQueryMode){
+			// The view was recreated (e.g. theme change) while in search mode, re-apply it to the new views
+			searchQueryMode=false;
+			setSearchQueryMode(true);
+		}
 	}
 
 	private void onRegionFilterClick(View v){

@@ -186,7 +186,9 @@ public class DiscoverFragment extends AppKitFragment implements ScrollableToTop{
 			searchBack.setImageResource(me.grishka.appkit.R.drawable.ic_arrow_back);
 			pager.setVisibility(View.GONE);
 			tabLayout.setVisibility(View.GONE);
+			searchTabLayout.setVisibility(View.VISIBLE);
 			searchView.setVisibility(View.VISIBLE);
+			addBackCallback(searchExitCallback);
 		}
 		searchScanQR=view.findViewById(R.id.search_scan_qr);
 		if(!GmsClient.isGooglePlayServicesAvailable(getActivity())){
