@@ -215,7 +215,7 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 		public void onStatusCountersUpdated(StatusCountersUpdatedEvent ev){
 			for(Status s:data){
 				if(s.getContentStatus().id.equals(ev.id)){
-					s.update(ev);
+					s.getContentStatus().update(ev);
 					for(int i=0;i<list.getChildCount();i++){
 						RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
 						if(holder instanceof FooterStatusDisplayItem.Holder footer && footer.getItem().status==s.getContentStatus()){
@@ -227,6 +227,7 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 				}
 			}
 			for(Status s:preloadedData){
+				s=s.getContentStatus();
 				if(s.id.equals(ev.id)){
 					s.update(ev);
 				}
