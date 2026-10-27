@@ -53,6 +53,7 @@ public abstract class BaseAccountListFragment extends MastodonRecyclerFragment<A
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
 		accountID=getArguments().getString("account");
 	}
 

@@ -11,16 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.WindowInsets;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.squareup.otto.Subscribe;
+
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
-import org.joinmastodon.android.api.requests.lists.AddAccountsToList;
 import org.joinmastodon.android.api.requests.lists.GetListAccounts;
 import org.joinmastodon.android.api.requests.lists.RemoveAccountsFromList;
+import org.joinmastodon.android.events.AccountAddedToListEvent;
+import org.joinmastodon.android.events.AccountRemovedFromListEvent;
 import org.joinmastodon.android.events.FinishListCreationFragmentEvent;
 import org.joinmastodon.android.fragments.account_list.AddNewListMembersFragment;
 import org.joinmastodon.android.fragments.account_list.BaseAccountListFragment;
@@ -33,6 +35,7 @@ import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 import org.joinmastodon.android.ui.views.CurlyArrowEmptyView;
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -42,22 +45,16 @@ import me.grishka.appkit.Nav;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.api.SimpleCallback;
-import me.grishka.appkit.utils.CubicBezierInterpolator;
 import me.grishka.appkit.utils.V;
 import me.grishka.appkit.views.FragmentRootLinearLayout;
 
-public class CreateListAddMembersFragment extends BaseAccountListFragment implements AddNewListMembersFragment.Listener{
+public class CreateListAddMembersFragment extends BaseAccountListFragment{
 	private FollowList followList;
 	private Button nextButton;
 	private View buttonBar;
 	private FragmentRootLinearLayout rootView;
-	private FrameLayout searchFragmentContainer;
-	private FrameLayout fragmentContentWrap;
-	private AddNewListMembersFragment searchFragment;
-	private WindowInsets lastInsets;
 	private boolean dismissingSearchFragment;
 	private HashSet<String> accountIDsInList=new HashSet<>();
-	private Runnable searchFragmentDismisser=this::dismissSearchFragment;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -74,6 +71,13 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 		}else{
 			onDataLoaded(List.of());
 		}
+		E.register(this);
+	}
+
+	@Override
+	public void onDestroy(){
+		E.unregister(this);
+		super.onDestroy();
 	}
 
 	@Override
@@ -96,7 +100,6 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 		FrameLayout wrapper=new FrameLayout(getActivity());
 		wrapper.addView(view);
 		rootView=(FragmentRootLinearLayout) view;
-		fragmentContentWrap=wrapper;
 		return wrapper;
 	}
 
@@ -112,9 +115,6 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
-		lastInsets=insets;
-		if(searchFragment!=null)
-			searchFragment.onApplyWindowInsets(insets);
 		insets=UiUtils.applyBottomInsetToFixedView(buttonBar, insets);
 		rootView.dispatchApplyWindowInsets(insets);
 	}
@@ -133,29 +133,11 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item){
-		if(searchFragmentContainer!=null)
-			return true;
-
-		searchFragmentContainer=new FrameLayout(getActivity());
-		searchFragmentContainer.setId(R.id.search_fragment);
-		fragmentContentWrap.addView(searchFragmentContainer);
-
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		args.putParcelable("list", Parcels.wrap(followList));
-		args.putBoolean("_can_go_back", true);
-		searchFragment=new AddNewListMembersFragment(this);
-		searchFragment.setArguments(args);
-		getChildFragmentManager().beginTransaction().add(R.id.search_fragment, searchFragment).commit();
-		getChildFragmentManager().executePendingTransactions();
-		if(lastInsets!=null)
-			searchFragment.onApplyWindowInsets(lastInsets);
-		searchFragmentContainer.setTranslationX(V.dp(100));
-		searchFragmentContainer.setAlpha(0f);
-		searchFragmentContainer.animate().translationX(0).alpha(1).setDuration(300).withLayer().setInterpolator(CubicBezierInterpolator.DEFAULT).withEndAction(()->{
-			rootView.setVisibility(View.GONE);
-		}).start();
-		addBackCallback(searchFragmentDismisser);
+		args.putStringArrayList("accountIDs", new ArrayList<>(accountIDsInList));
+		Nav.go(getActivity(), AddNewListMembersFragment.class, args);
 		return true;
 	}
 
@@ -180,88 +162,9 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 		rootView.setNavigationBarColor(color);
 	}
 
-	private void dismissSearchFragment(){
-		if(searchFragment==null || dismissingSearchFragment)
-			return;
-		removeBackCallback(searchFragmentDismisser);
-		dismissingSearchFragment=true;
-		rootView.setVisibility(View.VISIBLE);
-		searchFragmentContainer.animate().translationX(V.dp(100)).alpha(0).setDuration(200).withLayer().setInterpolator(CubicBezierInterpolator.DEFAULT).withEndAction(()->{
-			getChildFragmentManager().beginTransaction().remove(searchFragment).commit();
-			getChildFragmentManager().executePendingTransactions();
-			fragmentContentWrap.removeView(searchFragmentContainer);
-			searchFragmentContainer=null;
-			searchFragment=null;
-			dismissingSearchFragment=false;
-		}).start();
-		getActivity().getSystemService(InputMethodManager.class).hideSoftInputFromWindow(contentView.getWindowToken(), 0);
-	}
-
 	private void onNextClick(View v){
 		E.post(new FinishListCreationFragmentEvent(accountID, followList.id));
 		Nav.finish(this);
-	}
-
-	@Override
-	public boolean isAccountInList(AccountViewModel account){
-		return accountIDsInList.contains(account.account.id);
-	}
-
-	@Override
-	public void addAccountToList(AccountViewModel account, Runnable onDone){
-		new AddAccountsToList(followList.id, Set.of(account.account.id))
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Void result){
-						accountIDsInList.add(account.account.id);
-						if(onDone!=null)
-							onDone.run();
-						int i=0;
-						for(AccountViewModel acc:data){
-							if(acc.account.id.equals(account.account.id)){
-								list.getAdapter().notifyItemChanged(i);
-								return;
-							}
-							i++;
-						}
-						int pos=data.size();
-						data.add(account);
-						list.getAdapter().notifyItemInserted(pos);
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						error.showToast(getActivity());
-					}
-				})
-				.exec(accountID);
-	}
-
-	@Override
-	public void removeAccountAccountFromList(AccountViewModel account, Runnable onDone){
-		new RemoveAccountsFromList(followList.id, Set.of(account.account.id))
-				.setCallback(new Callback<>(){
-					@Override
-					public void onSuccess(Void result){
-						accountIDsInList.remove(account.account.id);
-						if(onDone!=null)
-							onDone.run();
-						int i=0;
-						for(AccountViewModel acc:data){
-							if(acc.account.id.equals(account.account.id)){
-								list.getAdapter().notifyItemChanged(i);
-								return;
-							}
-							i++;
-						}
-					}
-
-					@Override
-					public void onError(ErrorResponse error){
-						error.showToast(getActivity());
-					}
-				})
-				.exec(accountID);
 	}
 
 	@Override
@@ -275,16 +178,27 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 		button.setOnClickListener(v->{
 			holder.setActionProgressVisible(true);
 			holder.itemView.setHasTransientState(true);
-			Runnable onDone=()->{
-				holder.setActionProgressVisible(false);
-				holder.itemView.setHasTransientState(false);
-			};
 			AccountViewModel account=holder.getItem();
-			if(isAccountInList(account)){
-				removeAccountAccountFromList(account, onDone);
-			}else{
-				addAccountToList(account, onDone);
-			}
+			new RemoveAccountsFromList(followList.id, Set.of(account.account.id))
+					.setCallback(new Callback<>(){
+						@Override
+						public void onSuccess(Void result){
+							accountIDsInList.add(account.account.id);
+							holder.setActionProgressVisible(false);
+							holder.itemView.setHasTransientState(false);
+							onBindViewHolder(holder);
+							E.post(new AccountRemovedFromListEvent(accountID, followList.id, account.account.id));
+						}
+
+						@Override
+						public void onError(ErrorResponse error){
+							error.showToast(getActivity());
+							holder.setActionProgressVisible(false);
+							holder.itemView.setHasTransientState(false);
+							onBindViewHolder(holder);
+						}
+					})
+					.exec(accountID);
 		});
 	}
 
@@ -292,13 +206,8 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 	protected void onBindViewHolder(AccountViewHolder holder){
 		Button button=holder.getButton();
 		int textRes, styleRes;
-		if(isAccountInList(holder.getItem())){
-			textRes=R.string.remove;
-			styleRes=R.style.Widget_Mastodon_M3_Button_Tonal_Error;
-		}else{
-			textRes=R.string.add;
-			styleRes=R.style.Widget_Mastodon_M3_Button_Filled;
-		}
+		textRes=R.string.remove;
+		styleRes=R.style.Widget_Mastodon_M3_Button_Tonal_Error;
 		button.setText(textRes);
 		TypedArray ta=button.getContext().obtainStyledAttributes(styleRes, new int[]{android.R.attr.background});
 		button.setBackground(ta.getDrawable(0));
@@ -311,5 +220,40 @@ public class CreateListAddMembersFragment extends BaseAccountListFragment implem
 	@Override
 	protected void loadRelationships(List<AccountViewModel> accounts){
 		// no-op
+	}
+
+	@Subscribe
+	public void onAccountAddedToList(AccountAddedToListEvent ev){
+		if(!accountID.equals(ev.accountID) || !followList.id.equals(ev.listID))
+			return;
+
+		accountIDsInList.add(ev.account.id);
+		AccountViewModel account=new AccountViewModel(ev.account, accountID, getActivity());
+		int i=0;
+		for(AccountViewModel acc:data){
+			if(acc.account.id.equals(account.account.id)){
+				list.getAdapter().notifyItemChanged(i);
+				return;
+			}
+			i++;
+		}
+		int pos=data.size();
+		data.add(account);
+		list.getAdapter().notifyItemInserted(pos);
+	}
+
+	@Subscribe
+	public void onAccountRemovedFromList(AccountRemovedFromListEvent ev){
+		if(!accountID.equals(ev.accountID) || !followList.id.equals(ev.listID))
+			return;
+
+		int i=0;
+		for(AccountViewModel acc:data){
+			if(acc.account.id.equals(ev.targetAccountID)){
+				list.getAdapter().notifyItemChanged(i);
+				return;
+			}
+			i++;
+		}
 	}
 }
