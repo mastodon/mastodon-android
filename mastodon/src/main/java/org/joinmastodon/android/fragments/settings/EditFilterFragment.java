@@ -104,6 +104,21 @@ public class EditFilterFragment extends BaseSettingsFragment<Void>{
 	}
 
 	@Override
+	protected void onShown(){
+		super.onShown();
+		updateBackCallback();
+	}
+
+	@Override
+	protected void onHidden(){
+		super.onHidden();
+		if(wasDirty){
+			wasDirty=false;
+			removeBackCallback(confirmCallback);
+		}
+	}
+
+	@Override
 	protected void doLoadData(int offset, int count){}
 
 	@Override

@@ -13,6 +13,8 @@ import com.squareup.otto.Subscribe;
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
+import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.events.StatusUpdatedEvent;
 import org.joinmastodon.android.fragments.collections.CollectionFragment;
 import org.joinmastodon.android.fragments.profile.ProfileFragment;
@@ -24,7 +26,9 @@ import org.joinmastodon.android.model.collections.CollectionItem;
 import org.joinmastodon.android.model.viewmodel.NotificationViewModel;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.displayitems.CollectionStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FollowRequestActionsDisplayItem;
+import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationWithButtonStatusDisplayItem;
@@ -50,7 +54,7 @@ import me.grishka.appkit.utils.V;
 public abstract class BaseNotificationsListFragment extends BaseStatusListFragment<NotificationViewModel>{
 	protected String maxID;
 	protected View endMark;
-	private EventListener eventListener=new EventListener();
+	private final EventListener eventListener=new EventListener();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -338,6 +342,47 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 					}
 					i++;
 				}
+			}
+		}
+
+		@Subscribe
+		public void onStatusCountersUpdated(StatusCountersUpdatedEvent ev){
+			for(NotificationViewModel n:data){
+				Status s=n.status;
+				if(s!=null && s.getContentStatus().id.equals(ev.id)){
+					s.getContentStatus().update(ev);
+					for(int i=0;i<list.getChildCount();i++){
+						RecyclerView.ViewHolder holder=list.getChildViewHolder(list.getChildAt(i));
+						if(holder instanceof FooterStatusDisplayItem.Holder footer && footer.getItem().status==s.getContentStatus()){
+							footer.rebind();
+						}else if(holder instanceof ExtendedFooterStatusDisplayItem.Holder footer && footer.getItem().status==s.getContentStatus()){
+							footer.rebind();
+						}
+					}
+				}
+			}
+			for(NotificationViewModel n:preloadedData){
+				if(n.status==null)
+					continue;
+				Status s=n.status.getContentStatus();
+				if(s.id.equals(ev.id)){
+					s.update(ev);
+				}
+			}
+		}
+
+		@Subscribe
+		public void onStatusDeleted(StatusDeletedEvent ev){
+			if(!ev.accountID.equals(accountID))
+				return;
+			ArrayList<NotificationViewModel> toRemove=new ArrayList<>();
+			for(NotificationViewModel n:data){
+				if(n.status!=null && n.status.getContentStatus().id.equals(ev.id)){
+					toRemove.add(n);
+				}
+			}
+			for(NotificationViewModel n:toRemove){
+				removeNotification(n);
 			}
 		}
 	}

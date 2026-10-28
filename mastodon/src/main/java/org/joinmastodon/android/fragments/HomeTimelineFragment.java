@@ -62,7 +62,6 @@ import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -591,7 +590,23 @@ public class HomeTimelineFragment extends StatusListFragment{
 			case LIST -> new GetListTimeline(currentList.id, maxID, minID, limit, sinceID);
 		};
 		currentRequest=req;
-		req.setCallback(callback).exec(accountID);
+		req.setCallback(new Callback<>(){
+			@Override
+			public void onSuccess(HeaderPaginationList<Status> result){
+				String maxID=result.getNextPageMaxID();
+				String minID=result.getPrevPageMinID();
+				for(Status s:result){
+					s.paginationMaxId=maxID;
+					s.paginationMinId=minID;
+				}
+				callback.onSuccess(result);
+			}
+
+			@Override
+			public void onError(ErrorResponse error){
+				callback.onError(error);
+			}
+		}).exec(accountID);
 	}
 
 	@Override

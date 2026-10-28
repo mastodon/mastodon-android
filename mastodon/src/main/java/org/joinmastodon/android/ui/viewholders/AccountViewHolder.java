@@ -346,6 +346,8 @@ public class AccountViewHolder extends BindableViewHolder<AccountViewModel> impl
 					})
 					.wrapProgress(fragment.getActivity(), R.string.loading, true)
 					.exec(accountID);
+		}else if(onCustomMenuItemSelected!=null){
+			onCustomMenuItemSelected.accept(item);
 		}
 		return true;
 	}
