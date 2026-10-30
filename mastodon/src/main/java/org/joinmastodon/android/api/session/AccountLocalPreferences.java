@@ -8,11 +8,16 @@ public class AccountLocalPreferences{
 	public boolean serverSideFiltersSupported;
 	public boolean adminReportsNotifications, adminSignupsNotifications;
 
+	public boolean homeShowQuotes, homeShowReplies, homeShowBoosts;
+
 	public AccountLocalPreferences(SharedPreferences prefs){
 		this.prefs=prefs;
 		serverSideFiltersSupported=prefs.getBoolean("serverSideFilters", false);
 		adminReportsNotifications=prefs.getBoolean("adminReports", true);
 		adminSignupsNotifications=prefs.getBoolean("adminSignups", true);
+		homeShowQuotes=prefs.getBoolean("homeShowQuotes", true);
+		homeShowReplies=prefs.getBoolean("homeShowReplies", true);
+		homeShowBoosts=prefs.getBoolean("homeShowBoosts", true);
 	}
 
 	public long getNotificationsPauseEndTime(){
@@ -28,6 +33,9 @@ public class AccountLocalPreferences{
 				.putBoolean("serverSideFilters", serverSideFiltersSupported)
 				.putBoolean("adminReports", adminReportsNotifications)
 				.putBoolean("adminSignups", adminSignupsNotifications)
+				.putBoolean("homeShowQuotes", homeShowQuotes)
+				.putBoolean("homeShowReplies", homeShowReplies)
+				.putBoolean("homeShowBoosts", homeShowBoosts)
 				.apply();
 	}
 }

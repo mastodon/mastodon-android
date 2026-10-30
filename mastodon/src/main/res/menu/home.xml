@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item
+		android:id="@+id/home_timeline_settings"
+		android:icon="@drawable/ic_phosphor_sliders_horizontal_light"
+		android:showAsAction="always"
+		android:title="@string/home_timeline_settings"/>
+	<item
 		android:id="@+id/edit_list"
 		android:icon="@drawable/ic_edit_24px"
 		android:showAsAction="always"
 		android:title="@string/edit_list"/>
-	<item
-		android:id="@+id/settings"
-		android:icon="@drawable/ic_settings_24px"
-		android:showAsAction="always"
-		android:title="@string/settings" />
 </menu>

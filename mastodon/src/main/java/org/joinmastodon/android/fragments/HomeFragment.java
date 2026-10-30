@@ -630,11 +630,7 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 		if(selectedMenuItem!=item){
 			for(int i=0;i<menuList.getChildCount();i++){
 				if(menuList.getChildViewHolder(menuList.getChildAt(i)) instanceof SimpleListItemViewHolder ih){
-					ListItem<?> holderItem=ih.getItem();
-					if(holderItem==selectedMenuItem)
-						ih.itemView.setSelected(false);
-					else if(holderItem==item)
-						ih.itemView.setSelected(true);
+					ih.itemView.setSelected(ih.getItem()==selectedMenuItem);
 				}
 			}
 			selectedMenuItem=item;

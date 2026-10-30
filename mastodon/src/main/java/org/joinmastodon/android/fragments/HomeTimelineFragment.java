@@ -39,6 +39,7 @@ import org.joinmastodon.android.api.requests.markers.SaveMarkers;
 import org.joinmastodon.android.api.requests.timelines.GetHomeTimeline;
 import org.joinmastodon.android.api.requests.timelines.GetListTimeline;
 import org.joinmastodon.android.api.requests.timelines.GetPublicTimeline;
+import org.joinmastodon.android.api.session.AccountLocalPreferences;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.DismissDonationCampaignBannerEvent;
 import org.joinmastodon.android.events.SelfUpdateStateChangedEvent;
@@ -50,6 +51,9 @@ import org.joinmastodon.android.model.HeaderPaginationList;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.TimelineMarkers;
 import org.joinmastodon.android.model.donations.DonationCampaign;
+import org.joinmastodon.android.model.viewmodel.CheckableListItem;
+import org.joinmastodon.android.model.viewmodel.ListItem;
+import org.joinmastodon.android.ui.ExtendedPopupMenu;
 import org.joinmastodon.android.ui.displayitems.GapStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.sheets.DonationSheet;
@@ -66,6 +70,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
@@ -103,6 +108,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 	private String lastSavedMarkerID;
 	private DonationCampaign currentDonationCampaign;
 	private BottomSheet donationSheet;
+	private ExtendedPopupMenu homeTimelineSettingsMenu;
 
 	public HomeTimelineFragment(){
 		setLayout(R.layout.fragment_loader_hiding_toolbar);
@@ -132,6 +138,15 @@ public class HomeTimelineFragment extends StatusListFragment{
 					})
 					.execNoAuth("");
 		}
+
+		AccountLocalPreferences prefs=AccountSessionManager.get(accountID).getLocalPreferences();
+
+		homeTimelineSettingsMenu=new ExtendedPopupMenu(getActivity(), List.of(
+				new CheckableListItem<>(R.string.home_show_quotes, 0, CheckableListItem.Style.SWITCH, prefs.homeShowQuotes, this::onShowQuotesClick),
+				new CheckableListItem<>(R.string.home_show_replies, 0, CheckableListItem.Style.SWITCH, prefs.homeShowReplies, this::onShowRepliesClick),
+				new CheckableListItem<>(R.string.home_show_boosts, 0, CheckableListItem.Style.SWITCH, prefs.homeShowBoosts, this::onShowBoostsClick)
+		));
+
 		E.register(this);
 	}
 
@@ -287,9 +302,6 @@ public class HomeTimelineFragment extends StatusListFragment{
 		});
 		scrollWrapper=scroller;
 
-		if(GithubSelfUpdater.needSelfUpdating()){
-			updateUpdateState(GithubSelfUpdater.getInstance().getState());
-		}
 		if(currentDonationCampaign!=null)
 			showDonationBanner(currentDonationCampaign);
 	}
@@ -298,16 +310,7 @@ public class HomeTimelineFragment extends StatusListFragment{
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 		inflater.inflate(R.menu.home, menu);
 		menu.findItem(R.id.edit_list).setVisible(listMode==ListMode.LIST);
-		GithubSelfUpdater.UpdateState state=GithubSelfUpdater.UpdateState.NO_UPDATE;
-		GithubSelfUpdater updater=GithubSelfUpdater.getInstance();
-		if(updater!=null)
-			state=updater.getState();
-		if(state!=GithubSelfUpdater.UpdateState.NO_UPDATE && state!=GithubSelfUpdater.UpdateState.CHECKING)
-			getToolbar().getMenu().findItem(R.id.settings).setIcon(R.drawable.ic_settings_updateready_24px);
-
-		if("debug".equals(BuildConfig.BUILD_TYPE)){
-			menu.add(0, 1, 0, "Make a gap");
-		}
+		menu.findItem(R.id.home_timeline_settings).setVisible(listMode==ListMode.FOLLOWING);
 	}
 
 	@Override
@@ -315,22 +318,11 @@ public class HomeTimelineFragment extends StatusListFragment{
 		Bundle args=new Bundle();
 		args.putString("account", accountID);
 		int id=item.getItemId();
-		if(id==R.id.settings){
-			Nav.go(getActivity(), SettingsMainFragment.class, args);
+		if(id==R.id.home_timeline_settings){
+			homeTimelineSettingsMenu.showAsDropDown(contentView.findViewById(R.id.home_timeline_settings));
 		}else if(id==R.id.edit_list){
 			args.putParcelable("list", Parcels.wrap(currentList));
 			Nav.go(getActivity(), EditListFragment.class, args);
-		}else if(id==1){
-			if(data.size()<35){
-				Toast.makeText(getActivity(), "Too few posts. Load at least 35", Toast.LENGTH_SHORT).show();
-				return true;
-			}
-			Status gapStatus=data.get(1);
-			gapStatus.hasGapAfter=true;
-			onStatusUpdated(gapStatus);
-			for(Status s:new ArrayList<>(data.subList(2, 32))){
-				removeStatus(s);
-			}
 		}
 		return true;
 	}
@@ -584,8 +576,9 @@ public class HomeTimelineFragment extends StatusListFragment{
 	}
 
 	private void loadAdditionalPosts(String maxID, String minID, int limit, String sinceID, Callback<HeaderPaginationList<Status>> callback){
+		AccountLocalPreferences prefs=AccountSessionManager.get(accountID).getLocalPreferences();
 		HeaderPaginationRequest<Status> req=switch(listMode){
-			case FOLLOWING -> new GetHomeTimeline(maxID, minID, limit, sinceID);
+			case FOLLOWING -> new GetHomeTimeline(maxID, minID, limit, sinceID, !prefs.homeShowBoosts, !prefs.homeShowQuotes, !prefs.homeShowReplies);
 			case LOCAL -> new GetPublicTimeline(true, false, maxID, minID, limit, sinceID);
 			case LIST -> new GetListTimeline(currentList.id, maxID, minID, limit, sinceID);
 		};
@@ -714,16 +707,6 @@ public class HomeTimelineFragment extends StatusListFragment{
 		super.onDestroyView();
 		donationBanner=null;
 		donationBannerDismissing=false;
-	}
-
-	private void updateUpdateState(GithubSelfUpdater.UpdateState state){
-		if(state!=GithubSelfUpdater.UpdateState.NO_UPDATE && state!=GithubSelfUpdater.UpdateState.CHECKING)
-			getToolbar().getMenu().findItem(R.id.settings).setIcon(R.drawable.ic_settings_updateready_24px);
-	}
-
-	@Subscribe
-	public void onSelfUpdateStateChanged(SelfUpdateStateChangedEvent ev){
-		updateUpdateState(ev.state);
 	}
 
 	@Subscribe
@@ -927,6 +910,30 @@ public class HomeTimelineFragment extends StatusListFragment{
 		donationSheet=new DonationSheet(getActivity(), currentDonationCampaign, accountID, intent->startActivityForResult(intent, DONATION_RESULT));
 		donationSheet.setOnDismissListener(dialog->donationSheet=null);
 		donationSheet.show();
+	}
+
+	private void onShowQuotesClick(CheckableListItem<?> item){
+		homeTimelineSettingsMenu.toggleCheckableItem(item);
+		AccountLocalPreferences prefs=AccountSessionManager.get(accountID).getLocalPreferences();
+		prefs.homeShowQuotes=item.checked;
+		prefs.save();
+		reload();
+	}
+
+	private void onShowRepliesClick(CheckableListItem<?> item){
+		homeTimelineSettingsMenu.toggleCheckableItem(item);
+		AccountLocalPreferences prefs=AccountSessionManager.get(accountID).getLocalPreferences();
+		prefs.homeShowReplies=item.checked;
+		prefs.save();
+		reload();
+	}
+
+	private void onShowBoostsClick(CheckableListItem<?> item){
+		homeTimelineSettingsMenu.toggleCheckableItem(item);
+		AccountLocalPreferences prefs=AccountSessionManager.get(accountID).getLocalPreferences();
+		prefs.homeShowBoosts=item.checked;
+		prefs.save();
+		reload();
 	}
 
 	public enum ListMode{

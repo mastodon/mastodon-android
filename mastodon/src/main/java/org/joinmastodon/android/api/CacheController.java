@@ -48,6 +48,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import me.grishka.appkit.api.APIRequest;
 import me.grishka.appkit.api.Callback;
 import me.grishka.appkit.api.ErrorResponse;
 import me.grishka.appkit.utils.WorkerThread;
@@ -65,6 +66,7 @@ public class CacheController{
 	private final ArrayList<Callback<PaginatedResponse<List<NotificationViewModel>>>> pendingNotificationsCallbacks=new ArrayList<>();
 	private List<FollowList> lists;
 	private List<Hashtag> followedHashtags;
+	private APIRequest<?> currentHomeTimelineRequest;
 
 	private static final int POST_FLAG_GAP_AFTER=1;
 
@@ -101,10 +103,14 @@ public class CacheController{
 						Log.w(TAG, "getHomeTimeline: corrupted status object in database", x);
 					}
 				}
-				new GetHomeTimeline(maxID, null, count, null)
+				if(currentHomeTimelineRequest!=null)
+					currentHomeTimelineRequest.cancel();
+				AccountLocalPreferences prefs=AccountSessionManager.get(accountID).getLocalPreferences();
+				currentHomeTimelineRequest=new GetHomeTimeline(maxID, null, count, null, !prefs.homeShowBoosts, !prefs.homeShowQuotes, !prefs.homeShowReplies)
 						.setCallback(new Callback<>(){
 							@Override
 							public void onSuccess(HeaderPaginationList<Status> result){
+								currentHomeTimelineRequest=null;
 								ArrayList<Status> filtered=new ArrayList<>(result);
 								AccountSessionManager.get(accountID).filterStatuses(filtered, FilterContext.HOME);
 								String pageMaxID=result.getNextPageMaxID();
@@ -119,6 +125,7 @@ public class CacheController{
 
 							@Override
 							public void onError(ErrorResponse error){
+								currentHomeTimelineRequest=null;
 								callback.onError(error);
 							}
 						})

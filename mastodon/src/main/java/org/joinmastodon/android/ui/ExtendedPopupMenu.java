@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.model.viewmodel.CheckableListItem;
 import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.adapters.GenericListItemsAdapter;
 import org.joinmastodon.android.ui.viewholders.ListItemViewHolder;
@@ -20,6 +21,7 @@ import me.grishka.appkit.views.UsableRecyclerView;
 
 public class ExtendedPopupMenu extends PopupWindow{
 	private UsableRecyclerView list;
+	private List<ListItem<?>> items;
 
 	public <T> ExtendedPopupMenu(Context context, List<ListItem<T>> items){
 		super(context, null, 0, R.style.Widget_Mastodon_PopupMenu);
@@ -33,6 +35,7 @@ public class ExtendedPopupMenu extends PopupWindow{
 		list.setAdapter(new ReducedPaddingItemsAdapter<>(items));
 		list.setClipToPadding(false);
 		setContentView(list);
+		this.items=(List<ListItem<?>>)(Object)items;
 	}
 
 	@Override
@@ -41,6 +44,20 @@ public class ExtendedPopupMenu extends PopupWindow{
 		View bgView=(View) list.getParent();
 		list.setPadding(0, bgView.getPaddingTop(), 0, bgView.getPaddingBottom());
 		bgView.setPadding(0, 0, 0, 0);
+	}
+
+	public void toggleCheckableItem(ListItem<?> item){
+		if(item instanceof CheckableListItem<?> checkable)
+			checkable.toggle();
+		rebindItem(item);
+	}
+
+	public void rebindItem(ListItem<?> item){
+		if(list==null)
+			return;
+		if(list.findViewHolderForAdapterPosition(items.indexOf(item)) instanceof ListItemViewHolder<?> holder){
+			holder.rebind();
+		}
 	}
 
 	private static class ReducedPaddingItemsAdapter<T> extends GenericListItemsAdapter<T>{
