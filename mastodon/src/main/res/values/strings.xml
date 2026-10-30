@@ -96,7 +96,7 @@
 	<string name="notification_channel_audio_player">Audio playback</string>
 	<string name="play">Play</string>
 	<string name="pause">Pause</string>
-	<string name="log_out">Log out</string>
+	<string name="log_out">Sign out</string>
 	<string name="add_account">Add account</string>
 	<string name="search_hint">Search</string>
 	<string name="hashtags">Hashtags</string>
@@ -188,7 +188,7 @@
 	<string name="settings_clear_cache">Clear media cache</string>
 	<string name="settings_app_version">Mastodon for Android v%1$s (%2$d)</string>
 	<string name="media_cache_cleared">Media cache cleared</string>
-	<string name="confirm_log_out">Log out of %s?</string>
+	<string name="confirm_log_out">Sign out of %s?</string>
 	<string name="sensitive_content_explain">The author marked this media as sensitive.</string>
 	<string name="avatar_description">Go to %s’s profile</string>
 	<string name="more_options">More options</string>
@@ -296,10 +296,10 @@
 	<string name="empty_list">This list is empty</string>
 	<string name="instance_signup_closed">This server does not accept new registrations.</string>
 	<string name="text_copied">Copied to clipboard</string>
-	<string name="add_bookmark">Bookmark</string>
-	<string name="remove_bookmark">Remove bookmark</string>
-	<string name="bookmarks">Bookmarks</string>
-	<string name="your_favorites">Likes</string>
+	<string name="add_bookmark">Save post</string>
+	<string name="remove_bookmark">Remove from saved</string>
+	<string name="bookmarks">Saved posts</string>
+	<string name="your_favorites">Liked posts</string>
 	<string name="login_title">Welcome back</string>
 	<string name="login_subtitle">Log in with the server where you created your account.</string>
 	<string name="server_url">Server URL</string>
@@ -349,8 +349,8 @@
 	<string name="welcome_paragraph2">Every Mastodon account is hosted on a server — each with its own values, rules, &amp; admins. No matter which one you pick, you can follow and interact with people on any server.</string>
 	<string name="opening_link">Opening link…</string>
 	<string name="link_not_supported">This link is not supported in the app</string>
-	<string name="log_out_all_accounts">Log out of all accounts</string>
-	<string name="confirm_log_out_all_accounts">Log out of all accounts?</string>
+	<string name="log_out_all_accounts">Sign out of all accounts</string>
+	<string name="confirm_log_out_all_accounts">Sign out of all accounts?</string>
 	<string name="retry">Retry</string>
 	<string name="post_failed">Failed to send post</string>
 	<!-- %s is formatted file size ("467 KB image") -->
