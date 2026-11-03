@@ -4,11 +4,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.squareup.otto.Subscribe;
+
+import org.joinmastodon.android.E;
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.MainActivity;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSession;
 import org.joinmastodon.android.api.session.AccountSessionManager;
+import org.joinmastodon.android.events.SelfUpdateStateChangedEvent;
 import org.joinmastodon.android.fragments.SavedPostsTimelineFragment;
 import org.joinmastodon.android.fragments.SplashFragment;
 import org.joinmastodon.android.fragments.account_list.BlockedAccountsListFragment;
@@ -22,6 +26,7 @@ import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.model.viewmodel.SettingsAccountListItem;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.updater.GithubSelfUpdater;
 import org.parceler.Parcels;
 
 import java.util.List;
@@ -34,6 +39,7 @@ import me.grishka.appkit.utils.V;
 public class ProfileMenuFragment extends BaseSettingsFragment<AccountSession>{
 	private String accountID;
 	private Account self;
+	private ListItem<AccountSession> settingsItem;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -51,7 +57,7 @@ public class ProfileMenuFragment extends BaseSettingsFragment<AccountSession>{
 		profileItem.emphasized=true;
 		items.add(profileItem);
 		items.add(new ListItem<>(R.string.edit_profile, 0, R.drawable.ic_phosphor_user_light, this::onEditProfileClick));
-		items.add(new ListItem<>(R.string.settings, 0, R.drawable.ic_phosphor_gear_light, this::onSettingsClick, 0, true));
+		items.add(settingsItem=new ListItem<>(R.string.settings, 0, R.drawable.ic_phosphor_gear_light, this::onSettingsClick, 0, true));
 
 		items.add(new ListItem<>(R.string.profile_collections, 0, R.drawable.ic_phosphor_circles_four_light, this::onCollectionsClick));
 		items.add(new ListItem<>(R.string.your_favorites, 0, R.drawable.ic_phosphor_heart_light, this::onLikesClick));
@@ -75,7 +81,21 @@ public class ProfileMenuFragment extends BaseSettingsFragment<AccountSession>{
 		items.add(new ListItem<>(R.string.add_account, 0, R.drawable.ic_phosphor_user_plus_light, this::onAddAccountClick, 0, true));
 		items.add(new ListItem<>(R.string.log_out, 0, R.drawable.ic_phosphor_sign_out_light, this::onLogOutClick, 0, true));
 
+		GithubSelfUpdater.UpdateState state=GithubSelfUpdater.UpdateState.NO_UPDATE;
+		GithubSelfUpdater updater=GithubSelfUpdater.getInstance();
+		if(updater!=null)
+			state=updater.getState();
+		updateUpdateState(state);
+
 		onDataLoaded(items);
+
+		E.register(this);
+	}
+
+	@Override
+	public void onDestroy(){
+		E.unregister(this);
+		super.onDestroy();
 	}
 
 	@Override
@@ -91,6 +111,18 @@ public class ProfileMenuFragment extends BaseSettingsFragment<AccountSession>{
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		list.setPadding(list.getPaddingLeft(), V.dp(16), list.getPaddingRight(), list.getPaddingBottom());
+	}
+
+	private void updateUpdateState(GithubSelfUpdater.UpdateState state){
+		if(state!=GithubSelfUpdater.UpdateState.NO_UPDATE && state!=GithubSelfUpdater.UpdateState.CHECKING){
+			settingsItem.subtitleRes=R.string.app_update_available;
+			rebindItem(settingsItem);
+		}
+	}
+
+	@Subscribe
+	public void onSelfUpdateStateChanged(SelfUpdateStateChangedEvent ev){
+		updateUpdateState(ev.state);
 	}
 
 	private void onAccountClick(ListItem<?> item){
