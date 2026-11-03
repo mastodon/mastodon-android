@@ -73,7 +73,7 @@ public abstract class BaseSettingsFragment<T> extends MastodonRecyclerFragment<L
 	@Override
 	public void onApplyWindowInsets(WindowInsets insets){
 		if(Build.VERSION.SDK_INT>=29 && insets.getTappableElementInsets().bottom==0){
-			list.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
+			list.setPadding(list.getPaddingLeft(), list.getPaddingTop(), list.getPaddingRight(), insets.getSystemWindowInsetBottom());
 			emptyView.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
 			progress.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
 			insets=insets.inset(0, 0, 0, insets.getSystemWindowInsetBottom());

@@ -1,6 +1,7 @@
 package org.joinmastodon.android.fragments.profile;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import org.joinmastodon.android.GlobalUserPreferences;
@@ -79,6 +80,18 @@ public class ProfileMenuFragment extends BaseSettingsFragment<AccountSession>{
 
 	@Override
 	protected void doLoadData(int offset, int count){}
+
+	@Override
+	protected void onUpdateToolbar(){
+		super.onUpdateToolbar();
+		getToolbar().setVisibility(View.GONE);
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState){
+		super.onViewCreated(view, savedInstanceState);
+		list.setPadding(list.getPaddingLeft(), V.dp(16), list.getPaddingRight(), list.getPaddingBottom());
+	}
 
 	private void onAccountClick(ListItem<?> item){
 		Bundle args=UiUtils.makeAccountArgs(accountID);

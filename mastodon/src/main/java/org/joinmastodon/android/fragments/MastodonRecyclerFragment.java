@@ -68,7 +68,9 @@ public abstract class MastodonRecyclerFragment<T> extends BaseRecyclerFragment<T
 		if(elevationOnScrollListener!=null){
 			elevationOnScrollListener.setViews(getViewsForElevationEffect());
 		}
-		toolbarTitleView.addOnLayoutChangeListener(UiUtils::centerTextViewInToolbar);
+		if(toolbarTitleView!=null){
+			toolbarTitleView.addOnLayoutChangeListener(UiUtils::centerTextViewInToolbar);
+		}
 		if(toolbarSubtitleView!=null){
 			toolbarSubtitleView.addOnLayoutChangeListener(UiUtils::centerTextViewInToolbar);
 		}
