@@ -268,7 +268,15 @@ public class PushSubscriptionManager{
 					@Override
 					public void onError(ErrorResponse error){
 						if(((MastodonErrorResponse)error).httpStatus==404){ // Not registered for push, register now
-							registerAccountForPush(subscription);
+							AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
+							if(session==null)
+								return;
+							if(TextUtils.isEmpty(session.pushToken)){
+								session.pushSubscription=subscription;
+								registerFCM();
+							}else{
+								registerAccountForPush(subscription);
+							}
 						}else{
 							AccountSession session=AccountSessionManager.getInstance().tryGetAccount(accountID);
 							if(session==null)
@@ -463,6 +471,7 @@ public class PushSubscriptionManager{
 					session.pushToken=token;
 					session.pushTokenVersion=BuildConfig.VERSION_CODE;
 					session.pushTokenLastRefresh=System.currentTimeMillis();
+					AccountSessionManager.getInstance().writeAccountPushSettings(accountID);
 					Log.i(TAG, "Successfully registered for FCM");
 					session.getPushSubscriptionManager().registerAccountForPush(session.pushSubscription);
 				}else{
