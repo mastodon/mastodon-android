@@ -25,6 +25,8 @@ import org.joinmastodon.android.fragments.account_list.StatusReblogsListFragment
 import org.joinmastodon.android.fragments.account_list.StatusRelatedAccountListFragment;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.Snackbar;
+import org.joinmastodon.android.ui.text.LinkSpan;
+import org.joinmastodon.android.ui.text.NonColoredLinkSpan;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
@@ -33,9 +35,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.Locale;
 
-import androidx.annotation.PluralsRes;
 import androidx.annotation.StringRes;
 import me.grishka.appkit.Nav;
 
@@ -58,37 +58,35 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<ExtendedFooterStatusDisplayItem>{
-		private final TextView time, date, app, dateAppSeparator;
-		private final TextView favorites, reblogs, quotes, editHistory;
+		private final TextView info;
+		private final TextView replies, favorites, reblogs, quotes, editHistory;
 
 		public Holder(Context context, ViewGroup parent){
 			super(context, R.layout.display_item_extended_footer, parent);
+			replies=findViewById(R.id.replies);
 			reblogs=findViewById(R.id.reblogs);
 			favorites=findViewById(R.id.favorites);
 			quotes=findViewById(R.id.quotes);
 			editHistory=findViewById(R.id.edit_history);
-			time=findViewById(R.id.time);
-			date=findViewById(R.id.date);
-			app=findViewById(R.id.app_name);
-			dateAppSeparator=findViewById(R.id.date_app_separator);
+			info=findViewById(R.id.info);
 
 			reblogs.setOnClickListener(v->startAccountListFragment(StatusReblogsListFragment.class));
 			favorites.setOnClickListener(v->startAccountListFragment(StatusFavoritesListFragment.class));
 			quotes.setOnClickListener(v->startQuotesFragment());
 			editHistory.setOnClickListener(v->startEditHistoryFragment());
-			time.setOnClickListener(v->showTimeSnackbar());
-			app.setOnClickListener(v->UiUtils.launchWebBrowser(context, item.status.application.website));
+			//app.setOnClickListener(v->UiUtils.launchWebBrowser(context, item.status.application.website));
 		}
 
 		@SuppressLint("DefaultLocale")
 		@Override
 		public void onBind(ExtendedFooterStatusDisplayItem item){
 			Status s=item.status;
-			favorites.setText(getFormattedPlural(R.plurals.x_favorites, item.status.favouritesCount));
-			reblogs.setText(getFormattedPlural(R.plurals.x_reblogs, item.status.reblogsCount));
+			replies.setText(this.item.context.getResources().getQuantityString(R.plurals.x_replies, (int) item.status.favouritesCount, item.status.favouritesCount));
+			favorites.setText(this.item.context.getResources().getQuantityString(R.plurals.x_favorites, (int) item.status.favouritesCount, item.status.favouritesCount));
+			reblogs.setText(this.item.context.getResources().getQuantityString(R.plurals.x_reblogs, (int) item.status.reblogsCount, item.status.reblogsCount));
 			if(AccountSessionManager.get(item.accountID).getInstanceInfo().supportsQuotePostAuthoring()){
 				quotes.setVisibility(View.VISIBLE);
-				quotes.setText(getFormattedPlural(R.plurals.x_quotes, item.status.quotesCount));
+				quotes.setText(this.item.context.getResources().getQuantityString(R.plurals.x_quotes, (int) item.status.quotesCount, item.status.quotesCount));
 			}else{
 				quotes.setVisibility(View.GONE);
 			}
@@ -104,41 +102,30 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 				editHistory.setVisibility(View.GONE);
 			}
 			ZonedDateTime dt=item.status.createdAt.atZone(ZoneId.systemDefault());
-			time.setText(TIME_FORMATTER.format(dt));
-			date.setText(UiUtils.formatDateLong(dt));
+
+			SpannableStringBuilder ssb=new SpannableStringBuilder();
+			ssb.append(UiUtils.DATE_TIME_FORMATTER.format(dt), new NonColoredLinkSpan(null, ls->showTimeSnackbar(), LinkSpan.Type.CUSTOM, null, null, null), 0);
+
 			if(item.status.application!=null && !TextUtils.isEmpty(item.status.application.name)){
-				app.setVisibility(View.VISIBLE);
-				dateAppSeparator.setVisibility(View.VISIBLE);
-				app.setText(item.status.application.name);
-				app.setEnabled(!TextUtils.isEmpty(item.status.application.website));
-			}else{
-				app.setVisibility(View.GONE);
-				dateAppSeparator.setVisibility(View.GONE);
+				ssb.append(" • ");
+				if(TextUtils.isEmpty(item.status.application.website))
+					ssb.append(item.status.application.name);
+				else
+					ssb.append(item.status.application.name, new NonColoredLinkSpan(item.status.application.website, null, LinkSpan.Type.URL, null, null, null), 0);
 			}
+			ssb.append(" • ");
+			ssb.append(item.context.getString(switch(item.status.visibility){
+				case PUBLIC -> R.string.visibility_public;
+				case UNLISTED -> R.string.visibility_unlisted;
+				case PRIVATE -> R.string.visibility_followers_only;
+				case DIRECT -> R.string.visibility_private;
+			}));
+			info.setText(ssb);
 		}
 
 		@Override
 		public boolean isEnabled(){
 			return false;
-		}
-
-		private SpannableStringBuilder getFormattedPlural(@PluralsRes int res, long quantity){
-			String str=item.context.getResources().getQuantityString(res, (int)quantity, quantity);
-			String formattedNumber=String.format(Locale.getDefault(), "%,d", quantity);
-			int index=str.indexOf(formattedNumber);
-			SpannableStringBuilder ssb=new SpannableStringBuilder(str);
-			if(index>=0){
-				ForegroundColorSpan colorSpan=new ForegroundColorSpan(UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3OnSurfaceVariant));
-				ssb.setSpan(colorSpan, index, index+formattedNumber.length(), 0);
-				Object typefaceSpan;
-				if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
-					typefaceSpan=new TypefaceSpan(Typeface.create(Typeface.DEFAULT, 600, false));
-				}else{
-					typefaceSpan=new StyleSpan(Typeface.BOLD);
-				}
-				ssb.setSpan(typefaceSpan, index, index+formattedNumber.length(), 0);
-			}
-			return ssb;
 		}
 
 		private SpannableStringBuilder getFormattedSubstitutedString(@StringRes int res, String substitution){

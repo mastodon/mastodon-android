@@ -150,7 +150,7 @@ public class ThreadFragment extends StatusListFragment implements AssistContentP
 		List<StatusDisplayItem> items=StatusDisplayItem.buildItems(this, getActivity(), s, accountID, s, knownAccounts, flags);
 		if(s.id.equals(mainStatus.id)){
 			modifyMainStatusItems(items);
-			items.add(items.size()-1, new ExtendedFooterStatusDisplayItem(s.id, this, getActivity(), s.getContentStatus(), accountID));
+			items.add(new ExtendedFooterStatusDisplayItem(s.id, this, getActivity(), s.getContentStatus(), accountID));
 		}
 		return items;
 	}

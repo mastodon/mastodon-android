@@ -1038,4 +1038,8 @@
 	<string name="time_minutes_short">%dm</string>
 	<string name="time_hours_short">%dh</string>
 	<string name="time_days_short">%dd</string>
+	<plurals name="x_replies">
+		<item quantity="one">%,d reply</item>
+		<item quantity="other">%,d replies</item>
+	</plurals>
 </resources>

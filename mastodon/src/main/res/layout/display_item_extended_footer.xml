@@ -4,79 +4,112 @@
 	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:paddingBottom="8dp"
-	android:divider="@drawable/divider_inset_16dp"
-	android:showDividers="middle">
+	android:paddingBottom="12dp">
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:background="?colorM3OutlineVariant"
+		android:layout_marginBottom="8dp"/>
 
 	<org.joinmastodon.android.ui.views.WrappingLinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:paddingHorizontal="16dp"
-		android:paddingVertical="8dp"
-		android:horizontalGap="8dp"
-		android:verticalGap="8dp"
+		android:paddingHorizontal="12dp"
+		android:verticalGap="4dp"
 		android:clipToPadding="false">
 
 		<TextView
-			android:id="@+id/time"
+			android:id="@+id/replies"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="@style/m3_label_large"
-			android:textColor="?colorM3Outline"
+			android:layout_height="20dp"
+			android:textAppearance="@style/m3_body_medium"
+			android:fontFamily="sans-serif-medium"
+			android:textColor="?colorM3OnSurfaceVariant"
 			android:background="@drawable/bg_button_borderless_rounded"
 			android:backgroundTint="?colorM3Outline"
 			android:singleLine="true"
 			android:ellipsize="end"
-			android:paddingVertical="4dp"
-			android:paddingHorizontal="8dp"
-			android:layout_marginVertical="-4dp"
-			android:layout_marginHorizontal="-8dp"
-			tools:text="8:24 AM"/>
+			android:paddingHorizontal="4dp"
+			tools:text="123 replies"/>
 
 		<TextView
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="@style/m3_label_large"
+			android:layout_height="20dp"
+			android:textAppearance="@style/m3_body_small"
 			android:textColor="?colorM3OnSurfaceVariant"
-			android:importantForAccessibility="no"
-			android:text="·"/>
+			android:gravity="center"
+			android:text="•"/>
 
 		<TextView
-			android:id="@+id/date"
+			android:id="@+id/quotes"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="@style/m3_label_large"
-			android:textColor="?colorM3Outline"
-			android:singleLine="true"
-			android:ellipsize="end"
-			tools:text="2023-11-08"/>
-
-		<TextView
-			android:id="@+id/date_app_separator"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="@style/m3_label_large"
+			android:layout_height="20dp"
+			android:textAppearance="@style/m3_body_medium"
+			android:fontFamily="sans-serif-medium"
 			android:textColor="?colorM3OnSurfaceVariant"
-			android:importantForAccessibility="no"
-			android:text="·"/>
-
-		<TextView
-			android:id="@+id/app_name"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="@style/m3_label_large"
-			android:textColor="?colorM3Outline"
-			android:singleLine="true"
-			android:ellipsize="end"
-			android:paddingVertical="4dp"
-			android:paddingHorizontal="8dp"
-			android:layout_marginVertical="-4dp"
-			android:layout_marginHorizontal="-8dp"
 			android:background="@drawable/bg_button_borderless_rounded"
 			android:backgroundTint="?colorM3Outline"
-			tools:text="Mastodon for Android dfjklafjdsalkfjdslakfjdsaklfjdslak"/>
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:paddingHorizontal="4dp"
+			tools:text="123 quotes"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="20dp"
+			android:textAppearance="@style/m3_body_small"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:gravity="center"
+			android:text="•"/>
+
+		<TextView
+			android:id="@+id/reblogs"
+			android:layout_width="wrap_content"
+			android:layout_height="20dp"
+			android:textAppearance="@style/m3_body_medium"
+			android:fontFamily="sans-serif-medium"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:background="@drawable/bg_button_borderless_rounded"
+			android:backgroundTint="?colorM3Outline"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:paddingHorizontal="4dp"
+			tools:text="123 boosts"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="20dp"
+			android:textAppearance="@style/m3_body_small"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:gravity="center"
+			android:text="•"/>
+
+		<TextView
+			android:id="@+id/favorites"
+			android:layout_width="wrap_content"
+			android:layout_height="20dp"
+			android:textAppearance="@style/m3_body_medium"
+			android:fontFamily="sans-serif-medium"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:background="@drawable/bg_button_borderless_rounded"
+			android:backgroundTint="?colorM3Outline"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:paddingHorizontal="4dp"
+			tools:text="123 favorites"/>
 
 	</org.joinmastodon.android.ui.views.WrappingLinearLayout>
+
+	<org.joinmastodon.android.ui.views.LinkedTextView
+		android:id="@+id/info"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textAppearance="@style/m3_body_small"
+		android:textColor="?colorM3OnSurfaceVariant"
+		android:layout_marginHorizontal="16dp"
+		android:layout_marginTop="8dp"
+		tools:text="12-34-5678 90:12"/>
 
 	<TextView
 		android:id="@+id/edit_history"
@@ -89,64 +122,5 @@
 		android:textColor="?colorM3Outline"
 		android:gravity="center_vertical"
 		tools:text="Last edit bla bla"/>
-
-	<org.joinmastodon.android.ui.views.WrappingLinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:paddingHorizontal="16dp"
-		android:paddingVertical="8dp"
-		android:horizontalGap="8dp"
-		android:verticalGap="8dp"
-		android:clipToPadding="false">
-
-		<TextView
-			android:id="@+id/reblogs"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="@style/m3_label_large"
-			android:textColor="?colorM3Outline"
-			android:background="@drawable/bg_button_borderless_rounded"
-			android:backgroundTint="?colorM3Outline"
-			android:singleLine="true"
-			android:ellipsize="end"
-			android:paddingVertical="4dp"
-			android:paddingHorizontal="8dp"
-			android:layout_marginVertical="-4dp"
-			android:layout_marginHorizontal="-8dp"
-			tools:text="123 boosts"/>
-
-		<TextView
-			android:id="@+id/quotes"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="@style/m3_label_large"
-			android:textColor="?colorM3Outline"
-			android:background="@drawable/bg_button_borderless_rounded"
-			android:backgroundTint="?colorM3Outline"
-			android:singleLine="true"
-			android:ellipsize="end"
-			android:paddingVertical="4dp"
-			android:paddingHorizontal="8dp"
-			android:layout_marginVertical="-4dp"
-			android:layout_marginHorizontal="-8dp"
-			tools:text="123 quotes"/>
-
-		<TextView
-			android:id="@+id/favorites"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textAppearance="@style/m3_label_large"
-			android:textColor="?colorM3Outline"
-			android:background="@drawable/bg_button_borderless_rounded"
-			android:backgroundTint="?colorM3Outline"
-			android:singleLine="true"
-			android:ellipsize="end"
-			android:paddingVertical="4dp"
-			android:paddingHorizontal="8dp"
-			android:layout_marginVertical="-4dp"
-			android:layout_marginHorizontal="-8dp"
-			tools:text="123 favorites"/>
-
-	</org.joinmastodon.android.ui.views.WrappingLinearLayout>
 
 </LinearLayout>
