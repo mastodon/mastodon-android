@@ -991,6 +991,11 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		}
 	}
 
+	@Override
+	public Account getKnownAccount(String id){
+		return knownAccounts.get(id);
+	}
+
 	protected void onModifyItemViewHolder(BindableViewHolder<StatusDisplayItem> holder){}
 
 	public void shakeListView(){

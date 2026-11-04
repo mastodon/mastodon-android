@@ -3,33 +3,21 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:paddingTop="16dp"
+	android:paddingTop="12dp"
 	android:paddingHorizontal="16dp"
 	android:paddingBottom="4dp"
 	android:clipToPadding="false">
-
-	<ImageView
-		android:id="@+id/more"
-		android:layout_width="24dp"
-		android:layout_height="24dp"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentEnd="true"
-		android:layout_marginTop="-2dp"
-		android:layout_marginEnd="-2dp"
-		android:background="?android:selectableItemBackgroundBorderless"
-		android:scaleType="center"
-		android:tint="?colorM3OnSurfaceVariant"
-		android:contentDescription="@string/more_options"
-		android:src="@drawable/ic_more_vert_20px" />
 
 	<View
 		android:id="@+id/clickable_thing"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginHorizontal="-4dp"
-		android:layout_marginVertical="-4dp"
+		android:layout_marginLeft="-4dp"
+		android:layout_marginRight="-4dp"
+		android:layout_marginTop="-4dp"
+		android:layout_marginBottom="-4dp"
 		android:layout_alignStart="@id/avatar"
-		android:layout_alignEnd="@id/time_and_username"
+		android:layout_alignEnd="@id/username"
 		android:layout_alignTop="@id/avatar"
 		android:layout_alignBottom="@id/avatar"
 		android:background="@drawable/bg_status_header"/>
@@ -40,29 +28,36 @@
 		android:layout_height="40dp"
 		android:layout_alignParentStart="true"
 		android:layout_alignParentTop="true"
-		android:layout_marginTop="2dp"
 		android:layout_marginEnd="8dp"
 		android:importantForAccessibility="no"/>
 
-	<LinearLayout
+	<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
 		android:id="@+id/name_wrap"
-		android:layout_width="match_parent"
+		android:layout_width="wrap_content"
 		android:layout_height="24dp"
-		android:layout_toEndOf="@id/avatar"
-		android:layout_toStartOf="@id/more"
-		android:layout_marginEnd="8dp">
+		android:layout_toEndOf="@id/avatar">
 
 		<TextView
 			android:id="@+id/name"
-			android:layout_width="0dp"
+			android:layout_width="wrap_content"
 			android:layout_height="24dp"
-			android:layout_weight="1"
 			android:ellipsize="end"
 			android:singleLine="true"
-			android:textAppearance="@style/m3_title_medium"
+			android:textAppearance="@style/m3_body_large"
+			android:fontFamily="sans-serif-medium"
 			android:textColor="?colorM3OnSurface"
 			android:gravity="start|center_vertical"
 			tools:text="Eugen" />
+		
+		<TextView
+			android:id="@+id/time"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:gravity="center_vertical"
+			android:textAppearance="@style/m3_body_medium"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:singleLine="true"
+			tools:text=" • 20m"/>
 		
 		<TextView
 			android:id="@+id/badge"
@@ -76,22 +71,21 @@
 			android:textSize="13dp"
 			android:visibility="gone"/>
 
-	</LinearLayout>
+	</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
 
 	<TextView
-		android:id="@+id/time_and_username"
+		android:id="@+id/username"
 		android:layout_width="match_parent"
-		android:layout_height="20dp"
+		android:layout_height="16dp"
 		android:layout_below="@id/name_wrap"
 		android:layout_toEndOf="@id/avatar"
-		android:layout_toStartOf="@id/more"
-		android:layout_marginEnd="8dp"
 		android:singleLine="true"
 		android:ellipsize="end"
-		android:textAppearance="@style/m3_body_medium"
+		android:textAppearance="@style/m3_body_small"
 		android:gravity="center_vertical|start"
-		android:textColor="?colorM3Outline"
+		android:textColor="?colorM3OnSurfaceVariant"
 		android:textAlignment="viewStart"
-		tools:text="9h ago · \@Gargron@mastodon.social"/>
+		android:includeFontPadding="false"
+		tools:text="\@Gargron@mastodon.social"/>
 
 </RelativeLayout>

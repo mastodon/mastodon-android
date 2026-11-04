@@ -1024,4 +1024,18 @@
 	<string name="home_show_replies">Show replies</string>
 	<string name="home_show_boosts">Show boosts</string>
 	<string name="app_update_available">App update available</string>
+	<!-- Displayed after the author's display name in the post header, for followers-only posts -->
+	<string name="post_label_to_followers">to followers</string>
+	<!-- Displayed after the author's display name in the post header, for DMs to the current user -->
+	<string name="post_label_to_you">to you</string>
+	<!-- Displayed after the author's display name in the post header, for DMs to the current user that have other recipients as well -->
+	<string name="post_label_to_you_and_others">to you +%d</string>
+	<!-- Displayed after the author's display name in the post header, for outgoing DMs -->
+	<string name="post_label_to_user">to %s</string>
+	<!-- Displayed after the author's display name in the post header, for outgoing DMs that have more than one recipient -->
+	<string name="post_label_to_user_and_others">to %1$s +%2$d</string>
+	<string name="time_seconds_short">%ds</string>
+	<string name="time_minutes_short">%dm</string>
+	<string name="time_hours_short">%dh</string>
+	<string name="time_days_short">%dd</string>
 </resources>

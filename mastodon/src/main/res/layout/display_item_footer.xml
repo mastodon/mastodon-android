@@ -3,8 +3,9 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="horizontal"
 	android:layout_width="match_parent"
-	android:layout_height="42dp"
-	android:paddingBottom="8dp"
+	android:layout_height="56dp"
+	android:paddingBottom="12dp"
+	android:paddingTop="6dp"
 	android:paddingLeft="8dp"
 	android:paddingRight="8dp">
 
@@ -12,80 +13,68 @@
 		android:id="@+id/reply_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:layout_marginEnd="4dp"
-		android:paddingHorizontal="8dp"
-		android:background="@drawable/bg_status_action"
-		android:minWidth="64dp">
+		android:paddingStart="8dp"
+		android:paddingEnd="12dp"
+		android:background="@drawable/bg_status_action">
 		<TextView
 			android:id="@+id/reply"
 			android:layout_width="wrap_content"
-			android:layout_height="24dp"
+			android:layout_height="32dp"
 			android:layout_gravity="center|start"
-			android:drawableStart="@drawable/ic_reply_20px"
-			android:drawablePadding="6dp"
-			android:drawableTint="?colorM3Outline"
-			android:textColor="?colorM3Outline"
+			android:drawableStart="@drawable/ic_phosphor_reply_20px"
+			android:drawablePadding="4dp"
+			android:drawableTint="?colorM3OnSurface"
+			android:textColor="?colorM3OnSurface"
 			android:gravity="center_vertical"
-			android:textAppearance="@style/m3_label_medium"
+			android:textAppearance="@style/m3_label_large"
 			android:duplicateParentState="true"
+			android:alpha="0.7"
 			tools:text="123"/>
 	</FrameLayout>
-
-	<Space
-		android:id="@+id/spacer1"
-		android:layout_width="0px"
-		android:layout_height="1px"
-		android:layout_weight="1"/>
 
 	<FrameLayout
 		android:id="@+id/boost_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:layout_marginHorizontal="4dp"
-		android:paddingHorizontal="8dp"
-		android:background="@drawable/bg_status_action"
-		android:minWidth="64dp">
+		android:paddingStart="8dp"
+		android:paddingEnd="12dp"
+		android:background="@drawable/bg_status_action">
 		<TextView
 			android:id="@+id/boost"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
 			android:layout_gravity="center|start"
 			android:drawableStart="@drawable/ic_repeat_selector"
-			android:drawablePadding="6dp"
-			android:drawableTint="?colorM3Outline"
-			android:textColor="?colorM3Outline"
+			android:drawablePadding="4dp"
+			android:drawableTint="?colorM3OnSurface"
+			android:textColor="?colorM3OnSurface"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_medium"
 			android:duplicateParentState="true"
+			android:alpha="0.7"
 			tools:text="123"/>
 	</FrameLayout>
-
-	<Space
-		android:id="@+id/spacer2"
-		android:layout_width="0px"
-		android:layout_height="1px"
-		android:layout_weight="1"/>
 
 	<FrameLayout
 		android:id="@+id/favorite_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:layout_marginHorizontal="4dp"
-		android:paddingHorizontal="8dp"
-		android:background="@drawable/bg_status_action"
-		android:minWidth="64dp">
+		android:paddingStart="8dp"
+		android:paddingEnd="12dp"
+		android:background="@drawable/bg_status_action">
 		<TextView
 			android:id="@+id/favorite"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
 			android:layout_gravity="center|start"
-			android:drawableStart="@drawable/ic_star_selector"
-			android:drawablePadding="6dp"
-			android:drawableTint="?colorM3Outline"
-			android:textColor="?colorM3Outline"
+			android:drawableStart="@drawable/ic_heart_selector"
+			android:drawablePadding="4dp"
+			android:drawableTint="?colorM3OnSurface"
+			android:textColor="?colorM3OnSurface"
 			android:gravity="center_vertical"
 			android:textAppearance="@style/m3_label_medium"
 			android:duplicateParentState="true"
+			android:alpha="0.7"
 			tools:text="123"/>
 	</FrameLayout>
 
@@ -95,7 +84,7 @@
 		android:layout_weight="1"/>
 
 	<FrameLayout
-		android:id="@+id/share_btn"
+		android:id="@+id/bookmark_btn"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
 		android:layout_marginStart="4dp"
@@ -103,12 +92,32 @@
 		android:background="@drawable/bg_status_action_centered"
 		android:minWidth="34dp">
 		<ImageView
-			android:id="@+id/share"
+			android:id="@+id/bookmark"
 			android:layout_width="wrap_content"
 			android:layout_height="24dp"
 			android:layout_gravity="center"
-			android:src="@drawable/ic_share_20px"
-			android:tint="?colorM3Outline"
+			android:src="@drawable/ic_bookmark_selector"
+			android:tint="?colorM3OnSurface"
+			android:alpha="0.7"
+			android:gravity="center_vertical"/>
+	</FrameLayout>
+
+	<FrameLayout
+		android:id="@+id/menu_btn"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_marginStart="4dp"
+		android:paddingHorizontal="8dp"
+		android:background="@drawable/bg_status_action_centered"
+		android:minWidth="34dp">
+		<ImageView
+			android:id="@+id/menu"
+			android:layout_width="wrap_content"
+			android:layout_height="24dp"
+			android:layout_gravity="center"
+			android:src="@drawable/ic_phosphor_menu_20px"
+			android:tint="?colorM3OnSurface"
+			android:alpha="0.7"
 			android:gravity="center_vertical"/>
 	</FrameLayout>
 

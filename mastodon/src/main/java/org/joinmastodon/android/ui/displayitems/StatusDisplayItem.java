@@ -383,6 +383,7 @@ public abstract class StatusDisplayItem{
 		void putRelationship(String id, Relationship rel);
 		void togglePostTranslation(Status status, String itemID);
 		void maybeShowPreReplySheet(Status status, Runnable proceed);
+		Account getKnownAccount(String id);
 	}
 
 	public static class NoOpCallbacks implements Callbacks{
@@ -461,6 +462,11 @@ public abstract class StatusDisplayItem{
 		@Override
 		public void maybeShowPreReplySheet(Status status, Runnable proceed){
 
+		}
+
+		@Override
+		public Account getKnownAccount(String id){
+			return null;
 		}
 
 		@Override
