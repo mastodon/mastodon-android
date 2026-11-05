@@ -30,7 +30,6 @@ import org.joinmastodon.android.ui.text.NonColoredLinkSpan;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -59,7 +58,7 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 
 	public static class Holder extends StatusDisplayItem.Holder<ExtendedFooterStatusDisplayItem>{
 		private final TextView info;
-		private final TextView replies, favorites, reblogs, quotes, editHistory;
+		private final TextView replies, favorites, reblogs, quotes;
 
 		public Holder(Context context, ViewGroup parent){
 			super(context, R.layout.display_item_extended_footer, parent);
@@ -67,21 +66,18 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 			reblogs=findViewById(R.id.reblogs);
 			favorites=findViewById(R.id.favorites);
 			quotes=findViewById(R.id.quotes);
-			editHistory=findViewById(R.id.edit_history);
 			info=findViewById(R.id.info);
 
 			reblogs.setOnClickListener(v->startAccountListFragment(StatusReblogsListFragment.class));
 			favorites.setOnClickListener(v->startAccountListFragment(StatusFavoritesListFragment.class));
 			quotes.setOnClickListener(v->startQuotesFragment());
-			editHistory.setOnClickListener(v->startEditHistoryFragment());
-			//app.setOnClickListener(v->UiUtils.launchWebBrowser(context, item.status.application.website));
 		}
 
 		@SuppressLint("DefaultLocale")
 		@Override
 		public void onBind(ExtendedFooterStatusDisplayItem item){
 			Status s=item.status;
-			replies.setText(this.item.context.getResources().getQuantityString(R.plurals.x_replies, (int) item.status.favouritesCount, item.status.favouritesCount));
+			replies.setText(this.item.context.getResources().getQuantityString(R.plurals.x_replies, (int) item.status.repliesCount, item.status.repliesCount));
 			favorites.setText(this.item.context.getResources().getQuantityString(R.plurals.x_favorites, (int) item.status.favouritesCount, item.status.favouritesCount));
 			reblogs.setText(this.item.context.getResources().getQuantityString(R.plurals.x_reblogs, (int) item.status.reblogsCount, item.status.reblogsCount));
 			if(AccountSessionManager.get(item.accountID).getInstanceInfo().supportsQuotePostAuthoring()){
@@ -90,21 +86,16 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 			}else{
 				quotes.setVisibility(View.GONE);
 			}
-			if(s.editedAt!=null){
-				editHistory.setVisibility(View.VISIBLE);
-				ZonedDateTime dt=s.editedAt.atZone(ZoneId.systemDefault());
-				String time=TIME_FORMATTER.format(dt);
-				if(!dt.toLocalDate().equals(LocalDate.now())){
-					time+=" · "+UiUtils.formatDateLong(dt);
-				}
-				editHistory.setText(getFormattedSubstitutedString(R.string.last_edit_at_x, time));
-			}else{
-				editHistory.setVisibility(View.GONE);
-			}
-			ZonedDateTime dt=item.status.createdAt.atZone(ZoneId.systemDefault());
 
+			ZonedDateTime dt=item.status.createdAt.atZone(ZoneId.systemDefault());
 			SpannableStringBuilder ssb=new SpannableStringBuilder();
-			ssb.append(UiUtils.DATE_TIME_FORMATTER.format(dt), new NonColoredLinkSpan(null, ls->showTimeSnackbar(), LinkSpan.Type.CUSTOM, null, null, null), 0);
+			if(s.editedAt!=null){
+				ssb.append(item.context.getString(R.string.last_edit_at_x, UiUtils.DATE_TIME_FORMATTER.format(dt)), new NonColoredLinkSpan(null, ls->startEditHistoryFragment(), LinkSpan.Type.CUSTOM, null, null, null), 0);
+				ssb.append(" • ");
+				ssb.append(item.context.getString(R.string.post_published_at_x, UiUtils.DATE_TIME_FORMATTER.format(dt)), new NonColoredLinkSpan(null, ls->showTimeSnackbar(), LinkSpan.Type.CUSTOM, null, null, null), 0);
+			}else{
+				ssb.append(UiUtils.DATE_TIME_FORMATTER.format(dt), new NonColoredLinkSpan(null, ls->showTimeSnackbar(), LinkSpan.Type.CUSTOM, null, null, null), 0);
+			}
 
 			if(item.status.application!=null && !TextUtils.isEmpty(item.status.application.name)){
 				ssb.append(" • ");

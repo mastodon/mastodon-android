@@ -111,16 +111,4 @@
 		android:layout_marginTop="8dp"
 		tools:text="12-34-5678 90:12"/>
 
-	<TextView
-		android:id="@+id/edit_history"
-		android:layout_width="match_parent"
-		android:layout_height="36dp"
-		android:paddingStart="16dp"
-		android:paddingEnd="24dp"
-		android:background="?android:selectableItemBackground"
-		android:textAppearance="@style/m3_label_large"
-		android:textColor="?colorM3Outline"
-		android:gravity="center_vertical"
-		tools:text="Last edit bla bla"/>
-
 </LinearLayout>
