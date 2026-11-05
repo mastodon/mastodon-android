@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -45,6 +46,7 @@ import org.joinmastodon.android.ui.displayitems.PollOptionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.SpoilerStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
+import org.joinmastodon.android.ui.drawables.DirectMessageBackgroundDrawable;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
 import org.joinmastodon.android.ui.sheets.NonMutualPreReplySheet;
@@ -377,14 +379,16 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
+		StatusListItemDecoration decoration=new StatusListItemDecoration();
 		list.addOnScrollListener(new RecyclerView.OnScrollListener(){
 			@Override
 			public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy){
 				if(currentPhotoViewer!=null)
 					currentPhotoViewer.offsetView(-dx, -dy);
+				decoration.scrollY+=dy;
 			}
 		});
-		list.addItemDecoration(new StatusListItemDecoration());
+		list.addItemDecoration(decoration);
 		TypedArray ta=getContext().obtainStyledAttributes(new int[]{android.R.attr.selectableItemBackground});
 		Drawable defaultSelector=ta.getDrawable(0);
 		ta.recycle();
@@ -1070,7 +1074,9 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 	private class StatusListItemDecoration extends RecyclerView.ItemDecoration{
 		private Paint dividerPaint=new Paint();
 		private Drawable quoteBorder=getResources().getDrawable(R.drawable.bg_inline_status, getActivity().getTheme()).mutate();
+		private Drawable dmBackground=new DirectMessageBackgroundDrawable(getActivity());
 		private ArrayList<StatusDisplayItem.Holder<?>> itemsTopToBottom=new ArrayList<>();
+		private int scrollY;
 
 		{
 			dividerPaint.setColor(UiUtils.getThemeColor(getActivity(), R.attr.colorM3OutlineVariant));
@@ -1104,6 +1110,13 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 			boolean isRTL=parent.getLayoutDirection()==View.LAYOUT_DIRECTION_RTL;
 			for(StatusDisplayItem.Holder<?> vh:itemsTopToBottom){
 				StatusDisplayItem item=(StatusDisplayItem) vh.getItem();
+				if(item.isMessage){
+					dmBackground.setBounds((int)vh.itemView.getX(), (int)vh.itemView.getY()+scrollY, (int)vh.itemView.getX()+vh.itemView.getWidth(), (int)vh.itemView.getY()+vh.itemView.getHeight()+scrollY);
+					c.save();
+					c.translate(0, -scrollY);
+					dmBackground.draw(c);
+					c.restore();
+				}
 				if(item.isQuote){
 					if(!insideQuote){
 						insideQuote=true;

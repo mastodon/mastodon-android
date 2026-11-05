@@ -3,14 +3,9 @@ package org.joinmastodon.android.ui.displayitems;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
-import android.text.style.TypefaceSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -35,14 +30,12 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
-import androidx.annotation.StringRes;
 import me.grishka.appkit.Nav;
 
 public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 	public final Status status;
 	private final String accountID;
 
-	private static final DateTimeFormatter TIME_FORMATTER=DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
 	private static final DateTimeFormatter TIME_FORMATTER_LONG=DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
 
 	public ExtendedFooterStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Status status, String accountID){
@@ -117,24 +110,6 @@ public class ExtendedFooterStatusDisplayItem extends StatusDisplayItem{
 		@Override
 		public boolean isEnabled(){
 			return false;
-		}
-
-		private SpannableStringBuilder getFormattedSubstitutedString(@StringRes int res, String substitution){
-			String str=item.context.getString(res, substitution);
-			int index=item.context.getString(res).indexOf("%s");
-			SpannableStringBuilder ssb=new SpannableStringBuilder(str);
-			if(index>=0){
-				ForegroundColorSpan colorSpan=new ForegroundColorSpan(UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3OnSurfaceVariant));
-				ssb.setSpan(colorSpan, index, index+substitution.length(), 0);
-				Object typefaceSpan;
-				if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
-					typefaceSpan=new TypefaceSpan(Typeface.create(Typeface.DEFAULT, 600, false));
-				}else{
-					typefaceSpan=new StyleSpan(Typeface.BOLD);
-				}
-				ssb.setSpan(typefaceSpan, index, index+substitution.length(), 0);
-			}
-			return ssb;
 		}
 
 		private void startAccountListFragment(Class<? extends StatusRelatedAccountListFragment> cls){

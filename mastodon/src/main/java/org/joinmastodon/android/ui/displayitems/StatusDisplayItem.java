@@ -20,6 +20,7 @@ import org.joinmastodon.android.model.Poll;
 import org.joinmastodon.android.model.Quote;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
+import org.joinmastodon.android.model.StatusPrivacy;
 import org.joinmastodon.android.model.collections.AccountCollection;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewerHost;
@@ -47,6 +48,7 @@ public abstract class StatusDisplayItem{
 	public Context context;
 	public boolean fullWidth; // aka "highlighted"
 	public boolean isQuote;
+	public boolean isMessage;
 	public int index;
 
 	public static final int FLAG_FULL_WIDTH=1;
@@ -273,6 +275,21 @@ public abstract class StatusDisplayItem{
 		if(items!=contentItems){
 			for(StatusDisplayItem item:contentItems){
 				item.index=i++;
+			}
+		}
+		if(status.visibility==StatusPrivacy.DIRECT){
+			for(StatusDisplayItem item:items){
+				item.isMessage=true;
+			}
+			if(filterItem!=null){
+				for(StatusDisplayItem item:filterItem.contentItems){
+					item.isMessage=true;
+				}
+			}
+			if(cwItem!=null){
+				for(StatusDisplayItem item:cwItem.contentItems){
+					item.isMessage=true;
+				}
 			}
 		}
 		return items;
