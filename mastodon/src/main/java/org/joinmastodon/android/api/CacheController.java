@@ -135,16 +135,20 @@ public class CacheController{
 				db.delete("home_timeline", null, null);
 			ContentValues values=new ContentValues(4);
 			for(Status s:posts){
-				values.put("id", s.id);
-				values.put("json", MastodonAPIController.gson.toJson(s));
-				int flags=0;
-				if(s.hasGapAfter)
-					flags|=POST_FLAG_GAP_AFTER;
-				values.put("flags", flags);
-				values.put("time", s.createdAt.getEpochSecond());
+				setStatusToContentValues(s, values);
 				db.insertWithOnConflict("home_timeline", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 			}
 		});
+	}
+
+	private void setStatusToContentValues(Status s, ContentValues values){
+		values.put("id", s.id);
+		values.put("json", MastodonAPIController.gson.toJson(s));
+		int flags=0;
+		if(s.hasGapAfter)
+			flags|=POST_FLAG_GAP_AFTER;
+		values.put("flags", flags);
+		values.put("time", s.createdAt.getEpochSecond());
 	}
 
 	public void getNotifications(String maxID, int count, boolean onlyMentions, boolean forceReload, Callback<PaginatedResponse<List<NotificationViewModel>>> callback){
@@ -381,6 +385,15 @@ public class CacheController{
 	public void deleteStatus(String id){
 		runOnDbThread((db)->{
 			db.delete("home_timeline", "`id`=?", new String[]{id});
+		});
+	}
+
+	public void updateStatus(Status status){
+		runOnDbThread(db->{
+			ContentValues values=new ContentValues();
+			setStatusToContentValues(status, values);
+			values.remove("flags"); // overwriting flags would break timeline gaps, so let's not
+			db.update("home_timeline", values, "`id`=?", new String[]{status.id});
 		});
 	}
 

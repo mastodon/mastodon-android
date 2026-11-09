@@ -7,6 +7,8 @@ import org.joinmastodon.android.MastodonApp;
 import org.joinmastodon.android.api.requests.statuses.SetStatusBookmarked;
 import org.joinmastodon.android.api.requests.statuses.SetStatusFavorited;
 import org.joinmastodon.android.api.requests.statuses.SetStatusReblogged;
+import org.joinmastodon.android.api.session.AccountSession;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.model.Status;
 
@@ -39,6 +41,7 @@ public class StatusInteractionController{
 					public void onSuccess(Status result){
 						runningFavoriteRequests.remove(status.id);
 						E.post(new StatusCountersUpdatedEvent(result, StatusCountersUpdatedEvent.CounterType.FAVORITES));
+						updateCachedCopies(result);
 					}
 
 					@Override
@@ -77,6 +80,7 @@ public class StatusInteractionController{
 					public void onSuccess(Status result){
 						runningReblogRequests.remove(status.id);
 						E.post(new StatusCountersUpdatedEvent(result, StatusCountersUpdatedEvent.CounterType.REBLOGS));
+						updateCachedCopies(result);
 					}
 
 					@Override
@@ -115,6 +119,7 @@ public class StatusInteractionController{
 					public void onSuccess(Status result){
 						runningBookmarkRequests.remove(status.id);
 						E.post(new StatusCountersUpdatedEvent(result, StatusCountersUpdatedEvent.CounterType.BOOKMARKS));
+						updateCachedCopies(result);
 					}
 
 					@Override
@@ -129,5 +134,11 @@ public class StatusInteractionController{
 		runningBookmarkRequests.put(status.id, req);
 		status.bookmarked=bookmarked;
 		E.post(new StatusCountersUpdatedEvent(status, StatusCountersUpdatedEvent.CounterType.BOOKMARKS));
+	}
+
+	private void updateCachedCopies(Status s){
+		try{
+			AccountSessionManager.get(accountID).getCacheController().updateStatus(s);
+		}catch(IllegalStateException ignore){} // user may have logged out
 	}
 }
