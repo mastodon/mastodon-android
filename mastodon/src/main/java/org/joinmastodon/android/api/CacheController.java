@@ -390,6 +390,16 @@ public class CacheController{
 
 	public void updateStatus(Status status){
 		runOnDbThread(db->{
+			try(Cursor cursor=db.query("home_timeline", new String[]{"json"}, "`id`=?", new String[]{status.id}, null, null, null)){
+				if(!cursor.moveToFirst())
+					return;
+				Status existing=MastodonAPIController.gson.fromJson(cursor.getString(0), Status.class);
+				status.paginationMaxId=existing.paginationMaxId;
+				status.paginationMinId=existing.paginationMinId;
+			}catch(Exception x){
+				Log.e(TAG, "Failed to get existing status to update "+status.id);
+				return;
+			}
 			ContentValues values=new ContentValues();
 			setStatusToContentValues(status, values);
 			values.remove("flags"); // overwriting flags would break timeline gaps, so let's not
