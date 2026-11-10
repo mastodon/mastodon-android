@@ -25,7 +25,7 @@
 	<string name="media">Media</string>
 	<string name="button_follow">Segui</string>
 	<string name="button_following">Stai seguendo</string>
-	<string name="edit_profile">Modifica profilo</string>
+	<string name="edit_profile">Modifica il profilo</string>
 	<string name="share_user">Condividi il profilo tramite…</string>
 	<string name="mute_user">Silenzia %s</string>
 	<string name="unmute_user">Riattiva %s</string>
@@ -239,8 +239,8 @@
 		<item quantity="other">%,d seguiti</item>
 	</plurals>
 	<plurals name="x_favorites">
-		<item quantity="one">%,d apprezzamento</item>
-		<item quantity="other">%,d apprezzamenti</item>
+		<item quantity="one">%,d aggiunta ai preferiti</item>
+		<item quantity="other">%,d aggiunte ai preferiti</item>
 	</plurals>
 	<plurals name="x_reblogs">
 		<item quantity="one">%,d ricondivisione</item>
@@ -383,7 +383,7 @@
 	<string name="media_hidden">File multimediale nascosto</string>
 	<string name="post_hidden">Post nascosto</string>
 	<string name="report_title_post">Segnala il post</string>
-	<string name="forward_report_explanation">L\'account proviene da un altro server. Inviare una copia anonima di questo rapporto anche lì?</string>
+	<string name="forward_report_explanation">L\'account proviene da un altro server. Inviare una copia anonimizzata di questa segnalazione anche lì?</string>
 	<!-- %s is the server domain -->
 	<string name="forward_report_to_server">Inoltra a %s</string>
 	<!-- Shown on the "stamp" on the screen that appears after you report a post/user. Please keep the translation short, preferably a single word -->
@@ -539,7 +539,7 @@
 	<string name="translate_post">Traduci da %s</string>
 	<!-- %1$s is the language, %2$s is the name of the translation service -->
 	<string name="post_translated">Tradotto da %1$s utilizzando %2$s</string>
-	<string name="translation_show_original">Mostra originale</string>
+	<string name="translation_show_original">Mostra l\'originale</string>
 	<string name="translation_failed">Traduzione fallita. Forse l\'amministratore non ha abilitato le traduzioni su questo server, o su questo server è in esecuzione una versione precedente di Mastodon in cui le traduzioni non sono ancora supportate.</string>
 	<string name="settings_privacy">Privacy e visibilità</string>
 	<string name="settings_discoverable">Include il profilo e i post negli algoritmi di scoperta</string>
@@ -708,7 +708,7 @@ Più persone segui, più sarà attivo e interessante.</string>
 	<string name="view_boosts">Visualizza ricondivisioni</string>
 	<string name="view_favorites">Visualizza preferiti</string>
 	<string name="undo_reblog">Annulla ricondivisione</string>
-	<string name="undo_favorite">Annulla preferito</string>
+	<string name="undo_favorite">Annulla l\'aggiunta ai preferiti</string>
 	<string name="could_not_reach_server">Impossibile raggiungere il server. Controllare la tua connessione e riprovare?</string>
 	<string name="connection_timed_out">La richiesta è scaduta. Controllare la tua connessione e riprovare?</string>
 	<string name="server_error">Qualcosa è andato storto durante la conversazione con il tuo server. Probabilmente non è colpa tua. Riprovare?</string>
