@@ -6,8 +6,6 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -23,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.joinmastodon.android.E;
-import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetStatusSourceText;
 import org.joinmastodon.android.api.requests.statuses.RevokeStatusQuote;
@@ -40,16 +37,12 @@ import org.joinmastodon.android.fragments.account_list.StatusReblogsListFragment
 import org.joinmastodon.android.fragments.account_list.StatusRelatedAccountListFragment;
 import org.joinmastodon.android.fragments.report.ReportReasonChoiceFragment;
 import org.joinmastodon.android.model.Account;
-import org.joinmastodon.android.model.Instance;
-import org.joinmastodon.android.model.QuoteApproval;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.StatusPrivacy;
-import org.joinmastodon.android.model.viewmodel.ListItem;
 import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.Snackbar;
 import org.joinmastodon.android.ui.sheets.ComposerVisibilitySheet;
-import org.joinmastodon.android.ui.sheets.ListItemsSheet;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
@@ -118,11 +111,6 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			ImageView bookmarkIcon=findViewById(R.id.bookmark);
 			bookmarkIcon.setImageTintList(buttonColors);
 
-			if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N){
-				UiUtils.fixCompoundDrawableTintOnAndroid6(reply);
-				UiUtils.fixCompoundDrawableTintOnAndroid6(boost);
-				UiUtils.fixCompoundDrawableTintOnAndroid6(favorite);
-			}
 			replyBtn=findViewById(R.id.reply_btn);
 			boostBtn=findViewById(R.id.boost_btn);
 			favoriteBtn=findViewById(R.id.favorite_btn);

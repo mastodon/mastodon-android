@@ -3,7 +3,6 @@ package org.joinmastodon.android.ui.displayitems;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -18,7 +17,6 @@ import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.text.LinkSpan;
 import org.joinmastodon.android.ui.text.NonColoredLinkSpan;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
-import org.joinmastodon.android.ui.utils.UiUtils;
 import org.parceler.Parcels;
 
 import java.util.regex.Pattern;
@@ -99,8 +97,6 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 				Drawable icon=itemView.getContext().getDrawable(item.icon);
 				icon.setBounds(0, 0, V.dp(16), V.dp(16));
 				text.setCompoundDrawablesRelative(icon, null, null, null);
-				if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N)
-					UiUtils.fixCompoundDrawableTintOnAndroid6(text);
 			}else{
 				text.setCompoundDrawables(null, null, null, null);
 			}

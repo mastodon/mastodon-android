@@ -80,9 +80,9 @@ import org.joinmastodon.android.events.RemoveAccountPostsEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.fragments.ComposeFragment;
 import org.joinmastodon.android.fragments.HashtagTimelineFragment;
+import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.fragments.collections.CollectionFragment;
 import org.joinmastodon.android.fragments.profile.ProfileFragment;
-import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.AccountOrPartial;
 import org.joinmastodon.android.model.Emoji;
@@ -333,23 +333,6 @@ public class UiUtils{
 
 		double a=n/1_000_000_000.0;
 		return (a>=10.0 ? ABBREVIATED_NUMBER_FORMAT.format((long)a) : ABBREVIATED_NUMBER_FORMAT.format(a))+"B";
-	}
-
-	/**
-	 * Android 6.0 has a bug where start and end compound drawables don't get tinted.
-	 * This works around it by setting the tint colors directly to the drawables.
-	 * @param textView
-	 */
-	public static void fixCompoundDrawableTintOnAndroid6(TextView textView){
-		Drawable[] drawables=textView.getCompoundDrawablesRelative();
-		for(int i=0;i<drawables.length;i++){
-			if(drawables[i]!=null){
-				Drawable tinted=drawables[i].mutate();
-				tinted.setTintList(textView.getTextColors());
-				drawables[i]=tinted;
-			}
-		}
-		textView.setCompoundDrawablesRelative(drawables[0], drawables[1], drawables[2], drawables[3]);
 	}
 
 	public static void runOnUiThread(Runnable runnable){

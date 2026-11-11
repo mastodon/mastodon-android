@@ -2,7 +2,6 @@ package org.joinmastodon.android.ui.displayitems;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.view.ViewGroup;
@@ -122,8 +121,6 @@ public class InlineStatusStatusDisplayItem extends StatusDisplayItem{
 				Drawable icon=itemView.getContext().getDrawable(item.headerIcon);
 				icon.setBounds(0, 0, V.dp(16), V.dp(16));
 				header.setCompoundDrawablesRelative(icon, null, null, null);
-				if(Build.VERSION.SDK_INT<Build.VERSION_CODES.N)
-					UiUtils.fixCompoundDrawableTintOnAndroid6(header);
 			}else{
 				header.setVisibility(View.GONE);
 			}
