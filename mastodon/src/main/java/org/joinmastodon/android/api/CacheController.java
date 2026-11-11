@@ -592,7 +592,7 @@ public class CacheController{
 			}
 			if(oldVersion<6){
 				db.delete("home_timeline", null, null);
-				db.execSQL("ALTER TABLE `home_timeline` ADD `content_status_id` VARCHAR(25) NOT NULL");
+				db.execSQL("ALTER TABLE `home_timeline` ADD `content_status_id` VARCHAR(25) NOT NULL DEFAULT ''");
 				db.execSQL("CREATE INDEX `home_timeline_content_status_id` ON `home_timeline` (`content_status_id`)");
 			}
 		}
