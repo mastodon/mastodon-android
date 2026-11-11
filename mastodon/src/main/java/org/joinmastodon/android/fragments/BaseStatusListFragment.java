@@ -629,16 +629,19 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 
 	public void onPollVoteButtonClick(PollFooterStatusDisplayItem.Holder holder){
 		Poll poll=holder.getItem().poll;
-		submitPollVote(holder.getItemID(), poll.id, poll.selectedOptions.stream().map(opt->poll.options.indexOf(opt)).collect(Collectors.toList()));
+		submitPollVote(holder.getItemID(), holder.getItem().status, poll.id, poll.selectedOptions.stream().map(opt->poll.options.indexOf(opt)).collect(Collectors.toList()));
 	}
 
-	protected void submitPollVote(String parentID, String pollID, List<Integer> choices){
+	protected void submitPollVote(String parentID, Status status, String pollID, List<Integer> choices){
 		if(refreshing)
 			return;
 		new SubmitPollVote(pollID, choices)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Poll result){
+						Status contentStatus=status.getContentStatus();
+						contentStatus.poll=result;
+						AccountSessionManager.get(accountID).getCacheController().updateStatus(contentStatus);
 						E.post(new PollUpdatedEvent(accountID, result));
 					}
 

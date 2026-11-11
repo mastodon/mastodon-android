@@ -13,6 +13,7 @@ import android.service.notification.StatusBarNotification;
 import org.joinmastodon.android.api.requests.statuses.CreateStatus;
 import org.joinmastodon.android.api.requests.statuses.SetStatusFavorited;
 import org.joinmastodon.android.api.requests.statuses.SetStatusReblogged;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.model.Status;
@@ -104,6 +105,9 @@ public class NotificationActionHandlerService extends Service{
 						@Override
 						public void onSuccess(Status result){
 							E.post(new StatusCountersUpdatedEvent(result, StatusCountersUpdatedEvent.CounterType.FAVORITES));
+							try{
+								AccountSessionManager.get(account).getCacheController().updateStatus(result);
+							}catch(IllegalStateException ignore){} // user may have logged out
 							runningRequestCount--;
 							maybeStopSelf();
 						}
@@ -139,6 +143,9 @@ public class NotificationActionHandlerService extends Service{
 						@Override
 						public void onSuccess(Status result){
 							E.post(new StatusCountersUpdatedEvent(result, StatusCountersUpdatedEvent.CounterType.REBLOGS));
+							try{
+								AccountSessionManager.get(account).getCacheController().updateStatus(result);
+							}catch(IllegalStateException ignore){} // user may have logged out
 							runningRequestCount--;
 							maybeStopSelf();
 						}

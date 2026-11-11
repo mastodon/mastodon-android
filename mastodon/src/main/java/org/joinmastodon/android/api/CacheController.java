@@ -55,7 +55,7 @@ import me.grishka.appkit.utils.WorkerThread;
 
 public class CacheController{
 	private static final String TAG="CacheController";
-	private static final int DB_VERSION=5;
+	private static final int DB_VERSION=6;
 	public static final WorkerThread databaseThread=new WorkerThread("databaseThread");
 	public static final Handler uiHandler=new Handler(Looper.getMainLooper());
 
@@ -145,16 +145,21 @@ public class CacheController{
 				db.delete("home_timeline", null, null);
 			ContentValues values=new ContentValues(4);
 			for(Status s:posts){
-				values.put("id", s.id);
-				values.put("json", MastodonAPIController.gson.toJson(s));
-				int flags=0;
-				if(s.hasGapAfter)
-					flags|=POST_FLAG_GAP_AFTER;
-				values.put("flags", flags);
-				values.put("time", s.createdAt.getEpochSecond());
+				setStatusToContentValues(s, values);
 				db.insertWithOnConflict("home_timeline", null, values, SQLiteDatabase.CONFLICT_REPLACE);
 			}
 		});
+	}
+
+	private void setStatusToContentValues(Status s, ContentValues values){
+		values.put("id", s.id);
+		values.put("json", MastodonAPIController.gson.toJson(s));
+		int flags=0;
+		if(s.hasGapAfter)
+			flags|=POST_FLAG_GAP_AFTER;
+		values.put("flags", flags);
+		values.put("time", s.createdAt.getEpochSecond());
+		values.put("content_status_id", s.getContentStatus().id);
 	}
 
 	public void getNotifications(String maxID, int count, boolean onlyMentions, boolean forceReload, Callback<PaginatedResponse<List<NotificationViewModel>>> callback){
@@ -391,6 +396,33 @@ public class CacheController{
 	public void deleteStatus(String id){
 		runOnDbThread((db)->{
 			db.delete("home_timeline", "`id`=?", new String[]{id});
+		});
+	}
+
+	public void updateStatus(Status s){
+		Status status=s.getContentStatus();
+		runOnDbThread(db->{
+			try(Cursor cursor=db.query("home_timeline", new String[]{"json"}, "`content_status_id`=?", new String[]{status.id}, null, null, null)){
+				if(BuildConfig.DEBUG)
+					Log.i(TAG, "Updating status "+status.id+", found "+cursor.getCount()+" cached copies");
+				cursor.moveToFirst();
+				ContentValues values=new ContentValues();
+				do{
+					Status existing=MastodonAPIController.gson.fromJson(cursor.getString(0), Status.class);
+					if(existing.reblog!=null){
+						existing.reblog=status;
+						setStatusToContentValues(existing, values);
+					}else{
+						status.paginationMaxId=existing.paginationMaxId;
+						status.paginationMinId=existing.paginationMinId;
+						setStatusToContentValues(status, values);
+					}
+					values.remove("flags"); // overwriting flags would break timeline gaps, so let's not
+					db.update("home_timeline", values, "`id`=?", new String[]{existing.id});
+				}while(cursor.moveToNext());
+			}catch(Exception x){
+				Log.e(TAG, "Failed to get existing status to update "+status.id);
+			}
 		});
 	}
 
@@ -636,8 +668,10 @@ public class CacheController{
 							`id` VARCHAR(25) NOT NULL PRIMARY KEY,
 							`json` TEXT NOT NULL,
 							`flags` INTEGER NOT NULL DEFAULT 0,
-							`time` INTEGER NOT NULL
+							`time` INTEGER NOT NULL,
+							`content_status_id` VARCHAR(25) NOT NULL
 						)""");
+			db.execSQL("CREATE INDEX `home_timeline_content_status_id` ON `home_timeline` (`content_status_id`)");
 			createNotificationsTables(db, "all");
 			createNotificationsTables(db, "mentions");
 			createRecentSearchesTable(db);
@@ -660,6 +694,11 @@ public class CacheController{
 				db.execSQL("DROP TABLE `notifications_mentions`");
 				createNotificationsTables(db, "all");
 				createNotificationsTables(db, "mentions");
+			}
+			if(oldVersion<6){
+				db.delete("home_timeline", null, null);
+				db.execSQL("ALTER TABLE `home_timeline` ADD `content_status_id` VARCHAR(25) NOT NULL");
+				db.execSQL("CREATE INDEX `home_timeline_content_status_id` ON `home_timeline` (`content_status_id`)");
 			}
 		}
 

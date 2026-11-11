@@ -110,6 +110,8 @@ public class HomeTimelineFragment extends StatusListFragment{
 	private BottomSheet donationSheet;
 	private ExtendedPopupMenu homeTimelineSettingsMenu;
 
+	private int restoredStatePostCount, restoredStateScrollIndex, restoredStateScrollOffset;
+
 	public HomeTimelineFragment(){
 		setLayout(R.layout.fragment_loader_hiding_toolbar);
 		setListLayoutId(R.layout.fragment_timeline);
@@ -118,6 +120,13 @@ public class HomeTimelineFragment extends StatusListFragment{
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+
+		if(savedInstanceState!=null && savedInstanceState.containsKey("postCount")){
+			restoredStatePostCount=savedInstanceState.getInt("postCount");
+			restoredStateScrollIndex=savedInstanceState.getInt("scrollIndex");
+			restoredStateScrollOffset=savedInstanceState.getInt("scrollOffset");
+		}
+
 		localTimelineBannerHelper=new DiscoverInfoBannerHelper(DiscoverInfoBannerHelper.BannerType.LOCAL_TIMELINE, accountID);
 
 		if(AccountSessionManager.get(accountID).isEligibleForDonations()){
@@ -148,6 +157,8 @@ public class HomeTimelineFragment extends StatusListFragment{
 		));
 
 		E.register(this);
+
+		loadData();
 	}
 
 	@Override
@@ -160,7 +171,6 @@ public class HomeTimelineFragment extends StatusListFragment{
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		setHasOptionsMenu(true);
-		loadData();
 	}
 
 	@Override
@@ -168,6 +178,14 @@ public class HomeTimelineFragment extends StatusListFragment{
 		String maxID=data.isEmpty() ? null : data.get(data.size()-1).paginationMaxId;
 		switch(listMode){
 			case FOLLOWING -> {
+				boolean restoringScrollState;
+				if(restoredStatePostCount>0){
+					restoringScrollState=true;
+					count=restoredStatePostCount;
+					restoredStatePostCount=0;
+				}else{
+					restoringScrollState=false;
+				}
 				AccountSessionManager.getInstance()
 						.getAccount(accountID).getCacheController()
 						.getHomeTimeline(offset>0 ? maxID : null, count, refreshing, new SimpleCallback<>(this){
@@ -175,9 +193,21 @@ public class HomeTimelineFragment extends StatusListFragment{
 							public void onSuccess(CacheablePaginatedResponse<List<Status>> result){
 								if(getActivity()==null || listMode!=ListMode.FOLLOWING)
 									return;
-								if(refreshing)
-									list.scrollToPosition(0);
-								onDataLoaded(result.items, !result.items.isEmpty());
+								if(restoringScrollState && result.isFromCache()){
+									data.addAll(result.items);
+									preloader.setMoreAvailable(true);
+									onAppendItems(result.items);
+									updateList();
+									dataLoaded();
+									list.post(()->{
+										list.scrollToPosition(restoredStateScrollIndex);
+										list.scrollBy(0, restoredStateScrollOffset);
+									});
+								}else{
+									if(refreshing)
+										list.scrollToPosition(0);
+									onDataLoaded(result.items, !result.items.isEmpty());
+								}
 								if(result.isFromCache())
 									loadNewPosts();
 							}
@@ -359,6 +389,17 @@ public class HomeTimelineFragment extends StatusListFragment{
 						})
 						.exec(accountID);
 			}
+		}
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle outState){
+		super.onSaveInstanceState(outState);
+		if(listMode==ListMode.FOLLOWING && !data.isEmpty()){
+			outState.putInt("postCount", data.size());
+			View topItem=list.getChildAt(0);
+			outState.putInt("scrollIndex", list.getChildAdapterPosition(topItem));
+			outState.putInt("scrollOffset", -topItem.getTop());
 		}
 	}
 
