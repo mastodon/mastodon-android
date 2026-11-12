@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginBottom="-4dp"
+	android:paddingTop="16dp"
+	android:paddingHorizontal="16dp">
+	
+	<View
+		android:layout_width="40dp"
+		android:layout_height="16dp"
+		android:layout_marginEnd="8dp"
+		android:background="@drawable/reply_line"/>
+
+	<org.joinmastodon.android.ui.views.LinkedTextView
+		android:id="@+id/text"
+		android:layout_width="match_parent"
+		android:layout_height="16dp"
+		android:singleLine="true"
+		android:ellipsize="end"
+		android:gravity="start|center_vertical"
+		android:includeFontPadding="false"
+		android:textAppearance="@style/m3_body_small"
+		android:textColor="?colorM3OnSurfaceVariant"
+		tools:text="Replying to Sam"/>
+
+</LinearLayout>

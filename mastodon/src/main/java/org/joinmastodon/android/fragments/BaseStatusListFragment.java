@@ -9,7 +9,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -750,7 +749,7 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		return Set.of();
 	}
 
-	protected void extractCollectionAccountsFromStatus(Set<String> ids, Status status){
+	protected void extractExtraAccountsFromStatus(Set<String> ids, Status status){
 		if(status.taggedCollections!=null && !status.taggedCollections.isEmpty()){
 			int i=0;
 			AccountCollection collection=status.taggedCollections.get(0);
@@ -763,8 +762,10 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 					break;
 			}
 		}
+		if(status.inReplyToAccountId!=null)
+			ids.add(status.inReplyToAccountId);
 		if(status.quote!=null && status.quote.quotedStatus!=null)
-			extractCollectionAccountsFromStatus(ids, status.quote.quotedStatus);
+			extractExtraAccountsFromStatus(ids, status.quote.quotedStatus);
 	}
 
 	protected void loadExtraAccounts(Set<String> ids){

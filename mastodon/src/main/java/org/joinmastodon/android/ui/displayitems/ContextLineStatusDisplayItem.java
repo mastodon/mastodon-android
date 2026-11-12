@@ -27,13 +27,13 @@ import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.utils.V;
 
-public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
+public class ContextLineStatusDisplayItem extends StatusDisplayItem{
 	private CharSequence text;
 	@DrawableRes
 	private int icon;
 	private CustomEmojiHelper emojiHelper=new CustomEmojiHelper();
 
-	public ReblogOrReplyLineStatusDisplayItem(String parentID, Callbacks callbacks, Context context, CharSequence text, Account account, @DrawableRes int icon, String accountID){
+	public ContextLineStatusDisplayItem(String parentID, Callbacks callbacks, Context context, CharSequence text, Account account, @DrawableRes int icon, String accountID){
 		super(parentID, callbacks, context);
 		if(account!=null){
 			SpannableStringBuilder parsedName=new SpannableStringBuilder(account.displayName);
@@ -70,7 +70,7 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 
 	@Override
 	public Type getType(){
-		return Type.REBLOG_OR_REPLY_LINE;
+		return Type.CONTEXT_LINE;
 	}
 
 	@Override
@@ -83,15 +83,15 @@ public class ReblogOrReplyLineStatusDisplayItem extends StatusDisplayItem{
 		return emojiHelper.getImageRequest(index);
 	}
 
-	public static class Holder extends StatusDisplayItem.Holder<ReblogOrReplyLineStatusDisplayItem> implements ImageLoaderViewHolder{
+	public static class Holder extends StatusDisplayItem.Holder<ContextLineStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final TextView text;
 		public Holder(Activity activity, ViewGroup parent){
-			super(activity, R.layout.display_item_reblog_or_reply_line, parent);
+			super(activity, R.layout.display_item_context_line, parent);
 			text=findViewById(R.id.text);
 		}
 
 		@Override
-		public void onBind(ReblogOrReplyLineStatusDisplayItem item){
+		public void onBind(ContextLineStatusDisplayItem item){
 			text.setText(item.text);
 			if(item.icon!=0){
 				Drawable icon=itemView.getContext().getDrawable(item.icon);

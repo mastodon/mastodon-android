@@ -7,7 +7,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.requests.statuses.GetStatusEditHistory;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.ContextLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.utils.UiUtils;
 
@@ -142,7 +142,7 @@ public class StatusEditHistoryFragment extends StatusListFragment{
 					action=getString(R.string.edit_multiple_changed);
 				}
 			}
-			items.add(0, new ReblogOrReplyLineStatusDisplayItem(s.id, this, getActivity(), action+" · "+date, null, 0, accountID));
+			items.add(0, new ContextLineStatusDisplayItem(s.id, this, getActivity(), action+" · "+date, null, 0, accountID));
 		}
 		return items;
 	}

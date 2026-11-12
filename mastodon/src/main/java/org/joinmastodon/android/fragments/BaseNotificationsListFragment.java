@@ -32,7 +32,8 @@ import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.InlineStatusStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationHeaderStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.NotificationWithButtonStatusDisplayItem;
-import org.joinmastodon.android.ui.displayitems.ReblogOrReplyLineStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.ContextLineStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.ReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
 import org.joinmastodon.android.ui.text.HtmlParser;
@@ -76,21 +77,21 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 				boolean replyToSelf=AccountSessionManager.get(accountID).self.id.equals(n.status.inReplyToAccountId);
 				int icon=replyToSelf ? R.drawable.ic_reply_wght700_20px : R.drawable.ic_alternate_email_wght700fill1_20px;
 				if(n.status.visibility==StatusPrivacy.DIRECT){
-					titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getActivity(), getString(replyToSelf ? R.string.private_reply : R.string.private_mention), null, icon, accountID);
+					titleItem=new ContextLineStatusDisplayItem(n.getID(), this, getActivity(), getString(replyToSelf ? R.string.private_reply : R.string.private_mention), null, icon, accountID);
 				}else{
-					titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getActivity(), getString(replyToSelf ? R.string.post_header_reply : R.string.post_header_mention), null, icon, accountID);
+					titleItem=new ContextLineStatusDisplayItem(n.getID(), this, getActivity(), getString(replyToSelf ? R.string.post_header_reply : R.string.post_header_mention), null, icon, accountID);
 				}
 			}else{
 				titleItem=null;
 			}
 		}else if(n.notification.type==NotificationType.STATUS){
 			if(n.status!=null)
-				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getActivity(), getString(R.string.user_just_posted), n.status.account, R.drawable.ic_notifications_wght700fill1_20px, accountID);
+				titleItem=new ContextLineStatusDisplayItem(n.getID(), this, getActivity(), getString(R.string.user_just_posted), n.status.account, R.drawable.ic_notifications_wght700fill1_20px, accountID);
 			else
 				titleItem=null;
 		}else if(n.notification.type==NotificationType.QUOTE){
 			if(n.status!=null)
-				titleItem=new ReblogOrReplyLineStatusDisplayItem(n.getID(), this, getActivity(), getString(R.string.user_quoted_post), n.status.account, R.drawable.ic_format_quote_wght700fill1_20px, accountID);
+				titleItem=new ContextLineStatusDisplayItem(n.getID(), this, getActivity(), getString(R.string.user_quoted_post), n.status.account, R.drawable.ic_format_quote_wght700fill1_20px, accountID);
 			else
 				titleItem=null;
 		}else{
@@ -210,7 +211,7 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 						break;
 				}
 			}else if(n.status!=null){
-				extractCollectionAccountsFromStatus(ids, n.status.getContentStatus());
+				extractExtraAccountsFromStatus(ids, n.status.getContentStatus());
 			}
 		}
 		return ids;
@@ -225,6 +226,14 @@ public abstract class BaseNotificationsListFragment extends BaseStatusListFragme
 					if(holder!=null){
 						holder.rebind();
 					}
+				}
+			}else if(item instanceof ReplyLineStatusDisplayItem rl && !rl.isSelfReply && rl.account==null){
+				Account acc=knownAccounts.get(rl.targetAccountID);
+				if(acc!=null){
+					rl.updateAccount(acc);
+					StatusDisplayItem.Holder<ReplyLineStatusDisplayItem> holder=findHolderForItem(rl);
+					if(holder!=null)
+						holder.rebind();
 				}
 			}
 		}

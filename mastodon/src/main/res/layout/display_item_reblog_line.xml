@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginBottom="-4dp"
+	android:paddingTop="16dp"
+	android:paddingHorizontal="16dp">
+	
+	<View
+		android:layout_width="16dp"
+		android:layout_height="16dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginStart="24dp"
+		android:layout_gravity="center_vertical"
+		android:backgroundTint="?colorM3OnSurfaceVariant"
+		android:background="@drawable/ic_phosphor_arrows_clockwise_16px"/>
+
+	<ImageView
+		android:id="@+id/ava"
+		android:layout_width="20dp"
+		android:layout_height="20dp"
+		android:layout_marginEnd="4dp"
+		android:importantForAccessibility="no"/>
+
+	<org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="20dp"
+		android:orientation="horizontal">
+
+		<org.joinmastodon.android.ui.views.LinkedTextView
+			android:id="@+id/text"
+			android:layout_width="wrap_content"
+			android:layout_height="20dp"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:gravity="start|center_vertical"
+			android:includeFontPadding="false"
+			android:textAppearance="@style/m3_body_medium"
+			android:fontFamily="sans-serif-medium"
+			android:textColor="?colorM3OnSurfaceVariant"
+			tools:text="Imani boosted"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_marginHorizontal="4dp"
+			android:textAppearance="@style/m3_body_small"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:text="•"/>
+
+		<TextView
+			android:id="@+id/time"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/m3_body_small"
+			android:textColor="?colorM3OnSurfaceVariant"
+			android:singleLine="true"
+			tools:text="40m"/>
+
+	</org.joinmastodon.android.ui.views.HeaderSubtitleLinearLayout>
+
+</LinearLayout>

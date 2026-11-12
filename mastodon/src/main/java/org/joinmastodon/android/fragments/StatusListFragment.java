@@ -11,10 +11,12 @@ import org.joinmastodon.android.events.StatusCountersUpdatedEvent;
 import org.joinmastodon.android.events.StatusCreatedEvent;
 import org.joinmastodon.android.events.StatusDeletedEvent;
 import org.joinmastodon.android.events.StatusUpdatedEvent;
+import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.displayitems.CollectionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.ExtendedFooterStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.FooterStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.ReplyLineStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 
 import java.util.ArrayList;
@@ -80,7 +82,7 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 	protected Set<String> extractExtraAccountIDs(List<Status> items){
 		HashSet<String> ids=new HashSet<>();
 		for(Status s:items){
-			extractCollectionAccountsFromStatus(ids, s.getContentStatus());
+			extractExtraAccountsFromStatus(ids, s.getContentStatus());
 		}
 		return ids;
 	}
@@ -94,6 +96,14 @@ public abstract class StatusListFragment extends BaseStatusListFragment<Status>{
 					if(holder!=null){
 						holder.rebind();
 					}
+				}
+			}else if(item instanceof ReplyLineStatusDisplayItem rl && !rl.isSelfReply && rl.account==null){
+				Account acc=knownAccounts.get(rl.targetAccountID);
+				if(acc!=null){
+					rl.updateAccount(acc);
+					StatusDisplayItem.Holder<ReplyLineStatusDisplayItem> holder=findHolderForItem(rl);
+					if(holder!=null)
+						holder.rebind();
 				}
 			}
 		}

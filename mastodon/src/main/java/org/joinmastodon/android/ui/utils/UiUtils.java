@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -45,6 +46,7 @@ import android.transition.ChangeScroll;
 import android.transition.Fade;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
+import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -130,6 +132,8 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.recyclerview.widget.DiffUtil;
@@ -417,6 +421,13 @@ public class UiUtils{
 
 	public static int getThemeColor(Context context, @AttrRes int attr){
 		TypedArray ta=context.obtainStyledAttributes(new int[]{attr});
+		int color=ta.getColor(0, 0xff00ff00);
+		ta.recycle();
+		return color;
+	}
+
+	public static int getThemeColor(Resources.Theme theme, @AttrRes int attr){
+		TypedArray ta=theme.obtainStyledAttributes(new int[]{attr});
 		int color=ta.getColor(0, 0xff00ff00);
 		ta.recycle();
 		return color;

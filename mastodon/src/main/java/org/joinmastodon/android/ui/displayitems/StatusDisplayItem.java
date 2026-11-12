@@ -32,7 +32,6 @@ import org.joinmastodon.android.utils.TypedObjectPool;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
@@ -80,7 +79,7 @@ public abstract class StatusDisplayItem{
 			case HEADER -> new HeaderStatusDisplayItem.Holder(activity, parent);
 			case HEADER_CHECKABLE -> new CheckableHeaderStatusDisplayItem.Holder(activity, parent);
 			case HEADER_COMPACT -> new CompactHeaderStatusDisplayItem.Holder(activity, parent);
-			case REBLOG_OR_REPLY_LINE -> new ReblogOrReplyLineStatusDisplayItem.Holder(activity, parent);
+			case CONTEXT_LINE -> new ContextLineStatusDisplayItem.Holder(activity, parent);
 			case TEXT -> new TextStatusDisplayItem.Holder(activity, parent);
 			case AUDIO -> new AudioStatusDisplayItem.Holder(activity, parent);
 			case POLL_OPTION -> new PollOptionStatusDisplayItem.Holder(activity, parent);
@@ -103,6 +102,8 @@ public abstract class StatusDisplayItem{
 			case NESTED_QUOTE -> new NestedQuoteStatusDisplayItem.Holder(activity, parent);
 			case BUTTON -> new ButtonStatusDisplayItem.Holder(activity, parent);
 			case COLLECTION -> new CollectionStatusDisplayItem.Holder(activity, parent, parentFragment.getArguments().getString("account"));
+			case REPLY_LINE -> new ReplyLineStatusDisplayItem.Holder(activity, parent);
+			case REBLOG_LINE -> new ReblogLineStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -123,10 +124,11 @@ public abstract class StatusDisplayItem{
 		boolean hideCounts=!GlobalUserPreferences.showInteractionCounts;
 		if((flags & FLAG_NO_HEADER)==0){
 			if(status.reblog!=null){
-				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, callbacks, context, context.getString(R.string.user_boosted), status.account, R.drawable.ic_repeat_wght700_20px, accountID));
-			}else if(status.inReplyToAccountId!=null && knownAccounts.containsKey(status.inReplyToAccountId) && (flags & FLAG_NO_IN_REPLY_TO)==0){
-				Account account=Objects.requireNonNull(knownAccounts.get(status.inReplyToAccountId));
-				items.add(new ReblogOrReplyLineStatusDisplayItem(parentID, callbacks, context, context.getString(R.string.in_reply_to), account, R.drawable.ic_reply_wght700_20px, accountID));
+				items.add(new ReblogLineStatusDisplayItem(parentID, callbacks, context, status.account, status.createdAt, accountID));
+			}
+			if(statusForContent.inReplyToAccountId!=null && (flags & FLAG_NO_IN_REPLY_TO)==0){
+				Account account=knownAccounts.get(statusForContent.inReplyToAccountId);
+				items.add(new ReplyLineStatusDisplayItem(parentID, callbacks, context, statusForContent.inReplyToAccountId, account, accountID));
 			}
 			if((flags & FLAG_CHECKABLE)!=0)
 				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent));
@@ -306,7 +308,7 @@ public abstract class StatusDisplayItem{
 
 	public enum Type{
 		HEADER,
-		REBLOG_OR_REPLY_LINE,
+		CONTEXT_LINE,
 		TEXT,
 		AUDIO,
 		POLL_OPTION,
@@ -332,6 +334,8 @@ public abstract class StatusDisplayItem{
 		NESTED_QUOTE,
 		BUTTON,
 		COLLECTION,
+		REPLY_LINE,
+		REBLOG_LINE,
 	}
 
 	public static abstract class Holder<T> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{
