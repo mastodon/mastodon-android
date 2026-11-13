@@ -72,34 +72,27 @@ public class CompactHeaderStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<CompactHeaderStatusDisplayItem> implements ImageLoaderViewHolder{
-		private final TextView name, timeAndUsername;
+		private final TextView name, time;
 		private final ImageView avatar;
 		private final View clickableThing;
 
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_header_compact, parent);
 			name=findViewById(R.id.name);
-			timeAndUsername=findViewById(R.id.time_and_username);
+			time=findViewById(R.id.time);
 			avatar=findViewById(R.id.avatar);
 			clickableThing=findViewById(R.id.clickable_thing);
 			if(clickableThing!=null)
 				clickableThing.setOnClickListener(this::onAvaClick);
-			avatar.setOutlineProvider(OutlineProviders.roundedRect(8));
-			avatar.setClipToOutline(true);
+			OutlineProviders.clipToOval(avatar);
 		}
 
 		@SuppressLint("SetTextI18n")
 		@Override
 		public void onBind(CompactHeaderStatusDisplayItem item){
 			name.setText(item.parsedName);
-			String time;
-			if(item.status==null || item.status.editedAt==null)
-				time=UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt);
-			else
-				time=item.context.getString(R.string.edited_timestamp, UiUtils.formatRelativeTimestamp(itemView.getContext(), item.status.editedAt));
 
-			timeAndUsername.setText(time+" · @"+item.user.acct);
-//			itemView.setPadding(itemView.getPaddingLeft(), itemView.getPaddingTop(), itemView.getPaddingRight(), item.needBottomPadding ? V.dp(6) : V.dp(4));
+			this.time.setText(" • "+UiUtils.formatRelativeTimestamp(itemView.getContext(), item.createdAt));
 			if(clickableThing!=null){
 				clickableThing.setContentDescription(item.context.getString(R.string.avatar_description, item.user.acct));
 			}
