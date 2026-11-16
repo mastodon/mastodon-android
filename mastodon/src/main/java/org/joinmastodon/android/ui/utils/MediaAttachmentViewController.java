@@ -41,7 +41,7 @@ public class MediaAttachmentViewController{
 		public void getOutline(View view, Outline outline){
 			MediaGridLayout.LayoutParams lp=(MediaGridLayout.LayoutParams) MediaAttachmentViewController.this.view.getLayoutParams();
 			int mask=lp.tile.getRoundCornersMask();
-			int radius=V.dp(8);
+			int radius=V.dp(16);
 			if(mask==(PhotoLayoutHelper.CORNER_TL | PhotoLayoutHelper.CORNER_TR | PhotoLayoutHelper.CORNER_BL | PhotoLayoutHelper.CORNER_BR)){
 				outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), radius);
 			}else if(mask==(PhotoLayoutHelper.CORNER_TL | PhotoLayoutHelper.CORNER_TR)){

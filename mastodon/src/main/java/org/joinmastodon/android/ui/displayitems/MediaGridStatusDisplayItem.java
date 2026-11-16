@@ -2,14 +2,18 @@ package org.joinmastodon.android.ui.displayitems;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.RecordingCanvas;
+import android.graphics.RenderEffect;
+import android.graphics.Shader;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -19,9 +23,11 @@ import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.model.Translation;
 import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.PhotoLayoutHelper;
-import org.joinmastodon.android.ui.drawables.SpoilerStripesDrawable;
+import org.joinmastodon.android.ui.drawables.RenderNodeDrawable;
+import org.joinmastodon.android.ui.drawables.SensitiveContentDotPatternDrawable;
 import org.joinmastodon.android.ui.photoviewer.AltTextSheet;
 import org.joinmastodon.android.ui.utils.MediaAttachmentViewController;
+import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.FrameLayoutThatOnlyMeasuresFirstChild;
 import org.joinmastodon.android.ui.views.MaxWidthFrameLayout;
 import org.joinmastodon.android.ui.views.MediaGridLayout;
@@ -35,6 +41,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
+import androidx.annotation.RequiresApi;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
 import me.grishka.appkit.imageloader.requests.ImageLoaderRequest;
 import me.grishka.appkit.imageloader.requests.UrlImageLoaderRequest;
@@ -92,23 +99,27 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 	public static class Holder extends StatusDisplayItem.Holder<MediaGridStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final FrameLayout wrapper;
 		private final MediaGridLayout layout;
+		private final FrameLayout layoutWrap;
 		private final View.OnClickListener clickListener=this::onViewClick, altTextClickListener=this::onAltTextClick;
 		private final ArrayList<MediaAttachmentViewController> controllers=new ArrayList<>();
 
 		private final MaxWidthFrameLayout overlays;
 
 		private final View sensitiveOverlay;
-		private final LayerDrawable sensitiveOverlayBG;
-		private static final ColorDrawable drawableForWhenThereIsNoBlurhash=new ColorDrawable(0xffffffff);
+		private final ColorDrawable drawableForWhenThereIsNoBlurhash;
 		private final TextView hideSensitiveButton;
 		private final TextView sensitiveText;
 		private boolean thereAreFailedImages;
+		private RenderNodeDrawable blurOverlay;
+		private final View sensitiveBlurOverlay;
 
 		public Holder(Activity activity, ViewGroup parent){
 			super(new FrameLayoutThatOnlyMeasuresFirstChild(activity));
 			wrapper=(FrameLayout)itemView;
 			layout=new MediaGridLayout(activity);
-			wrapper.addView(layout);
+			layoutWrap=new FrameLayout(activity);
+			layoutWrap.addView(layout);
+			wrapper.addView(layoutWrap);
 			wrapper.setClipToPadding(false);
 
 			overlays=new MaxWidthFrameLayout(activity);
@@ -122,18 +133,27 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			int margin=V.dp(8);
 			lp.setMargins(margin, margin, margin, margin);
 
+			sensitiveBlurOverlay=new View(activity);
+			OutlineProviders.clipToRoundRect(sensitiveBlurOverlay, 16);
+			overlays.addView(sensitiveBlurOverlay);
+
 			activity.getLayoutInflater().inflate(R.layout.overlay_image_sensitive, overlays);
 			sensitiveOverlay=findViewById(R.id.sensitive_overlay);
-			sensitiveOverlayBG=(LayerDrawable) sensitiveOverlay.getBackground().mutate();
-			sensitiveOverlayBG.setDrawableByLayerId(R.id.left_drawable, new SpoilerStripesDrawable(false));
-			sensitiveOverlayBG.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable(true));
-			sensitiveOverlay.setBackground(sensitiveOverlayBG);
-			sensitiveOverlay.setOnClickListener(v->revealSensitive());
-			sensitiveOverlay.setOutlineProvider(OutlineProviders.roundedRect(8));
+			sensitiveOverlay.setOnClickListener(v->revealSensitive(true));
+			sensitiveOverlay.setOutlineProvider(OutlineProviders.roundedRect(16));
 			sensitiveOverlay.setClipToOutline(true);
-			hideSensitiveButton.setOnClickListener(v->hideSensitive());
+			sensitiveOverlay.setBackground(new SensitiveContentDotPatternDrawable(0x4d5638cc, 0xffffffff));
+			hideSensitiveButton.setOnClickListener(v->hideSensitive(true));
 
 			sensitiveText=findViewById(R.id.sensitive_text);
+
+			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
+				blurOverlay=new RenderNodeDrawable();
+				sensitiveBlurOverlay.setBackground(blurOverlay);
+				blurOverlay.renderNode.setRenderEffect(RenderEffect.createBlurEffect(V.dp(20), V.dp(20), Shader.TileMode.CLAMP));
+				layout.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom)->updateRenderNode());
+			}
+			drawableForWhenThereIsNoBlurhash=new ColorDrawable(UiUtils.getThemeColor(activity, R.attr.colorM3SurfaceVariant));
 		}
 
 		@Override
@@ -192,12 +212,9 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			}
 
 			if(!item.sensitiveRevealed){
-				sensitiveOverlay.setVisibility(View.VISIBLE);
-				layout.setVisibility(View.INVISIBLE);
-				updateBlurhashInSensitiveOverlay();
+				hideSensitive(false);
 			}else{
-				sensitiveOverlay.setVisibility(View.GONE);
-				layout.setVisibility(View.VISIBLE);
+				revealSensitive(false);
 			}
 			hideSensitiveButton.setVisibility(item.status.sensitive ? View.VISIBLE : View.GONE);
 			if(!TextUtils.isEmpty(item.sensitiveTitle))
@@ -256,23 +273,66 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 
 		private void updateBlurhashInSensitiveOverlay(){
 			Drawable d=item.attachments.get(0).blurhashPlaceholder;
-			sensitiveOverlayBG.setDrawableByLayerId(R.id.blurhash, d==null ? drawableForWhenThereIsNoBlurhash : d.mutate());
+			sensitiveBlurOverlay.setBackground(d==null ? drawableForWhenThereIsNoBlurhash : d.mutate());
 		}
 
-		private void revealSensitive(){
-			if(item.sensitiveRevealed)
+		private void revealSensitive(boolean animated){
+			if(item.sensitiveRevealed && animated)
 				return;
 			item.sensitiveRevealed=true;
-			V.setVisibilityAnimated(sensitiveOverlay, View.GONE);
+			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
+				updateRenderNode();
+			}
+			if(animated){
+				V.setVisibilityAnimated(sensitiveOverlay, View.GONE);
+				V.setVisibilityAnimated(sensitiveBlurOverlay, View.GONE);
+			}else{
+				sensitiveOverlay.setVisibility(View.GONE);
+				sensitiveBlurOverlay.setVisibility(View.GONE);
+			}
 			layout.setVisibility(View.VISIBLE);
 		}
 
-		private void hideSensitive(){
-			if(!item.sensitiveRevealed)
+		private void hideSensitive(boolean animated){
+			if(!item.sensitiveRevealed && animated)
 				return;
-			updateBlurhashInSensitiveOverlay();
+			if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
+				updateRenderNode();
+			}else{
+				updateBlurhashInSensitiveOverlay();
+			}
 			item.sensitiveRevealed=false;
-			V.setVisibilityAnimated(sensitiveOverlay, View.VISIBLE, ()->layout.setVisibility(View.INVISIBLE));
+			if(animated){
+				V.setVisibilityAnimated(sensitiveOverlay, View.VISIBLE);
+				V.setVisibilityAnimated(sensitiveBlurOverlay, View.VISIBLE);
+			}else{
+				sensitiveOverlay.setVisibility(View.VISIBLE);
+				sensitiveBlurOverlay.setVisibility(View.VISIBLE);
+			}
+		}
+
+		@RequiresApi(api = Build.VERSION_CODES.S)
+		private void updateRenderNode(){
+			layout.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+				@Override
+				public boolean onPreDraw(){
+					layout.getViewTreeObserver().removeOnPreDrawListener(this);
+
+					int x=0, w=layout.getWidth();
+					if(w>V.dp(MediaGridLayout.MAX_WIDTH)){
+						w=V.dp(MediaGridLayout.MAX_WIDTH);
+						x=layout.getWidth()/2-w/2;
+					}
+					blurOverlay.renderNode.setPosition(0, 0, w, layout.getHeight());
+					RecordingCanvas c=blurOverlay.renderNode.beginRecording();
+					c.translate(-x, 0);
+					c.drawColor(UiUtils.getThemeColor(itemView.getContext(), R.attr.colorM3Background));
+					layout.draw(c);
+					blurOverlay.renderNode.endRecording();
+
+					return true;
+				}
+			});
 		}
 
 		public MediaGridLayout getLayout(){
