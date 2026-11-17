@@ -65,14 +65,14 @@ public class ExternalShareActivity extends FragmentStackActivity{
 			mediaUris=singleUri!=null ? Collections.singletonList(singleUri) : null;
 		}else if(Intent.ACTION_SEND_MULTIPLE.equals(intent.getAction())){
 			ClipData clipData=intent.getClipData();
-			if(clipData!=null){
+			if(clipData!=null && clipData.getItemCount()>0){
 				mediaUris=new ArrayList<>(clipData.getItemCount());
 				for(int i=0;i<clipData.getItemCount();i++){
 					ClipData.Item item=clipData.getItemAt(i);
 					mediaUris.add(item.getUri());
 				}
 			}else{
-				mediaUris=null;
+				mediaUris=intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
 			}
 		}else if(Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData()!=null){
 			Uri uri=intent.getData();
