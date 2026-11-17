@@ -40,7 +40,7 @@ public class CustomEmojiSpan extends ReplacementSpan{
 			Rect bounds=drawable.getBounds();
 			int dw=drawable.getIntrinsicWidth();
 			int dh=drawable.getIntrinsicHeight();
-			if(bounds.left!=0 || bounds.top!=0 || bounds.right!=dw || bounds.left!=dh){
+			if(bounds.left!=0 || bounds.top!=0 || bounds.right!=dw || bounds.bottom!=dh){
 				drawable.setBounds(0, 0, dw, dh);
 			}
 			canvas.save();
