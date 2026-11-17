@@ -17,6 +17,8 @@ public class TransferSpeedTracker{
          lastKnownPos=position;
       }else{
          long time=SystemClock.uptimeMillis();
+         if(time==lastKnownPosTime)
+            return;
          lastSpeed=(position-lastKnownPos)/((double)(time-lastKnownPosTime)/1000.0);
          lastKnownPos=position;
          lastKnownPosTime=time;
@@ -36,7 +38,9 @@ public class TransferSpeedTracker{
          averageSpeed=lastSpeed;
       else
          averageSpeed=SMOOTHING_FACTOR*lastSpeed+(1.0-SMOOTHING_FACTOR)*averageSpeed;
-      return Math.round((totalBytes-lastKnownPos)/averageSpeed);
+      if(averageSpeed<=0.0 || Double.isNaN(averageSpeed))
+         return 0;
+      return Math.max(0, Math.round((totalBytes-lastKnownPos)/averageSpeed));
    }
 
    public void setTotalBytes(long totalBytes){
