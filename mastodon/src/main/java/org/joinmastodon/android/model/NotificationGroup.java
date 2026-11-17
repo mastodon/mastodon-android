@@ -42,11 +42,11 @@ public class NotificationGroup extends BaseModel{
 		}
 		if(moderationWarning!=null)
 			moderationWarning.postprocess();
-		if(type!=NotificationType.SEVERED_RELATIONSHIPS && type!=NotificationType.MODERATION_WARNING && sampleAccountIds.isEmpty()){
-			throw new ObjectValidationException("sample_account_ids must be present for type "+type);
-		}
 		if(type==null && fallback!=null && fallback.title!=null && fallback.summary!=null){
 			type=NotificationType.FALLBACK;
+		}
+		if(type!=NotificationType.SEVERED_RELATIONSHIPS && type!=NotificationType.MODERATION_WARNING && type!=NotificationType.FALLBACK && sampleAccountIds.isEmpty()){
+			throw new ObjectValidationException("sample_account_ids must be present for type "+type);
 		}
 		if(report!=null)
 			report.postprocess();
