@@ -33,6 +33,10 @@ public class FamiliarFollowerListFragment extends BaseAccountListFragment{
 				.setCallback(new SimpleCallback<>(this){
 					@Override
 					public void onSuccess(List<FamiliarFollowers> result){
+						if(result==null || result.isEmpty()){
+							onDataLoaded(List.of(), false);
+							return;
+						}
 						onDataLoaded(result.get(0).accounts.stream().map(a->new AccountViewModel(a, accountID, getActivity())).collect(Collectors.toList()), false);
 					}
 				})
