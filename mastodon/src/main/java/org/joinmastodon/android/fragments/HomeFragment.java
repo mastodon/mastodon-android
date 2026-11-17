@@ -354,7 +354,7 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 			}else{
 				int count=0;
 				for(Notification n:notifications){
-					if(n.id.equals(marker))
+					if(ObjectIdComparator.INSTANCE.compare(n.id, marker)<=0)
 						break;
 					count++;
 				}
