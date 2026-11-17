@@ -528,8 +528,8 @@ public class SignupFragment extends ToolbarFragment{
 			if(errorFields.contains(editText)){
 				errorFields.remove(editText);
 				editText.setError(null);
-				bdateIcon.setVisibility(View.VISIBLE);
 				if(editText==bdate){
+					bdateIcon.setVisibility(View.VISIBLE);
 					InstanceV2 v2=((InstanceV2) instance);
 					bdateWrap.setErrorTextAsDescription(getString(R.string.date_of_birth_explanation, getResources().getQuantityString(R.plurals.at_least_x_years_old, v2.registrations.minAge, v2.registrations.minAge)));
 				}
