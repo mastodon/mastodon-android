@@ -284,6 +284,8 @@ public class HtmlParser{
 	}
 
 	public static void parseCustomEmoji(SpannableStringBuilder ssb, List<Emoji> emojis){
+		if(emojis==null || emojis.isEmpty())
+			return;
 		Map<String, Emoji> emojiByCode =
 			emojis.stream()
 			.collect(
