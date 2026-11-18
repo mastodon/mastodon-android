@@ -467,7 +467,7 @@ public class HomeTimelineFragment extends StatusListFragment implements ToolbarD
 	@Override
 	public void onSaveInstanceState(Bundle outState){
 		super.onSaveInstanceState(outState);
-		if(listMode==ListMode.FOLLOWING && !data.isEmpty()){
+		if(listMode==ListMode.FOLLOWING && !data.isEmpty() && list.getChildCount()>0){
 			outState.putInt("postCount", data.size());
 			View topItem=list.getChildAt(0);
 			outState.putInt("scrollIndex", list.getChildAdapterPosition(topItem));
