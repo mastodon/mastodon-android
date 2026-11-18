@@ -142,7 +142,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			sensitiveOverlay.setOnClickListener(v->revealSensitive(true));
 			sensitiveOverlay.setOutlineProvider(OutlineProviders.roundedRect(16));
 			sensitiveOverlay.setClipToOutline(true);
-			sensitiveOverlay.setBackground(new SensitiveContentDotPatternDrawable(0x4d5638cc, 0xffffffff));
+			sensitiveOverlay.setBackground(new SensitiveContentDotPatternDrawable());
 			hideSensitiveButton.setOnClickListener(v->hideSensitive(true));
 
 			sensitiveText=findViewById(R.id.sensitive_text);

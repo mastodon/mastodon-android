@@ -6,6 +6,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.joinmastodon.android.R;
@@ -62,7 +63,8 @@ public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 	}
 
 	public static class Holder extends StatusDisplayItem.Holder<SpoilerStatusDisplayItem> implements ImageLoaderViewHolder{
-		private final TextView title, action;
+		private final TextView title;
+		private final Button action;
 		private final View button;
 
 		public Holder(Context context, ViewGroup parent, Type type){
@@ -71,19 +73,9 @@ public class SpoilerStatusDisplayItem extends StatusDisplayItem{
 			action=findViewById(R.id.spoiler_action);
 			button=findViewById(R.id.spoiler_button);
 
-			button.setOutlineProvider(OutlineProviders.roundedRect(8));
+			button.setOutlineProvider(OutlineProviders.roundedRect(12));
 			button.setClipToOutline(true);
-			LayerDrawable spoilerBg=(LayerDrawable) button.getBackground().mutate();
-			if(type==Type.SPOILER){
-				spoilerBg.setDrawableByLayerId(R.id.left_drawable, new SpoilerStripesDrawable(true));
-				spoilerBg.setDrawableByLayerId(R.id.right_drawable, new SpoilerStripesDrawable(false));
-			}else if(type==Type.FILTER_SPOILER){
-				Drawable texture=context.getDrawable(R.drawable.filter_banner_stripe_texture);
-				spoilerBg.setDrawableByLayerId(R.id.left_drawable, new TiledDrawable(texture));
-				spoilerBg.setDrawableByLayerId(R.id.right_drawable, new TiledDrawable(texture));
-			}
-			button.setBackground(spoilerBg);
-			button.setOnClickListener(v->item.callbacks.onRevealSpoilerClick(this));
+			action.setOnClickListener(v->item.callbacks.onRevealSpoilerClick(this));
 		}
 
 		@Override

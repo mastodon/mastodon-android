@@ -48,6 +48,7 @@ public abstract class StatusDisplayItem{
 	public boolean fullWidth; // aka "highlighted"
 	public boolean isQuote;
 	public boolean isMessage;
+	public boolean isInsideCW;
 	public int index;
 
 	public static final int FLAG_FULL_WIDTH=1;
@@ -167,7 +168,7 @@ public abstract class StatusDisplayItem{
 			if(!GlobalUserPreferences.showCWs && !filtered){
 				status.revealedSpoilers.add(Status.SpoilerType.CONTENT_WARNING);
 			}
-			needAddCWItems=status.revealedSpoilers.contains(Status.SpoilerType.CONTENT_WARNING);
+			needAddCWItems=true;
 			cwItem=spoilerItem;
 		}
 
@@ -247,7 +248,13 @@ public abstract class StatusDisplayItem{
 			items.addAll(filterItem.contentItems);
 		}
 		if(needAddCWItems){
-			items.addAll(cwItem.contentItems);
+			for(StatusDisplayItem item:cwItem.contentItems){
+				item.isInsideCW=true;
+			}
+			if(!filtered)
+				items.addAll(cwItem.contentItems);
+			else
+				filterItem.contentItems.addAll(cwItem.contentItems);
 		}
 		if((flags & FLAG_NO_FOOTER)==0){
 			FooterStatusDisplayItem footer=new FooterStatusDisplayItem(parentID, callbacks, context, statusForContent, accountID);

@@ -3,38 +3,40 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:paddingLeft="16dp"
-	android:paddingTop="6dp"
-	android:paddingRight="16dp">
+	android:paddingHorizontal="16dp"
+	android:paddingTop="8dp"
+	android:paddingBottom="4dp">
 
 	<LinearLayout
 		android:id="@+id/spoiler_button"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical"
-		android:background="@drawable/bg_spoiler"
-		android:paddingLeft="12dp"
-		android:paddingTop="8dp"
-		android:paddingRight="12dp"
-		android:paddingBottom="8dp">
+		android:orientation="horizontal"
+		android:background="@drawable/bg_m3_surface1"
+		android:paddingHorizontal="12dp"
+		android:paddingVertical="4dp"
+		android:gravity="center_vertical">
 		
 		<TextView
 			android:id="@+id/spoiler_title"
-			android:layout_width="match_parent"
+			android:layout_width="0px"
 			android:layout_height="wrap_content"
-			android:layout_marginBottom="4dp"
-			android:textAppearance="@style/m3_body_large"
-			android:textColor="?colorM3OnSecondaryContainer"
+			android:layout_weight="1"
+			android:layout_marginEnd="8dp"
+			android:textAppearance="@style/m3_body_small"
+			android:textColor="?colorM3OnSurface"
+			android:drawableStart="@drawable/ic_phosphor_warning_light_20px"
+			android:drawablePadding="8dp"
+			android:drawableTint="?colorM3OnSurface"
+			android:gravity="center_vertical"
 			tools:text="Spoilery stuff"/>
 
-		<TextView
+		<Button
 			android:id="@+id/spoiler_action"
-			android:layout_width="match_parent"
-			android:layout_height="20dp"
-			android:textAppearance="@style/m3_label_large"
-			android:singleLine="true"
-			android:gravity="center_vertical"
-			android:textColor="?colorM3Primary"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginVertical="8dp"
+			style="@style/Widget.Mastodon.M3.Button.Outlined.Neutral"
 			tools:text="Re-hide"/>
 
 	</LinearLayout>

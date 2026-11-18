@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.RecursiveSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/refresh_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<FrameLayout
+		android:id="@+id/content_wrap"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<org.joinmastodon.android.ui.views.PostListRecyclerView
+			android:id="@+id/list"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:scrollbars="vertical"
+			android:clipToPadding="false"/>
+
+		<ViewStub android:layout="?emptyViewLayout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/empty"/>
+	</FrameLayout>
+</me.grishka.appkit.views.RecursiveSwipeRefreshLayout>
