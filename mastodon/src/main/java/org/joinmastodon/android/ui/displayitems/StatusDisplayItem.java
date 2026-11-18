@@ -129,7 +129,7 @@ public abstract class StatusDisplayItem{
 			}
 			if(statusForContent.inReplyToAccountId!=null && (flags & FLAG_NO_IN_REPLY_TO)==0){
 				Account account=knownAccounts.get(statusForContent.inReplyToAccountId);
-				items.add(new ReplyLineStatusDisplayItem(parentID, callbacks, context, statusForContent.inReplyToAccountId, account, accountID));
+				items.add(new ReplyLineStatusDisplayItem(parentID, callbacks, context, statusForContent, account, accountID));
 			}
 			if((flags & FLAG_CHECKABLE)!=0)
 				items.add(header=new CheckableHeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent));

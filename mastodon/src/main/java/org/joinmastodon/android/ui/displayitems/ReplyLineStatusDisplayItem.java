@@ -14,6 +14,7 @@ import org.joinmastodon.android.R;
 import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.profile.ProfileFragment;
 import org.joinmastodon.android.model.Account;
+import org.joinmastodon.android.model.Status;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.text.LinkSpan;
 import org.joinmastodon.android.ui.text.NonColoredLinkSpan;
@@ -34,11 +35,11 @@ public class ReplyLineStatusDisplayItem extends StatusDisplayItem{
 	public final boolean isSelfReply;
 	private String accountID;
 
-	public ReplyLineStatusDisplayItem(String parentID, Callbacks callbacks, Context context, String targetAccountID, Account account, String accountID){
+	public ReplyLineStatusDisplayItem(String parentID, Callbacks callbacks, Context context, Status status, Account account, String accountID){
 		super(parentID, callbacks, context);
-		this.targetAccountID=targetAccountID;
+		this.targetAccountID=status.inReplyToAccountId;
 		this.accountID=accountID;
-		isSelfReply=AccountSessionManager.get(accountID).self.id.equals(targetAccountID);
+		isSelfReply=status.account.id.equals(status.inReplyToAccountId);
 		if(isSelfReply){
 			text=context.getString(R.string.in_reply_to_self);
 		}else{
