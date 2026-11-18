@@ -119,6 +119,7 @@ public class MediaGridStatusDisplayItem extends StatusDisplayItem{
 			layout=new MediaGridLayout(activity);
 			layoutWrap=new FrameLayout(activity);
 			layoutWrap.addView(layout);
+			layoutWrap.setClipChildren(false);
 			wrapper.addView(layoutWrap);
 			wrapper.setClipToPadding(false);
 
