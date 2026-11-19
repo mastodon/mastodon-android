@@ -11,16 +11,8 @@
 		android:layout_height="wrap_content"
 		android:textSize="16sp"
 		android:textColor="?colorM3OnSurface"
-		android:paddingLeft="16dp"
-		android:paddingRight="16dp"
-		android:paddingTop="6dp"
+		android:paddingHorizontal="16dp"
 		android:paddingBottom="8dp"
 		android:lineSpacingExtra="5.25dp"/>
-
-	<ViewStub
-		android:id="@+id/translation_info"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout="@layout/footer_text_translation"/>
 
 </LinearLayout>
