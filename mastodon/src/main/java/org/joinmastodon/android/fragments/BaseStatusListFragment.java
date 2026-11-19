@@ -53,6 +53,7 @@ import org.joinmastodon.android.ui.displayitems.PollOptionStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.SpoilerStatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.StatusDisplayItem;
 import org.joinmastodon.android.ui.displayitems.TextStatusDisplayItem;
+import org.joinmastodon.android.ui.displayitems.TranslateButtonStatusDisplayItem;
 import org.joinmastodon.android.ui.drawables.DirectMessageBackgroundDrawable;
 import org.joinmastodon.android.ui.drawables.SensitiveContentDotPatternDrawable;
 import org.joinmastodon.android.ui.photoviewer.PhotoViewer;
@@ -976,9 +977,14 @@ public abstract class BaseStatusListFragment<T extends DisplayItemsParent> exten
 		}
 
 		MediaGridStatusDisplayItem.Holder media=findHolderOfType(itemID, MediaGridStatusDisplayItem.Holder.class);
-		if (media!=null) {
+		if(media!=null){
 			media.rebind();
 		}
+
+		TranslateButtonStatusDisplayItem.Holder translateButton=findHolderOfType(itemID, TranslateButtonStatusDisplayItem.Holder.class);
+		if(translateButton!=null)
+			translateButton.rebind();
+
 
 		for(int i=0;i<list.getChildCount();i++){
 			if(list.getChildViewHolder(list.getChildAt(i)) instanceof PollOptionStatusDisplayItem.Holder item){

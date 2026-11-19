@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import org.joinmastodon.android.GlobalUserPreferences;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.session.AccountSessionManager;
 import org.joinmastodon.android.fragments.BaseStatusListFragment;
 import org.joinmastodon.android.fragments.ThreadFragment;
 import org.joinmastodon.android.model.Account;
@@ -105,6 +106,7 @@ public abstract class StatusDisplayItem{
 			case COLLECTION -> new CollectionStatusDisplayItem.Holder(activity, parent, parentFragment.getArguments().getString("account"));
 			case REPLY_LINE -> new ReplyLineStatusDisplayItem.Holder(activity, parent);
 			case REBLOG_LINE -> new ReblogLineStatusDisplayItem.Holder(activity, parent);
+			case TRANSLATE_BUTTON -> new TranslateButtonStatusDisplayItem.Holder(activity, parent);
 		};
 	}
 
@@ -138,6 +140,10 @@ public abstract class StatusDisplayItem{
 			else
 				items.add(header=new HeaderStatusDisplayItem(parentID, statusForContent.account, statusForContent.createdAt, callbacks, context, accountID, statusForContent));
 		}
+		boolean canTranslate=statusForContent.isEligibleForTranslation() && AccountSessionManager.get(accountID).getInstanceInfo().areStatusTranslationsEnabled();
+		if(canTranslate){
+			items.add(new TranslateButtonStatusDisplayItem(parentID, callbacks, context, status));
+		}
 
 		boolean filtered=false;
 		if(status.filtered!=null){
@@ -150,14 +156,12 @@ public abstract class StatusDisplayItem{
 		}
 
 		ArrayList<StatusDisplayItem> contentItems=items;
-		ArrayList<StatusDisplayItem> cwParentItems=items;
 		boolean needAddCWItems=false, needAddFilteredItems=false;
 		SpoilerStatusDisplayItem cwItem=null, filterItem=null;
 		if(filtered){
 			SpoilerStatusDisplayItem spoilerItem=new SpoilerStatusDisplayItem(parentID, callbacks, context, context.getString(R.string.post_matches_filter_x, status.filtered.get(0).filter.title), status, statusForContent, Type.FILTER_SPOILER, Status.SpoilerType.FILTER);
 			contentItems.add(spoilerItem);
 			contentItems=spoilerItem.contentItems;
-			cwParentItems=contentItems;
 			needAddFilteredItems=status.revealedSpoilers.contains(Status.SpoilerType.FILTER);
 			filterItem=spoilerItem;
 		}
@@ -343,6 +347,7 @@ public abstract class StatusDisplayItem{
 		COLLECTION,
 		REPLY_LINE,
 		REBLOG_LINE,
+		TRANSLATE_BUTTON,
 	}
 
 	public static abstract class Holder<T> extends BindableViewHolder<T> implements UsableRecyclerView.DisableableClickable{

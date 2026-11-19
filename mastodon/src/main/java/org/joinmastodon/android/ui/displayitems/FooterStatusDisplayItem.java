@@ -200,8 +200,6 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 					}, "status");
 				}else if(id==R.id.share){
 					UiUtils.openSystemShareSheet(activity, item.status);
-				}else if(id==R.id.translate){
-					item.callbacks.togglePostTranslation(item.status, item.parentID);
 				}else if(id==R.id.add_to_list){
 					Bundle args=new Bundle();
 					args.putString("account", item.accountID);
@@ -419,15 +417,6 @@ public class FooterStatusDisplayItem extends StatusDisplayItem{
 			Relationship relationship=item.callbacks.getRelationship(account.id);
 			Menu menu=optionsMenu.getMenu();
 			boolean isOwnPost=AccountSessionManager.getInstance().isSelf(item.accountID, account);
-			boolean canTranslate=item.status!=null && item.status.getContentStatus().isEligibleForTranslation();
-			MenuItem translate=menu.findItem(R.id.translate);
-			translate.setVisible(canTranslate);
-			if(canTranslate){
-				if(item.status.translationState==Status.TranslationState.SHOWN)
-					translate.setTitle(R.string.translation_show_original);
-				else
-					translate.setTitle(item.context.getString(R.string.translate_post, Locale.forLanguageTag(item.status.getContentStatus().language).getDisplayLanguage()));
-			}
 			menu.findItem(R.id.edit).setVisible(item.status!=null && isOwnPost);
 			menu.findItem(R.id.delete).setVisible(item.status!=null && isOwnPost);
 			menu.findItem(R.id.change_quote_policy).setVisible(item.status!=null && isOwnPost && item.status.quoteApproval!=null && (item.status.visibility==StatusPrivacy.PUBLIC || item.status.visibility==StatusPrivacy.UNLISTED));

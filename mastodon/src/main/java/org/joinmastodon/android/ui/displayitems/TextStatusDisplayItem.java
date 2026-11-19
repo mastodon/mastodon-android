@@ -75,16 +75,10 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 
 	public static class Holder extends StatusDisplayItem.Holder<TextStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final LinkedTextView text;
-		private final ViewStub translationFooterStub;
-		private View translationFooter;
-		private TextView translationInfo;
-		private Button translationShowOriginal;
-		private ProgressBar translationProgress;
 
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_text, parent);
 			text=findViewById(R.id.text);
-			translationFooterStub=findViewById(R.id.translation_info);
 		}
 
 		@Override
@@ -131,36 +125,17 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 			if(item.status==null)
 				return;
 			if(item.status.translationState==Status.TranslationState.HIDDEN){
-				if(translationFooter!=null)
-					translationFooter.setVisibility(View.GONE);
 				if(updateText){
 					text.setText(item.text);
 				}
 			}else{
-				if(translationFooter==null){
-					translationFooter=translationFooterStub.inflate();
-					translationInfo=findViewById(R.id.translation_info_text);
-					translationShowOriginal=findViewById(R.id.translation_show_original);
-					translationProgress=findViewById(R.id.translation_progress);
-					translationShowOriginal.setOnClickListener(v->item.callbacks.togglePostTranslation(item.status, item.parentID));
-				}else{
-					translationFooter.setVisibility(View.VISIBLE);
-				}
 				if(item.status.translationState==Status.TranslationState.SHOWN){
-					translationProgress.setVisibility(View.GONE);
-					translationInfo.setVisibility(View.VISIBLE);
-					translationShowOriginal.setVisibility(View.VISIBLE);
-					translationInfo.setText(translationInfo.getContext().getString(R.string.post_translated, Locale.forLanguageTag(item.status.translation.detectedSourceLanguage).getDisplayLanguage(), item.status.translation.provider));
 					if(updateText){
 						if(item.translatedText==null){
 							item.setTranslatedText(item.status.translation.content);
 						}
 						text.setText(item.translatedText);
 					}
-				}else{ // LOADING
-					translationProgress.setVisibility(View.VISIBLE);
-					translationInfo.setVisibility(View.INVISIBLE);
-					translationShowOriginal.setVisibility(View.INVISIBLE);
 				}
 			}
 		}

@@ -87,6 +87,10 @@ public abstract class Instance extends BaseModel{
 		return getApiVersion("mastodon");
 	}
 
+	public boolean areStatusTranslationsEnabled(){
+		return configuration!=null && configuration.translation!=null && configuration.translation.enabled;
+	}
+
 	// region API compatibility helpers
 
 	public boolean supportsQuotePostAuthoring(){
@@ -175,6 +179,7 @@ public abstract class Instance extends BaseModel{
 		public URLsConfiguration urls;
 		public TimelineAccessConfiguration timelinesAccess;
 		public VapidConfiguration vapid;
+		public TranslationConfiguration translation;
 	}
 
 	@Parcel
@@ -227,6 +232,11 @@ public abstract class Instance extends BaseModel{
 	@Parcel
 	public static class VapidConfiguration{
 		public String publicKey;
+	}
+
+	@Parcel
+	public static class TranslationConfiguration{
+		public boolean enabled=true;
 	}
 
 	public enum TimelineAccessValue{
