@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.joinmastodon.android.ui.views.PostTextTruncatingLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	android:paddingBottom="8dp">
 
 	<org.joinmastodon.android.ui.views.LinkedTextView
 		android:id="@+id/text"
@@ -12,7 +13,22 @@
 		android:textSize="16sp"
 		android:textColor="?colorM3OnSurface"
 		android:paddingHorizontal="16dp"
-		android:paddingBottom="8dp"
+		android:requiresFadingEdge="vertical"
+		android:fadingEdgeLength="48dp"
+		android:ellipsize="end"
 		android:lineSpacingExtra="5.25dp"/>
 
-</LinearLayout>
+	<Button
+		android:id="@+id/expand_button"
+		android:layout_width="wrap_content"
+		android:layout_height="32dp"
+		android:layout_marginStart="16dp"
+		android:paddingStart="12dp"
+		android:paddingEnd="8dp"
+		android:drawableEnd="@drawable/ic_caret_right"
+		android:drawablePadding="4dp"
+		android:drawableTint="@color/button_text_m3_tonal"
+		style="@style/Widget.Mastodon.M3.Button.Tonal"
+		android:text="@string/expand_post_text"/>
+
+</org.joinmastodon.android.ui.views.PostTextTruncatingLayout>

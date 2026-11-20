@@ -137,6 +137,16 @@ public class LinkedTextView extends TextView{
 		return super.onTextContextMenuItem(id);
 	}
 
+	@Override
+	protected float getBottomFadingEdgeStrength(){
+		return isTruncatedVertically() ? 1f : 0f;
+	}
+
+	public boolean isTruncatedVertically(){
+		Layout layout=getLayout();
+		return layout.getLineCount()>0 && layout.getEllipsisCount(layout.getLineCount()-1)>0;
+	}
+
 	private CharSequence deleteTextWithinDeleteSpans(CharSequence text){
 		if(text instanceof Spanned spanned){
 			DeleteWhenCopiedSpan[] delSpans=spanned.getSpans(0, text.length(), DeleteWhenCopiedSpan.class);

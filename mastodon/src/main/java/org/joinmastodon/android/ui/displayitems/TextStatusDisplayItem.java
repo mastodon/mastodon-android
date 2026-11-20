@@ -5,12 +5,8 @@ import android.content.Context;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import org.joinmastodon.android.R;
 import org.joinmastodon.android.model.Status;
@@ -18,8 +14,6 @@ import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.CustomEmojiHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.LinkedTextView;
-
-import java.util.Locale;
 
 import androidx.annotation.Nullable;
 import me.grishka.appkit.imageloader.ImageLoaderViewHolder;
@@ -37,6 +31,7 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 	@Nullable
 	public final Status status;
 	private final String accountID;
+	public boolean textExpanded;
 
 	public TextStatusDisplayItem(String parentID, CharSequence text, Callbacks callbacks, Context context, @Nullable Status status, String accountID){
 		super(parentID, callbacks, context);
@@ -75,10 +70,16 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 
 	public static class Holder extends StatusDisplayItem.Holder<TextStatusDisplayItem> implements ImageLoaderViewHolder{
 		private final LinkedTextView text;
+		private final Button expandTextButton;
 
 		public Holder(Activity activity, ViewGroup parent){
 			super(activity, R.layout.display_item_text, parent);
 			text=findViewById(R.id.text);
+			expandTextButton=findViewById(R.id.expand_button);
+			expandTextButton.setOnClickListener(v->{
+				item.textExpanded=true;
+				getBindingAdapter().notifyItemChanged(getAbsoluteAdapterPosition());
+			});
 		}
 
 		@Override
@@ -94,10 +95,14 @@ public class TextStatusDisplayItem extends StatusDisplayItem{
 			text.setTextIsSelectable(item.textSelectable);
 			text.setInvalidateOnEveryFrame(false);
 			itemView.setClickable(false);
-			itemView.setPaddingRelative(V.dp(item.fullWidth ? 0 : 48), 0, 0, 0);
+			itemView.setPaddingRelative(V.dp(item.fullWidth ? 0 : 48), itemView.getPaddingTop(), itemView.getPaddingEnd(), itemView.getPaddingBottom());
 			text.setTextColor(UiUtils.getThemeColor(text.getContext(), R.attr.colorM3OnSurface));
 			text.setTextSize(TypedValue.COMPLEX_UNIT_SP, item.largerFont ? 18 : 16);
 			updateTranslation(false);
+			if(item.textExpanded || item.fullWidth)
+				text.setMaxLines(Integer.MAX_VALUE);
+			else
+				text.setMaxLines(35);
 		}
 
 		@Override
