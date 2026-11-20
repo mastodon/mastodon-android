@@ -164,9 +164,6 @@ public class HomeFragment extends AppKitFragment implements AssistContentProvide
 		topItems.get(topItems.size()-1).dividerAfter=true;
 		topItems.add(new SectionHeaderListItem(R.string.lists));
 		topItems.add(new ListItem<>(R.string.create_list, 0, R.drawable.ic_phosphor_plus_light, item->closeDrawerAndNavigate(CreateListFragment.class)));
-		topItems.add(new ListItem<>(R.string.manage_lists, 0, R.drawable.ic_phosphor_plus_light, item->{ // TODO where do we put this item?
-			closeDrawerAndNavigate(ManageListsFragment.class);
-		}));
 		menuAdapter.addAdapter(new GenericListItemsAdapter<>(topItems));
 		menuAdapter.addAdapter(listsMenuAdapter);
 		menuAdapter.addAdapter(followedHashtagsMenuTitleAdapter);

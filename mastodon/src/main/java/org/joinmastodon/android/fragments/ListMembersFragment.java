@@ -17,6 +17,7 @@ import com.squareup.otto.Subscribe;
 
 import org.joinmastodon.android.E;
 import org.joinmastodon.android.R;
+import org.joinmastodon.android.api.MastodonAPIRequest;
 import org.joinmastodon.android.api.requests.HeaderPaginationRequest;
 import org.joinmastodon.android.api.requests.lists.AddAccountsToList;
 import org.joinmastodon.android.api.requests.lists.GetListAccounts;
@@ -33,6 +34,7 @@ import org.joinmastodon.android.ui.M3AlertDialogBuilder;
 import org.joinmastodon.android.ui.utils.ActionModeHelper;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
+import org.joinmastodon.android.ui.views.ProgressBarButton;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
@@ -40,6 +42,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import me.grishka.appkit.Nav;
@@ -105,17 +108,31 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 	@Override
 	protected void onConfigureViewHolder(AccountViewHolder holder){
 		super.onConfigureViewHolder(holder);
-		holder.setStyle(inSelectionMode ? AccountViewHolder.AccessoryType.CHECKBOX : AccountViewHolder.AccessoryType.MENU, false);
+		holder.setStyle(inSelectionMode ? AccountViewHolder.AccessoryType.CHECKBOX : AccountViewHolder.AccessoryType.CUSTOM_BUTTON, false);
 		holder.setOnClickListener(this::onItemClick);
 		holder.setOnLongClickListener(this::onItemLongClick);
-		holder.getContextMenu().getMenu().add(0, R.id.remove_from_list, 0, R.string.remove_from_list);
-		holder.setOnCustomMenuItemSelectedListener(item->onItemMenuItemSelected(holder, item));
+		ProgressBarButton button=holder.getButton();
+		button.setText(R.string.remove);
+		button.setBackgroundResource(R.drawable.bg_button_m3_filled_error);
+		button.setOnClickListener(v->{
+			new M3AlertDialogBuilder(getActivity())
+					.setTitle(R.string.confirm_remove_list_member)
+					.setPositiveButton(R.string.remove, (dlg, which)->{
+						holder.setActionProgressVisible(true);
+						removeAccounts(Set.of(holder.getItem().account.id), (res)->{
+							if(!res)
+								holder.setActionProgressVisible(false);
+						});
+					})
+					.setNegativeButton(R.string.cancel, null)
+					.show();
+		});
 	}
 
 	@Override
 	protected void onBindViewHolder(AccountViewHolder holder){
 		super.onBindViewHolder(holder);
-		holder.setStyle(inSelectionMode ? AccountViewHolder.AccessoryType.CHECKBOX : AccountViewHolder.AccessoryType.MENU, false);
+		holder.setStyle(inSelectionMode ? AccountViewHolder.AccessoryType.CHECKBOX : AccountViewHolder.AccessoryType.CUSTOM_BUTTON, false);
 		if(inSelectionMode){
 			holder.setChecked(selectedAccounts.contains(holder.getItem().account.id));
 		}
@@ -223,17 +240,6 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 		return true;
 	}
 
-	private void onItemMenuItemSelected(AccountViewHolder holder, MenuItem item){
-		int id=item.getItemId();
-		if(id==R.id.remove_from_list){
-			new M3AlertDialogBuilder(getActivity())
-					.setTitle(R.string.confirm_remove_list_member)
-					.setPositiveButton(R.string.remove, (dlg, which)->removeAccounts(Set.of(holder.getItem().account.id), null))
-					.setNegativeButton(R.string.cancel, null)
-					.show();
-		}
-	}
-
 	private void updateItemsForSelectionModeTransition(){
 		list.getAdapter().notifyItemRangeChanged(0, data.size());
 	}
@@ -283,13 +289,13 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 		actionMode.setTitle(getResources().getQuantityString(R.plurals.x_items_selected, selectedAccounts.size(), selectedAccounts.size()));
 	}
 
-	private void removeAccounts(Set<String> ids, Runnable onDone){
-		new RemoveAccountsFromList(followList.id, ids)
+	private void removeAccounts(Set<String> ids, Consumer<Boolean> onDone){
+		MastodonAPIRequest<Void> req=new RemoveAccountsFromList(followList.id, ids)
 				.setCallback(new Callback<>(){
 					@Override
 					public void onSuccess(Void result){
 						if(onDone!=null)
-							onDone.run();
+							onDone.accept(true);
 						if(inSelectionMode)
 							actionMode.finish();
 						accountIDsInList.removeAll(ids);
@@ -298,11 +304,14 @@ public class ListMembersFragment extends PaginatedAccountListFragment{
 
 					@Override
 					public void onError(ErrorResponse error){
+						if(onDone!=null)
+							onDone.accept(false);
 						error.showToast(getActivity());
 					}
-				})
-				.wrapProgress(getActivity(), R.string.loading, true)
-				.exec(accountID);
+				});
+		if(onDone==null)
+			req.wrapProgress(getActivity(), R.string.loading, true);
+		req.exec(accountID);
 	}
 
 	private void addAccounts(Collection<Account> accounts, Runnable onDone){
