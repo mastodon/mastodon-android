@@ -667,6 +667,25 @@
 		<item name="android:showText">false</item>
 	</style>
 
+	<style name="Widget.Mastodon.M3.FAB" parent="android:Widget.Material.ImageButton">
+		<item name="android:background">@drawable/bg_fab</item>
+		<item name="android:tint">?colorM3PrimaryContainer</item>
+		<item name="android:scaleType">center</item>
+		<item name="android:stateListAnimator">@animator/fab_shadow</item>
+	</style>
+
+	<style name="Widget.Mastodon.M3.FAB.Text" parent="Widget.Mastodon.M3.Button">
+		<item name="android:background">@drawable/bg_fab</item>
+		<item name="android:scaleType">center</item>
+		<item name="android:stateListAnimator">@animator/fab_shadow</item>
+		<item name="android:textColor">?colorM3PrimaryContainer</item>
+		<item name="android:drawableTint">?colorM3PrimaryContainer</item>
+		<item name="android:paddingStart">16dp</item>
+		<item name="android:paddingEnd">20dp</item>
+		<item name="android:drawablePadding">12dp</item>
+		<item name="android:textAppearance">@style/m3_label_large</item>
+	</style>
+
 	<style name="alert_title">
 		<item name="android:textSize">20dp</item>
 		<item name="android:minHeight">24dp</item>

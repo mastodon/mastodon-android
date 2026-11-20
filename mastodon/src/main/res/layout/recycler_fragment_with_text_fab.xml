@@ -28,14 +28,7 @@
 			android:layout_gravity="end|bottom"
 			android:layout_marginEnd="16dp"
 			android:layout_marginBottom="16dp"
-			android:background="@drawable/bg_fab"
-			android:textColor="?colorM3Primary"
-			android:drawableTint="?colorM3Primary"
-			android:stateListAnimator="@animator/fab_shadow"
-			android:paddingStart="16dp"
-			android:paddingEnd="20dp"
-			android:drawablePadding="12dp"
-			android:textAppearance="@style/m3_label_large"
+			style="@style/Widget.Mastodon.M3.FAB.Text"
 			tools:text="Some text"
 			tools:drawableStart="@drawable/ic_edit_24px"/>
 
