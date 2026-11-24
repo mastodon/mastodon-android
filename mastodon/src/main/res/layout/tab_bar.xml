@@ -90,6 +90,7 @@
 			android:layout_weight="1"
 			android:background="@drawable/bg_tabbar_tab"
 			android:paddingHorizontal="4dp"
+			android:visibility="gone"
 			android:contentDescription="@string/tab_messages">
 
 			<ImageView
