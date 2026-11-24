@@ -99,4 +99,8 @@ public abstract class MastodonRecyclerFragment<T> extends BaseRecyclerFragment<T
 		}
 		super.onErrorRetryClick();
 	}
+
+	protected String getAccountIdArg(){
+		return getArguments().getString("account");
+	}
 }

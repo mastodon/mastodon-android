@@ -34,4 +34,16 @@
 		android:textColor="?colorM3OnSurface"
 		tools:text="Because there's nothing in it"/>
 
+	<Button
+		android:id="@+id/empty_button"
+		android:layout_width="wrap_content"
+		android:layout_height="56dp"
+		android:layout_marginTop="12dp"
+		android:drawablePadding="8dp"
+		android:drawableTint="@color/button_text_m3_filled"
+		android:visibility="gone"
+		android:paddingHorizontal="24dp"
+		tools:visibility="visible"
+		tools:text="Create something to make it not empty"/>
+
 </LinearLayout>

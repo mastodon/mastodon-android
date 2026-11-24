@@ -12,6 +12,8 @@ public class AccountCollections extends BaseModel{
 	public List<AccountCollection> collections;
 	//public List<PartialAccount> partialAccounts=List.of();
 
+	public transient boolean hasNextPage;
+
 	@Override
 	public void postprocess() throws ObjectValidationException{
 		super.postprocess();

@@ -19,6 +19,7 @@ import org.joinmastodon.android.fragments.account_list.BlockedAccountsListFragme
 import org.joinmastodon.android.fragments.account_list.FollowerListFragment;
 import org.joinmastodon.android.fragments.account_list.FollowingListFragment;
 import org.joinmastodon.android.fragments.account_list.MutedAccountsListFragment;
+import org.joinmastodon.android.fragments.collections.OwnCollectionListFragment;
 import org.joinmastodon.android.fragments.settings.BaseSettingsFragment;
 import org.joinmastodon.android.fragments.settings.SettingsMainFragment;
 import org.joinmastodon.android.model.Account;
@@ -142,7 +143,7 @@ public class ProfileMenuFragment extends BaseSettingsFragment<AccountSession>{
 	}
 
 	private void onCollectionsClick(ListItem<?> item){
-		Toast.makeText(getActivity(), "Not implemented yet", Toast.LENGTH_SHORT).show();
+		Nav.go(getActivity(), OwnCollectionListFragment.class, UiUtils.makeAccountArgs(accountID));
 	}
 
 	private void onLikesClick(ListItem<?> item){
