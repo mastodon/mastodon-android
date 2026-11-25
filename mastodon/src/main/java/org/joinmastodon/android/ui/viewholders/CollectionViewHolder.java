@@ -23,6 +23,7 @@ import org.joinmastodon.android.model.Account;
 import org.joinmastodon.android.model.Relationship;
 import org.joinmastodon.android.model.viewmodel.CollectionViewModel;
 import org.joinmastodon.android.ui.OutlineProviders;
+import org.joinmastodon.android.ui.viewcontrollers.ShareCollectionAlertController;
 import org.joinmastodon.android.ui.utils.UiUtils;
 import org.joinmastodon.android.ui.views.BlurView;
 import org.parceler.Parcels;
@@ -79,6 +80,8 @@ public class CollectionViewHolder extends BindableViewHolder<CollectionViewModel
 
 		menu.setOnMenuItemClickListener(this::onMenuItemClick);
 		this.accountProvider=accountProvider;
+		if(accountProvider==null)
+			menuButton.setVisibility(View.GONE);
 	}
 
 	@Override
@@ -132,7 +135,7 @@ public class CollectionViewHolder extends BindableViewHolder<CollectionViewModel
 	private boolean onMenuItemClick(MenuItem item){
 		switch(item.getItemId()){
 			case 0 -> onClick();
-			case 1 -> UiUtils.openSystemShareSheet(itemView.getContext(), this.item);
+			case 1 -> new ShareCollectionAlertController(itemView.getContext(), this.item, accountID).show();
 
 			case 2 -> {
 				Bundle args=new Bundle();

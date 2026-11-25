@@ -33,6 +33,7 @@ import org.joinmastodon.android.ui.OutlineProviders;
 import org.joinmastodon.android.ui.sheets.GenericConfirmationSheet;
 import org.joinmastodon.android.ui.text.HtmlParser;
 import org.joinmastodon.android.ui.utils.UiUtils;
+import org.joinmastodon.android.ui.viewcontrollers.ShareCollectionAlertController;
 import org.joinmastodon.android.ui.viewholders.AccountViewHolder;
 import org.parceler.Parcels;
 
@@ -204,7 +205,7 @@ public class CollectionFragment extends BaseAccountListFragment{
 			CollectionViewModel cvm=new CollectionViewModel();
 			cvm.collection=collection;
 			cvm.author=collectionAuthor;
-			UiUtils.openSystemShareSheet(getActivity(), cvm);
+			new ShareCollectionAlertController(getActivity(), cvm, accountID).show();
 		}
 		return true;
 	}
