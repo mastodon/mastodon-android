@@ -40,5 +40,6 @@ public class SettingsPrivacyFragment extends BaseSettingsFragment<Void>{
 			self.source.indexable=indexableItem.checked;
 			AccountSessionManager.get(accountID).savePreferencesLater();
 		}
+		AccountSessionManager.get(accountID).savePreferencesIfPending();
 	}
 }
